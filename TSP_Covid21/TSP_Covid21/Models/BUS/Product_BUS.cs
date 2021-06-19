@@ -18,7 +18,14 @@ namespace TSP_Covid21.Models.BUS
 
         public IEnumerable<PRODUCT> loadProductNew()
         {
-            var result = db.PRODUCTs.ToList();
+            var date = DateTime.Now;
+            var result = db.PRODUCTs.OrderByDescending(t => t.DATEADD).Take(5);
+            return result;
+        }
+
+        public IEnumerable<PRODUCT> loadProductTop()
+        {
+            var result = db.PRODUCTs.OrderByDescending(t => t.PRODUCTVIEW).Take(5);
             return result;
         }
 
