@@ -199,6 +199,7 @@ insert into Brand values(N'SamSung','1')  --1
 insert into Brand values(N'iPhone','1')	  --2
 insert into Brand values(N'Redmi','1')	  --3
 Insert into Brand values (N'Oppo','1')    --4
+Insert into Brand values (N'Apple','1')   --5
 
 go --(PRODUCTTYPENAME, STATUSPRODUCTTYPE)
 insert into ProductType values(N'Laptop','1')     --1
@@ -208,7 +209,8 @@ insert into ProductType values(N'SmartWatch','1') --4
 insert into ProductType values(N'HeadPhone','1')  --5
 
 go --(PRODUCTNAME, BRANDID, PRODUCTTYPEID, MAINPIC, PIC1, PIC2, PIC3, PIC4, STATUSPRODUCT, PRODUCTPRICE, PRODUCTVIEW, PRODUCTVIEWLIKE, PRODUCTAMOUNT, DECRIPTION)
-insert into PRODUCT values (N'Vsmart Joy 4',4,2,'Vsmart/Joy4/Main.jpg',null,null,null,null,1,'3590000','0','0','100',N'Điện thoại này từ VIệt Nam Chẩt lượng cao')
+--insert into PRODUCT values (N'Vsmart Joy 4',4,2,'Vsmart/Joy4/Main.jpg',null,null,null,null,1,'3590000','0','0','100',N'Điện thoại này từ VIệt Nam Chẩt lượng cao')
+insert into PRODUCT values (N'Apple watch series 6',5,4,'Asset/images/SmartWatch/AppleWatch/apple-watch-series-6-1.jpg','Asset/images/SmartWatch/AppleWatch/apple-watch-series-6-2.jpg','Asset/images/SmartWatch/AppleWatch/apple-watch-series-6-3.jpg','Asset/images/SmartWatch/AppleWatch/apple-watch-series-6-4.jpg','Asset/images/SmartWatch/AppleWatch/apple-watch-series-6-5.jpg',1,'18530000','0','0','100',N'Đồng hồ xịn nè lo mà mô tả nó đi')
 
 go --(CONFIGNAME, DECRIPTIONCONFIGNAME)
 INSERT INTO CONFIG VALUES ('RAM',N'BỘ nhớ đệm')                 --1
@@ -225,9 +227,22 @@ INSERT INTO CONFIG VALUES ('DESIGN',N'Thiết kế')				--11
 INSERT INTO CONFIG VALUES ('MATERIAL',N'Chất Liệu')				--12
 INSERT INTO CONFIG VALUES ('SIZE',N'Kich thước')				--13
 INSERT INTO CONFIG VALUES ('RELEASEDAY',N'Thời điểm ra mắt')	--14
+INSERT INTO CONFIG VALUES ('SCREENSIZE',N'Kích thước màn hình')	--15
+INSERT INTO CONFIG VALUES ('STRAPABLE',N'Có thể thay dây')	    --16
+INSERT INTO CONFIG VALUES ('WATERPROOF',N'Chống nước')			--17
+INSERT INTO CONFIG VALUES ('SENSOR',N'Cảm biến')				--18
+INSERT INTO CONFIG VALUES ('WEIGHT',N'Trọng lượng')				--19
+INSERT INTO CONFIG VALUES ('CALLABLE',N'Có thể gọi')			--20
+INSERT INTO CONFIG VALUES ('ORTHERFEATURE',N'Tính năng khác')   --21
+INSERT INTO CONFIG VALUES ('Pin',N'Thời lượng pin')   --21
+
+
+
+
+
 
 go --(productid, cofigname, inf)
-INSERT INTO CONFIGDETAIL VALUES ('1','RAM',N'6 GB')
+/*INSERT INTO CONFIGDETAIL VALUES ('1',N'RAM',N'6 GB')
 INSERT INTO CONFIGDETAIL VALUES ('1',N'ROM',N'64 GB')
 INSERT INTO CONFIGDETAIL VALUES ('1',N'SCREEN',N'LTPS IPS LCD')
 INSERT INTO CONFIGDETAIL VALUES ('1',N'RESOLUTION',N'Full HD+ (1080 x 2340 Pixels)')
@@ -240,7 +255,25 @@ INSERT INTO CONFIGDETAIL VALUES ('1',N'Sim',N'2 Nano Sim')
 INSERT INTO CONFIGDETAIL VALUES ('1',N'DESIGN',N'Nguyên Khối')
 INSERT INTO CONFIGDETAIL VALUES ('1',N'MATERIAL',N'Khung & Mặt lưng nhựa')
 INSERT INTO CONFIGDETAIL VALUES ('1',N'SIZE',N'Dài 163.65 mm - Ngang 77.65 mm - Dày 9.15 mm - Nặng 216.4 g')
-INSERT INTO CONFIGDETAIL VALUES ('1',N'RELEASEDAY',N'12/2020')
+INSERT INTO CONFIGDETAIL VALUES ('1',N'RELEASEDAY',N'12/2020')*/
+
+--Apple watch series 6
+INSERT INTO CONFIGDETAIL VALUES ('1',N'SCREENSIZE',N'1.78 inch')
+INSERT INTO CONFIGDETAIL VALUES ('1',N'ROM',N'32 GB')
+INSERT INTO CONFIGDETAIL VALUES ('1',N'SCREEN',N'Retina LTPO OLED, 16 triệu màu,mặt lưng kính Sapphire, 3D Touch, độ sáng 1000 nits')
+INSERT INTO CONFIGDETAIL VALUES ('1',N'RESOLUTION',N'448 x 368 pixels')
+INSERT INTO CONFIGDETAIL VALUES ('1',N'OS',N'WatchOS')
+INSERT INTO CONFIGDETAIL VALUES ('1',N'STRAPABLE',N'Có')
+INSERT INTO CONFIGDETAIL VALUES ('1',N'Pin',N'- Thời lượng pin 18 giờ - Sạc đầy trong 1.5 giờ')
+INSERT INTO CONFIGDETAIL VALUES ('1',N'WATERPROOF',N'Chống nước 5 ATM (50m)')
+INSERT INTO CONFIGDETAIL VALUES ('1',N'ORTHERFEATURE',N'- Đo điện tâm đồ ECG- Nghe nhạc trên Apple Music- Các tính năng luyện tập thể dục- Thay đổi mặt đồng hồ')
+INSERT INTO CONFIGDETAIL VALUES ('1',N'CPU',N'Apple S6')
+INSERT INTO CONFIGDETAIL VALUES ('1',N'SENSOR',N'Cảm biến tiệm cận, cảm biến gia tốc, con quay hồi chuyển, gia tốc kế, la bàn, cảm biến nhịp tim')
+INSERT INTO CONFIGDETAIL VALUES ('1',N'SIZE',N'40 x 34 x 10.4 mm')
+INSERT INTO CONFIGDETAIL VALUES ('1',N'WEIGHT',N'39.7g')
+
+
+
 
 go --([USER], [PASSWORD], FULLNAME, STATUSACCOUNT, PHONENUMBER)
 Insert into ACCOUNT values ('Phus','123456789',N'Trương Gia Phú','1','0123456789') 
