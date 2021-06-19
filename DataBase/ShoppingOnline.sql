@@ -11,20 +11,16 @@ on (name = 'COVID_DATA', filename='C:\COVID.MDF')
 log on (name = 'COVID_LOG', filename='C:\COVID.LDF')
 
 go 
-
 use COVID
-
 
 CREATE TABLE PRODUCTTYPE
 (
 	PRODUCTTYPEID int Identity PRIMARY KEY,
 	PRODUCTTYPENAME NVARCHAR(50),
 	STATUSPRODUCTTYPE BIT DEFAULT 1
-
 )
 
 go
-
 CREATE TABLE BRAND 
 (
 	BRANDID INT IDENTITY PRIMARY KEY,
@@ -33,7 +29,6 @@ CREATE TABLE BRAND
 )
 
 go
-
 CREATE TABLE PRODUCT
 (
 	PRODUCTID INT IDENTITY PRIMARY KEY,
@@ -56,7 +51,6 @@ CREATE TABLE PRODUCT
 )
 
 go
-
 CREATE TABLE CONFIG
 (
 	CONFIGNAME NVARCHAR(50) PRIMARY KEY,
@@ -64,7 +58,6 @@ CREATE TABLE CONFIG
 )
 
 go
-
 CREATE TABLE CONFIGDETAIL
 (
 	PRODUCTID INT ,
@@ -75,7 +68,6 @@ CREATE TABLE CONFIGDETAIL
 )
 
 go
-
 CREATE TABLE ACCOUNT
 (
 	[USER] VARCHAR(30) PRIMARY KEY,
@@ -86,11 +78,7 @@ CREATE TABLE ACCOUNT
 
 )
 
-
-
-
 go
-
 CREATE TABLE ACCOUNT_ADMIN
 (
 	[USER] VARCHAR(30) PRIMARY KEY,
@@ -99,10 +87,7 @@ CREATE TABLE ACCOUNT_ADMIN
 	STATUSACCOUNT BIT DEFAULT 1 ,
 )
 
-
-
 go
-
 CREATE TABLE COMMENT
 (
 	COMMENTID INT IDENTITY PRIMARY KEY,
@@ -113,11 +98,7 @@ CREATE TABLE COMMENT
 	foreign key (PRODUCTID) references PRODUCT(PRODUCTID) on update cascade ,
 )
 
-
-
-
 go
-
 CREATE TABLE ACCOUNTLIKE
 (
 	[USER] VARCHAR(30),
@@ -127,25 +108,21 @@ CREATE TABLE ACCOUNTLIKE
 	foreign key (PRODUCTID) references PRODUCT(PRODUCTID) on update cascade ,
 )
 
-
-
 go
-
-
 CREATE TABLE CART 
 (
-	[USER] VARCHAR(30) PRIMARY KEY,
+	[USER] VARCHAR(30),
 	PRODUCTID INT,
 	AMOUNT INT,
-	STATUSCART BIT DEFAULT 1
+	
+	PRIMARY KEY([USER], PRODUCTID),
+	
+	--STATUSCART BIT DEFAULT 1    --giỏ hàng không cần status, do khách hàng không hoạt động thì giỏ hàng cũng không thể truy suất
 	foreign key ([USER]) references ACCOUNT([USER]) on update cascade ,
+	foreign key (PRODUCTID) references PRODUCT(PRODUCTID) on update cascade ,
 )
 
-
-
-
 go
-
 CREATE TABLE BILL
 (
 	BILLID INT IDENTITY PRIMARY KEY,
@@ -155,11 +132,7 @@ CREATE TABLE BILL
 	DATECREATE DATE DEFAULT GETDATE(),
 )
 
-
-
-
 go
-
 CREATE TABLE VOUCHER
 (
 	VOUCHERID INT IDENTITY PRIMARY KEY,
@@ -167,10 +140,7 @@ CREATE TABLE VOUCHER
 	STATUSVOUCHER BIT DEFAULT 1
 )
 
-
-
-GO
-
+go
 CREATE TABLE BILLDETAIL
 (
 	BILLID INT,
@@ -182,10 +152,9 @@ CREATE TABLE BILLDETAIL
 	foreign key (VOUCHERID) references VOUCHER(VOUCHERID) on update cascade ,
 )
 
+----------------------------------------------------TRIGER PASSWORD----------------------------------------------------
 
-
-GO
-
+go
 CREATE trigger [dbo].[MaHoaPassword] on [dbo].[Account] after insert, update as
 begin        
 		if not exists (select * from deleted)
@@ -201,48 +170,41 @@ begin
 			where A.[Password] != B.[Password]
 end 
 
+----------------------------------------------------QUERY INSERT----------------------------------------------------
 
-go
+go --(brandname, STATUSBRAND)
+insert into Brand values(N'SamSung','1')  --1 
+insert into Brand values(N'iPhone','1')	  --2
+insert into Brand values(N'Redmi','1')	  --3
+Insert into Brand values (N'Oppo','1')    --4
 
+go --(PRODUCTTYPENAME, STATUSPRODUCTTYPE)
+insert into ProductType values(N'Laptop','1')     --1
+insert into ProductType values(N'SmartPhone','1') --2
+insert into ProductType values(N'Tablet','1')	  --3
+insert into ProductType values(N'SmartWatch','1') --4
+insert into ProductType values(N'HeadPhone','1')  --5
 
-insert into Brand values(N'SamSung','1')	--1 
-insert into Brand values(N'iPhone','1')	--2
-insert into Brand values(N'Redmi','1')	    --3
-Insert into Brand values (N'Oppo','1') 
-Insert into Brand values (N'Vsmart','1') 
+go --(PRODUCTNAME, BRANDID, PRODUCTTYPEID, MAINPIC, PIC1, PIC2, PIC3, PIC4, STATUSPRODUCT, PRODUCTPRICE, PRODUCTVIEW, PRODUCTVIEWLIKE, PRODUCTAMOUNT, DECRIPTION)
+insert into PRODUCT values (N'Vsmart Joy 4',4,2,'Vsmart/Joy4/Main.jpg',null,null,null,null,1,'3590000','0','0','100',N'Điện thoại này từ VIệt Nam Chẩt lượng cao')
 
-go
+go --(CONFIGNAME, DECRIPTIONCONFIGNAME)
+INSERT INTO CONFIG VALUES ('RAM',N'BỘ nhớ đệm')                 --1
+INSERT INTO CONFIG VALUES ('ROM',N'Ổ cứng')						--2
+INSERT INTO CONFIG VALUES ('SCREEN',N'Công nghệ màn hình')		--3
+INSERT INTO CONFIG VALUES ('RESOLUTION',N'Độ phân giải')		--4
+INSERT INTO CONFIG VALUES ('FONTCAM',N'Cammera trước')			--5
+INSERT INTO CONFIG VALUES ('BACKCAM',N'Cammera sau')			--6
+INSERT INTO CONFIG VALUES ('CPU',N'Chip xử lý')					--7
+INSERT INTO CONFIG VALUES ('GPU',N'Chip đồ họa')				--8
+INSERT INTO CONFIG VALUES ('OS',N'Hệ Điều hành')				--9
+INSERT INTO CONFIG VALUES ('Sim',N'')							--10
+INSERT INTO CONFIG VALUES ('DESIGN',N'Thiết kế')				--11
+INSERT INTO CONFIG VALUES ('MATERIAL',N'Chất Liệu')				--12
+INSERT INTO CONFIG VALUES ('SIZE',N'Kich thước')				--13
+INSERT INTO CONFIG VALUES ('RELEASEDAY',N'Thời điểm ra mắt')	--14
 
-
-insert into ProductType values(N'Laptop','1')
-insert into ProductType values(N'SmartPhone','1')
-insert into ProductType values(N'Tablet','1')	
-insert into ProductType values(N'SmartWatch','1')
-
-
-
-go
-
-insert into PRODUCT values (N'Vsmart Joy 4',5,2,'Vsmart/Joy4/Main.jpg',null,null,null,null,1,'3590000','0','0','100',N'Điện thoại này từ VIệt Nam Chẩt lượng cao')
-
-
-go
-INSERT INTO CONFIG VALUES ('RAM',N'BỘ nhớ đệm')
-INSERT INTO CONFIG VALUES ('ROM',N'Ổ cứng')
-INSERT INTO CONFIG VALUES ('SCREEN',N'Công nghệ màn hình')
-INSERT INTO CONFIG VALUES ('RESOLUTION',N'Độ phân giải')
-INSERT INTO CONFIG VALUES ('FONTCAM',N'Cammera trước')
-INSERT INTO CONFIG VALUES ('BACKCAM',N'Cammera sau')
-INSERT INTO CONFIG VALUES ('CPU',N'Chip xử lý')
-INSERT INTO CONFIG VALUES ('GPU',N'Chip đồ họa')
-INSERT INTO CONFIG VALUES ('OS',N'Hệ Điều hành')
-INSERT INTO CONFIG VALUES ('Sim',N'')
-INSERT INTO CONFIG VALUES ('DESIGN',N'Thiết kế')
-INSERT INTO CONFIG VALUES ('MATERIAL',N'Chất Liệu')
-INSERT INTO CONFIG VALUES ('SIZE',N'Kich thước')
-INSERT INTO CONFIG VALUES ('RELEASEDAY',N'Thời điểm ra mắt')
-
-go
+go --(productid, cofigname, inf)
 INSERT INTO CONFIGDETAIL VALUES ('1','RAM',N'6 GB')
 INSERT INTO CONFIGDETAIL VALUES ('1',N'ROM',N'64 GB')
 INSERT INTO CONFIGDETAIL VALUES ('1',N'SCREEN',N'LTPS IPS LCD')
@@ -258,38 +220,30 @@ INSERT INTO CONFIGDETAIL VALUES ('1',N'MATERIAL',N'Khung & Mặt lưng nhựa')
 INSERT INTO CONFIGDETAIL VALUES ('1',N'SIZE',N'Dài 163.65 mm - Ngang 77.65 mm - Dày 9.15 mm - Nặng 216.4 g')
 INSERT INTO CONFIGDETAIL VALUES ('1',N'RELEASEDAY',N'12/2020')
 
-go
-
+go --([USER], [PASSWORD], FULLNAME, STATUSACCOUNT, PHONENUMBER)
 Insert into ACCOUNT values ('Phus','123456789',N'Trương Gia Phú','1','0123456789') 
 Insert into ACCOUNT values ('Syx','123456789',N'Nguyễn Quang Sỹ','1','0987654321') 
 
-go
-
+go --([USER], [PASSWORD], FULLNAME, STATUSACCOUNT)
 Insert into ACCOUNT_ADMIN values (N'admin','admin',N'Trí Đẹp Trai','1') 
 
-go
-
+go --(COMMENTID, PRODUCTID, [USER], COMMENTTEXT)
 Insert into COMMENT values (1,'Phus','Hàng này cùi vl')
 Insert into COMMENT values (1,'Syx','Hàng này xịn đấy')
 
-go
-
+go --([USER], PRODUCTID)
 Insert into ACCOUNTLIKE values ('Syx',1)
 
-go
+go --([USER], PRODUCTID, AMOUNT)
+Insert into CART values ('Phus',1,20)
 
-Insert into CART values ('Phus',1,20,'1')
-
-go
-
+go --(BILLID, [USER], [ADDRESS], [PHONENUMBERRECIVE], DATECREATE)
 Insert into BILL values ('Phus','7 núi','0123456789',GETDATE())
 
-go
-
+go --(VOUCHERID, DECRIPTIONVOUCHER, STATUSVOUCHER)
 INSERT INTO VOUCHER VALUES ('giảm giá 100%',1)
 
-go
-
+go --(BILLID, PRODUCTID, VOUCHERID)
 Insert into BILLDETAIL values (1,1,1)
 
 
