@@ -116,13 +116,23 @@ CREATE TABLE CART
 	AMOUNT INT,
 	
 	PRIMARY KEY([USER], PRODUCTID),
-	
-	--STATUSCART BIT DEFAULT 1    --giỏ hàng không cần status, do khách hàng không hoạt động thì giỏ hàng cũng không thể truy suất
+
 	foreign key ([USER]) references ACCOUNT([USER]) on update cascade ,
 	foreign key (PRODUCTID) references PRODUCT(PRODUCTID) on update cascade ,
 )
 
+
 go
+CREATE TABLE VOUCHER
+(
+	VOUCHERID INT IDENTITY PRIMARY KEY,
+	DECRIPTIONVOUCHER NVARCHAR(MAX),
+	DATEENDTIRE DATE,
+	STATUSVOUCHER BIT DEFAULT 1
+)
+
+go
+
 CREATE TABLE BILL
 (
 	BILLID INT IDENTITY PRIMARY KEY,
@@ -130,14 +140,22 @@ CREATE TABLE BILL
 	[ADDRESS] NVARCHAR(MAX),
 	[PHONENUMBERRECIVE] VARCHAR(10) CHECK (LEN([PHONENUMBERRECIVE]) = 10),
 	DATECREATE DATE DEFAULT GETDATE(),
+	VOUCHERID INT,
+
+	foreign key (VOUCHERID) references VOUCHER(VOUCHERID) on update cascade ,
 )
 
-go
-CREATE TABLE VOUCHER
+
+
+
+CREATE TABLE VOCHERDETAIL
 (
-	VOUCHERID INT IDENTITY PRIMARY KEY,
-	DECRIPTIONVOUCHER NVARCHAR(MAX),
-	STATUSVOUCHER BIT DEFAULT 1
+	VOUCHERID INT,
+	[USER] VARCHAR(30),
+	PRIMARY KEY (VOUCHERID,[USER]),
+	foreign key (VOUCHERID) references VOUCHER(VOUCHERID) on update cascade ,
+	foreign key ([USER]) references ACCOUNT([USER]) on update cascade ,
+
 )
 
 go
@@ -145,11 +163,11 @@ CREATE TABLE BILLDETAIL
 (
 	BILLID INT,
 	PRODUCTID INT,
-	VOUCHERID INT,
+
 	PRIMARY KEY (PRODUCTID,BILLID),
 	foreign key (BILLID) references BILL(BILLID) on update cascade ,
 	foreign key (PRODUCTID) references PRODUCT(PRODUCTID) on update cascade ,
-	foreign key (VOUCHERID) references VOUCHER(VOUCHERID) on update cascade ,
+
 )
 
 ----------------------------------------------------TRIGER PASSWORD----------------------------------------------------
@@ -171,6 +189,10 @@ begin
 end 
 
 ----------------------------------------------------QUERY INSERT----------------------------------------------------
+
+GO
+
+SET DATEFORMAT DMY 
 
 go --(brandname, STATUSBRAND)
 insert into Brand values(N'SamSung','1')  --1 
@@ -237,14 +259,20 @@ Insert into ACCOUNTLIKE values ('Syx',1)
 go --([USER], PRODUCTID, AMOUNT)
 Insert into CART values ('Phus',1,20)
 
-go --(BILLID, [USER], [ADDRESS], [PHONENUMBERRECIVE], DATECREATE)
-Insert into BILL values ('Phus','7 núi','0123456789',GETDATE())
 
-go --(VOUCHERID, DECRIPTIONVOUCHER, STATUSVOUCHER)
-INSERT INTO VOUCHER VALUES ('giảm giá 100%',1)
+go --(VOUCHERID, DECRIPTIONVOUCHER, DATEENTIRE, STATUSVOUCHER)
+INSERT INTO VOUCHER VALUES ('giảm giá 100%','30/12/2021',1)
 
-go --(BILLID, PRODUCTID, VOUCHERID)
-Insert into BILLDETAIL values (1,1,1)
+go --(VOUCHERID, [USER])
+INSERT INTO  VOCHERDETAIL VALUES ('1','syx')
+
+go --(BILLID, [USER], [ADDRESS], [PHONENUMBERRECIVE], DATECREATE, VOUCHERID)
+Insert into BILL values ('Phus','7 núi','0123456789',GETDATE(),1)
+
+go --(BILLID, PRODUCTID)
+Insert into BILLDETAIL values (1,1)
+
+
 
 
 
