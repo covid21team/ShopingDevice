@@ -7,8 +7,8 @@ drop database COVID
 go
 create database COVID
 
-on (name = 'COVID_DATA', filename='C:\COVID.MDF')
-log on (name = 'COVID_LOG', filename='C:\COVID.LDF')
+on (name = 'COVID_DATA', filename='D:\COVID.MDF')
+log on (name = 'COVID_LOG', filename='D:\COVID.LDF')
 
 go 
 use COVID
