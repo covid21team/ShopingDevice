@@ -46,7 +46,8 @@ CREATE TABLE PRODUCT
 	PRODUCTVIEWLIKE INT DEFAULT 0,
 	PRODUCTAMOUNT INT,
 	DECRIPTION NVARCHAR(MAX),
-	foreign key (BRANDID) references Brand(BRANDID) on update cascade ,
+	[DATEADD] DATE,
+	foreign key (BRANDID) references Brand(BRANDID) on update cascade,
 	foreign key (PRODUCTTYPEID) references PRODUCTTYPE(PRODUCTTYPEID) on update cascade,
 )
 
@@ -208,9 +209,9 @@ insert into ProductType values(N'Tablet','1')	  --3
 insert into ProductType values(N'SmartWatch','1') --4
 insert into ProductType values(N'HeadPhone','1')  --5
 
-go --(PRODUCTNAME, BRANDID, PRODUCTTYPEID, MAINPIC, PIC1, PIC2, PIC3, PIC4, STATUSPRODUCT, PRODUCTPRICE, PRODUCTVIEW, PRODUCTVIEWLIKE, PRODUCTAMOUNT, DECRIPTION)
+go --(PRODUCTNAME, BRANDID, PRODUCTTYPEID, MAINPIC, PIC1, PIC2, PIC3, PIC4, STATUSPRODUCT, PRODUCTPRICE, PRODUCTVIEW, PRODUCTVIEWLIKE, PRODUCTAMOUNT, DECRIPTION, [DATEADD])
 --insert into PRODUCT values (N'Vsmart Joy 4',4,2,'Vsmart/Joy4/Main.jpg',null,null,null,null,1,'3590000','0','0','100',N'Điện thoại này từ VIệt Nam Chẩt lượng cao')
-insert into PRODUCT values (N'Apple watch series 6',5,4,'Asset/images/SmartWatch/AppleWatch/apple-watch-series-6-1.jpg','Asset/images/SmartWatch/AppleWatch/apple-watch-series-6-2.jpg','Asset/images/SmartWatch/AppleWatch/apple-watch-series-6-3.jpg','Asset/images/SmartWatch/AppleWatch/apple-watch-series-6-4.jpg','Asset/images/SmartWatch/AppleWatch/apple-watch-series-6-5.jpg',1,'18530000','0','0','100',N'Đồng hồ xịn nè lo mà mô tả nó đi')
+insert into PRODUCT values (N'Apple watch series 6',5,4,'Asset/images/SmartWatch/AppleWatch/apple-watch-series-6-1.jpg','Asset/images/SmartWatch/AppleWatch/apple-watch-series-6-2.jpg','Asset/images/SmartWatch/AppleWatch/apple-watch-series-6-3.jpg','Asset/images/SmartWatch/AppleWatch/apple-watch-series-6-4.jpg','Asset/images/SmartWatch/AppleWatch/apple-watch-series-6-5.jpg',1,'18530000','0','0','100',N'Đồng hồ xịn nè lo mà mô tả nó đi',GETDATE())
 
 go --(CONFIGNAME, DECRIPTIONCONFIGNAME)
 INSERT INTO CONFIG VALUES ('RAM',N'BỘ nhớ đệm')                 --1
