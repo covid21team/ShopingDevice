@@ -193,7 +193,9 @@ end
 
 ----------------------------------------------------FUNCTION PASSWORD----------------------------------------------------
 
-CREATE procedure [dbo].[CheckLogin](@username varchar(10), @password varchar(50))
+go
+
+CREATE PROCEDURE  CheckLogin @username varchar(10), @password varchar(50)
 as
 begin
 	--declare @roleName nvarchar(50)
