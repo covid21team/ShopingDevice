@@ -224,9 +224,9 @@ insert into ProductType values(N'Tablet','1')	  --3
 insert into ProductType values(N'SmartWatch','1') --4
 insert into ProductType values(N'HeadPhone','1')  --5
 
-go --(PRODUCTNAME, BRANDID, PRODUCTTYPEID, MAINPIC, PIC1, PIC2, PIC3, PIC4, STATUSPRODUCT, PRODUCTPRICE, PRODUCTVIEW, PRODUCTVIEWLIKE, PRODUCTAMOUNT, DECRIPTION, [DATEADD])
---insert into PRODUCT values (N'Vsmart Joy 4',4,2,'Vsmart/Joy4/Main.jpg',null,null,null,null,1,'3590000','0','0','100',N'Điện thoại này từ VIệt Nam Chẩt lượng cao')
-insert into PRODUCT values (N'Apple watch series 6',5,4,'Asset/images/SmartWatch/AppleWatch/apple-watch-series-6-1.jpg','Asset/images/SmartWatch/AppleWatch/apple-watch-series-6-2.jpg','Asset/images/SmartWatch/AppleWatch/apple-watch-series-6-3.jpg','Asset/images/SmartWatch/AppleWatch/apple-watch-series-6-4.jpg','Asset/images/SmartWatch/AppleWatch/apple-watch-series-6-5.jpg',1,'18530000','0','0','100',N'Đồng hồ xịn nè lo mà mô tả nó đi',GETDATE())
+go --(PRODUCTNAME, BRANDID, PRODUCTTYPEID, MAINPIC, PIC1, PIC2, PIC3, PIC4, STATUSPRODUCT, PRODUCTPRICE, PRODUCTVIEW,  PRODUCTAMOUNT, DECRIPTION, [DATEADD])
+--insert into PRODUCT values (N'Vsmart Joy 4',4,2,'Vsmart/Joy4/Main.jpg',null,null,null,null,1,'3590000','0','100',N'Điện thoại này từ VIệt Nam Chẩt lượng cao')
+insert into PRODUCT values (N'Apple watch series 6',5,4,'Asset/images/SmartWatch/AppleWatch/apple-watch-series-6-1.jpg','Asset/images/SmartWatch/AppleWatch/apple-watch-series-6-2.jpg','Asset/images/SmartWatch/AppleWatch/apple-watch-series-6-3.jpg','Asset/images/SmartWatch/AppleWatch/apple-watch-series-6-4.jpg','Asset/images/SmartWatch/AppleWatch/apple-watch-series-6-5.jpg',1,'18530000','0','100',N'Đồng hồ xịn nè lo mà mô tả nó đi',GETDATE())
 insert into PRODUCT values (
 	N'Iphone 11',
 	2,
@@ -238,7 +238,6 @@ insert into PRODUCT values (
 	'Asset/images/SmartPhone/Iphone/iPhone_11/iphone-11-5.jpg',
 	1,
 	'21490000',
-	'0',
 	'0',
 	'100',
 	N'SmartPhone xịn nè lo mà mô tả nó đi',
@@ -256,7 +255,6 @@ insert into PRODUCT values (
 	1,
 	'21990000',
 	'0',
-	'0',
 	'100',
 	N'SmartPhone xịn nè lo mà mô tả nó đi',
 	GETDATE())
@@ -272,7 +270,6 @@ insert into PRODUCT values (
 	'Asset/images/SmartPhone/Iphone/iPhone_XR/iphone-xr-5.jpg',
 	1,
 	'13990000',
-	'0',
 	'0',
 	'100',
 	N'SmartPhone xịn nè lo mà mô tả nó đi',
@@ -432,7 +429,6 @@ CREATE TABLE RELATIVEPRODUCT
 	foreign key (PRODUCTID) references PRODUCT(PRODUCTID) on update cascade ,
 )*/
 
-select * from PRODUCT where PRODUCTTYPEID = 2
 
 
 
