@@ -1,0 +1,116 @@
+﻿
+@{
+    ViewBag.Title = "CreateProduct";
+    Layout = "~/Areas/Admin/Views/Shared/_MainLayoutAdmin.cshtml";
+}
+
+<div class="dashboard-wrapper">
+    <style>
+        input[type=text], select {
+            width: 56%;
+            padding: 12px 20px;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type=submit] {
+            width: 56%;
+            background-color: #000044;
+            color: white;
+            padding: 14px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+            input[type=submit]:hover {
+                background-color: #000077;
+            }
+
+        .form {
+            margin: 0px 450px;
+        }
+
+        h2 {
+            margin: 0px 550px;
+        }
+        .textarea {
+            width: 56%;
+        }
+        .picture {
+            width: 100px;
+        }
+    </style>
+
+
+    <div>
+        <br>
+
+        <h2>
+            Add Product
+        </h2>
+
+        @using (Html.BeginForm("CreateProduct", "ProductManager", FormMethod.Post))
+        {
+        <div class="form">
+            <label for="fname">Product ID</label>
+            <br>
+            <input type="text" id="fname" name="ProductsId" placeholder="Vendor ID...">
+            <br>
+
+            <label for="lname">Product Name</label>
+            <br>
+            <input type="text" id="lname" name="ProductsName" placeholder="Vendor Name..." required>
+            <br>
+
+            @Html.Partial("_LoadVendor", MobileShop.Models.BUS.Vendor_BUS.DS())
+            <br>
+
+            @Html.Partial("_LoadProductType", MobileShop.Models.BUS.ProductType_BUS.DS())
+            <br>
+
+            <label for="lname">Configuration</label>
+            <br>
+            <textarea class="textarea" id="product_description" name="Config"></textarea>
+            <br>
+
+            <label for="lname" class="picture">Main Picture</label>
+
+            <input id="filebutton" name="MainPic" class="input-file" type="file">
+            <br>
+
+            <label for="lname" class="picture">Picture 1</label>
+
+            <input id="filebutton" name="Pic1" class="input-file" type="file">
+            <br>
+
+            <label for="lname" class="picture">Picture 2</label>
+
+            <input id="filebutton" name="Pic2" class="input-file" type="file">
+            <br>
+
+            <label for="lname" class="picture">Picture 3</label>
+
+            <input id="filebutton" name="Pic3" class="input-file" type="file">
+            <br>
+
+            <label for="lname" class="picture">Picture 4</label>
+
+            <input id="filebutton" name="Pic4" class="input-file" type="file">
+            <br>
+
+            <label for="lname" class="picture">Product Price</label>
+            <br>
+            <input type="text" id="lname" name="ProductPrice" placeholder="Vendor Name..." required>
+            <br>
+
+            <a></a>
+            <br>
+            <input type="submit" value="Submit">
+        </div>
+        }
+
+    </div>
+</div>

@@ -1,0 +1,122 @@
+﻿@model  IEnumerable<QLMobileShopConnection.Product>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_MainLayoutAdmin.cshtml";
+}
+
+
+<style>
+    .hoverimage img {
+        transform: scale(0.8); /*Webkit: Thu nhỏ kích thước ảnh còn 0.8 so với ảnh gốc*/
+    }
+
+        .hoverimage img:hover {
+            transform: scale(1.1); /*Webkit: Tăng kích cỡ ảnh lên 1.1 lần*/
+        }
+
+    #customers {
+        margin: 0px auto;
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        align-content: center;
+    }
+
+        #customers td, #customers th {
+            border-style: ridge;
+            border-width: 2px 0px 2px 0px;
+            text-align: center;
+            padding: 8px;
+        }
+
+        #customers tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        #customers tr:hover {
+            background-color: #ddd;
+        }
+
+        #customers th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: center;
+            background-color: #000044;
+            color: white;
+        }
+
+    h2 {
+        margin: 0px 800px;
+    }
+</style>
+<br />
+<h2>
+    PRODUCTS LIST
+</h2>
+<table id="customers">
+    <tr class="border-0">
+        <th class="border-0">Product Id</th>
+        <th class="border-0">Product Name</th>
+        <th class="border-0">Vendor Name</th>
+        <th class="border-0">Product Type</th>
+        <th class="border-0">MainPic</th>
+        <th class="border-0">Pic1</th>
+        <th class="border-0">Pic2</th>
+        <th class="border-0">Pic3</th>
+        <th class="border-0">Pic4</th>
+        <th class="border-0">Product Status</th>
+        <th class="border-0">Product Price</th>
+        <th class="border-0">Product Amount</th>
+        <th class="border-0">Product View</th>
+        <th colspan="2">
+            <a href="@Url.Action("CreateProduct", "ProductManager")">
+                <img src="~/Asset/images/icon/Create.png" stype="width = 10px;heigth = 10px" />
+            </a>
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>@item.ProductsId</td>
+        <td>@item.ProductsName</td>
+        <td>@item.VendorId</td>
+        <td>@item.ProductTypeId</td>
+        <td>
+            <div class="m-r-10"><img src="~/@item.MainPic" alt="user" class="rounded" width="45"></div>
+        </td>
+        <td>
+            <div class="m-r-10"><img src="~/@item.Pic1" alt="user" class="rounded" width="45"></div>
+        </td>
+        <td>
+            <div class="m-r-10"><img src="~/@item.Pic2" alt="user" class="rounded" width="45"></div>
+        </td>
+        <td>
+            <div class="m-r-10"><img src="~/@item.Pic3" alt="user" class="rounded" width="45"></div>
+        </td>
+        <td>
+            <div class="m-r-10"><img src="~/@item.Pic4" alt="user" class="rounded" width="45"></div>
+        </td>
+        @if (item.ProductStatus.ToString() == "True")
+        {
+            <td>Is Active</td>
+        }
+        else
+        {
+            <td>Inactive</td>
+        }
+        <td>@item.ProductPrice</td>
+        <td>@item.ProductAmount</td>
+        <td>@item.ProductView</td>
+        <td>
+            <a href="@Url.Action("EditVendor", "VendorManager", new { VendorId = @item.VendorId})">
+                <img src="~/Asset/images/icon/edit.png" />
+            </a>
+        </td>
+        <td>
+            <a>
+                <img src="~/Asset/images/icon/Delete.png" />
+            </a>
+        </td>
+      </tr>
+    }
+</table>
+
