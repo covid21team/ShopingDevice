@@ -68,18 +68,17 @@
         <th class="border-0">Product Amount</th>
         <th class="border-0">Product View</th>
         <th colspan="2">
-            <a href="@Url.Action("CreateProduct", "ProductManager")">
+            <a href="#")">
                 <img src="~/Asset/images/icon/Create.png" stype="width = 10px;heigth = 10px" />
             </a>
         </th>
     </tr>
-    @foreach (var item in Model)
-    {
+
     <tr>
-        <td>@item.ProductsId</td>
-        <td>@item.ProductsName</td>
-        <td>@item.VendorId</td>
-        <td>@item.ProductTypeId</td>
+        <td>ProductsId</td>
+        <td>ProductsName</td>
+        <td>VendorId</td>
+        <td>ProductTypeId</td>
         <td>
             <div class="m-r-10"><img src="~/@item.MainPic" alt="user" class="rounded" width="45"></div>
         </td>
@@ -95,19 +94,13 @@
         <td>
             <div class="m-r-10"><img src="~/@item.Pic4" alt="user" class="rounded" width="45"></div>
         </td>
-        @if (item.ProductStatus.ToString() == "True")
-        {
-            <td>Is Active</td>
-        }
-        else
-        {
+
             <td>Inactive</td>
-        }
         <td>@item.ProductPrice</td>
         <td>@item.ProductAmount</td>
         <td>@item.ProductView</td>
         <td>
-            <a href="@Url.Action("EditVendor", "VendorManager", new { VendorId = @item.VendorId})">
+            <a href="#">
                 <img src="~/Asset/images/icon/edit.png" />
             </a>
         </td>
@@ -117,6 +110,43 @@
             </a>
         </td>
       </tr>
-    }
+
+<tr>
+        <td>ProductsId</td>
+        <td>ProductsName</td>
+        <td>VendorId</td>
+        <td>ProductTypeId</td>
+        <td>
+            <div class="m-r-10"><img src="~/@item.MainPic" alt="user" class="rounded" width="45"></div>
+        </td>
+        <td>
+            <div class="m-r-10"><img src="~/@item.Pic1" alt="user" class="rounded" width="45"></div>
+        </td>
+        <td>
+            <div class="m-r-10"><img src="~/@item.Pic2" alt="user" class="rounded" width="45"></div>
+        </td>
+        <td>
+            <div class="m-r-10"><img src="~/@item.Pic3" alt="user" class="rounded" width="45"></div>
+        </td>
+        <td>
+            <div class="m-r-10"><img src="~/@item.Pic4" alt="user" class="rounded" width="45"></div>
+        </td>
+
+            <td>Inactive</td>
+        <td>@item.ProductPrice</td>
+        <td>@item.ProductAmount</td>
+        <td>@item.ProductView</td>
+        <td>
+            <a href="#">
+                <img src="~/Asset/images/icon/edit.png" />
+            </a>
+        </td>
+        <td>
+            <a>
+                <img src="~/Asset/images/icon/Delete.png" />
+            </a>
+        </td>
+      </tr>
+
 </table>
 

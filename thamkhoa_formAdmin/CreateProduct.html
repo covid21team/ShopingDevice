@@ -1,9 +1,4 @@
 ﻿
-@{
-    ViewBag.Title = "CreateProduct";
-    Layout = "~/Areas/Admin/Views/Shared/_MainLayoutAdmin.cshtml";
-}
-
 <div class="dashboard-wrapper">
     <style>
         input[type=text], select {
@@ -52,8 +47,6 @@
             Add Product
         </h2>
 
-        @using (Html.BeginForm("CreateProduct", "ProductManager", FormMethod.Post))
-        {
         <div class="form">
             <label for="fname">Product ID</label>
             <br>
@@ -65,10 +58,27 @@
             <input type="text" id="lname" name="ProductsName" placeholder="Vendor Name..." required>
             <br>
 
-            @Html.Partial("_LoadVendor", MobileShop.Models.BUS.Vendor_BUS.DS())
+            <label for="lname">Vendor Name</label>
+<br>
+<select id="country" name="VendorId" required>
+
+<option value="maSP">ProductName</option>
+<option value="maSP">ProductName</option>
+<option value="maSP">ProductName</option>
+<option value="maSP">ProductName</option>
+<option value="maSP">ProductName</option>
+
+</select>
             <br>
 
-            @Html.Partial("_LoadProductType", MobileShop.Models.BUS.ProductType_BUS.DS())
+            <label for="lname">Product Type</label>
+<br>
+<select id="country" name="ProductTypeId" required>
+        <option value="maloaiSP">ProductTypeName</option>
+<option value="maloaiSP">ProductTypeName</option>
+<option value="maloaiSP">ProductTypeName</option>
+<option value="maloaiSP">ProductTypeName</option>
+</select>
             <br>
 
             <label for="lname">Configuration</label>
@@ -110,7 +120,6 @@
             <br>
             <input type="submit" value="Submit">
         </div>
-        }
 
     </div>
 </div>
