@@ -238,7 +238,7 @@ insert into ProductType values(N'SmartWatch','1') --4
 insert into ProductType values(N'HeadPhone','1')  --5
 
 go --(PRODUCTTYPEID, BRANDID, Status)
-insert into TEMPPRODUCT values(1,6,1)
+insert into TEMPPRODUCT values(1,2,1)
 insert into TEMPPRODUCT values(1,5,1)
 insert into TEMPPRODUCT values(2,1,1)
 insert into TEMPPRODUCT values(2,2,1)
