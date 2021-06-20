@@ -29,6 +29,17 @@ CREATE TABLE BRAND
 )
 
 go
+create table TEMPPRODUCT
+(
+	PRODUCTTYPEID int,
+	BRANDID INT,
+	TEMPPRODUCTSTATUS bit,
+	primary key(PRODUCTTYPEID, BRANDID),
+	foreign key (BRANDID) references Brand(BRANDID) on update cascade,
+	foreign key (PRODUCTTYPEID) references PRODUCTTYPE(PRODUCTTYPEID) on update cascade,
+)
+
+go
 CREATE TABLE PRODUCT
 (
 	PRODUCTID INT IDENTITY PRIMARY KEY,
@@ -214,11 +225,10 @@ SET DATEFORMAT DMY
 
 go --(brandname, STATUSBRAND)
 insert into Brand values(N'SamSung','1')  --1 
-insert into Brand values(N'iPhone','1')	  --2
-insert into Brand values(N'Redmi','1')	  --3
+insert into Brand values(N'Apple','1')	  --2
+insert into Brand values(N'Xiaomi','1')	  --3
 Insert into Brand values (N'Oppo','1')    --4
-Insert into Brand values (N'Apple','1')   --5
-Insert into Brand values (N'Acer','1')   --6
+Insert into Brand values (N'Acer','1')   --5
 
 go --(PRODUCTTYPENAME, STATUSPRODUCTTYPE)
 insert into ProductType values(N'Laptop','1')     --1
@@ -227,9 +237,25 @@ insert into ProductType values(N'Tablet','1')	  --3
 insert into ProductType values(N'SmartWatch','1') --4
 insert into ProductType values(N'HeadPhone','1')  --5
 
+go --(PRODUCTTYPEID, BRANDID, Status)
+insert into TEMPPRODUCT values(1,6,1)
+insert into TEMPPRODUCT values(1,5,1)
+insert into TEMPPRODUCT values(2,1,1)
+insert into TEMPPRODUCT values(2,2,1)
+insert into TEMPPRODUCT values(2,3,1)
+insert into TEMPPRODUCT values(2,4,1)
+insert into TEMPPRODUCT values(3,1,1)
+insert into TEMPPRODUCT values(3,2,1)
+insert into TEMPPRODUCT values(4,1,1)
+insert into TEMPPRODUCT values(4,2,1)
+insert into TEMPPRODUCT values(4,3,1)
+insert into TEMPPRODUCT values(5,2,1)
+insert into TEMPPRODUCT values(5,3,1)
+
+
 go --(PRODUCTNAME, BRANDID, PRODUCTTYPEID, MAINPIC, PIC1, PIC2, PIC3, PIC4, STATUSPRODUCT, PRODUCTPRICE, PRODUCTVIEW,  PRODUCTAMOUNT, DECRIPTION, [DATEADD])
 --insert into PRODUCT values (N'Vsmart Joy 4',4,2,'Vsmart/Joy4/Main.jpg',null,null,null,null,1,'3590000','0','100',N'Điện thoại này từ VIệt Nam Chẩt lượng cao')
-insert into PRODUCT values (N'Apple watch series 6',5,4,'Asset/images/SmartWatch/AppleWatch/apple-watch-series-6-1.jpg','Asset/images/SmartWatch/AppleWatch/apple-watch-series-6-2.jpg','Asset/images/SmartWatch/AppleWatch/apple-watch-series-6-3.jpg','Asset/images/SmartWatch/AppleWatch/apple-watch-series-6-4.jpg','Asset/images/SmartWatch/AppleWatch/apple-watch-series-6-5.jpg',1,'18530000','0','100',N'Đồng hồ xịn nè lo mà mô tả nó đi',GETDATE())
+insert into PRODUCT values (N'Apple watch series 6',2,4,'Asset/images/SmartWatch/AppleWatch/apple-watch-series-6-1.jpg','Asset/images/SmartWatch/AppleWatch/apple-watch-series-6-2.jpg','Asset/images/SmartWatch/AppleWatch/apple-watch-series-6-3.jpg','Asset/images/SmartWatch/AppleWatch/apple-watch-series-6-4.jpg','Asset/images/SmartWatch/AppleWatch/apple-watch-series-6-5.jpg',1,'18530000','0','100',N'Đồng hồ xịn nè lo mà mô tả nó đi',GETDATE())
 insert into PRODUCT values (
 	N'Iphone 11',
 	2,
@@ -280,7 +306,7 @@ insert into PRODUCT values (
 
 insert into PRODUCT values (
 	N'Laptop Acer Aspire 7 A715',
-	6,
+	5,
 	1,
 	'Asset/images/Laptop/Acer/LaptopAcerAspire7A715/acer-aspire-7-a715-1.jpg',
 	'Asset/images/Laptop/Acer/LaptopAcerAspire7A715/acer-aspire-7-a715-2.jpg',
