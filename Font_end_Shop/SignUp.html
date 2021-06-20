@@ -5,27 +5,27 @@
 <style>#message {
   display:none;
   background: none;
-  color: white;
+  color: rgb(14, 13, 13);
   position: relative;
-  padding: 20px;
+  padding: 1px 1px;
   margin-top: -50px;
 }
 
 #message p {
-  padding: 1px 10px;
-  font-size: 12px;
-  margin-left: 10px;
+
+  font-size: 15px;
+  margin-left: 30px;
   
 }
 
 /* Add a green text color and a checkmark when the requirements are right */
 .valid {
-  color: greenyellow;
+  color: rgb(9, 88, 45);
 }
 
 .valid:before {
   position: relative;
-  left: -35px;
+  left: -10px;
   content: "✔";
 }
 
@@ -36,7 +36,7 @@
 
 .invalid:before {
   position: relative;
-  left: -35px;
+  left: -10px;
   content: "✖";
 }</style>
 <div class="login-box">
@@ -76,12 +76,13 @@
         <input type="text" name="" required="">
         <label>Full Name</label>
       </div>  
-      <div id="message">
-        <h5>Password must contain the following:</h5>
-        <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
-        <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
-        <p id="number" class="invalid">A <b>number</b></p>
-        <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+      <div id="message" style="position: absolute; margin-top: -238;border: 1px solid rgb(0, 0, 0); margin-left:90px; background: rgb(246, 247, 191);border-radius:5%; z-index: 50;">
+     
+        <h3 style="margin-left: 10px;">Password must contain the following:</h3>
+        <p id="letter" class="invalid">A lowercase letter</p>
+        <p id="capital" class="invalid">A capital (uppercase) letter</p>
+        <p id="number" class="invalid">A number</p>
+        <p id="length" class="invalid">Minimum 8 characters</p>
       </div>     
       <a href="#">
         <span></span>
