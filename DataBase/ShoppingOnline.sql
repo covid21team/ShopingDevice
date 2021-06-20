@@ -214,6 +214,23 @@ insert into ProductType values(N'HeadPhone','1')  --5
 go --(PRODUCTNAME, BRANDID, PRODUCTTYPEID, MAINPIC, PIC1, PIC2, PIC3, PIC4, STATUSPRODUCT, PRODUCTPRICE, PRODUCTVIEW, PRODUCTVIEWLIKE, PRODUCTAMOUNT, DECRIPTION, [DATEADD])
 --insert into PRODUCT values (N'Vsmart Joy 4',4,2,'Vsmart/Joy4/Main.jpg',null,null,null,null,1,'3590000','0','0','100',N'Điện thoại này từ VIệt Nam Chẩt lượng cao')
 insert into PRODUCT values (N'Apple watch series 6',5,4,'Asset/images/SmartWatch/AppleWatch/apple-watch-series-6-1.jpg','Asset/images/SmartWatch/AppleWatch/apple-watch-series-6-2.jpg','Asset/images/SmartWatch/AppleWatch/apple-watch-series-6-3.jpg','Asset/images/SmartWatch/AppleWatch/apple-watch-series-6-4.jpg','Asset/images/SmartWatch/AppleWatch/apple-watch-series-6-5.jpg',1,'18530000','0','0','100',N'Đồng hồ xịn nè lo mà mô tả nó đi',GETDATE())
+insert into PRODUCT values (
+N'Iphone 11',
+2,
+2,
+'Asset/images/SmartPhone/Iphone/iPhone_11/iphone-11-1.jpg',
+'Asset/images/SmartPhone/Iphone/iPhone_11/iphone-11-2.jpg',
+'Asset/images/SmartPhone/Iphone/iPhone_11/iphone-11-3.jpg',
+'Asset/images/SmartPhone/Iphone/iPhone_11/iphone-11-4.jpg',
+'Asset/images/SmartPhone/Iphone/iPhone_11/iphone-11-5.jpg',
+1,
+'21490000',
+'0',
+'0',
+'100',
+N'SmartPhone xịn nè lo mà mô tả nó đi',
+GETDATE())
+
 
 go --(CONFIGNAME, DECRIPTIONCONFIGNAME)
 INSERT INTO CONFIG VALUES ('RAM',N'BỘ nhớ đệm')                 --1
@@ -237,28 +254,11 @@ INSERT INTO CONFIG VALUES ('SENSOR',N'Cảm biến')				--18
 INSERT INTO CONFIG VALUES ('WEIGHT',N'Trọng lượng')				--19
 INSERT INTO CONFIG VALUES ('CALLABLE',N'Có thể gọi')			--20
 INSERT INTO CONFIG VALUES ('ORTHERFEATURE',N'Tính năng khác')   --21
-INSERT INTO CONFIG VALUES ('Pin',N'Thời lượng pin')   --21
-
-
-
-
+INSERT INTO CONFIG VALUES ('Pin',N'Thời lượng pin')   --22
 
 
 go --(productid, cofigname, inf)
-/*INSERT INTO CONFIGDETAIL VALUES ('1',N'RAM',N'6 GB')
-INSERT INTO CONFIGDETAIL VALUES ('1',N'ROM',N'64 GB')
-INSERT INTO CONFIGDETAIL VALUES ('1',N'SCREEN',N'LTPS IPS LCD')
-INSERT INTO CONFIGDETAIL VALUES ('1',N'RESOLUTION',N'Full HD+ (1080 x 2340 Pixels)')
-INSERT INTO CONFIGDETAIL VALUES ('1',N'FONTCAM',N'13 MP')
-INSERT INTO CONFIGDETAIL VALUES ('1',N'BACKCAM',N'Chính 16 MP & Phụ 8 MP, 2 MP, 2 MP')
-INSERT INTO CONFIGDETAIL VALUES ('1',N'CPU',N'6 Snapdragon 665')
-INSERT INTO CONFIGDETAIL VALUES ('1',N'OS',N'Android 10')
-INSERT INTO CONFIGDETAIL VALUES ('1',N'GPU',N'Adreno 610')
-INSERT INTO CONFIGDETAIL VALUES ('1',N'Sim',N'2 Nano Sim')
-INSERT INTO CONFIGDETAIL VALUES ('1',N'DESIGN',N'Nguyên Khối')
-INSERT INTO CONFIGDETAIL VALUES ('1',N'MATERIAL',N'Khung & Mặt lưng nhựa')
-INSERT INTO CONFIGDETAIL VALUES ('1',N'SIZE',N'Dài 163.65 mm - Ngang 77.65 mm - Dày 9.15 mm - Nặng 216.4 g')
-INSERT INTO CONFIGDETAIL VALUES ('1',N'RELEASEDAY',N'12/2020')*/
+
 
 --Apple watch series 6
 INSERT INTO CONFIGDETAIL VALUES ('1',N'SCREENSIZE',N'1.78 inch')
@@ -275,7 +275,21 @@ INSERT INTO CONFIGDETAIL VALUES ('1',N'SENSOR',N'Cảm biến tiệm cận, cả
 INSERT INTO CONFIGDETAIL VALUES ('1',N'SIZE',N'40 x 34 x 10.4 mm')
 INSERT INTO CONFIGDETAIL VALUES ('1',N'WEIGHT',N'39.7g')
 
-
+------------------------------------------Iphone 11
+INSERT INTO CONFIGDETAIL VALUES ('2',N'SCREENSIZE',N'6.1 inches')
+INSERT INTO CONFIGDETAIL VALUES ('2',N'ROM',N'128 GB')
+INSERT INTO CONFIGDETAIL VALUES ('2',N'SCREEN',N'IPS LCD')
+INSERT INTO CONFIGDETAIL VALUES ('2',N'RESOLUTION',N'828 x 1792 pixels')
+INSERT INTO CONFIGDETAIL VALUES ('2',N'OS',N'iOS 13')
+INSERT INTO CONFIGDETAIL VALUES ('2',N'RAM',N'4 GB')
+INSERT INTO CONFIGDETAIL VALUES ('2',N'BACKCAM',N'12 MP + 12 MP')
+INSERT INTO CONFIGDETAIL VALUES ('2',N'FONTCAM',N'12 MP, f/2.2')
+INSERT INTO CONFIGDETAIL VALUES ('2',N'CPU',N'Apple A13 Bionic')
+INSERT INTO CONFIGDETAIL VALUES ('2',N'Sim',N'Nano SIM')
+INSERT INTO CONFIGDETAIL VALUES ('2',N'GPU',N'A-GPS, GLONASS, GALILEO, QZSS')
+INSERT INTO CONFIGDETAIL VALUES ('2',N'WEIGHT',N'194 g')
+INSERT INTO CONFIGDETAIL VALUES ('2',N'SIZE',N'150.9 x 75.7 x 8.3 mm')
+INSERT INTO CONFIGDETAIL VALUES ('2',N'Pin',N'3110 mAh, Li-Ion')
 
 
 go --([USER], [PASSWORD], FULLNAME, STATUSACCOUNT, PHONENUMBER)
@@ -340,6 +354,7 @@ CREATE TABLE RELATIVEPRODUCT
 	foreign key (PRODUCTID) references PRODUCT(PRODUCTID) on update cascade ,
 )*/
 
+select * from PRODUCT where PRODUCTTYPEID = 2
 
 
 
