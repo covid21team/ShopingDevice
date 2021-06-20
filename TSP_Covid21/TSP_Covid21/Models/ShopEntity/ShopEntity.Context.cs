@@ -13,10 +13,10 @@ namespace TSP_Covid21.Models.ShopEntity
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class COVIDEntities : DbContext
+    public partial class COVIDEntities1 : DbContext
     {
-        public COVIDEntities()
-            : base("name=COVIDEntities")
+        public COVIDEntities1()
+            : base("name=COVIDEntities1")
         {
         }
     

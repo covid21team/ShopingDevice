@@ -307,7 +307,7 @@
                         <span></span>
                         <span></span>
                         <span></span>
-                        <i class="fas fa-user-plus" id="signin"></i> signin
+                        <i class="fas fa-user-plus" id="signin" onclick="document.getElementById('id01_signin').style.display='block'"></i> signin
                     </a>
                 </form>
             }
@@ -387,16 +387,8 @@
 
             // When the user clicks anywhere outside of the modal, close it
             window.onclick = function (event) {
-                if (event.target == modal) {
+                if (event.target == modal || event.target == modal1) {
                     modal.style.display = "none";
-                    model1.style.display = "none";
-                }
-            }
-
-            $("#login").onclick = function (event) {
-                document.getElementById('id01_signin').style.display = 'block';
-                document.getElementById('id01_signin').style = "width:auto;"
-                if (event.target = modal1) {
                     model1.style.display = "none";
                 }
             }

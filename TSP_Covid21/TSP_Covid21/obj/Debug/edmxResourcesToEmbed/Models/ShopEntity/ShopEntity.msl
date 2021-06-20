@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="COVIDModelStoreContainer" CdmEntityContainer="COVIDEntities">
+  <EntityContainerMapping StorageEntityContainer="COVIDModelStoreContainer" CdmEntityContainer="COVIDEntities1">
     <EntitySetMapping Name="ACCOUNTs">
       <EntityTypeMapping TypeName="COVIDModel.ACCOUNT">
         <MappingFragment StoreEntitySet="ACCOUNT">
@@ -94,7 +94,6 @@
           <ScalarProperty Name="STATUSPRODUCT" ColumnName="STATUSPRODUCT" />
           <ScalarProperty Name="PRODUCTPRICE" ColumnName="PRODUCTPRICE" />
           <ScalarProperty Name="PRODUCTVIEW" ColumnName="PRODUCTVIEW" />
-          <ScalarProperty Name="PRODUCTVIEWLIKE" ColumnName="PRODUCTVIEWLIKE" />
           <ScalarProperty Name="PRODUCTAMOUNT" ColumnName="PRODUCTAMOUNT" />
           <ScalarProperty Name="DECRIPTION" ColumnName="DECRIPTION" />
           <ScalarProperty Name="DATEADD" ColumnName="DATEADD" />

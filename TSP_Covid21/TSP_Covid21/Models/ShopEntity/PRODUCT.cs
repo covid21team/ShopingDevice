@@ -36,7 +36,6 @@ namespace TSP_Covid21.Models.ShopEntity
         public Nullable<bool> STATUSPRODUCT { get; set; }
         public Nullable<int> PRODUCTPRICE { get; set; }
         public Nullable<int> PRODUCTVIEW { get; set; }
-        public Nullable<int> PRODUCTVIEWLIKE { get; set; }
         public Nullable<int> PRODUCTAMOUNT { get; set; }
         public string DECRIPTION { get; set; }
         public Nullable<System.DateTime> DATEADD { get; set; }

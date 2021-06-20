@@ -8,11 +8,11 @@ namespace TSP_Covid21.Models.BUS
 {
     public class Account_BUS
     {
-        private COVIDEntities db;
+        private COVIDEntities1 db;
 
         public Account_BUS()
         {
-            db = new COVIDEntities();
+            db = new COVIDEntities1();
         }
 
         public ACCOUNT checkLogin(string user)

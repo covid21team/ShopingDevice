@@ -140,6 +140,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\BUS\Account_BUS.cs" />
+    <Compile Include="Models\BUS\COVIDEntities.cs" />
     <Compile Include="Models\BUS\Product_BUS.cs" />
     <Compile Include="Models\ShopEntity\ACCOUNT.cs">
       <DependentUpon>ShopEntity.tt</DependentUpon>
@@ -476,13 +477,6 @@
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\ShopEntity\ShopEntity.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ShopEntity.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\ShopEntity\ShopEntity.edmx.diagram">
-      <DependentUpon>ShopEntity.edmx</DependentUpon>
-    </Content>
     <Content Include="Asset\fonts\fontawesome-webfont.eot" />
     <Content Include="Asset\fonts\fontawesome-webfont.ttf" />
     <Content Include="Asset\fonts\fontawesome-webfont.woff" />
@@ -591,6 +585,13 @@
     <Content Include="Asset\images\Tablet\SamSung\cau hinh s7.docx" />
     <Content Include="Asset\images\Tablet\SamSung\mo ta a7.docx" />
     <Content Include="Asset\images\Tablet\SamSung\mo ta s7.docx" />
+    <EntityDeploy Include="Models\ShopEntity\ShopEntity.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ShopEntity.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\ShopEntity\ShopEntity.edmx.diagram">
+      <DependentUpon>ShopEntity.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

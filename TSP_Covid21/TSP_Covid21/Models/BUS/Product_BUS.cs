@@ -9,11 +9,11 @@ namespace TSP_Covid21.Models.BUS
 {
     public class Product_BUS
     {
-        private COVIDEntities db;
+        private COVIDEntities1 db;
 
         public Product_BUS()
         {
-            db = new COVIDEntities();
+            db = new COVIDEntities1();
         }
         #region methods
 

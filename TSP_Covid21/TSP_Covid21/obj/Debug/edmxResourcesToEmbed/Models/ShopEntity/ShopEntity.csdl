@@ -9,8 +9,8 @@
     <Property Name="FULLNAME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="STATUSACCOUNT" Type="Boolean" />
     <Property Name="PHONENUMBER" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="CARTs" Relationship="Self.FK__CART__USER__45F365D3" FromRole="ACCOUNT" ToRole="CART" />
-    <NavigationProperty Name="COMMENTs" Relationship="Self.FK__COMMENT__USER__3E52440B" FromRole="ACCOUNT" ToRole="COMMENT" />
+    <NavigationProperty Name="CARTs" Relationship="Self.FK__CART__USER__44FF419A" FromRole="ACCOUNT" ToRole="CART" />
+    <NavigationProperty Name="COMMENTs" Relationship="Self.FK__COMMENT__USER__3D5E1FD2" FromRole="ACCOUNT" ToRole="COMMENT" />
     <NavigationProperty Name="PRODUCTs" Relationship="Self.ACCOUNTLIKE" FromRole="ACCOUNT" ToRole="PRODUCT" />
     <NavigationProperty Name="VOUCHERs" Relationship="Self.VOCHERDETAIL" FromRole="ACCOUNT" ToRole="VOUCHER" />
   </EntityType>
@@ -33,7 +33,7 @@
     <Property Name="PHONENUMBERRECIVE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
     <Property Name="DATECREATE" Type="DateTime" Precision="0" />
     <Property Name="VOUCHERID" Type="Int32" />
-    <NavigationProperty Name="VOUCHER" Relationship="Self.FK__BILL__VOUCHERID__4E88ABD4" FromRole="BILL" ToRole="VOUCHER" />
+    <NavigationProperty Name="VOUCHER" Relationship="Self.FK__BILL__VOUCHERID__4D94879B" FromRole="BILL" ToRole="VOUCHER" />
     <NavigationProperty Name="PRODUCTs" Relationship="Self.BILLDETAIL" FromRole="BILL" ToRole="PRODUCT" />
   </EntityType>
   <EntityType Name="BRAND">
@@ -43,7 +43,7 @@
     <Property Name="BRANDID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="BRANDNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="STATUSBRAND" Type="Boolean" />
-    <NavigationProperty Name="PRODUCTs" Relationship="Self.FK__PRODUCT__BRANDID__2D27B809" FromRole="BRAND" ToRole="PRODUCT" />
+    <NavigationProperty Name="PRODUCTs" Relationship="Self.FK__PRODUCT__BRANDID__2C3393D0" FromRole="BRAND" ToRole="PRODUCT" />
   </EntityType>
   <EntityType Name="CART">
     <Key>
@@ -53,8 +53,8 @@
     <Property Name="USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="PRODUCTID" Type="Int32" Nullable="false" />
     <Property Name="AMOUNT" Type="Int32" />
-    <NavigationProperty Name="ACCOUNT" Relationship="Self.FK__CART__USER__45F365D3" FromRole="CART" ToRole="ACCOUNT" />
-    <NavigationProperty Name="PRODUCT" Relationship="Self.FK__CART__PRODUCTID__46E78A0C" FromRole="CART" ToRole="PRODUCT" />
+    <NavigationProperty Name="ACCOUNT" Relationship="Self.FK__CART__USER__44FF419A" FromRole="CART" ToRole="ACCOUNT" />
+    <NavigationProperty Name="PRODUCT" Relationship="Self.FK__CART__PRODUCTID__45F365D3" FromRole="CART" ToRole="PRODUCT" />
   </EntityType>
   <EntityType Name="COMMENT">
     <Key>
@@ -64,8 +64,8 @@
     <Property Name="PRODUCTID" Type="Int32" />
     <Property Name="USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
     <Property Name="COMMENTTEXT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="ACCOUNT" Relationship="Self.FK__COMMENT__USER__3E52440B" FromRole="COMMENT" ToRole="ACCOUNT" />
-    <NavigationProperty Name="PRODUCT" Relationship="Self.FK__COMMENT__PRODUCT__3F466844" FromRole="COMMENT" ToRole="PRODUCT" />
+    <NavigationProperty Name="ACCOUNT" Relationship="Self.FK__COMMENT__USER__3D5E1FD2" FromRole="COMMENT" ToRole="ACCOUNT" />
+    <NavigationProperty Name="PRODUCT" Relationship="Self.FK__COMMENT__PRODUCT__3E52440B" FromRole="COMMENT" ToRole="PRODUCT" />
   </EntityType>
   <EntityType Name="CONFIG">
     <Key>
@@ -73,7 +73,7 @@
     </Key>
     <Property Name="CONFIGNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="DECRIPTIONCONFIGNAME" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="CONFIGDETAILs" Relationship="Self.FK__CONFIGDET__CONFI__33D4B598" FromRole="CONFIG" ToRole="CONFIGDETAIL" />
+    <NavigationProperty Name="CONFIGDETAILs" Relationship="Self.FK__CONFIGDET__CONFI__32E0915F" FromRole="CONFIG" ToRole="CONFIGDETAIL" />
   </EntityType>
   <EntityType Name="CONFIGDETAIL">
     <Key>
@@ -83,8 +83,8 @@
     <Property Name="PRODUCTID" Type="Int32" Nullable="false" />
     <Property Name="CONFIGNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="INFORMATION" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="CONFIG" Relationship="Self.FK__CONFIGDET__CONFI__33D4B598" FromRole="CONFIGDETAIL" ToRole="CONFIG" />
-    <NavigationProperty Name="PRODUCT" Relationship="Self.FK__CONFIGDET__PRODU__32E0915F" FromRole="CONFIGDETAIL" ToRole="PRODUCT" />
+    <NavigationProperty Name="CONFIG" Relationship="Self.FK__CONFIGDET__CONFI__32E0915F" FromRole="CONFIGDETAIL" ToRole="CONFIG" />
+    <NavigationProperty Name="PRODUCT" Relationship="Self.FK__CONFIGDET__PRODU__31EC6D26" FromRole="CONFIGDETAIL" ToRole="PRODUCT" />
   </EntityType>
   <EntityType Name="PRODUCT">
     <Key>
@@ -102,15 +102,14 @@
     <Property Name="STATUSPRODUCT" Type="Boolean" />
     <Property Name="PRODUCTPRICE" Type="Int32" />
     <Property Name="PRODUCTVIEW" Type="Int32" />
-    <Property Name="PRODUCTVIEWLIKE" Type="Int32" />
     <Property Name="PRODUCTAMOUNT" Type="Int32" />
     <Property Name="DECRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="DATEADD" Type="DateTime" Precision="0" />
-    <NavigationProperty Name="BRAND" Relationship="Self.FK__PRODUCT__BRANDID__2D27B809" FromRole="PRODUCT" ToRole="BRAND" />
-    <NavigationProperty Name="CARTs" Relationship="Self.FK__CART__PRODUCTID__46E78A0C" FromRole="PRODUCT" ToRole="CART" />
-    <NavigationProperty Name="COMMENTs" Relationship="Self.FK__COMMENT__PRODUCT__3F466844" FromRole="PRODUCT" ToRole="COMMENT" />
-    <NavigationProperty Name="CONFIGDETAILs" Relationship="Self.FK__CONFIGDET__PRODU__32E0915F" FromRole="PRODUCT" ToRole="CONFIGDETAIL" />
-    <NavigationProperty Name="PRODUCTTYPE" Relationship="Self.FK__PRODUCT__PRODUCT__2E1BDC42" FromRole="PRODUCT" ToRole="PRODUCTTYPE" />
+    <NavigationProperty Name="BRAND" Relationship="Self.FK__PRODUCT__BRANDID__2C3393D0" FromRole="PRODUCT" ToRole="BRAND" />
+    <NavigationProperty Name="CARTs" Relationship="Self.FK__CART__PRODUCTID__45F365D3" FromRole="PRODUCT" ToRole="CART" />
+    <NavigationProperty Name="COMMENTs" Relationship="Self.FK__COMMENT__PRODUCT__3E52440B" FromRole="PRODUCT" ToRole="COMMENT" />
+    <NavigationProperty Name="CONFIGDETAILs" Relationship="Self.FK__CONFIGDET__PRODU__31EC6D26" FromRole="PRODUCT" ToRole="CONFIGDETAIL" />
+    <NavigationProperty Name="PRODUCTTYPE" Relationship="Self.FK__PRODUCT__PRODUCT__2D27B809" FromRole="PRODUCT" ToRole="PRODUCTTYPE" />
     <NavigationProperty Name="ACCOUNTs" Relationship="Self.ACCOUNTLIKE" FromRole="PRODUCT" ToRole="ACCOUNT" />
     <NavigationProperty Name="BILLs" Relationship="Self.BILLDETAIL" FromRole="PRODUCT" ToRole="BILL" />
   </EntityType>
@@ -121,7 +120,7 @@
     <Property Name="PRODUCTTYPEID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="PRODUCTTYPENAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="STATUSPRODUCTTYPE" Type="Boolean" />
-    <NavigationProperty Name="PRODUCTs" Relationship="Self.FK__PRODUCT__PRODUCT__2E1BDC42" FromRole="PRODUCTTYPE" ToRole="PRODUCT" />
+    <NavigationProperty Name="PRODUCTs" Relationship="Self.FK__PRODUCT__PRODUCT__2D27B809" FromRole="PRODUCTTYPE" ToRole="PRODUCT" />
   </EntityType>
   <EntityType Name="VOUCHER">
     <Key>
@@ -131,10 +130,10 @@
     <Property Name="DECRIPTIONVOUCHER" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="DATEENDTIRE" Type="DateTime" Precision="0" />
     <Property Name="STATUSVOUCHER" Type="Boolean" />
-    <NavigationProperty Name="BILLs" Relationship="Self.FK__BILL__VOUCHERID__4E88ABD4" FromRole="VOUCHER" ToRole="BILL" />
+    <NavigationProperty Name="BILLs" Relationship="Self.FK__BILL__VOUCHERID__4D94879B" FromRole="VOUCHER" ToRole="BILL" />
     <NavigationProperty Name="ACCOUNTs" Relationship="Self.VOCHERDETAIL" FromRole="VOUCHER" ToRole="ACCOUNT" />
   </EntityType>
-  <Association Name="FK__CART__USER__45F365D3">
+  <Association Name="FK__CART__USER__44FF419A">
     <End Role="ACCOUNT" Type="Self.ACCOUNT" Multiplicity="1" />
     <End Role="CART" Type="Self.CART" Multiplicity="*" />
     <ReferentialConstraint>
@@ -146,7 +145,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__COMMENT__USER__3E52440B">
+  <Association Name="FK__COMMENT__USER__3D5E1FD2">
     <End Role="ACCOUNT" Type="Self.ACCOUNT" Multiplicity="0..1" />
     <End Role="COMMENT" Type="Self.COMMENT" Multiplicity="*" />
     <ReferentialConstraint>
@@ -158,7 +157,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__BILL__VOUCHERID__4E88ABD4">
+  <Association Name="FK__BILL__VOUCHERID__4D94879B">
     <End Role="VOUCHER" Type="Self.VOUCHER" Multiplicity="0..1" />
     <End Role="BILL" Type="Self.BILL" Multiplicity="*" />
     <ReferentialConstraint>
@@ -170,7 +169,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__PRODUCT__BRANDID__2D27B809">
+  <Association Name="FK__PRODUCT__BRANDID__2C3393D0">
     <End Role="BRAND" Type="Self.BRAND" Multiplicity="0..1" />
     <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="*" />
     <ReferentialConstraint>
@@ -182,7 +181,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__CART__PRODUCTID__46E78A0C">
+  <Association Name="FK__CART__PRODUCTID__45F365D3">
     <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
     <End Role="CART" Type="Self.CART" Multiplicity="*" />
     <ReferentialConstraint>
@@ -194,7 +193,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__COMMENT__PRODUCT__3F466844">
+  <Association Name="FK__COMMENT__PRODUCT__3E52440B">
     <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="0..1" />
     <End Role="COMMENT" Type="Self.COMMENT" Multiplicity="*" />
     <ReferentialConstraint>
@@ -206,7 +205,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__CONFIGDET__CONFI__33D4B598">
+  <Association Name="FK__CONFIGDET__CONFI__32E0915F">
     <End Role="CONFIG" Type="Self.CONFIG" Multiplicity="1" />
     <End Role="CONFIGDETAIL" Type="Self.CONFIGDETAIL" Multiplicity="*" />
     <ReferentialConstraint>
@@ -218,7 +217,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__CONFIGDET__PRODU__32E0915F">
+  <Association Name="FK__CONFIGDET__PRODU__31EC6D26">
     <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
     <End Role="CONFIGDETAIL" Type="Self.CONFIGDETAIL" Multiplicity="*" />
     <ReferentialConstraint>
@@ -230,7 +229,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__PRODUCT__PRODUCT__2E1BDC42">
+  <Association Name="FK__PRODUCT__PRODUCT__2D27B809">
     <End Role="PRODUCTTYPE" Type="Self.PRODUCTTYPE" Multiplicity="0..1" />
     <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="*" />
     <ReferentialConstraint>
@@ -254,7 +253,7 @@
     <End Role="VOUCHER" Type="Self.VOUCHER" Multiplicity="*" />
     <End Role="ACCOUNT" Type="Self.ACCOUNT" Multiplicity="*" />
   </Association>
-  <EntityContainer Name="COVIDEntities" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="COVIDEntities1" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="ACCOUNTs" EntityType="Self.ACCOUNT" />
     <EntitySet Name="ACCOUNT_ADMIN" EntityType="Self.ACCOUNT_ADMIN" />
     <EntitySet Name="BILLs" EntityType="Self.BILL" />
@@ -266,39 +265,39 @@
     <EntitySet Name="PRODUCTs" EntityType="Self.PRODUCT" />
     <EntitySet Name="PRODUCTTYPEs" EntityType="Self.PRODUCTTYPE" />
     <EntitySet Name="VOUCHERs" EntityType="Self.VOUCHER" />
-    <AssociationSet Name="FK__CART__USER__45F365D3" Association="Self.FK__CART__USER__45F365D3">
+    <AssociationSet Name="FK__CART__USER__44FF419A" Association="Self.FK__CART__USER__44FF419A">
       <End Role="ACCOUNT" EntitySet="ACCOUNTs" />
       <End Role="CART" EntitySet="CARTs" />
     </AssociationSet>
-    <AssociationSet Name="FK__COMMENT__USER__3E52440B" Association="Self.FK__COMMENT__USER__3E52440B">
+    <AssociationSet Name="FK__COMMENT__USER__3D5E1FD2" Association="Self.FK__COMMENT__USER__3D5E1FD2">
       <End Role="ACCOUNT" EntitySet="ACCOUNTs" />
       <End Role="COMMENT" EntitySet="COMMENTs" />
     </AssociationSet>
-    <AssociationSet Name="FK__BILL__VOUCHERID__4E88ABD4" Association="Self.FK__BILL__VOUCHERID__4E88ABD4">
+    <AssociationSet Name="FK__BILL__VOUCHERID__4D94879B" Association="Self.FK__BILL__VOUCHERID__4D94879B">
       <End Role="VOUCHER" EntitySet="VOUCHERs" />
       <End Role="BILL" EntitySet="BILLs" />
     </AssociationSet>
-    <AssociationSet Name="FK__PRODUCT__BRANDID__2D27B809" Association="Self.FK__PRODUCT__BRANDID__2D27B809">
+    <AssociationSet Name="FK__PRODUCT__BRANDID__2C3393D0" Association="Self.FK__PRODUCT__BRANDID__2C3393D0">
       <End Role="BRAND" EntitySet="BRANDs" />
       <End Role="PRODUCT" EntitySet="PRODUCTs" />
     </AssociationSet>
-    <AssociationSet Name="FK__CART__PRODUCTID__46E78A0C" Association="Self.FK__CART__PRODUCTID__46E78A0C">
+    <AssociationSet Name="FK__CART__PRODUCTID__45F365D3" Association="Self.FK__CART__PRODUCTID__45F365D3">
       <End Role="PRODUCT" EntitySet="PRODUCTs" />
       <End Role="CART" EntitySet="CARTs" />
     </AssociationSet>
-    <AssociationSet Name="FK__COMMENT__PRODUCT__3F466844" Association="Self.FK__COMMENT__PRODUCT__3F466844">
+    <AssociationSet Name="FK__COMMENT__PRODUCT__3E52440B" Association="Self.FK__COMMENT__PRODUCT__3E52440B">
       <End Role="PRODUCT" EntitySet="PRODUCTs" />
       <End Role="COMMENT" EntitySet="COMMENTs" />
     </AssociationSet>
-    <AssociationSet Name="FK__CONFIGDET__CONFI__33D4B598" Association="Self.FK__CONFIGDET__CONFI__33D4B598">
+    <AssociationSet Name="FK__CONFIGDET__CONFI__32E0915F" Association="Self.FK__CONFIGDET__CONFI__32E0915F">
       <End Role="CONFIG" EntitySet="CONFIGs" />
       <End Role="CONFIGDETAIL" EntitySet="CONFIGDETAILs" />
     </AssociationSet>
-    <AssociationSet Name="FK__CONFIGDET__PRODU__32E0915F" Association="Self.FK__CONFIGDET__PRODU__32E0915F">
+    <AssociationSet Name="FK__CONFIGDET__PRODU__31EC6D26" Association="Self.FK__CONFIGDET__PRODU__31EC6D26">
       <End Role="PRODUCT" EntitySet="PRODUCTs" />
       <End Role="CONFIGDETAIL" EntitySet="CONFIGDETAILs" />
     </AssociationSet>
-    <AssociationSet Name="FK__PRODUCT__PRODUCT__2E1BDC42" Association="Self.FK__PRODUCT__PRODUCT__2E1BDC42">
+    <AssociationSet Name="FK__PRODUCT__PRODUCT__2D27B809" Association="Self.FK__PRODUCT__PRODUCT__2D27B809">
       <End Role="PRODUCTTYPE" EntitySet="PRODUCTTYPEs" />
       <End Role="PRODUCT" EntitySet="PRODUCTs" />
     </AssociationSet>
