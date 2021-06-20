@@ -191,6 +191,21 @@ begin
 			where A.[Password] != B.[Password]
 end 
 
+
+CREATE function [dbo].[CheckLogin](@username varchar(10), @password varchar(50))
+returns bit
+as
+begin
+	--declare @roleName nvarchar(50)
+	set @password = convert(varchar(30), hashbytes('MD5', @password), 2)
+	if exists 
+		(select * 
+		from Account
+		where @username = [User] and @password = [Password])
+	return 1
+	return 0
+end
+
 ----------------------------------------------------QUERY INSERT----------------------------------------------------
 
 GO
