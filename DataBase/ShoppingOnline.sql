@@ -191,6 +191,7 @@ begin
 			where A.[Password] != B.[Password]
 end 
 
+----------------------------------------------------FUNCTION PASSWORD----------------------------------------------------
 
 CREATE function [dbo].[CheckLogin](@username varchar(10), @password varchar(50))
 returns bit
@@ -245,6 +246,40 @@ N'Iphone 11',
 '100',
 N'SmartPhone xịn nè lo mà mô tả nó đi',
 GETDATE())
+insert into PRODUCT values (
+N'Iphone 12',
+2,
+2,
+'Asset/images/SmartPhone/Iphone/iPhone_12/iphone-12-1.jpg',
+'Asset/images/SmartPhone/Iphone/iPhone_12/iphone-12-2.jpg',
+'Asset/images/SmartPhone/Iphone/iPhone_12/iphone-12-3.jpg',
+'Asset/images/SmartPhone/Iphone/iPhone_12/iphone-12-4.jpg',
+'Asset/images/SmartPhone/Iphone/iPhone_12/iphone-12-5.jpg',
+1,
+'21990000',
+'0',
+'0',
+'100',
+N'SmartPhone xịn nè lo mà mô tả nó đi',
+GETDATE())
+///////////////////////////////////////////////////
+insert into PRODUCT values (
+N'Iphone XR',
+2,
+2,
+'Asset/images/SmartPhone/Iphone/iPhone_XR/iphone-xr-1.jpg',
+'Asset/images/SmartPhone/Iphone/iPhone_XR/iphone-xr-2.jpg',
+'Asset/images/SmartPhone/Iphone/iPhone_XR/iphone-xr-3.jpg',
+'Asset/images/SmartPhone/Iphone/iPhone_XR/iphone-xr-4.jpg',
+'Asset/images/SmartPhone/Iphone/iPhone_XR/iphone-xr-5.jpg',
+1,
+'13990000',
+'0',
+'0',
+'100',
+N'SmartPhone xịn nè lo mà mô tả nó đi',
+GETDATE())
+
 
 
 go --(CONFIGNAME, DECRIPTIONCONFIGNAME)
@@ -305,6 +340,36 @@ INSERT INTO CONFIGDETAIL VALUES ('2',N'GPU',N'A-GPS, GLONASS, GALILEO, QZSS')
 INSERT INTO CONFIGDETAIL VALUES ('2',N'WEIGHT',N'194 g')
 INSERT INTO CONFIGDETAIL VALUES ('2',N'SIZE',N'150.9 x 75.7 x 8.3 mm')
 INSERT INTO CONFIGDETAIL VALUES ('2',N'Pin',N'3110 mAh, Li-Ion')
+------------------------------------------Iphone 12
+INSERT INTO CONFIGDETAIL VALUES ('3',N'SCREENSIZE',N'6.1 inches')
+INSERT INTO CONFIGDETAIL VALUES ('3',N'ROM',N'128 GB')
+INSERT INTO CONFIGDETAIL VALUES ('3',N'SCREEN',N'AMOLED')
+INSERT INTO CONFIGDETAIL VALUES ('3',N'RESOLUTION',N'2532 x 1170 Pixel')
+INSERT INTO CONFIGDETAIL VALUES ('3',N'OS',N'iOS 14')
+INSERT INTO CONFIGDETAIL VALUES ('3',N'RAM',N'4 GB')
+INSERT INTO CONFIGDETAIL VALUES ('3',N'BACKCAM',N'12 MP + 12 MP')
+INSERT INTO CONFIGDETAIL VALUES ('3',N'FONTCAM',N'12 MP, f/2.2')
+INSERT INTO CONFIGDETAIL VALUES ('3',N'CPU',N'Apple A14 Bionic')
+INSERT INTO CONFIGDETAIL VALUES ('3',N'Sim',N'1 Nano SIM & 1 eSIM')
+INSERT INTO CONFIGDETAIL VALUES ('3',N'GPU',N'Apple GPU 4 nhân')
+INSERT INTO CONFIGDETAIL VALUES ('3',N'WEIGHT',N'164 g')
+INSERT INTO CONFIGDETAIL VALUES ('3',N'SIZE',N'146.7 x 71.5 x 7.4 mm')
+INSERT INTO CONFIGDETAIL VALUES ('3',N'Pin',N'2815 mAh, Li-Ion')
+------------------------------------------Iphone xr
+INSERT INTO CONFIGDETAIL VALUES ('3',N'SCREENSIZE',N'6.1 inches')
+INSERT INTO CONFIGDETAIL VALUES ('3',N'ROM',N'128 GB')
+INSERT INTO CONFIGDETAIL VALUES ('3',N'SCREEN',N'IPS LCD')
+INSERT INTO CONFIGDETAIL VALUES ('3',N'RESOLUTION',N'828 x 1792 Pixels')
+INSERT INTO CONFIGDETAIL VALUES ('3',N'OS',N'iOS 14')
+INSERT INTO CONFIGDETAIL VALUES ('3',N'RAM',N'3 GB')
+INSERT INTO CONFIGDETAIL VALUES ('3',N'BACKCAM',N'12 MP')
+INSERT INTO CONFIGDETAIL VALUES ('3',N'FONTCAM',N'7 MP')
+INSERT INTO CONFIGDETAIL VALUES ('3',N'CPU',N'Apple A12 Bionic')
+INSERT INTO CONFIGDETAIL VALUES ('3',N'Sim',N'1 Nano SIM & 1 eSIM')
+INSERT INTO CONFIGDETAIL VALUES ('3',N'GPU',N'Apple GPU 4 nhân')
+INSERT INTO CONFIGDETAIL VALUES ('3',N'WEIGHT',N'194 g')
+INSERT INTO CONFIGDETAIL VALUES ('3',N'SIZE',N'150.9 x 75.7 x 8.3 mm')
+INSERT INTO CONFIGDETAIL VALUES ('3',N'Pin',N'2942 mAh, Li-Ion')
 
 
 go --([USER], [PASSWORD], FULLNAME, STATUSACCOUNT, PHONENUMBER)
