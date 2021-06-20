@@ -218,6 +218,7 @@ insert into Brand values(N'iPhone','1')	  --2
 insert into Brand values(N'Redmi','1')	  --3
 Insert into Brand values (N'Oppo','1')    --4
 Insert into Brand values (N'Apple','1')   --5
+Insert into Brand values (N'Acer','1')   --6
 
 go --(PRODUCTTYPENAME, STATUSPRODUCTTYPE)
 insert into ProductType values(N'Laptop','1')     --1
@@ -275,6 +276,22 @@ insert into PRODUCT values (
 	'0',
 	'100',
 	N'SmartPhone xịn nè lo mà mô tả nó đi',
+	GETDATE())
+
+insert into PRODUCT values (
+	N'Laptop Acer Aspire 7 A715',
+	6,
+	1,
+	'Asset/images/Laptop/Acer/LaptopAcerAspire7A715/acer-aspire-7-a715-1.jpg',
+	'Asset/images/Laptop/Acer/LaptopAcerAspire7A715/acer-aspire-7-a715-2.jpg',
+	'Asset/images/Laptop/Acer/LaptopAcerAspire7A715/acer-aspire-7-a715-3.jpg',
+	'Asset/images/Laptop/Acer/LaptopAcerAspire7A715/acer-aspire-7-a715-4.jpg',
+	'Asset/images/Laptop/Acer/LaptopAcerAspire7A715/acer-aspire-7-a715-5.jpg',
+	1,
+	'21490000',
+	'0',
+	'100',
+	N'Lap này xịn nè lo mà mô tả nó đi',
 	GETDATE())
 
 
