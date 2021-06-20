@@ -1,0 +1,71 @@
+#region methods
+
+        public IEnumerable<Entity.Product> loadAdminProduct()
+        {
+            //var result = db.Products.ToList();
+            //var result = db.Products.Select(p => p).ToList();
+            //var result = from c in db.Products select c;
+            //var result = from c in db.Products select new {Id = c.ProductsId, Name = c.ProductsName};
+            //var result = from c in db.Vendors select new {Amount = c.Products.Count}; -- Dùng để đếm số lượng sản phẩm của nhà cung cấp
+            var result = from c in db.Products
+                          where c.ProductsId > 5
+                          select c;
+            //var result = db.Products.Find(2); -- Tìm kiếm sản phẩm theo ProductsId
+            return result;
+        }
+
+        public void createAdminProduct(Entity.Product product)
+        {
+            Entity.Product p = new Entity.Product
+            {
+                ProductsName = product.ProductsName,
+                VendorId = product.VendorId,
+                ProductTypeId = product.ProductTypeId,
+                Config = product.Config,
+                MainPic = product.MainPic,
+                Pic1 = product.Pic1,
+                Pic2 = product.Pic2,
+                Pic3 = product.Pic3,
+                Pic4 = product.Pic4,
+                ProductStatus = product.ProductStatus,
+                ProductPrice = product.ProductPrice,
+                ProductAmount = product.ProductAmount,
+                ProductView = product.ProductView
+            };
+
+            db.Products.Add(p);
+            db.SaveChanges();
+        }
+
+        public void delAdminProduct(string id)
+        {
+            
+            /*Entity.Product product = db.Products.Where(p => p.ProductsId == int.Parse(id)).SingleOrDefault();
+            db.Products.Remove(product);
+            db.SaveChanges();*/
+
+            Entity.Product p = db.Products.Find(Convert.ToInt32(id));
+            p.ProductStatus = false;
+            db.SaveChanges();
+        }
+
+        public Entity.Product findProduct(String id)
+        {
+            var result = db.Products.Find(Convert.ToInt32(id));
+            return result;
+        }
+
+        public void upAdminProduct(string id)
+        {
+            
+            /*Entity.Product product = db.Products.Where(p => p.ProductsId == int.Parse(id)).SingleOrDefault();
+            db.Products.Remove(product);
+            db.SaveChanges();*/
+
+            Entity.Product p = db.Products.Find(Convert.ToInt32(id));
+            p.ProductStatus = false;
+            db.SaveChanges();
+        }
+        
+
+        #endregion   

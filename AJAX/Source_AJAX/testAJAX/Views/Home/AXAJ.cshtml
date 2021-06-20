@@ -1,0 +1,68 @@
+﻿
+@{
+    ViewBag.Title = "AXAJ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*cách 1: dùng Ajax.ActionLink *@
+
+@Ajax.ActionLink("Load Ajax mvc", "LoadAjaxActionLink", new AjaxOptions {
+    HttpMethod="GET", UpdateTargetId="result", InsertionMode= InsertionMode.Replace, LoadingElementId="loading"})
+
+@*Option 2: Use Ajax.Beginform*@
+
+@*@using (Ajax.BeginForm("LoadAjaxBeginForm", new AjaxOptions
+    {
+        HttpMethod = "GET",
+        UpdateTargetId = "result",
+        InsertionMode = InsertionMode.InsertAfter
+    }))
+    {
+        @Html.TextBox("text");
+        <input type="submit" value="Submit" />
+    }*@
+
+
+<div id="result" style="height: 100px">
+    I'm is
+</div>
+<div id="loading" style="display: none">
+    <img src="~/Images/Spinner-0.7s-324px.gif" />
+</div>
+
+
+
+
+@*Use Ajax.jQuery *@
+
+<input type="button" id="button" value="Submit" onclick="onClick()"/>
+    <input id="number1"/>
+    <input id="number2" />
+    <div id="txtResult"></div>
+    <div id="loading" style="display: none">
+        <img src="~/Images/Spinner-0.7s-324px.gif" />
+    </div>
+
+    <script>
+        var parameter1, parameter2;
+        function onClick() {
+            $("#loading").show();
+            parameter1 = $("#number1").val;
+            parameter2 = $("#number2").val;
+            $.ajax({
+                type: "GET",
+                data: {
+                    a: 1,
+                    b: 2
+                },
+                url: 'LoadAjaxJQuery',
+                success: function (result) {
+                    $('#loading').hide();
+                    $('#txtResult').html(result);
+                }
+            });
+        }
+    </script>
+
+
+
