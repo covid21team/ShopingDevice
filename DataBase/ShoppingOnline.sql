@@ -392,6 +392,13 @@ Insert into ACCOUNTLIKE values ('Phus',4,GETDATE())
 
 go --([USER], PRODUCTID, AMOUNT)
 Insert into CART values ('Phus',1,20)
+Insert into CART values ('Phus',2,60)
+Insert into CART values ('Phus',3,40)
+Insert into CART values ('Phus',4,50)
+Insert into CART values ('Syx',1,20)
+Insert into CART values ('Syx',2,30)
+Insert into CART values ('Syx',3,10)
+Insert into CART values ('Syx',4,50)
 
 go --(VOUCHERID, DECRIPTIONVOUCHER, DATEENTIRE, STATUSVOUCHER)
 INSERT INTO VOUCHER VALUES ('giảm giá 100%','30/12/2021',1)
