@@ -1,0 +1,38 @@
+
+  #message {
+    display:none;
+    background: none;
+    color: white;
+    position: relative;
+    padding: 20px;
+    margin-top: -50px;
+  }
+  
+  #message p {
+    padding: 1px 10px;
+    font-size: 12px;
+    margin-left: 10px;
+    
+  }
+  
+  /* Add a green text color and a checkmark when the requirements are right */
+  .valid {
+    color: greenyellow;
+  }
+  
+  .valid:before {
+    position: relative;
+    left: -35px;
+    content: "✔";
+  }
+  
+  /* Add a red text color and an "x" when the requirements are wrong */
+  .invalid {
+    color: red;
+  }
+  
+  .invalid:before {
+    position: relative;
+    left: -35px;
+    content: "✖";
+  }
