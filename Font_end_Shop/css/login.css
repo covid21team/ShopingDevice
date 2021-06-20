@@ -115,7 +115,7 @@ html {
     position: absolute;
     display: block;
   }
-  
+
   .login-box a span:nth-child(1) {
     top: 0;
     left: -100%;
@@ -193,6 +193,11 @@ html {
   .eye{
     position: absolute;
   }
+  
+  #hide6:hover{
+   color: red;
+  }
+
 
   #hidel1{
     display: none;

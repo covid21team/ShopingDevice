@@ -989,7 +989,7 @@ textarea.input {
   border-radius: 50%;
 }
 
-.product .product-body .product-btns>button:focus{
+/* .product .product-body .product-btns>button:focus{
   color: #D10024;
   background-color:white;
   border-radius: 50%;
@@ -997,7 +997,7 @@ textarea.input {
 .product .product-body .product-btns>button:active{
   color: #E4E7ED;
   background-color:#D10024;
-}
+} */
 
 .product .product-body .product-btns>button .tooltipp {
   position: absolute;
