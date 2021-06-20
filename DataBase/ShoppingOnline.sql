@@ -105,6 +105,7 @@ CREATE TABLE ACCOUNTLIKE
 (
 	[USER] VARCHAR(30),
 	PRODUCTID INT,
+	DATELIKE DATE, -- lí do tồn tại thì có gì liên hệ Sỹ để biết câu trả lời
 	PRIMARY KEY ([USER] , PRODUCTID),
 	foreign key ([USER]) references ACCOUNT([USER]) on update cascade ,
 	foreign key (PRODUCTID) references PRODUCT(PRODUCTID) on update cascade ,
@@ -154,6 +155,7 @@ CREATE TABLE VOCHERDETAIL
 (
 	VOUCHERID INT,
 	[USER] VARCHAR(30),
+	DATEENDTIRE DATE, -- ngày hết hạn sở hữu của khách hàng về voucher, do sẽ có một số voucher tồn tại vĩnh viễn
 	PRIMARY KEY (VOUCHERID,[USER]),
 	foreign key (VOUCHERID) references VOUCHER(VOUCHERID) on update cascade ,
 	foreign key ([USER]) references ACCOUNT([USER]) on update cascade ,
@@ -165,7 +167,7 @@ CREATE TABLE BILLDETAIL
 (
 	BILLID INT,
 	PRODUCTID INT,
-
+	AMOUNT INT,
 	PRIMARY KEY (PRODUCTID,BILLID),
 	foreign key (BILLID) references BILL(BILLID) on update cascade ,
 	foreign key (PRODUCTID) references PRODUCT(PRODUCTID) on update cascade ,
@@ -378,24 +380,23 @@ go --(COMMENTID, PRODUCTID, [USER], COMMENTTEXT)
 Insert into COMMENT values (1,'Phus','Hàng này cùi vl')
 Insert into COMMENT values (1,'Syx','Hàng này xịn đấy')
 
-go --([USER], PRODUCTID)
-Insert into ACCOUNTLIKE values ('Syx',1)
+go --([USER], PRODUCTID, DATELIKE)
+Insert into ACCOUNTLIKE values ('Syx',1,GETDATE())
 
 go --([USER], PRODUCTID, AMOUNT)
 Insert into CART values ('Phus',1,20)
 
-
 go --(VOUCHERID, DECRIPTIONVOUCHER, DATEENTIRE, STATUSVOUCHER)
 INSERT INTO VOUCHER VALUES ('giảm giá 100%','30/12/2021',1)
 
-go --(VOUCHERID, [USER])
-INSERT INTO  VOCHERDETAIL VALUES ('1','syx')
+go --(VOUCHERID, [USER], DATEENDTIRE)
+INSERT INTO  VOCHERDETAIL VALUES ('1','syx','30/12/2021')
 
 go --(BILLID, [USER], [ADDRESS], [PHONENUMBERRECIVE], DATECREATE, VOUCHERID)
 Insert into BILL values ('Phus','7 núi','0123456789',GETDATE(),1)
 
-go --(BILLID, PRODUCTID)
-Insert into BILLDETAIL values (1,1)
+go --(BILLID, PRODUCTID, AMOUNT)
+Insert into BILLDETAIL values (1,1,10)
 
 
 
