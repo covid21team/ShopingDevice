@@ -193,18 +193,14 @@ end
 
 ----------------------------------------------------FUNCTION PASSWORD----------------------------------------------------
 
-CREATE function [dbo].[CheckLogin](@username varchar(10), @password varchar(50))
-returns bit
+CREATE procedure [dbo].[CheckLogin](@username varchar(10), @password varchar(50))
 as
 begin
 	--declare @roleName nvarchar(50)
-	set @password = convert(varchar(30), hashbytes('MD5', @password), 2)
-	if exists 
-		(select * 
-		from Account
-		where @username = [User] and @password = [Password])
-	return 1
-	return 0
+	set @password = convert(varchar(30), hashbytes('MD5', @password), 2) 
+	select * 
+	from Account
+	where @username = [User] and @password = [Password]
 end
 
 ----------------------------------------------------QUERY INSERT----------------------------------------------------
@@ -231,54 +227,55 @@ go --(PRODUCTNAME, BRANDID, PRODUCTTYPEID, MAINPIC, PIC1, PIC2, PIC3, PIC4, STAT
 --insert into PRODUCT values (N'Vsmart Joy 4',4,2,'Vsmart/Joy4/Main.jpg',null,null,null,null,1,'3590000','0','0','100',N'Điện thoại này từ VIệt Nam Chẩt lượng cao')
 insert into PRODUCT values (N'Apple watch series 6',5,4,'Asset/images/SmartWatch/AppleWatch/apple-watch-series-6-1.jpg','Asset/images/SmartWatch/AppleWatch/apple-watch-series-6-2.jpg','Asset/images/SmartWatch/AppleWatch/apple-watch-series-6-3.jpg','Asset/images/SmartWatch/AppleWatch/apple-watch-series-6-4.jpg','Asset/images/SmartWatch/AppleWatch/apple-watch-series-6-5.jpg',1,'18530000','0','0','100',N'Đồng hồ xịn nè lo mà mô tả nó đi',GETDATE())
 insert into PRODUCT values (
-N'Iphone 11',
-2,
-2,
-'Asset/images/SmartPhone/Iphone/iPhone_11/iphone-11-1.jpg',
-'Asset/images/SmartPhone/Iphone/iPhone_11/iphone-11-2.jpg',
-'Asset/images/SmartPhone/Iphone/iPhone_11/iphone-11-3.jpg',
-'Asset/images/SmartPhone/Iphone/iPhone_11/iphone-11-4.jpg',
-'Asset/images/SmartPhone/Iphone/iPhone_11/iphone-11-5.jpg',
-1,
-'21490000',
-'0',
-'0',
-'100',
-N'SmartPhone xịn nè lo mà mô tả nó đi',
-GETDATE())
+	N'Iphone 11',
+	2,
+	2,
+	'Asset/images/SmartPhone/Iphone/iPhone_11/iphone-11-1.jpg',
+	'Asset/images/SmartPhone/Iphone/iPhone_11/iphone-11-2.jpg',
+	'Asset/images/SmartPhone/Iphone/iPhone_11/iphone-11-3.jpg',
+	'Asset/images/SmartPhone/Iphone/iPhone_11/iphone-11-4.jpg',
+	'Asset/images/SmartPhone/Iphone/iPhone_11/iphone-11-5.jpg',
+	1,
+	'21490000',
+	'0',
+	'0',
+	'100',
+	N'SmartPhone xịn nè lo mà mô tả nó đi',
+	GETDATE())
+
 insert into PRODUCT values (
-N'Iphone 12',
-2,
-2,
-'Asset/images/SmartPhone/Iphone/iPhone_12/iphone-12-1.jpg',
-'Asset/images/SmartPhone/Iphone/iPhone_12/iphone-12-2.jpg',
-'Asset/images/SmartPhone/Iphone/iPhone_12/iphone-12-3.jpg',
-'Asset/images/SmartPhone/Iphone/iPhone_12/iphone-12-4.jpg',
-'Asset/images/SmartPhone/Iphone/iPhone_12/iphone-12-5.jpg',
-1,
-'21990000',
-'0',
-'0',
-'100',
-N'SmartPhone xịn nè lo mà mô tả nó đi',
-GETDATE())
-///////////////////////////////////////////////////
+	N'Iphone 12',
+	2,
+	2,
+	'Asset/images/SmartPhone/Iphone/iPhone_12/iphone-12-1.jpg',
+	'Asset/images/SmartPhone/Iphone/iPhone_12/iphone-12-2.jpg',
+	'Asset/images/SmartPhone/Iphone/iPhone_12/iphone-12-3.jpg',
+	'Asset/images/SmartPhone/Iphone/iPhone_12/iphone-12-4.jpg',
+	'Asset/images/SmartPhone/Iphone/iPhone_12/iphone-12-5.jpg',
+	1,
+	'21990000',
+	'0',
+	'0',
+	'100',
+	N'SmartPhone xịn nè lo mà mô tả nó đi',
+	GETDATE())
+
 insert into PRODUCT values (
-N'Iphone XR',
-2,
-2,
-'Asset/images/SmartPhone/Iphone/iPhone_XR/iphone-xr-1.jpg',
-'Asset/images/SmartPhone/Iphone/iPhone_XR/iphone-xr-2.jpg',
-'Asset/images/SmartPhone/Iphone/iPhone_XR/iphone-xr-3.jpg',
-'Asset/images/SmartPhone/Iphone/iPhone_XR/iphone-xr-4.jpg',
-'Asset/images/SmartPhone/Iphone/iPhone_XR/iphone-xr-5.jpg',
-1,
-'13990000',
-'0',
-'0',
-'100',
-N'SmartPhone xịn nè lo mà mô tả nó đi',
-GETDATE())
+	N'Iphone XR',
+	2,
+	2,
+	'Asset/images/SmartPhone/Iphone/iPhone_XR/iphone-xr-1.jpg',
+	'Asset/images/SmartPhone/Iphone/iPhone_XR/iphone-xr-2.jpg',
+	'Asset/images/SmartPhone/Iphone/iPhone_XR/iphone-xr-3.jpg',
+	'Asset/images/SmartPhone/Iphone/iPhone_XR/iphone-xr-4.jpg',
+	'Asset/images/SmartPhone/Iphone/iPhone_XR/iphone-xr-5.jpg',
+	1,
+	'13990000',
+	'0',
+	'0',
+	'100',
+	N'SmartPhone xịn nè lo mà mô tả nó đi',
+	GETDATE())
 
 
 
@@ -356,20 +353,20 @@ INSERT INTO CONFIGDETAIL VALUES ('3',N'WEIGHT',N'164 g')
 INSERT INTO CONFIGDETAIL VALUES ('3',N'SIZE',N'146.7 x 71.5 x 7.4 mm')
 INSERT INTO CONFIGDETAIL VALUES ('3',N'Pin',N'2815 mAh, Li-Ion')
 ------------------------------------------Iphone xr
-INSERT INTO CONFIGDETAIL VALUES ('3',N'SCREENSIZE',N'6.1 inches')
-INSERT INTO CONFIGDETAIL VALUES ('3',N'ROM',N'128 GB')
-INSERT INTO CONFIGDETAIL VALUES ('3',N'SCREEN',N'IPS LCD')
-INSERT INTO CONFIGDETAIL VALUES ('3',N'RESOLUTION',N'828 x 1792 Pixels')
-INSERT INTO CONFIGDETAIL VALUES ('3',N'OS',N'iOS 14')
-INSERT INTO CONFIGDETAIL VALUES ('3',N'RAM',N'3 GB')
-INSERT INTO CONFIGDETAIL VALUES ('3',N'BACKCAM',N'12 MP')
-INSERT INTO CONFIGDETAIL VALUES ('3',N'FONTCAM',N'7 MP')
-INSERT INTO CONFIGDETAIL VALUES ('3',N'CPU',N'Apple A12 Bionic')
-INSERT INTO CONFIGDETAIL VALUES ('3',N'Sim',N'1 Nano SIM & 1 eSIM')
-INSERT INTO CONFIGDETAIL VALUES ('3',N'GPU',N'Apple GPU 4 nhân')
-INSERT INTO CONFIGDETAIL VALUES ('3',N'WEIGHT',N'194 g')
-INSERT INTO CONFIGDETAIL VALUES ('3',N'SIZE',N'150.9 x 75.7 x 8.3 mm')
-INSERT INTO CONFIGDETAIL VALUES ('3',N'Pin',N'2942 mAh, Li-Ion')
+INSERT INTO CONFIGDETAIL VALUES ('4',N'SCREENSIZE',N'6.1 inches')
+INSERT INTO CONFIGDETAIL VALUES ('4',N'ROM',N'128 GB')
+INSERT INTO CONFIGDETAIL VALUES ('4',N'SCREEN',N'IPS LCD')
+INSERT INTO CONFIGDETAIL VALUES ('4',N'RESOLUTION',N'828 x 1792 Pixels')
+INSERT INTO CONFIGDETAIL VALUES ('4',N'OS',N'iOS 14')
+INSERT INTO CONFIGDETAIL VALUES ('4',N'RAM',N'3 GB')
+INSERT INTO CONFIGDETAIL VALUES ('4',N'BACKCAM',N'12 MP')
+INSERT INTO CONFIGDETAIL VALUES ('4',N'FONTCAM',N'7 MP')
+INSERT INTO CONFIGDETAIL VALUES ('4',N'CPU',N'Apple A12 Bionic')
+INSERT INTO CONFIGDETAIL VALUES ('4',N'Sim',N'1 Nano SIM & 1 eSIM')
+INSERT INTO CONFIGDETAIL VALUES ('4',N'GPU',N'Apple GPU 4 nhân')
+INSERT INTO CONFIGDETAIL VALUES ('4',N'WEIGHT',N'194 g')
+INSERT INTO CONFIGDETAIL VALUES ('4',N'SIZE',N'150.9 x 75.7 x 8.3 mm')
+INSERT INTO CONFIGDETAIL VALUES ('4',N'Pin',N'2942 mAh, Li-Ion')
 
 
 go --([USER], [PASSWORD], FULLNAME, STATUSACCOUNT, PHONENUMBER)
