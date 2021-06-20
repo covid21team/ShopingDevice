@@ -382,6 +382,13 @@ Insert into COMMENT values (1,'Syx','Hàng này xịn đấy')
 
 go --([USER], PRODUCTID, DATELIKE)
 Insert into ACCOUNTLIKE values ('Syx',1,GETDATE())
+Insert into ACCOUNTLIKE values ('Syx',2,GETDATE())
+Insert into ACCOUNTLIKE values ('Syx',3,GETDATE())
+Insert into ACCOUNTLIKE values ('Syx',4,GETDATE())
+Insert into ACCOUNTLIKE values ('Phus',1,GETDATE())
+Insert into ACCOUNTLIKE values ('Phus',2,GETDATE())
+Insert into ACCOUNTLIKE values ('Phus',3,GETDATE())
+Insert into ACCOUNTLIKE values ('Phus',4,GETDATE())
 
 go --([USER], PRODUCTID, AMOUNT)
 Insert into CART values ('Phus',1,20)
