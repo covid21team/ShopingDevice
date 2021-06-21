@@ -33,7 +33,8 @@
     }
 
 h2 {
-    margin: 0px 500px;
+    text-align: center;
+    
 }
 
 
@@ -244,7 +245,7 @@ textarea{
 }
 #submit{
     background: rgb(145, 23, 23);
-    width: 60%;
+    width: 850px;
     color:rgb(117, 38, 38);
-    margin-left:250px ;
+    margin-left:400px ;
 }
