@@ -207,14 +207,18 @@ end
 
 go
 
-CREATE PROCEDURE  CheckLogin @username varchar(10), @password varchar(50)
+create function CheckLogin(@username varchar(10), @password varchar(50))
+returns bit
 as
 begin
 	--declare @roleName nvarchar(50)
 	set @password = convert(varchar(30), hashbytes('MD5', @password), 2) 
-	select * 
-	from Account
-	where @username = [User] and @password = [Password]
+	if exists 
+		(select * 
+		from ACCOUNT
+		where @username = [USER] and @password = [PASSWORD])
+	return 1
+	return 0
 end
 
 ----------------------------------------------------QUERY INSERT----------------------------------------------------
