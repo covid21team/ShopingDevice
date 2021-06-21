@@ -11,4 +11,10 @@ window.onclick = function(event) {
         modal1.style.display = "none";
     }
 }
+function Functionclick(){
+    var modal1 = document.getElementById('id02');
+    modal1.style.display = "none";
+}
+
+
 
