@@ -56,7 +56,7 @@ CREATE TABLE PRODUCT
 	PRODUCTVIEW INT DEFAULT 0,
 	PRODUCTAMOUNT INT,
 	DECRIPTION NVARCHAR(MAX),
-	[DATEADD] DATE,
+	[DATEADD] DATE, -- Ngày nhập hàng vào
 	foreign key (BRANDID) references Brand(BRANDID) on update cascade,
 	foreign key (PRODUCTTYPEID) references PRODUCTTYPE(PRODUCTTYPEID) on update cascade,
 )
