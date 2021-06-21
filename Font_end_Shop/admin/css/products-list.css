@@ -1,5 +1,5 @@
 
-
+@import url('https://fonts.googleapis.com/css2?famil=Quicksand:wght@700&display=swap');
 #customers {
     margin: 0px auto;
     font-family: Arial, Helvetica, sans-serif;
@@ -118,3 +118,133 @@ h2 {
     }
   }
   
+
+
+
+  
+    #cauhinh {
+        margin: 0px auto;
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        align-content: center;
+        width: 80%; 
+      
+      
+    }
+    
+        #cauhinh td, #cauhinh th {
+            border-style: ridge;
+            border-width: 1px 0px 2px 0px;
+            text-align: center;
+            padding: 8px;
+        }
+    
+        /* #customers tr:nth-child(even) {
+            background-color: white;
+        } */
+    
+        #cauhinh tr:hover {
+            background-color: #d6dee9;
+        }
+    
+        #cauhinh th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: center;
+            background-color: #485472;
+            color: white;
+        }
+
+/* them san pham */
+        #customers2 {
+            margin: 0px auto;
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            align-content: center;
+            background-color: #fefefe;
+            /* margin: 0px auto 15% auto; */
+            border: 1px solid #888;
+            width: 800px; /* Could be more or less, depending on screen size */
+        }
+        
+            #customers2 td, #customers2 th {
+                border-style: ridge;
+                border-width: 1px 0px 2px 0px;
+                text-align: center;
+                padding: 8px;
+                
+            }
+        
+            /* #customers tr:nth-child(even) {
+                background-color: white;
+            } */
+        
+            #customers2 tr:hover {
+                background-color: #d6dee9;
+            }
+        
+            #customers2 th {
+                padding-top: 12px;
+                padding-bottom: 12px;
+                text-align: center;
+                background-color: #485472;
+                color: white;
+            }
+.exit{
+    font-size: 20px; 
+    border: none;
+    background: none;
+    margin-left: 1328px;
+    color: white;
+    
+}
+.exit:hover{
+    color: red;
+
+}
+#lname{
+    width: 70%;    
+    border: none;
+    background: none;
+    margin-left: 200px;
+} 
+#customers2 .numberrit{
+    width: 10%;
+    border: none;
+    background: none;
+    margin-left: 25px;
+}
+
+#customers2 select{
+    width: 25%;
+    border: none;
+    background: none;
+    margin-left: 70px;
+}
+#customers2 button{
+    margin-left: 1px;
+}
+#customers2 .cmb{
+    margin-left: 110px;
+    border: none;
+    background: none;
+}
+textarea{
+    width: 100%;;
+    border: none;
+    background: none;
+}
+.input-file[type="file"]{
+    display: none;
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  
+   
+}
+#submit{
+    background: rgb(145, 23, 23);
+    width: 60%;
+    color:rgb(117, 38, 38);
+    margin-left:250px ;
+}
