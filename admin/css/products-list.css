@@ -1,5 +1,5 @@
 
-@import url('https://fonts.googleapis.com/css2?famil=Quicksand:wght@700&display=swap');
+
 #customers {
     margin: 0px auto;
     font-family: Arial, Helvetica, sans-serif;
@@ -36,8 +36,6 @@ h2 {
     text-align: center;
     
 }
-
-
 
 
 #customers1 {
@@ -156,14 +154,14 @@ h2 {
             color: white;
         }
 
-/* them san pham */
+/* ==============================================================================them san pham */
         #customers2 {
             margin: 0px auto;
             font-family: Arial, Helvetica, sans-serif;
             border-collapse: collapse;
             align-content: center;
             background-color: #fefefe;
-            /* margin: 0px auto 15% auto; */
+          
             border: 1px solid #888;
             width: 800px; /* Could be more or less, depending on screen size */
         }
@@ -173,6 +171,7 @@ h2 {
                 border-width: 1px 0px 2px 0px;
                 text-align: center;
                 padding: 8px;
+                
                 
             }
         
@@ -195,7 +194,7 @@ h2 {
     font-size: 20px; 
     border: none;
     background: none;
-    margin-left: 1328px;
+    margin-left: 1134px;
     color: white;
     
 }
@@ -239,13 +238,23 @@ textarea{
     display: none;
     position: absolute;
     top: -9999px;
-    left: -9999px;
-  
-   
+    left: -9999px;  
 }
 #submit{
     background: rgb(145, 23, 23);
-    width: 850px;
-    color:rgb(117, 38, 38);
-    margin-left:400px ;
+    width: 100px;
+    color:rgb(255, 255, 255);
+    font-size: 25px;
+    margin-left: 1052px;
+    border:white;
+    border-radius: 10%;
+    /* margin-top: 50px; */
+    margin-bottom:100px ;
 }
+#submit:hover{
+    background: red;
+}
+tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+  /* ===================================================================================================================================================================*/
