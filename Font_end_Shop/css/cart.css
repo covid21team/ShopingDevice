@@ -4,7 +4,7 @@
 }
 
 .cart{
-    width: 80%;
+    width: 1200px;
     float: left;
 }
 
@@ -38,11 +38,31 @@
         box-shadow: 0px 6px 5px 2px gray;
     }
 
-    .cart-table img{
+.image_product_cart {
+    position: relative;
+    display: inline-block;
+}
+
+    .img_test{
+        position: absolute;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        padding: 12px 16px;
+        z-index: 100;
+        display: none;
+    }
+
+    .image_product_cart img{
         width: 150px;
         height: 150px;
         object-fit: contain;
+        
     }
+
+    .image_product_cart:hover .img_test{
+        display: block;
+    }
+
 
 .checkbox_cart input{
     transform: scale(3);
