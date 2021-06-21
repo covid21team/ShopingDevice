@@ -1,0 +1,102 @@
+.cart{
+    width: 1350px;
+     margin: 160px; 
+}
+
+.cart-br{
+    line-height: 50px;
+}
+
+.cart-table{
+    float: left;
+    margin-bottom: 30px;
+    margin-top: -160px;
+}
+
+/* cở chữ của img gia remove */
+    .cart-table th{
+        line-height: 40px;
+        font-size: 15px;
+    }
+
+    .cart-table img {
+        width: 200px;
+        height: 200px;
+        object-fit: contain;
+    }
+   
+    .cart-table th, td{
+        text-align: center;
+        width: 18%;
+    }
+    .soluong input{
+        width: 47px;
+    }
+
+    .cart-table td{
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .cart-table tr{
+        margin-top: 1000px;
+    }
+
+    .cart-table table, th, td{
+        border-bottom: 3px solid #E4E7ED;   
+        margin-right: 10px;
+        border-bottom-width:100%;
+        border-collapse: collapse;
+        
+    }
+
+.cart-result{
+    font-size: 20px;
+    margin-right: 150px;
+    float: right;
+    width: 300px;
+}
+
+.cart-checkout{
+    float: right;
+    border: 0;
+    margin-top: 25px;
+    padding: 6px 25px;
+    background-color: rgb(247, 81, 81);
+    color: #fff;
+    font-size: 25px;
+    border-radius: 3px;
+}
+
+    .cart-checkout:hover {
+        background-color: rgb(250, 8, 8);
+    }
+
+.totals-item {
+    float: right;
+    clear: both;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+label {
+    float: left;
+    clear: both;
+    width: 79%;
+}
+
+.totals-value {
+    float: right;
+    width: 21%;
+    text-align: right;
+}
+.remove-product{
+   
+    background-color: rgb(247, 81, 81);
+    color: white;
+    border: 0;
+}
+.remove-product:hover{
+    background-color: rgb(250, 8, 8);
+}
+

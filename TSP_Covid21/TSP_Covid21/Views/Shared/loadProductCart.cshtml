@@ -1,0 +1,48 @@
+﻿@model IEnumerable<TSP_Covid21.Models.ShopEntity.CART>
+
+@{ 
+    var total = 0;
+}
+<div class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+        <i class="fa fa-shopping-cart"></i>
+        <span>Your Cart</span>
+        <div class="qty">@Model.Count()</div>
+    </a>
+    <div class="cart-dropdown">
+        <div class="cart-list">
+            @foreach (var item in Model)
+            {
+                <div class="product-widget">
+                    <div class="product-img">
+                        <img src="~/@item.PRODUCT.MAINPIC" alt="">
+                    </div>
+                    <div class="product-body">
+                        <h3 class="product-name"><a href="#">@item.PRODUCT.PRODUCTNAME</a></h3>
+                        @{ 
+                            var Sum = item.AMOUNT * item.PRODUCT.PRODUCTPRICE;
+                            total = total + Convert.ToInt32(Sum);
+                            var temp = String.Format("{0:#,##0.##}", Sum);
+                        }
+                        <h4 class="product-price"><span class="qty">@item.AMOUNT</span>@temp VNĐ</h4>
+                    </div>
+                    <button class="delete"><i class="fa fa-close"></i></button>
+                </div>
+            }
+        </div>
+        <div class="cart-summary">
+            @{ 
+                var temp_Total = String.Format("{0:#,##0.##}", total);
+            }
+            <small>@Model.Count() Item(s) selected</small>
+            <h5>SUBTOTAL: @temp_Total VNĐ</h5>
+        </div>
+        <div class="cart-btns">
+            <a href="@Url.Action("Cart","Covid21",new { user = Session["user"]})">View Cart</a>
+            <a href="#">Checkout  <i class="fa fa-arrow-circle-right"></i></a>
+        </div>
+    </div>
+</div>
+
+
+
