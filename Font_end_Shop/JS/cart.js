@@ -57,16 +57,12 @@ function updatePrice(quantityInput)
   var price = parseFloat(productRow.children().children('.product_price_cart').text());
   var quantity = 0;
 
-  var checked = $(quantityInput).text();
+  var checkedtemp = quantityInput.checked;
 
-  alert(checked);
-
-  // if(quantityInput.text == 0)
-  //   quantity = 0;
-  // else
-  //   quantity = parseInt(productRow.children('.number_car').children('.number_quantity_cart').val());
-
-  // alert(quantity);
+  if(checkedtemp == false)
+    quantity = 0;
+  else
+    quantity = parseInt(productRow.children('.number_car').children('.number_quantity_cart').val());
   
   var linePrice = price * quantity;
 
