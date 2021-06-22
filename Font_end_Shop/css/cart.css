@@ -1,6 +1,7 @@
 .giohang{
     margin-left: 110px;
-    margin-bottom: 550px;
+    margin-bottom: 80px;
+    display: flex;
 }
 
 .cart{
@@ -65,7 +66,7 @@
 
 
 .checkbox_cart input{
-    transform: scale(3);
+    transform: scale(2.5);
     margin-left: 50px;
 }
 
@@ -84,6 +85,10 @@
     width: 450px;
     float: left;
     margin-left: 30px;
+    height: 410px;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 5%;
 }
 
 .table_payment{
