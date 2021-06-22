@@ -1,0 +1,30 @@
+#mainform{
+    margin-top: 10px;
+}
+#thongtin{
+    float: left;
+    background: lightgreen;
+    width: 200px auto;
+    min-height: auto;
+    margin-left: 11%;
+}
+#hienthongtin{
+    background: lightpink;
+    width: 900px ;   
+    min-height: 300px ;
+    float: left;
+    margin-left: 15px;
+    margin-top: -10px;
+    border-radius: 5px;
+}
+#thongtin .menuchon{
+    margin-left: 7%;
+    font-size: 18px;
+}
+
+.thongtincanhan{
+    margin-left:10px;
+    margin-top: 5px;
+ 
+}
+.dotted {border-style: dotted;}
