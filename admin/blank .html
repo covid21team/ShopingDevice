@@ -534,210 +534,213 @@
                             </div>
                         </div>
                         <!--cau hinh san pham-->
-                        <div id="id03" class="modal" style="z-index: 50;">                        
+                        <div id="id03" class="modal" style="z-index: 50;">
+                            <input class="exit1" onclick="Functionclick()" value="✖" type="button">
                             <table class="cus1">
                                 <tr>
-                                    <th style="width: 50%" onclick="Functionclick1()" id="edit" >Edit</th>
-                                    <th onclick="Functionclick2()">Them cau hinh</th>
+                                    <th style="width: 50%;font-size: 25px;background: #d6dee9;"onclick="Functionclick1()" id="edit">Edit</th>
+                                    <th style="font-size: 25px;" onclick="Functionclick2()" id="btn_addConfig">Them cau
+                                        hinh</th>
                                 </tr>
                             </table>
-                            <div id="table1" >
-                            <table class="cus2" >
+                            <div id="table1">
+                                <table class="cus2">
 
-                                <tr>
-                                    <th style="width:150px;">
-                                        <label for="lname">Product Name</label>
-                                    </th>
-                                    <td>
-                                        <label type="text"  name="ProductsName" id="label5">
-                                            ten san pham
-                                        </label>
+                                    <tr>
+                                        <th style="width:150px;">
+                                            <label for="lname">Product Name</label>
+                                        </th>
+                                        <td>
+                                            <label type="text" name="ProductsName" id="label5">
+                                                ten san pham
+                                            </label>
 
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>
-                                        <label for="lname">Produc Type</label>
-                                    </th>
-                                    <td>
-                                        <select id="country" name="VendorId" required>
-                                            <option value="maSP">Produc Type</option>
-                                            <option value="maSP">Produc Type</option>
-                                            <option value="maSP">Produc Type</option>
-                                            <option value="maSP">Produc Type</option>
-                                            <option value="maSP">Produc Type</option>
-                                        </select>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>
-                                        <label for="lname">Brand </label>
-                                    </th>
-                                    <td>
-                                        <select class="cmb" id="country" name="VendorId" required>
-                                            <option value="maSP">Brand</option>
-                                            <option value="maSP">Brand</option>
-                                            <option value="maSP">Brand</option>
-                                            <option value="maSP">Brand</option>
-                                            <option value="maSP">Brand</option>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            <label for="lname">Produc Type</label>
+                                        </th>
+                                        <td>
+                                            <select id="country" name="VendorId" required>
+                                                <option value="maSP">Produc Type</option>
+                                                <option value="maSP">Produc Type</option>
+                                                <option value="maSP">Produc Type</option>
+                                                <option value="maSP">Produc Type</option>
+                                                <option value="maSP">Produc Type</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            <label for="lname">Brand </label>
+                                        </th>
+                                        <td>
+                                            <select class="cmb" id="country" name="VendorId" required>
+                                                <option value="maSP">Brand</option>
+                                                <option value="maSP">Brand</option>
+                                                <option value="maSP">Brand</option>
+                                                <option value="maSP">Brand</option>
+                                                <option value="maSP">Brand</option>
 
-                                        </select>
-                                        <button style="background: none;border: none;"><i class="fas fa-plus-circle"
-                                                style="color: #bcd451;"></i></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>
-                                        <label for="lname" class="picture">Represent Picture</label>
-                                    </th>
-                                    <td>
-                                        <br>
-                                        <br>
-                                        <div class="m-r-10"><img src="~/@item.Pic4" alt="user" class="rounded"
-                                                width="45"></div>
-                                        <br>
-                                        <br>
-                                        <br>
-                                        <label for="filebutton" id="upload-btn">
-                                            <span>
-                                                <i class="fas fa-folder-open" style="color:#fad859;"></i> open file
-                                            </span>
-                                        </label>
-                                        <input id="filebutton" name="MainPic" class="input-file" type="file"
-                                            accept="image/*">
+                                            </select>
+                                         
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            <label for="lname" class="picture">Represent Picture</label>
+                                        </th>
+                                        <td>
+                                            <br>
+                                            <br>
+                                            <div class="m-r-10"><img src="~/@item.Pic4" alt="user" class="rounded"
+                                                    width="45"></div>
+                                            <br>
+                                            <br>
+                                            <br>
+                                            <label for="filebutton" id="upload-btn">
+                                                <span>
+                                                    <i class="fas fa-folder-open" style="color:#fad859;"></i> open file
+                                                </span>
+                                            </label>
+                                            <input id="filebutton" name="MainPic" class="input-file" type="file"
+                                                accept="image/*">
 
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>
-                                        <label for="lname" class="picture">Picture 1</label>
-                                    </th>
-                                    <td>
-                                        <br>
-                                        <br>
-                                        <div class="m-r-10"><img src="~/@item.Pic4" alt="user" class="rounded"
-                                                width="45"></div>
-                                        <br>
-                                        <br>
-                                        <br>
-                                        <label for="filebutton" id="upload-btn">
-                                            <span>
-                                                <i class="fas fa-folder-open" style="color:#fad859;"></i> open file
-                                            </span>
-                                        </label>
-                                        <input id="filebutton" name="Pic1" class="input-file" type="file"
-                                            accept="image/*">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            <label for="lname" class="picture">Picture 1</label>
+                                        </th>
+                                        <td>
+                                            <br>
+                                            <br>
+                                            <div class="m-r-10"><img src="~/@item.Pic4" alt="user" class="rounded"
+                                                    width="45"></div>
+                                            <br>
+                                            <br>
+                                            <br>
+                                            <label for="filebutton" id="upload-btn">
+                                                <span>
+                                                    <i class="fas fa-folder-open" style="color:#fad859;"></i> open file
+                                                </span>
+                                            </label>
+                                            <input id="filebutton" name="Pic1" class="input-file" type="file"
+                                                accept="image/*">
 
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>
-                                        <label for="lname" class="picture">Picture 2</label>
-                                    </th>
-                                    <td>
-                                        <br><br>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            <label for="lname" class="picture">Picture 2</label>
+                                        </th>
+                                        <td>
+                                            <br><br>
 
-                                        <div class="m-r-10"><img src="~/@item.Pic4" alt="user" class="rounded"
-                                                width="45"></div>
-                                        <br>
-                                        <br>
-                                        <br>
-                                        <label for="filebutton" id="upload-btn">
-                                            <span>
-                                                <i class="fas fa-folder-open" style="color:#fad859;"></i> open file
-                                            </span>
-                                        </label>
-                                        <input id="filebutton" name="Pic2" class="input-file" type="file"
-                                            accept="image/*">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>
-                                        <label for="lname" class="picture">Picture 3</label>
-                                    </th>
-                                    <td>
-                                        <br>
-                                        <br>
+                                            <div class="m-r-10"><img src="~/@item.Pic4" alt="user" class="rounded"
+                                                    width="45"></div>
+                                            <br>
+                                            <br>
+                                            <br>
+                                            <label for="filebutton" id="upload-btn">
+                                                <span>
+                                                    <i class="fas fa-folder-open" style="color:#fad859;"></i> open file
+                                                </span>
+                                            </label>
+                                            <input id="filebutton" name="Pic2" class="input-file" type="file"
+                                                accept="image/*">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            <label for="lname" class="picture">Picture 3</label>
+                                        </th>
+                                        <td>
+                                            <br>
+                                            <br>
 
-                                        <div class="m-r-10"><img src="~/@item.Pic4" alt="user" class="rounded"
-                                                width="45"></div>
-                                        <br>
-                                        <br>
-                                        <br>
-                                        <label for="filebutton" id="upload-btn">
-                                            <span>
-                                                <i class="fas fa-folder-open" style="color:#fad859;"></i> open file
-                                            </span>
-                                        </label>
-                                        <input id="filebutton" name="Pic3" class="input-file" type="file"
-                                            accept="image/*">
+                                            <div class="m-r-10"><img src="~/@item.Pic4" alt="user" class="rounded"
+                                                    width="45"></div>
+                                            <br>
+                                            <br>
+                                            <br>
+                                            <label for="filebutton" id="upload-btn">
+                                                <span>
+                                                    <i class="fas fa-folder-open" style="color:#fad859;"></i> open file
+                                                </span>
+                                            </label>
+                                            <input id="filebutton" name="Pic3" class="input-file" type="file"
+                                                accept="image/*">
 
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>
-                                        <label for="lname" class="picture">Picture 4</label>
-                                    </th>
-                                    <td>
-                                        <br>
-                                        <br>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            <label for="lname" class="picture">Picture 4</label>
+                                        </th>
+                                        <td>
+                                            <br>
+                                            <br>
 
-                                        <div class="m-r-10"><img src="~/@item.Pic4" alt="user" class="rounded"
-                                                width="45"></div>
-                                        <br>
-                                        <br>
-                                        <br>
-                                        <label for="filebutton" id="upload-btn">
-                                            <span>
-                                                <i class="fas fa-folder-open" style="color:#fad859;"></i> open file
-                                            </span>
-                                        </label>
-                                        <input id="filebutton" name="Pic4" class="input-file" type="file"
-                                            accept="image/*">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>
-                                        <label for="lname">Amount</label> <br>
-                                    </th>
-                                    <td>
-                                        <input class="numberrit" type="number" value="100" min="1">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>
-                                        <label for="lname">Decription</label>
-                                    </th>
-                                    <td>
-                                        <textarea class="textarea" id="product_description" name="Config"></textarea>
-                                    </td>
-                                </tr>
-                            </table>
+                                            <div class="m-r-10"><img src="~/@item.Pic4" alt="user" class="rounded"
+                                                    width="45"></div>
+                                            <br>
+                                            <br>
+                                            <br>
+                                            <label for="filebutton" id="upload-btn">
+                                                <span>
+                                                    <i class="fas fa-folder-open" style="color:#fad859;"></i> open file
+                                                </span>
+                                            </label>
+                                            <input id="filebutton" name="Pic4" class="input-file" type="file"
+                                                accept="image/*">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            <label for="lname">Amount</label> <br>
+                                        </th>
+                                        <td>
+                                            <input class="numberrit" type="number" value="100" min="1">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            <label for="lname">Decription</label>
+                                        </th>
+                                        <td>
+                                            <textarea class="textarea" id="product_description"
+                                                name="Config"></textarea>
+                                        </td>
+                                    </tr>
+                                </table>
 
                             </div>
-                            
-                        
-                        <!-- ======================================================================================== -->
-                        <div id="table2" style="display: none;">
-                            <table class="cus3" style="width: 65%;" >
-                                <tr>
-                                    <th> tên thông số</th>
-                                    <th>thông tin</th>
-                                    <th>trạng thái</th>
-                                </tr>
-                                <tr>
-                                    <td>Ram</td>
-                                    <td> <input style="background: none; border: none; " type="text" name="" id=""
-                                            placeholder="                  ghi zo"> </td>
-                                    <td><label class="switch">
-                                            <input type="checkbox">
-                                            <span class="slider"></span>
-                                        </label>
-                                    </td>
-                                </tr>
-                            </table>
+
+
+                            <!-- ======================================================================================== -->
+                            <div id="table2" style="display: none;">
+                                <table class="cus3" style="width: 65%;">
+                                    <tr>
+                                        <th> tên thông số</th>
+                                        <th>thông tin</th>
+                                        <th>trạng thái</th>
+                                    </tr>
+                                    <tr>
+                                        <td>Ram</td>
+                                        <td> <input style="background: none; border: none; " type="text" name="" id=""
+                                                placeholder="                  ghi zo"> </td>
+                                        <td><label class="switch">
+                                                <input type="checkbox">
+                                                <span class="slider"></span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <input id="submit1" type="submit" value="xác nhận">
                         </div>
-                    </div>
                     </div>
                 </div>
             </div>
@@ -787,4 +790,5 @@
     <script src="js/custom.js"></script>
     <script src="js/table.js"></script>
 </body>
+
 </html>
