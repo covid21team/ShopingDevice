@@ -1,18 +1,39 @@
 
 // Get the modal
 var modal = document.getElementById('id01');
-
 var modal1 = document.getElementById('id02');
+var modal2 = document.getElementById('id03');
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
-    if (event.target == modal||event.target==modal1) {
+    if (event.target == modal||event.target==modal1||event.target==modal2) {
         modal.style.display = "none";
         modal1.style.display = "none";
+        modal2.style.display = "none";
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function Functionclick(){
     var modal1 = document.getElementById('id02');
+    var modal = document.getElementById('id03');
+    modal.style.display = "none";
     modal1.style.display = "none";
 }
 
@@ -35,5 +56,13 @@ function Functionclick3(){
     modal1.style.display = "block";
    
 }
+$("#edit").click(function(){
+    $('#edit').css({"background": "#d6dee9"});
+       $('#btn_addConfig').css({"background": "white"});
+});
 
+$("#btn_addConfig").click(function(){
+    $('#edit').css({"background": "white"});
+       $('#btn_addConfig').css({"background": "#d6dee9"});
+});
 

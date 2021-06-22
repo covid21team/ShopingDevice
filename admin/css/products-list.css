@@ -213,10 +213,10 @@ textarea{
     width: 100px;
     color:rgb(255, 255, 255);
     font-size: 25px;
-    margin-left: 1020px;
+    margin-left: 68%;
     border:white;
     border-radius: 10%;
-    /* margin-top: 50px; */
+     margin-top: 50px; 
     margin-bottom:100px ;
 }
 #submit:hover{
@@ -279,13 +279,13 @@ textarea{
     width: 25%;
     border: none;
     background: none;
-    margin-left: 70px;
+    margin-left: 50%;
 }
 .cus button{
     margin-left: 1px;
 }
 .cus .cmb{
-    margin-left: 110px;
+    margin-left: 50%;
     border: none;
     background: none;
 }
@@ -339,7 +339,7 @@ textarea{
         background-color: #fefefe; 
         border: 1px solid #888;
         width: 65%; /* Could be more or less, depending on screen size */
-         margin-bottom: 150px;
+    
       
     }
     
@@ -373,9 +373,7 @@ textarea{
             align-content: center;
             background-color: #fefefe; 
             border: 1px solid #888;
-            width: 65%; /* Could be more or less, depending on screen size */
-            margin-bottom: 150px;
-                   
+            width: 65%; /* Could be more or less, depending on screen size */                   
         }
         
         .cus3 td,.cus3 th {
@@ -439,5 +437,29 @@ textarea{
             margin-right: 50px;
         }
     
-
-
+        #submit1{
+            background: rgb(145, 23, 23);
+            width: 150px;
+            color:rgb(255, 255, 255);
+            font-size: 25px;
+            margin-left: 72%;
+            border:white;
+            border-radius: 10%;
+             margin-top: 50px;
+            margin-bottom:100px ;
+        }
+        #submit1:hover{
+            background: red;
+        }
+        .exit1{
+            font-size: 20px; 
+            border: none;
+            background: none;
+            margin-left: 81%;
+            color: white;
+            
+        }
+        .exit1:hover{
+            color: red;
+        
+        }
