@@ -94,6 +94,7 @@ h2 {
     background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
     padding-top: 60px;
   }
+
   
   
   @-webkit-keyframes animatezoom {
@@ -121,39 +122,6 @@ h2 {
 
 
   
-    #cauhinh {
-        margin: 0px auto;
-        font-family: Arial, Helvetica, sans-serif;
-        border-collapse: collapse;
-        align-content: center;
-        width: 80%; 
-      
-      
-    }
-    
-        #cauhinh td, #cauhinh th {
-            border-style: ridge;
-            border-width: 1px 0px 2px 0px;
-            text-align: center;
-            padding: 8px;
-        }
-    
-        /* #customers tr:nth-child(even) {
-            background-color: white;
-        } */
-    
-        #cauhinh tr:hover {
-            background-color: #d6dee9;
-        }
-    
-        #cauhinh th {
-            padding-top: 12px;
-            padding-bottom: 12px;
-            text-align: center;
-            background-color: #485472;
-            color: white;
-        }
-
 /* ==============================================================================them san pham */
         #customers2 {
             margin: 0px auto;
@@ -245,7 +213,7 @@ textarea{
     width: 100px;
     color:rgb(255, 255, 255);
     font-size: 25px;
-    margin-left: 1052px;
+    margin-left: 1020px;
     border:white;
     border-radius: 10%;
     /* margin-top: 50px; */
@@ -254,7 +222,188 @@ textarea{
 #submit:hover{
     background: red;
 }
-tr:nth-child(even) {
-    background-color: #dddddd;
-  }
+
   /* ===================================================================================================================================================================*/
+
+        .cus {
+            margin: 0px auto;
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            align-content: center;
+            background-color: #fefefe;
+            margin: 15% auto 15% auto;
+            border: 1px solid #888;
+            width: 65%; /* Could be more or less, depending on screen size */
+        }
+        
+            .cus td, .cus th {
+                border-style: ridge;
+                border-width: 1px 0px 2px 0px;
+                text-align: center;
+                padding: 8px;
+                
+                
+            }
+        
+            /* #customers tr:nth-child(even) {
+                background-color: white;
+            } */
+        
+            .cus tr:hover {
+                background-color: #d6dee9;
+            }
+        
+            .cus th {
+                padding-top: 12px;
+                padding-bottom: 12px;
+                text-align: center;
+                background-color: #485472;
+                color: white;
+            }
+  
+
+#lname{
+    width: 70%;    
+    border: none;
+    background: none;
+    margin-left: 200px;
+} 
+.cus .numberrit{
+    width: 10%;
+    border: none;
+    background: none;
+    margin-left: 25px;
+}
+
+.cus select{
+    width: 25%;
+    border: none;
+    background: none;
+    margin-left: 70px;
+}
+.cus button{
+    margin-left: 1px;
+}
+.cus .cmb{
+    margin-left: 110px;
+    border: none;
+    background: none;
+}
+textarea{
+    width: 100%;;
+    border: none;
+    background: none;
+}
+.input-file[type="file"]{
+    display: none;
+    position: absolute;
+    top: -9999px;
+    left: -9999px;  
+}
+/* ========================================== */
+.cus1 {
+    margin: 0px auto;
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    align-content: center;
+    background-color: #fefefe; 
+    border: 1px solid #888;
+    width: 65%; /* Could be more or less, depending on screen size */
+}
+     .cus1 th {
+        border-style: ridge;
+        border-width: 1px 1px 1px 0px;
+        text-align: center;
+        padding: 8px;       
+    }
+
+    /* #customers tr:nth-child(even) {
+        background-color: white;
+    } */
+    .cus1 th:hover {
+        background-color: #d6dee9;
+    }
+
+    .cus1 th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: center;     
+    }
+
+/* ============================================= */
+    .cus2 {
+        margin: 0px auto;
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        align-content: center;
+        background-color: #fefefe; 
+        border: 1px solid #888;
+        width: 65%; /* Could be more or less, depending on screen size */
+      
+      
+    }
+    
+    .cus2 td,.cus2 th {
+            border-style: ridge;
+            border-width: 1px 0px 2px 0px;
+            text-align: center;
+            padding: 8px;
+        }
+    
+        /* #customers tr:nth-child(even) {
+            background-color: white;
+        } */
+    
+        .cus2 tr:hover {
+            background-color: #d6dee9;
+        }
+    
+        .cus2 th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: center;
+            background-color: #485472;
+            color: white;
+        }
+        /* ============ */
+        .cus3 {
+            margin: 0px auto;
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            align-content: center;
+            background-color: #fefefe; 
+            border: 1px solid #888;
+            /* Could be more or less, depending on screen size */
+          
+          
+        }
+        
+        .cus3 td,.cus3 th {
+                border-style: ridge;
+                border-width: 1px 0px 2px 0px;
+                text-align: center;
+                padding: 8px;
+            }
+        
+            /* #customers tr:nth-child(even) {
+                background-color: white;
+            } */
+        
+            .cus3 tr:hover {
+                background-color: #d6dee9;
+            }
+        
+            .cus3 th {
+                padding-top: 12px;
+                padding-bottom: 12px;
+                text-align: center;
+                background-color: #485472;
+                color: white;
+            }
+   
+        
+    
+
+
+ 
+
