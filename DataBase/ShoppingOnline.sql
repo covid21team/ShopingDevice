@@ -53,7 +53,7 @@ CREATE TABLE PRODUCT
 	PIC4 NVARCHAR(MAX),
 	STATUSPRODUCT BIT DEFAULT 1,
 	PRODUCTPRICE INT,
-	PRODUCTVIEW INT DEFAULT 0,
+	--PRODUCTVIEW INT DEFAULT 0,
 	PRODUCTAMOUNT INT,
 	DECRIPTION NVARCHAR(MAX),
 	[DATEADD] DATE, -- Ngày nhập hàng vào
@@ -89,6 +89,25 @@ CREATE TABLE ACCOUNT
 	STATUSACCOUNT BIT DEFAULT 1 ,
 	PHONENUMBER VARCHAR(10) CHECK (LEN(PHONENUMBER) = 10)
 
+)
+
+CREATE TABLE VIEWNUMBER
+(
+	[USER] VARCHAR(30),
+	PRODUCTID INT,
+	DATESEEN DATE, -- Đây là ngày khách hàng xem sản phẩm Tris cũng không muốn để đâu này là ép buộc đó
+	foreign key ([USER]) references ACCOUNT([USER]) on update cascade,
+	foreign key (PRODUCTID) references PRODUCT(PRODUCTID) on update cascade,
+)
+
+
+CREATE TABLE RATINGPRODUCT
+(
+	[USER] VARCHAR(30),
+	PRODUCTID INT,
+	RATE FLOAT, -- XẾP TỪ 1 TỚI 5 SAO CÓ SỐ LẺ X.5
+	foreign key ([USER]) references ACCOUNT([USER]) on update cascade,
+	foreign key (PRODUCTID) references PRODUCT(PRODUCTID) on update cascade,
 )
 
 go
@@ -253,9 +272,9 @@ insert into TEMPPRODUCT values(5,2,1)
 insert into TEMPPRODUCT values(5,3,1)
 
 
-go --(PRODUCTNAME, BRANDID, PRODUCTTYPEID, MAINPIC, PIC1, PIC2, PIC3, PIC4, STATUSPRODUCT, PRODUCTPRICE, PRODUCTVIEW,  PRODUCTAMOUNT, DECRIPTION, [DATEADD])
+go --(PRODUCTNAME, BRANDID, PRODUCTTYPEID, MAINPIC, PIC1, PIC2, PIC3, PIC4, STATUSPRODUCT, PRODUCTPRICE, PRODUCTAMOUNT, DECRIPTION, [DATEADD])
 --insert into PRODUCT values (N'Vsmart Joy 4',4,2,'Vsmart/Joy4/Main.jpg',null,null,null,null,1,'3590000','0','100',N'Điện thoại này từ VIệt Nam Chẩt lượng cao')
-insert into PRODUCT values (N'Apple watch series 6',2,4,'Asset/images/SmartWatch/AppleWatch/apple-watch-series-6-1.jpg','Asset/images/SmartWatch/AppleWatch/apple-watch-series-6-2.jpg','Asset/images/SmartWatch/AppleWatch/apple-watch-series-6-3.jpg','Asset/images/SmartWatch/AppleWatch/apple-watch-series-6-4.jpg','Asset/images/SmartWatch/AppleWatch/apple-watch-series-6-5.jpg',1,'18530000','0','100',N'Đồng hồ xịn nè lo mà mô tả nó đi',GETDATE())
+insert into PRODUCT values (N'Apple watch series 6',2,4,'Asset/images/SmartWatch/AppleWatch/apple-watch-series-6-1.jpg','Asset/images/SmartWatch/AppleWatch/apple-watch-series-6-2.jpg','Asset/images/SmartWatch/AppleWatch/apple-watch-series-6-3.jpg','Asset/images/SmartWatch/AppleWatch/apple-watch-series-6-4.jpg','Asset/images/SmartWatch/AppleWatch/apple-watch-series-6-5.jpg',1,'18530000','100',N'Đồng hồ xịn nè lo mà mô tả nó đi',GETDATE())
 insert into PRODUCT values (
 	N'Iphone 11',
 	2,
@@ -267,7 +286,6 @@ insert into PRODUCT values (
 	'Asset/images/SmartPhone/Iphone/iPhone_11/iphone-11-5.jpg',
 	1,
 	'21490000',
-	'0',
 	'100',
 	N'SmartPhone xịn nè lo mà mô tả nó đi',
 	GETDATE())
@@ -283,7 +301,6 @@ insert into PRODUCT values (
 	'Asset/images/SmartPhone/Iphone/iPhone_12/iphone-12-5.jpg',
 	1,
 	'21990000',
-	'0',
 	'100',
 	N'SmartPhone xịn nè lo mà mô tả nó đi',
 	GETDATE())
@@ -299,7 +316,6 @@ insert into PRODUCT values (
 	'Asset/images/SmartPhone/Iphone/iPhone_XR/iphone-xr-5.jpg',
 	1,
 	'13990000',
-	'0',
 	'100',
 	N'SmartPhone xịn nè lo mà mô tả nó đi',
 	GETDATE())
@@ -315,7 +331,6 @@ insert into PRODUCT values (
 	'Asset/images/Laptop/Acer/LaptopAcerAspire7A715/acer-aspire-7-a715-5.jpg',
 	1,
 	'21490000',
-	'0',
 	'100',
 	N'Lap này xịn nè lo mà mô tả nó đi',
 	GETDATE())
@@ -468,6 +483,18 @@ Insert into BILL values ('Phus','7 núi','0123456789',GETDATE(),1)
 
 go --(BILLID, PRODUCTID, AMOUNT)
 Insert into BILLDETAIL values (1,1,10)
+
+go --([USER], [PRODUCTID],DATESEEN)
+insert into VIEWNUMBER values(N'Phus','1',GETDATE())     
+insert into VIEWNUMBER values(N'Phus','2',GETDATE())     
+insert into VIEWNUMBER values(N'Syx','3',GETDATE())     
+
+go --([USER], [PRODUCTID],RATE)
+insert into RATINGPRODUCT values(N'Phus','5','5')     
+insert into RATINGPRODUCT values(N'Phus','2','3')     
+insert into RATINGPRODUCT values(N'Syx','5','1')   
+insert into RATINGPRODUCT values(N'Syx','3','1.5')   
+
 
 
 
