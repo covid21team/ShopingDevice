@@ -336,6 +336,36 @@ insert into PRODUCT values (
 	GETDATE())
 
 
+insert into PRODUCT values (
+	N'Samsung Galaxy Tab A7 Lite',
+	1,
+	3,
+	'Asset/images/Tablet/SamSung/samsung-galaxy-tab-a7-lite-1.jpg',
+	'Asset/images/Tablet/SamSung/samsung-galaxy-tab-a7-lite-2.jpg',
+	'Asset/images/Tablet/SamSung/samsung-galaxy-tab-a7-lite-3.jpg',
+	'Asset/images/Tablet/SamSung/samsung-galaxy-tab-a7-lite-4.jpg',
+	'Asset/images/Tablet/SamSung/samsung-galaxy-tab-a7-lite-5.jpg',
+	1,
+	'4490000',
+	'100',
+	N'Cái này lướt lướt vút vút vui vui',
+	GETDATE())
+
+insert into PRODUCT values (
+	N'Bluetooth Xiaomi Earphone Lite',
+	3,
+	5,
+	'Asset/images/Tablet/HeadPhone/Xiaomi/Bluetooth-Xiaomi-Earphone-Lite-1.jpg',
+	'Asset/images/Tablet/HeadPhone/Xiaomi/Bluetooth-Xiaomi-Earphone-Lite-2.jpg',
+	'Asset/images/Tablet/HeadPhone/Xiaomi/Bluetooth-Xiaomi-Earphone-Lite-3.jpg',
+	'Asset/images/Tablet/HeadPhone/Xiaomi/Bluetooth-Xiaomi-Earphone-Lite-4.jpg',
+	'Asset/images/Tablet/HeadPhone/Xiaomi/Bluetooth-Xiaomi-Earphone-Lite-5.jpg',
+	1,
+	'990000',
+	'100',
+	N'Này nghe là thích muốn té xuống ruộng lên nghe tiếp luôn',
+	GETDATE())
+
 
 go --(CONFIGNAME, DECRIPTIONCONFIGNAME)
 INSERT INTO CONFIG VALUES ('RAM',N'BỘ nhớ đệm')                 --1
@@ -359,7 +389,9 @@ INSERT INTO CONFIG VALUES ('SENSOR',N'Cảm biến')				--18
 INSERT INTO CONFIG VALUES ('WEIGHT',N'Trọng lượng')				--19
 INSERT INTO CONFIG VALUES ('CALLABLE',N'Có thể gọi')			--20
 INSERT INTO CONFIG VALUES ('ORTHERFEATURE',N'Tính năng khác')   --21
-INSERT INTO CONFIG VALUES ('Pin',N'Thời lượng pin')   --22
+INSERT INTO CONFIG VALUES ('Pin',N'Thời lượng pin')				--22
+INSERT INTO CONFIG VALUES ('BlueTooth',N'Loại BlueTooth')		--23
+INSERT INTO CONFIG VALUES ('Wifi',N'Loại Wifi')					--24
 
 
 go --(productid, cofigname, inf)
@@ -439,6 +471,33 @@ INSERT INTO CONFIGDETAIL VALUES ('5',N'Pin',N'3 Cell 48WHrs')
 INSERT INTO CONFIGDETAIL VALUES ('5',N'SIZE',N'328 x 233 x 17.95 (mm)')
 INSERT INTO CONFIGDETAIL VALUES ('5',N'WEIGHT',N'1.45 kg')
 INSERT INTO CONFIGDETAIL VALUES ('5',N'ORTHERFEATURE',N'-1x USB 3.2 port with power-off charging -2x USB 3.2 port -1x USB Type-C port -1x RJ-45 port -1x HDMI® 2.0 -Wi-Fi 6 AX201 -Bluetooth v5.1')
+------------------------------------------Samsung Galaxy Tab A7 Lite
+go
+INSERT INTO CONFIGDETAIL VALUES ('6',N'SCREENSIZE',N'8.7 inch')
+INSERT INTO CONFIGDETAIL VALUES ('6',N'ROM',N'32 GB')
+INSERT INTO CONFIGDETAIL VALUES ('6',N'SCREEN',N'TFT LCD')
+INSERT INTO CONFIGDETAIL VALUES ('6',N'RESOLUTION',N'800 x 1340 Pixels')
+INSERT INTO CONFIGDETAIL VALUES ('6',N'GPU',N'IMG PowerVR GE8320')
+INSERT INTO CONFIGDETAIL VALUES ('6',N'CPU',N'MediaTek MT8768T 8 nhân')
+INSERT INTO CONFIGDETAIL VALUES ('6',N'RAM',N'3 GB') 
+INSERT INTO CONFIGDETAIL VALUES ('6',N'OS',N'Android 11')
+INSERT INTO CONFIGDETAIL VALUES ('6',N'Pin',N'5100 mAh')
+INSERT INTO CONFIGDETAIL VALUES ('6',N'ORTHERFEATURE',N'Wi-Fi 802.11 a/b/g/n/ac')
+INSERT INTO CONFIGDETAIL VALUES ('6',N'BACKCAM',N'8 MP FullHD 1080p@30fps')
+INSERT INTO CONFIGDETAIL VALUES ('6',N'FONTCAM',N'2 MP')
+INSERT INTO CONFIGDETAIL VALUES ('6',N'Sim',N'1 Nano SIM')
+INSERT INTO CONFIGDETAIL VALUES ('6',N'MATERIAL',N'Nhôm nguyên khối')
+INSERT INTO CONFIGDETAIL VALUES ('6',N'SIZE',N'212.5 x 124.7 x 8 (mm)')
+INSERT INTO CONFIGDETAIL VALUES ('6',N'WEIGHT',N'371 g')
+------------------------------------------Bluetooth Xiaomi Earphone Lite
+go
+INSERT INTO CONFIGDETAIL VALUES ('7',N'Pin',N'Tai nghe:4h sử dụng -16h sử dụng với hộp sạc -Sạc đầy trong 1.5h -5V/1A')
+INSERT INTO CONFIGDETAIL VALUES ('7',N'ORTHERFEATURE',N'Chống ồn -Điều khiển cảm ứng')
+INSERT INTO CONFIGDETAIL VALUES ('7',N'WEIGHT',N'5.8g')
+INSERT INTO CONFIGDETAIL VALUES ('7',N'WATERPROOF',N'IPX4')
+INSERT INTO CONFIGDETAIL VALUES ('7',N'BlueTooth',N'5.0')
+
+
 
 go --([USER], [PASSWORD], FULLNAME, STATUSACCOUNT, PHONENUMBER)
 Insert into ACCOUNT values ('Phus','123456789',N'Trương Gia Phú','1','0123456789') 
