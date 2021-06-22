@@ -209,14 +209,14 @@
 
 	<!-- /BREADCRUMB -->
 
-	<div id="mainform" >
+	<div id="mainform">
 		<div id="thongtin">
 			<h3><i class="fas fa-user" style="font-size: 50px;"></i> Truong gia phu</h3>
-			<div class="checkbox-filter">
-				<div class="menuchon">
-					<label for="brand-1">
+			<div class="checkbox-filter" >
+				<div class="menuchon" id="id123">
+					<label  for="brand-1"  class="tablinks" onclick="openCity(event, 'banthongtincanhan')">
 						<span></span>
-						<a><i class="fas fa-user-cog"></i> Personal Information</a>
+						<a ><i class="fas fa-user-cog"></i> Personal Information</a>
 					</label>
 				</div>
 				<div class="menuchon">
@@ -259,13 +259,6 @@
 					</label>
 				</div>
 				<div class="menuchon">
-
-					<label for="brand-4">
-						<span></span>
-						<a href=""><i class="fas fa-comment"></i> Comment</a>
-					</label>
-				</div>
-				<div class="menuchon">
 					<label for="brand-4">
 						<span></span>
 						<a><i class="fas fa-book"></i> Purchased </a>
@@ -283,63 +276,72 @@
 		<h3 style="margin-left: 15px; float: left;">Personal Information</h3><br><br>
 
 		<!--=================================================================-->
+		<button class="tablinks" onclick="openCity(event, 'banthongtincanhan')">London</button>
 		<div id="hienthongtin">
-			<div class="thongtincanhan" style="display: none;">
+			<div id="banthongtincanhan" class="thongtincanhan" style="display: none;">
 				<div>
 					<span></span>
 					<label for="">Full Name: </label>
-					<input type="text" placeholder="Input full name">
+					<input style="margin-left: 100px; margin-bottom: 1%;" type="text" placeholder="Input full name">
 				</div>
 				<div>
 					<span></span>
 					<label for="">Phone Number: </label>
-					<input type="text" placeholder="Input phone number">
+					<input style="margin-left: 62px; margin-bottom: 1%;" type="text" placeholder="Input phone number">
 				</div>
 				<div>
 					<span></span>
 					<label for="">Email: </label>
-					<input type="text" placeholder="Input Email">
+					<input style="margin-left: 133px; margin-bottom: 1%;" type="text" placeholder="Input Email">
 				</div>
 
 				<div>
 					<label>Sex:
-						<input type="radio" checked="checked" name="radio" style="transform: scale(1.5);">
+						<input style="margin-left: 150px; margin-bottom: 1%;transform: scale(1.5);" type="radio"
+							checked="checked" name="radio">
 						<label>Male</label>
-						<input type="radio" name="radio" style="transform: scale(1.5);"> <label>Female</label>
+						<input style="margin-left: 50px; margin-bottom: 1%;transform: scale(1.5);" type="radio"
+							name="radio"> <label>Female</label>
 					</label>
 				</div>
 				<div>
 					<span></span>
 					<label for="">Date Of Birth: </label>
-					<input type="date">
+					<input style="margin-left: 78px; margin-bottom: 1%;" class="text1" type="date">
 				</div>
 				<div>
 					<span></span>
 
-					<input type="checkbox" style="transform: scale(1.5);">
+					<input id="myCheck" onclick="myFunction()" class="text1" type="checkbox"style="transform: scale(1.5);margin-left: 21%; margin-bottom: 1%;">
 					<label for="">Change Password </label>
 				</div>
-				<div>
-					<span></span>
-					<label for="">Password</label>
-					<input type="text" placeholder="Reinput password">
+				<div style="display: none;" id="passan">
+					<div>
+						<span></span>
+						<label for="">Password</label>
+						<input style="margin-left: 110px; margin-bottom: 1%;" class="text1" type="text"
+							placeholder="Reinput password">
+					</div>
+					<div>
+						<span></span>
+						<label for="">New Password</label>
+						<input style="margin-left: 73px; margin-bottom: 1%;" class="text1" type="text"
+							placeholder="Reinput new password">
+					</div>
+					<div>
+						<span></span>
+						<label for="">Confirm Password </label>
+						<input style="margin-left: 45px; margin-bottom: 1%;" class="text1" type="text"
+							placeholder="Reinput confirm password">
+					</div>
 				</div>
 				<div>
 					<span></span>
-					<label for="">New Password</label>
-					<input type="text" placeholder="Reinput new password">
-				</div>
-				<div>
-					<span></span>
-					<label for="">Confirm Password </label>
-					<input type="text" placeholder="Reinput confirm password">
-				</div>
-				<div>
-					<span></span>
-					<input type="submit" placeholder="Reinput new password">
+					<input style="margin-left: 184px; margin-bottom: 1%;" class="text1" type="submit"
+						placeholder="Reinput new password">
 				</div>
 			</div>
-			<div style="display: none;">
+			<div>
 				<div class="diachi">
 					<div>
 						<span></span>
@@ -395,7 +397,7 @@
 			</div>
 
 			<!-- Sản phẩm yêu thích -->
-			<div style="display:none">
+			<div>
 				<div style="float: left; margin-left: 20px;">
 					<div class="product" style="width: 200px; margin-bottom: 80px;">
 						<div class="product-img">
@@ -417,8 +419,10 @@
 								<i class="fa fa-star-o"></i>
 							</div>
 							<div class="product-btns">
-								<button class="add-to-wishlist"><i class="fa fa-heart" style="color: red;"></i><span class="tooltipp">add to wishlist</span></button>
-								<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+								<button class="add-to-wishlist"><i class="fa fa-heart" style="color: red;"></i><span
+										class="tooltipp">add to wishlist</span></button>
+								<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick
+										view</span></button>
 							</div>
 						</div>
 						<div class="add-to-cart">
@@ -427,14 +431,14 @@
 					</div>
 				</div>
 
-				
-				
+
+
 			</div>
 
 			<!-- Đánh giá -->
-			<div style="display: none;">
+			<div>
 				<div style="float: left; margin-left: 20px;">
-					<div class="product" style="width: 200px;margin-bottom: 80px;" >
+					<div class="product" style="width: 200px;margin-bottom: 80px;">
 						<div class="product-img">
 							<img src="./img/product01.png" alt="">
 							<div class="product-label">
@@ -454,8 +458,10 @@
 								<i class="fa fa-star-o"></i>
 							</div>
 							<div class="product-btns">
-								<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-								<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+								<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add
+										to wishlist</span></button>
+								<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick
+										view</span></button>
 							</div>
 						</div>
 						<div class="add-to-cart">
@@ -463,11 +469,10 @@
 						</div>
 					</div>
 				</div>
-
 			</div>
-			
+
 			<!-- Đơn hàng đã mua -->
-			<table border="1px" style="margin:auto; width: 900px; text-align: center;" >
+			<table border="1px" style="margin:auto; width: 900px; text-align: center;">
 				<tr>
 					<th>
 						<h5 style="text-align: center; margin-top: 7px;">Bill ID</h5>
@@ -495,10 +500,10 @@
 					<td>
 						<h6 style="text-align: center; margin-top: 7px;">90,000,000đ</h6>
 					</td>
-					
+
 				</tr>
 			</table>
-			
+
 
 
 		</div>
@@ -662,6 +667,7 @@
 	<script src="js/nouislider.min.js"></script>
 	<script src="js/jquery.zoom.min.js"></script>
 	<script src="js/main.js"></script>
+	<script src="js/personal-information.js"></script>
 
 </body>
 
