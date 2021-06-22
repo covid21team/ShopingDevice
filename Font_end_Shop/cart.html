@@ -240,10 +240,10 @@
 						Iphone 12
 					</td>
 					<td>
-						<div class="product_price_cart">23</div>
+						<div class="product_price_cart">23000000</div>
 					</td>
 					<td class="number_car">
-						<input type="number" value="2" min="1" style="width: 60px" onclick="FigureOut(2300000)">
+						<input type="number" value="2" min="1" style="width: 60px">
 					</td>
 					<td class="remove_cart">
 						<button class="remove-product">
@@ -262,19 +262,19 @@
 			<table class="table_payment">
 				<tr>
 					<th>Subtotal</th>
-					<td id="total">2300000000 VNĐ</td>
+					<td class="totals_value" id="subtotal_cart">2300000000 </td>VNĐ
 				</tr>
 				<tr>
 					<th>Tax (5%)</th>
-					<td>10.500 VNĐ</td>
+					<td class="totals_value" id="tax_cart">10.500 </td>VNĐ
 				</tr>
 				<tr>
 					<th>Shippping</th>
-					<td>Free Ship</td>
+					<td class="totals_value" id="shipping_cart">Free Ship</td>
 				</tr>
 				<tr>
 					<th>Grand Total</th>
-					<td>2.300.000.000 VNĐ</td>
+					<td class="totals_value" id="total_cart" >2.300.000.000 </td>VNĐ
 				</tr>
 			</table>
 			<div style="margin-top: 20px; float: right;">
@@ -445,10 +445,6 @@
 
 </body>
 
-<script>
-	var total = document.getElementById("total");
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
-	function FigureOut(price){
-		total.val = total.val + price;
-	}
-</script>
+<script src="js/cart.js"></script>

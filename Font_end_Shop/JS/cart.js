@@ -21,8 +21,9 @@ function recalculateCart()
   
   /* Sum up row totals */
   $('.product_cart').each(function () {
-    subtotal += parseFloat($(this).children('.product_line_price_cart').text());
+    subtotal += parseFloat($(this).children().children('.product_line_price_cart').text());
   });
+ 
   
   /* Calculate totals */
   var tax = subtotal * taxRate;
@@ -30,17 +31,17 @@ function recalculateCart()
   var total = subtotal + tax + shipping;
   
   /* Update totals display */
-  $('.totals-value').fadeOut(fadeTime, function() {
-    $('#cart-subtotal').html(subtotal.toFixed(2));
-    $('#cart-tax').html(tax.toFixed(2));
-    $('#cart-shipping').html(shipping.toFixed(2));
-    $('#cart-total').html(total.toFixed(2));
+  $('.totals_value').fadeOut(fadeTime, function() {
+    $('#subtotal_cart').html(subtotal);
+    $('#tax_cart').html(tax);
+    $('#shipping_cart').html(shipping);
+    $('#total_cart').html(total);
     if(total == 0){
-      $('.checkout').fadeOut(fadeTime);
+      $('.checkout_cart').fadeOut(fadeTime);
     }else{
-      $('.checkout').fadeIn(fadeTime);
+      $('.checkout_cart').fadeIn(fadeTime);
     }
-    $('.totals-value').fadeIn(fadeTime);
+    $('.totals_value').fadeIn(fadeTime);
   });
 }
 
@@ -50,14 +51,14 @@ function updateQuantity(quantityInput)
 {
   /* Calculate line price */
   var productRow = $(quantityInput).parent().parent();
-  var price = parseFloat(productRow.children('.product_price_cart').text());
+  var price = parseFloat(productRow.children().children('.product_price_cart').text());
   var quantity = $(quantityInput).val();
   var linePrice = price * quantity;
-  
-  /* Update line price display and recalc cart totals */
+
+/* Update line price display and recalc cart totals */
   productRow.children().children('.product_line_price_cart').each(function () {
     $(this).fadeOut(fadeTime, function() {
-      $(this).text(linePrice.toFixed(2));
+      $(this).text(linePrice);
       recalculateCart();
       $(this).fadeIn(fadeTime);
     });
