@@ -46,6 +46,7 @@ function recalculateCart()
       $('.checkout_cart').fadeIn(fadeTime);
     }
     $('.totals_value').fadeIn(fadeTime);
+    $('.table_payment td').css({"width": "200px"});
   });
 }
 
