@@ -14,6 +14,10 @@ $('.product-removal button').click( function() {
 });
 
 
+$('.checkbox_cart input').change( function(){
+  updatePrice(this);
+});
+
 /* Recalculate cart */
 function recalculateCart()
 {
@@ -46,6 +50,36 @@ function recalculateCart()
 }
 
 
+function updatePrice(quantityInput)
+{
+  /* Calculate line price */
+  var productRow = $(quantityInput).parent().parent();
+  var price = parseFloat(productRow.children().children('.product_price_cart').text());
+  var quantity = 0;
+
+  var checked = $(quantityInput).text();
+
+  alert(checked);
+
+  // if(quantityInput.text == 0)
+  //   quantity = 0;
+  // else
+  //   quantity = parseInt(productRow.children('.number_car').children('.number_quantity_cart').val());
+
+  // alert(quantity);
+  
+  var linePrice = price * quantity;
+
+  /* Update line price display and recalc cart totals */
+  productRow.children().children('.product_line_price_cart').each(function () {
+    $(this).fadeOut(fadeTime, function() {
+      $(this).text(linePrice);
+      recalculateCart();
+      $(this).fadeIn(fadeTime);
+    });
+  });  
+}
+
 /* Update quantity */
 function updateQuantity(quantityInput)
 {
@@ -54,7 +88,7 @@ function updateQuantity(quantityInput)
   var price = parseFloat(productRow.children().children('.product_price_cart').text());
   var quantity = $(quantityInput).val();
   var linePrice = price * quantity;
-
+  
 /* Update line price display and recalc cart totals */
   productRow.children().children('.product_line_price_cart').each(function () {
     $(this).fadeOut(fadeTime, function() {
