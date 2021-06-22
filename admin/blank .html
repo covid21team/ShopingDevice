@@ -534,24 +534,23 @@
                             </div>
                         </div>
                         <!--cau hinh san pham-->
-                        <div>
-                            <button onclick="Functionclick1()">dfsdfdsf</button>
+                        <div id="id03" class="modal" style="z-index: 50;">                        
                             <table class="cus1">
                                 <tr>
-                                    <th style="width: 50%" onclick="Functionclick1()">Edit</th>
+                                    <th style="width: 50%" onclick="Functionclick1()" id="edit" >Edit</th>
                                     <th onclick="Functionclick2()">Them cau hinh</th>
                                 </tr>
                             </table>
-                            <table class="cus2" style="display: none;" >
+                            <div id="table1" >
+                            <table class="cus2" >
 
                                 <tr>
                                     <th style="width:150px;">
                                         <label for="lname">Product Name</label>
                                     </th>
                                     <td>
-                                        <label type="text" id="lname" name="ProductsName">
+                                        <label type="text"  name="ProductsName" id="label5">
                                             ten san pham
-
                                         </label>
 
                                     </td>
@@ -714,10 +713,13 @@
                                     </td>
                                 </tr>
                             </table>
-                        </div>
+
+                            </div>
+                            
+                        
                         <!-- ======================================================================================== -->
-                       
-                            <table class="cus3" style="width: 100%;" id="table1" >
+                        <div id="table2" style="display: none;">
+                            <table class="cus3" style="width: 65%;" >
                                 <tr>
                                     <th> tên thông số</th>
                                     <th>thông tin</th>
@@ -734,7 +736,8 @@
                                     </td>
                                 </tr>
                             </table>
-                        
+                        </div>
+                    </div>
                     </div>
                 </div>
             </div>
@@ -784,5 +787,4 @@
     <script src="js/custom.js"></script>
     <script src="js/table.js"></script>
 </body>
-
 </html>

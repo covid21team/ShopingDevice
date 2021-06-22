@@ -339,7 +339,7 @@ textarea{
         background-color: #fefefe; 
         border: 1px solid #888;
         width: 65%; /* Could be more or less, depending on screen size */
-      
+         margin-bottom: 150px;
       
     }
     
@@ -373,9 +373,9 @@ textarea{
             align-content: center;
             background-color: #fefefe; 
             border: 1px solid #888;
-            /* Could be more or less, depending on screen size */
-          
-          
+            width: 65%; /* Could be more or less, depending on screen size */
+            margin-bottom: 150px;
+                   
         }
         
         .cus3 td,.cus3 th {
@@ -401,9 +401,43 @@ textarea{
                 color: white;
             }
    
+     
+        .cus2 .numberrit{
+            width: 10%;
+            border: none;
+            background: none;
+            margin-left: 25px;
+        }
         
+        .cus2 select{
+            width: 25%;
+            border: none;
+            background: none;
+            margin-left: 90px;
+        }
+        .cus2 button{
+            margin-left: 1px;
+        }
+        .cus2 .cmb{
+            margin-left: 150px;
+            border: none;
+            background: none;
+        }
+        textarea{
+            width: 100%;;
+            border: none;
+            background: none;
+        }
+        .input-file[type="file"]{
+            display: none;
+            position: absolute;
+            top: -9999px;
+            left: -9999px;  
+        }
+        
+        #label5{
+            margin-right: 50px;
+        }
     
 
-
- 
 
