@@ -39,6 +39,10 @@
         box-shadow: 0px 6px 5px 2px gray;
     }
 
+.edit_width_cart{
+    width: 18%;
+}
+
 .image_product_cart {
     position: relative;
     display: inline-block;
