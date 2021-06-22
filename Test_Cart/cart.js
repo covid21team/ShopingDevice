@@ -1,11 +1,11 @@
 /* Set rates + misc */
 var taxRate = 0.05;
-var shippingRate = 0; 
+var shippingRate = 15.00; 
 var fadeTime = 0;
 
 
 /* Assign actions */
-$('.number_car input').change( function() {
+$('.product-quantity input').change( function() {
   updateQuantity(this);
 });
 
@@ -20,8 +20,8 @@ function recalculateCart()
   var subtotal = 0;
   
   /* Sum up row totals */
-  $('.product_cart').each(function () {
-    subtotal += parseFloat($(this).children('.product_line_price_cart').text());
+  $('.product').each(function () {
+    subtotal += parseFloat($(this).children('.product-line-price').text());
   });
   
   /* Calculate totals */
@@ -50,12 +50,12 @@ function updateQuantity(quantityInput)
 {
   /* Calculate line price */
   var productRow = $(quantityInput).parent().parent();
-  var price = parseFloat(productRow.children('.product_price_cart').text());
+  var price = parseFloat(productRow.children('.product-price').text());
   var quantity = $(quantityInput).val();
   var linePrice = price * quantity;
   
   /* Update line price display and recalc cart totals */
-  productRow.children().children('.product_line_price_cart').each(function () {
+  productRow.children('.product-line-price').each(function () {
     $(this).fadeOut(fadeTime, function() {
       $(this).text(linePrice.toFixed(2));
       recalculateCart();
