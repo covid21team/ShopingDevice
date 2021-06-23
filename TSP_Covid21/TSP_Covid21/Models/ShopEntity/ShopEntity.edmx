@@ -1,0 +1,1297 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="COVIDModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ACCOUNT">
+          <Key>
+            <PropertyRef Name="USER" />
+          </Key>
+          <Property Name="USER" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="PASSWORD" Type="varchar" MaxLength="30" />
+          <Property Name="FULLNAME" Type="nvarchar" MaxLength="100" />
+          <Property Name="STATUSACCOUNT" Type="bit" />
+          <Property Name="PHONENUMBER" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="ACCOUNT_ADMIN">
+          <Key>
+            <PropertyRef Name="USER" />
+          </Key>
+          <Property Name="USER" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="PASSWORD" Type="varchar" MaxLength="30" />
+          <Property Name="FULLNAME" Type="nvarchar" MaxLength="100" />
+          <Property Name="STATUSACCOUNT" Type="bit" />
+        </EntityType>
+        <EntityType Name="ACCOUNTLIKE">
+          <Key>
+            <PropertyRef Name="USER" />
+            <PropertyRef Name="PRODUCTID" />
+          </Key>
+          <Property Name="USER" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="PRODUCTID" Type="int" Nullable="false" />
+          <Property Name="DATELIKE" Type="date" />
+        </EntityType>
+        <EntityType Name="BILL">
+          <Key>
+            <PropertyRef Name="BILLID" />
+          </Key>
+          <Property Name="BILLID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="USER" Type="varchar" MaxLength="30" />
+          <Property Name="ADDRESS" Type="nvarchar(max)" />
+          <Property Name="PHONENUMBERRECIVE" Type="varchar" MaxLength="10" />
+          <Property Name="DATECREATE" Type="date" />
+          <Property Name="VOUCHERID" Type="int" />
+        </EntityType>
+        <EntityType Name="BILLDETAIL">
+          <Key>
+            <PropertyRef Name="BILLID" />
+            <PropertyRef Name="PRODUCTID" />
+          </Key>
+          <Property Name="BILLID" Type="int" Nullable="false" />
+          <Property Name="PRODUCTID" Type="int" Nullable="false" />
+          <Property Name="AMOUNT" Type="int" />
+        </EntityType>
+        <EntityType Name="BRAND">
+          <Key>
+            <PropertyRef Name="BRANDID" />
+          </Key>
+          <Property Name="BRANDID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BRANDNAME" Type="nvarchar" MaxLength="50" />
+          <Property Name="STATUSBRAND" Type="bit" />
+        </EntityType>
+        <EntityType Name="CART">
+          <Key>
+            <PropertyRef Name="USER" />
+            <PropertyRef Name="PRODUCTID" />
+          </Key>
+          <Property Name="USER" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="PRODUCTID" Type="int" Nullable="false" />
+          <Property Name="AMOUNT" Type="int" />
+        </EntityType>
+        <EntityType Name="COMMENT">
+          <Key>
+            <PropertyRef Name="COMMENTID" />
+          </Key>
+          <Property Name="COMMENTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PRODUCTID" Type="int" />
+          <Property Name="USER" Type="varchar" MaxLength="30" />
+          <Property Name="COMMENTTEXT" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="CONFIG">
+          <Key>
+            <PropertyRef Name="CONFIGNAME" />
+          </Key>
+          <Property Name="CONFIGNAME" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DECRIPTIONCONFIGNAME" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="CONFIGDETAIL">
+          <Key>
+            <PropertyRef Name="PRODUCTID" />
+            <PropertyRef Name="CONFIGNAME" />
+          </Key>
+          <Property Name="PRODUCTID" Type="int" Nullable="false" />
+          <Property Name="CONFIGNAME" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="INFORMATION" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="PRODUCT">
+          <Key>
+            <PropertyRef Name="PRODUCTID" />
+          </Key>
+          <Property Name="PRODUCTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PRODUCTNAME" Type="nvarchar" MaxLength="50" />
+          <Property Name="BRANDID" Type="int" />
+          <Property Name="PRODUCTTYPEID" Type="int" />
+          <Property Name="MAINPIC" Type="nvarchar(max)" />
+          <Property Name="PIC1" Type="nvarchar(max)" />
+          <Property Name="PIC2" Type="nvarchar(max)" />
+          <Property Name="PIC3" Type="nvarchar(max)" />
+          <Property Name="PIC4" Type="nvarchar(max)" />
+          <Property Name="STATUSPRODUCT" Type="bit" />
+          <Property Name="PRODUCTPRICE" Type="int" />
+          <Property Name="PRODUCTAMOUNT" Type="int" />
+          <Property Name="DECRIPTION" Type="nvarchar(max)" />
+          <Property Name="DATEADD" Type="date" />
+        </EntityType>
+        <EntityType Name="PRODUCTTYPE">
+          <Key>
+            <PropertyRef Name="PRODUCTTYPEID" />
+          </Key>
+          <Property Name="PRODUCTTYPEID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PRODUCTTYPENAME" Type="nvarchar" MaxLength="50" />
+          <Property Name="STATUSPRODUCTTYPE" Type="bit" />
+        </EntityType>
+        <EntityType Name="RATINGPRODUCT">
+          <Key>
+            <PropertyRef Name="USER" />
+            <PropertyRef Name="PRODUCTID" />
+          </Key>
+          <Property Name="USER" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="PRODUCTID" Type="int" Nullable="false" />
+          <Property Name="RATE" Type="float" />
+        </EntityType>
+        <EntityType Name="TEMPPRODUCT">
+          <Key>
+            <PropertyRef Name="PRODUCTTYPEID" />
+            <PropertyRef Name="BRANDID" />
+          </Key>
+          <Property Name="PRODUCTTYPEID" Type="int" Nullable="false" />
+          <Property Name="BRANDID" Type="int" Nullable="false" />
+          <Property Name="TEMPPRODUCTSTATUS" Type="bit" />
+        </EntityType>
+        <EntityType Name="VIEWNUMBER">
+          <Key>
+            <PropertyRef Name="USER" />
+            <PropertyRef Name="PRODUCTID" />
+          </Key>
+          <Property Name="USER" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="PRODUCTID" Type="int" Nullable="false" />
+          <Property Name="DATESEEN" Type="date" />
+        </EntityType>
+        <EntityType Name="VOCHERDETAIL">
+          <Key>
+            <PropertyRef Name="VOUCHERID" />
+            <PropertyRef Name="USER" />
+          </Key>
+          <Property Name="VOUCHERID" Type="int" Nullable="false" />
+          <Property Name="USER" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="DATEENDTIRE" Type="date" />
+        </EntityType>
+        <EntityType Name="VOUCHER">
+          <Key>
+            <PropertyRef Name="VOUCHERID" />
+          </Key>
+          <Property Name="VOUCHERID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DECRIPTIONVOUCHER" Type="nvarchar(max)" />
+          <Property Name="DATEENDTIRE" Type="date" />
+          <Property Name="STATUSVOUCHER" Type="bit" />
+        </EntityType>
+        <Association Name="FK__ACCOUNTLI__PRODU__4AB81AF0">
+          <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
+          <End Role="ACCOUNTLIKE" Type="Self.ACCOUNTLIKE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCT">
+              <PropertyRef Name="PRODUCTID" />
+            </Principal>
+            <Dependent Role="ACCOUNTLIKE">
+              <PropertyRef Name="PRODUCTID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ACCOUNTLIK__USER__49C3F6B7">
+          <End Role="ACCOUNT" Type="Self.ACCOUNT" Multiplicity="1" />
+          <End Role="ACCOUNTLIKE" Type="Self.ACCOUNTLIKE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ACCOUNT">
+              <PropertyRef Name="USER" />
+            </Principal>
+            <Dependent Role="ACCOUNTLIKE">
+              <PropertyRef Name="USER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BILL__VOUCHERID__5629CD9C">
+          <End Role="VOUCHER" Type="Self.VOUCHER" Multiplicity="0..1" />
+          <End Role="BILL" Type="Self.BILL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VOUCHER">
+              <PropertyRef Name="VOUCHERID" />
+            </Principal>
+            <Dependent Role="BILL">
+              <PropertyRef Name="VOUCHERID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BILLDETAI__BILLI__5CD6CB2B">
+          <End Role="BILL" Type="Self.BILL" Multiplicity="1" />
+          <End Role="BILLDETAIL" Type="Self.BILLDETAIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BILL">
+              <PropertyRef Name="BILLID" />
+            </Principal>
+            <Dependent Role="BILLDETAIL">
+              <PropertyRef Name="BILLID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BILLDETAI__PRODU__5DCAEF64">
+          <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
+          <End Role="BILLDETAIL" Type="Self.BILLDETAIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCT">
+              <PropertyRef Name="PRODUCTID" />
+            </Principal>
+            <Dependent Role="BILLDETAIL">
+              <PropertyRef Name="PRODUCTID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CART__PRODUCTID__4E88ABD4">
+          <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
+          <End Role="CART" Type="Self.CART" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCT">
+              <PropertyRef Name="PRODUCTID" />
+            </Principal>
+            <Dependent Role="CART">
+              <PropertyRef Name="PRODUCTID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CART__USER__4D94879B">
+          <End Role="ACCOUNT" Type="Self.ACCOUNT" Multiplicity="1" />
+          <End Role="CART" Type="Self.CART" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ACCOUNT">
+              <PropertyRef Name="USER" />
+            </Principal>
+            <Dependent Role="CART">
+              <PropertyRef Name="USER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__COMMENT__PRODUCT__46E78A0C">
+          <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="0..1" />
+          <End Role="COMMENT" Type="Self.COMMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCT">
+              <PropertyRef Name="PRODUCTID" />
+            </Principal>
+            <Dependent Role="COMMENT">
+              <PropertyRef Name="PRODUCTID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__COMMENT__USER__45F365D3">
+          <End Role="ACCOUNT" Type="Self.ACCOUNT" Multiplicity="0..1" />
+          <End Role="COMMENT" Type="Self.COMMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ACCOUNT">
+              <PropertyRef Name="USER" />
+            </Principal>
+            <Dependent Role="COMMENT">
+              <PropertyRef Name="USER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CONFIGDET__CONFI__35BCFE0A">
+          <End Role="CONFIG" Type="Self.CONFIG" Multiplicity="1" />
+          <End Role="CONFIGDETAIL" Type="Self.CONFIGDETAIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CONFIG">
+              <PropertyRef Name="CONFIGNAME" />
+            </Principal>
+            <Dependent Role="CONFIGDETAIL">
+              <PropertyRef Name="CONFIGNAME" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CONFIGDET__PRODU__34C8D9D1">
+          <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
+          <End Role="CONFIGDETAIL" Type="Self.CONFIGDETAIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCT">
+              <PropertyRef Name="PRODUCTID" />
+            </Principal>
+            <Dependent Role="CONFIGDETAIL">
+              <PropertyRef Name="PRODUCTID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PRODUCT__BRANDID__2F10007B">
+          <End Role="BRAND" Type="Self.BRAND" Multiplicity="0..1" />
+          <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BRAND">
+              <PropertyRef Name="BRANDID" />
+            </Principal>
+            <Dependent Role="PRODUCT">
+              <PropertyRef Name="BRANDID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PRODUCT__PRODUCT__300424B4">
+          <End Role="PRODUCTTYPE" Type="Self.PRODUCTTYPE" Multiplicity="0..1" />
+          <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCTTYPE">
+              <PropertyRef Name="PRODUCTTYPEID" />
+            </Principal>
+            <Dependent Role="PRODUCT">
+              <PropertyRef Name="PRODUCTTYPEID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RATINGPRO__PRODU__71D1E811">
+          <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
+          <End Role="RATINGPRODUCT" Type="Self.RATINGPRODUCT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCT">
+              <PropertyRef Name="PRODUCTID" />
+            </Principal>
+            <Dependent Role="RATINGPRODUCT">
+              <PropertyRef Name="PRODUCTID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RATINGPROD__USER__70DDC3D8">
+          <End Role="ACCOUNT" Type="Self.ACCOUNT" Multiplicity="1" />
+          <End Role="RATINGPRODUCT" Type="Self.RATINGPRODUCT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ACCOUNT">
+              <PropertyRef Name="USER" />
+            </Principal>
+            <Dependent Role="RATINGPRODUCT">
+              <PropertyRef Name="USER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TEMPPRODU__BRAND__2A4B4B5E">
+          <End Role="BRAND" Type="Self.BRAND" Multiplicity="1" />
+          <End Role="TEMPPRODUCT" Type="Self.TEMPPRODUCT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BRAND">
+              <PropertyRef Name="BRANDID" />
+            </Principal>
+            <Dependent Role="TEMPPRODUCT">
+              <PropertyRef Name="BRANDID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TEMPPRODU__PRODU__2B3F6F97">
+          <End Role="PRODUCTTYPE" Type="Self.PRODUCTTYPE" Multiplicity="1" />
+          <End Role="TEMPPRODUCT" Type="Self.TEMPPRODUCT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCTTYPE">
+              <PropertyRef Name="PRODUCTTYPEID" />
+            </Principal>
+            <Dependent Role="TEMPPRODUCT">
+              <PropertyRef Name="PRODUCTTYPEID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__VIEWNUMBE__PRODU__6E01572D">
+          <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
+          <End Role="VIEWNUMBER" Type="Self.VIEWNUMBER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCT">
+              <PropertyRef Name="PRODUCTID" />
+            </Principal>
+            <Dependent Role="VIEWNUMBER">
+              <PropertyRef Name="PRODUCTID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__VIEWNUMBER__USER__6D0D32F4">
+          <End Role="ACCOUNT" Type="Self.ACCOUNT" Multiplicity="1" />
+          <End Role="VIEWNUMBER" Type="Self.VIEWNUMBER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ACCOUNT">
+              <PropertyRef Name="USER" />
+            </Principal>
+            <Dependent Role="VIEWNUMBER">
+              <PropertyRef Name="USER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__VOCHERDET__VOUCH__59063A47">
+          <End Role="VOUCHER" Type="Self.VOUCHER" Multiplicity="1" />
+          <End Role="VOCHERDETAIL" Type="Self.VOCHERDETAIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VOUCHER">
+              <PropertyRef Name="VOUCHERID" />
+            </Principal>
+            <Dependent Role="VOCHERDETAIL">
+              <PropertyRef Name="VOUCHERID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__VOCHERDETA__USER__59FA5E80">
+          <End Role="ACCOUNT" Type="Self.ACCOUNT" Multiplicity="1" />
+          <End Role="VOCHERDETAIL" Type="Self.VOCHERDETAIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ACCOUNT">
+              <PropertyRef Name="USER" />
+            </Principal>
+            <Dependent Role="VOCHERDETAIL">
+              <PropertyRef Name="USER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="CheckLogin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="username" Type="varchar" Mode="In" />
+          <Parameter Name="password" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="COVIDModelStoreContainer">
+          <EntitySet Name="ACCOUNT" EntityType="Self.ACCOUNT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ACCOUNT_ADMIN" EntityType="Self.ACCOUNT_ADMIN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ACCOUNTLIKE" EntityType="Self.ACCOUNTLIKE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BILL" EntityType="Self.BILL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BILLDETAIL" EntityType="Self.BILLDETAIL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BRAND" EntityType="Self.BRAND" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CART" EntityType="Self.CART" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="COMMENT" EntityType="Self.COMMENT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CONFIG" EntityType="Self.CONFIG" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CONFIGDETAIL" EntityType="Self.CONFIGDETAIL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PRODUCT" EntityType="Self.PRODUCT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PRODUCTTYPE" EntityType="Self.PRODUCTTYPE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RATINGPRODUCT" EntityType="Self.RATINGPRODUCT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TEMPPRODUCT" EntityType="Self.TEMPPRODUCT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VIEWNUMBER" EntityType="Self.VIEWNUMBER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VOCHERDETAIL" EntityType="Self.VOCHERDETAIL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VOUCHER" EntityType="Self.VOUCHER" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__ACCOUNTLI__PRODU__4AB81AF0" Association="Self.FK__ACCOUNTLI__PRODU__4AB81AF0">
+            <End Role="PRODUCT" EntitySet="PRODUCT" />
+            <End Role="ACCOUNTLIKE" EntitySet="ACCOUNTLIKE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ACCOUNTLIK__USER__49C3F6B7" Association="Self.FK__ACCOUNTLIK__USER__49C3F6B7">
+            <End Role="ACCOUNT" EntitySet="ACCOUNT" />
+            <End Role="ACCOUNTLIKE" EntitySet="ACCOUNTLIKE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BILL__VOUCHERID__5629CD9C" Association="Self.FK__BILL__VOUCHERID__5629CD9C">
+            <End Role="VOUCHER" EntitySet="VOUCHER" />
+            <End Role="BILL" EntitySet="BILL" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BILLDETAI__BILLI__5CD6CB2B" Association="Self.FK__BILLDETAI__BILLI__5CD6CB2B">
+            <End Role="BILL" EntitySet="BILL" />
+            <End Role="BILLDETAIL" EntitySet="BILLDETAIL" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BILLDETAI__PRODU__5DCAEF64" Association="Self.FK__BILLDETAI__PRODU__5DCAEF64">
+            <End Role="PRODUCT" EntitySet="PRODUCT" />
+            <End Role="BILLDETAIL" EntitySet="BILLDETAIL" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CART__PRODUCTID__4E88ABD4" Association="Self.FK__CART__PRODUCTID__4E88ABD4">
+            <End Role="PRODUCT" EntitySet="PRODUCT" />
+            <End Role="CART" EntitySet="CART" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CART__USER__4D94879B" Association="Self.FK__CART__USER__4D94879B">
+            <End Role="ACCOUNT" EntitySet="ACCOUNT" />
+            <End Role="CART" EntitySet="CART" />
+          </AssociationSet>
+          <AssociationSet Name="FK__COMMENT__PRODUCT__46E78A0C" Association="Self.FK__COMMENT__PRODUCT__46E78A0C">
+            <End Role="PRODUCT" EntitySet="PRODUCT" />
+            <End Role="COMMENT" EntitySet="COMMENT" />
+          </AssociationSet>
+          <AssociationSet Name="FK__COMMENT__USER__45F365D3" Association="Self.FK__COMMENT__USER__45F365D3">
+            <End Role="ACCOUNT" EntitySet="ACCOUNT" />
+            <End Role="COMMENT" EntitySet="COMMENT" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CONFIGDET__CONFI__35BCFE0A" Association="Self.FK__CONFIGDET__CONFI__35BCFE0A">
+            <End Role="CONFIG" EntitySet="CONFIG" />
+            <End Role="CONFIGDETAIL" EntitySet="CONFIGDETAIL" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CONFIGDET__PRODU__34C8D9D1" Association="Self.FK__CONFIGDET__PRODU__34C8D9D1">
+            <End Role="PRODUCT" EntitySet="PRODUCT" />
+            <End Role="CONFIGDETAIL" EntitySet="CONFIGDETAIL" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PRODUCT__BRANDID__2F10007B" Association="Self.FK__PRODUCT__BRANDID__2F10007B">
+            <End Role="BRAND" EntitySet="BRAND" />
+            <End Role="PRODUCT" EntitySet="PRODUCT" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PRODUCT__PRODUCT__300424B4" Association="Self.FK__PRODUCT__PRODUCT__300424B4">
+            <End Role="PRODUCTTYPE" EntitySet="PRODUCTTYPE" />
+            <End Role="PRODUCT" EntitySet="PRODUCT" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RATINGPRO__PRODU__71D1E811" Association="Self.FK__RATINGPRO__PRODU__71D1E811">
+            <End Role="PRODUCT" EntitySet="PRODUCT" />
+            <End Role="RATINGPRODUCT" EntitySet="RATINGPRODUCT" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RATINGPROD__USER__70DDC3D8" Association="Self.FK__RATINGPROD__USER__70DDC3D8">
+            <End Role="ACCOUNT" EntitySet="ACCOUNT" />
+            <End Role="RATINGPRODUCT" EntitySet="RATINGPRODUCT" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TEMPPRODU__BRAND__2A4B4B5E" Association="Self.FK__TEMPPRODU__BRAND__2A4B4B5E">
+            <End Role="BRAND" EntitySet="BRAND" />
+            <End Role="TEMPPRODUCT" EntitySet="TEMPPRODUCT" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TEMPPRODU__PRODU__2B3F6F97" Association="Self.FK__TEMPPRODU__PRODU__2B3F6F97">
+            <End Role="PRODUCTTYPE" EntitySet="PRODUCTTYPE" />
+            <End Role="TEMPPRODUCT" EntitySet="TEMPPRODUCT" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VIEWNUMBE__PRODU__6E01572D" Association="Self.FK__VIEWNUMBE__PRODU__6E01572D">
+            <End Role="PRODUCT" EntitySet="PRODUCT" />
+            <End Role="VIEWNUMBER" EntitySet="VIEWNUMBER" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VIEWNUMBER__USER__6D0D32F4" Association="Self.FK__VIEWNUMBER__USER__6D0D32F4">
+            <End Role="ACCOUNT" EntitySet="ACCOUNT" />
+            <End Role="VIEWNUMBER" EntitySet="VIEWNUMBER" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VOCHERDET__VOUCH__59063A47" Association="Self.FK__VOCHERDET__VOUCH__59063A47">
+            <End Role="VOUCHER" EntitySet="VOUCHER" />
+            <End Role="VOCHERDETAIL" EntitySet="VOCHERDETAIL" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VOCHERDETA__USER__59FA5E80" Association="Self.FK__VOCHERDETA__USER__59FA5E80">
+            <End Role="ACCOUNT" EntitySet="ACCOUNT" />
+            <End Role="VOCHERDETAIL" EntitySet="VOCHERDETAIL" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="COVIDModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ACCOUNT">
+          <Key>
+            <PropertyRef Name="USER" />
+          </Key>
+          <Property Name="USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PASSWORD" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="FULLNAME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="STATUSACCOUNT" Type="Boolean" />
+          <Property Name="PHONENUMBER" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ACCOUNTLIKEs" Relationship="Self.FK__ACCOUNTLIK__USER__49C3F6B7" FromRole="ACCOUNT" ToRole="ACCOUNTLIKE" />
+          <NavigationProperty Name="CARTs" Relationship="Self.FK__CART__USER__4D94879B" FromRole="ACCOUNT" ToRole="CART" />
+          <NavigationProperty Name="COMMENTs" Relationship="Self.FK__COMMENT__USER__45F365D3" FromRole="ACCOUNT" ToRole="COMMENT" />
+          <NavigationProperty Name="VOCHERDETAILs" Relationship="Self.FK__VOCHERDETA__USER__59FA5E80" FromRole="ACCOUNT" ToRole="VOCHERDETAIL" />
+          <NavigationProperty Name="RATINGPRODUCTs" Relationship="COVIDModel.FK__RATINGPROD__USER__70DDC3D8" FromRole="ACCOUNT" ToRole="RATINGPRODUCT" />
+          <NavigationProperty Name="VIEWNUMBERs" Relationship="COVIDModel.FK__VIEWNUMBER__USER__6D0D32F4" FromRole="ACCOUNT" ToRole="VIEWNUMBER" />
+        </EntityType>
+        <EntityType Name="ACCOUNT_ADMIN">
+          <Key>
+            <PropertyRef Name="USER" />
+          </Key>
+          <Property Name="USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PASSWORD" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="FULLNAME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="STATUSACCOUNT" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="ACCOUNTLIKE">
+          <Key>
+            <PropertyRef Name="USER" />
+            <PropertyRef Name="PRODUCTID" />
+          </Key>
+          <Property Name="USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PRODUCTID" Type="Int32" Nullable="false" />
+          <Property Name="DATELIKE" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="ACCOUNT" Relationship="Self.FK__ACCOUNTLIK__USER__49C3F6B7" FromRole="ACCOUNTLIKE" ToRole="ACCOUNT" />
+          <NavigationProperty Name="PRODUCT" Relationship="Self.FK__ACCOUNTLI__PRODU__4AB81AF0" FromRole="ACCOUNTLIKE" ToRole="PRODUCT" />
+        </EntityType>
+        <EntityType Name="BILL">
+          <Key>
+            <PropertyRef Name="BILLID" />
+          </Key>
+          <Property Name="BILLID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ADDRESS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PHONENUMBERRECIVE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="DATECREATE" Type="DateTime" Precision="0" />
+          <Property Name="VOUCHERID" Type="Int32" />
+          <NavigationProperty Name="VOUCHER" Relationship="Self.FK__BILL__VOUCHERID__5629CD9C" FromRole="BILL" ToRole="VOUCHER" />
+          <NavigationProperty Name="BILLDETAILs" Relationship="Self.FK__BILLDETAI__BILLI__5CD6CB2B" FromRole="BILL" ToRole="BILLDETAIL" />
+        </EntityType>
+        <EntityType Name="BILLDETAIL">
+          <Key>
+            <PropertyRef Name="BILLID" />
+            <PropertyRef Name="PRODUCTID" />
+          </Key>
+          <Property Name="BILLID" Type="Int32" Nullable="false" />
+          <Property Name="PRODUCTID" Type="Int32" Nullable="false" />
+          <Property Name="AMOUNT" Type="Int32" />
+          <NavigationProperty Name="BILL" Relationship="Self.FK__BILLDETAI__BILLI__5CD6CB2B" FromRole="BILLDETAIL" ToRole="BILL" />
+          <NavigationProperty Name="PRODUCT" Relationship="Self.FK__BILLDETAI__PRODU__5DCAEF64" FromRole="BILLDETAIL" ToRole="PRODUCT" />
+        </EntityType>
+        <EntityType Name="BRAND">
+          <Key>
+            <PropertyRef Name="BRANDID" />
+          </Key>
+          <Property Name="BRANDID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BRANDNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="STATUSBRAND" Type="Boolean" />
+          <NavigationProperty Name="PRODUCTs" Relationship="Self.FK__PRODUCT__BRANDID__2F10007B" FromRole="BRAND" ToRole="PRODUCT" />
+          <NavigationProperty Name="TEMPPRODUCTs" Relationship="Self.FK__TEMPPRODU__BRAND__2A4B4B5E" FromRole="BRAND" ToRole="TEMPPRODUCT" />
+        </EntityType>
+        <EntityType Name="CART">
+          <Key>
+            <PropertyRef Name="USER" />
+            <PropertyRef Name="PRODUCTID" />
+          </Key>
+          <Property Name="USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PRODUCTID" Type="Int32" Nullable="false" />
+          <Property Name="AMOUNT" Type="Int32" />
+          <NavigationProperty Name="ACCOUNT" Relationship="Self.FK__CART__USER__4D94879B" FromRole="CART" ToRole="ACCOUNT" />
+          <NavigationProperty Name="PRODUCT" Relationship="Self.FK__CART__PRODUCTID__4E88ABD4" FromRole="CART" ToRole="PRODUCT" />
+        </EntityType>
+        <EntityType Name="COMMENT">
+          <Key>
+            <PropertyRef Name="COMMENTID" />
+          </Key>
+          <Property Name="COMMENTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PRODUCTID" Type="Int32" />
+          <Property Name="USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="COMMENTTEXT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ACCOUNT" Relationship="Self.FK__COMMENT__USER__45F365D3" FromRole="COMMENT" ToRole="ACCOUNT" />
+          <NavigationProperty Name="PRODUCT" Relationship="Self.FK__COMMENT__PRODUCT__46E78A0C" FromRole="COMMENT" ToRole="PRODUCT" />
+        </EntityType>
+        <EntityType Name="CONFIG">
+          <Key>
+            <PropertyRef Name="CONFIGNAME" />
+          </Key>
+          <Property Name="CONFIGNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DECRIPTIONCONFIGNAME" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CONFIGDETAILs" Relationship="Self.FK__CONFIGDET__CONFI__35BCFE0A" FromRole="CONFIG" ToRole="CONFIGDETAIL" />
+        </EntityType>
+        <EntityType Name="CONFIGDETAIL">
+          <Key>
+            <PropertyRef Name="PRODUCTID" />
+            <PropertyRef Name="CONFIGNAME" />
+          </Key>
+          <Property Name="PRODUCTID" Type="Int32" Nullable="false" />
+          <Property Name="CONFIGNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="INFORMATION" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CONFIG" Relationship="Self.FK__CONFIGDET__CONFI__35BCFE0A" FromRole="CONFIGDETAIL" ToRole="CONFIG" />
+          <NavigationProperty Name="PRODUCT" Relationship="Self.FK__CONFIGDET__PRODU__34C8D9D1" FromRole="CONFIGDETAIL" ToRole="PRODUCT" />
+        </EntityType>
+        <EntityType Name="PRODUCT">
+          <Key>
+            <PropertyRef Name="PRODUCTID" />
+          </Key>
+          <Property Name="PRODUCTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PRODUCTNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BRANDID" Type="Int32" />
+          <Property Name="PRODUCTTYPEID" Type="Int32" />
+          <Property Name="MAINPIC" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PIC1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PIC2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PIC3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PIC4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="STATUSPRODUCT" Type="Boolean" />
+          <Property Name="PRODUCTPRICE" Type="Int32" />
+          <Property Name="PRODUCTAMOUNT" Type="Int32" />
+          <Property Name="DECRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DATEADD" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="ACCOUNTLIKEs" Relationship="Self.FK__ACCOUNTLI__PRODU__4AB81AF0" FromRole="PRODUCT" ToRole="ACCOUNTLIKE" />
+          <NavigationProperty Name="BILLDETAILs" Relationship="Self.FK__BILLDETAI__PRODU__5DCAEF64" FromRole="PRODUCT" ToRole="BILLDETAIL" />
+          <NavigationProperty Name="BRAND" Relationship="Self.FK__PRODUCT__BRANDID__2F10007B" FromRole="PRODUCT" ToRole="BRAND" />
+          <NavigationProperty Name="CARTs" Relationship="Self.FK__CART__PRODUCTID__4E88ABD4" FromRole="PRODUCT" ToRole="CART" />
+          <NavigationProperty Name="COMMENTs" Relationship="Self.FK__COMMENT__PRODUCT__46E78A0C" FromRole="PRODUCT" ToRole="COMMENT" />
+          <NavigationProperty Name="CONFIGDETAILs" Relationship="Self.FK__CONFIGDET__PRODU__34C8D9D1" FromRole="PRODUCT" ToRole="CONFIGDETAIL" />
+          <NavigationProperty Name="PRODUCTTYPE" Relationship="Self.FK__PRODUCT__PRODUCT__300424B4" FromRole="PRODUCT" ToRole="PRODUCTTYPE" />
+          <NavigationProperty Name="RATINGPRODUCTs" Relationship="COVIDModel.FK__RATINGPRO__PRODU__71D1E811" FromRole="PRODUCT" ToRole="RATINGPRODUCT" />
+          <NavigationProperty Name="VIEWNUMBERs" Relationship="COVIDModel.FK__VIEWNUMBE__PRODU__6E01572D" FromRole="PRODUCT" ToRole="VIEWNUMBER" />
+        </EntityType>
+        <EntityType Name="PRODUCTTYPE">
+          <Key>
+            <PropertyRef Name="PRODUCTTYPEID" />
+          </Key>
+          <Property Name="PRODUCTTYPEID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PRODUCTTYPENAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="STATUSPRODUCTTYPE" Type="Boolean" />
+          <NavigationProperty Name="PRODUCTs" Relationship="Self.FK__PRODUCT__PRODUCT__300424B4" FromRole="PRODUCTTYPE" ToRole="PRODUCT" />
+          <NavigationProperty Name="TEMPPRODUCTs" Relationship="Self.FK__TEMPPRODU__PRODU__2B3F6F97" FromRole="PRODUCTTYPE" ToRole="TEMPPRODUCT" />
+        </EntityType>
+        <EntityType Name="TEMPPRODUCT">
+          <Key>
+            <PropertyRef Name="PRODUCTTYPEID" />
+            <PropertyRef Name="BRANDID" />
+          </Key>
+          <Property Name="PRODUCTTYPEID" Type="Int32" Nullable="false" />
+          <Property Name="BRANDID" Type="Int32" Nullable="false" />
+          <Property Name="TEMPPRODUCTSTATUS" Type="Boolean" />
+          <NavigationProperty Name="BRAND" Relationship="Self.FK__TEMPPRODU__BRAND__2A4B4B5E" FromRole="TEMPPRODUCT" ToRole="BRAND" />
+          <NavigationProperty Name="PRODUCTTYPE" Relationship="Self.FK__TEMPPRODU__PRODU__2B3F6F97" FromRole="TEMPPRODUCT" ToRole="PRODUCTTYPE" />
+        </EntityType>
+        <EntityType Name="VOCHERDETAIL">
+          <Key>
+            <PropertyRef Name="VOUCHERID" />
+            <PropertyRef Name="USER" />
+          </Key>
+          <Property Name="VOUCHERID" Type="Int32" Nullable="false" />
+          <Property Name="USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DATEENDTIRE" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="ACCOUNT" Relationship="Self.FK__VOCHERDETA__USER__59FA5E80" FromRole="VOCHERDETAIL" ToRole="ACCOUNT" />
+          <NavigationProperty Name="VOUCHER" Relationship="Self.FK__VOCHERDET__VOUCH__59063A47" FromRole="VOCHERDETAIL" ToRole="VOUCHER" />
+        </EntityType>
+        <EntityType Name="VOUCHER">
+          <Key>
+            <PropertyRef Name="VOUCHERID" />
+          </Key>
+          <Property Name="VOUCHERID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DECRIPTIONVOUCHER" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DATEENDTIRE" Type="DateTime" Precision="0" />
+          <Property Name="STATUSVOUCHER" Type="Boolean" />
+          <NavigationProperty Name="BILLs" Relationship="Self.FK__BILL__VOUCHERID__5629CD9C" FromRole="VOUCHER" ToRole="BILL" />
+          <NavigationProperty Name="VOCHERDETAILs" Relationship="Self.FK__VOCHERDET__VOUCH__59063A47" FromRole="VOUCHER" ToRole="VOCHERDETAIL" />
+        </EntityType>
+        <Association Name="FK__ACCOUNTLIK__USER__49C3F6B7">
+          <End Role="ACCOUNT" Type="Self.ACCOUNT" Multiplicity="1" />
+          <End Role="ACCOUNTLIKE" Type="Self.ACCOUNTLIKE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ACCOUNT">
+              <PropertyRef Name="USER" />
+            </Principal>
+            <Dependent Role="ACCOUNTLIKE">
+              <PropertyRef Name="USER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CART__USER__4D94879B">
+          <End Role="ACCOUNT" Type="Self.ACCOUNT" Multiplicity="1" />
+          <End Role="CART" Type="Self.CART" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ACCOUNT">
+              <PropertyRef Name="USER" />
+            </Principal>
+            <Dependent Role="CART">
+              <PropertyRef Name="USER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__COMMENT__USER__45F365D3">
+          <End Role="ACCOUNT" Type="Self.ACCOUNT" Multiplicity="0..1" />
+          <End Role="COMMENT" Type="Self.COMMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ACCOUNT">
+              <PropertyRef Name="USER" />
+            </Principal>
+            <Dependent Role="COMMENT">
+              <PropertyRef Name="USER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__VOCHERDETA__USER__59FA5E80">
+          <End Role="ACCOUNT" Type="Self.ACCOUNT" Multiplicity="1" />
+          <End Role="VOCHERDETAIL" Type="Self.VOCHERDETAIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ACCOUNT">
+              <PropertyRef Name="USER" />
+            </Principal>
+            <Dependent Role="VOCHERDETAIL">
+              <PropertyRef Name="USER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ACCOUNTLI__PRODU__4AB81AF0">
+          <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
+          <End Role="ACCOUNTLIKE" Type="Self.ACCOUNTLIKE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCT">
+              <PropertyRef Name="PRODUCTID" />
+            </Principal>
+            <Dependent Role="ACCOUNTLIKE">
+              <PropertyRef Name="PRODUCTID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BILL__VOUCHERID__5629CD9C">
+          <End Role="VOUCHER" Type="Self.VOUCHER" Multiplicity="0..1" />
+          <End Role="BILL" Type="Self.BILL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VOUCHER">
+              <PropertyRef Name="VOUCHERID" />
+            </Principal>
+            <Dependent Role="BILL">
+              <PropertyRef Name="VOUCHERID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BILLDETAI__BILLI__5CD6CB2B">
+          <End Role="BILL" Type="Self.BILL" Multiplicity="1" />
+          <End Role="BILLDETAIL" Type="Self.BILLDETAIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BILL">
+              <PropertyRef Name="BILLID" />
+            </Principal>
+            <Dependent Role="BILLDETAIL">
+              <PropertyRef Name="BILLID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BILLDETAI__PRODU__5DCAEF64">
+          <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
+          <End Role="BILLDETAIL" Type="Self.BILLDETAIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCT">
+              <PropertyRef Name="PRODUCTID" />
+            </Principal>
+            <Dependent Role="BILLDETAIL">
+              <PropertyRef Name="PRODUCTID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PRODUCT__BRANDID__2F10007B">
+          <End Role="BRAND" Type="Self.BRAND" Multiplicity="0..1" />
+          <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BRAND">
+              <PropertyRef Name="BRANDID" />
+            </Principal>
+            <Dependent Role="PRODUCT">
+              <PropertyRef Name="BRANDID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TEMPPRODU__BRAND__2A4B4B5E">
+          <End Role="BRAND" Type="Self.BRAND" Multiplicity="1" />
+          <End Role="TEMPPRODUCT" Type="Self.TEMPPRODUCT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BRAND">
+              <PropertyRef Name="BRANDID" />
+            </Principal>
+            <Dependent Role="TEMPPRODUCT">
+              <PropertyRef Name="BRANDID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CART__PRODUCTID__4E88ABD4">
+          <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
+          <End Role="CART" Type="Self.CART" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCT">
+              <PropertyRef Name="PRODUCTID" />
+            </Principal>
+            <Dependent Role="CART">
+              <PropertyRef Name="PRODUCTID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__COMMENT__PRODUCT__46E78A0C">
+          <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="0..1" />
+          <End Role="COMMENT" Type="Self.COMMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCT">
+              <PropertyRef Name="PRODUCTID" />
+            </Principal>
+            <Dependent Role="COMMENT">
+              <PropertyRef Name="PRODUCTID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CONFIGDET__CONFI__35BCFE0A">
+          <End Role="CONFIG" Type="Self.CONFIG" Multiplicity="1" />
+          <End Role="CONFIGDETAIL" Type="Self.CONFIGDETAIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CONFIG">
+              <PropertyRef Name="CONFIGNAME" />
+            </Principal>
+            <Dependent Role="CONFIGDETAIL">
+              <PropertyRef Name="CONFIGNAME" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CONFIGDET__PRODU__34C8D9D1">
+          <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
+          <End Role="CONFIGDETAIL" Type="Self.CONFIGDETAIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCT">
+              <PropertyRef Name="PRODUCTID" />
+            </Principal>
+            <Dependent Role="CONFIGDETAIL">
+              <PropertyRef Name="PRODUCTID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PRODUCT__PRODUCT__300424B4">
+          <End Role="PRODUCTTYPE" Type="Self.PRODUCTTYPE" Multiplicity="0..1" />
+          <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCTTYPE">
+              <PropertyRef Name="PRODUCTTYPEID" />
+            </Principal>
+            <Dependent Role="PRODUCT">
+              <PropertyRef Name="PRODUCTTYPEID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TEMPPRODU__PRODU__2B3F6F97">
+          <End Role="PRODUCTTYPE" Type="Self.PRODUCTTYPE" Multiplicity="1" />
+          <End Role="TEMPPRODUCT" Type="Self.TEMPPRODUCT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCTTYPE">
+              <PropertyRef Name="PRODUCTTYPEID" />
+            </Principal>
+            <Dependent Role="TEMPPRODUCT">
+              <PropertyRef Name="PRODUCTTYPEID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__VOCHERDET__VOUCH__59063A47">
+          <End Role="VOUCHER" Type="Self.VOUCHER" Multiplicity="1" />
+          <End Role="VOCHERDETAIL" Type="Self.VOCHERDETAIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VOUCHER">
+              <PropertyRef Name="VOUCHERID" />
+            </Principal>
+            <Dependent Role="VOCHERDETAIL">
+              <PropertyRef Name="VOUCHERID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="COVIDEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ACCOUNTs" EntityType="Self.ACCOUNT" />
+          <EntitySet Name="ACCOUNT_ADMIN" EntityType="Self.ACCOUNT_ADMIN" />
+          <EntitySet Name="ACCOUNTLIKEs" EntityType="Self.ACCOUNTLIKE" />
+          <EntitySet Name="BILLs" EntityType="Self.BILL" />
+          <EntitySet Name="BILLDETAILs" EntityType="Self.BILLDETAIL" />
+          <EntitySet Name="BRANDs" EntityType="Self.BRAND" />
+          <EntitySet Name="CARTs" EntityType="Self.CART" />
+          <EntitySet Name="COMMENTs" EntityType="Self.COMMENT" />
+          <EntitySet Name="CONFIGs" EntityType="Self.CONFIG" />
+          <EntitySet Name="CONFIGDETAILs" EntityType="Self.CONFIGDETAIL" />
+          <EntitySet Name="PRODUCTs" EntityType="Self.PRODUCT" />
+          <EntitySet Name="PRODUCTTYPEs" EntityType="Self.PRODUCTTYPE" />
+          <EntitySet Name="TEMPPRODUCTs" EntityType="Self.TEMPPRODUCT" />
+          <EntitySet Name="VOCHERDETAILs" EntityType="Self.VOCHERDETAIL" />
+          <EntitySet Name="VOUCHERs" EntityType="Self.VOUCHER" />
+          <AssociationSet Name="FK__ACCOUNTLIK__USER__49C3F6B7" Association="Self.FK__ACCOUNTLIK__USER__49C3F6B7">
+            <End Role="ACCOUNT" EntitySet="ACCOUNTs" />
+            <End Role="ACCOUNTLIKE" EntitySet="ACCOUNTLIKEs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CART__USER__4D94879B" Association="Self.FK__CART__USER__4D94879B">
+            <End Role="ACCOUNT" EntitySet="ACCOUNTs" />
+            <End Role="CART" EntitySet="CARTs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__COMMENT__USER__45F365D3" Association="Self.FK__COMMENT__USER__45F365D3">
+            <End Role="ACCOUNT" EntitySet="ACCOUNTs" />
+            <End Role="COMMENT" EntitySet="COMMENTs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VOCHERDETA__USER__59FA5E80" Association="Self.FK__VOCHERDETA__USER__59FA5E80">
+            <End Role="ACCOUNT" EntitySet="ACCOUNTs" />
+            <End Role="VOCHERDETAIL" EntitySet="VOCHERDETAILs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ACCOUNTLI__PRODU__4AB81AF0" Association="Self.FK__ACCOUNTLI__PRODU__4AB81AF0">
+            <End Role="PRODUCT" EntitySet="PRODUCTs" />
+            <End Role="ACCOUNTLIKE" EntitySet="ACCOUNTLIKEs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BILL__VOUCHERID__5629CD9C" Association="Self.FK__BILL__VOUCHERID__5629CD9C">
+            <End Role="VOUCHER" EntitySet="VOUCHERs" />
+            <End Role="BILL" EntitySet="BILLs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BILLDETAI__BILLI__5CD6CB2B" Association="Self.FK__BILLDETAI__BILLI__5CD6CB2B">
+            <End Role="BILL" EntitySet="BILLs" />
+            <End Role="BILLDETAIL" EntitySet="BILLDETAILs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BILLDETAI__PRODU__5DCAEF64" Association="Self.FK__BILLDETAI__PRODU__5DCAEF64">
+            <End Role="PRODUCT" EntitySet="PRODUCTs" />
+            <End Role="BILLDETAIL" EntitySet="BILLDETAILs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PRODUCT__BRANDID__2F10007B" Association="Self.FK__PRODUCT__BRANDID__2F10007B">
+            <End Role="BRAND" EntitySet="BRANDs" />
+            <End Role="PRODUCT" EntitySet="PRODUCTs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TEMPPRODU__BRAND__2A4B4B5E" Association="Self.FK__TEMPPRODU__BRAND__2A4B4B5E">
+            <End Role="BRAND" EntitySet="BRANDs" />
+            <End Role="TEMPPRODUCT" EntitySet="TEMPPRODUCTs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CART__PRODUCTID__4E88ABD4" Association="Self.FK__CART__PRODUCTID__4E88ABD4">
+            <End Role="PRODUCT" EntitySet="PRODUCTs" />
+            <End Role="CART" EntitySet="CARTs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__COMMENT__PRODUCT__46E78A0C" Association="Self.FK__COMMENT__PRODUCT__46E78A0C">
+            <End Role="PRODUCT" EntitySet="PRODUCTs" />
+            <End Role="COMMENT" EntitySet="COMMENTs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CONFIGDET__CONFI__35BCFE0A" Association="Self.FK__CONFIGDET__CONFI__35BCFE0A">
+            <End Role="CONFIG" EntitySet="CONFIGs" />
+            <End Role="CONFIGDETAIL" EntitySet="CONFIGDETAILs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CONFIGDET__PRODU__34C8D9D1" Association="Self.FK__CONFIGDET__PRODU__34C8D9D1">
+            <End Role="PRODUCT" EntitySet="PRODUCTs" />
+            <End Role="CONFIGDETAIL" EntitySet="CONFIGDETAILs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PRODUCT__PRODUCT__300424B4" Association="Self.FK__PRODUCT__PRODUCT__300424B4">
+            <End Role="PRODUCTTYPE" EntitySet="PRODUCTTYPEs" />
+            <End Role="PRODUCT" EntitySet="PRODUCTs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TEMPPRODU__PRODU__2B3F6F97" Association="Self.FK__TEMPPRODU__PRODU__2B3F6F97">
+            <End Role="PRODUCTTYPE" EntitySet="PRODUCTTYPEs" />
+            <End Role="TEMPPRODUCT" EntitySet="TEMPPRODUCTs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VOCHERDET__VOUCH__59063A47" Association="Self.FK__VOCHERDET__VOUCH__59063A47">
+            <End Role="VOUCHER" EntitySet="VOUCHERs" />
+            <End Role="VOCHERDETAIL" EntitySet="VOCHERDETAILs" />
+          </AssociationSet>
+          <FunctionImport Name="CheckLogin" ReturnType="Collection(String)">
+            <Parameter Name="username" Mode="In" Type="String" />
+            <Parameter Name="password" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="RATINGPRODUCTs" EntityType="COVIDModel.RATINGPRODUCT" />
+          <EntitySet Name="VIEWNUMBERs" EntityType="COVIDModel.VIEWNUMBER" />
+          <AssociationSet Name="FK__RATINGPROD__USER__70DDC3D8" Association="COVIDModel.FK__RATINGPROD__USER__70DDC3D8">
+            <End Role="ACCOUNT" EntitySet="ACCOUNTs" />
+            <End Role="RATINGPRODUCT" EntitySet="RATINGPRODUCTs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VIEWNUMBER__USER__6D0D32F4" Association="COVIDModel.FK__VIEWNUMBER__USER__6D0D32F4">
+            <End Role="ACCOUNT" EntitySet="ACCOUNTs" />
+            <End Role="VIEWNUMBER" EntitySet="VIEWNUMBERs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RATINGPRO__PRODU__71D1E811" Association="COVIDModel.FK__RATINGPRO__PRODU__71D1E811">
+            <End Role="PRODUCT" EntitySet="PRODUCTs" />
+            <End Role="RATINGPRODUCT" EntitySet="RATINGPRODUCTs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VIEWNUMBE__PRODU__6E01572D" Association="COVIDModel.FK__VIEWNUMBE__PRODU__6E01572D">
+            <End Role="PRODUCT" EntitySet="PRODUCTs" />
+            <End Role="VIEWNUMBER" EntitySet="VIEWNUMBERs" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="RATINGPRODUCT">
+          <Key>
+            <PropertyRef Name="USER" />
+            <PropertyRef Name="PRODUCTID" />
+          </Key>
+          <Property Name="USER" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="PRODUCTID" Type="Int32" Nullable="false" />
+          <Property Name="RATE" Type="Double" />
+          <NavigationProperty Name="ACCOUNT" Relationship="COVIDModel.FK__RATINGPROD__USER__70DDC3D8" FromRole="RATINGPRODUCT" ToRole="ACCOUNT" />
+          <NavigationProperty Name="PRODUCT" Relationship="COVIDModel.FK__RATINGPRO__PRODU__71D1E811" FromRole="RATINGPRODUCT" ToRole="PRODUCT" />
+        </EntityType>
+        <EntityType Name="VIEWNUMBER">
+          <Key>
+            <PropertyRef Name="USER" />
+            <PropertyRef Name="PRODUCTID" />
+          </Key>
+          <Property Name="USER" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="PRODUCTID" Type="Int32" Nullable="false" />
+          <Property Name="DATESEEN" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="ACCOUNT" Relationship="COVIDModel.FK__VIEWNUMBER__USER__6D0D32F4" FromRole="VIEWNUMBER" ToRole="ACCOUNT" />
+          <NavigationProperty Name="PRODUCT" Relationship="COVIDModel.FK__VIEWNUMBE__PRODU__6E01572D" FromRole="VIEWNUMBER" ToRole="PRODUCT" />
+        </EntityType>
+        <Association Name="FK__RATINGPROD__USER__70DDC3D8">
+          <End Type="COVIDModel.ACCOUNT" Role="ACCOUNT" Multiplicity="1" />
+          <End Type="COVIDModel.RATINGPRODUCT" Role="RATINGPRODUCT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ACCOUNT">
+              <PropertyRef Name="USER" />
+            </Principal>
+            <Dependent Role="RATINGPRODUCT">
+              <PropertyRef Name="USER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__VIEWNUMBER__USER__6D0D32F4">
+          <End Type="COVIDModel.ACCOUNT" Role="ACCOUNT" Multiplicity="1" />
+          <End Type="COVIDModel.VIEWNUMBER" Role="VIEWNUMBER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ACCOUNT">
+              <PropertyRef Name="USER" />
+            </Principal>
+            <Dependent Role="VIEWNUMBER">
+              <PropertyRef Name="USER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RATINGPRO__PRODU__71D1E811">
+          <End Type="COVIDModel.PRODUCT" Role="PRODUCT" Multiplicity="1" />
+          <End Type="COVIDModel.RATINGPRODUCT" Role="RATINGPRODUCT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCT">
+              <PropertyRef Name="PRODUCTID" />
+            </Principal>
+            <Dependent Role="RATINGPRODUCT">
+              <PropertyRef Name="PRODUCTID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__VIEWNUMBE__PRODU__6E01572D">
+          <End Type="COVIDModel.PRODUCT" Role="PRODUCT" Multiplicity="1" />
+          <End Type="COVIDModel.VIEWNUMBER" Role="VIEWNUMBER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCT">
+              <PropertyRef Name="PRODUCTID" />
+            </Principal>
+            <Dependent Role="VIEWNUMBER">
+              <PropertyRef Name="PRODUCTID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="COVIDModelStoreContainer" CdmEntityContainer="COVIDEntities">
+          <EntitySetMapping Name="ACCOUNTs">
+            <EntityTypeMapping TypeName="COVIDModel.ACCOUNT">
+              <MappingFragment StoreEntitySet="ACCOUNT">
+                <ScalarProperty Name="USER" ColumnName="USER" />
+                <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+                <ScalarProperty Name="FULLNAME" ColumnName="FULLNAME" />
+                <ScalarProperty Name="STATUSACCOUNT" ColumnName="STATUSACCOUNT" />
+                <ScalarProperty Name="PHONENUMBER" ColumnName="PHONENUMBER" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ACCOUNT_ADMIN">
+            <EntityTypeMapping TypeName="COVIDModel.ACCOUNT_ADMIN">
+              <MappingFragment StoreEntitySet="ACCOUNT_ADMIN">
+                <ScalarProperty Name="USER" ColumnName="USER" />
+                <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+                <ScalarProperty Name="FULLNAME" ColumnName="FULLNAME" />
+                <ScalarProperty Name="STATUSACCOUNT" ColumnName="STATUSACCOUNT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ACCOUNTLIKEs">
+            <EntityTypeMapping TypeName="COVIDModel.ACCOUNTLIKE">
+              <MappingFragment StoreEntitySet="ACCOUNTLIKE">
+                <ScalarProperty Name="USER" ColumnName="USER" />
+                <ScalarProperty Name="PRODUCTID" ColumnName="PRODUCTID" />
+                <ScalarProperty Name="DATELIKE" ColumnName="DATELIKE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BILLs">
+            <EntityTypeMapping TypeName="COVIDModel.BILL">
+              <MappingFragment StoreEntitySet="BILL">
+                <ScalarProperty Name="BILLID" ColumnName="BILLID" />
+                <ScalarProperty Name="USER" ColumnName="USER" />
+                <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+                <ScalarProperty Name="PHONENUMBERRECIVE" ColumnName="PHONENUMBERRECIVE" />
+                <ScalarProperty Name="DATECREATE" ColumnName="DATECREATE" />
+                <ScalarProperty Name="VOUCHERID" ColumnName="VOUCHERID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BILLDETAILs">
+            <EntityTypeMapping TypeName="COVIDModel.BILLDETAIL">
+              <MappingFragment StoreEntitySet="BILLDETAIL">
+                <ScalarProperty Name="BILLID" ColumnName="BILLID" />
+                <ScalarProperty Name="PRODUCTID" ColumnName="PRODUCTID" />
+                <ScalarProperty Name="AMOUNT" ColumnName="AMOUNT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BRANDs">
+            <EntityTypeMapping TypeName="COVIDModel.BRAND">
+              <MappingFragment StoreEntitySet="BRAND">
+                <ScalarProperty Name="BRANDID" ColumnName="BRANDID" />
+                <ScalarProperty Name="BRANDNAME" ColumnName="BRANDNAME" />
+                <ScalarProperty Name="STATUSBRAND" ColumnName="STATUSBRAND" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CARTs">
+            <EntityTypeMapping TypeName="COVIDModel.CART">
+              <MappingFragment StoreEntitySet="CART">
+                <ScalarProperty Name="USER" ColumnName="USER" />
+                <ScalarProperty Name="PRODUCTID" ColumnName="PRODUCTID" />
+                <ScalarProperty Name="AMOUNT" ColumnName="AMOUNT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="COMMENTs">
+            <EntityTypeMapping TypeName="COVIDModel.COMMENT">
+              <MappingFragment StoreEntitySet="COMMENT">
+                <ScalarProperty Name="COMMENTID" ColumnName="COMMENTID" />
+                <ScalarProperty Name="PRODUCTID" ColumnName="PRODUCTID" />
+                <ScalarProperty Name="USER" ColumnName="USER" />
+                <ScalarProperty Name="COMMENTTEXT" ColumnName="COMMENTTEXT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CONFIGs">
+            <EntityTypeMapping TypeName="COVIDModel.CONFIG">
+              <MappingFragment StoreEntitySet="CONFIG">
+                <ScalarProperty Name="CONFIGNAME" ColumnName="CONFIGNAME" />
+                <ScalarProperty Name="DECRIPTIONCONFIGNAME" ColumnName="DECRIPTIONCONFIGNAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CONFIGDETAILs">
+            <EntityTypeMapping TypeName="COVIDModel.CONFIGDETAIL">
+              <MappingFragment StoreEntitySet="CONFIGDETAIL">
+                <ScalarProperty Name="PRODUCTID" ColumnName="PRODUCTID" />
+                <ScalarProperty Name="CONFIGNAME" ColumnName="CONFIGNAME" />
+                <ScalarProperty Name="INFORMATION" ColumnName="INFORMATION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PRODUCTs">
+            <EntityTypeMapping TypeName="COVIDModel.PRODUCT">
+              <MappingFragment StoreEntitySet="PRODUCT">
+                <ScalarProperty Name="PRODUCTID" ColumnName="PRODUCTID" />
+                <ScalarProperty Name="PRODUCTNAME" ColumnName="PRODUCTNAME" />
+                <ScalarProperty Name="BRANDID" ColumnName="BRANDID" />
+                <ScalarProperty Name="PRODUCTTYPEID" ColumnName="PRODUCTTYPEID" />
+                <ScalarProperty Name="MAINPIC" ColumnName="MAINPIC" />
+                <ScalarProperty Name="PIC1" ColumnName="PIC1" />
+                <ScalarProperty Name="PIC2" ColumnName="PIC2" />
+                <ScalarProperty Name="PIC3" ColumnName="PIC3" />
+                <ScalarProperty Name="PIC4" ColumnName="PIC4" />
+                <ScalarProperty Name="STATUSPRODUCT" ColumnName="STATUSPRODUCT" />
+                <ScalarProperty Name="PRODUCTPRICE" ColumnName="PRODUCTPRICE" />
+                <ScalarProperty Name="PRODUCTAMOUNT" ColumnName="PRODUCTAMOUNT" />
+                <ScalarProperty Name="DECRIPTION" ColumnName="DECRIPTION" />
+                <ScalarProperty Name="DATEADD" ColumnName="DATEADD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PRODUCTTYPEs">
+            <EntityTypeMapping TypeName="COVIDModel.PRODUCTTYPE">
+              <MappingFragment StoreEntitySet="PRODUCTTYPE">
+                <ScalarProperty Name="PRODUCTTYPEID" ColumnName="PRODUCTTYPEID" />
+                <ScalarProperty Name="PRODUCTTYPENAME" ColumnName="PRODUCTTYPENAME" />
+                <ScalarProperty Name="STATUSPRODUCTTYPE" ColumnName="STATUSPRODUCTTYPE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TEMPPRODUCTs">
+            <EntityTypeMapping TypeName="COVIDModel.TEMPPRODUCT">
+              <MappingFragment StoreEntitySet="TEMPPRODUCT">
+                <ScalarProperty Name="PRODUCTTYPEID" ColumnName="PRODUCTTYPEID" />
+                <ScalarProperty Name="BRANDID" ColumnName="BRANDID" />
+                <ScalarProperty Name="TEMPPRODUCTSTATUS" ColumnName="TEMPPRODUCTSTATUS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VOCHERDETAILs">
+            <EntityTypeMapping TypeName="COVIDModel.VOCHERDETAIL">
+              <MappingFragment StoreEntitySet="VOCHERDETAIL">
+                <ScalarProperty Name="VOUCHERID" ColumnName="VOUCHERID" />
+                <ScalarProperty Name="USER" ColumnName="USER" />
+                <ScalarProperty Name="DATEENDTIRE" ColumnName="DATEENDTIRE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VOUCHERs">
+            <EntityTypeMapping TypeName="COVIDModel.VOUCHER">
+              <MappingFragment StoreEntitySet="VOUCHER">
+                <ScalarProperty Name="VOUCHERID" ColumnName="VOUCHERID" />
+                <ScalarProperty Name="DECRIPTIONVOUCHER" ColumnName="DECRIPTIONVOUCHER" />
+                <ScalarProperty Name="DATEENDTIRE" ColumnName="DATEENDTIRE" />
+                <ScalarProperty Name="STATUSVOUCHER" ColumnName="STATUSVOUCHER" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="CheckLogin" FunctionName="COVIDModel.Store.CheckLogin" />
+          <EntitySetMapping Name="RATINGPRODUCTs">
+            <EntityTypeMapping TypeName="COVIDModel.RATINGPRODUCT">
+              <MappingFragment StoreEntitySet="RATINGPRODUCT">
+                <ScalarProperty Name="RATE" ColumnName="RATE" />
+                <ScalarProperty Name="PRODUCTID" ColumnName="PRODUCTID" />
+                <ScalarProperty Name="USER" ColumnName="USER" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VIEWNUMBERs">
+            <EntityTypeMapping TypeName="COVIDModel.VIEWNUMBER">
+              <MappingFragment StoreEntitySet="VIEWNUMBER">
+                <ScalarProperty Name="DATESEEN" ColumnName="DATESEEN" />
+                <ScalarProperty Name="PRODUCTID" ColumnName="PRODUCTID" />
+                <ScalarProperty Name="USER" ColumnName="USER" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
