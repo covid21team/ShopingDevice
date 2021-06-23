@@ -56,6 +56,25 @@ function Functionclick3(){
     modal1.style.display = "block";
    
 }
+
+function Functionclick4(){
+
+    var x = document.getElementById("TxtBoxBrand");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+   
+}
+
+function Functionclick5(){
+
+    var x = document.getElementById("TxtBoxBrand");
+      x.style.display = "none";
+   
+}
+
 $("#edit").click(function(){
     $('#edit').css({"background": "#d6dee9"});
        $('#btn_addConfig').css({"background": "white"});
