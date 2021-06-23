@@ -3,12 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TSP_Covid21.Models.BUS;
 
 namespace TSP_Covid21.Controllers
 {
     public class Covid21Controller : Controller
     {
         // GET: Covid21
+
+        Product_BUS PB;
+
+        public Covid21Controller()
+        {
+            PB = new Product_BUS();
+        }
+
         public ActionResult Home()
         {
             return View();
@@ -50,6 +59,13 @@ namespace TSP_Covid21.Controllers
             var result = db.loadProductCart(user);
 
             return View(result);
+        }
+
+        public ActionResult delProduct_Cart(int productId, string user)
+        {
+            PB.delProduct_Cart(productId, user);
+
+            return RedirectToAction("Cart","Covid21", new { user = user});
         }
     }
 }

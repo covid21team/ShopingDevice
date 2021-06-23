@@ -42,6 +42,8 @@ namespace TSP_Covid21.Models.ShopEntity
         public virtual DbSet<TEMPPRODUCT> TEMPPRODUCTs { get; set; }
         public virtual DbSet<VOCHERDETAIL> VOCHERDETAILs { get; set; }
         public virtual DbSet<VOUCHER> VOUCHERs { get; set; }
+        public virtual DbSet<RATINGPRODUCT> RATINGPRODUCTs { get; set; }
+        public virtual DbSet<VIEWNUMBER> VIEWNUMBERs { get; set; }
     
         public virtual ObjectResult<string> CheckLogin(string username, string password)
         {

@@ -178,6 +178,9 @@
     <Compile Include="Models\ShopEntity\PRODUCTTYPE.cs">
       <DependentUpon>ShopEntity.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ShopEntity\RATINGPRODUCT.cs">
+      <DependentUpon>ShopEntity.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ShopEntity\ShopEntity.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -194,6 +197,9 @@
       <DependentUpon>ShopEntity.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\ShopEntity\TEMPPRODUCT.cs">
+      <DependentUpon>ShopEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ShopEntity\VIEWNUMBER.cs">
       <DependentUpon>ShopEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ShopEntity\VOCHERDETAIL.cs">
@@ -464,6 +470,8 @@
     <Content Include="Asset\JS\CountDownTimer.js" />
     <Content Include="Asset\JS\jquery.min.js" />
     <Content Include="Asset\JS\jquery.zoom.min.js" />
+    <Content Include="Asset\JS\library_number_cart.js" />
+    <Content Include="Asset\JS\Login.js" />
     <Content Include="Asset\JS\main.js" />
     <Content Include="Asset\JS\nouislider.min.js" />
     <Content Include="Asset\JS\password.js" />

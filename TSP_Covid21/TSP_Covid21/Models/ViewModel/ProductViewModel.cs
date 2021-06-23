@@ -18,7 +18,6 @@ namespace TSP_Covid21.Models.ViewModel
         public string Pic3 { set; get; }
         public string Pic4 { set; get; }
         public Nullable<int> ProductPrice { set; get; }
-        public Nullable<int> ProductView { set; get; }
         public Nullable<int> ProductAmount { set; get; }
         public string Decription { set; get; }
         public Nullable<DateTime> DateAdd { set; get; }

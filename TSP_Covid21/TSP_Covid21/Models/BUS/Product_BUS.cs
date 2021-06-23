@@ -30,14 +30,14 @@ namespace TSP_Covid21.Models.BUS
         // Load product top sale
         public IEnumerable<PRODUCT> loadProductTop()
         {
-            var result = db.PRODUCTs.OrderByDescending(t => t.PRODUCTVIEW).Take(5);
+            var result = db.PRODUCTs.OrderByDescending(t => t.PRODUCTID).Take(5);
             return result;
         }
 
         // Load product top sale at page product
         public IEnumerable<PRODUCT> loadProductTop_Product(int page, int pagesize)
         {
-            var result = db.PRODUCTs.OrderByDescending(t => t.PRODUCTVIEW).Take(3);
+            var result = db.PRODUCTs.OrderByDescending(t => t.PRODUCTID).Take(3);
             return result.ToPagedList(page, pagesize);
         }
 
@@ -92,7 +92,6 @@ namespace TSP_Covid21.Models.BUS
                              Pic3 = a.PIC3,
                              Pic4 = a.PIC4,
                              ProductPrice = a.PRODUCTPRICE,
-                             ProductView = a.PRODUCTVIEW,
                              ProductAmount = a.PRODUCTAMOUNT,
                              Decription = a.DECRIPTION,
                              DateAdd = a.DATEADD,
@@ -131,7 +130,6 @@ namespace TSP_Covid21.Models.BUS
                               Pic3 = a.PIC3,
                               Pic4 = a.PIC4,
                               ProductPrice = a.PRODUCTPRICE,
-                              ProductView = a.PRODUCTVIEW,
                               ProductAmount = a.PRODUCTAMOUNT,
                               Decription = a.DECRIPTION,
                               DateAdd = a.DATEADD,
@@ -161,7 +159,6 @@ namespace TSP_Covid21.Models.BUS
                            Pic3 = a.PIC3,
                            Pic4 = a.PIC4,
                            ProductPrice = a.PRODUCTPRICE,
-                           ProductView = a.PRODUCTVIEW,
                            ProductAmount = b.AMOUNT,
                            Decription = a.DECRIPTION,
                            DateAdd = a.DATEADD,
@@ -208,6 +205,13 @@ namespace TSP_Covid21.Models.BUS
                              TempProduct = a.TEMPPRODUCTs
                          };
             return result;
+        }
+
+        public void delProduct_Cart(int productId, string user)
+        {
+            CART c = db.CARTs.Where(p => p.PRODUCTID == productId && p.USER == user).SingleOrDefault();
+            db.CARTs.Remove(c);
+            db.SaveChanges();
         }
 
         #endregion  

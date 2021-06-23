@@ -22,6 +22,8 @@ namespace TSP_Covid21.Models.ShopEntity
             this.CARTs = new HashSet<CART>();
             this.COMMENTs = new HashSet<COMMENT>();
             this.CONFIGDETAILs = new HashSet<CONFIGDETAIL>();
+            this.RATINGPRODUCTs = new HashSet<RATINGPRODUCT>();
+            this.VIEWNUMBERs = new HashSet<VIEWNUMBER>();
         }
     
         public int PRODUCTID { get; set; }
@@ -35,7 +37,6 @@ namespace TSP_Covid21.Models.ShopEntity
         public string PIC4 { get; set; }
         public Nullable<bool> STATUSPRODUCT { get; set; }
         public Nullable<int> PRODUCTPRICE { get; set; }
-        public Nullable<int> PRODUCTVIEW { get; set; }
         public Nullable<int> PRODUCTAMOUNT { get; set; }
         public string DECRIPTION { get; set; }
         public Nullable<System.DateTime> DATEADD { get; set; }
@@ -52,5 +53,9 @@ namespace TSP_Covid21.Models.ShopEntity
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CONFIGDETAIL> CONFIGDETAILs { get; set; }
         public virtual PRODUCTTYPE PRODUCTTYPE { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<RATINGPRODUCT> RATINGPRODUCTs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<VIEWNUMBER> VIEWNUMBERs { get; set; }
     }
 }

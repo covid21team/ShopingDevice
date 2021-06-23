@@ -105,7 +105,6 @@
     <Property Name="PIC4" Type="nvarchar(max)" />
     <Property Name="STATUSPRODUCT" Type="bit" />
     <Property Name="PRODUCTPRICE" Type="int" />
-    <Property Name="PRODUCTVIEW" Type="int" />
     <Property Name="PRODUCTAMOUNT" Type="int" />
     <Property Name="DECRIPTION" Type="nvarchar(max)" />
     <Property Name="DATEADD" Type="date" />
@@ -118,6 +117,15 @@
     <Property Name="PRODUCTTYPENAME" Type="nvarchar" MaxLength="50" />
     <Property Name="STATUSPRODUCTTYPE" Type="bit" />
   </EntityType>
+  <EntityType Name="RATINGPRODUCT">
+    <Key>
+      <PropertyRef Name="USER" />
+      <PropertyRef Name="PRODUCTID" />
+    </Key>
+    <Property Name="USER" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="PRODUCTID" Type="int" Nullable="false" />
+    <Property Name="RATE" Type="float" />
+  </EntityType>
   <EntityType Name="TEMPPRODUCT">
     <Key>
       <PropertyRef Name="PRODUCTTYPEID" />
@@ -126,6 +134,15 @@
     <Property Name="PRODUCTTYPEID" Type="int" Nullable="false" />
     <Property Name="BRANDID" Type="int" Nullable="false" />
     <Property Name="TEMPPRODUCTSTATUS" Type="bit" />
+  </EntityType>
+  <EntityType Name="VIEWNUMBER">
+    <Key>
+      <PropertyRef Name="USER" />
+      <PropertyRef Name="PRODUCTID" />
+    </Key>
+    <Property Name="USER" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="PRODUCTID" Type="int" Nullable="false" />
+    <Property Name="DATESEEN" Type="date" />
   </EntityType>
   <EntityType Name="VOCHERDETAIL">
     <Key>
@@ -145,7 +162,7 @@
     <Property Name="DATEENDTIRE" Type="date" />
     <Property Name="STATUSVOUCHER" Type="bit" />
   </EntityType>
-  <Association Name="FK__ACCOUNTLI__PRODU__45F365D3">
+  <Association Name="FK__ACCOUNTLI__PRODU__4AB81AF0">
     <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
     <End Role="ACCOUNTLIKE" Type="Self.ACCOUNTLIKE" Multiplicity="*" />
     <ReferentialConstraint>
@@ -157,7 +174,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__ACCOUNTLIK__USER__44FF419A">
+  <Association Name="FK__ACCOUNTLIK__USER__49C3F6B7">
     <End Role="ACCOUNT" Type="Self.ACCOUNT" Multiplicity="1" />
     <End Role="ACCOUNTLIKE" Type="Self.ACCOUNTLIKE" Multiplicity="*" />
     <ReferentialConstraint>
@@ -169,7 +186,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__BILL__VOUCHERID__5165187F">
+  <Association Name="FK__BILL__VOUCHERID__5629CD9C">
     <End Role="VOUCHER" Type="Self.VOUCHER" Multiplicity="0..1" />
     <End Role="BILL" Type="Self.BILL" Multiplicity="*" />
     <ReferentialConstraint>
@@ -181,7 +198,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__BILLDETAI__BILLI__5812160E">
+  <Association Name="FK__BILLDETAI__BILLI__5CD6CB2B">
     <End Role="BILL" Type="Self.BILL" Multiplicity="1" />
     <End Role="BILLDETAIL" Type="Self.BILLDETAIL" Multiplicity="*" />
     <ReferentialConstraint>
@@ -193,7 +210,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__BILLDETAI__PRODU__59063A47">
+  <Association Name="FK__BILLDETAI__PRODU__5DCAEF64">
     <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
     <End Role="BILLDETAIL" Type="Self.BILLDETAIL" Multiplicity="*" />
     <ReferentialConstraint>
@@ -205,7 +222,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__CART__PRODUCTID__49C3F6B7">
+  <Association Name="FK__CART__PRODUCTID__4E88ABD4">
     <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
     <End Role="CART" Type="Self.CART" Multiplicity="*" />
     <ReferentialConstraint>
@@ -217,7 +234,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__CART__USER__48CFD27E">
+  <Association Name="FK__CART__USER__4D94879B">
     <End Role="ACCOUNT" Type="Self.ACCOUNT" Multiplicity="1" />
     <End Role="CART" Type="Self.CART" Multiplicity="*" />
     <ReferentialConstraint>
@@ -229,7 +246,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__COMMENT__PRODUCT__4222D4EF">
+  <Association Name="FK__COMMENT__PRODUCT__46E78A0C">
     <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="0..1" />
     <End Role="COMMENT" Type="Self.COMMENT" Multiplicity="*" />
     <ReferentialConstraint>
@@ -241,7 +258,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__COMMENT__USER__412EB0B6">
+  <Association Name="FK__COMMENT__USER__45F365D3">
     <End Role="ACCOUNT" Type="Self.ACCOUNT" Multiplicity="0..1" />
     <End Role="COMMENT" Type="Self.COMMENT" Multiplicity="*" />
     <ReferentialConstraint>
@@ -253,7 +270,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__CONFIGDET__CONFI__36B12243">
+  <Association Name="FK__CONFIGDET__CONFI__35BCFE0A">
     <End Role="CONFIG" Type="Self.CONFIG" Multiplicity="1" />
     <End Role="CONFIGDETAIL" Type="Self.CONFIGDETAIL" Multiplicity="*" />
     <ReferentialConstraint>
@@ -265,7 +282,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__CONFIGDET__PRODU__35BCFE0A">
+  <Association Name="FK__CONFIGDET__PRODU__34C8D9D1">
     <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
     <End Role="CONFIGDETAIL" Type="Self.CONFIGDETAIL" Multiplicity="*" />
     <ReferentialConstraint>
@@ -277,7 +294,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__PRODUCT__BRANDID__300424B4">
+  <Association Name="FK__PRODUCT__BRANDID__2F10007B">
     <End Role="BRAND" Type="Self.BRAND" Multiplicity="0..1" />
     <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="*" />
     <ReferentialConstraint>
@@ -289,7 +306,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__PRODUCT__PRODUCT__30F848ED">
+  <Association Name="FK__PRODUCT__PRODUCT__300424B4">
     <End Role="PRODUCTTYPE" Type="Self.PRODUCTTYPE" Multiplicity="0..1" />
     <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="*" />
     <ReferentialConstraint>
@@ -298,6 +315,30 @@
       </Principal>
       <Dependent Role="PRODUCT">
         <PropertyRef Name="PRODUCTTYPEID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RATINGPRO__PRODU__71D1E811">
+    <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
+    <End Role="RATINGPRODUCT" Type="Self.RATINGPRODUCT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRODUCT">
+        <PropertyRef Name="PRODUCTID" />
+      </Principal>
+      <Dependent Role="RATINGPRODUCT">
+        <PropertyRef Name="PRODUCTID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RATINGPROD__USER__70DDC3D8">
+    <End Role="ACCOUNT" Type="Self.ACCOUNT" Multiplicity="1" />
+    <End Role="RATINGPRODUCT" Type="Self.RATINGPRODUCT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ACCOUNT">
+        <PropertyRef Name="USER" />
+      </Principal>
+      <Dependent Role="RATINGPRODUCT">
+        <PropertyRef Name="USER" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -325,7 +366,31 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__VOCHERDET__VOUCH__5441852A">
+  <Association Name="FK__VIEWNUMBE__PRODU__6E01572D">
+    <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
+    <End Role="VIEWNUMBER" Type="Self.VIEWNUMBER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRODUCT">
+        <PropertyRef Name="PRODUCTID" />
+      </Principal>
+      <Dependent Role="VIEWNUMBER">
+        <PropertyRef Name="PRODUCTID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__VIEWNUMBER__USER__6D0D32F4">
+    <End Role="ACCOUNT" Type="Self.ACCOUNT" Multiplicity="1" />
+    <End Role="VIEWNUMBER" Type="Self.VIEWNUMBER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ACCOUNT">
+        <PropertyRef Name="USER" />
+      </Principal>
+      <Dependent Role="VIEWNUMBER">
+        <PropertyRef Name="USER" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__VOCHERDET__VOUCH__59063A47">
     <End Role="VOUCHER" Type="Self.VOUCHER" Multiplicity="1" />
     <End Role="VOCHERDETAIL" Type="Self.VOCHERDETAIL" Multiplicity="*" />
     <ReferentialConstraint>
@@ -337,7 +402,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__VOCHERDETA__USER__5535A963">
+  <Association Name="FK__VOCHERDETA__USER__59FA5E80">
     <End Role="ACCOUNT" Type="Self.ACCOUNT" Multiplicity="1" />
     <End Role="VOCHERDETAIL" Type="Self.VOCHERDETAIL" Multiplicity="*" />
     <ReferentialConstraint>
@@ -366,60 +431,70 @@
     <EntitySet Name="CONFIGDETAIL" EntityType="Self.CONFIGDETAIL" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PRODUCT" EntityType="Self.PRODUCT" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PRODUCTTYPE" EntityType="Self.PRODUCTTYPE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RATINGPRODUCT" EntityType="Self.RATINGPRODUCT" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TEMPPRODUCT" EntityType="Self.TEMPPRODUCT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VIEWNUMBER" EntityType="Self.VIEWNUMBER" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="VOCHERDETAIL" EntityType="Self.VOCHERDETAIL" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="VOUCHER" EntityType="Self.VOUCHER" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__ACCOUNTLI__PRODU__45F365D3" Association="Self.FK__ACCOUNTLI__PRODU__45F365D3">
+    <AssociationSet Name="FK__ACCOUNTLI__PRODU__4AB81AF0" Association="Self.FK__ACCOUNTLI__PRODU__4AB81AF0">
       <End Role="PRODUCT" EntitySet="PRODUCT" />
       <End Role="ACCOUNTLIKE" EntitySet="ACCOUNTLIKE" />
     </AssociationSet>
-    <AssociationSet Name="FK__ACCOUNTLIK__USER__44FF419A" Association="Self.FK__ACCOUNTLIK__USER__44FF419A">
+    <AssociationSet Name="FK__ACCOUNTLIK__USER__49C3F6B7" Association="Self.FK__ACCOUNTLIK__USER__49C3F6B7">
       <End Role="ACCOUNT" EntitySet="ACCOUNT" />
       <End Role="ACCOUNTLIKE" EntitySet="ACCOUNTLIKE" />
     </AssociationSet>
-    <AssociationSet Name="FK__BILL__VOUCHERID__5165187F" Association="Self.FK__BILL__VOUCHERID__5165187F">
+    <AssociationSet Name="FK__BILL__VOUCHERID__5629CD9C" Association="Self.FK__BILL__VOUCHERID__5629CD9C">
       <End Role="VOUCHER" EntitySet="VOUCHER" />
       <End Role="BILL" EntitySet="BILL" />
     </AssociationSet>
-    <AssociationSet Name="FK__BILLDETAI__BILLI__5812160E" Association="Self.FK__BILLDETAI__BILLI__5812160E">
+    <AssociationSet Name="FK__BILLDETAI__BILLI__5CD6CB2B" Association="Self.FK__BILLDETAI__BILLI__5CD6CB2B">
       <End Role="BILL" EntitySet="BILL" />
       <End Role="BILLDETAIL" EntitySet="BILLDETAIL" />
     </AssociationSet>
-    <AssociationSet Name="FK__BILLDETAI__PRODU__59063A47" Association="Self.FK__BILLDETAI__PRODU__59063A47">
+    <AssociationSet Name="FK__BILLDETAI__PRODU__5DCAEF64" Association="Self.FK__BILLDETAI__PRODU__5DCAEF64">
       <End Role="PRODUCT" EntitySet="PRODUCT" />
       <End Role="BILLDETAIL" EntitySet="BILLDETAIL" />
     </AssociationSet>
-    <AssociationSet Name="FK__CART__PRODUCTID__49C3F6B7" Association="Self.FK__CART__PRODUCTID__49C3F6B7">
+    <AssociationSet Name="FK__CART__PRODUCTID__4E88ABD4" Association="Self.FK__CART__PRODUCTID__4E88ABD4">
       <End Role="PRODUCT" EntitySet="PRODUCT" />
       <End Role="CART" EntitySet="CART" />
     </AssociationSet>
-    <AssociationSet Name="FK__CART__USER__48CFD27E" Association="Self.FK__CART__USER__48CFD27E">
+    <AssociationSet Name="FK__CART__USER__4D94879B" Association="Self.FK__CART__USER__4D94879B">
       <End Role="ACCOUNT" EntitySet="ACCOUNT" />
       <End Role="CART" EntitySet="CART" />
     </AssociationSet>
-    <AssociationSet Name="FK__COMMENT__PRODUCT__4222D4EF" Association="Self.FK__COMMENT__PRODUCT__4222D4EF">
+    <AssociationSet Name="FK__COMMENT__PRODUCT__46E78A0C" Association="Self.FK__COMMENT__PRODUCT__46E78A0C">
       <End Role="PRODUCT" EntitySet="PRODUCT" />
       <End Role="COMMENT" EntitySet="COMMENT" />
     </AssociationSet>
-    <AssociationSet Name="FK__COMMENT__USER__412EB0B6" Association="Self.FK__COMMENT__USER__412EB0B6">
+    <AssociationSet Name="FK__COMMENT__USER__45F365D3" Association="Self.FK__COMMENT__USER__45F365D3">
       <End Role="ACCOUNT" EntitySet="ACCOUNT" />
       <End Role="COMMENT" EntitySet="COMMENT" />
     </AssociationSet>
-    <AssociationSet Name="FK__CONFIGDET__CONFI__36B12243" Association="Self.FK__CONFIGDET__CONFI__36B12243">
+    <AssociationSet Name="FK__CONFIGDET__CONFI__35BCFE0A" Association="Self.FK__CONFIGDET__CONFI__35BCFE0A">
       <End Role="CONFIG" EntitySet="CONFIG" />
       <End Role="CONFIGDETAIL" EntitySet="CONFIGDETAIL" />
     </AssociationSet>
-    <AssociationSet Name="FK__CONFIGDET__PRODU__35BCFE0A" Association="Self.FK__CONFIGDET__PRODU__35BCFE0A">
+    <AssociationSet Name="FK__CONFIGDET__PRODU__34C8D9D1" Association="Self.FK__CONFIGDET__PRODU__34C8D9D1">
       <End Role="PRODUCT" EntitySet="PRODUCT" />
       <End Role="CONFIGDETAIL" EntitySet="CONFIGDETAIL" />
     </AssociationSet>
-    <AssociationSet Name="FK__PRODUCT__BRANDID__300424B4" Association="Self.FK__PRODUCT__BRANDID__300424B4">
+    <AssociationSet Name="FK__PRODUCT__BRANDID__2F10007B" Association="Self.FK__PRODUCT__BRANDID__2F10007B">
       <End Role="BRAND" EntitySet="BRAND" />
       <End Role="PRODUCT" EntitySet="PRODUCT" />
     </AssociationSet>
-    <AssociationSet Name="FK__PRODUCT__PRODUCT__30F848ED" Association="Self.FK__PRODUCT__PRODUCT__30F848ED">
+    <AssociationSet Name="FK__PRODUCT__PRODUCT__300424B4" Association="Self.FK__PRODUCT__PRODUCT__300424B4">
       <End Role="PRODUCTTYPE" EntitySet="PRODUCTTYPE" />
       <End Role="PRODUCT" EntitySet="PRODUCT" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RATINGPRO__PRODU__71D1E811" Association="Self.FK__RATINGPRO__PRODU__71D1E811">
+      <End Role="PRODUCT" EntitySet="PRODUCT" />
+      <End Role="RATINGPRODUCT" EntitySet="RATINGPRODUCT" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RATINGPROD__USER__70DDC3D8" Association="Self.FK__RATINGPROD__USER__70DDC3D8">
+      <End Role="ACCOUNT" EntitySet="ACCOUNT" />
+      <End Role="RATINGPRODUCT" EntitySet="RATINGPRODUCT" />
     </AssociationSet>
     <AssociationSet Name="FK__TEMPPRODU__BRAND__2A4B4B5E" Association="Self.FK__TEMPPRODU__BRAND__2A4B4B5E">
       <End Role="BRAND" EntitySet="BRAND" />
@@ -429,11 +504,19 @@
       <End Role="PRODUCTTYPE" EntitySet="PRODUCTTYPE" />
       <End Role="TEMPPRODUCT" EntitySet="TEMPPRODUCT" />
     </AssociationSet>
-    <AssociationSet Name="FK__VOCHERDET__VOUCH__5441852A" Association="Self.FK__VOCHERDET__VOUCH__5441852A">
+    <AssociationSet Name="FK__VIEWNUMBE__PRODU__6E01572D" Association="Self.FK__VIEWNUMBE__PRODU__6E01572D">
+      <End Role="PRODUCT" EntitySet="PRODUCT" />
+      <End Role="VIEWNUMBER" EntitySet="VIEWNUMBER" />
+    </AssociationSet>
+    <AssociationSet Name="FK__VIEWNUMBER__USER__6D0D32F4" Association="Self.FK__VIEWNUMBER__USER__6D0D32F4">
+      <End Role="ACCOUNT" EntitySet="ACCOUNT" />
+      <End Role="VIEWNUMBER" EntitySet="VIEWNUMBER" />
+    </AssociationSet>
+    <AssociationSet Name="FK__VOCHERDET__VOUCH__59063A47" Association="Self.FK__VOCHERDET__VOUCH__59063A47">
       <End Role="VOUCHER" EntitySet="VOUCHER" />
       <End Role="VOCHERDETAIL" EntitySet="VOCHERDETAIL" />
     </AssociationSet>
-    <AssociationSet Name="FK__VOCHERDETA__USER__5535A963" Association="Self.FK__VOCHERDETA__USER__5535A963">
+    <AssociationSet Name="FK__VOCHERDETA__USER__59FA5E80" Association="Self.FK__VOCHERDETA__USER__59FA5E80">
       <End Role="ACCOUNT" EntitySet="ACCOUNT" />
       <End Role="VOCHERDETAIL" EntitySet="VOCHERDETAIL" />
     </AssociationSet>

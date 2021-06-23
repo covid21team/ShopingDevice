@@ -1,21 +1,40 @@
 ﻿@model IEnumerable<TSP_Covid21.Models.ViewModel.ProductViewModel>
 
-@{
-    ViewBag.Title = "Cart";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+@{ 
+    TSP_Covid21.Controllers.ProductController PC = new TSP_Covid21.Controllers.ProductController();
+    var user = Session["user"];
 }
-
-<!-- BREADCRUMB --><!--Đường dẫn-->
+<!-- NAVIGATION -->
+<nav id="navigation">
+    <!-- container -->
+    <div class="container">
+        <!-- responsive-nav -->
+        <div id="responsive-nav">
+            <!-- NAV -->
+            <ul class="main-nav nav navbar-nav">
+                <li><a href="@Url.Action("Product","Covid21", new { ProductTypeName = "SmartPhone" })"><i class="fa fa-mobile-phone"></i> SmarPhone</a></li>
+                <li><a href="@Url.Action("Product","Covid21", new { ProductTypeName = "Laptop" })"><i class="fa fa-laptop"></i> Laptop</a></li>
+                <li><a href="@Url.Action("Product","Covid21", new { ProductTypeName = "Tablet" })"><i class="fa fa-tablet"></i> Tablet</a></li>
+                <li><a href="@Url.Action("Product","Covid21", new { ProductTypeName = "HeadPhone" })"><i class="fa fa-headphones"></i> Headphone</a></li>
+                <li><a href="@Url.Action("Product","Covid21", new { ProductTypeName = "SmartWatch" })"><i class="fa fa-clock-o"></i> Smartwatch</a></li>
+            </ul>
+            <!-- /NAV -->
+        </div>
+        <!-- /responsive-nav -->
+    </div>
+    <!-- /container -->
+</nav>
+<!-- /NAVIGATION -->
+<!-- BREADCRUMB -->
 <div id="breadcrumb" class="section">
     <!-- container -->
     <div class="container">
         <!-- row -->
         <div class="row">
             <div class="col-md-12">
-                <!-- <h3 class="breadcrumb-header">Checkout</h3> -->
                 <ul class="breadcrumb-tree">
                     <li><a href="@Url.Action("Home","Covid21")">Home</a></li>
-                    <li><a href="#">Your cart</a></li>
+                    <li class="active">Your cart</li>
                 </ul>
             </div>
         </div>
@@ -24,100 +43,118 @@
     <!-- /container -->
 </div>
 <!-- /BREADCRUMB -->
-
-<div class="cart" style="width: 1700px;">
-
-    <table class="cart-table">
-        <tr>
-            <th style="width: 100px"></th>
-            <th>Image</th>
-            <th>Product</th>
-            <th>Price</th>
-            <th>Quantity</th>
-            <th>Remove</th>
-            <th>Total</th>
-        </tr>
-
-        <!-- Product -->
-        @foreach (var item in Model)
-        {
+<div class="giohang" id="ajax_cart">
+    <div class="cart">
+        <table class="cart-table">
             <tr>
-                <td style="width: 100px">
-                    <input type="checkbox" id="checkbox" checked="1" />
-                </td>
-                <td>
-                    <div>
-                        <img src="~/@item.MainPic">
-                    </div>
-                </td>
-                <td>
-                    <div>
-                        <p>@item.ProductName</p>
-                    </div>
-                </td>
-                <td>
+                <th class="checkbox_cart"></th>
+                <th>Image</th>
+                <th>Product</th>
+                <th class="edit_width_cart">Price</th>
+                <th>Quantity</th>
+                <th>Remove</th>
+                <th class="edit_width_cart">Total</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr class="product_cart">
+                    <td class="checkbox_cart">
+                        <input class="checkbox_price_cart" type="checkbox" checked="1">
+                    </td>
+                    <td>
+                        <div class="image_product_cart">
+                            <img src="~/@item.MainPic">
+                            <div class="img_zoom">
+                                <img src="~/@item.MainPic" style="width: 300px; height: 300px;">
+                            </div>
+                        </div>
+                    </td>
+                    <td class="edit_width_product_name_cart">
+                        @item.ProductName
+                    </td>
                     @{
                         var temp = String.Format("{0:#,##0.##}", @item.ProductPrice);
                     }
-                    <div class="gia">@temp VNĐ</div>
-                </td>
-                <td>
-                    <div class="soluong">
-                        <input id="number" type="number" value="@item.ProductAmount" min="1">
-                    </div>
-                </td>
-                <td>
-                    <div>
+                    <td class="edit_width_cart">
+                        <label class="product_price_cart" style="font-weight: lighter;">@temp</label>đ
+                    </td>
+                    <td class="number_car">
+                        <input class="number_quantity_cart" type="number" value="@item.ProductAmount" min="1" style="width: 60px">
+                    </td>
+                    <td class="remove_cart">
                         <button class="remove-product">
-                            <i class="fa fa-trash"></i> Remove
+                            <a href="@Url.Action("delProduct_Cart","Covid21",new {productId = item.ProductId, user = @user })"><i class="fa fa-trash"></i> Remove</a>
                         </button>
-                    </div>
-                </td>
-                <td>
-                    @{ 
-                        var total_product = @item.ProductPrice * item.ProductAmount;
-                        var temp_total_product = String.Format("{0:#,##0.##}", total_product);
+                    </td>
+                    @{
+                        var temp1 = String.Format("{0:#,##0.##}", @item.ProductPrice * item.ProductAmount);
                     }
-                    <div id="total" class="tongiga">@temp_total_product VNĐ</div>
-                </td>
-            </tr>
-        }
-        <!-- End Product -->
+                    <td class="edit_width_cart">
+                        <label class="product_line_price_cart" style="font-weight: lighter;">@temp1</label>đ
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
 
-    </table>
-
-    @{ 
+    @{
         var total = @Model.Sum(t => t.ProductAmount * t.ProductPrice);
         var temp_total = String.Format("{0:#,##0.##}", total);
 
-        var total_tax = total * 5 / 100;
+        var total_tax = total * 0.05;
         var temp_total_tax = String.Format("{0:#,##0.##}", total_tax);
 
         var total_cart = total + total_tax;
         var temp_total_cart = String.Format("{0:#,##0.##}", total_cart);
     }
 
-    <div class="cart-result" style="margin-right: 300px">
-        <div class="totals">
-            <div class="totals-item">
-                <label>Subtotal</label>
-                <div class="totals-value" id="cart-subtotal">@temp_total VNĐ</div>
-            </div>
-            <div class="totals-item">
-                <label>Tax (5%)</label>
-                <div class="totals-value" id="cart-tax">@temp_total_tax VNĐ</div>
-            </div>
-            <div class="totals-item">
-                <label>Shipping</label>
-                <div class="totals-value" id="cart-shipping">Free Ship</div>
-            </div>
-            <div class="totals-item totals-item-total">
-                <label>Grand Total</label>
-                <div class="totals-value" id="cart-total">@temp_total_cart VNĐ</div>
-            </div>
+    <div class="payment_cart">
+        <table class="table_payment">
+            <tr>
+                <th>Subtotal</th>
+                <td class="totals_value" id="subtotal_cart">@temp_total đ</td>
+            </tr>
+            <tr>
+                <th>Tax (5%)</th>
+                <td class="totals_value" id="tax_cart">@temp_total_tax đ</td>
+            </tr>
+            <tr>
+                <th>Shippping</th>
+                <td class="totals_value" id="shipping_cart">Free Ship</td>
+            </tr>
+            <tr>
+                <th>Grand Total</th>
+                <td class="totals_value" id="total_cart">@temp_total_cart đ</td>
+            </tr>
+        </table>
+        <div style="margin-top: 20px; float: right;">
+            <button class="checkout_cart"><i class="fas fa-hand-holding-usd"></i> Checkout</button>
         </div>
-        <button class="cart-checkout"><i class="fas fa-hand-holding-usd"></i> Checkout</button>
     </div>
 </div>
-<div style="margin: 1000px"></div>
+<!-- SECTION -->
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /SECTION -->
 
+
+<script>
+    function onClick(productId, user) {
+        $.ajax({
+            type: "GET",
+            data: {
+                productId: productId,
+                user: user,
+            },
+            url: '@Url.Content("delProduct_Cart")',
+        });
+    }
+</script>

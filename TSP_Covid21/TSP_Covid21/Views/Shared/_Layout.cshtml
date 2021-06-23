@@ -28,7 +28,7 @@
     <!-- Custom stlylesheet -->
     <link type="text/css" rel="stylesheet" href="~/Asset/css/style.css" />
 
-    
+    <link rel="stylesheet" href="~/Asset/css/cart.css">
 
     <link rel="stylesheet" href="~/Asset/css/menu.css">
 
@@ -86,7 +86,7 @@
                     <!-- LOGO -->
                     <div class="col-md-3">
                         <div class="header-logo">
-                            <a href="#" class="logo">
+                            <a href="@Url.Action("Home","Covid21")" class="logo">
                                 <img src="~/Asset/images/logo.png" alt="">
                             </a>
                         </div>
@@ -258,8 +258,16 @@
                             <h3 class="footer-title">Service</h3>
                             <ul class="footer-links">
                                 <li><a href="#">Account</a></li>
-                                <li><a href="#">View Cart</a></li>
-                                <li><a href="#">Wishlist</a></li>
+                                @if (Session["user"] == null)
+                                {
+                                    <li><a href="#" class="inf_login" onclick="document.getElementById('id01_login').style.display='block'">View Cart</a></li>
+                                    <li><a href="#" class="inf_login" onclick="document.getElementById('id01_login').style.display='block'">Wishlist</a></li>
+                                }
+                                else
+                                {
+                                    <li><a href="@Url.Action("Cart","Covid21",new { user = Session["user"]})">View Cart</a></li>
+                                    <li><a href="@Url.Action("Product","Covid21",new { ProductTypeName = Session["user"] })">Wishlist</a></li>
+                                }
                                 <li><a href="#">Track My Order</a></li>
                                 <li><a href="#">Help</a></li>
                             </ul>
@@ -452,7 +460,10 @@
 
 <script src="~/Asset/js/password.js"></script>
 <script src="~/Asset/js/CountDownTimer.js"></script>
+<script src="~/Asset/js/cart.js"></script>
+<script src="~/Asset/js/Login.js"></script>
 
+<script src="~/Asset/JS/library_number_cart.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
 

@@ -111,7 +111,6 @@
           <ScalarProperty Name="PIC4" ColumnName="PIC4" />
           <ScalarProperty Name="STATUSPRODUCT" ColumnName="STATUSPRODUCT" />
           <ScalarProperty Name="PRODUCTPRICE" ColumnName="PRODUCTPRICE" />
-          <ScalarProperty Name="PRODUCTVIEW" ColumnName="PRODUCTVIEW" />
           <ScalarProperty Name="PRODUCTAMOUNT" ColumnName="PRODUCTAMOUNT" />
           <ScalarProperty Name="DECRIPTION" ColumnName="DECRIPTION" />
           <ScalarProperty Name="DATEADD" ColumnName="DATEADD" />
@@ -156,5 +155,23 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <FunctionImportMapping FunctionImportName="CheckLogin" FunctionName="COVIDModel.Store.CheckLogin" />
+    <EntitySetMapping Name="RATINGPRODUCTs">
+      <EntityTypeMapping TypeName="COVIDModel.RATINGPRODUCT">
+        <MappingFragment StoreEntitySet="RATINGPRODUCT">
+          <ScalarProperty Name="RATE" ColumnName="RATE" />
+          <ScalarProperty Name="PRODUCTID" ColumnName="PRODUCTID" />
+          <ScalarProperty Name="USER" ColumnName="USER" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VIEWNUMBERs">
+      <EntityTypeMapping TypeName="COVIDModel.VIEWNUMBER">
+        <MappingFragment StoreEntitySet="VIEWNUMBER">
+          <ScalarProperty Name="DATESEEN" ColumnName="DATESEEN" />
+          <ScalarProperty Name="PRODUCTID" ColumnName="PRODUCTID" />
+          <ScalarProperty Name="USER" ColumnName="USER" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

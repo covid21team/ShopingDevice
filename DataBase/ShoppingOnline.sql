@@ -96,6 +96,7 @@ CREATE TABLE VIEWNUMBER
 	[USER] VARCHAR(30),
 	PRODUCTID INT,
 	DATESEEN DATE, -- Đây là ngày khách hàng xem sản phẩm Tris cũng không muốn để đâu này là ép buộc đó
+	primary key([USER], PRODUCTID),
 	foreign key ([USER]) references ACCOUNT([USER]) on update cascade,
 	foreign key (PRODUCTID) references PRODUCT(PRODUCTID) on update cascade,
 )
@@ -106,6 +107,7 @@ CREATE TABLE RATINGPRODUCT
 	[USER] VARCHAR(30),
 	PRODUCTID INT,
 	RATE FLOAT, -- XẾP TỪ 1 TỚI 5 SAO CÓ SỐ LẺ X.5
+	primary key([USER], PRODUCTID),
 	foreign key ([USER]) references ACCOUNT([USER]) on update cascade,
 	foreign key (PRODUCTID) references PRODUCT(PRODUCTID) on update cascade,
 )
@@ -355,11 +357,11 @@ insert into PRODUCT values (
 	N'Bluetooth Xiaomi Earphone Lite',
 	3,
 	5,
-	'Asset/images/Tablet/HeadPhone/Xiaomi/Bluetooth-Xiaomi-Earphone-Lite-1.jpg',
-	'Asset/images/Tablet/HeadPhone/Xiaomi/Bluetooth-Xiaomi-Earphone-Lite-2.jpg',
-	'Asset/images/Tablet/HeadPhone/Xiaomi/Bluetooth-Xiaomi-Earphone-Lite-3.jpg',
-	'Asset/images/Tablet/HeadPhone/Xiaomi/Bluetooth-Xiaomi-Earphone-Lite-4.jpg',
-	'Asset/images/Tablet/HeadPhone/Xiaomi/Bluetooth-Xiaomi-Earphone-Lite-5.jpg',
+	'Asset/images/HeadPhone/Xiaomi/Bluetooth-Xiaomi-Earphone-Lite-1.jpg',
+	'Asset/images/HeadPhone/Xiaomi/Bluetooth-Xiaomi-Earphone-Lite-2.jpg',
+	'Asset/images/HeadPhone/Xiaomi/Bluetooth-Xiaomi-Earphone-Lite-3.jpg',
+	'Asset/images/HeadPhone/Xiaomi/Bluetooth-Xiaomi-Earphone-Lite-4.png',
+	'Asset/images/HeadPhone/Xiaomi/Bluetooth-Xiaomi-Earphone-Lite-5.jpg',
 	1,
 	'990000',
 	'100',
@@ -528,8 +530,10 @@ Insert into CART values ('Phus',4,50)
 Insert into CART values ('Syx',1,20)
 Insert into CART values ('Syx',2,30)
 Insert into CART values ('Syx',3,10)
-Insert into CART values ('Syx',4,50)
+Insert into CART values ('Syx',4,20)
 Insert into CART values ('Syx',5,10)
+Insert into CART values ('Syx',6,5)
+Insert into CART values ('Syx',7,5)
 
 go --(VOUCHERID, DECRIPTIONVOUCHER, DATEENTIRE, STATUSVOUCHER)
 INSERT INTO VOUCHER VALUES ('giảm giá 100%','30/12/2021',1)
