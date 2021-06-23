@@ -502,6 +502,7 @@ INSERT INTO CONFIGDETAIL VALUES ('7',N'BlueTooth',N'5.0')
 
 
 go --([USER], [PASSWORD], FULLNAME, STATUSACCOUNT, PHONENUMBER)
+Insert into ACCOUNT values ('Admin','Admin123',N'Admin','1','0999999999') 
 Insert into ACCOUNT values ('Phus','123456789',N'Trương Gia Phú','1','0123456789') 
 Insert into ACCOUNT values ('Syx','123456789',N'Nguyễn Quang Sỹ','1','0987654321') 
 
@@ -553,6 +554,13 @@ insert into VIEWNUMBER values(N'Phus','2',GETDATE())
 insert into VIEWNUMBER values(N'Syx','3',GETDATE())     
 
 go --([USER], [PRODUCTID],RATE)
+insert into RATINGPRODUCT values(N'Admin','1','5')   
+insert into RATINGPRODUCT values(N'Admin','2','5')  
+insert into RATINGPRODUCT values(N'Admin','3','5')  
+insert into RATINGPRODUCT values(N'Admin','4','5')  
+insert into RATINGPRODUCT values(N'Admin','5','5')  
+insert into RATINGPRODUCT values(N'Admin','6','5')  
+insert into RATINGPRODUCT values(N'Admin','7','5')  
 insert into RATINGPRODUCT values(N'Phus','5','5')     
 insert into RATINGPRODUCT values(N'Phus','2','3')     
 insert into RATINGPRODUCT values(N'Syx','5','1')   
