@@ -530,7 +530,7 @@ Insert into CART values ('Phus',4,50)
 Insert into CART values ('Syx',1,20)
 Insert into CART values ('Syx',2,30)
 Insert into CART values ('Syx',3,10)
-Insert into CART values ('Syx',4,50)
+Insert into CART values ('Syx',4,20)
 Insert into CART values ('Syx',5,10)
 
 go --(VOUCHERID, DECRIPTIONVOUCHER, DATEENTIRE, STATUSVOUCHER)
