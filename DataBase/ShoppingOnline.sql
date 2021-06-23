@@ -532,6 +532,8 @@ Insert into CART values ('Syx',2,30)
 Insert into CART values ('Syx',3,10)
 Insert into CART values ('Syx',4,20)
 Insert into CART values ('Syx',5,10)
+Insert into CART values ('Syx',6,5)
+Insert into CART values ('Syx',7,5)
 
 go --(VOUCHERID, DECRIPTIONVOUCHER, DATEENTIRE, STATUSVOUCHER)
 INSERT INTO VOUCHER VALUES ('giảm giá 100%','30/12/2021',1)
