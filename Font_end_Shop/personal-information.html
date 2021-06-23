@@ -212,18 +212,25 @@
 	<div id="mainform">
 		<div id="thongtin">
 			<h3><i class="fas fa-user" style="font-size: 50px;"></i> Truong gia phu</h3>
-			<div class="checkbox-filter" >
+			<div class="checkbox-filter">
 				<div class="menuchon" id="id123">
-					<label  for="brand-1"  class="tablinks" onclick="openCity(event, 'banthongtincanhan')">
+					<label for="" class="tablinks" onclick="openCity(event, 'banthongtincanhan')">
 						<span></span>
-						<a ><i class="fas fa-user-cog"></i> Personal Information</a>
+						<a><i class="fas fa-user-cog"></i> Personal Information</a>
 					</label>
 				</div>
-				<div class="menuchon">
+				<div class="menuchon" id="id124">
 
-					<label for="brand-3">
+					<label class="tablinks" onclick="openCity(event, 'diachigiaohang')">
 						<span></span>
 						<a><i class="fas fa-map-marker-alt"></i> Adress</a>
+					</label>
+				</div>
+				<div class="menuchon" id="id125">
+
+					<label class="tablinks" onclick="openCity(event, 'sanphamyeuthich')">
+						<span></span>
+						<a><i class="fas fa-heart"></i> Like</a>
 					</label>
 				</div>
 				<div class="menuchon">
@@ -245,9 +252,8 @@
 				</div>
 				<div class="menuchon">
 
-					<label for="brand-4">
+					<label class="tablinks" onclick="openCity(event, 'diachigiaohang')">
 						<span></span>
-
 						<a href=""><i class="fas fa-heart"></i> Liked</a>
 					</label>
 				</div>
@@ -276,128 +282,133 @@
 		<h3 style="margin-left: 15px; float: left;">Personal Information</h3><br><br>
 
 		<!--=================================================================-->
-		<button class="tablinks" onclick="openCity(event, 'banthongtincanhan')">London</button>
+
 		<div id="hienthongtin">
 			<div id="banthongtincanhan" class="thongtincanhan" style="display: none;">
 				<div>
 					<span></span>
 					<label for="">Full Name: </label>
-					<input style="margin-left: 100px; margin-bottom: 1%;" type="text" placeholder="Input full name">
+					<input id="id1" type="text" placeholder="Input full name">
 				</div>
 				<div>
 					<span></span>
 					<label for="">Phone Number: </label>
-					<input style="margin-left: 62px; margin-bottom: 1%;" type="text" placeholder="Input phone number">
+					<input id="id2" type="text" placeholder="Input phone number">
 				</div>
 				<div>
 					<span></span>
 					<label for="">Email: </label>
-					<input style="margin-left: 133px; margin-bottom: 1%;" type="text" placeholder="Input Email">
+					<input id="id3" type="text" placeholder="Input Email">
 				</div>
 
 				<div>
 					<label>Sex:
-						<input style="margin-left: 150px; margin-bottom: 1%;transform: scale(1.5);" type="radio"
-							checked="checked" name="radio">
+						<input id="id4" type="radio" checked="checked" name="radio">
 						<label>Male</label>
-						<input style="margin-left: 50px; margin-bottom: 1%;transform: scale(1.5);" type="radio"
-							name="radio"> <label>Female</label>
+						<input id="id5" type="radio" name="radio"> <label>Female</label>
 					</label>
 				</div>
 				<div>
 					<span></span>
 					<label for="">Date Of Birth: </label>
-					<input style="margin-left: 78px; margin-bottom: 1%;" class="text1" type="date">
+					<input id="id6" class="text1" type="date">
 				</div>
 				<div>
 					<span></span>
 
-					<input id="myCheck" onclick="myFunction()" class="text1" type="checkbox"style="transform: scale(1.5);margin-left: 21%; margin-bottom: 1%;">
+					<input id="id7" onclick="myFunction()" class="text1" type="checkbox">
 					<label for="">Change Password </label>
 				</div>
 				<div style="display: none;" id="passan">
 					<div>
 						<span></span>
 						<label for="">Password</label>
-						<input style="margin-left: 110px; margin-bottom: 1%;" class="text1" type="text"
-							placeholder="Reinput password">
+						<input id="id8" class="text1" type="text" placeholder="Reinput password">
 					</div>
 					<div>
 						<span></span>
 						<label for="">New Password</label>
-						<input style="margin-left: 73px; margin-bottom: 1%;" class="text1" type="text"
-							placeholder="Reinput new password">
+						<input id="id9" class="text1" type="text" placeholder="Reinput new password">
 					</div>
 					<div>
 						<span></span>
 						<label for="">Confirm Password </label>
-						<input style="margin-left: 45px; margin-bottom: 1%;" class="text1" type="text"
-							placeholder="Reinput confirm password">
+						<input id="id10" class="text1" type="text" placeholder="Reinput confirm password">
 					</div>
 				</div>
 				<div>
 					<span></span>
-					<input style="margin-left: 184px; margin-bottom: 1%;" class="text1" type="submit"
-						placeholder="Reinput new password">
+					<input id="id11" class="text1" type="submit">
 				</div>
 			</div>
-			<div>
-				<div class="diachi">
+			<div id="diachigiaohang" class="thongtincanhan" style="display: none;">
+				<div id="tatbangiaohang">
+					<div>
+						<div>
+							<span></span>							
+							<p id="id12" onclick="openthem()"> <i class="fas fa-plus"></i> <b> them dia chi</b> </p>
+						</div>
+					</div>
+					<table>
+						<tr>
+							<th class="id13" style="width:  700px;">
+								<label>Nguyễn hoàng trí</label><small>(Địa chỉ mặc định)</small>
+								<br><label>Long khánh</label><br>
+								<label>số điện thoại</label>
+							</th>
+							<td>
+								<label class="id14" onclick="suathem()"> chinh sua</label>
+							</td>
+						</tr>
+					</table>
+				</div>
+				<div style="display: none;"  id="themthongtingiaohang">
+					<input class="thoat" onclick="tatthem()" value="✖" type="button">
 					<div>
 						<span></span>
-						<p class="dotted" style="text-align: center;"> <i class="fas fa-plus"></i> them dia chi </p>
+						<label for="">Ho va ten: </label>
+						<input id="id15" type="text" placeholder="Nhap ho va ten">
 					</div>
-
-				</div>
-				<table>
-					<tr>
-						<th>
-							<label>Nguyễn hoàng trí</label><small>(Địa chỉ mặc định)</small>
-							<br><label>Long khánh</label><br>
-							<label>số điện thoại</label>
-						</th>
-						<td>
-							<label> chinh sua</label>
-						</td>
-					</tr>
-				</table>
-				<div>
-					<span></span>
-					<label for="">Ho va ten: </label>
-					<input type="text" placeholder="Nhap ho va ten">
-				</div>
-				<div>
-					<span></span>
-					<label for="">nhap so dien thoai: </label>
-					<input type="text" placeholder="nhap so dien thoai">
-				</div>
-				<div>
-					<span></span>
-					<label for="">Tỉnh/thanhpho: </label>
-					<input type="text" placeholder="nhap so dien thoai">
-				</div>
-				<div>
-					<span></span>
-					<label for="">quan huyên: </label>
-					<input type="text" placeholder="nhap so dien thoai">
-				</div>
-				<div>
-					<span></span>
-					<label for="">phường xã:</label>
-					<input type="text" placeholder="nhap so dien thoai">
-				</div>
-				<div>
-					<span></span>
-					<label for="">Địa chỉ:</label>
-					<textarea name="" id="" cols="0" rows="0"></textarea>
-				</div>
-				<div>
-					<input type="submit">
+					<div>
+						<span></span>
+						<label for="">nhap so dien thoai: </label>
+						<input id="id16" type="text" placeholder="nhap so dien thoai">
+					</div>
+					<div>
+						<span></span>
+						<label for="">Tỉnh/thanhpho: </label>
+						<input id="id17" type="text" placeholder="nhap so dien thoai">
+					</div>
+					<div>
+						<span></span>
+						<label for="">quan huyên: </label>
+						<input id="id18" type="text" placeholder="nhap so dien thoai">
+					</div>
+					<div>
+						<span></span>
+						<label for="">phường xã:</label>
+						<input id="id19" type="text" placeholder="nhap so dien thoai">
+					</div>
+					<div>
+						<span></span>
+						<label for="">Địa chỉ:</label>
+						<textarea id="id20" name="" id="" cols="" rows="5"></textarea>
+					</div>
+					<div>
+						<span></span>
+	
+						<input id="id22" class="text1" type="checkbox">
+						<label for="">dat lam mat dinh </label>
+					</div>
+					<div>
+						<input id="id21" type="submit" onclick="okthem()">
+					</div>
 				</div>
 			</div>
 
 			<!-- Sản phẩm yêu thích -->
-			<div>
+			<div id="sanphamyeuthich" class="thongtincanhan" style="display: none;">
+
 				<div style="float: left; margin-left: 20px;">
 					<div class="product" style="width: 200px; margin-bottom: 80px;">
 						<div class="product-img">
@@ -430,13 +441,10 @@
 						</div>
 					</div>
 				</div>
-
-
-
 			</div>
-
 			<!-- Đánh giá -->
-			<div>
+		
+			<div style="display: none;">
 				<div style="float: left; margin-left: 20px;">
 					<div class="product" style="width: 200px;margin-bottom: 80px;">
 						<div class="product-img">
@@ -472,7 +480,7 @@
 			</div>
 
 			<!-- Đơn hàng đã mua -->
-			<table border="1px" style="margin:auto; width: 900px; text-align: center;">
+			<table border="1px" style="margin:auto; width: 900px; text-align: center;display: none;">
 				<tr>
 					<th>
 						<h5 style="text-align: center; margin-top: 7px;">Bill ID</h5>
