@@ -96,6 +96,7 @@ CREATE TABLE VIEWNUMBER
 	[USER] VARCHAR(30),
 	PRODUCTID INT,
 	DATESEEN DATE, -- Đây là ngày khách hàng xem sản phẩm Tris cũng không muốn để đâu này là ép buộc đó
+	primary key([USER], PRODUCTID),
 	foreign key ([USER]) references ACCOUNT([USER]) on update cascade,
 	foreign key (PRODUCTID) references PRODUCT(PRODUCTID) on update cascade,
 )
@@ -106,6 +107,7 @@ CREATE TABLE RATINGPRODUCT
 	[USER] VARCHAR(30),
 	PRODUCTID INT,
 	RATE FLOAT, -- XẾP TỪ 1 TỚI 5 SAO CÓ SỐ LẺ X.5
+	primary key([USER], PRODUCTID),
 	foreign key ([USER]) references ACCOUNT([USER]) on update cascade,
 	foreign key (PRODUCTID) references PRODUCT(PRODUCTID) on update cascade,
 )
