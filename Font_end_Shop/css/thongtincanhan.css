@@ -152,7 +152,7 @@
     border-radius: 5px;
 }
 #id16{
-    margin-left: 33px; 
+    margin-left: 60px; 
     width: 300px;
     margin-top: 5px;
     border-radius: 5px;
@@ -176,7 +176,7 @@
     border-radius: 5px;
 }
 #id20{
-    margin-left: 118px; 
+    margin-left: 110px; 
     width: 300px;
     margin-top: 5px;
     border-radius: 5px;
@@ -228,3 +228,10 @@
  .hoverdonhang:hover{
      background: rgb(227, 232, 233);
  }
+
+.addr {
+    margin-left: 100px; 
+    width: 300px;
+    margin-top: 5px;
+    border-radius: 5px;
+}

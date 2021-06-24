@@ -330,7 +330,7 @@
 				</div>
 				<div>
 					<span></span>
-					<input id="id11" class="text1" type="submit">
+					<input id="id11" class="text1" type="submit" value="Sent">
 				</div>
 			</div>
 			<div id="diachigiaohang" class="thongtincanhan" style="display: none;">
@@ -338,29 +338,29 @@
 					<div>
 						<div>
 							<span></span>
-							<p id="id12" onclick="openthem()"> <i style="color: yellowgreen;" class="fas fa-plus"></i> <b> them dia chi</b> </p>
+							<p id="id12" onclick="openthem()"> <i style="color: yellowgreen;" class="fas fa-plus"></i> <b> Add Address</b> </p>
 						</div>
 					</div>
 					<table>
 						<tr>
 							<th class="id13" style="width:  700px;">
-								<label>Nguyễn hoàng trí</label><small>(Địa chỉ mặc định)</small>
+								<label>Nguyễn hoàng trí</label><small>(Default Address)</small>
 								<br><label>Long khánh</label><br>
-								<label>số điện thoại</label>
+								<label>Phone Number</label>
 								
 							</th>
 							<td>
-								<label class="id14" onclick="suathem()"> chinh sua</label>
+								<label class="id14" onclick="suathem()"> Change</label>
 							</td>
 						</tr>
 						<tr>
 							<th class="id13" style="width:  700px;">
 								<label>Nguyễn hoàng trí</label><small></small>
 								<br><label>Long khánh</label><br>
-								<label>số điện thoại</label>
+								<label>Phone Number</label>
 							</th>
 							<td>
-								<label class="id14" onclick="suathem()"> chinh sua</label>
+								<label class="id14" onclick="suathem()"> Change</label>
 							</td>
 						</tr>
 					</table>
@@ -369,39 +369,45 @@
 					<input class="thoat" onclick="tatthem()" value="✖" type="button">
 					<div>
 						<span></span>
-						<label for="">Ho va ten: </label>
-						<input id="id15" type="text" placeholder="Nhap ho va ten">
+						<label for="">Full Name: </label>
+						<input id="id15" type="text" placeholder="input full name">
 					</div>
 					<div>
 						<span></span>
-						<label for="">nhap so dien thoai: </label>
-						<input id="id16" type="text" placeholder="nhap so dien thoai">
+						<label for="">Phone Number: </label>
+						<input id="id16" type="text" placeholder="input phone number">
 					</div>
 					<div>
 						<span></span>
-						<label for="">Tỉnh/thanhpho: </label>
-						<input id="id17" type="text" placeholder="nhap so dien thoai">
+						<label for="">Province / City: </label>
+						<select class="addr" id = "province" none= "province" onchange="changeFunc();" style="margin-left: 64px;">
+							<option value="" selected>Province / City</option>
+						</select>
 					</div>
 					<div>
 						<span></span>
-						<label for="">quan huyên: </label>
-						<input id="id18" type="text" placeholder="nhap so dien thoai">
+						<label for="">District: </label>
+						<select class="addr" id = "district" none= "district" onchange="changeFuncDistrict();" style="margin-left: 117px;">
+							<option value="" selected>District </option>
+						</select>
 					</div>
 					<div>
 						<span></span>
-						<label for="">phường xã:</label>
-						<input id="id19" type="text" placeholder="nhap so dien thoai">
+						<label for="">Wards:</label>
+						<select class="addr" id = "ward" none= "ward" aria-placeholder="Quận Huyện;"style="margin-left: 124px;" >
+							<option value="" selected>Wards </option>
+						</select>
 					</div>
 					<div>
 						<span></span>
-						<label for="">Địa chỉ:</label>
+						<label for="">Address:</label>
 						<textarea id="id20" name="" id="" cols="" rows="5"></textarea>
 					</div>
 					<div>
 						<span></span>
 
 						<input id="id22" class="text1" type="checkbox">
-						<label for="">dat lam mat dinh </label>
+						<label for="">Set as default </label>
 					</div>
 					<div>
 						<input id="id21" type="submit" onclick="okthem()">
@@ -607,3 +613,27 @@
 </body>
 
 </html>
+
+<script>
+	document.addEventListener("DOMContentLoaded",function(){
+    var province = document.getElementById("province");
+    window.onload=function(){
+        $.ajax({
+            url: "https://dev-online-gateway.ghn.vn/shiip/public-api/master-data/province",
+            headers:{
+                'token' : "260fcbb6-d4ae-11eb-aa92-d25db748eae9",
+                'content-Type':'application/json'
+            },
+            method:'GET',
+            dataType:'json',
+            success:function(response){
+                var str = "<option selected>Province / City</option> ";
+                for(var i=0;i<response.data.length;i++){
+                    str=str+ "<option class = 'provinceID' data-province='"+response.data[i].ProvinceID+"'>"+response.data[i].ProvinceName+"</option> "
+                }
+                province.innerHTML=str;
+            }
+        });
+    }
+},false)
+</script>
