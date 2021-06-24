@@ -106,7 +106,7 @@ CREATE TABLE RATINGPRODUCT
 (
 	[USER] VARCHAR(30),
 	PRODUCTID INT,
-	RATE FLOAT, -- XẾP TỪ 1 TỚI 5 SAO 
+	RATE INT, -- XẾP TỪ 1 TỚI 5 SAO 
 	primary key([USER], PRODUCTID),
 	foreign key ([USER]) references ACCOUNT([USER]) on update cascade,
 	foreign key (PRODUCTID) references PRODUCT(PRODUCTID) on update cascade,
