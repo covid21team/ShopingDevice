@@ -363,16 +363,15 @@
                                     </tr>
                                     <tr>
                                         <th style="width:150px;">
-                                            <label for="lname">Product Name</label>
+                                            <label >Product Name</label>
                                         </th>
                                         <td>
-                                            <input type="text" id="lname" name="ProductsName"
-                                                placeholder="               Vendor Name..." required>
+                                            <input type="text" id="lname" name="" placeholder="Vendor Name..." >                                          
                                         </td>
                                     </tr>
                                     <tr>
                                         <th>
-                                            <label for="lname">Produc Type</label>
+                                            <label >Produc Type</label>
                                         </th>
                                         <td>
                                             <select id="country" name="VendorId" required>
@@ -386,26 +385,33 @@
                                     </tr>
                                     <tr>
                                         <th>
-                                            <label for="lname">Brand </label>
+                                            <label>Brand </label>
                                         </th>
                                         <td>
-                                            <select class="cmb" id="country" name="VendorId" required>
-                                                <option value="maSP">Brand</option>
-                                                <option value="maSP">Brand</option>
-                                                <option value="maSP">Brand</option>
-                                                <option value="maSP">Brand</option>
-                                                <option value="maSP">Brand</option>
+                                            <div style=" position: absolute;">
+                                           
+                                                    <select class="cmb" id="country1" name="VendorId" required style="width: 150px; margin-left: 280px; " >
+                                                        <option value="maSP">Brand</option>
+                                                        <option value="maSP">Brand</option>
+                                                        <option value="maSP">Brand</option>
+                                                        <option value="maSP">Brand</option>
+                                                        <option value="maSP">Brand</option>
 
-                                            </select>
-                                            <button style="background: none;border: none;"  onclick="Functionclick4()" ><i class="fas fa-plus-circle"
-                                                    style="color: #bcd451;"></i></button>
-                                                    <span id="TxtBoxBrand" style="display: none;"><input  type="text">
-                                                        <i id = "btnaddbrand" class="fas fa-angle-double-right" style="font-size: 15px; color: #73701a; margin-left: 5px;" onclick="Functionclick5()"></i></span>
+                                                    </select>
+                                      
+                                                <input type="text" id="TxtBoxBrand" placeholder="them loai">
+
+                                            </div>
+                                            <label style="margin-left: 240px;" onclick="Functionclick4()"><i
+                                                    class="fas fa-plus-circle" style="color: #bcd451;"></i></label>
+
+
+
                                         </td>
                                     </tr>
                                     <tr>
                                         <th>
-                                            <label for="lname" class="picture">Represent Picture</label>
+                                            <label class="picture">Represent Picture</label>
                                         </th>
                                         <td>
                                             <br>
@@ -427,7 +433,7 @@
                                     </tr>
                                     <tr>
                                         <th>
-                                            <label for="lname" class="picture">Picture 1</label>
+                                            <label  class="picture">Picture 1</label>
                                         </th>
                                         <td>
                                             <br>
@@ -449,7 +455,7 @@
                                     </tr>
                                     <tr>
                                         <th>
-                                            <label for="lname" class="picture">Picture 2</label>
+                                            <label  class="picture">Picture 2</label>
                                         </th>
                                         <td>
                                             <br><br>
@@ -470,7 +476,7 @@
                                     </tr>
                                     <tr>
                                         <th>
-                                            <label for="lname" class="picture">Picture 3</label>
+                                            <label  class="picture">Picture 3</label>
                                         </th>
                                         <td>
                                             <br>
@@ -493,7 +499,7 @@
                                     </tr>
                                     <tr>
                                         <th>
-                                            <label for="lname" class="picture">Picture 4</label>
+                                            <label  class="picture">Picture 4</label>
                                         </th>
                                         <td>
                                             <br>
@@ -515,7 +521,7 @@
                                     </tr>
                                     <tr>
                                         <th>
-                                            <label for="lname">Amount</label> <br>
+                                            <label >Amount</label> <br>
                                         </th>
                                         <td>
                                             <input class="numberrit" type="number" value="100" min="1">
@@ -523,7 +529,7 @@
                                     </tr>
                                     <tr>
                                         <th>
-                                            <label for="lname">Decription</label>
+                                            <label >Decription</label>
                                         </th>
                                         <td>
                                             <textarea class="textarea" id="product_description"
@@ -540,7 +546,8 @@
                             <input class="exit1" onclick="Functionclick()" value="✖" type="button">
                             <table class="cus1">
                                 <tr>
-                                    <th style="width: 50%;font-size: 25px;background: #d6dee9;"onclick="Functionclick1()" id="edit">Edit</th>
+                                    <th style="width: 50%;font-size: 25px;background: #d6dee9;"
+                                        onclick="Functionclick1()" id="edit">Edit</th>
                                     <th style="font-size: 25px;" onclick="Functionclick2()" id="btn_addConfig">Them cau
                                         hinh</th>
                                 </tr>
@@ -550,7 +557,7 @@
 
                                     <tr>
                                         <th style="width:150px;">
-                                            <label for="lname">Product Name</label>
+                                            <label >Product Name</label>
                                         </th>
                                         <td>
                                             <label type="text" name="ProductsName" id="label5">
@@ -561,7 +568,7 @@
                                     </tr>
                                     <tr>
                                         <th>
-                                            <label for="lname">Produc Type</label>
+                                            <label>Produc Type</label>
                                         </th>
                                         <td>
                                             <select id="country" name="VendorId" required>
@@ -575,10 +582,10 @@
                                     </tr>
                                     <tr>
                                         <th>
-                                            <label for="lname">Brand </label>
+                                            <label>Brand </label>
                                         </th>
                                         <td>
-                                            <select class="cmb" id="country" name="VendorId" required>
+                                            <select  id="country" name="VendorId" required>
                                                 <option value="maSP">Brand</option>
                                                 <option value="maSP">Brand</option>
                                                 <option value="maSP">Brand</option>
@@ -586,12 +593,12 @@
                                                 <option value="maSP">Brand</option>
 
                                             </select>
-                                         
+
                                         </td>
                                     </tr>
                                     <tr>
                                         <th>
-                                            <label for="lname" class="picture">Represent Picture</label>
+                                            <label  class="picture">Represent Picture</label>
                                         </th>
                                         <td>
                                             <br>
@@ -613,7 +620,7 @@
                                     </tr>
                                     <tr>
                                         <th>
-                                            <label for="lname" class="picture">Picture 1</label>
+                                            <label  class="picture">Picture 1</label>
                                         </th>
                                         <td>
                                             <br>
@@ -635,7 +642,7 @@
                                     </tr>
                                     <tr>
                                         <th>
-                                            <label for="lname" class="picture">Picture 2</label>
+                                            <label class="picture">Picture 2</label>
                                         </th>
                                         <td>
                                             <br><br>
@@ -656,7 +663,7 @@
                                     </tr>
                                     <tr>
                                         <th>
-                                            <label for="lname" class="picture">Picture 3</label>
+                                            <label  class="picture">Picture 3</label>
                                         </th>
                                         <td>
                                             <br>
@@ -679,7 +686,7 @@
                                     </tr>
                                     <tr>
                                         <th>
-                                            <label for="lname" class="picture">Picture 4</label>
+                                            <label  class="picture">Picture 4</label>
                                         </th>
                                         <td>
                                             <br>
@@ -701,7 +708,7 @@
                                     </tr>
                                     <tr>
                                         <th>
-                                            <label for="lname">Amount</label> <br>
+                                            <label >Amount</label> <br>
                                         </th>
                                         <td>
                                             <input class="numberrit" type="number" value="100" min="1">
@@ -709,7 +716,7 @@
                                     </tr>
                                     <tr>
                                         <th>
-                                            <label for="lname">Decription</label>
+                                            <label>Decription</label>
                                         </th>
                                         <td>
                                             <textarea class="textarea" id="product_description"
@@ -733,10 +740,11 @@
                                         <td>Ram</td>
                                         <td> <input style="background: none; border: none; " type="text" name="" id=""
                                                 placeholder="                  ghi zo"> </td>
-                                        <td><label class="switch">
-                                                <input type="checkbox">
-                                                <span class="slider"></span>
-                                            </label>
+                                        <td>
+                                            <div class="checkbox">
+                                                <input type="checkbox" id="click">
+
+                                            </div>
                                         </td>
                                     </tr>
                                 </table>

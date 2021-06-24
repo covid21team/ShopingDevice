@@ -1,5 +1,6 @@
 #mainform{
     margin-top: 20px;
+
 }
 #thongtin{
     float: left;
@@ -8,7 +9,7 @@
     margin-left: 11%;
 }
 #hienthongtin{
-    background: rgb(245, 244, 241);
+    background: rgb(248, 249, 250);
     width: 900px ;   
     min-height: 347px ;
     float: left;
@@ -184,6 +185,7 @@
     margin-left: 174px; 
     width: 100px;
     margin-top: 5px;border-radius: 5px;
+    margin-bottom: 10px;
 }
 .thoat{
     background: none;
