@@ -18,6 +18,7 @@ namespace TSP_Covid21.Models.ShopEntity
         public Nullable<int> PRODUCTID { get; set; }
         public string USER { get; set; }
         public string COMMENTTEXT { get; set; }
+        public Nullable<System.DateTime> DATECOMMENT { get; set; }
     
         public virtual ACCOUNT ACCOUNT { get; set; }
         public virtual PRODUCT PRODUCT { get; set; }

@@ -78,6 +78,7 @@
           <Property Name="PRODUCTID" Type="int" />
           <Property Name="USER" Type="varchar" MaxLength="30" />
           <Property Name="COMMENTTEXT" Type="nvarchar(max)" />
+          <Property Name="DATECOMMENT" Type="datetime" />
         </EntityType>
         <EntityType Name="CONFIG">
           <Key>
@@ -251,7 +252,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__COMMENT__PRODUCT__46E78A0C">
+        <Association Name="FK__COMMENT__PRODUCT__797309D9">
           <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="0..1" />
           <End Role="COMMENT" Type="Self.COMMENT" Multiplicity="*" />
           <ReferentialConstraint>
@@ -263,7 +264,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__COMMENT__USER__45F365D3">
+        <Association Name="FK__COMMENT__USER__787EE5A0">
           <End Role="ACCOUNT" Type="Self.ACCOUNT" Multiplicity="0..1" />
           <End Role="COMMENT" Type="Self.COMMENT" Multiplicity="*" />
           <ReferentialConstraint>
@@ -469,11 +470,11 @@
             <End Role="ACCOUNT" EntitySet="ACCOUNT" />
             <End Role="CART" EntitySet="CART" />
           </AssociationSet>
-          <AssociationSet Name="FK__COMMENT__PRODUCT__46E78A0C" Association="Self.FK__COMMENT__PRODUCT__46E78A0C">
+          <AssociationSet Name="FK__COMMENT__PRODUCT__797309D9" Association="Self.FK__COMMENT__PRODUCT__797309D9">
             <End Role="PRODUCT" EntitySet="PRODUCT" />
             <End Role="COMMENT" EntitySet="COMMENT" />
           </AssociationSet>
-          <AssociationSet Name="FK__COMMENT__USER__45F365D3" Association="Self.FK__COMMENT__USER__45F365D3">
+          <AssociationSet Name="FK__COMMENT__USER__787EE5A0" Association="Self.FK__COMMENT__USER__787EE5A0">
             <End Role="ACCOUNT" EntitySet="ACCOUNT" />
             <End Role="COMMENT" EntitySet="COMMENT" />
           </AssociationSet>
@@ -541,10 +542,10 @@
           <Property Name="PHONENUMBER" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="ACCOUNTLIKEs" Relationship="Self.FK__ACCOUNTLIK__USER__49C3F6B7" FromRole="ACCOUNT" ToRole="ACCOUNTLIKE" />
           <NavigationProperty Name="CARTs" Relationship="Self.FK__CART__USER__4D94879B" FromRole="ACCOUNT" ToRole="CART" />
-          <NavigationProperty Name="COMMENTs" Relationship="Self.FK__COMMENT__USER__45F365D3" FromRole="ACCOUNT" ToRole="COMMENT" />
           <NavigationProperty Name="VOCHERDETAILs" Relationship="Self.FK__VOCHERDETA__USER__59FA5E80" FromRole="ACCOUNT" ToRole="VOCHERDETAIL" />
           <NavigationProperty Name="RATINGPRODUCTs" Relationship="COVIDModel.FK__RATINGPROD__USER__70DDC3D8" FromRole="ACCOUNT" ToRole="RATINGPRODUCT" />
           <NavigationProperty Name="VIEWNUMBERs" Relationship="COVIDModel.FK__VIEWNUMBER__USER__6D0D32F4" FromRole="ACCOUNT" ToRole="VIEWNUMBER" />
+          <NavigationProperty Name="COMMENTs" Relationship="COVIDModel.FK__COMMENT__USER__787EE5A0" FromRole="ACCOUNT" ToRole="COMMENT" />
         </EntityType>
         <EntityType Name="ACCOUNT_ADMIN">
           <Key>
@@ -611,17 +612,6 @@
           <NavigationProperty Name="ACCOUNT" Relationship="Self.FK__CART__USER__4D94879B" FromRole="CART" ToRole="ACCOUNT" />
           <NavigationProperty Name="PRODUCT" Relationship="Self.FK__CART__PRODUCTID__4E88ABD4" FromRole="CART" ToRole="PRODUCT" />
         </EntityType>
-        <EntityType Name="COMMENT">
-          <Key>
-            <PropertyRef Name="COMMENTID" />
-          </Key>
-          <Property Name="COMMENTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="PRODUCTID" Type="Int32" />
-          <Property Name="USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="COMMENTTEXT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="ACCOUNT" Relationship="Self.FK__COMMENT__USER__45F365D3" FromRole="COMMENT" ToRole="ACCOUNT" />
-          <NavigationProperty Name="PRODUCT" Relationship="Self.FK__COMMENT__PRODUCT__46E78A0C" FromRole="COMMENT" ToRole="PRODUCT" />
-        </EntityType>
         <EntityType Name="CONFIG">
           <Key>
             <PropertyRef Name="CONFIGNAME" />
@@ -663,11 +653,11 @@
           <NavigationProperty Name="BILLDETAILs" Relationship="Self.FK__BILLDETAI__PRODU__5DCAEF64" FromRole="PRODUCT" ToRole="BILLDETAIL" />
           <NavigationProperty Name="BRAND" Relationship="Self.FK__PRODUCT__BRANDID__2F10007B" FromRole="PRODUCT" ToRole="BRAND" />
           <NavigationProperty Name="CARTs" Relationship="Self.FK__CART__PRODUCTID__4E88ABD4" FromRole="PRODUCT" ToRole="CART" />
-          <NavigationProperty Name="COMMENTs" Relationship="Self.FK__COMMENT__PRODUCT__46E78A0C" FromRole="PRODUCT" ToRole="COMMENT" />
           <NavigationProperty Name="CONFIGDETAILs" Relationship="Self.FK__CONFIGDET__PRODU__34C8D9D1" FromRole="PRODUCT" ToRole="CONFIGDETAIL" />
           <NavigationProperty Name="PRODUCTTYPE" Relationship="Self.FK__PRODUCT__PRODUCT__300424B4" FromRole="PRODUCT" ToRole="PRODUCTTYPE" />
           <NavigationProperty Name="RATINGPRODUCTs" Relationship="COVIDModel.FK__RATINGPRO__PRODU__71D1E811" FromRole="PRODUCT" ToRole="RATINGPRODUCT" />
           <NavigationProperty Name="VIEWNUMBERs" Relationship="COVIDModel.FK__VIEWNUMBE__PRODU__6E01572D" FromRole="PRODUCT" ToRole="VIEWNUMBER" />
+          <NavigationProperty Name="COMMENTs" Relationship="COVIDModel.FK__COMMENT__PRODUCT__797309D9" FromRole="PRODUCT" ToRole="COMMENT" />
         </EntityType>
         <EntityType Name="PRODUCTTYPE">
           <Key>
@@ -732,18 +722,6 @@
               <PropertyRef Name="USER" />
             </Principal>
             <Dependent Role="CART">
-              <PropertyRef Name="USER" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__COMMENT__USER__45F365D3">
-          <End Role="ACCOUNT" Type="Self.ACCOUNT" Multiplicity="0..1" />
-          <End Role="COMMENT" Type="Self.COMMENT" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ACCOUNT">
-              <PropertyRef Name="USER" />
-            </Principal>
-            <Dependent Role="COMMENT">
               <PropertyRef Name="USER" />
             </Dependent>
           </ReferentialConstraint>
@@ -844,18 +822,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__COMMENT__PRODUCT__46E78A0C">
-          <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="0..1" />
-          <End Role="COMMENT" Type="Self.COMMENT" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PRODUCT">
-              <PropertyRef Name="PRODUCTID" />
-            </Principal>
-            <Dependent Role="COMMENT">
-              <PropertyRef Name="PRODUCTID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__CONFIGDET__CONFI__35BCFE0A">
           <End Role="CONFIG" Type="Self.CONFIG" Multiplicity="1" />
           <End Role="CONFIGDETAIL" Type="Self.CONFIGDETAIL" Multiplicity="*" />
@@ -924,7 +890,6 @@
           <EntitySet Name="BILLDETAILs" EntityType="Self.BILLDETAIL" />
           <EntitySet Name="BRANDs" EntityType="Self.BRAND" />
           <EntitySet Name="CARTs" EntityType="Self.CART" />
-          <EntitySet Name="COMMENTs" EntityType="Self.COMMENT" />
           <EntitySet Name="CONFIGs" EntityType="Self.CONFIG" />
           <EntitySet Name="CONFIGDETAILs" EntityType="Self.CONFIGDETAIL" />
           <EntitySet Name="PRODUCTs" EntityType="Self.PRODUCT" />
@@ -939,10 +904,6 @@
           <AssociationSet Name="FK__CART__USER__4D94879B" Association="Self.FK__CART__USER__4D94879B">
             <End Role="ACCOUNT" EntitySet="ACCOUNTs" />
             <End Role="CART" EntitySet="CARTs" />
-          </AssociationSet>
-          <AssociationSet Name="FK__COMMENT__USER__45F365D3" Association="Self.FK__COMMENT__USER__45F365D3">
-            <End Role="ACCOUNT" EntitySet="ACCOUNTs" />
-            <End Role="COMMENT" EntitySet="COMMENTs" />
           </AssociationSet>
           <AssociationSet Name="FK__VOCHERDETA__USER__59FA5E80" Association="Self.FK__VOCHERDETA__USER__59FA5E80">
             <End Role="ACCOUNT" EntitySet="ACCOUNTs" />
@@ -975,10 +936,6 @@
           <AssociationSet Name="FK__CART__PRODUCTID__4E88ABD4" Association="Self.FK__CART__PRODUCTID__4E88ABD4">
             <End Role="PRODUCT" EntitySet="PRODUCTs" />
             <End Role="CART" EntitySet="CARTs" />
-          </AssociationSet>
-          <AssociationSet Name="FK__COMMENT__PRODUCT__46E78A0C" Association="Self.FK__COMMENT__PRODUCT__46E78A0C">
-            <End Role="PRODUCT" EntitySet="PRODUCTs" />
-            <End Role="COMMENT" EntitySet="COMMENTs" />
           </AssociationSet>
           <AssociationSet Name="FK__CONFIGDET__CONFI__35BCFE0A" Association="Self.FK__CONFIGDET__CONFI__35BCFE0A">
             <End Role="CONFIG" EntitySet="CONFIGs" />
@@ -1022,7 +979,16 @@
             <End Role="PRODUCT" EntitySet="PRODUCTs" />
             <End Role="VIEWNUMBER" EntitySet="VIEWNUMBERs" />
           </AssociationSet>
-        </EntityContainer>
+          <EntitySet Name="COMMENTs" EntityType="COVIDModel.COMMENT" />
+          <AssociationSet Name="FK__COMMENT__USER__787EE5A0" Association="COVIDModel.FK__COMMENT__USER__787EE5A0">
+            <End Role="ACCOUNT" EntitySet="ACCOUNTs" />
+            <End Role="COMMENT" EntitySet="COMMENTs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__COMMENT__PRODUCT__797309D9" Association="COVIDModel.FK__COMMENT__PRODUCT__797309D9">
+            <End Role="PRODUCT" EntitySet="PRODUCTs" />
+            <End Role="COMMENT" EntitySet="COMMENTs" />
+          </AssociationSet>
+          </EntityContainer>
         <EntityType Name="RATINGPRODUCT">
           <Key>
             <PropertyRef Name="USER" />
@@ -1093,7 +1059,43 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        <EntityType Name="COMMENT">
+          <Key>
+            <PropertyRef Name="COMMENTID" />
+          </Key>
+          <Property Name="COMMENTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PRODUCTID" Type="Int32" />
+          <Property Name="USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="COMMENTTEXT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DATECOMMENT" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="ACCOUNT" Relationship="COVIDModel.FK__COMMENT__USER__787EE5A0" FromRole="COMMENT" ToRole="ACCOUNT" />
+          <NavigationProperty Name="PRODUCT" Relationship="COVIDModel.FK__COMMENT__PRODUCT__797309D9" FromRole="COMMENT" ToRole="PRODUCT" />
+        </EntityType>
+        <Association Name="FK__COMMENT__USER__787EE5A0">
+          <End Type="COVIDModel.ACCOUNT" Role="ACCOUNT" Multiplicity="0..1" />
+          <End Type="COVIDModel.COMMENT" Role="COMMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ACCOUNT">
+              <PropertyRef Name="USER" />
+            </Principal>
+            <Dependent Role="COMMENT">
+              <PropertyRef Name="USER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__COMMENT__PRODUCT__797309D9">
+          <End Type="COVIDModel.PRODUCT" Role="PRODUCT" Multiplicity="0..1" />
+          <End Type="COVIDModel.COMMENT" Role="COMMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCT">
+              <PropertyRef Name="PRODUCTID" />
+            </Principal>
+            <Dependent Role="COMMENT">
+              <PropertyRef Name="PRODUCTID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -1165,16 +1167,6 @@
                 <ScalarProperty Name="USER" ColumnName="USER" />
                 <ScalarProperty Name="PRODUCTID" ColumnName="PRODUCTID" />
                 <ScalarProperty Name="AMOUNT" ColumnName="AMOUNT" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="COMMENTs">
-            <EntityTypeMapping TypeName="COVIDModel.COMMENT">
-              <MappingFragment StoreEntitySet="COMMENT">
-                <ScalarProperty Name="COMMENTID" ColumnName="COMMENTID" />
-                <ScalarProperty Name="PRODUCTID" ColumnName="PRODUCTID" />
-                <ScalarProperty Name="USER" ColumnName="USER" />
-                <ScalarProperty Name="COMMENTTEXT" ColumnName="COMMENTTEXT" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1268,6 +1260,17 @@
                 <ScalarProperty Name="DATESEEN" ColumnName="DATESEEN" />
                 <ScalarProperty Name="PRODUCTID" ColumnName="PRODUCTID" />
                 <ScalarProperty Name="USER" ColumnName="USER" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="COMMENTs">
+            <EntityTypeMapping TypeName="COVIDModel.COMMENT">
+              <MappingFragment StoreEntitySet="COMMENT">
+                <ScalarProperty Name="DATECOMMENT" ColumnName="DATECOMMENT" />
+                <ScalarProperty Name="COMMENTTEXT" ColumnName="COMMENTTEXT" />
+                <ScalarProperty Name="USER" ColumnName="USER" />
+                <ScalarProperty Name="PRODUCTID" ColumnName="PRODUCTID" />
+                <ScalarProperty Name="COMMENTID" ColumnName="COMMENTID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

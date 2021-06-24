@@ -31,7 +31,7 @@ function my1Function(){
 } 
 }
 
-function login(){
+function my2Function(){
   var x =document.getElementById("pass");
   var y =document.getElementById("hidel5");
   var z =document.getElementById("hidel6");

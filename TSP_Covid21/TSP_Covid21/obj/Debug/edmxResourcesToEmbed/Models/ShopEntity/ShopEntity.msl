@@ -70,16 +70,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="COMMENTs">
-      <EntityTypeMapping TypeName="COVIDModel.COMMENT">
-        <MappingFragment StoreEntitySet="COMMENT">
-          <ScalarProperty Name="COMMENTID" ColumnName="COMMENTID" />
-          <ScalarProperty Name="PRODUCTID" ColumnName="PRODUCTID" />
-          <ScalarProperty Name="USER" ColumnName="USER" />
-          <ScalarProperty Name="COMMENTTEXT" ColumnName="COMMENTTEXT" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="CONFIGs">
       <EntityTypeMapping TypeName="COVIDModel.CONFIG">
         <MappingFragment StoreEntitySet="CONFIG">
@@ -170,6 +160,17 @@
           <ScalarProperty Name="DATESEEN" ColumnName="DATESEEN" />
           <ScalarProperty Name="PRODUCTID" ColumnName="PRODUCTID" />
           <ScalarProperty Name="USER" ColumnName="USER" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="COMMENTs">
+      <EntityTypeMapping TypeName="COVIDModel.COMMENT">
+        <MappingFragment StoreEntitySet="COMMENT">
+          <ScalarProperty Name="DATECOMMENT" ColumnName="DATECOMMENT" />
+          <ScalarProperty Name="COMMENTTEXT" ColumnName="COMMENTTEXT" />
+          <ScalarProperty Name="USER" ColumnName="USER" />
+          <ScalarProperty Name="PRODUCTID" ColumnName="PRODUCTID" />
+          <ScalarProperty Name="COMMENTID" ColumnName="COMMENTID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

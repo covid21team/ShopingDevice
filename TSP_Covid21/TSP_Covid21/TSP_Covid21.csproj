@@ -134,6 +134,8 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\Covid21Controller.cs" />
     <Compile Include="Controllers\ProductController.cs" />
@@ -617,6 +619,8 @@
     <Content Include="Models\ShopEntity\ShopEntity.edmx.diagram">
       <DependentUpon>ShopEntity.edmx</DependentUpon>
     </Content>
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\Shared\MainLayoutAdmin.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -642,20 +646,27 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Covid21\Home.cshtml" />
-    <Content Include="Views\Shared\loadProductNew.cshtml" />
-    <Content Include="Views\Shared\loadProductTopHome.cshtml" />
-    <Content Include="Views\Shared\loadSmartPhoneTop.cshtml" />
     <Content Include="Views\Shared\AmountProductLike.cshtml" />
     <Content Include="Views\Shared\loadProductCart.cshtml" />
-    <Content Include="Views\Shared\loadSmartWatchTop.cshtml" />
-    <Content Include="Views\Shared\loadLapTopTop.cshtml" />
-    <Content Include="Views\Covid21\Product.cshtml" />
     <Content Include="Views\Shared\loadBrandProduct.cshtml" />
-    <Content Include="Views\Shared\loadProductTop_Product.cshtml" />
+    <Content Include="Views\Shared\loadProductTop_Store.cshtml" />
     <Content Include="Views\Covid21\Cart.cshtml" />
+    <Content Include="Views\Covid21\Store.cshtml" />
+    <Content Include="Views\Covid21\Product.cshtml" />
+    <Content Include="Views\Shared\ratingProduct.cshtml" />
+    <Content Include="Views\Shared\shareProduct.cshtml" />
+    <Content Include="Views\Shared\loadProductTop_Home.cshtml" />
+    <Content Include="Views\Shared\loadProductNewAndSellingTop_Home.cshtml" />
+    <Content Include="Views\Shared\tableConfig_Product.cshtml" />
+    <Content Include="Views\Shared\Review_Product.cshtml" />
+    <Content Include="Views\Shared\ReviewRating_Product.cshtml" />
+    <Content Include="Views\Shared\ReviewRatingOfUser_Product.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Admin\Views\Admin\" />
+    <Folder Include="Areas\Admin\Views\Home\" />
     <Folder Include="Views\Account\" />
     <Folder Include="Views\Product\" />
   </ItemGroup>

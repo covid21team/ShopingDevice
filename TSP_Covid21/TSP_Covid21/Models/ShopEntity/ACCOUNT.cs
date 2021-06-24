@@ -19,10 +19,10 @@ namespace TSP_Covid21.Models.ShopEntity
         {
             this.ACCOUNTLIKEs = new HashSet<ACCOUNTLIKE>();
             this.CARTs = new HashSet<CART>();
-            this.COMMENTs = new HashSet<COMMENT>();
             this.VOCHERDETAILs = new HashSet<VOCHERDETAIL>();
             this.RATINGPRODUCTs = new HashSet<RATINGPRODUCT>();
             this.VIEWNUMBERs = new HashSet<VIEWNUMBER>();
+            this.COMMENTs = new HashSet<COMMENT>();
         }
     
         public string USER { get; set; }
@@ -36,12 +36,12 @@ namespace TSP_Covid21.Models.ShopEntity
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CART> CARTs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<COMMENT> COMMENTs { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<VOCHERDETAIL> VOCHERDETAILs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RATINGPRODUCT> RATINGPRODUCTs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<VIEWNUMBER> VIEWNUMBERs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<COMMENT> COMMENTs { get; set; }
     }
 }

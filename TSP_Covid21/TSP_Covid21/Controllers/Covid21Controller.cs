@@ -35,7 +35,7 @@ namespace TSP_Covid21.Controllers
                 + Sẽ không lấy được giá trị các biến bên trong câu điều kiện ra bên ngoài để xử lí tiếp tục
                 
             - Do ở đây là trong if đã đi thằng vào lớp Model nên không bị ảnh hưởng*/
-        public ActionResult Product(string ProductTypeName) 
+        public ActionResult Store(string ProductTypeName) 
         {
             var db = new Models.BUS.Product_BUS();
 
@@ -54,18 +54,27 @@ namespace TSP_Covid21.Controllers
 
         public ActionResult Cart(string user)
         {
-            var db = new Models.BUS.Product_BUS();
+            var db = new Product_BUS();
 
             var result = db.loadProductCart(user);
 
             return View(result);
         }
 
+        // xóa sản phẩm trong giỏ hàng của khách hàng khi bấm remove trong bảng giỏ hàng
         public ActionResult delProduct_Cart(int productId, string user)
         {
             PB.delProduct_Cart(productId, user);
 
             return RedirectToAction("Cart","Covid21", new { user = user});
+        }
+
+        public ActionResult Product(int productId)
+        {
+            var db = new Product_BUS();
+
+            var result = db.productDetail(productId);
+            return View(result);
         }
     }
 }

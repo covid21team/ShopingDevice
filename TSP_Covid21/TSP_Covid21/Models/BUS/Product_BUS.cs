@@ -37,7 +37,7 @@ namespace TSP_Covid21.Models.BUS
         // Load product top sale at page product
         public IEnumerable<PRODUCT> loadProductTop_Product(int page, int pagesize)
         {
-            var result = db.PRODUCTs.OrderByDescending(t => t.PRODUCTID).Take(3);
+            var result = db.PRODUCTs.OrderByDescending(t => t.PRODUCTID).Take(18);
             return result.ToPagedList(page, pagesize);
         }
 
@@ -212,6 +212,38 @@ namespace TSP_Covid21.Models.BUS
             CART c = db.CARTs.Where(p => p.PRODUCTID == productId && p.USER == user).SingleOrDefault();
             db.CARTs.Remove(c);
             db.SaveChanges();
+        }
+
+        public PRODUCT productDetail(int productId)
+        {
+            var result = db.PRODUCTs.Where(p => p.PRODUCTID == productId).SingleOrDefault();
+            return result;
+        }
+
+        public IEnumerable<RATINGPRODUCT> loadRatingProduct(int productId)
+        {
+            var result = db.RATINGPRODUCTs.Where(p => p.PRODUCTID == productId).ToList();
+            return result;
+        }
+
+        public IEnumerable<CONFIGDETAIL> loadConfigProduct(int productId)
+        {
+            var result = db.CONFIGDETAILs.Where(p => p.PRODUCTID == productId);
+            return result;
+        }
+
+        public IEnumerable<COMMENT> loadCommentProduct(int page, int pagesize, int productId)
+        {
+            var list = db.COMMENTs.Where(p => p.PRODUCTID == productId);
+
+            var result = list.OrderByDescending(x => x.PRODUCTID).Skip((page - 1) * pagesize).Take(20);
+            return result.ToPagedList(page, pagesize);
+        }
+
+        public int ReviewRatingOfUser(string user, int productId)
+        {
+            var resuft = db.RATINGPRODUCTs.Where(p => p.USER == user && p.PRODUCTID == productId).Select(p => p.RATE).SingleOrDefault();
+            return Convert.ToInt32(resuft);
         }
 
         #endregion  

@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using TSP_Covid21.Models.BUS;
 using TSP_Covid21.Models.ViewModel;
+using TSP_Covid21.Models.ShopEntity;
 
 namespace TSP_Covid21.Controllers
 {
@@ -38,6 +39,26 @@ namespace TSP_Covid21.Controllers
             }
             var result = PB.loadBrand(ProductTypeName);
             return result;
+        }
+
+        public IEnumerable<RATINGPRODUCT> loadRatingProduct(int productId)
+        {
+            return PB.loadRatingProduct(productId);
+        }
+
+        public IEnumerable<CONFIGDETAIL> loadConfigProduct(int productId)
+        {
+            return PB.loadConfigProduct(productId);
+        }
+
+        public IEnumerable<COMMENT> loadCommentProduct(int productId)
+        {
+            return PB.loadCommentProduct(1,3,productId);
+        }
+
+        public int ReviewRatingOfUser(string user, int productId)
+        {
+            return PB.ReviewRatingOfUser(user, productId);
         }
     }
 }

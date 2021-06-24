@@ -73,6 +73,7 @@
     <Property Name="PRODUCTID" Type="int" />
     <Property Name="USER" Type="varchar" MaxLength="30" />
     <Property Name="COMMENTTEXT" Type="nvarchar(max)" />
+    <Property Name="DATECOMMENT" Type="datetime" />
   </EntityType>
   <EntityType Name="CONFIG">
     <Key>
@@ -246,7 +247,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__COMMENT__PRODUCT__46E78A0C">
+  <Association Name="FK__COMMENT__PRODUCT__797309D9">
     <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="0..1" />
     <End Role="COMMENT" Type="Self.COMMENT" Multiplicity="*" />
     <ReferentialConstraint>
@@ -258,7 +259,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__COMMENT__USER__45F365D3">
+  <Association Name="FK__COMMENT__USER__787EE5A0">
     <End Role="ACCOUNT" Type="Self.ACCOUNT" Multiplicity="0..1" />
     <End Role="COMMENT" Type="Self.COMMENT" Multiplicity="*" />
     <ReferentialConstraint>
@@ -464,11 +465,11 @@
       <End Role="ACCOUNT" EntitySet="ACCOUNT" />
       <End Role="CART" EntitySet="CART" />
     </AssociationSet>
-    <AssociationSet Name="FK__COMMENT__PRODUCT__46E78A0C" Association="Self.FK__COMMENT__PRODUCT__46E78A0C">
+    <AssociationSet Name="FK__COMMENT__PRODUCT__797309D9" Association="Self.FK__COMMENT__PRODUCT__797309D9">
       <End Role="PRODUCT" EntitySet="PRODUCT" />
       <End Role="COMMENT" EntitySet="COMMENT" />
     </AssociationSet>
-    <AssociationSet Name="FK__COMMENT__USER__45F365D3" Association="Self.FK__COMMENT__USER__45F365D3">
+    <AssociationSet Name="FK__COMMENT__USER__787EE5A0" Association="Self.FK__COMMENT__USER__787EE5A0">
       <End Role="ACCOUNT" EntitySet="ACCOUNT" />
       <End Role="COMMENT" EntitySet="COMMENT" />
     </AssociationSet>

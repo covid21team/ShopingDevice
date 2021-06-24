@@ -958,10 +958,6 @@ textarea.input {
 .product .product-body .product-rating>i.fa-star {
   color: #ef233c;
 }
-.product .product-body .product-rating>i.fa-star-half-alt {
-  color: #ef233c;
-}
-
 
 .product .product-body .product-rating:after {
   content: "";
@@ -1500,7 +1496,6 @@ textarea.input {
 .product-details .product-rating>i.fa-star {
   color: #D10024;
 }
-
 
 .product-details .review-link {
   font-size: 12px;
