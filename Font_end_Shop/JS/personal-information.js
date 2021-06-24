@@ -75,3 +75,58 @@ function suathem(){
 //   document.getElementById(cityName).style.display = "block";
 //   evt.currentTarget.className += " active";
 // }
+
+function changeFunc(){
+  var selectedBox = document.getElementById("province")
+  var selectedValue = selectedBox.options[selectedBox.selectedIndex].getAttribute('data-province')
+  var district = document.getElementById('district');
+  $.ajax({
+      url: "https://dev-online-gateway.ghn.vn/shiip/public-api/master-data/district",
+      headers:{
+          'token' : "260fcbb6-d4ae-11eb-aa92-d25db748eae9",
+          'content-Type':'application/json'
+      },
+      method:'GET',
+      dataType:'json',
+
+      success:function(response){
+
+          var str="<option selected>District </option>";
+          for(var i=0;i<response.data.length;i++){
+              if(response.data[i].ProvinceID==selectedValue)
+              {
+                  str=str+"<option class='districtID' data-district='"+response.data[i].DistrictID+"'>"+response.data[i].DistrictName
+                  +"</option>"
+              }
+
+          }
+          district.innerHTML=str;
+      }
+  });
+
+};
+
+
+function changeFuncDistrict(){
+  var selectedBox = document.getElementById("district")
+  var selectedValue = selectedBox.options[selectedBox.selectedIndex].getAttribute('data-district')
+  var district = document.getElementById('ward');
+  $.ajax({
+      url: "https://dev-online-gateway.ghn.vn/shiip/public-api/master-data/ward?district_id="+selectedValue,
+      headers:{
+          'token' : "260fcbb6-d4ae-11eb-aa92-d25db748eae9",
+          'content-Type':'application/json'
+      },
+      method:'GET',
+      dataType:'json',
+      success:function(response){
+          console.log(response.data);
+          var str="<option selected>Wards</option>";
+          for(var i=0;i<response.data.length;i++){
+                  str=str+"<option class='wardID' data-ward='"+response.data[i].WardCode+"'>"+response.data[i].WardName
+                  +"</option>"
+          }
+          district.innerHTML=str;
+      }
+  });
+}
