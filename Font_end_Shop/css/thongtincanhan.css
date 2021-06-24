@@ -1,17 +1,16 @@
 #mainform{
-    margin-top: 10px;
+    margin-top: 20px;
 }
 #thongtin{
     float: left;
-    background: lightgreen;
     width: 200px auto;
     min-height: auto;
     margin-left: 11%;
 }
 #hienthongtin{
-    background: lightpink;
+    background: rgb(245, 244, 241);
     width: 900px ;   
-    min-height: 300px ;
+    min-height: 347px ;
     float: left;
     margin-left: 15px;
     margin-top: -10px;
@@ -32,13 +31,15 @@
 
 /* ================================ */
 #id123 label.active {
-    text-decoration: underline solid ; 
-    background: red;
+    text-decoration: underline solid  ;  
   }
   #id124 label.active {
-    text-decoration: underline solid ; 
-    background: red;
+    text-decoration: underline solid ;  
   }
+  #id129 label.active {
+    text-decoration: underline solid  ;  
+  }
+
 /*======================================= */
 #id1{
     margin-left: 100px;
@@ -61,13 +62,13 @@
 #id4{
     margin-left: 150px; 
     transform: scale(1.5);
-    margin-top: 10px;
+    margin-top: 15px;
     
 }
 #id5{
     margin-left: 50px;
     transform: scale(1.5);
-    margin-top: 5px;
+    margin-top: 15px;
 }
 
 #id6{
@@ -79,6 +80,8 @@
 #id7{
     transform: scale(1.5);
     margin-left: 21%;
+    margin-top: 10px;
+
 }
 #id8{
     margin-left: 110px;
@@ -103,20 +106,35 @@
     width: 100px;
     margin-top: 5px;
     border-radius: 5px;
+    margin-bottom: 10px;
+    background: #e6556d;
+    border: #e6556d;
+    color: white;
+    font-size: 20px;
+    
+}
+#id11:hover{
+    background: #ff002b;
 }
 #id12{
     text-align: center;
     padding: 10px;
     font-size: 20px;
-    border-style: dotted;
+    border-style: dotted ;
     margin-top: 5px;
     border-radius: 5px;
-
+    margin-left: -10px;
+    color: rgb(159, 209, 102);
+  
+}
+#id12:hover{
+    color: #D10024;
 }
 .id13{
     width: 30%; padding: 10px;
     margin-top: 5px;
-    border-radius: 5px;
+    margin-bottom: 5px;
+
 }
 .id14{
     /* margin-left: 80%; */
@@ -181,3 +199,30 @@
     margin-left: 20%;
     margin-top: 5px;
 }
+
+#donhangdamua table{
+     margin-left:0px;
+     margin-top: 10px;
+      width: 880px;   
+      text-align: center; 
+      margin-bottom: 10px;
+     
+}
+.tabledg tr{
+    line-height: 10px;
+    box-shadow: 0px 0px 0px 1px rgb(51, 49, 49);
+}
+.tablea{
+   text-align: center; margin-top: 7px;
+   font-size: 20px;
+   padding: 8px;
+ 
+}
+.tableb{
+    text-align: center; margin-top: 7px; 
+   font-size: 15px;
+   padding: 5px;
+ }
+ .hoverdonhang:hover{
+     background: rgb(227, 232, 233);
+ }

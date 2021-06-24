@@ -211,12 +211,12 @@
 
 	<div id="mainform">
 		<div id="thongtin">
-			<h3><i class="fas fa-user" style="font-size: 50px;"></i> Truong gia phu</h3>
+			<h3><i class="fas fa-user" style="font-size: 50px;"></i> Nguyễn Hoàng Trí</h3>
 			<div class="checkbox-filter">
 				<div class="menuchon" id="id123">
 					<label for="" class="tablinks" onclick="openCity(event, 'banthongtincanhan')">
 						<span></span>
-						<a><i class="fas fa-user-cog"></i> Personal Information</a>
+						<a id="741"><i class="fas fa-user-cog"></i> Personal Information</a>
 					</label>
 				</div>
 				<div class="menuchon" id="id124">
@@ -228,44 +228,35 @@
 				</div>
 				<div class="menuchon" id="id125">
 
-					<label class="tablinks" onclick="openCity(event, 'sanphamyeuthich')">
+					<label for="brand-2">
+						<span></span>
+						<a><i class="fas fa-shopping-cart"></i> My Cart</a>
+					</label>
+				</div>
+				<div class="menuchon" id="id126">
+
+					<label>
 						<span></span>
 						<a><i class="fas fa-heart"></i> Like</a>
 					</label>
 				</div>
-				<div class="menuchon">
-
-					<label for="brand-2">
-						<span></span>
-						<a href=""><i class="fas fa-shopping-cart"></i>
-							My Cart</a>
-					</label>
-				</div>
-
-				<div class="menuchon">
+				<div class="menuchon" id="id127">
 
 					<label for="brand-4">
 						<span></span>
 
-						<a href=""><i class="fas fa-eye"></i> Seen</a>
+						<a><i class="fas fa-eye"></i> Seen</a>
 					</label>
 				</div>
-				<div class="menuchon">
-
-					<label class="tablinks" onclick="openCity(event, 'diachigiaohang')">
-						<span></span>
-						<a href=""><i class="fas fa-heart"></i> Liked</a>
-					</label>
-				</div>
-				<div class="menuchon">
+				<div class="menuchon" id="id128">
 
 					<label for="brand-4">
 						<span></span>
-						<a href=""><i class="fas fa-star"></i> Rating</a>
+						<a><i class="fas fa-star"></i> Rating</a>
 					</label>
 				</div>
-				<div class="menuchon">
-					<label for="brand-4">
+				<div class="menuchon" id="id129">
+					<label for="brand-4" class="tablinks" onclick="openCity(event, 'donhangdamua')">
 						<span></span>
 						<a><i class="fas fa-book"></i> Purchased </a>
 					</label>
@@ -345,14 +336,25 @@
 				<div id="tatbangiaohang">
 					<div>
 						<div>
-							<span></span>							
-							<p id="id12" onclick="openthem()"> <i class="fas fa-plus"></i> <b> them dia chi</b> </p>
+							<span></span>
+							<p id="id12" onclick="openthem()"> <i style="color: yellowgreen;" class="fas fa-plus"></i> <b> them dia chi</b> </p>
 						</div>
 					</div>
 					<table>
 						<tr>
 							<th class="id13" style="width:  700px;">
 								<label>Nguyễn hoàng trí</label><small>(Địa chỉ mặc định)</small>
+								<br><label>Long khánh</label><br>
+								<label>số điện thoại</label>
+								
+							</th>
+							<td>
+								<label class="id14" onclick="suathem()"> chinh sua</label>
+							</td>
+						</tr>
+						<tr>
+							<th class="id13" style="width:  700px;">
+								<label>Nguyễn hoàng trí</label><small></small>
 								<br><label>Long khánh</label><br>
 								<label>số điện thoại</label>
 							</th>
@@ -362,7 +364,7 @@
 						</tr>
 					</table>
 				</div>
-				<div style="display: none;"  id="themthongtingiaohang">
+				<div style="display: none;" id="themthongtingiaohang">
 					<input class="thoat" onclick="tatthem()" value="✖" type="button">
 					<div>
 						<span></span>
@@ -396,7 +398,7 @@
 					</div>
 					<div>
 						<span></span>
-	
+
 						<input id="id22" class="text1" type="checkbox">
 						<label for="">dat lam mat dinh </label>
 					</div>
@@ -405,117 +407,41 @@
 					</div>
 				</div>
 			</div>
-
-			<!-- Sản phẩm yêu thích -->
-			<div id="sanphamyeuthich" class="thongtincanhan" style="display: none;">
-
-				<div style="float: left; margin-left: 20px;">
-					<div class="product" style="width: 200px; margin-bottom: 80px;">
-						<div class="product-img">
-							<img src="./img/product01.png" alt="">
-							<div class="product-label">
-								<span class="sale">-30%</span>
-								<span class="new">NEW</span>
-							</div>
-						</div>
-						<div class="product-body">
-							<p class="product-category">Category</p>
-							<h3 class="product-name"><a href="#">product name goes here</a></h3>
-							<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-							<div class="product-rating">
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star-o"></i>
-							</div>
-							<div class="product-btns">
-								<button class="add-to-wishlist"><i class="fa fa-heart" style="color: red;"></i><span
-										class="tooltipp">add to wishlist</span></button>
-								<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick
-										view</span></button>
-							</div>
-						</div>
-						<div class="add-to-cart">
-							<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- Đánh giá -->
-		
-			<div style="display: none;">
-				<div style="float: left; margin-left: 20px;">
-					<div class="product" style="width: 200px;margin-bottom: 80px;">
-						<div class="product-img">
-							<img src="./img/product01.png" alt="">
-							<div class="product-label">
-								<span class="sale">-30%</span>
-								<span class="new">NEW</span>
-							</div>
-						</div>
-						<div class="product-body">
-							<p class="product-category">Category</p>
-							<h3 class="product-name"><a href="#">product name goes here</a></h3>
-							<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-							<div class="product-rating">
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star-o"></i>
-							</div>
-							<div class="product-btns">
-								<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add
-										to wishlist</span></button>
-								<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick
-										view</span></button>
-							</div>
-						</div>
-						<div class="add-to-cart">
-							<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-						</div>
-					</div>
-				</div>
-			</div>
-
 			<!-- Đơn hàng đã mua -->
-			<table border="1px" style="margin:auto; width: 900px; text-align: center;display: none;">
-				<tr>
-					<th>
-						<h5 style="text-align: center; margin-top: 7px;">Bill ID</h5>
-					</th>
-					<th>
-						<h5 style="text-align: center; margin-top: 7px;">Purchased Date</h5>
-					</th>
-					<th>
-						<h5 style="text-align: center; margin-top: 7px;">Products</h5>
-					</th>
-					<th>
-						<h5 style="text-align: center; margin-top: 7px;">Into Money</h5>
-					</th>
-				</tr>
-				<tr>
-					<td>
-						<h6 style="text-align: center; margin-top: 7px;">MDH001</h6>
-					</td>
-					<td>
-						<h6 style="text-align: center; margin-top: 7px;">25/11/2000</h6>
-					</td>
-					<td>
-						<h6 style="text-align: center; margin-top: 7px;">Iphone 12, Iphone XR</h6>
-					</td>
-					<td>
-						<h6 style="text-align: center; margin-top: 7px;">90,000,000đ</h6>
-					</td>
-
-				</tr>
-			</table>
-
-
-
+			<div id="donhangdamua" class="thongtincanhan" style="display: none;">
+				<table class="tabledg">
+					<tr style="background: rgb(67, 85, 94); color: white;">
+						<th>
+							<p class="tablea" >Bill ID</p>
+						</th>
+						<th>
+							<p  class="tablea" >Purchased Date</p>
+						</th>
+						<th>
+							<p class="tablea">Products</p>
+						</th>
+						<th>
+							<p class="tablea">Into Money</p>
+						</th>
+					</tr>
+					<tr class="hoverdonhang">
+						<td>
+							<p class="tableb">MDH001</p>
+						</td>
+						<td>
+							<p class="tableb">25/11/2000</p>
+						</td>
+						<td>
+							<p class="tableb">Iphone 12, Iphone XR</p>
+						</td>
+						<td>
+							<p class="tableb">90,000,000đ</p>
+						</td>
+					</tr>
+				
+				</table>
+			</div>
 		</div>
-
 	</div>
 	<!-- SECTION -->
 	<div class="section">
