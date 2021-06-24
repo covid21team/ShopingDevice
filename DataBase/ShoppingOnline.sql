@@ -601,6 +601,7 @@ insert into RATINGPRODUCT values(N'Long','7','1')
 insert into RATINGPRODUCT values(N'Tinhs','1','2')  
 insert into RATINGPRODUCT values(N'Phus','7','3')     
 insert into RATINGPRODUCT values(N'Syx','7','1') 
+insert into RATINGPRODUCT values(N'Tinhs','7','5')
 
 
 
