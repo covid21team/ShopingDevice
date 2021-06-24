@@ -128,7 +128,7 @@ CREATE TABLE COMMENT
 	PRODUCTID INT ,
 	[USER] VARCHAR(30),
 	COMMENTTEXT NVARCHAR(MAX),
-	DATECOMMENT DATE,
+	DATECOMMENT DATETIME,
 	foreign key ([USER]) references ACCOUNT([USER]) on update cascade ,
 	foreign key (PRODUCTID) references PRODUCT(PRODUCTID) on update cascade ,
 )
@@ -511,20 +511,20 @@ go --([USER], [PASSWORD], FULLNAME, STATUSACCOUNT)
 Insert into ACCOUNT_ADMIN values (N'admin','admin',N'Trí Đẹp Trai','1') 
 
 go --(COMMENTID, PRODUCTID, [USER], COMMENTTEXT, DATACOMMENT)
-Insert into COMMENT values (1,'Phus','Hàng này cùi vl',GETDATE())
-Insert into COMMENT values (1,'Syx','Hàng này xịn đấy',GETDATE())
-Insert into COMMENT values (2,'Phus','Hàng này cùi vl',GETDATE())
-Insert into COMMENT values (2,'Syx','Hàng này xịn đấy',GETDATE())
-Insert into COMMENT values (3,'Phus','Hàng này cùi vl',GETDATE())
-Insert into COMMENT values (3,'Syx','Hàng này xịn đấy',GETDATE())
-Insert into COMMENT values (4,'Phus','Hàng này cùi vl',GETDATE())
-Insert into COMMENT values (4,'Syx','Hàng này xịn đấy',GETDATE())
-Insert into COMMENT values (5,'Phus','Hàng này cùi vl',GETDATE())
-Insert into COMMENT values (5,'Syx','Hàng này xịn đấy',GETDATE())
-Insert into COMMENT values (6,'Phus','Hàng này cùi vl',GETDATE())
-Insert into COMMENT values (6,'Syx','Hàng này xịn đấy',GETDATE())
-Insert into COMMENT values (7,'Phus','Hàng này cùi vl',GETDATE())
-Insert into COMMENT values (7,'Syx','Hàng này xịn đấy',GETDATE())
+Insert into COMMENT values (1,'Phus',N'Hàng này cùi vl',GETDATE())
+Insert into COMMENT values (1,'Syx',N'Hàng này xịn đấy',GETDATE())
+Insert into COMMENT values (2,'Phus',N'Hàng này cùi vl',GETDATE())
+Insert into COMMENT values (2,'Syx',N'Hàng này xịn đấy',GETDATE())
+Insert into COMMENT values (3,'Phus',N'Hàng này cùi vl',GETDATE())
+Insert into COMMENT values (3,'Syx',N'Hàng này xịn đấy',GETDATE())
+Insert into COMMENT values (4,'Phus',N'Hàng này cùi vl',GETDATE())
+Insert into COMMENT values (4,'Syx',N'Hàng này xịn đấy',GETDATE())
+Insert into COMMENT values (5,'Phus',N'Hàng này cùi vl',GETDATE())
+Insert into COMMENT values (5,'Syx',N'Hàng này xịn đấy',GETDATE())
+Insert into COMMENT values (6,'Phus',N'Hàng này cùi vl',GETDATE())
+Insert into COMMENT values (6,'Syx',N'Hàng này xịn đấy',GETDATE())
+Insert into COMMENT values (7,'Phus',N'Hàng này cùi vl',GETDATE())
+Insert into COMMENT values (7,'Syx',N'Hàng này xịn đấy',GETDATE())
 
 go --([USER], PRODUCTID, DATELIKE)
 Insert into ACCOUNTLIKE values ('Syx',1,GETDATE())
