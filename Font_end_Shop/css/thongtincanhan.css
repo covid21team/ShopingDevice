@@ -31,7 +31,7 @@
 
 
 /* ================================ */
-#id123 label.active {
+#id123 label.active{
     text-decoration: underline solid ; 
     background: red;
   }
@@ -39,6 +39,27 @@
     text-decoration: underline solid ; 
     background: red;
   }
+  #id125 label.active {
+    text-decoration: underline solid ; 
+    background: red;
+  }
+  #id126 label.active {
+    text-decoration: underline solid ; 
+    background: red;
+  }
+  #id127 label.active {
+    text-decoration: underline solid ; 
+    background: red;
+  }
+  #id128 label.active {
+    text-decoration: underline solid ; 
+    background: red;
+  }
+  #id129 label.active {
+    text-decoration: underline solid ; 
+    background: red;
+  }
+ 
 /*======================================= */
 #id1{
     margin-left: 100px;
@@ -181,3 +202,16 @@
     margin-left: 20%;
     margin-top: 5px;
 }
+#donhangdamua tr{
+    box-shadow: 0px 0px 0px 1px rgb(0, 0, 0);
+    text-align: center; 
+    margin-top: 7px;
+}
+#donhangdamua tr th{
+    padding: 5px;
+    text-align: center; 
+    margin-top: 7px;
+    font-size: 20px;
+    color: wheat;
+}
+
