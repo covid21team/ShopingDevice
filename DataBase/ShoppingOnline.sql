@@ -128,6 +128,7 @@ CREATE TABLE COMMENT
 	PRODUCTID INT ,
 	[USER] VARCHAR(30),
 	COMMENTTEXT NVARCHAR(MAX),
+	DATECOMMENT DATE,
 	foreign key ([USER]) references ACCOUNT([USER]) on update cascade ,
 	foreign key (PRODUCTID) references PRODUCT(PRODUCTID) on update cascade ,
 )
@@ -509,9 +510,9 @@ Insert into ACCOUNT values ('Syx','123456789',N'Nguyễn Quang Sỹ','1','098765
 go --([USER], [PASSWORD], FULLNAME, STATUSACCOUNT)
 Insert into ACCOUNT_ADMIN values (N'admin','admin',N'Trí Đẹp Trai','1') 
 
-go --(COMMENTID, PRODUCTID, [USER], COMMENTTEXT)
-Insert into COMMENT values (1,'Phus','Hàng này cùi vl')
-Insert into COMMENT values (1,'Syx','Hàng này xịn đấy')
+go --(COMMENTID, PRODUCTID, [USER], COMMENTTEXT, DATACOMMENT)
+Insert into COMMENT values (1,'Phus','Hàng này cùi vl',GETDATE())
+Insert into COMMENT values (1,'Syx','Hàng này xịn đấy',GETDATE())
 
 go --([USER], PRODUCTID, DATELIKE)
 Insert into ACCOUNTLIKE values ('Syx',1,GETDATE())
