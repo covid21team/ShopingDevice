@@ -232,7 +232,7 @@ namespace TSP_Covid21.Models.BUS
             return result;
         }
 
-        public IEnumerable<COMMENT> loadCommentProduct(int page, int pagesize, int productId)
+        public PagedList.IPagedList<COMMENT> loadCommentProduct(int page, int pagesize, int productId)
         {
             var list = db.COMMENTs.Where(p => p.PRODUCTID == productId);
 
@@ -244,6 +244,54 @@ namespace TSP_Covid21.Models.BUS
         {
             var resuft = db.RATINGPRODUCTs.Where(p => p.USER == user && p.PRODUCTID == productId).Select(p => p.RATE).SingleOrDefault();
             return Convert.ToInt32(resuft);
+        }
+
+        public IEnumerable<PRODUCT> loadRelatedProduct(int productTypeId, int brandId)
+        {
+            var result = db.PRODUCTs.Where(p => p.PRODUCTTYPEID == productTypeId && p.BRANDID == brandId).Take(4);
+            return result;
+
+        }
+
+        public void insertComment(int productId, string user, string comment)
+        {
+            DateTime time = DateTime.Now;
+
+            COMMENT c = new COMMENT {
+                PRODUCTID = productId,
+                USER = user,
+                COMMENTTEXT = comment,
+                DATECOMMENT = time,
+            };
+            db.COMMENTs.Add(c);
+            db.SaveChangesAsync();
+        }
+
+        public Boolean checkRating(int productId, string user)
+        {
+            var result = db.RATINGPRODUCTs.Where(p => p.PRODUCTID == productId && p.USER == user).SingleOrDefault();
+
+            if (result != null)
+                return true;
+            return false;
+        }
+
+        public void insertRating(int productId, string user, int rate)
+        {
+            RATINGPRODUCT r = new RATINGPRODUCT {
+                PRODUCTID = productId,
+                USER = user,
+                RATE = rate,
+            };
+            db.RATINGPRODUCTs.Add(r);
+            db.SaveChangesAsync();
+        }
+
+        public void updateRating(int productId, string user, int rate)
+        {
+            RATINGPRODUCT r = db.RATINGPRODUCTs.Where(p => p.PRODUCTID == productId && p.USER == user).SingleOrDefault();
+            r.RATE = rate;
+            db.SaveChangesAsync();
         }
 
         #endregion  

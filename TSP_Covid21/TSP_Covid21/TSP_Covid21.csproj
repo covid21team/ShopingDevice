@@ -659,7 +659,6 @@
     <Content Include="Views\Shared\loadProductNewAndSellingTop_Home.cshtml" />
     <Content Include="Views\Shared\tableConfig_Product.cshtml" />
     <Content Include="Views\Shared\Review_Product.cshtml" />
-    <Content Include="Views\Shared\ReviewRating_Product.cshtml" />
     <Content Include="Views\Shared\ReviewRatingOfUser_Product.cshtml" />
   </ItemGroup>
   <ItemGroup>

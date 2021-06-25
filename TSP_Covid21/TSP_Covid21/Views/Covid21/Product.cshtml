@@ -1,11 +1,12 @@
 ﻿@model TSP_Covid21.Models.ShopEntity.PRODUCT
+@using PagedList.Mvc;
 
 @{
     ViewBag.Title = "Product";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@{ 
+@{
     TSP_Covid21.Controllers.ProductController PC = new TSP_Covid21.Controllers.ProductController();
 }
 
@@ -31,7 +32,7 @@
 </nav>
 <!-- /NAVIGATION -->
 <!-- BREADCRUMB --><!--đường dẫn--><!--chú ý coi nha-->
-<div id="breadcrumb" class="section">
+<div id="breadcrumb" class="section" style="padding: 10px 0px">
     <!-- container -->
     <div class="container">
         <!-- row -->
@@ -177,6 +178,29 @@
                 </div>
             </div>
             <!-- /Product details -->
+            <!--Source load rating of product-->
+            <!--
+            @{
+                IEnumerable<TSP_Covid21.Models.ShopEntity.RATINGPRODUCT> listRating = PC.loadRatingProduct(Model.PRODUCTID);
+
+                var sumRating = listRating.Sum(p => p.RATE);
+                var countTotal = listRating.Count();
+                var countRating_1 = listRating.Count(p => p.RATE < 2 && p.RATE >= 1);
+                var countRating_2 = listRating.Count(p => p.RATE < 3 && p.RATE >= 2);
+                var countRating_3 = listRating.Count(p => p.RATE < 4 && p.RATE >= 3);
+                var countRating_4 = listRating.Count(p => p.RATE < 5 && p.RATE >= 4);
+                var countRating_5 = listRating.Count(p => p.RATE == 5);
+
+                float ratioRating = float.Parse(String.Format("{0:0.0}", (sumRating / countTotal)));
+
+                float ratioRating_1 = (countRating_1 / (float)countTotal) * 100;
+                float ratioRating_2 = (countRating_2 / (float)countTotal) * 100;
+                float ratioRating_3 = (countRating_3 / (float)countTotal) * 100;
+                float ratioRating_4 = (countRating_4 / (float)countTotal) * 100;
+                float ratioRating_5 = (countRating_5 / (float)countTotal) * 100;
+
+            }
+            -->
             <!-- Product tab -->
             <div class="col-md-12">
                 <div id="product-tab">
@@ -184,7 +208,7 @@
                     <ul class="tab-nav">
                         <li class="active"><a data-toggle="tab" href="#tab1">Description</a></li>
                         <li><a data-toggle="tab" href="#tab2">Details</a></li>
-                        <li><a data-toggle="tab" href="#tab3">Reviews (3)</a></li>
+                        <li><a data-toggle="tab" href="#tab3">Reviews (@countTotal)</a></li>
                     </ul>
                     <!-- /product tab nav -->
                     <!-- product tab content -->
@@ -206,10 +230,160 @@
 
                         <!-- /tab2  -->
                         <!-- tab3  -->
+                        <div id="tab3" class="tab-pane fade in">
+                            <div class="row">
+                                <!-- Rating -->
 
-                        <!-- Review Product -->
-                        @Html.Partial("Review_Product",PC.loadCommentProduct(Model.PRODUCTID))
+                                <div class="col-md-3">
+                                    <div id="rating">
+                                        <div class="rating-avg">
+                                            <span>@ratioRating</span>
+                                            <div class="rating-stars">
+                                                @Html.Partial("ReviewRatingOfUser_Product", ratioRating)
+                                            </div>
+                                        </div>
+                                        <ul class="rating">
+                                            <li>
+                                                <div class="rating-stars">
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                </div>
+                                                <div class="rating-progress">
+                                                    <div style="width: @ratioRating_5%;"></div>
+                                                </div>
+                                                <span class="sum">@countRating_5</span>
+                                            </li>
+                                            <li>
+                                                <div class="rating-stars">
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star-o"></i>
+                                                </div>
+                                                <div class="rating-progress">
+                                                    <div style="width: @ratioRating_4%;"></div>
+                                                </div>
+                                                <span class="sum">@countRating_4</span>
+                                            </li>
+                                            <li>
+                                                <div class="rating-stars">
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star-o"></i>
+                                                    <i class="fa fa-star-o"></i>
+                                                </div>
+                                                <div class="rating-progress">
+                                                    <div style="width: @ratioRating_3%;"></div>
+                                                </div>
+                                                <span class="sum">@countRating_3</span>
+                                            </li>
+                                            <li>
+                                                <div class="rating-stars">
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star-o"></i>
+                                                    <i class="fa fa-star-o"></i>
+                                                    <i class="fa fa-star-o"></i>
+                                                </div>
+                                                <div class="rating-progress">
+                                                    <div style="width: @ratioRating_2%;"></div>
+                                                </div>
+                                                <span class="sum">@countRating_2</span>
+                                            </li>
+                                            <li>
+                                                <div class="rating-stars">
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star-o"></i>
+                                                    <i class="fa fa-star-o"></i>
+                                                    <i class="fa fa-star-o"></i>
+                                                    <i class="fa fa-star-o"></i>
+                                                </div>
+                                                <div class="rating-progress">
+                                                    <div style="width: @ratioRating_1%;"></div>
+                                                </div>
+                                                <span class="sum">@countRating_1</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- /Rating -->
+                                <!-- Reviews -->
+                                <!-- Review Product -->
+                                <!--Html.Partial("Review_Product", PC.loadCommentProduct(Model.PRODUCTID))-->
+                                @{
+                                    PagedList.IPagedList<TSP_Covid21.Models.ShopEntity.COMMENT> listComment = PC.loadCommentProduct(Model.PRODUCTID);
 
+                                }
+                                <div class="col-md-6">
+                                    <div id="reviews">
+                                        <ul class="reviews">
+
+                                            @foreach (var item in listComment)
+                                            {
+                                                <li>
+                                                    <div class="review-heading">
+                                                        <h5 class="name">@item.ACCOUNT.FULLNAME</h5>
+                                                        <p class="date">@item.DATECOMMENT</p>
+                                                        <div class="review-rating">
+
+                                                            <!--Review rating of user-->
+                                                            @Html.Partial("ReviewRatingOfUser_Product", PC.ReviewRatingOfUser(item.USER, Convert.ToInt32(item.PRODUCTID)))
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="review-body">
+                                                        <p>@item.COMMENTTEXT</p>
+                                                    </div>
+                                                </li>
+                                            }
+
+                                        </ul>
+                                        <ul class="reviews-pagination">
+                                            @Html.PagedListPager(listComment, page => Url.Action("Product", new { page }))
+                                        </ul>
+                                    </div>
+                                </div>
+
+
+                                <!-- /Reviews -->
+                                <!-- Review Form -->
+                                <div class="col-md-3">
+                                    <div id="review-form">
+                                        <form class="review-form">
+                                            <input class="input" type="text" placeholder="Your Name">
+                                            <input class="input" type="email" placeholder="Your Email">
+                                            <textarea id="comment_Product" class="input" placeholder="Your Review"></textarea>
+                                            <div class="input-rating">
+                                                <span>Your Rating: </span>
+                                                <div class="stars">
+                                                    <input id="star5" name="rating" value="5" type="radio"><label for="star5"></label>
+                                                    <input id="star4" name="rating" value="4" type="radio"><label for="star4"></label>
+                                                    <input id="star3" name="rating" value="3" type="radio"><label for="star3"></label>
+                                                    <input id="star2" name="rating" value="2" type="radio"><label for="star2"></label>
+                                                    <input id="star1" name="rating" value="1" type="radio"><label for="star1"></label>
+                                                </div>
+                                            </div>
+                                            @*if (Session["user"] == null)
+                                            {
+                                                <button type="button" class="primary-btn" id="btn_NoLogin">Submit</button>
+                                            }
+                                            else
+                                            {
+                                                <button type="button" class="primary-btn" id="btn_ratingProduct">Submit</button>
+                                            }*@
+                                            <button type="button" class="primary-btn" id="btn_ratingProduct" onclick="tempwwwwwwwwwwww()">Submit</button>
+                                        </form>
+                                    </div>
+                                </div>
+                                <!-- /Review Form -->
+                                <!-- Function insert sao -->
+                            </div>
+                        </div>
                         <!-- /tab3  -->
                     </div>
                     <!-- /product tab content  -->
@@ -235,121 +409,21 @@
                 </div>
             </div>
 
-            <!-- product -->
-            <div class="col-md-3 col-xs-6">
-                <div class="product">
-                    <div class="product-img">
-                        <img src="./img/product01.png" alt="">
-                        <div class="product-label">
-                            <span class="sale">-30%</span>
-                        </div>
-                    </div>
-                    <div class="product-body">
-                        <p class="product-category">Category</p>
-                        <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                        <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-                        <div class="product-rating">
-                        </div>
-                        <div class="product-btns">
-                            <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-                            <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-                            <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-                        </div>
-                    </div>
-                    <div class="add-to-cart">
-                        <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-                    </div>
-                </div>
-            </div>
-            <!-- /product -->
-            <!-- product -->
-            <div class="col-md-3 col-xs-6">
-                <div class="product">
-                    <div class="product-img">
-                        <img src="./img/product02.png" alt="">
-                        <div class="product-label">
-                            <span class="new">NEW</span>
-                        </div>
-                    </div>
-                    <div class="product-body">
-                        <p class="product-category">Category</p>
-                        <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                        <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-                        <div class="product-rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </div>
-                        <div class="product-btns">
-                            <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-                            <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-                            <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-                        </div>
-                    </div>
-                    <div class="add-to-cart">
-                        <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-                    </div>
-                </div>
-            </div>
-            <!-- /product -->
+            @{
+                int productTypeId = Convert.ToInt32(Model.PRODUCTTYPEID);
+                int brandId = Convert.ToInt32(Model.BRANDID);
+                IEnumerable<TSP_Covid21.Models.ShopEntity.PRODUCT> listRelated = PC.loadRelatedProduct(productTypeId, brandId);
+            }
+            @foreach (var item in listRelated)
+            {
+                <!-- product -->
+                <div class="col-md-3 col-xs-6">
 
-            <div class="clearfix visible-sm visible-xs"></div>
+                    @Html.Partial("shareProduct", item);
 
-            <!-- product -->
-            <div class="col-md-3 col-xs-6">
-                <div class="product">
-                    <div class="product-img">
-                        <img src="./img/product03.png" alt="">
-                    </div>
-                    <div class="product-body">
-                        <p class="product-category">Category</p>
-                        <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                        <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-                        <div class="product-rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-o"></i>
-                        </div>
-                        <div class="product-btns">
-                            <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-                            <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-                            <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-                        </div>
-                    </div>
-                    <div class="add-to-cart">
-                        <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-                    </div>
                 </div>
-            </div>
-            <!-- /product -->
-            <!-- product -->
-            <div class="col-md-3 col-xs-6">
-                <div class="product">
-                    <div class="product-img">
-                        <img src="./img/product04.png" alt="">
-                    </div>
-                    <div class="product-body">
-                        <p class="product-category">Category</p>
-                        <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                        <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-                        <div class="product-rating">
-                        </div>
-                        <div class="product-btns">
-                            <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-                            <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-                            <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-                        </div>
-                    </div>
-                    <div class="add-to-cart">
-                        <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-                    </div>
-                </div>
-            </div>
-            <!-- /product -->
+                <!-- /product -->
+            }
 
         </div>
         <!-- /row -->
@@ -357,3 +431,45 @@
     <!-- /container -->
 </div>
 <!-- /Section -->
+
+@*{
+    var User = Session["user"];
+}*@
+
+<script>
+    var value , Comment;
+    function tempwwwwwwwwwwww() {
+        value = $("input:radio[name=rating]:checked").val();
+        alert(value);
+        Comment = $('#comment_Product').text();
+        alert(Comment);
+        
+    }
+</script>
+
+<!--
+       $("#btn_NoLogin").click(function () {
+        alert('Please Login');
+        document.getElementById('id01_login').style.display = block;
+    });
+
+    Comment = $('#comment_Product').text();
+        alert(value);
+        $.ajax({
+            url: 'Url.Action("insert_RatingAndComment", "Product")',
+            type: 'POST',
+            async: false,
+            cache: false,
+            data: {
+                productId = Model.PRODUCTTYPEID,
+                user = "Syx",
+                rate = value,
+                comment = Comment,
+            },
+            success: function (data) {
+                alert('Success');
+            },
+            error: function (request, status, error) {
+                alert('Fail');
+            }
+        });-->

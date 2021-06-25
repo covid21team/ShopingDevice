@@ -51,14 +51,29 @@ namespace TSP_Covid21.Controllers
             return PB.loadConfigProduct(productId);
         }
 
-        public IEnumerable<COMMENT> loadCommentProduct(int productId)
+        public PagedList.IPagedList<COMMENT> loadCommentProduct(int productId)
         {
             return PB.loadCommentProduct(1,3,productId);
         }
 
-        public int ReviewRatingOfUser(string user, int productId)
+        public float ReviewRatingOfUser(string user, int productId)
         {
             return PB.ReviewRatingOfUser(user, productId);
+        }
+
+        public IEnumerable<PRODUCT> loadRelatedProduct(int productTypeId, int brandId)
+        {
+            return PB.loadRelatedProduct(productTypeId, brandId);
+        }
+
+        public void insert_RatingAndComment(int productId, string user, int rate, string comment)
+        {
+            PB.insertComment(productId,user,comment);
+
+            if(PB.checkRating(productId,user))
+                PB.updateRating(productId,user,rate);
+            else
+                PB.insertRating(productId, user, rate);
         }
     }
 }
