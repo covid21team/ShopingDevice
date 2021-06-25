@@ -1,0 +1,99 @@
+﻿@model IEnumerable<TSP_Covid21.Models.ShopEntity.RATINGPRODUCT>
+
+@{
+    var sumRating = Model.Sum(p => p.RATE);
+    var countRating = Model.Count();
+    var ratioRating = sumRating / countRating;
+}
+
+<div>
+    <div class="product-rating">
+        <!--fas fa-star-half-alt-->
+        <!--Sao đầu thứ 1-->
+        @if (ratioRating > 0.9)
+        {
+            <i class="fa fa-star"></i>
+            if (ratioRating > 1.9)
+            {
+                <i class="fa fa-star"></i>
+                if (ratioRating > 2.9)
+                {
+                    <i class="fa fa-star"></i>
+                    if (ratioRating > 3.9)
+                    {
+                        <i class="fa fa-star"></i>
+                        if (ratioRating == 5)
+                        {
+                            <i class="fa fa-star"></i>
+                        }
+                        else if (ratioRating > 4.4)
+                        {
+                            <i class="fas fa-star-half-alt"></i>
+                        }
+                        else
+                        {
+                            <i class="fa fa-star-o"></i>
+                        }
+                    }
+                    else
+                    {
+                        if (ratioRating > 3.4)
+                        {
+                            <i class="fas fa-star-half-alt"></i>
+                        }
+                        else
+                        {
+                            <i class="fa fa-star-o"></i>
+                        }
+                        <i class="fa fa-star-o"></i>
+                    }
+                }
+                else
+                {
+                    if (ratioRating > 2.4)
+                    {
+                        <i class="fas fa-star-half-alt"></i>
+                    }
+                    else
+                    {
+                        <i class="fa fa-star-o"></i>
+                    }
+                    <i class="fa fa-star-o"></i>
+                    <i class="fa fa-star-o"></i>
+                }
+            }
+            else
+            {
+                if (ratioRating > 1.4)
+                {
+                    <i class="fas fa-star-half-alt"></i>
+                }
+                else
+                {
+                    <i class="fa fa-star-o"></i>
+                }
+                <i class="fa fa-star-o"></i>
+                <i class="fa fa-star-o"></i>
+                <i class="fa fa-star-o"></i>
+            }
+        }
+        else
+        {
+            if (ratioRating > 0.4)
+            {
+                <i class="fas fa-star-half-alt"></i>
+            }
+            else
+            {
+                <i class="fa fa-star-o"></i>
+            }
+            <i class="fa fa-star-o"></i>
+            <i class="fa fa-star-o"></i>
+            <i class="fa fa-star-o"></i>
+            <i class="fa fa-star-o"></i>
+        }
+
+    </div>
+    <a class="review-link" href="#">@countRating Review(s)</a>
+</div>
+

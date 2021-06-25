@@ -1,0 +1,278 @@
+﻿@model PagedList.IPagedList<TSP_Covid21.Models.ViewModel.ProductViewModel>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Store";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    var db = new TSP_Covid21.Models.BUS.Product_BUS();
+    var db_Ctrl = new TSP_Covid21.Controllers.ProductController();
+    var ProductTypeName = Session["ProductTypeName"];
+}
+
+<!-- NAVIGATION --><!--menu chọn loại-->
+<nav id="navigation">
+    <!-- container -->
+    <div class="container">
+        <!-- responsive-nav -->
+        <div id="responsive-nav">
+            <!-- NAV -->
+            <ul class="main-nav nav navbar-nav">
+                @if (Session["ProductTypeName"].Equals("SmartPhone"))
+                {
+                    <li class="active"><a href="@Url.Action("Store","Covid21", new { ProductTypeName = "SmartPhone" })"><i class="fa fa-mobile-phone"></i> SmarPhone</a></li>
+                    <li><a href="@Url.Action("Store","Covid21", new { ProductTypeName = "Laptop" })"><i class="fa fa-laptop"></i> Laptop</a></li>
+                    <li><a href="@Url.Action("Store","Covid21", new { ProductTypeName = "Tablet" })"><i class="fa fa-tablet"></i> Tablet</a></li>
+                    <li><a href="@Url.Action("Store","Covid21", new { ProductTypeName = "HeadPhone" })"><i class="fa fa-headphones"></i> Headphone</a></li>
+                    <li><a href="@Url.Action("Store","Covid21", new { ProductTypeName = "SmartWatch" })"><i class="fa fa-clock-o"></i> Smartwatch</a></li>
+                }
+                else if (Session["ProductTypeName"].Equals("Laptop"))
+                {
+                    <li><a href="@Url.Action("Store","Covid21", new { ProductTypeName = "SmartPhone" })"><i class="fa fa-mobile-phone"></i> SmarPhone</a></li>
+                    <li class="active"><a href="@Url.Action("Store","Covid21", new { ProductTypeName = "Laptop" })"><i class="fa fa-laptop"></i> Laptop</a></li>
+                    <li><a href="@Url.Action("Store","Covid21", new { ProductTypeName = "Tablet" })"><i class="fa fa-tablet"></i> Tablet</a></li>
+                    <li><a href="@Url.Action("Store","Covid21", new { ProductTypeName = "HeadPhone" })"><i class="fa fa-headphones"></i> Headphone</a></li>
+                    <li><a href="@Url.Action("Store","Covid21", new { ProductTypeName = "SmartWatch" })"><i class="fa fa-clock-o"></i> Smartwatch</a></li>
+                }
+                else if (Session["ProductTypeName"].Equals("Tablet"))
+                {
+                    <li><a href="@Url.Action("Store","Covid21", new { ProductTypeName = "SmartPhone" })"><i class="fa fa-mobile-phone"></i> SmarPhone</a></li>
+                    <li><a href="@Url.Action("Store","Covid21", new { ProductTypeName = "Laptop" })"><i class="fa fa-laptop"></i> Laptop</a></li>
+                    <li class="active"><a href="@Url.Action("Store","Covid21", new { ProductTypeName = "Tablet" })"><i class="fa fa-tablet"></i> Tablet</a></li>
+                    <li><a href="@Url.Action("Store","Covid21", new { ProductTypeName = "HeadPhone" })"><i class="fa fa-headphones"></i> Headphone</a></li>
+                    <li><a href="@Url.Action("Store","Covid21", new { ProductTypeName = "SmartWatch" })"><i class="fa fa-clock-o"></i> Smartwatch</a></li>
+                }
+                else if (Session["ProductTypeName"].Equals("HeadPhone"))
+                {
+                    <li><a href="@Url.Action("Store","Covid21", new { ProductTypeName = "SmartPhone" })"><i class="fa fa-mobile-phone"></i> SmarPhone</a></li>
+                    <li><a href="@Url.Action("Store","Covid21", new { ProductTypeName = "Laptop" })"><i class="fa fa-laptop"></i> Laptop</a></li>
+                    <li><a href="@Url.Action("Store","Covid21", new { ProductTypeName = "Tablet" })"><i class="fa fa-tablet"></i> Tablet</a></li>
+                    <li class="active"><a href="@Url.Action("Store","Covid21", new { ProductTypeName = "HeadPhone" })"><i class="fa fa-headphones"></i> Headphone</a></li>
+                    <li><a href="@Url.Action("Store","Covid21", new { ProductTypeName = "SmartWatch" })"><i class="fa fa-clock-o"></i> Smartwatch</a></li>
+                }
+                else if (Session["ProductTypeName"].Equals("SmartWatch"))
+                {
+                    <li><a href="@Url.Action("Store","Covid21", new { ProductTypeName = "SmartPhone" })"><i class="fa fa-mobile-phone"></i> SmarPhone</a></li>
+                    <li><a href="@Url.Action("Store","Covid21", new { ProductTypeName = "Laptop" })"><i class="fa fa-laptop"></i> Laptop</a></li>
+                    <li><a href="@Url.Action("Store","Covid21", new { ProductTypeName = "Tablet" })"><i class="fa fa-tablet"></i> Tablet</a></li>
+                    <li><a href="@Url.Action("Store","Covid21", new { ProductTypeName = "HeadPhone" })"><i class="fa fa-headphones"></i> Headphone</a></li>
+                    <li class="active"><a href="@Url.Action("Store","Covid21", new { ProductTypeName = "SmartWatch" })"><i class="fa fa-clock-o"></i> Smartwatch</a></li>
+                }
+                else
+                {
+                    <li><a href="@Url.Action("Store","Covid21", new { ProductTypeName = "SmartPhone" })"><i class="fa fa-mobile-phone"></i> SmarPhone</a></li>
+                    <li><a href="@Url.Action("Store","Covid21", new { ProductTypeName = "Laptop" })"><i class="fa fa-laptop"></i> Laptop</a></li>
+                    <li><a href="@Url.Action("Store","Covid21", new { ProductTypeName = "Tablet" })"><i class="fa fa-tablet"></i> Tablet</a></li>
+                    <li><a href="@Url.Action("Store","Covid21", new { ProductTypeName = "HeadPhone" })"><i class="fa fa-headphones"></i> Headphone</a></li>
+                    <li><a href="@Url.Action("Store","Covid21", new { ProductTypeName = "SmartWatch" })"><i class="fa fa-clock-o"></i> Smartwatch</a></li>
+                }
+            </ul>
+            <!-- /NAV -->
+        </div>
+        <!-- /responsive-nav -->
+    </div>
+    <!-- /container -->
+</nav>
+<!-- /NAVIGATION -->
+<!-- BREADCRUMB --><!--Đường dẫn -->
+<div id="breadcrumb" class="section" style="padding: 10px 0px">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <div class="col-md-12">
+                <ul class="breadcrumb-tree">
+                    <li><a href="@Url.Action("Home","Covid21")">Home</a></li>
+                    @if (Session["ProductTypeName"].Equals("SmartPhone"))
+                    {
+                        <li class="active">Smartphone</li>
+                    }
+                    else if (Session["ProductTypeName"].Equals("Laptop"))
+                    {
+                        <li class="active">Laptop</li>
+                    }
+                    else if (Session["ProductTypeName"].Equals("Tablet"))
+                    {
+                        <li class="active">Tablet</li>
+                    }
+                    else if (Session["ProductTypeName"].Equals("HeadPhone"))
+                    {
+                        <li class="active">HeadPhone</li>
+                    }
+                    else if (Session["ProductTypeName"].Equals("SmartWatch"))
+                    {
+                        <li class="active">SmartWatch</li>
+                    }
+                    else
+                    {
+                        <li class="active">Your Wishlist</li>
+                    }
+                </ul>
+            </div>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /BREADCRUMB -->
+<!-- SECTION -->
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <!-- ASIDE -->
+            <div id="aside" class="col-md-3">
+                <!--Lọc Thương hiệu-->
+
+                @{
+                    var loadBrandProduct = Html.Partial("loadBrandProduct", db_Ctrl.loadBrandCtrl(ProductTypeName.ToString()));
+                    loadBrandProduct = new MvcHtmlString(loadBrandProduct.ToString());
+                }
+                @loadBrandProduct
+
+                <!--Lọc Thương hiệu-->
+                <!-- aside Widget --><!--Lọc giá-->
+                <div class="aside">
+                    <h3 class="aside-title">Price</h3>
+                    <div class="checkbox-filter">
+
+                        <div class="input-checkbox">
+                            <input type="checkbox" id="Price-1">
+                            <label for="Price-1">
+                                <span></span>
+                                All
+                            </label>
+                        </div>
+
+                        <div class="input-checkbox">
+                            <input type="checkbox" id="Price-2">
+                            <label for="Price-2">
+                                <span></span>
+                                0 - $5
+                            </label>
+                        </div>
+
+                        <div class="input-checkbox">
+                            <input type="checkbox" id="Price-3">
+                            <label for="Price-3">
+                                <span></span>
+                                $10 - $20
+
+                            </label>
+                        </div>
+
+                        <div class="input-checkbox">
+                            <input type="checkbox" id="Price-4">
+                            <label for="Price-4">
+                                <span></span>
+                                $150 - $200
+                            </label>
+                        </div>
+
+                        <div class="input-checkbox">
+                            <input type="checkbox" id="Price-5">
+                            <label for="Price-5">
+                                <span></span>
+                                $250 - $500
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <!-- /aside Widget -->
+                <!-- aside Widget --><!--Sản Phẩm Bán Được Nhiều nhất-->
+
+                @{
+                    var loadProductTop = Html.Partial("loadProductTop_Store", db.loadProductTop_Product(1, 5));
+                    loadProductTop = new MvcHtmlString(loadProductTop.ToString());
+                }
+                @loadProductTop
+
+                <!-- /aside Widget -->
+            </div>
+            <!-- /ASIDE -->
+            <!-- STORE -->
+            <div id="store" class="col-md-9">
+                <!-- store top filter --> <!--Chỉnh Số Lượng Load-->
+                <div class="store-filter clearfix">
+                    <div class="store-sort">
+                        <label>
+                            Sort By:
+                            <select class="input-select">
+                                <option value="0">low to high</option>
+                                <option value="1">high to low</option>
+                            </select>
+                        </label>
+
+                        <label>
+                            Show:
+                            <select class="input-select">
+                                <option value="0">20</option>
+                                <option value="1">40</option>
+                                <option value="2">60</option>
+                            </select>
+                        </label>
+                    </div>
+                </div>
+                <!-- /store top filter -->
+                <!-- store products --> <!--Show sản phẩm và giảm giá-->
+                <div class="row">
+                    <!-- product -->
+
+                    @foreach (var item in Model)
+                    {
+                        <div class="col-md-4 col-xs-6">
+                            <div class="product">
+                                <div class="product-img">
+                                    <a href="@Url.Action("Product","Covid21",new { productId = item.ProductId})">
+                                        <img src="~/@item.MainPic" alt="" style="width: 263px; height: 263px; object-fit: contain">
+                                    </a>
+                                    <div class="product-label">
+                                        <span class="new">NEW</span>
+                                    </div>
+                                </div>
+                                <div class="product-body" style="z-index: 9">
+                                    <p class="product-category">Category</p>
+                                    <h3 class="product-name"><a href="@Url.Action("Product","Covid21",new { productId = item.ProductId})">@item.ProductName</a></h3>
+                                    @{
+                                        var temp = String.Format("{0:#,##0.##}", @item.ProductPrice);
+                                    }
+                                    <h4 class="product-price">@temp</h4>
+
+                                    <!-- rating product-->
+                                    @Html.Partial("ratingProduct", db_Ctrl.loadRatingProduct(item.ProductId))
+
+                                    <div class="product-btns">
+                                        <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
+                                        <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+                                    </div>
+                                </div>
+                                <div class="add-to-cart">
+                                    <button class="add-to-cart-btn" onclick="addToCart(@item.ProductId)"><i class="fa fa-shopping-cart"></i> add to cart</button>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                    <!-- /product -->
+
+                </div>
+                <!-- /store products -->
+                <!-- store bottom filter --> <!--trang hiển thị-->
+                <div class="store-filter clearfix">
+                    <span class="store-qty">Showing 20-100 products</span>
+                    <div style="margin-left: 400px; margin-top: 50px">
+                        @Html.PagedListPager(Model, page => Url.Action("Product", new { page }))
+                    </div>
+                </div>
+                <!-- /store bottom filter -->
+            </div>
+            <!-- /STORE -->
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /SECTION -->
