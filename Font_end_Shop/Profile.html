@@ -57,8 +57,8 @@
 				</ul>
 				<ul class="header-links pull-right">
 					<li><a href="#"><i class="fa fa-dollar"></i> USD</a></li>
-					<li><a href="#"><i class="fa fa-user-o"></i> Account
-							<div id="thongbao">
+					<li><a href="#"><i class="fa fa-user-o" ></i> Account
+							<div id="thongbao" >
 								<div  class="drop-btn" style="margin-top: -15px; margin-left: 75px;"><span
 										class="fas fa-caret-down"></span></div>
 								<div class="tooltip" style="z-index: 100;"></div>
@@ -303,3 +303,21 @@
 </body>
 
 </html>
+
+<script>
+	  $(window).click(function() {
+	const menu_wrapper = document.querySelector(".wrapper");
+	  var testContainer = document.querySelector('#thongbao');
+	var fourChildNode = testContainer.querySelector('.wrapper');
+	if(fourChildNode.className === "wrapper show")
+	{
+		menu_wrapper.classList.toggle("show");
+	}
+
+
+});
+
+$('#thongbao').click(function(event){
+  event.stopPropagation();
+});
+</script>
