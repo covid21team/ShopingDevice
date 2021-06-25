@@ -660,6 +660,7 @@
     <Content Include="Views\Shared\tableConfig_Product.cshtml" />
     <Content Include="Views\Shared\Review_Product.cshtml" />
     <Content Include="Views\Shared\ReviewRatingOfUser_Product.cshtml" />
+    <Content Include="Views\Shared\LoginAndSignup.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -7,6 +7,7 @@
 }
 
 @{
+
     TSP_Covid21.Controllers.ProductController PC = new TSP_Covid21.Controllers.ProductController();
 }
 
@@ -314,8 +315,10 @@
                                 <!-- /Rating -->
                                 <!-- Reviews -->
                                 <!-- Review Product -->
-                                <!--Html.Partial("Review_Product", PC.loadCommentProduct(Model.PRODUCTID))-->
-                                @{
+
+                                @Html.Partial("Review_Product", PC.loadCommentProduct(Model.PRODUCTID))
+
+                                @*{
                                     PagedList.IPagedList<TSP_Covid21.Models.ShopEntity.COMMENT> listComment = PC.loadCommentProduct(Model.PRODUCTID);
 
                                 }
@@ -347,7 +350,7 @@
                                             @Html.PagedListPager(listComment, page => Url.Action("Product", new { page }))
                                         </ul>
                                     </div>
-                                </div>
+                                </div>*@
 
 
                                 <!-- /Reviews -->
@@ -368,15 +371,7 @@
                                                     <input id="star1" name="rating" value="1" type="radio"><label for="star1"></label>
                                                 </div>
                                             </div>
-                                            @*if (Session["user"] == null)
-                                            {
-                                                <button type="button" class="primary-btn" id="btn_NoLogin">Submit</button>
-                                            }
-                                            else
-                                            {
-                                                <button type="button" class="primary-btn" id="btn_ratingProduct">Submit</button>
-                                            }*@
-                                            <button type="button" class="primary-btn" id="btn_ratingProduct" onclick="tempwwwwwwwwwwww()">Submit</button>
+                                            <button type="button" class="primary-btn" onclick="btn_ratingProduct()">Submit</button>
                                         </form>
                                     </div>
                                 </div>
@@ -432,44 +427,42 @@
 </div>
 <!-- /Section -->
 
-@*{
-    var User = Session["user"];
-}*@
+@Html.Partial("LoginAndSignup")
+
 
 <script>
-    var value , Comment;
-    function tempwwwwwwwwwwww() {
-        value = $("input:radio[name=rating]:checked").val();
-        alert(value);
-        Comment = $('#comment_Product').text();
-        alert(Comment);
+    function btn_ratingProduct() {
+        var modal = document.getElementById('id01_login');
+        var value, Commen;
+        var tempUser = '@User';
         
+        // tại sao lại so sánh admin thì do truyền Session vào khi chưa có user thì bị lỗi nên ban đầu gắn bằng admin để xác định chưa có user đăng nhập
+        if (tempUser == null || tempUser == "") {
+            alert("Please Login");
+            modal.style.display = "block";
+        } else{
+            value = $("input:radio[name=rating]:checked").val();
+            alert(value);
+            Comment = $('#comment_Product').val();
+            alert(Comment);
+            $.ajax({
+                url: '@Url.Action("insert_RatingAndComment", "Product")',
+                type: 'POST',
+                async: false,
+                cache: false,
+                data: {
+                    productId: @Model.PRODUCTID,
+                    user: tempUser,
+                    rate: value,
+                    comment: Comment
+                },
+                success: function () {
+                    alert('Success');
+                },
+                error: function () {
+                    alert('Fail');
+                }
+            });
+        }
     }
 </script>
-
-<!--
-       $("#btn_NoLogin").click(function () {
-        alert('Please Login');
-        document.getElementById('id01_login').style.display = block;
-    });
-
-    Comment = $('#comment_Product').text();
-        alert(value);
-        $.ajax({
-            url: 'Url.Action("insert_RatingAndComment", "Product")',
-            type: 'POST',
-            async: false,
-            cache: false,
-            data: {
-                productId = Model.PRODUCTTYPEID,
-                user = "Syx",
-                rate = value,
-                comment = Comment,
-            },
-            success: function (data) {
-                alert('Success');
-            },
-            error: function (request, status, error) {
-                alert('Fail');
-            }
-        });-->

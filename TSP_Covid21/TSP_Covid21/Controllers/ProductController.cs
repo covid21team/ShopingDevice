@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using TSP_Covid21.Models.BUS;
 using TSP_Covid21.Models.ViewModel;
 using TSP_Covid21.Models.ShopEntity;
+using System.Web.Services;
 
 namespace TSP_Covid21.Controllers
 {
@@ -66,14 +67,19 @@ namespace TSP_Covid21.Controllers
             return PB.loadRelatedProduct(productTypeId, brandId);
         }
 
+        [HttpPost]
         public void insert_RatingAndComment(int productId, string user, int rate, string comment)
         {
-            PB.insertComment(productId,user,comment);
+            if(comment != "")
+                PB.insertComment(productId,user,comment);
 
-            if(PB.checkRating(productId,user))
-                PB.updateRating(productId,user,rate);
-            else
-                PB.insertRating(productId, user, rate);
+             PB.insertRating(productId, user, rate);
+        }
+
+        [HttpPost]
+        public void insertCart(int productId, string user)
+        {
+            PB.insertCart(productId, user);
         }
     }
 }

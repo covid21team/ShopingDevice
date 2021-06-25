@@ -1,7 +1,10 @@
 ﻿using PagedList;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
+using System.Data.Entity.Migrations;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using TSP_Covid21.Models.ShopEntity;
 using TSP_Covid21.Models.ViewModel;
@@ -264,16 +267,7 @@ namespace TSP_Covid21.Models.BUS
                 DATECOMMENT = time,
             };
             db.COMMENTs.Add(c);
-            db.SaveChangesAsync();
-        }
-
-        public Boolean checkRating(int productId, string user)
-        {
-            var result = db.RATINGPRODUCTs.Where(p => p.PRODUCTID == productId && p.USER == user).SingleOrDefault();
-
-            if (result != null)
-                return true;
-            return false;
+            db.SaveChanges();
         }
 
         public void insertRating(int productId, string user, int rate)
@@ -283,15 +277,20 @@ namespace TSP_Covid21.Models.BUS
                 USER = user,
                 RATE = rate,
             };
-            db.RATINGPRODUCTs.Add(r);
-            db.SaveChangesAsync();
+            db.RATINGPRODUCTs.AddOrUpdate(r);
+            db.SaveChanges();
         }
 
-        public void updateRating(int productId, string user, int rate)
+        public void insertCart(int productId, string user)
         {
-            RATINGPRODUCT r = db.RATINGPRODUCTs.Where(p => p.PRODUCTID == productId && p.USER == user).SingleOrDefault();
-            r.RATE = rate;
-            db.SaveChangesAsync();
+            CART c = new CART
+            {
+                USER = user,
+                PRODUCTID = productId,
+                AMOUNT = 1,
+            };
+            db.CARTs.AddOrUpdate(c);
+            db.SaveChanges();
         }
 
         #endregion  
