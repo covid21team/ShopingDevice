@@ -57,9 +57,10 @@
 				</ul>
 				<ul class="header-links pull-right">
 					<li><a href="#"><i class="fa fa-dollar"></i> USD</a></li>
-					<li><a href="#"><i class="fa fa-user-o"></i> Account 
+					<li><a href="#"><i class="fa fa-user-o"></i> Account
 							<div id="thongbao">
-								<div class="drop-btn" style="margin-top: -15px; margin-left: 75px;"><span class="fas fa-caret-down"></span></div>
+								<div  class="drop-btn" style="margin-top: -15px; margin-left: 75px;"><span
+										class="fas fa-caret-down"></span></div>
 								<div class="tooltip" style="z-index: 100;"></div>
 								<div class="wrapper">
 									<ul id="menuthongbao" class="menu-bar">
@@ -73,18 +74,18 @@
 												<div class="icon1">
 													<span class="fas fa-cog"></span>
 												</div>
-												Settings 
+												Settings
 											</a>
 										</li>
 										<li class="setting-item"><a href="#">
-											<div class="icon1">
-												<span class="fa fa-shopping-cart"></span>
-											</div>
-											My Cart
-										</a>
-									</li>
-									
-								
+												<div class="icon1">
+													<span class="fa fa-shopping-cart"></span>
+												</div>
+												My Cart
+											</a>
+										</li>
+
+
 										<li><a href="#">
 												<div class="icon1">
 													<span class="fas fa-sign-out-alt"></span>
@@ -103,7 +104,7 @@
 		</div>
 
 
-
+		
 
 
 
@@ -277,43 +278,19 @@
 		<!-- /container -->
 	</div>
 	<!-- /BREADCRUMB -->
-
+	
 	<script>
 		const drop_btn = document.querySelector(".drop-btn");
 		const tooltip = document.querySelector(".tooltip");
 		const menu_wrapper = document.querySelector(".wrapper");
 		const menu_bar = document.querySelector(".menu-bar");
-		// const setting_drop = document.querySelector(".setting-drop");
-		// const help_drop = document.querySelector(".help-drop");
-		// const setting_item = document.querySelector(".setting-item");
-		// const help_item = document.querySelector(".help-item");
-		// const setting_btn = document.querySelector(".back-setting-btn");
-		// const help_btn = document.querySelector(".back-help-btn");
 		drop_btn.onclick = (() => {
 			menu_wrapper.classList.toggle("show");
 			tooltip.classList.toggle("show");
 		});
-	  // setting_item.onclick = (() => {
-	  //   menu_bar.style.marginLeft = "-400px";
-	  //   setTimeout(() => {
-	  //     setting_drop.style.display = "block";
-	  //   }, 100);
-	  // });
-	  // help_item.onclick = (() => {
-	  //   menu_bar.style.marginLeft = "-400px";
-	  //   setTimeout(() => {
-	  //     help_drop.style.display = "block";
-	  //   }, 100);
-	  // });
-	  // setting_btn.onclick = (() => {
-	  //   menu_bar.style.marginLeft = "0px";
-	  //   setting_drop.style.display = "none";
-	  // });
-	  // help_btn.onclick = (() => {
-	  //   help_drop.style.display = "none";
-	  //   menu_bar.style.marginLeft = "0px";
-	  // });
 	</script>
+
+		
 
 
 	<!-- jQuery Plugins -->

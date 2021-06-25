@@ -1,38 +1,25 @@
 
-
 #thongbao{
   position: absolute;
 
 }
-
-/* #thongbao .drop-btn{
-  width: 100px;
-  border-radius: 5px;
-  line-height: 55px;
-  font-weight: 200;
-  padding: 0 20px;
-} */
-/* #thongbao .drop-btn span{
-  float: right;
-  line-height: 50px;
-  cursor: pointer;
-} */
-
 #thongbao .tooltip.show{
   display: block;
 }
 #thongbao .wrapper{
   position: absolute;
-  top: 7px;
-  margin-left:-30px ;
-  width: 120px;
+  top: 5px;
+  margin-left:-20px ;
+  width: 140px;
   overflow: hidden;
   border-radius: 5px;
-  background: #292729;
+  background: #1E1F29;
   display: none;
   transition: all 0.3s ease;
   z-index: 50;
+ 
 }
+
 #thongbao .wrapper.show{
   display: block;
   display: flex;
@@ -45,13 +32,13 @@
 }
 /* khoang cach */
 .wrapper ul li{
-  line-height: 20px;
+  line-height: 25px;
 }
 .wrapper ul li a{
   position: relative;
   color: #b0b3b8;
-  font-size: 10px;
-  font-weight: 300;
+  font-size: 15px;
+  font-weight: 400;
   padding: 0 10px;
   display: flex;
   border-radius: 8px;
@@ -62,82 +49,19 @@
   background: #3A3B3C;
 }
 #menuthongbao li a .icon1{
-  height: 18px;
-  width: 18px;
+  height: 23px;
+  width: 23px;
   margin-right: 10px;
   background: #ffffff1a;
   display: flex;
   justify-content: center;
   text-align: center;
   border-radius: 50%;
+  padding: 3px;
 }
 #menuthongbao li a .icon1 span{
-  line-height: 20px;
-  font-size: 10px;
-  color: #b0b3b8;
-}
-/* #menuthongbao li a i{
-  position: absolute;
-  right: 5px;
+  line-height: 13px;
   font-size: 15px;
-  pointer-events: none;
-} */
-/* 3rt5y6uyilo */
-/* .setting-drop li a .icon{
-  height: 18px;
-  width: 18px;
-  margin-right: 10px;
-  background: #ffffff1a;
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  border-radius: 50%;
-}
-.setting-drop li a .icon span{
-  line-height: 20px;
-  font-size: 10px;
   color: #b0b3b8;
+  padding: 3px;
 }
-.setting-drop li a i{
-  position: absolute;
-  right: 5px;
-  font-size: 15px;
-  pointer-events: none;
-} */
-/*  */
-/* #menuthongbao2 li a .icon{
-  height: 18px;
-  width: 18px;
-  margin-right: 10px;
-  background: #ffffff1a;
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  border-radius: 50%;
-}
-#menuthongbao2 li a .icon span{
-  line-height: 20px;
-  font-size: 10px;
-  color: #b0b3b8;
-}
-#menuthongbao2 li a i{
-  position: absolute;
-  right: 5px;
-  font-size: 15px;
-  pointer-events: none;
-} */
-
-/* .wrapper ul.setting-drop,
-.wrapper ul.help-drop{
-  display: none;
-} */
-/* .wrapper .arrow{
-  padding-left: 5px;
-  font-size: 5px;
-  font-weight: 250;
-  color: #b0b3b8;
-  cursor: pointer;
-}
-.wrapper .arrow span{
-  margin-right: 8px;
-} */

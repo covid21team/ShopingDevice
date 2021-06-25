@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!-- Created By CodingNepal -->
+<html lang="en" dir="ltr" id="loading">
+   <head>
+      <meta charset="utf-8">
+      <title>Loader with Checkmark Animation | CodingNepal</title>
+<style>
+#loading,#loading1{
+  display: grid;
+  height: 100%;
+  place-items: center;
+  background: #000;
+}
+#gamelade{
+  position: relative;
+  height: 125px;
+  width: 125px;
+  display: inline-block;
+  border: 2px solid rgba(255,255,255,0.2);
+  border-radius: 50%;
+  border-left-color: #5cb85c;
+  animation: rotate 1.2s linear infinite;
+}
+@keyframes rotate {
+  50%{
+    border-left-color: #9b59b6;
+  }
+  75%{
+    border-left-color: #e67e22;
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
+      </style>
+   </head>
+   <body id="loading1">
+
+      <label id="gamelade">       
+      </label>
+   </body>
+</html>
