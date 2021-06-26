@@ -43,7 +43,7 @@ html {
     text-align: center;
   }
   
-  .login-box .user-box,.user-box1 {
+  .login-box .user-box {
     position: relative;
   }
   
@@ -58,19 +58,8 @@ html {
     outline: none;
     background: transparent;
   }
-  .login-box .user-box1 input,.login-box .user-box1 i {
-    width: 93.6%;
-    padding: 10px 0;
-    font-size: 16px;
-    color: #fff;
-    margin-bottom: 30px;
-    border: none;
-    border-bottom: 1px solid #fff;
-    outline: none;
-    background: transparent;
-  }
   
-  .login-box .user-box label,.login-box .user-box1 label {
+  .login-box .user-box label {
     position: absolute;
     top:0;
     left: 0;
@@ -80,20 +69,8 @@ html {
     pointer-events: none;
     transition: .5s;
   }
-  .user-box1 button{ 
-    background-color: 0%;
-    border: 0%;
+ 
   
-  }
-  
-  .login-box .user-box1 input:focus ~ label,
-  .login-box .user-box1 input:valid ~ label
-   {
-    top: -20px;
-    left: 0;
-    color: #D10024;
-    font-size: 12px;
-  }
   .login-box .user-box input:focus ~ label,
   .login-box .user-box input:valid ~ label {
     top: -20px;
@@ -205,35 +182,21 @@ html {
       bottom: 100%;
     }
   }
-  .eye{
+.eye {
     position: absolute;
-  }
+    margin-top: -60px;
+    margin-left: 300px;
+    color: white;
+}
 
   #hidel1{
     display: none;
-    margin-top: 2.9px;
-    margin-right: 6px;
-  }
-  #hidel2{
-    margin-top: 2.9px;
-    margin-right: 6px;
-  }
-  #hidel4{
-    margin-top: 2px;
-    margin-right: 6px;
   }
   #hidel3{
     display: none;
-    margin-top: 2px;
-    margin-right: 6px;
   }
  
   #hidel5{
     display: none;
-    margin-top: 2px;
-    margin-right: 5px;
   }
-  #hidel6{
-    margin-top: 2px;
-    margin-right: 5px;
-  }
+ 

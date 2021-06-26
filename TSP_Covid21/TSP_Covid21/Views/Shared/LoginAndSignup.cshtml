@@ -5,37 +5,37 @@
         <h2>Login</h2>
         @using (Html.BeginForm("Login", "Account", FormMethod.Post))
         {
-            <form>
-                <div class="user-box">
-                    <input type="text" style="background: none" name="user" required="">
-                    <label class="lb">Username</label>
-                </div>
-                <div class="user-box1">
-                    <input type="password" name="pass" id="pass" style="background: none" required="">
-                    <label class="lb">Password</label>
-                    <span class="eye" onclick="my2Function()">
-                        <i id="hidel6" class="fa fa-eye-slash"></i>
-                        <i id="hidel5" class="fa fa-eye"></i>
-                    </span>
-                </div>
+    <form>
+        <div class="user-box">
+            <input type="text" style="background: none" name="user" required="">
+            <label class="lb"></label>
+        </div>
+        <div class="user-box">
+            <input type="password" name="pass" id="pass" style="background: none" required="">
+            <label class="lb"></label>
 
-                <a href="#">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <label for="filebutton" id="upload-btn"><i class="fas fa-user-plus"></i> login</label>
-                </a>
-                <input id="filebutton" class="input-file" type="submit" style="display:none;">
+        </div>
+        <span class="eye" onclick="my2Function()">
+            <i id="hidel6" class="fa fa-eye-slash"></i>
+            <i id="hidel5" class="fa fa-eye"></i>
+        </span>
+        <a href="#">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <label for="filebutton" id="upload-btn"><i class="fas fa-user-plus"></i></label>
+        </a>
+        <input id="filebutton" class="input-file" type="submit" style="display:none;">
 
-                <a href="#" style="margin-left: 18px;" onclick="document.getElementById('id01_signin').style.display='block'">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <i class="fas fa-user-plus" id="signin"></i> signin
-                </a>
-            </form>
+        <a href="#" style="margin-left: 18px;" onclick="document.getElementById('id01_signin').style.display='block'">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <i class="fas fa-user-plus" id="signin"></i>
+        </a>
+    </form>
         }
     </div>
 </div>

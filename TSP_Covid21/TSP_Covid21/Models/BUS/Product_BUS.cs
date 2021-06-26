@@ -228,8 +228,8 @@ namespace TSP_Covid21.Models.BUS
         // Lấy danh sách đánh giá của sản phẩm
         public IEnumerable<RATINGPRODUCT> loadRatingProduct(int productId)
         {
-            var result = db.RATINGPRODUCTs.Where(p => p.PRODUCTID == productId).ToList();
-            return result;
+            //var result = db.RATINGPRODUCTs.Where(p => p.PRODUCTID == productId).ToList();
+            return null;
         }
 
         // Lấy cấu hình của sản phẩm

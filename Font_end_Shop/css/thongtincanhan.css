@@ -38,17 +38,19 @@
 /* ================================ */
 
 #id123 label.active {
-    border-bottom:2px solid red;
+    border-bottom:2.5px solid red;
   }
 
   #id124 label.active {
-    border-bottom:2px solid red; 
+    border-bottom:2.5px solid red; 
   }
   #id129 label.active {
-      color: red;
-   border-bottom:2px solid red;
+    
+   border-bottom:2.5px solid red;
   }
-
+/* .namedo :active{
+color: #D10024;
+} */
 /*======================================= */
 #id1{
     margin-left: 100px;
@@ -194,6 +196,13 @@
     width: 100px;
     margin-top: 5px;border-radius: 5px;
     margin-bottom: 10px;
+    background: #eb526b;
+    border: none;
+    font-size: 20px;
+    color: white;
+}
+#id21:hover{
+    background: #ff002b;
 }
 .thoat{
     background: none;
