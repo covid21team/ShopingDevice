@@ -1,6 +1,31 @@
-﻿@model IEnumerable<TSP_Covid21.Models.ShopEntity.CART>
+﻿<!--
+    ➠ Hiện chi tiết thông tin của sản phẩm                             ✔
+        ♡ Hình ảnh                                                      ✔
+        ♡ Tên sản phẩm                                                  ✔
+        ♡ Giá sản phẩm                                                  ✔
+        ♡ Số lượng sản phẩm muốn mua                                    ✔
+        ♡ Tổng tiền bỏ ra mua với số lượng sản phẩm                     ✔
 
-@{ 
+    ➠ Bấm vào View Cart ➔ đến form Cart                               ✔
+
+    ➠ Bấm vào Checkout ➔ form checkout (form checkout hiện chưa có)   ✘
+
+    ➠ Bấm vào hình ảnh hoặc tên sản phẩm ➔ đến product                ✔
+
+    ❦ Nơi sử dụng:
+        ☞ Form Home ➧ thuộc Control Covid21
+
+    ⛱ Form có thể đến
+        ➣ Cart
+        ➣ Product
+
+    ☯ Key Session
+        ➛ Session["user"]
+-->
+
+@model IEnumerable<TSP_Covid21.Models.ShopEntity.CART>
+
+@{
     var total = 0;
 }
 <div class="dropdown">
@@ -21,7 +46,7 @@
                     </div>
                     <div class="product-body">
                         <h3 class="product-name"><a href="@Url.Action("Product","Covid21",new { productId = item.PRODUCTID})">@item.PRODUCT.PRODUCTNAME</a></h3>
-                        @{ 
+                        @{
                             var Sum = item.AMOUNT * item.PRODUCT.PRODUCTPRICE;
                             total = total + Convert.ToInt32(Sum);
                             var temp = String.Format("{0:#,##0.##}", Sum);
@@ -33,7 +58,7 @@
             }
         </div>
         <div class="cart-summary">
-            @{ 
+            @{
                 var temp_Total = String.Format("{0:#,##0.##}", total);
             }
             <small>@Model.Count() Item(s) selected</small>
@@ -45,6 +70,7 @@
         </div>
     </div>
 </div>
+
 
 
 

@@ -1,4 +1,14 @@
-﻿@model PagedList.IPagedList<TSP_Covid21.Models.ShopEntity.COMMENT>
+﻿<!--
+    ➠ Hiện danh sách comment của sản phẩm
+
+    ❦ Nơi sử dụng:
+        ☞ Form Product ➧ thuộc Control Covid21
+
+    ✹ Một số form share
+        ➽ Product_ReviewRatingOfUser
+-->
+
+@model PagedList.IPagedList<TSP_Covid21.Models.ShopEntity.COMMENT>
 @using PagedList.Mvc;
 
 @{
@@ -18,7 +28,7 @@
                         <div class="review-rating">
 
                             <!--Review rating of user-->
-                            @Html.Partial("ReviewRatingOfUser_Product", PC.ReviewRatingOfUser(item.USER, Convert.ToInt32(item.PRODUCTID)))
+                            @Html.Partial("Product_ReviewRatingOfUser", PC.ReviewRatingOfUser(item.USER, Convert.ToInt32(item.PRODUCTID)))
 
                         </div>
                     </div>
@@ -30,7 +40,8 @@
 
         </ul>
         <ul class="reviews-pagination">
-            @Html.PagedListPager(Model, page => Url.Action("Review_Product", new { page }))
+            @Html.PagedListPager(Model, page => Url.Action("Product_LoadComment", new { page }))
         </ul>
     </div>
 </div>
+

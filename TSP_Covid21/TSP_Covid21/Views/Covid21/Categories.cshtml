@@ -1,10 +1,39 @@
-﻿@model PagedList.IPagedList<TSP_Covid21.Models.ViewModel.ProductViewModel>
+﻿<!--
+    ✔ Load ra toàn bộ sản phẩm theo loại mà khách hàng lựa chọn
+
+    ✔ Có thể add sản phẩm vào giỏ hàng (nhưng không cập nhật lại trang nên thông số trên giỏ hành chưa thay đổi được)
+        ✈ Khi khách hàng chưa đăng nhập ➔ sẽ thông báo chưa đăng nhập (Cách hiện thông báo nên xem lại)
+        ✈ Khi khách hàng đăng nhập rồi ➔ có thể add vào giỏ hàng
+
+    ✔ Khi bấm vào hình ảnh hoặc tên của sản phẩm thì có thể đi đến chi tiết sản phẩm
+
+    ✔ Load được 5 sản phẩm top selling (Hiện tại thì chưa được mà chỉ đang load 5 sản phẩm đầu tiên)
+
+    ✘ Chưa thực hiện được việc lọc sản phẩm theo yêu cầu
+
+    ✹ Một số form share
+        ➽ Categories_LoadBrand      
+        ➽ Categories_LoadProductTop 
+        ➽ Public_RatingProduct
+
+    ⛱ Form có thể đến
+        ➣ Home
+        ➣ Categories (củ: Store)
+        ➣ Product
+
+    ☯ Key Session
+        ➛ Session["ProductTypeName"]
+-->
+
+@model PagedList.IPagedList<TSP_Covid21.Models.ViewModel.ProductViewModel>
 @using PagedList.Mvc;
 
 @{
-    ViewBag.Title = "Store";
+    ViewBag.Title = "Categories";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+
 
 @{
     var db = new TSP_Covid21.Models.BUS.Product_BUS();
@@ -23,50 +52,50 @@
                 @if (Session["ProductTypeName"].Equals("SmartPhone"))
                 {
                     <li class="active"><a href="@Url.Action("Store","Covid21", new { ProductTypeName = "SmartPhone" })"><i class="fa fa-mobile-phone"></i> SmarPhone</a></li>
-                    <li><a href="@Url.Action("Store","Covid21", new { ProductTypeName = "Laptop" })"><i class="fa fa-laptop"></i> Laptop</a></li>
-                    <li><a href="@Url.Action("Store","Covid21", new { ProductTypeName = "Tablet" })"><i class="fa fa-tablet"></i> Tablet</a></li>
-                    <li><a href="@Url.Action("Store","Covid21", new { ProductTypeName = "HeadPhone" })"><i class="fa fa-headphones"></i> Headphone</a></li>
-                    <li><a href="@Url.Action("Store","Covid21", new { ProductTypeName = "SmartWatch" })"><i class="fa fa-clock-o"></i> Smartwatch</a></li>
+                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "Laptop" })"><i class="fa fa-laptop"></i> Laptop</a></li>
+                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "Tablet" })"><i class="fa fa-tablet"></i> Tablet</a></li>
+                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "HeadPhone" })"><i class="fa fa-headphones"></i> Headphone</a></li>
+                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "SmartWatch" })"><i class="fa fa-clock-o"></i> Smartwatch</a></li>
                 }
                 else if (Session["ProductTypeName"].Equals("Laptop"))
                 {
-                    <li><a href="@Url.Action("Store","Covid21", new { ProductTypeName = "SmartPhone" })"><i class="fa fa-mobile-phone"></i> SmarPhone</a></li>
-                    <li class="active"><a href="@Url.Action("Store","Covid21", new { ProductTypeName = "Laptop" })"><i class="fa fa-laptop"></i> Laptop</a></li>
-                    <li><a href="@Url.Action("Store","Covid21", new { ProductTypeName = "Tablet" })"><i class="fa fa-tablet"></i> Tablet</a></li>
-                    <li><a href="@Url.Action("Store","Covid21", new { ProductTypeName = "HeadPhone" })"><i class="fa fa-headphones"></i> Headphone</a></li>
-                    <li><a href="@Url.Action("Store","Covid21", new { ProductTypeName = "SmartWatch" })"><i class="fa fa-clock-o"></i> Smartwatch</a></li>
+                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "SmartPhone" })"><i class="fa fa-mobile-phone"></i> SmarPhone</a></li>
+                    <li class="active"><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "Laptop" })"><i class="fa fa-laptop"></i> Laptop</a></li>
+                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "Tablet" })"><i class="fa fa-tablet"></i> Tablet</a></li>
+                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "HeadPhone" })"><i class="fa fa-headphones"></i> Headphone</a></li>
+                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "SmartWatch" })"><i class="fa fa-clock-o"></i> Smartwatch</a></li>
                 }
                 else if (Session["ProductTypeName"].Equals("Tablet"))
                 {
-                    <li><a href="@Url.Action("Store","Covid21", new { ProductTypeName = "SmartPhone" })"><i class="fa fa-mobile-phone"></i> SmarPhone</a></li>
-                    <li><a href="@Url.Action("Store","Covid21", new { ProductTypeName = "Laptop" })"><i class="fa fa-laptop"></i> Laptop</a></li>
-                    <li class="active"><a href="@Url.Action("Store","Covid21", new { ProductTypeName = "Tablet" })"><i class="fa fa-tablet"></i> Tablet</a></li>
-                    <li><a href="@Url.Action("Store","Covid21", new { ProductTypeName = "HeadPhone" })"><i class="fa fa-headphones"></i> Headphone</a></li>
-                    <li><a href="@Url.Action("Store","Covid21", new { ProductTypeName = "SmartWatch" })"><i class="fa fa-clock-o"></i> Smartwatch</a></li>
+                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "SmartPhone" })"><i class="fa fa-mobile-phone"></i> SmarPhone</a></li>
+                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "Laptop" })"><i class="fa fa-laptop"></i> Laptop</a></li>
+                    <li class="active"><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "Tablet" })"><i class="fa fa-tablet"></i> Tablet</a></li>
+                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "HeadPhone" })"><i class="fa fa-headphones"></i> Headphone</a></li>
+                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "SmartWatch" })"><i class="fa fa-clock-o"></i> Smartwatch</a></li>
                 }
                 else if (Session["ProductTypeName"].Equals("HeadPhone"))
                 {
-                    <li><a href="@Url.Action("Store","Covid21", new { ProductTypeName = "SmartPhone" })"><i class="fa fa-mobile-phone"></i> SmarPhone</a></li>
-                    <li><a href="@Url.Action("Store","Covid21", new { ProductTypeName = "Laptop" })"><i class="fa fa-laptop"></i> Laptop</a></li>
-                    <li><a href="@Url.Action("Store","Covid21", new { ProductTypeName = "Tablet" })"><i class="fa fa-tablet"></i> Tablet</a></li>
-                    <li class="active"><a href="@Url.Action("Store","Covid21", new { ProductTypeName = "HeadPhone" })"><i class="fa fa-headphones"></i> Headphone</a></li>
-                    <li><a href="@Url.Action("Store","Covid21", new { ProductTypeName = "SmartWatch" })"><i class="fa fa-clock-o"></i> Smartwatch</a></li>
+                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "SmartPhone" })"><i class="fa fa-mobile-phone"></i> SmarPhone</a></li>
+                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "Laptop" })"><i class="fa fa-laptop"></i> Laptop</a></li>
+                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "Tablet" })"><i class="fa fa-tablet"></i> Tablet</a></li>
+                    <li class="active"><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "HeadPhone" })"><i class="fa fa-headphones"></i> Headphone</a></li>
+                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "SmartWatch" })"><i class="fa fa-clock-o"></i> Smartwatch</a></li>
                 }
                 else if (Session["ProductTypeName"].Equals("SmartWatch"))
                 {
-                    <li><a href="@Url.Action("Store","Covid21", new { ProductTypeName = "SmartPhone" })"><i class="fa fa-mobile-phone"></i> SmarPhone</a></li>
-                    <li><a href="@Url.Action("Store","Covid21", new { ProductTypeName = "Laptop" })"><i class="fa fa-laptop"></i> Laptop</a></li>
-                    <li><a href="@Url.Action("Store","Covid21", new { ProductTypeName = "Tablet" })"><i class="fa fa-tablet"></i> Tablet</a></li>
-                    <li><a href="@Url.Action("Store","Covid21", new { ProductTypeName = "HeadPhone" })"><i class="fa fa-headphones"></i> Headphone</a></li>
-                    <li class="active"><a href="@Url.Action("Store","Covid21", new { ProductTypeName = "SmartWatch" })"><i class="fa fa-clock-o"></i> Smartwatch</a></li>
+                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "SmartPhone" })"><i class="fa fa-mobile-phone"></i> SmarPhone</a></li>
+                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "Laptop" })"><i class="fa fa-laptop"></i> Laptop</a></li>
+                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "Tablet" })"><i class="fa fa-tablet"></i> Tablet</a></li>
+                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "HeadPhone" })"><i class="fa fa-headphones"></i> Headphone</a></li>
+                    <li class="active"><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "SmartWatch" })"><i class="fa fa-clock-o"></i> Smartwatch</a></li>
                 }
                 else
                 {
-                    <li><a href="@Url.Action("Store","Covid21", new { ProductTypeName = "SmartPhone" })"><i class="fa fa-mobile-phone"></i> SmarPhone</a></li>
-                    <li><a href="@Url.Action("Store","Covid21", new { ProductTypeName = "Laptop" })"><i class="fa fa-laptop"></i> Laptop</a></li>
-                    <li><a href="@Url.Action("Store","Covid21", new { ProductTypeName = "Tablet" })"><i class="fa fa-tablet"></i> Tablet</a></li>
-                    <li><a href="@Url.Action("Store","Covid21", new { ProductTypeName = "HeadPhone" })"><i class="fa fa-headphones"></i> Headphone</a></li>
-                    <li><a href="@Url.Action("Store","Covid21", new { ProductTypeName = "SmartWatch" })"><i class="fa fa-clock-o"></i> Smartwatch</a></li>
+                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "SmartPhone" })"><i class="fa fa-mobile-phone"></i> SmarPhone</a></li>
+                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "Laptop" })"><i class="fa fa-laptop"></i> Laptop</a></li>
+                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "Tablet" })"><i class="fa fa-tablet"></i> Tablet</a></li>
+                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "HeadPhone" })"><i class="fa fa-headphones"></i> Headphone</a></li>
+                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "SmartWatch" })"><i class="fa fa-clock-o"></i> Smartwatch</a></li>
                 }
             </ul>
             <!-- /NAV -->
@@ -128,7 +157,7 @@
                 <!--Lọc Thương hiệu-->
 
                 @{
-                    var loadBrandProduct = Html.Partial("loadBrandProduct", db_Ctrl.loadBrandCtrl(ProductTypeName.ToString()));
+                    var loadBrandProduct = Html.Partial("Categories_LoadBrand", db_Ctrl.loadBrandCtrl(ProductTypeName.ToString()));
                     loadBrandProduct = new MvcHtmlString(loadBrandProduct.ToString());
                 }
                 @loadBrandProduct
@@ -185,7 +214,7 @@
                 <!-- aside Widget --><!--Sản Phẩm Bán Được Nhiều nhất-->
 
                 @{
-                    var loadProductTop = Html.Partial("loadProductTop_Store", db.loadProductTop_Product(1, 5));
+                    var loadProductTop = Html.Partial("Categories_LoadProductTop", db.loadProductTop_Product(1, 5));
                     loadProductTop = new MvcHtmlString(loadProductTop.ToString());
                 }
                 @loadProductTop
@@ -242,7 +271,7 @@
                                     <h4 class="product-price">@temp</h4>
 
                                     <!-- rating product-->
-                                    @Html.Partial("ratingProduct", db_Ctrl.loadRatingProduct(item.ProductId))
+                                    @Html.Partial("Public_RatingProduct", db_Ctrl.loadRatingProduct(item.ProductId))
 
                                     <div class="product-btns">
                                         <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
@@ -264,7 +293,7 @@
                 <div class="store-filter clearfix">
                     <span class="store-qty">Showing 20-100 products</span>
                     <div style="margin-left: 400px; margin-top: 50px">
-                        @Html.PagedListPager(Model, page => Url.Action("Product", new { page }))
+                        @Html.PagedListPager(Model, page => Url.Action("Categories", new { page }))
                     </div>
                 </div>
                 <!-- /store bottom filter -->

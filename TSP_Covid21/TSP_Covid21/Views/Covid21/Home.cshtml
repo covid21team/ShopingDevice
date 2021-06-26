@@ -1,33 +1,23 @@
-﻿
+﻿<!--
+    ✔ Hiện số giờ còn khuyến mãi
+
+    ✹ Một số form share
+        ➽ Public_Navigation
+        ➽ Home_LoadProductNew
+        ➽ Home_LoadProductTopSelling 
+        ➽ Home_LoadProductTop 
+
+-->
 @{
     ViewBag.Title = "Home";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@{ 
+@{
     var db = new TSP_Covid21.Models.BUS.Product_BUS();
 }
-<!-- NAVIGATION -->
-<nav id="navigation">
-    <!-- container -->
-    <div class="container">
-        <!-- responsive-nav -->
-        <div id="responsive-nav">
-            <!-- NAV -->
-            <ul class="main-nav nav navbar-nav">
-                <li><a href="@Url.Action("Store","Covid21", new { ProductTypeName = "SmartPhone" })"><i class="fa fa-mobile-phone"></i> SmarPhone</a></li>
-                <li><a href="@Url.Action("Store","Covid21", new { ProductTypeName = "Laptop" })"><i class="fa fa-laptop"></i> Laptop</a></li>
-                <li><a href="@Url.Action("Store","Covid21", new { ProductTypeName = "Tablet" })"><i class="fa fa-tablet"></i> Tablet</a></li>
-                <li><a href="@Url.Action("Store","Covid21", new { ProductTypeName = "HeadPhone" })"><i class="fa fa-headphones"></i> Headphone</a></li>
-                <li><a href="@Url.Action("Store","Covid21", new { ProductTypeName = "SmartWatch" })"><i class="fa fa-clock-o"></i> Smartwatch</a></li>
-            </ul>
-            <!-- /NAV -->
-        </div>
-        <!-- /responsive-nav -->
-    </div>
-    <!-- /container -->
-</nav>
-<!-- /NAVIGATION -->
+
+@Html.Partial("Public_Navigation")
 <!-- SECTION -->
 <div class="section">
     <!-- container -->
@@ -83,7 +73,7 @@
 
 
 @{
-    var loadProductNew = Html.Partial("loadProductNewAndSellingTop_Home", db.loadProductNew());
+    var loadProductNew = Html.Partial("Home_LoadProductNew", db.loadProductNew());
     loadProductNew = new MvcHtmlString(loadProductNew.ToString());
 }
 @loadProductNew
@@ -137,7 +127,7 @@
 <!-- SECTION -->
 
 @{
-    var loadProductTop = Html.Partial("loadProductNewAndSellingTop_Home", db.loadProductTop());
+    var loadProductTop = Html.Partial("Home_LoadProductTopSelling", db.loadProductTop());
     loadProductTop = new MvcHtmlString(loadProductTop.ToString());
 }
 @loadProductTop
@@ -157,7 +147,7 @@
                     </div>
                 </div>
                 @{
-                    var loadSmartPhoneTop = Html.Partial("loadProductTop_Home", db.loadSmartPhoneTop(1, 3));
+                    var loadSmartPhoneTop = Html.Partial("Home_LoadProductTop", db.loadSmartPhoneTop(1, 3));
                     loadSmartPhoneTop = new MvcHtmlString(loadSmartPhoneTop.ToString());
                 }
                 @loadSmartPhoneTop
@@ -171,7 +161,7 @@
                     </div>
                 </div>
                 @{
-                    var loadLapTopTop = Html.Partial("loadProductTop_Home", db.loadLapTopTop(1, 3));
+                    var loadLapTopTop = Html.Partial("Home_LoadProductTop", db.loadLapTopTop(1, 3));
                     loadLapTopTop = new MvcHtmlString(loadLapTopTop.ToString());
                 }
                 @loadLapTopTop
@@ -187,16 +177,15 @@
                     </div>
                 </div>
                 @{
-                    var loadSmartWatchTop = Html.Partial("loadProductTop_Home", db.loadSmartWatchTop(1, 3));
+                    var loadSmartWatchTop = Html.Partial("Home_LoadProductTop", db.loadSmartWatchTop(1, 3));
                     loadSmartWatchTop = new MvcHtmlString(loadSmartWatchTop.ToString());
                 }
                 @loadSmartWatchTop
             </div>
 
         </div>
-            <!-- /row -->
-        </div>
+        <!-- /row -->
+    </div>
     <!-- /container -->
 </div>
 <!-- /SECTION -->
-

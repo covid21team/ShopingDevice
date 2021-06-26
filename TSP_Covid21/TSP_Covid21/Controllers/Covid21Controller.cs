@@ -35,7 +35,7 @@ namespace TSP_Covid21.Controllers
                 + Sẽ không lấy được giá trị các biến bên trong câu điều kiện ra bên ngoài để xử lí tiếp tục
                 
             - Do ở đây là trong if đã đi thằng vào lớp Model nên không bị ảnh hưởng*/
-        public ActionResult Store(string ProductTypeName) 
+        public ActionResult Categories(string ProductTypeName) 
         {
             var db = new Models.BUS.Product_BUS();
 

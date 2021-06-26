@@ -1,6 +1,19 @@
-﻿@model IEnumerable<TSP_Covid21.Models.ViewModel.BrandViewModel>
+﻿<!--
+    ➠ Load danh sách thương hiệu ➧ thuộc loại sản phẩm được chọn   ✔
 
-@{ 
+    ➠ Hiện tại chưa có form dành cho danh sách yêu thích của user (nơi chứa tạm cho danh sách yêu thíc)
+
+    ❦ Nơi sử dụng:
+        ☞ Form Categories ➧ thuộc Control Covid21
+
+    ☯ Key Session
+        ➛ Session["user"]
+        ➛ Session["ProductTypeName"]
+-->
+
+@model IEnumerable<TSP_Covid21.Models.ViewModel.BrandViewModel>
+
+@{
     var user = Session["user"];
     var ProductTypeName = Session["ProductTypeName"];
 }

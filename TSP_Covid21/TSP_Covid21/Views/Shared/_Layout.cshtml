@@ -1,4 +1,39 @@
-﻿<!DOCTYPE html>
+﻿<!--
+    ✔ Khi bấm vào biểu tượng của nhóm sẽ quay về Home
+
+    ✔ Khi bấm acount sẽ bấm đầu hiện lên form đăng nhập
+
+    ✔ Khi đăng nhập thành công
+        ✈ Hiện số lượng sản phẩm yêu thích
+        ✈ Hiện số lượng sản phẩm bên trong giỏ hàng
+
+    ✔ Ở cuối trang web
+        ✈ Bấm vào những loại sản phẩm thì sẽ đến form Categories
+        ✈ Bấm vào Your Wishlist ➔ đến danh sách yêu thích (Chưa đăng nhập thì hệ thống thông báo đăng nhập)
+        ✈ Bấm vào Your Cart ➔ vào giỏ hàng (Chưa đăng nhập thì hệ thống thông báo đăng nhập)
+
+    ✘ Hiện dropdown sau khi đăng nhập thành công
+
+    ✘ Một số tính năng liên quan đến người sở hữu web
+
+    ✘ Tìm kiếm sản phẩm
+
+    ✹ Một số form share
+        ➽ LoginAndLogout
+        ➽ Home_AmountProductWish
+        ➽ Home_LoadProductCart
+
+    ⛱ Form có thể đến
+        ➣ Home
+        ➣ Categories
+        ➣ Cart
+
+    ☯ Key Session
+        ➛ Session["user"]
+        ➛ Session["fullname"]
+-->
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -34,6 +69,8 @@
 
     <link rel="stylesheet" href="~/Asset/css/Signin.css">
 
+    <link rel="stylesheet" href="~/Asset/css/banchonuser.css">
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -47,9 +84,17 @@
 
     <link rel=stylesheet href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
+    <LINK REL="SHORTCUT ICON" HREF="~/Asset/images/logo.png">
 </head>
 <body>
-    <i class="fa fa-star-half-o"></i>
+
+    @{
+        string User = "";
+        if (Session["user"] != null)
+        {
+            User = Session["user"].ToString();
+        }
+    }
     @{
         var db = new TSP_Covid21.Models.BUS.Product_BUS();
         var db_Account = new TSP_Covid21.Models.BUS.Account_BUS();
@@ -74,7 +119,58 @@
                     }
                     else
                     {
-                        <li><a href="#" style="width:auto;"><i class="fa fa-user-o"></i>Hello: @Session["fullname"]</a></li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-user-o"></i>
+                                <div id="thongbao">
+                                    <div class="drop-btn" style="margin-top: -18px; margin-left: 20px;">
+                                        Hello: @Session["fullname"]<span class="fas fa-caret-down" style="margin-left: 5px;"></span>
+                                    </div>
+                                    <div style="z-index: 100;"></div>
+                                    <div class="wrapper" style="float: right">
+                                        <ul id="menuthongbao" class="menu-bar">
+                                            <li>
+                                                <a href="#">
+                                                    <div class="icon1">
+                                                        <span class="fas fa-home"></span>
+                                                    </div>
+                                                    Home
+                                                </a>
+                                            </li>
+                                            <li class="setting-item">
+                                                <a href="#">
+                                                    <div class="icon1">
+                                                        <span class="fas fa-cog"></span>
+                                                    </div>
+                                                    Settings
+                                                </a>
+                                            </li>
+                                            <li class="setting-item">
+                                                <a href="#">
+                                                    <div class="icon1">
+                                                        <span class="fa fa-shopping-cart"></span>
+                                                    </div>
+                                                    My Cart
+                                                </a>
+                                            </li>
+
+
+                                            <li>
+                                                <a href="#">
+                                                    <div class="icon1">
+                                                        <span class="fas fa-sign-out-alt"></span>
+                                                    </div>
+                                                    Log Out
+                                                </a>
+                                            </li>
+                                        </ul>
+
+                                    </div>
+                                </div>
+                            </a>
+
+                        </li>
+
                     }
                 </ul>
             </div>
@@ -129,7 +225,7 @@
                             }
                             else
                             {
-                                @Html.Partial("AmountProductLike", db.amountProductLike(user.ToString()))
+                                @Html.Partial("Home_AmountProductWish", db.amountProductLike(user.ToString()))
                             }
 
                             <!-- /Wishlist -->
@@ -147,7 +243,7 @@
                             }
                             else
                             {
-                                @Html.Partial("loadProductCart", db.loadCart(user.ToString()))
+                                @Html.Partial("Home_LoadProductCart", db.loadCart(user.ToString()))
                             }
 
                             <!-- /Cart -->
@@ -170,6 +266,8 @@
         <!-- /MAIN HEADER -->
     </header>
     <!-- /HEADER -->
+
+
 
     @RenderBody()
 
@@ -232,11 +330,11 @@
                         <div class="footer">
                             <h3 class="footer-title">Categories</h3>
                             <ul class="footer-links">
-                                <li><a href="@Url.Action("Store","Covid21", new { ProductTypeName = "SmartPhone" })">SmartPhones</a></li>
-                                <li><a href="@Url.Action("Store","Covid21", new { ProductTypeName = "Laptop" })">Laptop</a></li>
-                                <li><a href="@Url.Action("Store","Covid21", new { ProductTypeName = "Tablet" })">Tablet</a></li>
-                                <li><a href="@Url.Action("Store","Covid21", new { ProductTypeName = "HeadPhone" })">HeadPhone</a></li>
-                                <li><a href="@Url.Action("Store","Covid21", new { ProductTypeName = "SmartWatch" })">SmartWatch</a></li>
+                                <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "SmartPhone" })">SmartPhones</a></li>
+                                <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "Laptop" })">Laptop</a></li>
+                                <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "Tablet" })">Tablet</a></li>
+                                <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "HeadPhone" })">HeadPhone</a></li>
+                                <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "SmartWatch" })">SmartWatch</a></li>
                             </ul>
                         </div>
                     </div>
@@ -269,7 +367,8 @@
                                 else
                                 {
                                     <li><a href="@Url.Action("Cart","Covid21",new { user = Session["user"]})">View Cart</a></li>
-                                    <li><a href="@Url.Action("Store","Covid21",new { ProductTypeName = Session["user"] })">Wishlist</a></li>
+
+                                    <li><a href="@Url.Action("Categories","Covid21",new { ProductTypeName = Session["user"] })">Wishlist</a></li>
                                 }
                                 <li><a href="#">Track My Order</a></li>
                                 <li><a href="#">Help</a></li>
@@ -312,7 +411,7 @@
     </footer>
     <!-- /FOOTER -->
 
-    @Html.Partial("LoginAndSignup")
+    @Html.Partial("LoginAndLogout")
 
     <!-- jQuery Plugins -->
     <script src="~/Asset/js/jquery.min.js"></script>
@@ -338,6 +437,7 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
 
+<!-- Kiểm tra passwork khi nhập có đáp ứng đủ điều kiện không-->
 <script>
     var myInput = document.getElementById("pass1");
     var letter = document.getElementById("letter");
@@ -438,18 +538,11 @@
     }
 </script>
 
-@{ 
-    string User = "";
-    if(Session["user"] != null)
-    {
-        User = Session["user"].ToString();
-    }
-}
-
+<!--Hàm dùng add sản phẩm vào giỏ hàng(dùng ajax)-->
 <script>
     function addToCart(id) {
         var modal = document.getElementById('id01_login');
-        var tempUser = '@User';
+        var tempUser = '@user';
         if (tempUser == null || tempUser == "") {
             alert("Please Login");
             modal.style.display = "block";
@@ -472,4 +565,34 @@
             });
         }
     }
+</script>
+
+<!--Dùng để tắt dropdown của account khi bấm ở ngoài bảng dropdown-->
+<script>
+    $(window).click(function () {
+        const menu_wrapper = document.querySelector(".wrapper");
+        var testContainer = document.querySelector('#thongbao');
+        var fourChildNode = testContainer.querySelector('.wrapper');
+        if (fourChildNode.className === "wrapper show") {
+            menu_wrapper.classList.toggle("show");
+        }
+
+
+    });
+
+    $('#thongbao').click(function (event) {
+        event.stopPropagation();
+    });
+</script>
+
+<!--Dùng hiện dropdown và tắt khi bấm vào nút trên dropdoww (dropdown của account)-->
+<script>
+    const drop_btn = document.querySelector(".drop-btn");
+    const tooltip = document.querySelector(".tooltip");
+    const menu_wrapper = document.querySelector(".wrapper");
+    const menu_bar = document.querySelector(".menu-bar");
+    drop_btn.onclick = (() => {
+        menu_wrapper.classList.toggle("show");
+        tooltip.classList.toggle("show");
+    });
 </script>

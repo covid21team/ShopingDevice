@@ -215,6 +215,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Asset\css\banchonuser.css" />
     <Content Include="Asset\css\bootstrap.min.css" />
     <Content Include="Asset\css\cart.css" />
     <Content Include="Asset\css\font-awesome.min.css" />
@@ -646,21 +647,24 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Covid21\Home.cshtml" />
-    <Content Include="Views\Shared\AmountProductLike.cshtml" />
-    <Content Include="Views\Shared\loadProductCart.cshtml" />
-    <Content Include="Views\Shared\loadBrandProduct.cshtml" />
-    <Content Include="Views\Shared\loadProductTop_Store.cshtml" />
     <Content Include="Views\Covid21\Cart.cshtml" />
-    <Content Include="Views\Covid21\Store.cshtml" />
     <Content Include="Views\Covid21\Product.cshtml" />
-    <Content Include="Views\Shared\ratingProduct.cshtml" />
-    <Content Include="Views\Shared\shareProduct.cshtml" />
-    <Content Include="Views\Shared\loadProductTop_Home.cshtml" />
-    <Content Include="Views\Shared\loadProductNewAndSellingTop_Home.cshtml" />
-    <Content Include="Views\Shared\tableConfig_Product.cshtml" />
-    <Content Include="Views\Shared\Review_Product.cshtml" />
-    <Content Include="Views\Shared\ReviewRatingOfUser_Product.cshtml" />
     <Content Include="Views\Shared\LoginAndSignup.cshtml" />
+    <Content Include="Views\Shared\Home_AmountProductWish.cshtml" />
+    <Content Include="Views\Shared\Categories_LoadBrand.cshtml" />
+    <Content Include="Views\Covid21\Categories.cshtml" />
+    <Content Include="Views\Shared\Categories_LoadProductTop.cshtml" />
+    <Content Include="Views\Shared\Home_LoadProductCart.cshtml" />
+    <Content Include="Views\Shared\Public_RatingProduct.cshtml" />
+    <Content Include="Views\Shared\Product_TableConfig.cshtml" />
+    <Content Include="Views\Shared\Product_ReviewRatingOfUser.cshtml" />
+    <Content Include="Views\Shared\Product_LoadComment.cshtml" />
+    <Content Include="Views\Shared\Public_ShareProduct.cshtml" />
+    <Content Include="Views\Shared\Public_Navigation.cshtml" />
+    <Content Include="Views\Shared\LoginAndLogout.cshtml" />
+    <Content Include="Views\Shared\Home_LoadProductNew.cshtml" />
+    <Content Include="Views\Shared\Home_LoadProductTopSelling.cshtml" />
+    <Content Include="Views\Shared\Home_LoadProductTop.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

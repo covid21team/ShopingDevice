@@ -42,31 +42,37 @@ namespace TSP_Covid21.Controllers
             return result;
         }
 
+        // Tải đánh giá của sản phẩm
         public IEnumerable<RATINGPRODUCT> loadRatingProduct(int productId)
         {
             return PB.loadRatingProduct(productId);
         }
 
+        // Tải cấu hình của sản phẩm
         public IEnumerable<CONFIGDETAIL> loadConfigProduct(int productId)
         {
             return PB.loadConfigProduct(productId);
         }
 
+        // Tải danh sách bình luận về sản phẩm
         public PagedList.IPagedList<COMMENT> loadCommentProduct(int productId)
         {
             return PB.loadCommentProduct(1,3,productId);
         }
 
+        // Tải đánh giá của 1 khách hàng dành cho sản phẩm
         public float ReviewRatingOfUser(string user, int productId)
         {
             return PB.ReviewRatingOfUser(user, productId);
         }
 
+        // Tải 4 sản phẩm liên quan đến sản phẩm đang xem 
         public IEnumerable<PRODUCT> loadRelatedProduct(int productTypeId, int brandId)
         {
             return PB.loadRelatedProduct(productTypeId, brandId);
         }
 
+        // Thêm bình luận của khách hàng
         [HttpPost]
         public void insert_RatingAndComment(int productId, string user, int rate, string comment)
         {
@@ -76,10 +82,18 @@ namespace TSP_Covid21.Controllers
              PB.insertRating(productId, user, rate);
         }
 
+        // Thêm sản phẩm vào giỏ hàng
         [HttpPost]
         public void insertCart(int productId, string user)
         {
             PB.insertCart(productId, user);
+        }
+
+        // Thêm sản phẩm vào giỏ hàng với số lượng mong muốn
+        [HttpPost]
+        public void insertCartWithAmount(int productId, string user, int amount)
+        {
+            PB.insertCartWithAmount(productId, user, amount);
         }
     }
 }

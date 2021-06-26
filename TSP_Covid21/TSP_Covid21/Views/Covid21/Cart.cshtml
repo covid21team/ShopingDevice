@@ -1,30 +1,39 @@
-﻿@model IEnumerable<TSP_Covid21.Models.ViewModel.ProductViewModel>
+﻿<!--
+    ✔ Load danh sách sản phẩm trong giỏ hàng
 
-@{ 
+    ✔ Xóa sản phẩm trong danh sách giỏ hàng
+
+    ✔ Thay đổi xóa lượng sản phẩm (Chưa lưu vào DB) ➔ Số tiền tự động thay đổi (Nếu số tiền bằng 0 ➔ nút Checkout tự ẩn)
+
+    ✔ Trước mỗi sản phẩm cho nút checkbox để lựa chọn mua hay không
+
+    ✔ Rê chuột vào hình ảnh ➔ tạo ra hình ảnh to hơn
+
+    ✔ Bấm vào hình ảnh hoặc tên ➔ đến form Product
+
+    ✘ Tích hợp Voucher vào lúc chuẩn bị thanh toán
+
+    ✘ Bấm vào Checkout ➔ form checkout (form checkout hiện chưa có)
+
+    ✹ Một số form share
+        ➽ Public_Navigation
+
+    ⛱ Form có thể đến
+        ➣ Home
+        ➣ Product
+
+    ☯ Key Session
+        ➛ Session["user"]
+-->
+
+@model IEnumerable<TSP_Covid21.Models.ViewModel.ProductViewModel>
+
+@{
     TSP_Covid21.Controllers.ProductController PC = new TSP_Covid21.Controllers.ProductController();
     var user = Session["user"];
 }
-<!-- NAVIGATION -->
-<nav id="navigation">
-    <!-- container -->
-    <div class="container">
-        <!-- responsive-nav -->
-        <div id="responsive-nav">
-            <!-- NAV -->
-            <ul class="main-nav nav navbar-nav">
-                <li><a href="@Url.Action("Store","Covid21", new { ProductTypeName = "SmartPhone" })"><i class="fa fa-mobile-phone"></i> SmarPhone</a></li>
-                <li><a href="@Url.Action("Store","Covid21", new { ProductTypeName = "Laptop" })"><i class="fa fa-laptop"></i> Laptop</a></li>
-                <li><a href="@Url.Action("Store","Covid21", new { ProductTypeName = "Tablet" })"><i class="fa fa-tablet"></i> Tablet</a></li>
-                <li><a href="@Url.Action("Store","Covid21", new { ProductTypeName = "HeadPhone" })"><i class="fa fa-headphones"></i> Headphone</a></li>
-                <li><a href="@Url.Action("Store","Covid21", new { ProductTypeName = "SmartWatch" })"><i class="fa fa-clock-o"></i> Smartwatch</a></li>
-            </ul>
-            <!-- /NAV -->
-        </div>
-        <!-- /responsive-nav -->
-    </div>
-    <!-- /container -->
-</nav>
-<!-- /NAVIGATION -->
+
+@Html.Partial("Public_Navigation")
 <!-- BREADCRUMB -->
 <div id="breadcrumb" class="section" style="padding: 10px 0px">
     <!-- container -->
@@ -146,17 +155,3 @@
     <!-- /container -->
 </div>
 <!-- /SECTION -->
-
-
-<script>
-    function onClick(productId, user) {
-        $.ajax({
-            type: "GET",
-            data: {
-                productId: productId,
-                user: user,
-            },
-            url: '@Url.Content("delProduct_Cart")',
-        });
-    }
-</script>

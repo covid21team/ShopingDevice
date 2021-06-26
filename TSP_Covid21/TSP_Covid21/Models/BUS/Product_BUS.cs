@@ -210,6 +210,7 @@ namespace TSP_Covid21.Models.BUS
             return result;
         }
 
+        // Xóa sản phẩm ở giỏ hang                                                                                                                                                                                                                                                             
         public void delProduct_Cart(int productId, string user)
         {
             CART c = db.CARTs.Where(p => p.PRODUCTID == productId && p.USER == user).SingleOrDefault();
@@ -217,24 +218,28 @@ namespace TSP_Covid21.Models.BUS
             db.SaveChanges();
         }
 
+        // Lấy sản thông tin sản phẩm
         public PRODUCT productDetail(int productId)
         {
             var result = db.PRODUCTs.Where(p => p.PRODUCTID == productId).SingleOrDefault();
             return result;
         }
 
+        // Lấy danh sách đánh giá của sản phẩm
         public IEnumerable<RATINGPRODUCT> loadRatingProduct(int productId)
         {
             var result = db.RATINGPRODUCTs.Where(p => p.PRODUCTID == productId).ToList();
             return result;
         }
 
+        // Lấy cấu hình của sản phẩm
         public IEnumerable<CONFIGDETAIL> loadConfigProduct(int productId)
         {
             var result = db.CONFIGDETAILs.Where(p => p.PRODUCTID == productId);
             return result;
         }
 
+        // Lấy danh sách bình luận về sản phẩm
         public PagedList.IPagedList<COMMENT> loadCommentProduct(int page, int pagesize, int productId)
         {
             var list = db.COMMENTs.Where(p => p.PRODUCTID == productId);
@@ -243,19 +248,22 @@ namespace TSP_Covid21.Models.BUS
             return result.ToPagedList(page, pagesize);
         }
 
+        // Lấy đánh giá của 1 người dùng về sản phẩm 
         public int ReviewRatingOfUser(string user, int productId)
         {
             var resuft = db.RATINGPRODUCTs.Where(p => p.USER == user && p.PRODUCTID == productId).Select(p => p.RATE).SingleOrDefault();
             return Convert.ToInt32(resuft);
         }
 
+        // Lấy danh sách sản phẩm liên quan
         public IEnumerable<PRODUCT> loadRelatedProduct(int productTypeId, int brandId)
         {
             var result = db.PRODUCTs.Where(p => p.PRODUCTTYPEID == productTypeId && p.BRANDID == brandId).Take(4);
             return result;
 
         }
-
+        
+        // Thêm bình luận về sản phẩm
         public void insertComment(int productId, string user, string comment)
         {
             DateTime time = DateTime.Now;
@@ -270,6 +278,7 @@ namespace TSP_Covid21.Models.BUS
             db.SaveChanges();
         }
 
+        // Thêm đánh giá hoặc sữa lại đánh giá về sản phẩm
         public void insertRating(int productId, string user, int rate)
         {
             RATINGPRODUCT r = new RATINGPRODUCT {
@@ -281,6 +290,7 @@ namespace TSP_Covid21.Models.BUS
             db.SaveChanges();
         }
 
+        // Thêm sản phẩm vào giỏ hàng
         public void insertCart(int productId, string user)
         {
             CART c = new CART
@@ -288,6 +298,19 @@ namespace TSP_Covid21.Models.BUS
                 USER = user,
                 PRODUCTID = productId,
                 AMOUNT = 1,
+            };
+            db.CARTs.AddOrUpdate(c);
+            db.SaveChanges();
+        }
+
+        // Thêm sản phẩm vào giỏ hàng với số lượng mong muốn
+        public void insertCartWithAmount(int productId, string user, int amount)
+        {
+            CART c = new CART
+            {
+                USER = user,
+                PRODUCTID = productId,
+                AMOUNT = amount,
             };
             db.CARTs.AddOrUpdate(c);
             db.SaveChanges();
