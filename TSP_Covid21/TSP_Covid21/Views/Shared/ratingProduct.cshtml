@@ -1,0 +1,22 @@
+﻿<!--
+        
+-->
+
+@model IEnumerable<TSP_Covid21.Models.ShopEntity.RATINGPRODUCT>
+
+@{
+    var sumRating = Model.Sum(p => p.RATE);
+    var countRating = Model.Count();
+    float ratioRating = (float)sumRating / countRating;
+}
+
+<div>
+    <div class="product-rating">
+        <!--fas fa-star-half-alt-->
+        <!--Sao đầu thứ 1-->
+        @Html.Partial("ReviewRatingOfUser_Product", ratioRating)
+
+    </div>
+    <a class="review-link" href="#">@countRating Review(s)</a>
+</div>
+

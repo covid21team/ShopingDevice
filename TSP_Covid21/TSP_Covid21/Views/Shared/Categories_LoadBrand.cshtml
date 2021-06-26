@@ -1,0 +1,36 @@
+﻿<!--
+    Dùng load những thương hiệu thuộc loại sản phẩm được chọn
+
+    Hiện tại chưa có form dành cho danh sách yêu thích của user nên trong này có tích hợp hiện tất cả thương hiệu khi bấm vào You Wishlist
+-->
+
+@model IEnumerable<TSP_Covid21.Models.ViewModel.BrandViewModel>
+
+@{
+    var user = Session["user"];
+    var ProductTypeName = Session["ProductTypeName"];
+}
+<div class="aside">
+    <h3 class="aside-title">Brand</h3>
+    <div class="checkbox-filter">
+
+        @foreach (var item in Model)
+        {
+            <div class="input-checkbox">
+                <input type="checkbox" id="@item.BrandId">
+                <label for="@item.BrandId">
+                    <span></span>
+                    @item.BrandName
+                    @if (ProductTypeName.Equals(user))
+                    {
+                        <small>@item.Product.Count</small>
+                    }
+                    else
+                    {
+                        <small>@item.Product.Count(c => c.PRODUCTTYPE.PRODUCTTYPENAME == ProductTypeName.ToString())</small>
+                    }
+                </label>
+            </div>
+        }
+    </div>
+</div>

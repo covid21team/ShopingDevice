@@ -1,0 +1,54 @@
+﻿@model float
+
+
+@if (Model > 0.9)
+{
+    <i class="fa fa-star"></i>  
+    if (Model > 1.9)
+    {
+        <i class="fa fa-star"></i>
+        if (Model > 2.9)
+        {
+            <i class="fa fa-star"></i>
+            if (Model > 3.9)
+            {
+                <i class="fa fa-star"></i>
+                if (Model > 4.9)
+                {
+                    <i class="fa fa-star"></i>
+                }
+                else
+                {
+                    <i class="fa fa-star-o"></i>
+                }
+            }
+            else
+            {
+                <i class="fa fa-star-o"></i>
+                <i class="fa fa-star-o"></i>
+            }
+        }
+        else
+        {
+            <i class="fa fa-star-o"></i>
+            <i class="fa fa-star-o"></i>
+            <i class="fa fa-star-o"></i>
+        }
+    }
+    else
+    {
+        <i class="fa fa-star-o"></i>
+        <i class="fa fa-star-o"></i>
+        <i class="fa fa-star-o"></i>
+        <i class="fa fa-star-o"></i>
+    }
+}
+else
+{
+    <i class="fa fa-star-o"></i>
+    <i class="fa fa-star-o"></i>
+    <i class="fa fa-star-o"></i>
+    <i class="fa fa-star-o"></i>
+    <i class="fa fa-star-o"></i>
+}
+
