@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://kit.fontawesome.com/f20d460fd9.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+
+
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" /> -->
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <!-- <script src="js/jquery.zoom.min.js"></script> -->
+  <style>
+   .fa-heart {
+      color: #00000030;
+    }
+
+    .heart i.fa-heart {
+      color: #f44336;
+    }
+
+    .heart {
+      animation: heart 0.5s linear;
+    }
+
+    .heart i.fa-eye {
+      color: #f44336;
+    }
+    .fa-eye {
+      color: #00000030;
+    }
+    @keyframes heart{
+      0%{
+        transform: rotate(0deg) scale(1.7);
+      }
+      40%{
+        transform: rotate(0deg) scale(1);
+      }
+      41%{
+        transform: rotate(360deg) scale(1);
+      }
+      100%{
+        transform: rotate(0deg) scale(1);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+
+
+  <button class="add-to-wishlist"><i class="fa fa-heart"></i><span class="tooltipp">add to wishlist
+
+    </span>
+  </button>
+  <a href="#" class="like">
+    <i class="fa fa-heart" aria-hidden="true"></i>
+  </a>
+  <a href="#" class="like">
+    <i class="fa fa-heart" aria-hidden="true"></i>
+  </a>
+  <a href="#" class="like">
+    <i class="fa fa-eye" aria-hidden="true"></i>
+  </a>
+
+  <script>
+    $(document).ready(function () {
+      $(".like").click(function () {
+        $(this).toggleClass("heart");
+      });
+
+    });
+  </script>
+
+</body>
+
+</html>

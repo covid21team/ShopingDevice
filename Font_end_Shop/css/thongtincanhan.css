@@ -8,6 +8,11 @@
     min-height: auto;
     margin-left: 11%;
 }
+.menuchon{
+    padding: 2px;
+    width: 300px;
+}
+
 #hienthongtin{
     background: rgb(248, 249, 250);
     width: 900px ;   
@@ -31,14 +36,17 @@
 
 
 /* ================================ */
+
 #id123 label.active {
-    text-decoration: underline solid  ;  
+    border-bottom:2px solid red;
   }
+
   #id124 label.active {
-    text-decoration: underline solid ;  
+    border-bottom:2px solid red; 
   }
   #id129 label.active {
-    text-decoration: underline solid  ;  
+      color: red;
+   border-bottom:2px solid red;
   }
 
 /*======================================= */

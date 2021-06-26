@@ -43,7 +43,7 @@ html {
     outline: none;
     background: transparent;
   }
-  .login-box .user-box1 input,.login-box .user-box1 i {
+ .login-box .user-box1 i {
     width: 93.6%;
     padding: 10px 0;
     font-size: 16px;
@@ -55,7 +55,7 @@ html {
     background: transparent;
   }
   
-  .login-box .user-box label,.login-box .user-box1 label {
+  .login-box .user-box label {
     position: absolute;
     top:0;
     left: 0;
@@ -65,20 +65,10 @@ html {
     pointer-events: none;
     transition: .5s;
   }
-  .user-box1 button{ 
-    background-color: 0%;
-    border: 0%;
+
   
-  }
   
-  .login-box .user-box1 input:focus ~ label,
-  .login-box .user-box1 input:valid ~ label
-   {
-    top: -20px;
-    left: 0;
-    color: #D10024;
-    font-size: 12px;
-  }
+ 
   .login-box .user-box input:focus ~ label,
   .login-box .user-box input:valid ~ label{
     top: -20px;
@@ -192,38 +182,21 @@ html {
   }
   .eye{
     position: absolute;
+    margin-top: -60px;
+    margin-left: 300px;
+    color: white;
   }
   
-  #hide6:hover{
-   color: red;
-  }
 
 
   #hidel1{
     display: none;
-    margin-top: 2.5px;
-    margin-right: 6px;
   }
-  #hidel2{
-    margin-top: 2.5px;
-    margin-right: 6px;
-  }
-  #hidel4{
-    margin-top: 3px;
-    margin-right: 6px;
-  }
+ 
   #hidel3{
     display: none;
-    margin-top: 3px;
-    margin-right: 6px;
   }
  
   #hidel5{
     display: none;
-    margin-top: 2px;
-    margin-right: 5px;
-  }
-  #hidel6{
-    margin-top: 2px;
-    margin-right: 5px;
   }
