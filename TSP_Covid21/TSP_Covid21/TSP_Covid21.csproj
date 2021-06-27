@@ -144,6 +144,7 @@
     </Compile>
     <Compile Include="Models\BUS\Account_BUS.cs" />
     <Compile Include="Models\BUS\Product_BUS.cs" />
+    <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\ShopEntity\ACCOUNT.cs">
       <DependentUpon>ShopEntity.tt</DependentUpon>
     </Compile>
@@ -211,6 +212,7 @@
       <DependentUpon>ShopEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ViewModel\BrandViewModel.cs" />
+    <Compile Include="Models\ViewModel\CommentProduct.cs" />
     <Compile Include="Models\ViewModel\ProductViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -649,7 +651,6 @@
     <Content Include="Views\Covid21\Home.cshtml" />
     <Content Include="Views\Covid21\Cart.cshtml" />
     <Content Include="Views\Covid21\Product.cshtml" />
-    <Content Include="Views\Shared\LoginAndSignup.cshtml" />
     <Content Include="Views\Shared\Home_AmountProductWish.cshtml" />
     <Content Include="Views\Shared\Categories_LoadBrand.cshtml" />
     <Content Include="Views\Covid21\Categories.cshtml" />

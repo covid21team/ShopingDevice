@@ -121,7 +121,7 @@
                     {
                         <li>
                             <a href="#">
-                                <i class="fa fa-user-o"></i>
+                                <i class="fa fa-user-o" style="margin-right: 100px"></i>
                                 <div id="thongbao">
                                     <div class="drop-btn" style="margin-top: -18px; margin-left: 20px;">
                                         Hello: @Session["fullname"]<span class="fas fa-caret-down" style="margin-left: 5px;"></span>
@@ -594,5 +594,14 @@
     drop_btn.onclick = (() => {
         menu_wrapper.classList.toggle("show");
         tooltip.classList.toggle("show");
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        $(".add-to-wishlist").click(function () {
+            $(this).toggleClass("heart");
+        });
+
     });
 </script>

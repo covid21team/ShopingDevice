@@ -15,16 +15,20 @@
         ✈ Có thể thêm sản phẩm vào giỏi hàng
         ✈ Có thể xem chi tiết bằng cách chọn hình ảnh hoặc tên sản phẩm
 
+    ✔ Bấm vào "Add To Cart" ➔ thêm vào giỏ hàng
+
+    ✘ Bấm vào "Add To Wishlist" ➔ thêm vào danh sách yêu thích
+
     ✘ Tuy phân trang Comment nhưng chỉ xem được trang đầu tiên, không xem được các trang sau
 
     ✹ Một số form share
         ➽ Public_Navigation
-        ➽ Public_RatingProduct         
-        ➽ Public_ShareProduct          
-        ➽ LoginAndLogout               
-        ➽ Product_TableConfig         
-        ➽ Product_ReviewRatingOfUser  
-        ➽ Product_LoadComment         
+        ➽ Public_RatingProduct
+        ➽ Public_ShareProduct
+        ➽ LoginAndLogout
+        ➽ Product_TableConfig
+        ➽ Product_ReviewRatingOfUser
+        ➽ Product_LoadComment
 
     ⛱ Form có thể đến
         ➣ Home
@@ -36,7 +40,6 @@
 -->
 
 @model TSP_Covid21.Models.ShopEntity.PRODUCT
-@using PagedList.Mvc;
 
 @{
     ViewBag.Title = "Product";
@@ -175,7 +178,7 @@
                     </div>
 
                     <ul class="product-btns">
-                        <li><a href="#"><i class="fa fa-heart-o"></i> add to wishlist</a></li>
+                        <li><a class="add-to-wishlist"><i class="fa fa-heart" id="idheart"></i> add to wishlist</a></li>
                     </ul>
 
                     <ul class="product-links">
@@ -333,7 +336,7 @@
                                 <!-- Reviews -->
                                 <!-- Review Product -->
 
-                                @Html.Partial("Product_LoadComment", PC.loadCommentProduct(Model.PRODUCTID))
+                                @Html.Partial("Product_LoadComment", PC.loadCommentProduct(Model.PRODUCTID), new ViewDataDictionary(ViewData) { { "productId", Model.PRODUCTID } })
 
                                 <!-- /Reviews -->
                                 <!-- Review Form -->

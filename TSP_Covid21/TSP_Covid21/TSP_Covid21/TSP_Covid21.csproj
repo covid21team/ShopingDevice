@@ -1,0 +1,733 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D5B06269-649F-4504-90C5-DA4DF9BFF5DF}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TSP_Covid21</RootNamespace>
+    <AssemblyName>TSP_Covid21</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.4\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.4\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\Covid21Controller.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BUS\Account_BUS.cs" />
+    <Compile Include="Models\BUS\Product_BUS.cs" />
+    <Compile Include="Models\ShopEntity\ACCOUNT.cs">
+      <DependentUpon>ShopEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ShopEntity\ACCOUNTLIKE.cs">
+      <DependentUpon>ShopEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ShopEntity\ACCOUNT_ADMIN.cs">
+      <DependentUpon>ShopEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ShopEntity\BILL.cs">
+      <DependentUpon>ShopEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ShopEntity\BILLDETAIL.cs">
+      <DependentUpon>ShopEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ShopEntity\BRAND.cs">
+      <DependentUpon>ShopEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ShopEntity\CART.cs">
+      <DependentUpon>ShopEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ShopEntity\COMMENT.cs">
+      <DependentUpon>ShopEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ShopEntity\CONFIG.cs">
+      <DependentUpon>ShopEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ShopEntity\CONFIGDETAIL.cs">
+      <DependentUpon>ShopEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ShopEntity\PRODUCT.cs">
+      <DependentUpon>ShopEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ShopEntity\PRODUCTTYPE.cs">
+      <DependentUpon>ShopEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ShopEntity\RATINGPRODUCT.cs">
+      <DependentUpon>ShopEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ShopEntity\ShopEntity.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ShopEntity.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ShopEntity\ShopEntity.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ShopEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ShopEntity\ShopEntity.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ShopEntity.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ShopEntity\TEMPPRODUCT.cs">
+      <DependentUpon>ShopEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ShopEntity\VIEWNUMBER.cs">
+      <DependentUpon>ShopEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ShopEntity\VOCHERDETAIL.cs">
+      <DependentUpon>ShopEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ShopEntity\VOUCHER.cs">
+      <DependentUpon>ShopEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViewModel\BrandViewModel.cs" />
+    <Compile Include="Models\ViewModel\ProductViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Asset\css\banchonuser.css" />
+    <Content Include="Asset\css\bootstrap.min.css" />
+    <Content Include="Asset\css\cart.css" />
+    <Content Include="Asset\css\font-awesome.min.css" />
+    <Content Include="Asset\css\login.css" />
+    <Content Include="Asset\css\nouislider.min.css" />
+    <Content Include="Asset\css\product.css" />
+    <Content Include="Asset\css\Signin.css" />
+    <Content Include="Asset\css\slick-theme.css" />
+    <Content Include="Asset\css\slick.css" />
+    <Content Include="Asset\css\style.css" />
+    <Content Include="Asset\fonts\fontawesome-webfont.svg" />
+    <Content Include="Asset\fonts\slick.svg" />
+    <Content Include="Asset\images\HeadPhone\Apple\12.290.000 ₫ max.txt" />
+    <Content Include="Asset\images\HeadPhone\Apple\3.350.000 ₫ airpod.txt" />
+    <Content Include="Asset\images\HeadPhone\Apple\apple-airpods-max-2-1.jpg" />
+    <Content Include="Asset\images\HeadPhone\Apple\apple-airpods-max-2-2.jpg" />
+    <Content Include="Asset\images\HeadPhone\Apple\apple-airpods-max-2-3.jpg" />
+    <Content Include="Asset\images\HeadPhone\Apple\apple-airpods-max-2-4.jpg" />
+    <Content Include="Asset\images\HeadPhone\Apple\apple-airpods-max-2-5.jpg" />
+    <Content Include="Asset\images\HeadPhone\Apple\bluetooth-apple-airpod-1.jpg" />
+    <Content Include="Asset\images\HeadPhone\Apple\bluetooth-apple-airpod-2.jpg" />
+    <Content Include="Asset\images\HeadPhone\Apple\bluetooth-apple-airpod-3.jpg" />
+    <Content Include="Asset\images\HeadPhone\Apple\bluetooth-apple-airpod-4.jpg" />
+    <Content Include="Asset\images\HeadPhone\Apple\bluetooth-apple-airpod-5.jpg" />
+    <Content Include="Asset\images\HeadPhone\Sony\1.050.000 ₫ xb550AP.txt" />
+    <Content Include="Asset\images\HeadPhone\Sony\2.290.000 ₫ xb700.txt" />
+    <Content Include="Asset\images\HeadPhone\Sony\Sony-MDR-XB550AP-1.jpg" />
+    <Content Include="Asset\images\HeadPhone\Sony\Sony-MDR-XB550AP-2.jpg" />
+    <Content Include="Asset\images\HeadPhone\Sony\Sony-MDR-XB550AP-3.jpg" />
+    <Content Include="Asset\images\HeadPhone\Sony\Sony-MDR-XB550AP-4.jpg" />
+    <Content Include="Asset\images\HeadPhone\Sony\Sony-MDR-XB550AP-5.jpg" />
+    <Content Include="Asset\images\HeadPhone\Sony\sony-wf-xb700-1.jpg" />
+    <Content Include="Asset\images\HeadPhone\Sony\sony-wf-xb700-2.jpg" />
+    <Content Include="Asset\images\HeadPhone\Sony\sony-wf-xb700-3.jpg" />
+    <Content Include="Asset\images\HeadPhone\Sony\sony-wf-xb700-4.jpg" />
+    <Content Include="Asset\images\HeadPhone\Sony\sony-wf-xb700-5.jpg" />
+    <Content Include="Asset\images\HeadPhone\Xiaomi\490.000 ₫ basic 2.txt" />
+    <Content Include="Asset\images\HeadPhone\Xiaomi\990.000 ₫ Lite.txt" />
+    <Content Include="Asset\images\HeadPhone\Xiaomi\Bluetooth-Xiaomi-Earphone-Lite-1.jpg" />
+    <Content Include="Asset\images\HeadPhone\Xiaomi\Bluetooth-Xiaomi-Earphone-Lite-2.jpg" />
+    <Content Include="Asset\images\HeadPhone\Xiaomi\Bluetooth-Xiaomi-Earphone-Lite-3.jpg" />
+    <Content Include="Asset\images\HeadPhone\Xiaomi\Bluetooth-Xiaomi-Earphone-Lite-4.png" />
+    <Content Include="Asset\images\HeadPhone\Xiaomi\Bluetooth-Xiaomi-Earphone-Lite-5.jpg" />
+    <Content Include="Asset\images\HeadPhone\Xiaomi\xiaomi-mi-true-wireless-earbuds-basic-2-1.jpeg" />
+    <Content Include="Asset\images\HeadPhone\Xiaomi\xiaomi-mi-true-wireless-earbuds-basic-2-2.jpeg" />
+    <Content Include="Asset\images\HeadPhone\Xiaomi\xiaomi-mi-true-wireless-earbuds-basic-2-3.jpg" />
+    <Content Include="Asset\images\HeadPhone\Xiaomi\xiaomi-mi-true-wireless-earbuds-basic-2-4.jpg" />
+    <Content Include="Asset\images\HeadPhone\Xiaomi\xiaomi-mi-true-wireless-earbuds-basic-2-5.jpg" />
+    <Content Include="Asset\images\Laptop\Acer\LaptopAcerAspire7A715\acer-aspire-7-a715-1.jpg" />
+    <Content Include="Asset\images\Laptop\Acer\LaptopAcerAspire7A715\acer-aspire-7-a715-2.jpg" />
+    <Content Include="Asset\images\Laptop\Acer\LaptopAcerAspire7A715\acer-aspire-7-a715-3.jpg" />
+    <Content Include="Asset\images\Laptop\Acer\LaptopAcerAspire7A715\acer-aspire-7-a715-4.jpg" />
+    <Content Include="Asset\images\Laptop\Acer\LaptopAcerAspire7A715\acer-aspire-7-a715-5.jpg" />
+    <Content Include="Asset\images\Laptop\Acer\LaptopAcerNitro5AN515\acer-nitro-5-an515-1g.jpg" />
+    <Content Include="Asset\images\Laptop\Acer\LaptopAcerNitro5AN515\acer-nitro-5-an515-2.jpg" />
+    <Content Include="Asset\images\Laptop\Acer\LaptopAcerNitro5AN515\acer-nitro-5-an515-3.jpg" />
+    <Content Include="Asset\images\Laptop\Acer\LaptopAcerNitro5AN515\acer-nitro-5-an515-4.jpg" />
+    <Content Include="Asset\images\Laptop\Acer\LaptopAcerNitro5AN515\acer-nitro-5-an515-5.jpg" />
+    <Content Include="Asset\images\Laptop\Acer\LaptopAcerSwift3SF313\acer-swift-3-sf31-1.jpg" />
+    <Content Include="Asset\images\Laptop\Acer\LaptopAcerSwift3SF313\acer-swift-3-sf31-2.jpg" />
+    <Content Include="Asset\images\Laptop\Acer\LaptopAcerSwift3SF313\acer-swift-3-sf31-3.jpg" />
+    <Content Include="Asset\images\Laptop\Acer\LaptopAcerSwift3SF313\acer-swift-3-sf31-4.jpg" />
+    <Content Include="Asset\images\Laptop\Acer\LaptopAcerSwift3SF313\acer-swift-3-sf31-5.jpg" />
+    <Content Include="Asset\images\Laptop\Apple\LaptopAppleMacBookAirM12020\apple-macbook-air-m1-2020-1.jpg" />
+    <Content Include="Asset\images\Laptop\Apple\LaptopAppleMacBookAirM12020\apple-macbook-air-m1-2020-2.jpg" />
+    <Content Include="Asset\images\Laptop\Apple\LaptopAppleMacBookAirM12020\apple-macbook-air-m1-2020-3.jpg" />
+    <Content Include="Asset\images\Laptop\Apple\LaptopAppleMacBookAirM12020\apple-macbook-air-m1-2020-4.jpg" />
+    <Content Include="Asset\images\Laptop\Apple\LaptopAppleMacBookAirM12020\apple-macbook-air-m1-2020-5.jpg" />
+    <Content Include="Asset\images\Laptop\Apple\LaptopAppleMacBookProM12020\Laptop Apple MacBook Pro M1 2020-1.jpg" />
+    <Content Include="Asset\images\Laptop\Apple\LaptopAppleMacBookProM12020\Laptop Apple MacBook Pro M1 2020-2.jpg" />
+    <Content Include="Asset\images\Laptop\Apple\LaptopAppleMacBookProM12020\Laptop Apple MacBook Pro M1 2020-3.jpg" />
+    <Content Include="Asset\images\Laptop\Apple\LaptopAppleMacBookProM12020\Laptop Apple MacBook Pro M1 2020-4.jpg" />
+    <Content Include="Asset\images\Laptop\Apple\LaptopAppleMacBookProM12020\Laptop Apple MacBook Pro M1 2020-5.jpg" />
+    <Content Include="Asset\images\Laptop\Asus\Asus-TUF-Gaming-FX506LH\asus-tuf-gaming-1.jpg" />
+    <Content Include="Asset\images\Laptop\Asus\Asus-TUF-Gaming-FX506LH\asus-tuf-gaming-2.jpg" />
+    <Content Include="Asset\images\Laptop\Asus\Asus-TUF-Gaming-FX506LH\asus-tuf-gaming-3.jpg" />
+    <Content Include="Asset\images\Laptop\Asus\Asus-TUF-Gaming-FX506LH\asus-tuf-gaming-4.jpg" />
+    <Content Include="Asset\images\Laptop\Asus\Asus-TUF-Gaming-FX506LH\asus-tuf-gaming-5.jpg" />
+    <Content Include="Asset\images\Laptop\Asus\AsusVivoBookS533EQ\asus-vivobook-1.jpg" />
+    <Content Include="Asset\images\Laptop\Asus\AsusVivoBookS533EQ\asus-vivobook-2.jpg" />
+    <Content Include="Asset\images\Laptop\Asus\AsusVivoBookS533EQ\asus-vivobook-3.jpg" />
+    <Content Include="Asset\images\Laptop\Asus\AsusVivoBookS533EQ\asus-vivobook-4.jpg" />
+    <Content Include="Asset\images\Laptop\Asus\AsusVivoBookS533EQ\asus-vivobook-5.jpg" />
+    <Content Include="Asset\images\Laptop\Asus\AsusZenBookDuoUX482EG\asus-zenbook-1.jpg" />
+    <Content Include="Asset\images\Laptop\Asus\AsusZenBookDuoUX482EG\asus-zenbook-2.jpg" />
+    <Content Include="Asset\images\Laptop\Asus\AsusZenBookDuoUX482EG\asus-zenbook-3.jpg" />
+    <Content Include="Asset\images\Laptop\Asus\AsusZenBookDuoUX482EG\asus-zenbook-4.jpg" />
+    <Content Include="Asset\images\Laptop\Asus\AsusZenBookDuoUX482EG\asus-zenbook-5.jpg" />
+    <Content Include="Asset\images\Laptop\Msi\MSIGF6310SCi5\MSI-GF63-10SC-1.jpg" />
+    <Content Include="Asset\images\Laptop\Msi\MSIGF6310SCi5\MSI-GF63-10SC-2.jpg" />
+    <Content Include="Asset\images\Laptop\Msi\MSIGF6310SCi5\MSI-GF63-10SC-3.jpg" />
+    <Content Include="Asset\images\Laptop\Msi\MSIGF6310SCi5\MSI-GF63-10SC-4.jpg" />
+    <Content Include="Asset\images\Laptop\Msi\MSIGF6310SCi5\MSI-GF63-10SC-5.jpg" />
+    <Content Include="Asset\images\Laptop\Msi\MSIGF6510UEi7\msi-gf65-1.jpg" />
+    <Content Include="Asset\images\Laptop\Msi\MSIGF6510UEi7\msi-gf65-2.jpg" />
+    <Content Include="Asset\images\Laptop\Msi\MSIGF6510UEi7\msi-gf65-3.jpg" />
+    <Content Include="Asset\images\Laptop\Msi\MSIGF6510UEi7\msi-gf65-4.jpg" />
+    <Content Include="Asset\images\Laptop\Msi\MSIGF6510UEi7\msi-gf65-5.jpg" />
+    <Content Include="Asset\images\Laptop\Msi\MSIGF75Thin10SCXRi7\MSI-GF75-1.jpg" />
+    <Content Include="Asset\images\Laptop\Msi\MSIGF75Thin10SCXRi7\MSI-GF75-2.jpg" />
+    <Content Include="Asset\images\Laptop\Msi\MSIGF75Thin10SCXRi7\MSI-GF75-3.jpg" />
+    <Content Include="Asset\images\Laptop\Msi\MSIGF75Thin10SCXRi7\MSI-GF75-4.jpg" />
+    <Content Include="Asset\images\Laptop\Msi\MSIGF75Thin10SCXRi7\MSI-GF75-5.jpg" />
+    <Content Include="Asset\images\logo.png" />
+    <Content Include="Asset\images\SmartPhone\Iphone\iPhone_11\iphone-11-1.jpg" />
+    <Content Include="Asset\images\SmartPhone\Iphone\iPhone_11\iphone-11-2.jpg" />
+    <Content Include="Asset\images\SmartPhone\Iphone\iPhone_11\iphone-11-3.jpg" />
+    <Content Include="Asset\images\SmartPhone\Iphone\iPhone_11\iphone-11-4.jpg" />
+    <Content Include="Asset\images\SmartPhone\Iphone\iPhone_11\iphone-11-5.jpg" />
+    <Content Include="Asset\images\SmartPhone\Iphone\iPhone_12\iphone-12-1.jpg" />
+    <Content Include="Asset\images\SmartPhone\Iphone\iPhone_12\iphone-12-2.jpg" />
+    <Content Include="Asset\images\SmartPhone\Iphone\iPhone_12\iphone-12-3.jpg" />
+    <Content Include="Asset\images\SmartPhone\Iphone\iPhone_12\iphone-12-4.jpg" />
+    <Content Include="Asset\images\SmartPhone\Iphone\iPhone_12\iphone-12-5.jpg" />
+    <Content Include="Asset\images\SmartPhone\Iphone\iPhone_XR\iphone-xr-1.jpg" />
+    <Content Include="Asset\images\SmartPhone\Iphone\iPhone_XR\iphone-xr-2.jpg" />
+    <Content Include="Asset\images\SmartPhone\Iphone\iPhone_XR\iphone-xr-3.jpg" />
+    <Content Include="Asset\images\SmartPhone\Iphone\iPhone_XR\iphone-xr-4.jpg" />
+    <Content Include="Asset\images\SmartPhone\Iphone\iPhone_XR\iphone-xr-5.jpg" />
+    <Content Include="Asset\images\SmartPhone\Oppo\OPPO Find X3 Pro 5G\oppo-find-x3-pro-den-1-org.jpg" />
+    <Content Include="Asset\images\SmartPhone\Oppo\OPPO Find X3 Pro 5G\oppo-find-x3-pro-den-2-org.jpg" />
+    <Content Include="Asset\images\SmartPhone\Oppo\OPPO Find X3 Pro 5G\oppo-find-x3-pro-den-3-org.jpg" />
+    <Content Include="Asset\images\SmartPhone\Oppo\OPPO Find X3 Pro 5G\oppo-find-x3-pro-den-4-org.jpg" />
+    <Content Include="Asset\images\SmartPhone\Oppo\OPPO Find X3 Pro 5G\oppo-find-x3-pro-den-5-org.jpg" />
+    <Content Include="Asset\images\SmartPhone\Oppo\OPPO Reno4 Pro\oppo-reno4-pro-trang-1-org.jpg" />
+    <Content Include="Asset\images\SmartPhone\Oppo\OPPO Reno4 Pro\oppo-reno4-pro-trang-2-org.jpg" />
+    <Content Include="Asset\images\SmartPhone\Oppo\OPPO Reno4 Pro\oppo-reno4-pro-trang-3-org.jpg" />
+    <Content Include="Asset\images\SmartPhone\Oppo\OPPO Reno4 Pro\oppo-reno4-pro-trang-4-org.jpg" />
+    <Content Include="Asset\images\SmartPhone\Oppo\OPPO Reno4 Pro\oppo-reno4-pro-trang-5-org.jpg" />
+    <Content Include="Asset\images\SmartPhone\Oppo\OPPO Reno5\oppo-reno5-bac-1-org.jpg" />
+    <Content Include="Asset\images\SmartPhone\Oppo\OPPO Reno5\oppo-reno5-bac-2-org.jpg" />
+    <Content Include="Asset\images\SmartPhone\Oppo\OPPO Reno5\oppo-reno5-bac-3-org.jpg" />
+    <Content Include="Asset\images\SmartPhone\Oppo\OPPO Reno5\oppo-reno5-bac-4-org.jpg" />
+    <Content Include="Asset\images\SmartPhone\Oppo\OPPO Reno5\oppo-reno5-bac-5-org.jpg" />
+    <Content Include="Asset\images\SmartPhone\SamSung\Galaxy Z Fold2 5G Đặc biệt\samsung-galaxy-z-fold2-5g-dac-biet-vang-dong-1-1-org.jpg" />
+    <Content Include="Asset\images\SmartPhone\SamSung\Galaxy Z Fold2 5G Đặc biệt\samsung-galaxy-z-fold2-5g-dac-biet-vang-dong-2-org.jpg" />
+    <Content Include="Asset\images\SmartPhone\SamSung\Galaxy Z Fold2 5G Đặc biệt\samsung-galaxy-z-fold2-5g-dac-biet-vang-dong-3-org.jpg" />
+    <Content Include="Asset\images\SmartPhone\SamSung\Galaxy Z Fold2 5G Đặc biệt\samsung-galaxy-z-fold2-5g-dac-biet-vang-dong-4-org.jpg" />
+    <Content Include="Asset\images\SmartPhone\SamSung\Galaxy Z Fold2 5G Đặc biệt\samsung-galaxy-z-fold2-5g-dac-biet-vang-dong-5-org.jpg" />
+    <Content Include="Asset\images\SmartPhone\SamSung\Samsung A02\a02-2.590.000₫.txt" />
+    <Content Include="Asset\images\SmartPhone\SamSung\Samsung A02\samsung-a02-1.jpg" />
+    <Content Include="Asset\images\SmartPhone\SamSung\Samsung A02\samsung-a02-2.jpg" />
+    <Content Include="Asset\images\SmartPhone\SamSung\Samsung A02\samsung-a02-3.jpg" />
+    <Content Include="Asset\images\SmartPhone\SamSung\Samsung A02\samsung-a02-4.jpg" />
+    <Content Include="Asset\images\SmartPhone\SamSung\Samsung A02\samsung-a02-5.jpg" />
+    <Content Include="Asset\images\SmartPhone\SamSung\Samsung Galaxy S21 5G\samsung-galaxy-s21-tim-1-org.jpg" />
+    <Content Include="Asset\images\SmartPhone\SamSung\Samsung Galaxy S21 5G\samsung-galaxy-s21-tim-2-org.jpg" />
+    <Content Include="Asset\images\SmartPhone\SamSung\Samsung Galaxy S21 5G\samsung-galaxy-s21-tim-3-org.jpg" />
+    <Content Include="Asset\images\SmartPhone\SamSung\Samsung Galaxy S21 5G\samsung-galaxy-s21-tim-4-org.jpg" />
+    <Content Include="Asset\images\SmartPhone\SamSung\Samsung Galaxy S21 5G\samsung-galaxy-s21-tim-5-org.jpg" />
+    <Content Include="Asset\images\SmartPhone\Xiaomi\Xiaomi Mi 11 Lite 4G\xiaomi-mi-11-lite-4g-hong-1-org.jpg" />
+    <Content Include="Asset\images\SmartPhone\Xiaomi\Xiaomi Mi 11 Lite 4G\xiaomi-mi-11-lite-4g-hong-2-org.jpg" />
+    <Content Include="Asset\images\SmartPhone\Xiaomi\Xiaomi Mi 11 Lite 4G\xiaomi-mi-11-lite-4g-hong-3-org.jpg" />
+    <Content Include="Asset\images\SmartPhone\Xiaomi\Xiaomi Mi 11 Lite 4G\xiaomi-mi-11-lite-4g-hong-4-org.jpg" />
+    <Content Include="Asset\images\SmartPhone\Xiaomi\Xiaomi Mi 11 Lite 4G\xiaomi-mi-11-lite-4g-hong-5-org.jpg" />
+    <Content Include="Asset\images\SmartPhone\Xiaomi\Xiaomi POCO X3 NFC\xiaomi-poco-x3-xam-1-org.jpg" />
+    <Content Include="Asset\images\SmartPhone\Xiaomi\Xiaomi POCO X3 NFC\xiaomi-poco-x3-xam-2-org.jpg" />
+    <Content Include="Asset\images\SmartPhone\Xiaomi\Xiaomi POCO X3 NFC\xiaomi-poco-x3-xam-3-org.jpg" />
+    <Content Include="Asset\images\SmartPhone\Xiaomi\Xiaomi POCO X3 NFC\xiaomi-poco-x3-xam-4-org.jpg" />
+    <Content Include="Asset\images\SmartPhone\Xiaomi\Xiaomi POCO X3 NFC\xiaomi-poco-x3-xam-5-org.jpg" />
+    <Content Include="Asset\images\SmartPhone\Xiaomi\Xiaomi-Mi-11\xiaomi-mi-11-1.jpg" />
+    <Content Include="Asset\images\SmartPhone\Xiaomi\Xiaomi-Mi-11\xiaomi-mi-11-2.jpg" />
+    <Content Include="Asset\images\SmartPhone\Xiaomi\Xiaomi-Mi-11\xiaomi-mi-11-3.jpg" />
+    <Content Include="Asset\images\SmartPhone\Xiaomi\Xiaomi-Mi-11\xiaomi-mi-11-4.jpg" />
+    <Content Include="Asset\images\SmartPhone\Xiaomi\Xiaomi-Mi-11\xiaomi-mi-11-5.jpg" />
+    <Content Include="Asset\images\SmartWatch\AppleWatch\18.530.000 ₫.txt" />
+    <Content Include="Asset\images\SmartWatch\AppleWatch\apple-watch-series-6-1.jpg" />
+    <Content Include="Asset\images\SmartWatch\AppleWatch\apple-watch-series-6-2.jpg" />
+    <Content Include="Asset\images\SmartWatch\AppleWatch\apple-watch-series-6-3.jpg" />
+    <Content Include="Asset\images\SmartWatch\AppleWatch\apple-watch-series-6-4.jpg" />
+    <Content Include="Asset\images\SmartWatch\AppleWatch\apple-watch-series-6-5.jpg" />
+    <Content Include="Asset\images\SmartWatch\Samsung\4.300.000 ₫ active.txt" />
+    <Content Include="Asset\images\SmartWatch\Samsung\8.500.000-lte.txt" />
+    <Content Include="Asset\images\SmartWatch\Samsung\Samsung-Galaxy-Watch-Active-1.jpg" />
+    <Content Include="Asset\images\SmartWatch\Samsung\Samsung-Galaxy-Watch-Active-2.jpg" />
+    <Content Include="Asset\images\SmartWatch\Samsung\Samsung-Galaxy-Watch-Active-3.jpg" />
+    <Content Include="Asset\images\SmartWatch\Samsung\Samsung-Galaxy-Watch-Active-4.jpg" />
+    <Content Include="Asset\images\SmartWatch\Samsung\Samsung-Galaxy-Watch-Active-5.jpg" />
+    <Content Include="Asset\images\SmartWatch\Samsung\Samsung-Galaxy-Watch-Active-LTE-1.jpg" />
+    <Content Include="Asset\images\SmartWatch\Samsung\Samsung-Galaxy-Watch-Active-LTE-2.jpg" />
+    <Content Include="Asset\images\SmartWatch\Samsung\Samsung-Galaxy-Watch-Active-LTE-3.jpg" />
+    <Content Include="Asset\images\SmartWatch\Samsung\Samsung-Galaxy-Watch-Active-LTE-4.jpg" />
+    <Content Include="Asset\images\SmartWatch\Samsung\Samsung-Galaxy-Watch-Active-LTE-5.jpg" />
+    <Content Include="Asset\images\SmartWatch\Xiaomi\1,290,000 ₫ band.txt" />
+    <Content Include="Asset\images\SmartWatch\Xiaomi\1.390.000 ₫ lite.txt" />
+    <Content Include="Asset\images\SmartWatch\Xiaomi\mi-watch-1.jpg" />
+    <Content Include="Asset\images\SmartWatch\Xiaomi\mi-watch-lite_1.jpg" />
+    <Content Include="Asset\images\SmartWatch\Xiaomi\mi-watch-lite_2.jpg" />
+    <Content Include="Asset\images\SmartWatch\Xiaomi\mi-watch-lite_3.png" />
+    <Content Include="Asset\images\SmartWatch\Xiaomi\mi-watch-lite_4.jpg" />
+    <Content Include="Asset\images\SmartWatch\Xiaomi\mi-watch-lite_5.jpg" />
+    <Content Include="Asset\images\SmartWatch\Xiaomi\xiaomi-mi-band-1.png" />
+    <Content Include="Asset\images\SmartWatch\Xiaomi\xiaomi-mi-band-2.jpg" />
+    <Content Include="Asset\images\SmartWatch\Xiaomi\xiaomi-mi-band-3.jpg" />
+    <Content Include="Asset\images\SmartWatch\Xiaomi\xiaomi-mi-band-4.jpg" />
+    <Content Include="Asset\images\SmartWatch\Xiaomi\xiaomi-mi-band-5.jpg" />
+    <Content Include="Asset\images\Tablet\IPad\15.190.000₫ -cellul.txt" />
+    <Content Include="Asset\images\Tablet\IPad\24.190.000₫-air-4.txt" />
+    <Content Include="Asset\images\Tablet\IPad\32.190.000₫ pro.txt" />
+    <Content Include="Asset\images\Tablet\IPad\ipad-8-wifi-cellular-1.jpg" />
+    <Content Include="Asset\images\Tablet\IPad\ipad-8-wifi-cellular-2.jpg" />
+    <Content Include="Asset\images\Tablet\IPad\ipad-8-wifi-cellular-3.jpg" />
+    <Content Include="Asset\images\Tablet\IPad\ipad-8-wifi-cellular-4.jpg" />
+    <Content Include="Asset\images\Tablet\IPad\ipad-8-wifi-cellular-5.jpg" />
+    <Content Include="Asset\images\Tablet\IPad\ipad-air-4-rose-gold-1.jpg" />
+    <Content Include="Asset\images\Tablet\IPad\ipad-air-4-rose-gold-2.jpg" />
+    <Content Include="Asset\images\Tablet\IPad\ipad-air-4-rose-gold-3.jpg" />
+    <Content Include="Asset\images\Tablet\IPad\ipad-air-4-rose-gold-4.jpg" />
+    <Content Include="Asset\images\Tablet\IPad\ipad-air-4-rose-gold-5.jpg" />
+    <Content Include="Asset\images\Tablet\IPad\iPadPro11-1.png" />
+    <Content Include="Asset\images\Tablet\IPad\iPadPro11-2.jpg" />
+    <Content Include="Asset\images\Tablet\IPad\iPadPro11-3.jpeg" />
+    <Content Include="Asset\images\Tablet\IPad\iPadPro11-4.jpeg" />
+    <Content Include="Asset\images\Tablet\IPad\iPadPro11-5.jpeg" />
+    <Content Include="Asset\images\Tablet\Lenovo\3.490.000₫ m8.txt" />
+    <Content Include="Asset\images\Tablet\Lenovo\5.490.000₫ m10.txt" />
+    <Content Include="Asset\images\Tablet\Lenovo\lenovo-tab-m10-fhd-plus-1.jpg" />
+    <Content Include="Asset\images\Tablet\Lenovo\lenovo-tab-m10-fhd-plus-2.jpg" />
+    <Content Include="Asset\images\Tablet\Lenovo\lenovo-tab-m10-fhd-plus-3.jpg" />
+    <Content Include="Asset\images\Tablet\Lenovo\lenovo-tab-m10-fhd-plus-4.jpg" />
+    <Content Include="Asset\images\Tablet\Lenovo\lenovo-tab-m10-fhd-plus-5.jpg" />
+    <Content Include="Asset\images\Tablet\Lenovo\lenovo-tab-m8-1.jpg" />
+    <Content Include="Asset\images\Tablet\Lenovo\lenovo-tab-m8-2.jpg" />
+    <Content Include="Asset\images\Tablet\Lenovo\lenovo-tab-m8-3.jpg" />
+    <Content Include="Asset\images\Tablet\Lenovo\lenovo-tab-m8-4.jpg" />
+    <Content Include="Asset\images\Tablet\Lenovo\lenovo-tab-m8-5.jpg" />
+    <Content Include="Asset\images\Tablet\SamSung\18.990.000₫-s7.txt" />
+    <Content Include="Asset\images\Tablet\SamSung\4.490.000₫  a7.txt" />
+    <Content Include="Asset\images\Tablet\SamSung\samsung-galaxy-tab-a7-lite-1.jpg" />
+    <Content Include="Asset\images\Tablet\SamSung\samsung-galaxy-tab-a7-lite-2.jpg" />
+    <Content Include="Asset\images\Tablet\SamSung\samsung-galaxy-tab-a7-lite-3.jpg" />
+    <Content Include="Asset\images\Tablet\SamSung\samsung-galaxy-tab-a7-lite-4.jpg" />
+    <Content Include="Asset\images\Tablet\SamSung\samsung-galaxy-tab-a7-lite-5.jpg" />
+    <Content Include="Asset\images\Tablet\SamSung\samsung-galaxy-tab-s7-1.jpg" />
+    <Content Include="Asset\images\Tablet\SamSung\samsung-galaxy-tab-s7-2.jpg" />
+    <Content Include="Asset\images\Tablet\SamSung\samsung-galaxy-tab-s7-3.jpg" />
+    <Content Include="Asset\images\Tablet\SamSung\samsung-galaxy-tab-s7-4.jpg" />
+    <Content Include="Asset\images\Tablet\SamSung\samsung-galaxy-tab-s7-5.jpg" />
+    <Content Include="Asset\img\hotdeal.png" />
+    <Content Include="Asset\img\logo.png" />
+    <Content Include="Asset\img\product01.png" />
+    <Content Include="Asset\img\product02.png" />
+    <Content Include="Asset\img\product03.png" />
+    <Content Include="Asset\img\product04.png" />
+    <Content Include="Asset\img\product05.png" />
+    <Content Include="Asset\img\product06.png" />
+    <Content Include="Asset\img\product07.png" />
+    <Content Include="Asset\img\product08.png" />
+    <Content Include="Asset\img\product09.png" />
+    <Content Include="Asset\img\shop01.png" />
+    <Content Include="Asset\img\shop02.png" />
+    <Content Include="Asset\img\shop03.png" />
+    <Content Include="Asset\JS\bootstrap.min.js" />
+    <Content Include="Asset\JS\cart.js" />
+    <Content Include="Asset\JS\CountDownTimer.js" />
+    <Content Include="Asset\JS\jquery.min.js" />
+    <Content Include="Asset\JS\jquery.zoom.min.js" />
+    <Content Include="Asset\JS\library_number_cart.js" />
+    <Content Include="Asset\JS\Login.js" />
+    <Content Include="Asset\JS\main.js" />
+    <Content Include="Asset\JS\nouislider.min.js" />
+    <Content Include="Asset\JS\password.js" />
+    <Content Include="Asset\JS\slick.min.js" />
+    <Content Include="Asset\screenshot\Checkout.png" />
+    <Content Include="Asset\screenshot\Index.png" />
+    <Content Include="Asset\screenshot\Product.png" />
+    <Content Include="Asset\screenshot\Regular.png" />
+    <Content Include="Asset\screenshot\Store.png" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Models\ShopEntity\ShopEntity.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ShopEntity.edmx</DependentUpon>
+      <LastGenOutput>ShopEntity.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\ShopEntity\ShopEntity.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ShopEntity.edmx</DependentUpon>
+      <LastGenOutput>ShopEntity.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Asset\fonts\fontawesome-webfont.eot" />
+    <Content Include="Asset\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Asset\fonts\fontawesome-webfont.woff" />
+    <Content Include="Asset\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Asset\fonts\FontAwesome.otf" />
+    <Content Include="Asset\fonts\slick.eot" />
+    <Content Include="Asset\fonts\slick.ttf" />
+    <Content Include="Asset\fonts\slick.woff" />
+    <Content Include="Asset\images\HeadPhone\Apple\cau hinh airpod.docx" />
+    <Content Include="Asset\images\HeadPhone\Apple\cau hinh max2.docx" />
+    <Content Include="Asset\images\HeadPhone\Apple\mo ta airpod.docx" />
+    <Content Include="Asset\images\HeadPhone\Apple\mo ta max 2.docx" />
+    <Content Include="Asset\images\HeadPhone\Sony\cau hinh xb550AP.docx" />
+    <Content Include="Asset\images\HeadPhone\Sony\cau hinh xb700.docx" />
+    <Content Include="Asset\images\HeadPhone\Sony\mo ta xb550AP.docx" />
+    <Content Include="Asset\images\HeadPhone\Sony\mo ta xb700.docx" />
+    <Content Include="Asset\images\HeadPhone\Xiaomi\cau hinh basic 2.docx" />
+    <Content Include="Asset\images\HeadPhone\Xiaomi\cau hinh Lite.docx" />
+    <Content Include="Asset\images\HeadPhone\Xiaomi\mo ta baisic.docx" />
+    <Content Include="Asset\images\HeadPhone\Xiaomi\mo ta Lite.docx" />
+    <Content Include="Asset\images\Laptop\Acer\LaptopAcerAspire7A715\21.490.000.docx" />
+    <Content Include="Asset\images\Laptop\Acer\LaptopAcerAspire7A715\bài viết đánh giá.docx" />
+    <Content Include="Asset\images\Laptop\Acer\LaptopAcerAspire7A715\cau hinh.docx" />
+    <Content Include="Asset\images\Laptop\Acer\LaptopAcerNitro5AN515\23.490.000.docx" />
+    <Content Include="Asset\images\Laptop\Acer\LaptopAcerNitro5AN515\bài viết đánh giá.docx" />
+    <Content Include="Asset\images\Laptop\Acer\LaptopAcerNitro5AN515\cấu hình.docx" />
+    <Content Include="Asset\images\Laptop\Acer\LaptopAcerSwift3SF313\23.990.000.docx" />
+    <Content Include="Asset\images\Laptop\Acer\LaptopAcerSwift3SF313\bài viết đánh giá.docx" />
+    <Content Include="Asset\images\Laptop\Acer\LaptopAcerSwift3SF313\cấu tạo.docx" />
+    <Content Include="Asset\images\Laptop\Apple\LaptopAppleMacBookAirM12020\28.210.000.docx" />
+    <Content Include="Asset\images\Laptop\Apple\LaptopAppleMacBookAirM12020\bài viết đánh giá.docx" />
+    <Content Include="Asset\images\Laptop\Apple\LaptopAppleMacBookAirM12020\cấu hình.docx" />
+    <Content Include="Asset\images\Laptop\Apple\LaptopAppleMacBookProM12020\44.490.000.docx" />
+    <Content Include="Asset\images\Laptop\Apple\LaptopAppleMacBookProM12020\bài viết đánh giá.docx" />
+    <Content Include="Asset\images\Laptop\Apple\LaptopAppleMacBookProM12020\cấu hình.docx" />
+    <Content Include="Asset\images\Laptop\Asus\Asus-TUF-Gaming-FX506LH\20.490.000.docx" />
+    <Content Include="Asset\images\Laptop\Asus\Asus-TUF-Gaming-FX506LH\bài viết đánh giá.docx" />
+    <Content Include="Asset\images\Laptop\Asus\Asus-TUF-Gaming-FX506LH\cấu hình.docx" />
+    <Content Include="Asset\images\Laptop\Asus\AsusVivoBookS533EQ\21.890.000.docx" />
+    <Content Include="Asset\images\Laptop\Asus\AsusVivoBookS533EQ\bài viết đánh giá.docx" />
+    <Content Include="Asset\images\Laptop\Asus\AsusVivoBookS533EQ\cấu tạo.docx" />
+    <Content Include="Asset\images\Laptop\Asus\AsusZenBookDuoUX482EG\34.990.000.docx" />
+    <Content Include="Asset\images\Laptop\Asus\AsusZenBookDuoUX482EG\bài viết đánh giá.docx" />
+    <Content Include="Asset\images\Laptop\Asus\AsusZenBookDuoUX482EG\cấu hình.docx" />
+    <Content Include="Asset\images\Laptop\Msi\MSIGF6310SCi5\20.990.000.docx" />
+    <Content Include="Asset\images\Laptop\Msi\MSIGF6310SCi5\bài viết đánh giá.docx" />
+    <Content Include="Asset\images\Laptop\Msi\MSIGF6310SCi5\cau hinh.docx" />
+    <Content Include="Asset\images\Laptop\Msi\MSIGF6510UEi7\32.490.000.docx" />
+    <Content Include="Asset\images\Laptop\Msi\MSIGF6510UEi7\bài viết đánh giá.docx" />
+    <Content Include="Asset\images\Laptop\Msi\MSIGF6510UEi7\cấu hình.docx" />
+    <Content Include="Asset\images\Laptop\Msi\MSIGF75Thin10SCXRi7\23.490.000.docx" />
+    <Content Include="Asset\images\Laptop\Msi\MSIGF75Thin10SCXRi7\bài viết đánh giá.docx" />
+    <Content Include="Asset\images\Laptop\Msi\MSIGF75Thin10SCXRi7\cau hinh.docx" />
+    <Content Include="Asset\images\SmartPhone\Iphone\iPhone_11\21.490.000.docx" />
+    <Content Include="Asset\images\SmartPhone\Iphone\iPhone_11\bài viết đnáh giá.docx" />
+    <Content Include="Asset\images\SmartPhone\Iphone\iPhone_11\cau hinh .docx" />
+    <Content Include="Asset\images\SmartPhone\Iphone\iPhone_12\21.990.000.docx" />
+    <Content Include="Asset\images\SmartPhone\Iphone\iPhone_12\bài viết đánh giá.docx" />
+    <Content Include="Asset\images\SmartPhone\Iphone\iPhone_12\cấu hình.docx" />
+    <Content Include="Asset\images\SmartPhone\Iphone\iPhone_XR\13.990.000.docx" />
+    <Content Include="Asset\images\SmartPhone\Iphone\iPhone_XR\bài viết đánh giá.docx" />
+    <Content Include="Asset\images\SmartPhone\Iphone\iPhone_XR\cau hinh.docx" />
+    <Content Include="Asset\images\SmartPhone\Oppo\OPPO Find X3 Pro 5G\26.990.000.docx" />
+    <Content Include="Asset\images\SmartPhone\Oppo\OPPO Find X3 Pro 5G\bài viết đánh giá.docx" />
+    <Content Include="Asset\images\SmartPhone\Oppo\OPPO Reno4 Pro\10.490.000.docx" />
+    <Content Include="Asset\images\SmartPhone\Oppo\OPPO Reno4 Pro\bài viết đánh giá.docx" />
+    <Content Include="Asset\images\SmartPhone\Oppo\OPPO Reno5\8.690.000.docx" />
+    <Content Include="Asset\images\SmartPhone\Oppo\OPPO Reno5\Bài viết đánh giá.docx" />
+    <Content Include="Asset\images\SmartPhone\SamSung\Galaxy Z Fold2 5G Đặc biệt\50.000.000.000.docx" />
+    <Content Include="Asset\images\SmartPhone\SamSung\Galaxy Z Fold2 5G Đặc biệt\bài viết đánh giá.docx" />
+    <Content Include="Asset\images\SmartPhone\SamSung\Samsung A02\A02-Đoạn văn mẫu.docx" />
+    <Content Include="Asset\images\SmartPhone\SamSung\Samsung A02\A02.docx" />
+    <Content Include="Asset\images\SmartPhone\SamSung\Samsung A02\~%242-Đoạn văn mẫu.docx" />
+    <Content Include="Asset\images\SmartPhone\SamSung\Samsung A02\~%24A02.docx" />
+    <Content Include="Asset\images\SmartPhone\SamSung\Samsung Galaxy S21 5G\14.990.000.docx" />
+    <Content Include="Asset\images\SmartPhone\SamSung\Samsung Galaxy S21 5G\bài viết đánh giá.docx" />
+    <Content Include="Asset\images\SmartPhone\Xiaomi\Xiaomi Mi 11 Lite 4G\7.990.000₫_.docx" />
+    <Content Include="Asset\images\SmartPhone\Xiaomi\Xiaomi Mi 11 Lite 4G\Bài viết đánh giá.docx" />
+    <Content Include="Asset\images\SmartPhone\Xiaomi\Xiaomi POCO X3 NFC\6.990.000₫.docx" />
+    <Content Include="Asset\images\SmartPhone\Xiaomi\Xiaomi POCO X3 NFC\Bài viết đánh giá.docx" />
+    <Content Include="Asset\images\SmartPhone\Xiaomi\Xiaomi-Mi-11\21.990.000₫.docx" />
+    <Content Include="Asset\images\SmartPhone\Xiaomi\Xiaomi-Mi-11\bài viết đánh giá.docx" />
+    <Content Include="Asset\images\SmartWatch\AppleWatch\cau hinh series 6.docx" />
+    <Content Include="Asset\images\SmartWatch\AppleWatch\mo ta series 6.docx" />
+    <Content Include="Asset\images\SmartWatch\AppleWatch\~%24 ta series 6.docx" />
+    <Content Include="Asset\images\SmartWatch\Samsung\cau hinh active.docx" />
+    <Content Include="Asset\images\SmartWatch\Samsung\cau hinh LTE.docx" />
+    <Content Include="Asset\images\SmartWatch\Samsung\mo ta active.docx" />
+    <Content Include="Asset\images\SmartWatch\Samsung\mo ta LTE.docx" />
+    <Content Include="Asset\images\SmartWatch\Xiaomi\cau hinh band.docx" />
+    <Content Include="Asset\images\SmartWatch\Xiaomi\cau hinh lite.docx" />
+    <Content Include="Asset\images\SmartWatch\Xiaomi\images - Shortcut.lnk" />
+    <Content Include="Asset\images\SmartWatch\Xiaomi\mo ta band.docx" />
+    <Content Include="Asset\images\SmartWatch\Xiaomi\mo tao lite.docx" />
+    <Content Include="Asset\images\Tablet\IPad\cau hinh cellul.docx" />
+    <Content Include="Asset\images\Tablet\IPad\cau hinh ipad-air.docx" />
+    <Content Include="Asset\images\Tablet\IPad\cau hinh ipadpro11-1.docx" />
+    <Content Include="Asset\images\Tablet\IPad\mo ta air.docx" />
+    <Content Include="Asset\images\Tablet\IPad\mo ta cellul.docx" />
+    <Content Include="Asset\images\Tablet\IPad\mo ta pro 11.docx" />
+    <Content Include="Asset\images\Tablet\Lenovo\cau hinh m10.docx" />
+    <Content Include="Asset\images\Tablet\Lenovo\cau hinh m8.docx" />
+    <Content Include="Asset\images\Tablet\Lenovo\mo ta m10.docx" />
+    <Content Include="Asset\images\Tablet\Lenovo\mo ta m8.docx" />
+    <Content Include="Asset\images\Tablet\SamSung\cau hinh a7.docx" />
+    <Content Include="Asset\images\Tablet\SamSung\cau hinh s7.docx" />
+    <Content Include="Asset\images\Tablet\SamSung\mo ta a7.docx" />
+    <Content Include="Asset\images\Tablet\SamSung\mo ta s7.docx" />
+    <EntityDeploy Include="Models\ShopEntity\ShopEntity.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ShopEntity.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\ShopEntity\ShopEntity.edmx.diagram">
+      <DependentUpon>ShopEntity.edmx</DependentUpon>
+    </Content>
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\Shared\MainLayoutAdmin.cshtml" />
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Covid21\Home.cshtml" />
+    <Content Include="Views\Covid21\Cart.cshtml" />
+    <Content Include="Views\Covid21\Product.cshtml" />
+    <Content Include="Views\Shared\LoginAndSignup.cshtml" />
+    <Content Include="Views\Shared\Home_AmountProductWish.cshtml" />
+    <Content Include="Views\Shared\Categories_LoadBrand.cshtml" />
+    <Content Include="Views\Covid21\Categories.cshtml" />
+    <Content Include="Views\Shared\Categories_LoadProductTop.cshtml" />
+    <Content Include="Views\Shared\Home_LoadProductCart.cshtml" />
+    <Content Include="Views\Shared\Public_RatingProduct.cshtml" />
+    <Content Include="Views\Shared\Product_TableConfig.cshtml" />
+    <Content Include="Views\Shared\Product_ReviewRatingOfUser.cshtml" />
+    <Content Include="Views\Shared\Product_LoadComment.cshtml" />
+    <Content Include="Views\Shared\Public_ShareProduct.cshtml" />
+    <Content Include="Views\Shared\Public_Navigation.cshtml" />
+    <Content Include="Views\Shared\LoginAndLogout.cshtml" />
+    <Content Include="Views\Shared\Home_LoadProductNew.cshtml" />
+    <Content Include="Views\Shared\Home_LoadProductTopSelling.cshtml" />
+    <Content Include="Views\Shared\Home_LoadProductTop.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Admin\Views\Admin\" />
+    <Folder Include="Areas\Admin\Views\Home\" />
+    <Folder Include="Views\Account\" />
+    <Folder Include="Views\Product\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>60424</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:60424/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

@@ -13,11 +13,13 @@
 
 @{
     TSP_Covid21.Controllers.ProductController PC = new TSP_Covid21.Controllers.ProductController();
+
+    var productId = ViewData["productId"];
 }
 
 <div class="col-md-6">
     <div id="reviews">
-        <ul class="reviews">
+        <ul class="reviews" id="comment_Product">
 
             @foreach (var item in Model)
             {
@@ -39,9 +41,38 @@
             }
 
         </ul>
-        <ul class="reviews-pagination">
-            @Html.PagedListPager(Model, page => Url.Action("Product_LoadComment", new { page }))
+        <ul class="reviews-pagination" onclick="changePage()">
+            @Html.PagedListPager(
+                Model,
+                page => Url.Action(
+                    "Product",
+                    new {
+                        productId = productId,
+                        page = page
+                    }
+                ),
+                PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(PagedListRenderOptions.PageNumbersOnly,
+                new AjaxOptions
+                {
+                    InsertionMode = InsertionMode.Replace,
+                    HttpMethod = "Get",
+                    UpdateTargetId = "targetContainer"
+                }))
+           
         </ul>
     </div>
 </div>
+
+<script>
+    function changePage() {
+        $.ajax({
+            url: this.href,
+            type: 'GET',
+            cache: false,
+            success: function (result) {
+                $('#comment_Product').html(result);
+            }
+        });
+    }
+</script>
 

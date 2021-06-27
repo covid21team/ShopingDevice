@@ -41,12 +41,12 @@ namespace TSP_Covid21.Controllers
 
             Session["ProductTypeName"] = ProductTypeName;
 
-            if(ProductTypeName.Equals(Session["user"]))
+           /* if(ProductTypeName.Equals(Session["user"]))
             {
                 var result_user = db.loadProductLike(1, 9, ProductTypeName);
                 
                 return View(result_user);
-            }               
+            }     */          
             var result = db.loadProduct(1, 9, ProductTypeName);
            
             return View(result);

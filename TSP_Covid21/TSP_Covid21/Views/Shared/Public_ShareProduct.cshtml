@@ -1,7 +1,11 @@
 ﻿<!--
-    ➠ Hiện thông tin sản phẩm                               ✔
+    ➠ Hiện thông tin sản phẩm                                       ✔
 
-    ➠ Bấm vào hình ảnh hoặc tên sản phẩm ➔ đến product     ✔
+    ➠ Bấm vào hình ảnh hoặc tên sản phẩm ➔ đến product             ✔
+
+    ➠ Bấm vào "Add To Wishlist" ➔ thêm vào danh sách yêu thích     ✘
+
+    ➠ Bấm vào "Add To Cart" ➔ thêm vào giỏ hàng                    ✔
 
     ❦ Nơi sử dụng:
         ☞ Form Product ➧ thuộc Control Covid21
@@ -53,10 +57,10 @@
         <h4 class="product-price">@temp VNĐ </h4>
 
         <!-- rating product-->
-        @*Html.Partial("Public_RatingProduct", PC.loadRatingProduct(Model.PRODUCTID))*@
+        @Html.Partial("Public_RatingProduct", PC.loadRatingProduct(Model.PRODUCTID))
 
         <div class="product-btns">
-            <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
+            <button class="add-to-wishlist"><i class="fa fa-heart" id="idheart"></i><span class="tooltipp">add to wishlist</span></button>
             <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
         </div>
     </div>

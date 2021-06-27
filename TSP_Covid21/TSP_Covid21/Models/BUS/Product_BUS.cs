@@ -228,8 +228,8 @@ namespace TSP_Covid21.Models.BUS
         // Lấy danh sách đánh giá của sản phẩm
         public IEnumerable<RATINGPRODUCT> loadRatingProduct(int productId)
         {
-            //var result = db.RATINGPRODUCTs.Where(p => p.PRODUCTID == productId).ToList();
-            return null;
+            var result = db.RATINGPRODUCTs.Where(p => p.PRODUCTID == productId).ToList();
+            return result;
         }
 
         // Lấy cấu hình của sản phẩm
@@ -247,6 +247,17 @@ namespace TSP_Covid21.Models.BUS
             var result = list.OrderByDescending(x => x.PRODUCTID).Skip((page - 1) * pagesize).Take(20);
             return result.ToPagedList(page, pagesize);
         }
+
+
+       /* public List<COMMENT> testJson()
+        {
+            var list = db.COMMENTs.Where(p => p.PRODUCTID == 2).ToList();
+
+            var listResult = from c in db.COMMENTs
+                             where c =>
+
+            return list;
+        }*/
 
         // Lấy đánh giá của 1 người dùng về sản phẩm 
         public int ReviewRatingOfUser(string user, int productId)
