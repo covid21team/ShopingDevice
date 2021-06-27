@@ -1,0 +1,138 @@
+.giohang{
+    margin-left: 110px;
+    margin-bottom: 80px;
+    display: flex;
+}
+
+.cart{
+    width: 1200px;
+    float: left;
+}
+
+.cart-table{
+    width: 100%;
+}
+
+    .cart-table table, th, td{
+        border-bottom: 3px solid #E4E7ED;   
+        margin-right: 10px;
+        border-bottom-width: 100%;
+        border-collapse: collapse; 
+    }
+
+    .cart-table th, td{
+        text-align: center;
+        padding-top: 30px;
+        padding-bottom: 20px;
+    }
+
+    .cart-table th{
+        font-size: 25px;
+    }
+
+    .cart-table td{
+        font-size: 20px;
+    }
+
+    .cart-table tr{
+        line-height: 10px;
+        box-shadow: 0px 6px 5px 2px gray;
+    }
+
+.edit_width_cart{
+    width: 18%;
+}
+
+.edit_width_product_name_cart{
+    width: 16%;
+}
+
+.image_product_cart {
+    position: relative;
+    display: inline-block;
+}
+
+    .img_zoom{
+        position: absolute;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        padding: 12px 16px;
+        z-index: 100;
+        display: none;
+    }
+
+    .image_product_cart img{
+        width: 150px;
+        height: 150px;
+        object-fit: contain;
+        
+    }
+
+    .image_product_cart:hover .img_zoom{
+        display: block;
+    }
+
+
+.checkbox_cart input{
+    transform: scale(1.5);
+    margin-left: 30px;
+    margin-right: 20px;
+}
+
+.remove_cart button{
+    background: rgb(194, 21, 21);
+    color: white;
+    border: none;
+    height: 40px;
+}
+
+    .remove_cart button:hover{
+        background: red;
+    }
+
+.payment_cart{
+    width: 450px;
+    float: left;
+    margin-left: 30px;
+    height: 410px;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 5%;
+}
+
+.table_payment{
+    width: 100%;
+}
+
+    .table_payment th, td{
+        line-height: 30px;
+    }
+
+    .table_payment th{
+        font-size: 25px;
+        padding-left: 20px;
+    }
+
+    .table_payment td{
+        font-size: 20px;
+        text-align: left;
+    }
+
+    .table_payment tr{
+        line-height: 10px;
+        box-shadow: 0px 6px 5px 2px gray;
+    }
+
+.checkout_cart{
+    width: 180px;
+    height: 55px;
+    font-size: 25px;
+    font-weight: bold;
+    background: rgb(194, 20, 20);
+    color: white;
+    border: none;
+}
+
+    .checkout_cart:hover{
+        background: red;
+    }

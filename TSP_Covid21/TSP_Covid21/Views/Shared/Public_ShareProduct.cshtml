@@ -1,0 +1,74 @@
+﻿<!--
+    ➠ Hiện thông tin sản phẩm                                       ✔
+
+    ➠ Bấm vào hình ảnh hoặc tên sản phẩm ➔ đến product             ✔
+
+    ➠ Bấm vào "Add To Wishlist" ➔ thêm vào danh sách yêu thích     ✘
+
+    ➠ Bấm vào "Add To Cart" ➔ thêm vào giỏ hàng                    ✔
+
+    ❦ Nơi sử dụng:
+        ☞ Form Product ➧ thuộc Control Covid21
+        ☞ Home_LoadProductNew
+        ☞ Home_LoadProductTopSelling
+
+    ✹ Một số form share
+        ➽ Public_RatingProduct
+
+    ⛱ Form có thể đến
+        ➣ Product
+
+    ☯ Key Session
+        ➛ Session["user"]
+-->
+
+@model TSP_Covid21.Models.ShopEntity.PRODUCT
+
+@{
+    TSP_Covid21.Controllers.ProductController PC = new TSP_Covid21.Controllers.ProductController();
+
+    string User = "";
+
+    if (Session["user"] != null)
+    {
+        User = Session["user"].ToString();
+    }
+}
+
+
+<div class="product">
+    <div class="product-img">
+        <a href="@Url.Action("Product","Covid21",new { productId = Model.PRODUCTID})">
+            <img src="~/@Model.MAINPIC" alt="" style="width: 263px; height: 263px; object-fit: contain">
+        </a>
+
+        <div class="product-label">
+
+            <img src="~/Asset/images/logo.png" style="width: 80px; height:25px; object-fit:contain" />
+
+        </div>
+    </div>
+    <div class="product-body">
+        <p class="product-category">Category</p>
+        <h3 class="product-name"><a href="@Url.Action("Product","Covid21",new { productId = Model.PRODUCTID})">@Model.PRODUCTNAME</a></h3>
+        @{
+            var temp = String.Format("{0:#,##0.##}", Model.PRODUCTPRICE);
+        }
+        <h4 class="product-price">@temp VNĐ </h4>
+
+        <!-- rating product-->
+        @Html.Partial("Public_RatingProduct", PC.loadRatingProduct(Model.PRODUCTID))
+
+        <div class="product-btns">
+            <button class="add-to-wishlist"><i class="fa fa-heart" id="idheart"></i><span class="tooltipp">add to wishlist</span></button>
+            <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+        </div>
+    </div>
+    <div class="add-to-cart">
+        <button class="add-to-cart-btn" onclick="addToCart(@Model.PRODUCTID)"><i class="fa fa-shopping-cart"></i> add to cart</button>
+    </div>
+</div>
+
+
+
+
