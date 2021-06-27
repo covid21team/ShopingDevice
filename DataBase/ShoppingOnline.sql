@@ -86,6 +86,8 @@ CREATE TABLE ACCOUNT
 	[USER] VARCHAR(30) PRIMARY KEY,
 	[PASSWORD] VARCHAR(30) CHECK (LEN([PASSWORD])> 7),
 	FULLNAME NVARCHAR(100),
+	SEX BIT,					 -- 1 LÀ NAM 0 LÀ NỮ
+	DATAOFBIRTH DATE,
 	STATUSACCOUNT BIT DEFAULT 1 ,
 	PHONENUMBER VARCHAR(10) CHECK (LEN(PHONENUMBER) = 10)
 
@@ -502,14 +504,14 @@ INSERT INTO CONFIGDETAIL VALUES ('7',N'BlueTooth',N'5.0')
 
 
 
-go --([USER], [PASSWORD], FULLNAME, STATUSACCOUNT, PHONENUMBER)
-Insert into ACCOUNT values ('Admin','Admin123',N'Admin','1','0999999999') 
-Insert into ACCOUNT values ('Phus','123456789',N'Trương Gia Phú','1','0123456789') 
-Insert into ACCOUNT values ('Syx','123456789',N'Nguyễn Quang Sỹ','1','0987654321') 
-Insert into ACCOUNT values ('Tris','123456789',N'Nguyễn Hoang Trí','1','0578964123') 
-Insert into ACCOUNT values ('Tuans','123456789',N'Hồ Quốc Tuấn','1','0968745213') 
-Insert into ACCOUNT values ('Long','123456789',N'Nguyễn Thành Long','1','0325416987') 
-Insert into ACCOUNT values ('Tinhs','123456789',N'Nguyễn Ngọc Tính','1','0975468321') 
+go --([USER], [PASSWORD], FULLNAME, SEX ,DATEOFBIRTHM STATUSACCOUNT, PHONENUMBER)
+Insert into ACCOUNT values ('Admin','Admin123',N'Admin','0',GETDATE(),'1','0999999999') 
+Insert into ACCOUNT values ('Phus','123456789',N'Trương Gia Phú','1','07/08/2000','1','0123456789') 
+Insert into ACCOUNT values ('Syx','123456789',N'Nguyễn Quang Sỹ','1','20/11/2000','1','0987654321') 
+Insert into ACCOUNT values ('Tris','123456789',N'Nguyễn Hoang Trí','1','25/11/2000','1','0578964123') 
+Insert into ACCOUNT values ('Tuans','123456789',N'Hồ Quốc Tuấn','1',GETDATE(),'1','0968745213') 
+Insert into ACCOUNT values ('Long','123456789',N'Nguyễn Thành Long','1',GETDATE(),'1','0325416987') 
+Insert into ACCOUNT values ('Tinhs','123456789',N'Nguyễn Ngọc Tính','1','30/04/2000','1','0975468321') 
 
 go --([USER], [PASSWORD], FULLNAME, STATUSACCOUNT)
 Insert into ACCOUNT_ADMIN values (N'admin','admin',N'Trí Đẹp Trai','1') 
