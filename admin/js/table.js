@@ -43,7 +43,8 @@ function Functionclick1(){
     modal1.style.display = "block";
     modal2.style.display = "none";
 
-}function Functionclick2(){
+}
+function Functionclick2(){
     var modal1 = document.getElementById('table1');
     var modal2 = document.getElementById('table2');
     modal2.style.display = "block";

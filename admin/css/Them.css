@@ -1,17 +1,41 @@
 .product-txt{
-  width: 200px;
- 
+  width: 300px; 
+  
+}
+#lname{
+  margin-left: 37px;
 }
 #country{
-  width: 200px;height: 26px;
-  margin-left: 50px;
+  width: 300px;height: 26px;
+  margin-left: 48px;
 }
 #country1{
-  width: 200px;height: 26px;
+  width: 300px;height: 26px;
   margin-left: 90px;
+  float: left;
 }
-
-
+.numberrit{
+  margin-left: 80px;
+  width: 80px;
+}
+.textarea{
+  margin-left: 60px;
+  width: 300px;
+  height: 80px;
+  margin-top: 5px;
+}
+.fa-folder-open{
+  margin-left: 10px;
+  color: #fad859;  
+}
+#TxtBoxBrand{
+  margin-left: 90px;
+  display: none;float: left;
+}
+.fa-plus-circle{
+  color: #bcd451;
+  margin-left: 20px;
+}
 
    .container div {
     margin: 3px;
@@ -110,7 +134,71 @@ figure.snip0068 {
   }
   ::-webkit-scrollbar-thumb{
     background: linear-gradient(
-      50deg,#1c1d1d,#774a4a
+      50deg,#b9bdbd,#999898
     );
     border-radius: 3px;
   }
+
+
+
+  .checkbox input{
+    outline: none;
+    height: 40px;
+    width: 90px;
+    border-radius: 50px;
+    -webkit-appearance: none;
+    position: relative;
+    background: #e6e6e6;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+    transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  .checkbox input:checked{
+    background: #664AFF;
+  }
+  .checkbox input:before{
+    position: absolute;
+    content: "";
+    left: 0;
+    height: 100%;
+    width: 40px;
+    background: linear-gradient(#fff,#f2f2f2,#e6e6e6,#d9d9d9);
+    box-shadow: 0 2px 5px rgba(0,0,0,.2);
+    border-radius: 50px;
+    transform: scale(0.85);
+    transition: left 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  input:checked:before{
+    left: 50px;
+  }
+  .cus3 {
+    margin: 0px auto;
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    align-content: center;
+    background-color: #fefefe; 
+    border: 1px solid #888;
+    width: 65%; /* Could be more or less, depending on screen size */                   
+}
+
+.cus3 td,.cus3 th {
+        border-style: ridge;
+        border-width: 1px 0px 2px 0px;
+        text-align: center;
+        padding: 8px;
+    }
+
+    /* #customers tr:nth-child(even) {
+        background-color: white;
+    } */
+
+    .cus3 tr:hover {
+        background-color: #d6dee9;
+    }
+
+    .cus3 th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: center;
+        background-color: #485472;
+        color: white;
+    }
