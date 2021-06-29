@@ -162,9 +162,10 @@ h2 {
     font-size: 20px; 
     border: none;
     background: none;
-    margin-left: 1134px;
-    color: white;
-    
+    flex: auto;
+    margin-left:760px;
+    margin-top: -200px;
+    color: rgb(255, 255, 255);    
 }
 .exit:hover{
     color: red;
@@ -198,20 +199,8 @@ textarea{
     top: -9999px;
     left: -9999px;  
 }
-#submit{
-    background: rgb(145, 23, 23);
-    width: 100px;
-    color:rgb(255, 255, 255);
-    font-size: 25px;
-    margin-left: 68%;
-    border:white;
-    border-radius: 10%;
-     margin-top: 50px; 
-    margin-bottom:100px ;
-}
-#submit:hover{
-    background: red;
-}
+
+
 
   /* ===================================================================================================================================================================*/
 
@@ -292,7 +281,7 @@ textarea{
     align-content: center;
     background-color: #fefefe; 
     border: 1px solid #888;
-    width: 65%; /* Could be more or less, depending on screen size */
+    width: 53%; /* Could be more or less, depending on screen size */
 }
      .cus1 th {
         border-style: ridge;
@@ -322,7 +311,7 @@ textarea{
         align-content: center;
         background-color: #fefefe; 
         border: 1px solid #888;
-        width: 65%; /* Could be more or less, depending on screen size */
+        width: 53%; /* Could be more or less, depending on screen size */
     
       
     }
@@ -361,7 +350,7 @@ textarea{
             align-content: center;
             background-color: #fefefe; 
             border: 1px solid #888;
-            width: 65%; /* Could be more or less, depending on screen size */                   
+                    
         }
         
         .cus3 td,.cus3 th {
@@ -378,6 +367,7 @@ textarea{
             .cus3 tr:hover {
                 background-color: #d6dee9;
             }
+        
         
             .cus3 th {
                 padding-top: 12px;
@@ -419,9 +409,9 @@ textarea{
        #country2 ,#country{
            border: none;
            background: none;
-         
-           
-
+           width: 150px;
+           margin-left: 80px;
+    
        }
     
         #submit1{
@@ -442,9 +432,9 @@ textarea{
             font-size: 20px; 
             border: none;
             background: none;
-            margin-left: 81%;
-            color: white;
-            
+            margin-left: 1130px;
+            margin-top: 2px;
+            color: rgb(212, 158, 158);           
         }
         .exit1:hover{
             color: red;
@@ -480,3 +470,88 @@ textarea{
 input:checked:before{
   left: 50px;
 }
+
+
+/*  */
+
+figure.snip0068 {
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    margin: 2px;
+
+    min-width: 100px;
+    max-width: 100px;
+    max-height: 135px;
+    width: 100%;
+    background: #000000;
+    text-align: center;
+  }
+  
+  figure.snip0068 * {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+  }
+  
+  figure.snip0068 img {
+    opacity: 1;
+    width: 100%;
+    -webkit-transition: all 0.6s;
+    transition: all 0.6s;
+  }
+  
+  figure.snip0068 figcaption {
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    right: 10%;
+    height: 100%;
+  }
+  
+  
+  figure.snip0068 h3,
+  figure.snip0068 span {
+    margin: 0;
+    /* padding: 10px 15px; */
+    display: inline-block;
+    width: 50%;
+    font-weight: 200;
+    text-transform: uppercase;
+  }
+  
+  
+  figure.snip0068 span {
+    background: #dd5e5e;
+    color: #ffffff;
+    -webkit-transform: translate3d(0%, -50%, 0);
+    transform: translate3d(0%, -100%, 0);
+    border-radius: 2px;
+    font-size: 8px;
+  }
+  
+  figure.snip0068:hover img,
+  figure.snip0068.hover img {
+    opacity: 0.35;
+    -webkit-filter: blur(5px);
+    filter: blur(5px);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+  
+  figure.snip0068:hover figcaption h3,
+  figure.snip0068.hover figcaption h3 {
+    -webkit-transform: translate3d(0%, 50%, 0);
+    transform: translate3d(0%, 100%, 0);
+  }
+  
+  figure.snip0068:hover figcaption span,
+  figure.snip0068.hover figcaption span {
+    -webkit-transform: translate3d(0%, 0%, 0);
+    transform: translate3d(0%, 0%, 0);
+  }
+
+  .removeanh:hover{
+      background: rgb(211, 33, 33);
+  }
