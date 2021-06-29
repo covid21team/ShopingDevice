@@ -152,13 +152,13 @@ CREATE TABLE CART
 	[USER] VARCHAR(30),
 	PRODUCTID INT,
 	AMOUNT INT,
+	PRODUCTSTATUS bit, -- status này giúp trong việc check box được tích hay không, và lúc chuyển qua checkout cần load những sản phẩm muốn mua trong háo đơn đó
 	
 	PRIMARY KEY([USER], PRODUCTID),
 
 	foreign key ([USER]) references ACCOUNT([USER]) on update cascade ,
 	foreign key (PRODUCTID) references PRODUCT(PRODUCTID) on update cascade ,
 )
-
 
 go
 CREATE TABLE VOUCHER
@@ -546,23 +546,26 @@ Insert into ACCOUNTLIKE values ('Syx',1,GETDATE())
 Insert into ACCOUNTLIKE values ('Syx',2,GETDATE())
 Insert into ACCOUNTLIKE values ('Syx',3,GETDATE())
 Insert into ACCOUNTLIKE values ('Syx',4,GETDATE())
+Insert into ACCOUNTLIKE values ('Syx',5,GETDATE())
+Insert into ACCOUNTLIKE values ('Syx',6,GETDATE())
+Insert into ACCOUNTLIKE values ('Syx',7,GETDATE())
 Insert into ACCOUNTLIKE values ('Phus',1,GETDATE())
 Insert into ACCOUNTLIKE values ('Phus',2,GETDATE())
 Insert into ACCOUNTLIKE values ('Phus',3,GETDATE())
 Insert into ACCOUNTLIKE values ('Phus',4,GETDATE())
 
-go --([USER], PRODUCTID, AMOUNT)
-Insert into CART values ('Phus',1,20)
-Insert into CART values ('Phus',2,60)
-Insert into CART values ('Phus',3,40)
-Insert into CART values ('Phus',4,50)
-Insert into CART values ('Syx',1,20)
-Insert into CART values ('Syx',2,30)
-Insert into CART values ('Syx',3,10)
-Insert into CART values ('Syx',4,20)
-Insert into CART values ('Syx',5,10)
-Insert into CART values ('Syx',6,5)
-Insert into CART values ('Syx',7,5)
+go --([USER], PRODUCTID, AMOUNT, PRODUCTSTATUS)
+Insert into CART values ('Phus',1,20,1)
+Insert into CART values ('Phus',2,60,1)
+Insert into CART values ('Phus',3,40,1)
+Insert into CART values ('Phus',4,50,1)
+Insert into CART values ('Syx',1,20,1)
+Insert into CART values ('Syx',2,30,1)
+Insert into CART values ('Syx',3,10,1)
+Insert into CART values ('Syx',4,20,1)
+Insert into CART values ('Syx',5,10,1)
+Insert into CART values ('Syx',6,5,1)
+Insert into CART values ('Syx',7,5,1)
 
 go --(VOUCHERID, DECRIPTIONVOUCHER, DATEENTIRE, STATUSVOUCHER)
 INSERT INTO VOUCHER VALUES ('giảm giá 100%','30/12/2021',1)
