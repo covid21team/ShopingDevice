@@ -44,16 +44,16 @@ h2 {
     border-collapse: collapse;
     align-content: center;
     background-color: #fefefe;
-    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    /* margin: 5% auto 15% auto; 5% from the top, 15% from the bottom and centered */
     border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
+    width: 54%; /* Could be more or less, depending on screen size */
 }
 
     #customers1 td, #customers1 th {
         border-style: ridge;
         border-width: 1px 0px 2px 0px;
         text-align: center;
-        padding: 8px;
+        padding: 5px;
     }
 
     /* #customers tr:nth-child(even) {
@@ -70,6 +70,7 @@ h2 {
         text-align: center;
         background-color: #485472;
         color: white;
+        font-size: 15px;
     }
 
 
@@ -555,3 +556,4 @@ figure.snip0068 {
   .removeanh:hover{
       background: rgb(211, 33, 33);
   }
+

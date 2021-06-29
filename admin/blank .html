@@ -27,7 +27,6 @@
   <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
   <script src="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css"></script>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 
   <script>
     $(document).ready(function () {
@@ -206,61 +205,161 @@
         <!-- ============================================================== -->
         <div class="row">
           <div class="col-md-12 container">
-
-            <table id="example" class="table table-striped table-bordered table-hover" style="width:100%">
-              <thead style="text-align: center;">
-                <tr>
-                  <th>Product ID</th>
-                  <th>Product Name</th>
-                  <th>Brand ID</th>
-                  <th>Product Type ID</th>
-                  <th>MainPic</th>
-                  <th>Product Status</th>
-                  <th>Product Price</th>
-                  <th>Product View</th>
-                  <th>Product Amount</th>
-                  <th>Date ADD</th>
-                  <th onclick="document.getElementById('id02').style.display='block'">
+            <table id="example" class="table  table-bordered table-hover" style="width:100%">
+              <thead >
+                <tr style="text-align: center; ">
+                  <th style="font-size:15px;">Product ID</th>
+                  <th style="font-size:15px;">Product Name</th>
+                  <th style="font-size:15px;">Brand ID</th>
+                  <th style="font-size:15px;">Product Type ID</th>
+                  <th style="font-size:15px;">MainPic</th>
+                  <th style="font-size:15px;">Product Status</th>
+                  <th style="font-size:15px;">Product Price</th>
+                  <th style="font-size:15px;">Product View</th>
+                  <th style="font-size:15px;">Product Amount</th>
+                  <th style="font-size:15px;">Date ADD</th>
+                  <th style="font-size:15px;" >
                     <a>
-                      <i class="fas fa-plus-circle" style="color: #bcd451;"></i>
+                      <i onclick="document.getElementById('id02').style.display='block'" class="fas fa-plus-circle" style="color: #bcd451;"></i> ADD
                     </a>
                   </th>
                 </tr>
               </thead>
-              <tbody style="text-align: center;font-size: 10px;">
-                <tr>
-                  <td>Donna Snider</td>
-                  <td>Customer Support</td>
-                  <td>New York</td>
-                  <td>27</td>
-                  <td>2011/01/25</td>
-                  <td>$112,000</td>
-                  <td>Customer Support</td>
-                  <td>New York</td>
-                  <td>27</td>
-                  <td>2011/01/25</td>
-                  <td onclick="Functionclick3()"> <i class="fas fa-edit"></i>  <i class="fas fa-trash-alt" style="color: red;"></i></td>
-
-                </tr>
+              <tbody >
+                <tr style="text-align: center;font-size: 13px; ">
+                  <td onclick="document.getElementById('id01').style.display='block'">1</td>
+                  <td  onclick="document.getElementById('id01').style.display='block'">Customer Support</td>
+                  <td  onclick="document.getElementById('id01').style.display='block'">New York</td>
+                  <td  onclick="document.getElementById('id01').style.display='block'">27</td>
+                  <td  onclick="document.getElementById('id01').style.display='block'">2011/01/25</td>
+                  <td  onclick="document.getElementById('id01').style.display='block'">$112,000</td>
+                  <td  onclick="document.getElementById('id01').style.display='block'">Customer Support</td>
+                  <td  onclick="document.getElementById('id01').style.display='block'">New York</td>
+                  <td  onclick="document.getElementById('id01').style.display='block'">27</td>
+                  <td  onclick="document.getElementById('id01').style.display='block'">2011/01/25</td>
+                  <td> <i class="fas fa-edit" onclick="Functionclick3()"></i> <i class="fas fa-trash-alt" style="color: red; margin-left: 5px;"></i></td>
+                </tr>                     
               </tbody>
-              <tfoot style="text-align: center;">
+              <!-- <tfoot style="text-align: center;">
                 <tr>
-                  <th>Name</th>
-                  <th>Position</th>
-                  <th>Office</th>
-                  <th>Age</th>
-                  <th>Start date</th>
-                  <th>Salary</th>
-                  <th>Product Status</th>
-                  <th>Product View</th>
-                  <th>Product Amount</th>
-                  <th>Date ADD</th>
-                  <th>Date ADD</th>
+                  <th style="font-size:15px;">Name</th>
+                  <th style="font-size:15px;">Position</th>
+                  <th style="font-size:15px;">Office</th>
+                  <th style="font-size:15px;">Age</th>
+                  <th style="font-size:15px;">Start date</th>
+                  <th style="font-size:15px;">Salary</th>
+                  <th style="font-size:15px;">Product Status</th>
+                  <th style="font-size:15px;">Product View</th>
+                  <th style="font-size:15px;">Product Amount</th>
+                  <th style="font-size:15px;">Date ADD</th>
+                  <th style="font-size:15px;">Date ADD</th>
                 </tr>
-              </tfoot>
+              </tfoot> -->
             </table>
 
             <div id="id01" class="modal" style="z-index: 50;">
+
+              <table class="table" id="customers1">
+                <tr>
+                  <th colspan="2" style="background: rgb(84 109 155);font-size: 20px;">PRODUCT</th>
+                </tr>
+                <tr>
+                  <th>Product ID</th>
+                  <td>1</td>
+                </tr>
+                <tr>
+                  <th>Product Name</th>
+                  <td>tri ngu</td>
+
+                </tr>
+                <tr>
+                  <th>Brand ID</th>
+                  <td>girl</td>
+                </tr>
+                <tr>
+                  <th>Product Type ID</th>
+                  <td>girl 21 tuổi</td>
+
+                </tr>
+                <tr>
+                  <th>MainPic</th>
+                  <td>
+                    <div class="card-deck">           
+                      <div class="card mb-4" style="width: 104px;float: left;">
+                        <figure class="snip0068 yellow">
+                          <img src="plugins/images/large/img1.jpg" alt="sample12" />
+                        
+                        </figure>
+                      </div>
+                      <div class="card mb-4" style="width: 104px;float: left;">
+                        <figure class="snip0068 yellow">
+                          <img src="plugins/images/large/img1.jpg" alt="sample12" />
+                        
+                        </figure>
+                      </div>
+                      <div class="card mb-4" style="width: 104px;float: left;">
+                        <figure class="snip0068 yellow">
+                          <img src="plugins/images/large/img1.jpg" alt="sample12" />
+                          
+                        </figure>
+                      </div>
+                      <div class="card mb-4" style="width: 104px;float: left;">
+                        <figure class="snip0068 yellow">
+                          <img src="plugins/images/large/img1.jpg" alt="sample12" />
+                          
+                        </figure>
+                      </div>
+                      <div class="card mb-4" style="width: 104px;float: left;">
+                        <figure class="snip0068 yellow">
+                          <img src="plugins/images/large/img1.jpg" alt="sample12" />
+                        
+                        </figure>
+                      </div>
+                    </div>
+                  </td>
+                </tr>        
+                <tr>
+                  <th>Product Status</th>
+
+                  <td>
+                    Trạng thái
+                  </td>
+                </tr>
+                <tr>
+                  <th>Product Price</th>
+                  <td>
+                    giá
+                  </td>
+                </tr>
+                <tr>
+                  <th >Product View</th>
+
+                  <td>
+                    lượt thích
+                  </td>
+                </tr>
+                <tr>
+                  <th>Product Amount</th>
+                  <td>
+                    loại sản phẩm
+                  </td>
+                </tr>
+                <tr>
+                  <th>Decription</th>
+                  <td>
+                    số lượng
+                  </td>
+                </tr>
+                <tr>
+                  <th>Date ADD</th>
+                  <td>
+                    ngày đi dc
+                  </td>
+                </tr>
+             </table>
+
+
+<!-- 
               <table id="customers1" style="border: #ffffff;">
                 <tr>
                   <th colspan="2" style="background: rgb(84 109 155);font-size: 30px;">PRODUCT</th>
@@ -354,7 +453,7 @@
                     ngày đi dc
                   </td>
                 </tr>
-              </table>
+              </table> -->
             </div>
             <!-- them san pham-->
 
@@ -434,14 +533,8 @@
                         </label>
                         <input id="filebutton" name="Pic2" class="input-file" type="file" accept="image/*"
                           style="display: none" />
-                      </div>
-              
-             
-          
-       
-           
-     
-                  
+                      </div>   
+                      <div class="card-deck">           
                         <div class="card mb-4" style="width: 104px;float: left;">
                           <figure class="snip0068 yellow">
                             <img src="plugins/images/large/img1.jpg" alt="sample12" />
@@ -498,6 +591,7 @@
                           </figure>
                         </div>
                       </div>
+                    </div>   
 
                     </td>
                   </tr>
@@ -529,8 +623,7 @@
             </div>
             <!--cau hinh san pham-->
             <div id="id03" class="modal" style="z-index: 50;">
-              <div style="position: absolute;"><input class="exit1" onclick="Functionclick()" value="✖" type="button">
-              </div>
+              
               <table class="cus1">
                 <tr>
                   <th style="width: 50%;font-size: 25px;background: #d6dee9;" onclick="Functionclick1()" id="edit">Edit
@@ -656,83 +749,6 @@
                             </figcaption>
                           </figure>
                         </div>
-                        <div class="card mb-4" style="width: 104px;float: left;">
-                          <figure class="snip0068 yellow">
-                            <img src="plugins/images/large/img1.jpg" alt="sample12" />
-                            <figcaption>
-                              <div>
-                                <span class="removeanh"><i class="far fa-trash-alt"></i> Remove</span>
-                              </div>
-                              <a href="#"></a>
-                            </figcaption>
-                          </figure>
-                        </div>
-                        <div class="card mb-4" style="width: 104px;float: left;">
-                          <figure class="snip0068 yellow">
-                            <img src="plugins/images/large/img1.jpg" alt="sample12" />
-                            <figcaption>
-                              <div>
-                                <span class="removeanh"><i class="far fa-trash-alt"></i> Remove</span>
-                              </div>
-                              <a href="#"></a>
-                            </figcaption>
-                          </figure>
-                        </div>
-                        <div class="card mb-4" style="width: 104px;float: left;">
-                          <figure class="snip0068 yellow">
-                            <img src="plugins/images/large/img1.jpg" alt="sample12" />
-                            <figcaption>
-                              <div>
-                                <span class="removeanh"><i class="far fa-trash-alt"></i> Remove</span>
-                              </div>
-                              <a href="#"></a>
-                            </figcaption>
-                          </figure>
-                        </div>
-                        <div class="card mb-4" style="width: 104px;float: left;">
-                          <figure class="snip0068 yellow">
-                            <img src="plugins/images/large/img1.jpg" alt="sample12" />
-                            <figcaption>
-                              <div>
-                                <span class="removeanh"><i class="far fa-trash-alt"></i> Remove</span>
-                              </div>
-                              <a href="#"></a>
-                            </figcaption>
-                          </figure>
-                        </div>
-                        <div class="card mb-4" style="width: 104px;float: left;">
-                          <figure class="snip0068 yellow">
-                            <img src="plugins/images/large/img1.jpg" alt="sample12" />
-                            <figcaption>
-                              <div>
-                                <span class="removeanh"><i class="far fa-trash-alt"></i> Remove</span>
-                              </div>
-                              <a href="#"></a>
-                            </figcaption>
-                          </figure>
-                        </div>
-                        <div class="card mb-4" style="width: 104px;float: left;">
-                          <figure class="snip0068 yellow">
-                            <img src="plugins/images/large/img1.jpg" alt="sample12" />
-                            <figcaption>
-                              <div>
-                                <span class="removeanh"><i class="far fa-trash-alt"></i> Remove</span>
-                              </div>
-                              <a href="#"></a>
-                            </figcaption>
-                          </figure>
-                        </div>
-                        <div class="card mb-4" style="width: 104px;float: left;">
-                          <figure class="snip0068 yellow">
-                            <img src="plugins/images/large/img1.jpg" alt="sample12" />
-                            <figcaption>
-                              <div>
-                                <span class="removeanh"><i class="far fa-trash-alt"></i> Remove</span>
-                              </div>
-                              <a href="#"></a>
-                            </figcaption>
-                          </figure>
-                        </div>
                       </div>
 
                     </td>
@@ -782,7 +798,7 @@
                 </table>
               </div>
               <input style="position: absolute;margin-top: 50px;  margin-left: 1090px;"
-                class="btn btn-outline-danger btn-block" id="submit" type="submit" value="Submit">
+                class="btn btn-outline-danger" id="submit" type="submit" value="Submit">
             </div>
           </div>
         </div>
