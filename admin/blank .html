@@ -2,893 +2,836 @@
 <html dir="ltr" lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="keywords"
-        content="wrappixel, admin dashboard, html css dashboard, web dashboard, bootstrap 5 admin, bootstrap 5, css3 dashboard, bootstrap 5 dashboard, Ample lite admin bootstrap 5 dashboard, frontend, responsive bootstrap 5 admin template, Ample admin lite dashboard bootstrap 5 dashboard template">
-    <meta name="description"
-        content="Ample Admin Lite is powerful and clean admin dashboard template, inpired from Bootstrap Framework">
-    <meta name="robots" content="noindex,nofollow">
-    <title>Ample Admin Lite Template by WrapPixel</title>
-    <link rel="canonical" href="https://www.wrappixel.com/templates/ample-admin-lite/" />
-    <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="plugins/images/favicon.png">
-    <!-- Custom CSS -->
-    <link href="css/style.min.css" rel="stylesheet">
-    <link href="css/products-list.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-    
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="keywords"
+    content="wrappixel, admin dashboard, html css dashboard, web dashboard, bootstrap 5 admin, bootstrap 5, css3 dashboard, bootstrap 5 dashboard, Ample lite admin bootstrap 5 dashboard, frontend, responsive bootstrap 5 admin template, Ample admin lite dashboard bootstrap 5 dashboard template">
+  <meta name="description"
+    content="Ample Admin Lite is powerful and clean admin dashboard template, inpired from Bootstrap Framework">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Ample Admin Lite Template by WrapPixel</title>
+  <link rel="canonical" href="https://www.wrappixel.com/templates/ample-admin-lite/" />
+  <!-- Favicon icon -->
+  <link rel="icon" type="image/png" sizes="16x16" href="plugins/images/favicon.png">
+  <!-- Custom CSS -->
+  <link href="css/style.min.css" rel="stylesheet">
+  <link href="css/products-list.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+  <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+  <script>
+    $(document).ready(function () {
+
+      $('#example').dataTable({}); // dòng này để nhúng bảng biểu thành dạng bảng được phân trang
+
+    });
+  </script>
+
 
 
 <body>
-    <!-- ============================================================== -->
-    <!-- Preloader - style you can find in spinners.css -->
-    <!-- ============================================================== -->
-    <div class="preloader">
-        <div class="lds-ripple">
-            <div class="lds-pos"></div>
-            <div class="lds-pos"></div>
-        </div>
+  <!-- ============================================================== -->
+  <!-- Preloader - style you can find in spinners.css -->
+  <!-- ============================================================== -->
+  <div class="preloader">
+    <div class="lds-ripple">
+      <div class="lds-pos"></div>
+      <div class="lds-pos"></div>
     </div>
+  </div>
+  <!-- ============================================================== -->
+  <!-- Main wrapper - style you can find in pages.scss -->
+  <!-- ============================================================== -->
+  <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full"
+    data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
     <!-- ============================================================== -->
-    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- Topbar header - style you can find in pages.scss -->
     <!-- ============================================================== -->
-    <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full"
-        data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
+    <header class="topbar" data-navbarbg="skin5">
+      <nav class="navbar top-navbar navbar-expand-md navbar-dark">
+        <div class="navbar-header" data-logobg="skin6">
+          <!-- ============================================================== -->
+          <!-- Logo -->
+          <!-- ============================================================== -->
+          <a class="navbar-brand" href="dashboard.html">
+            <!-- Logo icon -->
+            <b class="logo-icon">
+              <!-- Dark Logo icon -->
+              <img src="plugins/images/logo-icon.png" alt="homepage" />
+            </b>
+            <!--End Logo icon -->
+            <!-- Logo text -->
+            <span class="logo-text">
+              <!-- dark Logo text -->
+              <img src="plugins/images/logo-text.png" alt="homepage" />
+            </span>
+          </a>
+          <!-- ============================================================== -->
+          <!-- End Logo -->
+          <!-- ============================================================== -->
+          <!-- ============================================================== -->
+          <!-- toggle and nav items -->
+          <!-- ============================================================== -->
+          <a class="nav-toggler waves-effect waves-light text-dark d-block d-md-none" href="javascript:void(0)"><i
+              class="ti-menu ti-close"></i></a>
+        </div>
         <!-- ============================================================== -->
-        <!-- Topbar header - style you can find in pages.scss -->
+        <!-- End Logo -->
         <!-- ============================================================== -->
-        <header class="topbar" data-navbarbg="skin5">
-            <nav class="navbar top-navbar navbar-expand-md navbar-dark">
-                <div class="navbar-header" data-logobg="skin6">
-                    <!-- ============================================================== -->
-                    <!-- Logo -->
-                    <!-- ============================================================== -->
-                    <a class="navbar-brand" href="dashboard.html">
-                        <!-- Logo icon -->
-                        <b class="logo-icon">
-                            <!-- Dark Logo icon -->
-                            <img src="plugins/images/logo-icon.png" alt="homepage" />
-                        </b>
-                        <!--End Logo icon -->
-                        <!-- Logo text -->
-                        <span class="logo-text">
-                            <!-- dark Logo text -->
-                            <img src="plugins/images/logo-text.png" alt="homepage" />
-                        </span>
+        <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin5">
+          <ul class="navbar-nav d-none d-md-block d-lg-none">
+            <li class="nav-item">
+              <a class="nav-toggler nav-link waves-effect waves-light text-white" href="javascript:void(0)"><i
+                  class="ti-menu ti-close"></i></a>
+            </li>
+          </ul>
+          <!-- ============================================================== -->
+          <!-- Right side toggle and nav items -->
+          <!-- ============================================================== -->
+          <ul class="navbar-nav ms-auto d-flex align-items-center">
+
+            <!-- ============================================================== -->
+            <!-- Search -->
+            <!-- ============================================================== -->
+            <li class=" in">
+              <form role="search" class="app-search d-none d-md-block me-3">
+                <input type="text" placeholder="Search..." class="form-control mt-0">
+                <a href="" class="active">
+                  <i class="fa fa-search"></i>
+                </a>
+              </form>
+            </li>
+            <!-- ============================================================== -->
+            <!-- User profile and search -->
+            <!-- ============================================================== -->
+            <li>
+              <a class="profile-pic" href="#">
+                <img src="plugins/images/users/varun.jpg" alt="user-img" width="36" class="img-circle"><span
+                  class="text-white font-medium">Steave</span></a>
+            </li>
+            <!-- ============================================================== -->
+            <!-- User profile and search -->
+            <!-- ============================================================== -->
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <!-- ============================================================== -->
+    <!-- End Topbar header -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Left Sidebar - style you can find in sidebar.scss  -->
+    <!-- ============================================================== -->
+    <aside class="left-sidebar" data-sidebarbg="skin6">
+      <!-- Sidebar scroll-->
+      <div class="scroll-sidebar">
+        <!-- Sidebar navigation-->
+        <nav class="sidebar-nav">
+          <ul id="sidebarnav">
+            <!-- User Profile-->
+            <li class="sidebar-item pt-2">
+              <a class="sidebar-link waves-effect waves-dark sidebar-link" href="" aria-expanded="false">
+                <i class="far fa-clock" aria-hidden="true"></i>
+                <span class="hide-menu">Dashboard</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link waves-effect waves-dark sidebar-link" href="" aria-expanded="false">
+                <i class="fa fa-user" aria-hidden="true"></i>
+                <span class="hide-menu">Profile</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link waves-effect waves-dark sidebar-link" href="" aria-expanded="false">
+                <i class="fa fa-table" aria-hidden="true"></i>
+                <span class="hide-menu">Basic Table</span>
+              </a>
+            </li>
+
+
+            <li class="sidebar-item">
+              <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                href="file:///C:/Users/phutr/OneDrive/M%C3%A1y%20t%C3%ADnh/Do%20An%20Web/ShopingDevice/Font_end_Shop/admin/blank%20.html"
+                aria-expanded="false">
+                <i class="fa fa-columns" aria-hidden="true"></i>
+                <span class="hide-menu">Blank Page</span>
+              </a>
+            </li>
+
+          </ul>
+
+        </nav>
+        <!-- End Sidebar navigation -->
+      </div>
+      <!-- End Sidebar scroll-->
+    </aside>
+    <!-- ============================================================== -->
+    <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Page wrapper  -->
+    <!-- ============================================================== -->
+    <div class="page-wrapper" style="min-height: 250px;">
+      <!-- ============================================================== -->
+      <!-- Bread crumb and right sidebar toggle -->
+      <!-- ============================================================== -->
+      <div class="page-breadcrumb bg-white">
+        <div class="row align-items-center">
+          <h2>
+            PRODUCTS LIST
+          </h2>
+
+        </div>
+        <!-- /.col-lg-12 -->
+      </div>
+      <!-- ============================================================== -->
+      <!-- End Bread crumb and right sidebar toggle -->
+      <!-- ============================================================== -->
+      <!-- ============================================================== -->
+      <!-- Container fluid  -->
+      <!-- ============================================================== -->
+      <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <div class="row">
+          <div class="col-md-12 container">
+
+            <table id="example" class="table table-striped table-bordered table-hover" style="width:100%">
+              <thead style="text-align: center;">
+                <tr>
+                  <th>Product ID</th>
+                  <th>Product Name</th>
+                  <th>Brand ID</th>
+                  <th>Product Type ID</th>
+                  <th>MainPic</th>
+                  <th>Product Status</th>
+                  <th>Product Price</th>
+                  <th>Product View</th>
+                  <th>Product Amount</th>
+                  <th>Date ADD</th>
+                  <th onclick="document.getElementById('id02').style.display='block'">
+                    <a>
+                      <i class="fas fa-plus-circle" style="color: #bcd451;"></i>
                     </a>
-                    <!-- ============================================================== -->
-                    <!-- End Logo -->
-                    <!-- ============================================================== -->
-                    <!-- ============================================================== -->
-                    <!-- toggle and nav items -->
-                    <!-- ============================================================== -->
-                    <a class="nav-toggler waves-effect waves-light text-dark d-block d-md-none"
-                        href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
-                </div>
-                <!-- ============================================================== -->
-                <!-- End Logo -->
-                <!-- ============================================================== -->
-                <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin5">
-                    <ul class="navbar-nav d-none d-md-block d-lg-none">
-                        <li class="nav-item">
-                            <a class="nav-toggler nav-link waves-effect waves-light text-white"
-                                href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
-                        </li>
-                    </ul>
-                    <!-- ============================================================== -->
-                    <!-- Right side toggle and nav items -->
-                    <!-- ============================================================== -->
-                    <ul class="navbar-nav ms-auto d-flex align-items-center">
+                  </th>
+                </tr>
+              </thead>
+              <tbody style="text-align: center;font-size: 10px;">
+                <tr>
+                  <td>Donna Snider</td>
+                  <td>Customer Support</td>
+                  <td>New York</td>
+                  <td>27</td>
+                  <td>2011/01/25</td>
+                  <td>$112,000</td>
+                  <td>Customer Support</td>
+                  <td>New York</td>
+                  <td>27</td>
+                  <td>2011/01/25</td>
+                  <td onclick="Functionclick3()"> <i class="fas fa-edit"></i>  <i class="fas fa-trash-alt" style="color: red;"></i></td>
 
-                        <!-- ============================================================== -->
-                        <!-- Search -->
-                        <!-- ============================================================== -->
-                        <li class=" in">
-                            <form role="search" class="app-search d-none d-md-block me-3">
-                                <input type="text" placeholder="Search..." class="form-control mt-0">
-                                <a href="" class="active">
-                                    <i class="fa fa-search"></i>
-                                </a>
-                            </form>
-                        </li>
-                        <!-- ============================================================== -->
-                        <!-- User profile and search -->
-                        <!-- ============================================================== -->
-                        <li>
-                            <a class="profile-pic" href="#">
-                                <img src="plugins/images/users/varun.jpg" alt="user-img" width="36"
-                                    class="img-circle"><span class="text-white font-medium">Steave</span></a>
-                        </li>
-                        <!-- ============================================================== -->
-                        <!-- User profile and search -->
-                        <!-- ============================================================== -->
-                    </ul>
-                </div>
-            </nav>
-        </header>
-        <!-- ============================================================== -->
-        <!-- End Topbar header -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Left Sidebar - style you can find in sidebar.scss  -->
-        <!-- ============================================================== -->
-        <aside class="left-sidebar" data-sidebarbg="skin6">
-            <!-- Sidebar scroll-->
-            <div class="scroll-sidebar">
-                <!-- Sidebar navigation-->
-                <nav class="sidebar-nav">
-                    <ul id="sidebarnav">
-                        <!-- User Profile-->
-                        <li class="sidebar-item pt-2">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="" aria-expanded="false">
-                                <i class="far fa-clock" aria-hidden="true"></i>
-                                <span class="hide-menu">Dashboard</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="" aria-expanded="false">
-                                <i class="fa fa-user" aria-hidden="true"></i>
-                                <span class="hide-menu">Profile</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="" aria-expanded="false">
-                                <i class="fa fa-table" aria-hidden="true"></i>
-                                <span class="hide-menu">Basic Table</span>
-                            </a>
-                        </li>
+                </tr>
+              </tbody>
+              <tfoot style="text-align: center;">
+                <tr>
+                  <th>Name</th>
+                  <th>Position</th>
+                  <th>Office</th>
+                  <th>Age</th>
+                  <th>Start date</th>
+                  <th>Salary</th>
+                  <th>Product Status</th>
+                  <th>Product View</th>
+                  <th>Product Amount</th>
+                  <th>Date ADD</th>
+                  <th>Date ADD</th>
+                </tr>
+              </tfoot>
+            </table>
 
+            <div id="id01" class="modal" style="z-index: 50;">
+              <table id="customers1" style="border: #ffffff;">
+                <tr>
+                  <th colspan="2" style="background: rgb(84 109 155);font-size: 30px;">PRODUCT</th>
+                </tr>
+                <tr>
+                  <th style="height:60px;width:150px;">Product ID</th>
+                  <td style="width:800px;">1</td>
+                </tr>
+                <tr>
+                  <th style="height:60px">Product Name</th>
+                  <td>tri ngu</td>
 
-                        <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="file:///C:/Users/phutr/OneDrive/M%C3%A1y%20t%C3%ADnh/Do%20An%20Web/ShopingDevice/Font_end_Shop/admin/blank%20.html"
-                                aria-expanded="false">
-                                <i class="fa fa-columns" aria-hidden="true"></i>
-                                <span class="hide-menu">Blank Page</span>
-                            </a>
-                        </li>
+                </tr>
+                <tr>
+                  <th style="height:60px">Brand ID</th>
+                  <td>girl</td>
+                </tr>
+                <tr>
+                  <th style="height:60px">Product Type ID</th>
+                  <td>girl 21 tuổi</td>
 
-                    </ul>
+                </tr>
+                <tr>
+                  <th style="height:200px">MainPic</th>
+                  <td>
+                    <div class="m-r-10"><img src="~/@item.MainPic" alt="user" class="rounded" width="45"></div>
+                  </td>
+                </tr>
+                <tr>
+                  <th style="height:200px">Pic1</th>
 
-                </nav>
-                <!-- End Sidebar navigation -->
+                  <td>
+                    <div class="m-r-10"><img src="~/@item.Pic1" alt="user" class="rounded" width="45"></div>
+                  </td>
+                </tr>
+                <tr>
+                  <th style="height:200px">Pic2</th>
+
+                  <td>
+                    <div class="m-r-10"><img src="~/@item.Pic2" alt="user" class="rounded" width="45"></div>
+                  </td>
+                </tr>
+                <tr>
+                  <th style="height:200px">Pic3</th>
+                  <td>
+                    <div class="m-r-10"><img src="~/@item.Pic3" alt="user" class="rounded" width="45"></div>
+                  </td>
+                </tr>
+                <tr>
+                  <th style="height:200px">Pic4</th>
+
+                  <td>
+                    <div class="m-r-10"><img src="~/@item.Pic4" alt="user" class="rounded" width="45"></div>
+                  </td>
+                </tr>
+                <tr>
+                  <th style="height:60px">Product Status</th>
+
+                  <td>
+                    Trạng thái
+                  </td>
+                </tr>
+                <tr>
+                  <th style="height:60px">Product Price</th>
+                  <td>
+                    giá
+                  </td>
+                </tr>
+                <tr>
+                  <th style="height:60px">Product View</th>
+
+                  <td>
+                    lượt thích
+                  </td>
+                </tr>
+                <tr>
+                  <th style="height:60px">Product Amount</th>
+                  <td>
+                    loại sản phẩm
+                  </td>
+                </tr>
+                <tr>
+                  <th style="height:60px">Decription</th>
+                  <td>
+                    số lượng
+                  </td>
+                </tr>
+                <tr>
+                  <th style="height:60px">Date ADD</th>
+                  <td>
+                    ngày đi dc
+                  </td>
+                </tr>
+              </table>
             </div>
-            <!-- End Sidebar scroll-->
-        </aside>
-        <!-- ============================================================== -->
-        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Page wrapper  -->
-        <!-- ============================================================== -->
-        <div class="page-wrapper" style="min-height: 250px;">
-            <!-- ============================================================== -->
-            <!-- Bread crumb and right sidebar toggle -->
-            <!-- ============================================================== -->
-            <div class="page-breadcrumb bg-white">
-                <div class="row align-items-center">
-                    <h2>
-                        PRODUCTS LIST
-                    </h2>
+            <!-- them san pham-->
 
-                </div>
-                <!-- /.col-lg-12 -->
-            </div>
-            <!-- ============================================================== -->
-            <!-- End Bread crumb and right sidebar toggle -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- Container fluid  -->
-            <!-- ============================================================== -->
-            <div class="container-fluid">
-                <!-- ============================================================== -->
-                <!-- Start Page Content -->
-                <!-- ============================================================== -->
-                <div class="row">
-                    <div class="col-md-12">
+            <div id="id02" class="modal" style="z-index: 50;">
 
-                        <table id="customers" style="border: #ffffff;">
-                            <tr class="border-0">
-                                <th style="height:50px;">Product ID</th>
-                                <th style="width:150px;">Product Name</th>
-                                <th>Brand ID</th>
-                                <th>Product Type ID</th>
-                                <th>MainPic</th>
-                                <th>Product Status</th>
-                                <th>Product Price</th>
-                                <th>Product View</th>
-                                <th>Product Amount</th>
-                                <th>Date ADD</th>
-                                <th colspan="2" onclick="document.getElementById('id02').style.display='block'"
-                                    style="width:auto;">
-                                    <a href="#">
-                                        <i class="fas fa-plus-circle" style="color: #bcd451;"></i>
-                                    </a>
-                                </th>
-                            </tr>
+              <div class="modal1-content">
 
-                            <tr>
-                                <td onclick="document.getElementById('id01').style.display='block'" style="width:auto;">
-                                    1</td>
-                                <td onclick="document.getElementById('id01').style.display='block'" style="width:auto;">
-                                    tri ngu</td>
-                                <td onclick="document.getElementById('id01').style.display='block'" style="width:auto;">
-                                    girl</td>
-                                <td onclick="document.getElementById('id01').style.display='block'" style="width:auto;">
-                                    girl 21 tuổi</td>
-                                <td onclick="document.getElementById('id01').style.display='block'" style="width:auto;">
-                                    <div class="m-r-10"><img src="~/@item.MainPic" alt="user" class="rounded"
-                                            width="45"></div>
-                                </td>
+                <table id="customers2" style="border: #ffffff;">
+
+                  <tr>
+                    <th colspan="2" style="background: rgb(58, 86, 119);">
+                      <div style="position: absolute;"><input class="exit" onclick="Functionclick()" value="✖"
+                          type="button"></div>
+                      <div>
+                        <h1>Add Product </h1>
+                      </div>
+
+                    </th>
+                  </tr>
 
 
-                                <td onclick="document.getElementById('id01').style.display='block'" style="width:auto;">
-                                    Trạng thái
-                                </td>
-                                <td onclick="document.getElementById('id01').style.display='block'" style="width:auto;">
-                                    giá
-                                </td>
-                                <td onclick="document.getElementById('id01').style.display='block'" style="width:auto;">
-                                    lượt thích
-                                </td>
-                                <td onclick="document.getElementById('id01').style.display='block'" style="width:auto;">
-                                    loại sản phẩm
-                                </td>
+                  <tr>
+                    <th style="width:150px;">
+                      <label>Product Name</label>
+                    </th>
+                    <td>
+                      <input type="text" id="lname" name="" placeholder="Vendor Name...">
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>
+                      <label>Produc Type</label>
+                    </th>
+                    <td>
+                      <select id="country" name="VendorId" required>
+                        <option value="maSP">Produc Type</option>
+                        <option value="maSP">Produc Type</option>
+                        <option value="maSP">Produc Type</option>
+                        <option value="maSP">Produc Type</option>
+                        <option value="maSP">Produc Type</option>
+                      </select>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>
+                      <label>Brand </label>
+                    </th>
+                    <td>
+                      <div style=" position: absolute;">
 
-                                <td onclick="document.getElementById('id01').style.display='block'" style="width:auto;">
-                                    ngày đi dc
-                                </td>
+                        <select class="cmb" id="country1" name="VendorId" required
+                          style="width: 150px; margin-left: 280px; ">
+                          <option value="maSP">Brand</option>
+                          <option value="maSP">Brand</option>
+                          <option value="maSP">Brand</option>
+                          <option value="maSP">Brand</option>
+                          <option value="maSP">Brand</option>
+                        </select>
+                        <input type="text" id="TxtBoxBrand" placeholder="them loai">
 
-                                <td onclick="Functionclick3()"> <i class="fas fa-edit"></i></td>
-
-                                <td>
-                                    <i class="fas fa-trash-alt" style="color: red;"></i>
-                                </td>
-                            </tr>
-                        </table>
-                        <div id="id01" class="modal" style="z-index: 50;">
-                            <table id="customers1" style="border: #ffffff;">
-                                <tr>
-                                    <th colspan="2" style="background: rgb(84 109 155);font-size: 30px;">PRODUCT</th>
-                                </tr>
-                                <tr>
-                                    <th style="height:60px;width:150px;">Product ID</th>
-                                    <td style="width:800px;">1</td>
-                                </tr>
-                                <tr>
-                                    <th style="height:60px">Product Name</th>
-                                    <td>tri ngu</td>
-
-                                </tr>
-                                <tr>
-                                    <th style="height:60px">Brand ID</th>
-                                    <td>girl</td>
-                                </tr>
-                                <tr>
-                                    <th style="height:60px">Product Type ID</th>
-                                    <td>girl 21 tuổi</td>
-
-                                </tr>
-                                <tr>
-                                    <th style="height:200px">MainPic</th>
-                                    <td>
-                                        <div class="m-r-10"><img src="~/@item.MainPic" alt="user" class="rounded"
-                                                width="45"></div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th style="height:200px">Pic1</th>
-
-                                    <td>
-                                        <div class="m-r-10"><img src="~/@item.Pic1" alt="user" class="rounded"
-                                                width="45"></div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th style="height:200px">Pic2</th>
-
-                                    <td>
-                                        <div class="m-r-10"><img src="~/@item.Pic2" alt="user" class="rounded"
-                                                width="45"></div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th style="height:200px">Pic3</th>
-                                    <td>
-                                        <div class="m-r-10"><img src="~/@item.Pic3" alt="user" class="rounded"
-                                                width="45"></div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th style="height:200px">Pic4</th>
-
-                                    <td>
-                                        <div class="m-r-10"><img src="~/@item.Pic4" alt="user" class="rounded"
-                                                width="45"></div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th style="height:60px">Product Status</th>
-
-                                    <td>
-                                        Trạng thái
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th style="height:60px">Product Price</th>
-                                    <td>
-                                        giá
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th style="height:60px">Product View</th>
-
-                                    <td>
-                                        lượt thích
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th style="height:60px">Product Amount</th>
-                                    <td>
-                                        loại sản phẩm
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th style="height:60px">Decription</th>
-                                    <td>
-                                        số lượng
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th style="height:60px">Date ADD</th>
-                                    <td>
-                                        ngày đi dc
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
-                        <!-- them san pham-->
+                      </div>
+                      <label style="margin-left: 240px;" onclick="Functionclick4()"><i class="fas fa-plus-circle"
+                          style="color: #bcd451;"></i></label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>
+                      <label class="picture">Represent Picture</label>
+                    </th>
+                    <td>
+                      <div style="float: none;">
+                        <label for="filebutton" id="upload-btn">
+                          <span>
+                            <i class="fas fa-folder-open " style="color:#fad859;"></i>
+                            Open file
+                          </span>
+                        </label>
+                        <input id="filebutton" name="Pic2" class="input-file" type="file" accept="image/*"
+                          style="display: none" />
+                      </div>
+              
+             
+          
+       
            
-                        <div id="id02" class="modal" style="z-index: 50;">
-                    
-                            <div class="modal1-content">
-                            
-                                <table id="customers2" style="border: #ffffff;" >
-                                    
-                                    <tr>
-                                        <th colspan="2" style="background: rgb(58, 86, 119);">
-                                            <div style="position: absolute;"><input class="exit" onclick="Functionclick()" value="✖" type="button"></div> 
-                                          <div><h1>Add Product     </h1>    </div>  
-                                                                      
-                                        </th>                                         
-                                    </tr>
-                                
-                              
-                                    <tr>
-                                        <th style="width:150px;">
-                                            <label >Product Name</label>
-                                        </th>
-                                        <td>
-                                            <input type="text" id="lname" name="" placeholder="Vendor Name..." >                                          
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th>
-                                            <label >Produc Type</label>
-                                        </th>
-                                        <td>
-                                            <select id="country" name="VendorId" required>
-                                                <option value="maSP">Produc Type</option>
-                                                <option value="maSP">Produc Type</option>
-                                                <option value="maSP">Produc Type</option>
-                                                <option value="maSP">Produc Type</option>
-                                                <option value="maSP">Produc Type</option>
-                                            </select>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th>
-                                            <label>Brand </label>
-                                        </th>
-                                        <td>
-                                            <div style=" position: absolute;">
-                                           
-                                                    <select class="cmb" id="country1" name="VendorId" required style="width: 150px; margin-left: 280px; " >
-                                                        <option value="maSP">Brand</option>
-                                                        <option value="maSP">Brand</option>
-                                                        <option value="maSP">Brand</option>
-                                                        <option value="maSP">Brand</option>
-                                                        <option value="maSP">Brand</option>
-                                                    </select>              
-                                                <input type="text" id="TxtBoxBrand" placeholder="them loai">
-
-                                            </div>
-                                            <label style="margin-left: 240px;" onclick="Functionclick4()"><i
-                                                    class="fas fa-plus-circle" style="color: #bcd451;"></i></label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th>
-                                            <label class="picture">Represent Picture</label>
-                                        </th>
-                                        <td>
-                                            <div style="float: none;">
-                                                <label for="filebutton" id="upload-btn">
-                                                  <span>
-                                                    <i class="fas fa-folder-open " style="color:#fad859;"></i>
-                                                    Open file
-                                                  </span>
-                                                </label>
-                                                <input id="filebutton" name="Pic2" class="input-file" type="file" accept="image/*" style="display: none" />
-                                              </div>
-                                            <div class="card-deck">
-                                                <div class="card mb-4" style="width: 104px;float: left;">
-                                                  <figure class="snip0068 yellow">
-                                                    <img src="plugins/images/large/img1.jpg" alt="sample12" />
-                                                    <figcaption>
-                                                      <div>
-                                                        <span class="removeanh"><i class="far fa-trash-alt"></i> Remove</span>
-                                                      </div>
-                                                      <a href="#"></a>
-                                                    </figcaption>
-                                                  </figure>
-                                                </div>
-                                                <div class="card mb-4" style="width: 104px;float: left;">
-                                                    <figure class="snip0068 yellow">
-                                                      <img src="plugins/images/large/img1.jpg" alt="sample12" />
-                                                      <figcaption>
-                                                        <div>
-                                                          <span class="removeanh"><i class="far fa-trash-alt"></i> Remove</span>
-                                                        </div>
-                                                        <a href="#"></a>
-                                                      </figcaption>
-                                                    </figure>
-                                                  </div>
-                                                  <div class="card mb-4" style="width: 104px;float: left;">
-                                                    <figure class="snip0068 yellow">
-                                                      <img src="plugins/images/large/img1.jpg" alt="sample12" />
-                                                      <figcaption>
-                                                        <div>
-                                                          <span class="removeanh"><i class="far fa-trash-alt"></i> Remove</span>
-                                                        </div>
-                                                        <a href="#"></a>
-                                                      </figcaption>
-                                                    </figure>
-                                                  </div>
-                                                  <div class="card mb-4" style="width: 104px;float: left;">
-                                                    <figure class="snip0068 yellow">
-                                                      <img src="plugins/images/large/img1.jpg" alt="sample12" />
-                                                      <figcaption>
-                                                        <div>
-                                                          <span class="removeanh"><i class="far fa-trash-alt"></i> Remove</span>
-                                                        </div>
-                                                        <a href="#"></a>
-                                                      </figcaption>
-                                                    </figure>
-                                                  </div>
-                                                  <div class="card mb-4" style="width: 104px;float: left;">
-                                                    <figure class="snip0068 yellow">
-                                                      <img src="plugins/images/large/img1.jpg" alt="sample12" />
-                                                      <figcaption>
-                                                        <div>
-                                                          <span class="removeanh"><i class="far fa-trash-alt"></i> Remove</span>
-                                                        </div>
-                                                        <a href="#"></a>
-                                                      </figcaption>
-                                                    </figure>
-                                                </div>  
-                                                <div class="card mb-4" style="width: 104px;float: left;">
-                                                    <figure class="snip0068 yellow">
-                                                      <img src="plugins/images/large/img1.jpg" alt="sample12" />
-                                                      <figcaption>
-                                                        <div>
-                                                          <span class="removeanh"><i class="far fa-trash-alt"></i> Remove</span>
-                                                        </div>
-                                                        <a href="#"></a>
-                                                      </figcaption>
-                                                    </figure>
-                                                </div>                                                                        
-                                                <div class="card mb-4" style="width: 104px;float: left;">
-                                                    <figure class="snip0068 yellow">
-                                                      <img src="plugins/images/large/img1.jpg" alt="sample12" />
-                                                      <figcaption>
-                                                        <div>
-                                                          <span class="removeanh"><i class="far fa-trash-alt"></i> Remove</span>
-                                                        </div>
-                                                        <a href="#"></a>
-                                                      </figcaption>
-                                                    </figure>
-                                                </div>  
-                                                <div class="card mb-4" style="width: 104px;float: left;">
-                                                    <figure class="snip0068 yellow">
-                                                      <img src="plugins/images/large/img1.jpg" alt="sample12" />
-                                                      <figcaption>
-                                                        <div>
-                                                          <span class="removeanh"><i class="far fa-trash-alt"></i> Remove</span>
-                                                        </div>
-                                                        <a href="#"></a>
-                                                      </figcaption>
-                                                    </figure>
-                                                </div>  
-                                                <div class="card mb-4" style="width: 104px;float: left;">
-                                                    <figure class="snip0068 yellow">
-                                                      <img src="plugins/images/large/img1.jpg" alt="sample12" />
-                                                      <figcaption>
-                                                        <div>
-                                                          <span class="removeanh"><i class="far fa-trash-alt"></i> Remove</span>
-                                                        </div>
-                                                        <a href="#"></a>
-                                                      </figcaption>
-                                                    </figure>
-                                                </div>  
-                                                <div class="card mb-4" style="width: 104px;float: left;">
-                                                    <figure class="snip0068 yellow">
-                                                      <img src="plugins/images/large/img1.jpg" alt="sample12" />
-                                                      <figcaption>
-                                                        <div>
-                                                          <span class="removeanh"><i class="far fa-trash-alt"></i> Remove</span>
-                                                        </div>
-                                                        <a href="#"></a>
-                                                      </figcaption>
-                                                    </figure>
-                                                </div>  
-                                                <div class="card mb-4" style="width: 104px;float: left;">
-                                                    <figure class="snip0068 yellow">
-                                                      <img src="plugins/images/large/img1.jpg" alt="sample12" />
-                                                      <figcaption>
-                                                        <div>
-                                                          <span class="removeanh"><i class="far fa-trash-alt"></i> Remove</span>
-                                                        </div>
-                                                        <a href="#"></a>
-                                                      </figcaption>
-                                                    </figure>
-                                                </div>  
-                                                <div class="card mb-4" style="width: 104px;float: left;">
-                                                    <figure class="snip0068 yellow">
-                                                      <img src="plugins/images/large/img1.jpg" alt="sample12" />
-                                                      <figcaption>
-                                                        <div>
-                                                          <span class="removeanh"><i class="far fa-trash-alt"></i> Remove</span>
-                                                        </div>
-                                                        <a href="#"></a>
-                                                      </figcaption>
-                                                    </figure>
-                                                </div>  
-                                              </div>
-                                            
-                                        </td>
-                                    </tr>
-                                   
-                                    <tr>
-                                        <th>
-                                            <label >Amount</label> <br>
-                                        </th>
-                                        <td>
-                                            <input class="numberrit" type="number" value="100" min="1">
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th>
-                                            <label >Decription</label>
-                                        </th>
-                                        <td>
-                                            <input style="position: absolute; margin-top: 80px;margin-left: 570px;" class="btn btn-outline-danger btn-block" id="submit" type="submit" value="Submit" >
-                                            <textarea class="textarea" id="product_description"
-                                                name="Config"></textarea>
-                                       
-                                        </td>
-                                        
-                                    </tr>
-                                   
-                                </table>
-                             
-                            </div>
+     
+                  
+                        <div class="card mb-4" style="width: 104px;float: left;">
+                          <figure class="snip0068 yellow">
+                            <img src="plugins/images/large/img1.jpg" alt="sample12" />
+                            <figcaption>
+                              <div>
+                                <span class="removeanh"><i class="far fa-trash-alt"></i> Remove</span>
+                              </div>
+                              <a href="#"></a>
+                            </figcaption>
+                          </figure>
                         </div>
-                        <!--cau hinh san pham-->
-                        <div id="id03" class="modal" style="z-index: 50;">
-                            <div style="position: absolute;"><input class="exit1" onclick="Functionclick()" value="✖" type="button"></div>   
-                            <table class="cus1">
-                                <tr>
-                                    <th style="width: 50%;font-size: 25px;background: #d6dee9;"
-                                        onclick="Functionclick1()" id="edit">Edit</th>
-                                    <th style="font-size: 25px;" onclick="Functionclick2()" id="btn_addConfig">
-                                                        
-                                       <div>Them cau hinh</div> </th>
-                                </tr>
-                            </table>
-                            <div id="table1">
-                                <table class="cus2">
-
-                                    <tr>
-                                        <th style="width:150px;">
-                                            <label >Product Name</label>
-                                        </th>
-                                        <td>
-                                            <label type="text" name="ProductsName" id="label5">
-                                                ten san pham
-                                            </label>
-
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th>
-                                            <label>Produc Type</label>
-                                        </th>
-                                        <td>
-                                            <select id="country" name="VendorId" required>
-                                                <option value="maSP">Produc Type</option>
-                                                <option value="maSP">Produc Type</option>
-                                                <option value="maSP">Produc Type</option>
-                                                <option value="maSP">Produc Type</option>
-                                                <option value="maSP">Produc Type</option>
-                                            </select>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th>
-                                            <label>Brand </label>
-                                        </th>
-                                        <td>
-                                            <select  id="country2" name="VendorId" required>
-                                                <option value="maSP">Brand</option>
-                                                <option value="maSP">Brand</option>
-                                                <option value="maSP">Brand</option>
-                                                <option value="maSP">Brand</option>
-                                                <option value="maSP">Brand</option>
-
-                                            </select>
-
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th>
-                                            <label  class="picture">Represent Picture</label>
-                                        </th>
-                                        <td>
-                                            <div style="float: none;">
-                                                <label for="filebutton" id="upload-btn">
-                                                  <span>
-                                                    <i class="fas fa-folder-open " style="color:#fad859;"></i>
-                                                    Open file
-                                                  </span>
-                                                </label>
-                                                <input id="filebutton" name="Pic2" class="input-file" type="file" accept="image/*" style="display: none" />
-                                              </div>
-                                            <div class="card-deck">
-                                                <div class="card mb-4" style="width: 104px;float: left;">
-                                                  <figure class="snip0068 yellow">
-                                                    <img src="plugins/images/large/img1.jpg" alt="sample12" />
-                                                    <figcaption>
-                                                      <div>
-                                                        <span class="removeanh"><i class="far fa-trash-alt"></i> Remove</span>
-                                                      </div>
-                                                      <a href="#"></a>
-                                                    </figcaption>
-                                                  </figure>
-                                                </div>
-                                                <div class="card mb-4" style="width: 104px;float: left;">
-                                                    <figure class="snip0068 yellow">
-                                                      <img src="plugins/images/large/img1.jpg" alt="sample12" />
-                                                      <figcaption>
-                                                        <div>
-                                                          <span class="removeanh"><i class="far fa-trash-alt"></i> Remove</span>
-                                                        </div>
-                                                        <a href="#"></a>
-                                                      </figcaption>
-                                                    </figure>
-                                                  </div>
-                                                  <div class="card mb-4" style="width: 104px;float: left;">
-                                                    <figure class="snip0068 yellow">
-                                                      <img src="plugins/images/large/img1.jpg" alt="sample12" />
-                                                      <figcaption>
-                                                        <div>
-                                                          <span class="removeanh"><i class="far fa-trash-alt"></i> Remove</span>
-                                                        </div>
-                                                        <a href="#"></a>
-                                                      </figcaption>
-                                                    </figure>
-                                                  </div>
-                                                  <div class="card mb-4" style="width: 104px;float: left;">
-                                                    <figure class="snip0068 yellow">
-                                                      <img src="plugins/images/large/img1.jpg" alt="sample12" />
-                                                      <figcaption>
-                                                        <div>
-                                                          <span class="removeanh"><i class="far fa-trash-alt"></i> Remove</span>
-                                                        </div>
-                                                        <a href="#"></a>
-                                                      </figcaption>
-                                                    </figure>
-                                                  </div>
-                                                  <div class="card mb-4" style="width: 104px;float: left;">
-                                                    <figure class="snip0068 yellow">
-                                                      <img src="plugins/images/large/img1.jpg" alt="sample12" />
-                                                      <figcaption>
-                                                        <div>
-                                                          <span class="removeanh"><i class="far fa-trash-alt"></i> Remove</span>
-                                                        </div>
-                                                        <a href="#"></a>
-                                                      </figcaption>
-                                                    </figure>
-                                                </div>  
-                                                <div class="card mb-4" style="width: 104px;float: left;">
-                                                    <figure class="snip0068 yellow">
-                                                      <img src="plugins/images/large/img1.jpg" alt="sample12" />
-                                                      <figcaption>
-                                                        <div>
-                                                          <span class="removeanh"><i class="far fa-trash-alt"></i> Remove</span>
-                                                        </div>
-                                                        <a href="#"></a>
-                                                      </figcaption>
-                                                    </figure>
-                                                </div>                                                                        
-                                                <div class="card mb-4" style="width: 104px;float: left;">
-                                                    <figure class="snip0068 yellow">
-                                                      <img src="plugins/images/large/img1.jpg" alt="sample12" />
-                                                      <figcaption>
-                                                        <div>
-                                                          <span class="removeanh"><i class="far fa-trash-alt"></i> Remove</span>
-                                                        </div>
-                                                        <a href="#"></a>
-                                                      </figcaption>
-                                                    </figure>
-                                                </div>  
-                                                <div class="card mb-4" style="width: 104px;float: left;">
-                                                    <figure class="snip0068 yellow">
-                                                      <img src="plugins/images/large/img1.jpg" alt="sample12" />
-                                                      <figcaption>
-                                                        <div>
-                                                          <span class="removeanh"><i class="far fa-trash-alt"></i> Remove</span>
-                                                        </div>
-                                                        <a href="#"></a>
-                                                      </figcaption>
-                                                    </figure>
-                                                </div>  
-                                                <div class="card mb-4" style="width: 104px;float: left;">
-                                                    <figure class="snip0068 yellow">
-                                                      <img src="plugins/images/large/img1.jpg" alt="sample12" />
-                                                      <figcaption>
-                                                        <div>
-                                                          <span class="removeanh"><i class="far fa-trash-alt"></i> Remove</span>
-                                                        </div>
-                                                        <a href="#"></a>
-                                                      </figcaption>
-                                                    </figure>
-                                                </div>  
-                                                <div class="card mb-4" style="width: 104px;float: left;">
-                                                    <figure class="snip0068 yellow">
-                                                      <img src="plugins/images/large/img1.jpg" alt="sample12" />
-                                                      <figcaption>
-                                                        <div>
-                                                          <span class="removeanh"><i class="far fa-trash-alt"></i> Remove</span>
-                                                        </div>
-                                                        <a href="#"></a>
-                                                      </figcaption>
-                                                    </figure>
-                                                </div>  
-                                                <div class="card mb-4" style="width: 104px;float: left;">
-                                                    <figure class="snip0068 yellow">
-                                                      <img src="plugins/images/large/img1.jpg" alt="sample12" />
-                                                      <figcaption>
-                                                        <div>
-                                                          <span class="removeanh"><i class="far fa-trash-alt"></i> Remove</span>
-                                                        </div>
-                                                        <a href="#"></a>
-                                                      </figcaption>
-                                                    </figure>
-                                                </div>  
-                                                <div class="card mb-4" style="width: 104px;float: left;">
-                                                    <figure class="snip0068 yellow">
-                                                      <img src="plugins/images/large/img1.jpg" alt="sample12" />
-                                                      <figcaption>
-                                                        <div>
-                                                          <span class="removeanh"><i class="far fa-trash-alt"></i> Remove</span>
-                                                        </div>
-                                                        <a href="#"></a>
-                                                      </figcaption>
-                                                    </figure>
-                                                </div>  
-                                              </div>
-
-                                        </td>
-                                    </tr>     
-                                    <tr>
-                                        <th>
-                                            <label >Amount</label> <br>
-                                        </th>
-                                        <td>
-                                            <input class="numberrit" type="number" value="100" min="1">
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th>
-                                            <label>Decription</label>
-                                        </th>
-                                        <td>
-                                          
-                                            <textarea class="textarea" id="product_description"
-                                                name="Config"></textarea>
-                                        </td>
-                                    </tr>
-                                </table>
-                             
-                            </div>
-
-
-                            <!-- ======================================================================================== -->
-                            <div id="table2" style="display: none;">
-                                <table class="cus3" style="width: 53%;">
-
-                                    <tr> 
-                                        <th> tên thông số</th>
-                                        <th>thông tin</th>
-                                        <th>trạng thái</th>
-                                    </tr>
-                                    <tr>
-                                        <td>Ram</td>
-                                        <td> <input style="background: none; border: none; text-align: center; " type="text" name="" id=""
-                                                placeholder="ghi zo"> </td>
-                                        <td>
-                                            <div class="checkbox">
-                                                <input type="checkbox" id="click">
-
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
-                            <input style="position: absolute;margin-top: 50px;  margin-left: 1090px;" class="btn btn-outline-danger btn-block" id="submit" type="submit" value="Submit" >
+                        <div class="card mb-4" style="width: 104px;float: left;">
+                          <figure class="snip0068 yellow">
+                            <img src="plugins/images/large/img1.jpg" alt="sample12" />
+                            <figcaption>
+                              <div>
+                                <span class="removeanh"><i class="far fa-trash-alt"></i> Remove</span>
+                              </div>
+                              <a href="#"></a>
+                            </figcaption>
+                          </figure>
                         </div>
-                    </div>
-                </div>
+                        <div class="card mb-4" style="width: 104px;float: left;">
+                          <figure class="snip0068 yellow">
+                            <img src="plugins/images/large/img1.jpg" alt="sample12" />
+                            <figcaption>
+                              <div>
+                                <span class="removeanh"><i class="far fa-trash-alt"></i> Remove</span>
+                              </div>
+                              <a href="#"></a>
+                            </figcaption>
+                          </figure>
+                        </div>
+                        <div class="card mb-4" style="width: 104px;float: left;">
+                          <figure class="snip0068 yellow">
+                            <img src="plugins/images/large/img1.jpg" alt="sample12" />
+                            <figcaption>
+                              <div>
+                                <span class="removeanh"><i class="far fa-trash-alt"></i> Remove</span>
+                              </div>
+                              <a href="#"></a>
+                            </figcaption>
+                          </figure>
+                        </div>
+                        <div class="card mb-4" style="width: 104px;float: left;">
+                          <figure class="snip0068 yellow">
+                            <img src="plugins/images/large/img1.jpg" alt="sample12" />
+                            <figcaption>
+                              <div>
+                                <span class="removeanh"><i class="far fa-trash-alt"></i> Remove</span>
+                              </div>
+                              <a href="#"></a>
+                            </figcaption>
+                          </figure>
+                        </div>
+                      </div>
+
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <th>
+                      <label>Amount</label> <br>
+                    </th>
+                    <td>
+                      <input class="numberrit" type="number" value="100" min="1">
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>
+                      <label>Decription</label>
+                    </th>
+                    <td>
+                      <input style="position: absolute; margin-top: 80px;margin-left: 570px;"
+                        class="btn btn-outline-danger btn-block" id="submit" type="submit" value="Submit">
+                      <textarea class="textarea" id="product_description" name="Config"></textarea>
+
+                    </td>
+
+                  </tr>
+
+                </table>
+
+              </div>
             </div>
-            <!-- ============================================================== -->
-            <!-- End PAge Content -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- Right sidebar -->
-            <!-- ============================================================== -->
-            <!-- .right-sidebar -->
-            <!-- ============================================================== -->
-            <!-- End Right sidebar -->
-            <!-- ============================================================== -->
+            <!--cau hinh san pham-->
+            <div id="id03" class="modal" style="z-index: 50;">
+              <div style="position: absolute;"><input class="exit1" onclick="Functionclick()" value="✖" type="button">
+              </div>
+              <table class="cus1">
+                <tr>
+                  <th style="width: 50%;font-size: 25px;background: #d6dee9;" onclick="Functionclick1()" id="edit">Edit
+                  </th>
+                  <th style="font-size: 25px;" onclick="Functionclick2()" id="btn_addConfig">
+
+                    <div>Them cau hinh</div>
+                  </th>
+                </tr>
+              </table>
+              <div id="table1">
+                <table class="cus2">
+
+                  <tr>
+                    <th style="width:150px;">
+                      <label>Product Name</label>
+                    </th>
+                    <td>
+                      <label type="text" name="ProductsName" id="label5">
+                        ten san pham
+                      </label>
+
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>
+                      <label>Produc Type</label>
+                    </th>
+                    <td>
+                      <select id="country" name="VendorId" required>
+                        <option value="maSP">Produc Type</option>
+                        <option value="maSP">Produc Type</option>
+                        <option value="maSP">Produc Type</option>
+                        <option value="maSP">Produc Type</option>
+                        <option value="maSP">Produc Type</option>
+                      </select>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>
+                      <label>Brand </label>
+                    </th>
+                    <td>
+                      <select id="country2" name="VendorId" required>
+                        <option value="maSP">Brand</option>
+                        <option value="maSP">Brand</option>
+                        <option value="maSP">Brand</option>
+                        <option value="maSP">Brand</option>
+                        <option value="maSP">Brand</option>
+
+                      </select>
+
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>
+                      <label class="picture">Represent Picture</label>
+                    </th>
+                    <td>
+                      <div style="float: none;">
+                        <label for="filebutton" id="upload-btn">
+                          <span>
+                            <i class="fas fa-folder-open " style="color:#fad859;"></i>
+                            Open file
+                          </span>
+                        </label>
+                        <input id="filebutton" name="Pic2" class="input-file" type="file" accept="image/*"
+                          style="display: none" />
+                      </div>
+                      <div class="card-deck">
+                        <div class="card mb-4" style="width: 104px;float: left;">
+                          <figure class="snip0068 yellow">
+                            <img src="plugins/images/large/img1.jpg" alt="sample12" />
+                            <figcaption>
+                              <div>
+                                <span class="removeanh"><i class="far fa-trash-alt"></i> Remove</span>
+                              </div>
+                              <a href="#"></a>
+                            </figcaption>
+                          </figure>
+                        </div>
+                        <div class="card mb-4" style="width: 104px;float: left;">
+                          <figure class="snip0068 yellow">
+                            <img src="plugins/images/large/img1.jpg" alt="sample12" />
+                            <figcaption>
+                              <div>
+                                <span class="removeanh"><i class="far fa-trash-alt"></i> Remove</span>
+                              </div>
+                              <a href="#"></a>
+                            </figcaption>
+                          </figure>
+                        </div>
+                        <div class="card mb-4" style="width: 104px;float: left;">
+                          <figure class="snip0068 yellow">
+                            <img src="plugins/images/large/img1.jpg" alt="sample12" />
+                            <figcaption>
+                              <div>
+                                <span class="removeanh"><i class="far fa-trash-alt"></i> Remove</span>
+                              </div>
+                              <a href="#"></a>
+                            </figcaption>
+                          </figure>
+                        </div>
+                        <div class="card mb-4" style="width: 104px;float: left;">
+                          <figure class="snip0068 yellow">
+                            <img src="plugins/images/large/img1.jpg" alt="sample12" />
+                            <figcaption>
+                              <div>
+                                <span class="removeanh"><i class="far fa-trash-alt"></i> Remove</span>
+                              </div>
+                              <a href="#"></a>
+                            </figcaption>
+                          </figure>
+                        </div>
+                        <div class="card mb-4" style="width: 104px;float: left;">
+                          <figure class="snip0068 yellow">
+                            <img src="plugins/images/large/img1.jpg" alt="sample12" />
+                            <figcaption>
+                              <div>
+                                <span class="removeanh"><i class="far fa-trash-alt"></i> Remove</span>
+                              </div>
+                              <a href="#"></a>
+                            </figcaption>
+                          </figure>
+                        </div>
+                        <div class="card mb-4" style="width: 104px;float: left;">
+                          <figure class="snip0068 yellow">
+                            <img src="plugins/images/large/img1.jpg" alt="sample12" />
+                            <figcaption>
+                              <div>
+                                <span class="removeanh"><i class="far fa-trash-alt"></i> Remove</span>
+                              </div>
+                              <a href="#"></a>
+                            </figcaption>
+                          </figure>
+                        </div>
+                        <div class="card mb-4" style="width: 104px;float: left;">
+                          <figure class="snip0068 yellow">
+                            <img src="plugins/images/large/img1.jpg" alt="sample12" />
+                            <figcaption>
+                              <div>
+                                <span class="removeanh"><i class="far fa-trash-alt"></i> Remove</span>
+                              </div>
+                              <a href="#"></a>
+                            </figcaption>
+                          </figure>
+                        </div>
+                        <div class="card mb-4" style="width: 104px;float: left;">
+                          <figure class="snip0068 yellow">
+                            <img src="plugins/images/large/img1.jpg" alt="sample12" />
+                            <figcaption>
+                              <div>
+                                <span class="removeanh"><i class="far fa-trash-alt"></i> Remove</span>
+                              </div>
+                              <a href="#"></a>
+                            </figcaption>
+                          </figure>
+                        </div>
+                        <div class="card mb-4" style="width: 104px;float: left;">
+                          <figure class="snip0068 yellow">
+                            <img src="plugins/images/large/img1.jpg" alt="sample12" />
+                            <figcaption>
+                              <div>
+                                <span class="removeanh"><i class="far fa-trash-alt"></i> Remove</span>
+                              </div>
+                              <a href="#"></a>
+                            </figcaption>
+                          </figure>
+                        </div>
+                        <div class="card mb-4" style="width: 104px;float: left;">
+                          <figure class="snip0068 yellow">
+                            <img src="plugins/images/large/img1.jpg" alt="sample12" />
+                            <figcaption>
+                              <div>
+                                <span class="removeanh"><i class="far fa-trash-alt"></i> Remove</span>
+                              </div>
+                              <a href="#"></a>
+                            </figcaption>
+                          </figure>
+                        </div>
+                        <div class="card mb-4" style="width: 104px;float: left;">
+                          <figure class="snip0068 yellow">
+                            <img src="plugins/images/large/img1.jpg" alt="sample12" />
+                            <figcaption>
+                              <div>
+                                <span class="removeanh"><i class="far fa-trash-alt"></i> Remove</span>
+                              </div>
+                              <a href="#"></a>
+                            </figcaption>
+                          </figure>
+                        </div>
+                        <div class="card mb-4" style="width: 104px;float: left;">
+                          <figure class="snip0068 yellow">
+                            <img src="plugins/images/large/img1.jpg" alt="sample12" />
+                            <figcaption>
+                              <div>
+                                <span class="removeanh"><i class="far fa-trash-alt"></i> Remove</span>
+                              </div>
+                              <a href="#"></a>
+                            </figcaption>
+                          </figure>
+                        </div>
+                      </div>
+
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>
+                      <label>Amount</label> <br>
+                    </th>
+                    <td>
+                      <input class="numberrit" type="number" value="100" min="1">
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>
+                      <label>Decription</label>
+                    </th>
+                    <td>
+
+                      <textarea class="textarea" id="product_description" name="Config"></textarea>
+                    </td>
+                  </tr>
+                </table>
+
+              </div>
+
+
+              <!-- ======================================================================================== -->
+              <div id="table2" style="display: none;">
+                <table class="cus3" style="width: 53%;">
+
+                  <tr>
+                    <th> tên thông số</th>
+                    <th>thông tin</th>
+                    <th>trạng thái</th>
+                  </tr>
+                  <tr>
+                    <td>Ram</td>
+                    <td> <input style="background: none; border: none; text-align: center; " type="text" name="" id=""
+                        placeholder="ghi zo"> </td>
+                    <td>
+                      <div class="checkbox">
+                        <input type="checkbox" id="click">
+
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+              <input style="position: absolute;margin-top: 50px;  margin-left: 1090px;"
+                class="btn btn-outline-danger btn-block" id="submit" type="submit" value="Submit">
+            </div>
+          </div>
         </div>
-        <!-- ============================================================== -->
-        <!-- End Container fluid  -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- footer -->
-        <!-- ============================================================== -->
-        <footer class="footer text-center"> 2021 © Ample Admin brought to you by <a
-                href="https://www.wrappixel.com/">wrappixel.com</a>
-        </footer>
-        <!-- ============================================================== -->
-        <!-- End footer -->
-        <!-- ============================================================== -->
+      </div>
+      <!-- ============================================================== -->
+      <!-- End PAge Content -->
+      <!-- ============================================================== -->
+      <!-- ============================================================== -->
+      <!-- Right sidebar -->
+      <!-- ============================================================== -->
+      <!-- .right-sidebar -->
+      <!-- ============================================================== -->
+      <!-- End Right sidebar -->
+      <!-- ============================================================== -->
     </div>
     <!-- ============================================================== -->
-    <!-- End Page wrapper  -->
-    <!-- ============================================================== -->
-    </div>
-    <!-- ============================================================== -->
-    <!-- End Wrapper -->
+    <!-- End Container fluid  -->
     <!-- ============================================================== -->
     <!-- ============================================================== -->
-    <!-- All Jquery -->
+    <!-- footer -->
     <!-- ============================================================== -->
-    <script src="plugins/bower_components/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap tether Core JavaScript -->
-    <script src="bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/app-style-switcher.js"></script>
-    <!--Wave Effects -->
-    <script src="js/waves.js"></script>
-    <!--Menu sidebar -->
-    <script src="js/sidebarmenu.js"></script>
-    <!--Custom JavaScript -->
-    <script src="js/custom.js"></script>
-    <script src="js/table.js"></script>
+    <footer class="footer text-center"> 2021 © Ample Admin brought to you by <a
+        href="https://www.wrappixel.com/">wrappixel.com</a>
+    </footer>
+    <!-- ============================================================== -->
+    <!-- End footer -->
+    <!-- ============================================================== -->
+  </div>
+  <!-- ============================================================== -->
+  <!-- End Page wrapper  -->
+  <!-- ============================================================== -->
+  </div>
+  <!-- ============================================================== -->
+  <!-- End Wrapper -->
+  <!-- ============================================================== -->
+  <!-- ============================================================== -->
+  <!-- All Jquery -->
+  <!-- ============================================================== -->
+  <!-- <script src="plugins/bower_components/jquery/dist/jquery.min.js"></script> -->
+  <!-- Bootstrap tether Core JavaScript -->
+  <script src="bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/app-style-switcher.js"></script>
+  <!--Wave Effects -->
+  <script src="js/waves.js"></script>
+  <!--Menu sidebar -->
+  <script src="js/sidebarmenu.js"></script>
+  <!--Custom JavaScript -->
+  <script src="js/custom.js"></script>
+  <script src="js/table.js"></script>
 </body>
 
 </html>
