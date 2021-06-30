@@ -1,5 +1,4 @@
 .giohang{
-    margin-left: 110px;
     margin-bottom: 80px;
     display: flex;
 }
@@ -14,7 +13,7 @@
 }
 
     .cart-table table, th, td{
-        border-bottom: 3px solid #E4E7ED;   
+        border-bottom: 2px solid #E4E7ED;   
         margin-right: 10px;
         border-bottom-width:100%;
         border-collapse: collapse; 
@@ -22,8 +21,8 @@
 
     .cart-table th, td{
         text-align: center;
-        padding-top: 30px;
-        padding-bottom: 20px;
+        padding-top: 20px;
+        padding-bottom: 10px;
     }
 
     .cart-table th{
@@ -41,6 +40,7 @@
 
 .edit_width_cart{
     width: 18%;
+    
 }
 
 .image_product_cart {
@@ -58,8 +58,8 @@
     }
 
     .image_product_cart img{
-        width: 150px;
-        height: 150px;
+        width: 100px;
+        height: 100px;
         object-fit: contain;
         
     }
@@ -70,15 +70,18 @@
 
 
 .checkbox_cart input{
-    transform: scale(2.5);
-    margin-left: 50px;
+    transform: scale(1.7);
+    margin-left: 15px;
 }
 
 .remove_cart button{
     background: rgb(194, 21, 21);
     color: white;
     border: none;
-    height: 40px;
+    /* height: 40px; */
+    font-size: 10px;
+    width: 80px;
+    border-radius: 5px;
 }
 
     .remove_cart button:hover{
@@ -121,11 +124,12 @@
 .checkout_cart{
     width: 180px;
     height: 55px;
-    font-size: 25px;
+    font-size: 20px;
     font-weight: bold;
     background: rgb(139, 16, 16);
     color: white;
     border: none;
+    border-radius: 5px;
 }
 
     .checkout_cart:hover{

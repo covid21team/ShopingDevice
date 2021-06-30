@@ -2,32 +2,21 @@
     margin-top: 20px;
 
 }
-#thongtin{
-    float: left;
-    width: 200px auto;
-    min-height: auto;
-    margin-left: 11%;
-}
-.menuchon{
-    padding: 2px;
-    width: 300px;
-}
 
+.ggg{
+    font-size: 17px;
+}
 #hienthongtin{
     background: rgb(248, 249, 250);
     width: 900px ;   
     min-height: 347px ;
-    float: left;
-    margin-left: 15px;
+    margin-left: 300px;
     margin-top: -10px;
     border-radius: 5px;
     margin-bottom: 1%;
 
 }
-#thongtin .menuchon{
-    margin-left: 7%;
-    font-size: 18px;
-}
+
 
 .thongtincanhan{
     margin-left:10px;
@@ -37,17 +26,11 @@
 
 /* ================================ */
 
-#id123 label.active {
+.ggg label.active {
     border-bottom:2.5px solid red;
   }
 
-  #id124 label.active {
-    border-bottom:2.5px solid red; 
-  }
-  #id129 label.active {
-    
-   border-bottom:2.5px solid red;
-  }
+
 /* .namedo :active{
 color: #D10024;
 } */
