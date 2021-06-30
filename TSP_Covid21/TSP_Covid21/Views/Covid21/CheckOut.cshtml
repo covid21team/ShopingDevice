@@ -1,0 +1,198 @@
+﻿<!--
+    
+-->
+
+@model IEnumerable<TSP_Covid21.Models.ViewModel.ProductOfCartViewModel>
+@{
+    ViewBag.Title = "CheckOut";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Html.Partial("Public_Navigation")
+<!-- BREADCRUMB --><!--Đường dẫn-->
+<div id="breadcrumb" class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <div class="col-md-12">
+                <!-- <h3 class="breadcrumb-header">Checkout</h3> -->
+                <ul class="breadcrumb-tree">
+                    <li><a href="@Url.Action("Home","Covid21")">Home</a></li>
+                    <li><a href="@Url.Action("Cart","Covid21", new { user = Session["user"] })">Your cart</a></li>
+                    <li class="active">Checkout</li>
+                </ul>
+            </div>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /BREADCRUMB -->
+<!-- SECTION -->
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+
+            <div class="col-md-7">
+                <!-- Billing Details --> <!--Địa chỉ thanh toán--><!--Cần trí chỉnh lại đoạn văn-->
+                <div class="billing-details">
+                    <div class="section-title">
+                        <h3 class="title">Billing address</h3>
+                    </div>
+                    <div class="form-group">
+                        <input class="input" type="text" name="first-name" placeholder="First Name">
+                    </div>
+                    <div class="form-group">
+                        <input class="input" type="text" name="last-name" placeholder="Last Name">
+                    </div>
+                    <div class="form-group">
+                        <input class="input" type="email" name="email" placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                        <input class="input" type="text" name="address" placeholder="Address">
+                    </div>
+                    <div class="form-group">
+                        <input class="input" type="text" name="city" placeholder="City">
+                    </div>
+                    <div class="form-group">
+                        <input class="input" type="text" name="country" placeholder="Country">
+                    </div>
+                    <!-- <div class="form-group">
+                        <input class="input" type="text" name="zip-code" placeholder="ZIP Code">
+                    </div> -->
+                    <div class="form-group">
+                        <input class="input" type="tel" name="tel" placeholder="Telephone">
+                    </div>
+                </div>
+                <!-- /Billing Details -->
+                <!-- Shiping Details --><!--Chuyển cho người khác-->
+                <div class="shiping-details">
+                    <div class="section-title">
+                        <h3 class="title">Shiping address</h3>
+                    </div>
+                    <div class="input-checkbox">
+                        <input type="checkbox" id="shiping-address">
+                        <label for="shiping-address">
+                            <span></span>
+                            Ship to a diffrent address?
+                        </label>
+                        <div class="caption">
+                            <div class="form-group">
+                                <input class="input" type="text" name="first-name" placeholder="First Name">
+                            </div>
+                            <div class="form-group">
+                                <input class="input" type="text" name="last-name" placeholder="Last Name">
+                            </div>
+                            <div class="form-group">
+                                <input class="input" type="email" name="email" placeholder="Email">
+                            </div>
+                            <div class="form-group">
+                                <input class="input" type="text" name="address" placeholder="Address">
+                            </div>
+                            <div class="form-group">
+                                <input class="input" type="text" name="city" placeholder="City">
+                            </div>
+                            <div class="form-group">
+                                <input class="input" type="text" name="country" placeholder="Country">
+                            </div>
+                            <!-- <div class="form-group">
+                                <input class="input" type="text" name="zip-code" placeholder="ZIP Code">
+                            </div> -->
+                            <div class="form-group">
+                                <input class="input" type="tel" name="tel" placeholder="Telephone">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /Shiping Details -->
+                <!-- Order notes -->
+                <div class="order-notes">
+                    <textarea class="input" placeholder="Order Notes"></textarea>
+                </div>
+                <!-- /Order notes -->
+            </div>
+
+            <!-- Order Details --><!--Phiếu thanh toán--> <!--Cần trí chỉnh lại đoạn văn-->
+            <div class="col-md-5 order-details">
+                <div class="section-title text-center">
+                    <h3 class="title">Your Order</h3>
+                </div>
+                <div class="order-summary">
+                    <div class="order-col">
+                        <div><strong>PRODUCT</strong></div>
+                        <div><strong>TOTAL</strong></div>
+                    </div>
+                    <div class="order-products">
+
+                        @foreach (var item in Model)
+                        {
+                            <div class="order-col">
+                                @{
+                                    var temp = item.ProductAmount + "x";
+                                }
+                                <div>@temp @item.ProductName</div>
+                                @{
+                                    var temp1 = String.Format("{0:#,##0.##}", @item.ProductPrice * item.ProductAmount);
+                                    temp1 += "đ";
+                                }
+                                <div>@temp1</div>
+                            </div>
+                        }
+
+                    </div>
+                    <!--
+                    @{
+                        var total = @Model.Where(p => p.Status == true).Sum(t => t.ProductAmount * t.ProductPrice);
+                        var temp_total = String.Format("{0:#,##0.##}", total);
+                        temp_total += "đ";
+
+                        var total_tax = total * 0.05;
+                        var temp_total_tax = String.Format("{0:#,##0.##}", total_tax);
+                        temp_total_tax += "đ";
+
+                        var total_cart = total + total_tax;
+                        var temp_total_cart = String.Format("{0:#,##0.##}", total_cart);
+                        temp_total_cart += "đ";
+                    }
+                    -->
+                    <div class="order-col">
+                        <div>Total</div>
+                        <div><strong>@temp_total</strong></div>
+                    </div>
+                    <div class="order-col">
+                        <div>Shiping</div>
+                        <div><strong>FREE SHIP</strong></div>
+                    </div>
+                    <div class="order-col">
+                        <div>TAX(5%)</div>
+                        <div><strong >@temp_total_tax</strong></div>
+                    </div>
+                    <div class="order-col">
+                        <div><strong>BIll TOTAL</strong></div>
+                        <div><strong class="order-total">@temp_total_cart</strong></div>
+                    </div>
+                </div>
+                
+                <div class="input-checkbox">
+                    <input type="checkbox" id="terms">
+                    <label for="terms">
+                        <span></span>
+                        I've read and accept the <a href="#">terms & conditions</a>
+                    </label>
+                </div>
+                <a href="#" class="primary-btn order-submit" id="create_bill" onclick="alert('hello')">Place order</a>
+            </div>
+            <!-- /Order Details -->
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /SECTION -->
+
+<!-- dùng sử dụng $ -->
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
