@@ -55,9 +55,6 @@
         z-index: 100; 
         display: none;
     }
-    .quick-view:hover .table_config {
-        display: block;
-    }
 </style>
 
 <!-- NAVIGATION --><!--menu chọn loại-->
@@ -282,7 +279,7 @@
                                     </div>
                                 </div>
 
-                                <div class="product-body" style="z-index: 5">
+                                <div class="product-body" style="z-index: 5;">
                                     <p class="product-category">Category</p>
                                     <h3 class="product-name"><a href="@Url.Action("Product","Covid21",new { productId = item.ProductId})">@item.ProductName</a></h3>
                                     @{
@@ -294,7 +291,7 @@
                                     @Html.Partial("Public_RatingProduct", db_Ctrl.loadRatingProduct(item.ProductId))
 
                                     <div class="product-btns">
-                                        <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
+                                        <button class="add-to-wishlist"><i class="fa fa-heart"></i><span class="tooltipp">add to wishlist</span></button>
                                         <button class="quick-view" style=" display: inline-block">
                                             <i class="fa fa-eye"></i><span class="tooltipp">quick view</span>
                                             <div class="table_config" style="color: black; z-index: 100">
@@ -350,4 +347,21 @@
             //button when length is 0
         }
     })
+</script>
+
+<!-- Khi rê chuột vào mắt thì hiện bảng config lên, khi rê chuột ra ngoài thì tự động abngr mất -->
+<script>
+    $('.quick-view').mousemove(function () {
+        var parent = $(this).parent().parent().parent();
+
+        $(this).children('.table_config').css({ 'display': 'block' });
+        $(parent).css({ "z-index": "50" });
+    });
+
+    $('.quick-view').mouseout(function () {
+        var parent = $(this).parent().parent().parent();
+
+        $(this).children('.table_config').css({ 'display': 'none' });
+        $(parent).css({ "z-index": "30" });
+    });
 </script>

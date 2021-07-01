@@ -35,7 +35,6 @@
     }
 }
 
-
 <div class="product">
     <div class="product-img">
         <a href="@Url.Action("Product","Covid21",new { productId = Model.PRODUCTID})">
@@ -61,13 +60,19 @@
 
         <div class="product-btns">
             <button class="add-to-wishlist"><i class="fa fa-heart" id="idheart"></i><span class="tooltipp">add to wishlist</span></button>
-            <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+            <button class="quick-view" style=" display: inline-block">
+                <i class="fa fa-eye"></i><span class="tooltipp">quick view</span>
+                <div class="table_config" style="color: black; z-index: 100">
+                    @Html.Partial("Categories_TableConfig", Model.CONFIGDETAILs)
+                </div>
+            </button>
         </div>
     </div>
     <div class="add-to-cart">
         <button class="add-to-cart-btn" onclick="addToCart(@Model.PRODUCTID)"><i class="fa fa-shopping-cart"></i> add to cart</button>
     </div>
 </div>
+
 
 
 

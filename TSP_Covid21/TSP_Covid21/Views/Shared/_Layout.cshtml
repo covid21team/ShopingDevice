@@ -86,6 +86,16 @@
     <link rel=stylesheet href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
     <LINK REL="SHORTCUT ICON" HREF="~/Asset/images/logo.png">
+
+    <style>
+        .table_config {
+            position: absolute;
+            margin-top: -250px;
+            margin-left: 50px;
+            z-index: 100;
+            display: none;
+        }
+    </style>
 </head>
 <body>
 
@@ -120,6 +130,7 @@
                     }
                     else
                     {
+
                         <li>
                             <a href="#">
                                 <i class="fa fa-user-o" style="margin-right: 100px"></i>
@@ -486,8 +497,6 @@
         if (fourChildNode.className === "wrapper show") {
             menu_wrapper.classList.toggle("show");
         }
-
-
     });
 
     $('#thongbao').click(function (event) {
@@ -513,5 +522,22 @@
             $(this).toggleClass("heart");
         });
 
+    });
+</script>
+
+<!-- Khi rê chuột vào mắt thì hiện bảng config lên, khi rê chuột ra ngoài thì tự động abngr mất -->
+<script>
+    $('.quick-view').mousemove(function () {
+        var parent = $(this).parent().parent().parent();
+
+        $(this).children('.table_config').css({ 'display': 'block' });
+        $(parent).css({ "z-index": "50" });
+    });
+
+    $('.quick-view').mouseout(function () {
+        var parent = $(this).parent().parent().parent();
+
+        $(this).children('.table_config').css({ 'display': 'none' });
+        $(parent).css({ "z-index": "30" });
     });
 </script>

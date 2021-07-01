@@ -36,6 +36,7 @@
 
     ☯ Key Session
         ➛ Session["user"]
+        ➛ Session["fullname"]
 
 -->
 
@@ -49,6 +50,8 @@
 @{
 
     TSP_Covid21.Controllers.ProductController PC = new TSP_Covid21.Controllers.ProductController();
+
+    var FullName = Session["fullname"];
 }
 
 @Html.Partial("Public_Navigation")
@@ -339,17 +342,17 @@
                                 <!-- /Rating -->
                                 <!-- Reviews -->
                                 <!-- Review Product -->
-
-                                @Html.Partial("Product_LoadComment", PC.loadCommentProduct(Model.PRODUCTID), new ViewDataDictionary(ViewData) { { "productId", Model.PRODUCTID } })
-
+                                <div class="col-md-6" id="commentBorder">
+                                    @Html.Partial("Product_LoadComment", Model.COMMENTs)
+                                </div>
                                 <!-- /Reviews -->
                                 <!-- Review Form -->
                                 <div class="col-md-3">
                                     <div id="review-form">
                                         <form class="review-form">
-                                            <input class="input" type="text" placeholder="Your Name">
+                                            <input class="input" type="text" placeholder="Your Name" value="@FullName">
                                             <input class="input" type="email" placeholder="Your Email">
-                                            <textarea id="comment_Product" class="input" placeholder="Your Review"></textarea>
+                                            <textarea id="comment_User" class="input" placeholder="Your Review"></textarea>
                                             <div class="input-rating">
                                                 <span>Your Rating: </span>
                                                 <div class="stars">
@@ -360,7 +363,7 @@
                                                     <input id="star1" name="rating" value="1" type="radio"><label for="star1"></label>
                                                 </div>
                                             </div>
-                                            <button type="button" class="primary-btn" onclick="btn_ratingProduct()">Submit</button>
+                                            <button id="btn_commentproduct" type="button" class="primary-btn">Submit</button>
                                         </form>
                                     </div>
                                 </div>
@@ -416,22 +419,24 @@
 </div>
 <!-- /Section -->
 
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
 <script>
     var modal = document.getElementById('id01_login');
     var tempUser = '@Session["user"]';
 
     //Dùng lúc bấm submit rating và comment kiểm tra xem đăng nhập chưa, khi đăng nhập thì up rating và comment lên
-    function btn_ratingProduct() {
+    $("#btn_commentproduct").click(function () {
         $("#loading_web").show();
-        var value, Commen;
+        var value, Comment;
 
         // tại sao lại so sánh admin thì do truyền Session vào khi chưa có user thì bị lỗi nên ban đầu gắn bằng admin để xác định chưa có user đăng nhập
         if (tempUser == null || tempUser == "") {
             $("#loading_web").hide();
             modal.style.display = "block";
-        } else{
+        } else {
             value = $("input:radio[name=rating]:checked").val();
-            Comment = $('#comment_Product').val();
+            Comment = $('#comment_User').val();
             $.ajax({
                 url: '@Url.Action("insert_RatingAndComment", "Product")',
                 type: 'POST',
@@ -444,15 +449,40 @@
                     comment: Comment
                 },
                 success: function () {
-                    $("#loading_web").hide();
-                    location.reload();
+
+                    $.ajax({
+                        url: '@Url.Action("listComment", "Product")',
+                        type: 'POST',
+                        data: {
+                            productId: @Model.PRODUCTID,
+                        },
+                        success: function (result) {
+                            $("#loading_web").hide();
+                            $("#commentBorder").html(result);
+                            var comment = document.getElementsByClassName('btn_page');
+                            $(comment[0]).css({ "border-color": "#D10024" });
+                        },
+                    });
+
+                    $.ajax({
+                        url: '@Url.Action("listRating", "Product")',
+                        type: 'POST',
+                        data: {
+                            productId: @Model.PRODUCTID,
+                        },
+                        success: function (result) {
+                            $("#loading_web").hide();
+                            $("#rating").html(result);
+                        },
+                    });
+
                 },
                 error: function () {
                     $("#loading_web").hide();
                 }
             });
         }
-    }
+    });
 
     //-Dùng add sản phẩm vào cart, nhưng add với 1 số lương(khác hàm ở ngoài _layout)/
     function addToCartWithAmount() {

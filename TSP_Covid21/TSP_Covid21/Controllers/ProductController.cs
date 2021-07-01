@@ -51,9 +51,9 @@ namespace TSP_Covid21.Controllers
         }
 
         // Tải danh sách bình luận về sản phẩm
-        public PagedList.IPagedList<COMMENT> loadCommentProduct(int productId)
+        public IEnumerable<COMMENT> loadCommentProduct(int productId)
         {
-            return PB.loadCommentProduct(1,3,productId);
+            return PB.loadCommentProduct(productId);
         }
 
         // Tải đánh giá của 1 khách hàng dành cho sản phẩm
@@ -168,6 +168,22 @@ namespace TSP_Covid21.Controllers
             string user = Session["user"].ToString();
 
             PB.change_CheckBox(productId, status, user, quantity);
+        }
+
+        [HttpPost]
+        public ActionResult listComment(int productId)
+        {
+            var result = PB.loadCommentProduct(productId);
+
+            return PartialView(result);
+        }
+
+        [HttpPost]
+        public ActionResult listRating(int productId)
+        {
+            var result = PB.loadRatingProduct(productId);
+
+            return PartialView(result);
         }
     }
 }

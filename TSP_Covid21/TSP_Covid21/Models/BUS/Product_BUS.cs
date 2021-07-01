@@ -101,7 +101,7 @@ namespace TSP_Covid21.Models.BUS
                              ProductConfig = a.CONFIGDETAILs
                          };
 
-            var result = list.OrderByDescending(x => x.ProductId).Skip((page - 1) * pagesize);
+            var result = list.OrderByDescending(x => x.ProductId).Skip(0);
 
             return result;
         }
@@ -252,12 +252,19 @@ namespace TSP_Covid21.Models.BUS
         }
 
         // Lấy danh sách bình luận về sản phẩm
-        public PagedList.IPagedList<COMMENT> loadCommentProduct(int page, int pagesize, int productId)
+        public IEnumerable<COMMENT> loadCommentProduct( int productId)
         {
+            /*var result = from a in db.COMMENTs
+                         join b in db.RATINGPRODUCTs
+                         on a.USER equals b.USER
+                         orderby b.RATE descending
+                         where a.PRODUCTID == productId
+                         select a;*/
+
             var list = db.COMMENTs.Where(p => p.PRODUCTID == productId);
 
-            var result = list.OrderByDescending(x => x.PRODUCTID).Skip((page - 1) * pagesize).Take(20);
-            return result.ToPagedList(page, pagesize);
+            var result = list.OrderByDescending(x => x.PRODUCTID).Skip(0);
+            return result;
         }
 
 
