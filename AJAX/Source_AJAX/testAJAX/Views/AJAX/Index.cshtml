@@ -29,25 +29,25 @@
         befbewi
     </div>*@
 
+@*
 
+    <input type="button" id="button" value="Submit" onclick="onClick()"/>
+    <div id="txtResult"></div>
+    <div id="loading" style="display: none">
+        <img src="~/Images/Spinner-0.7s-324px.gif" />
+    </div>
 
-<input type="button" id="button" value="Submit" onclick="onClick()"/>
-<div id="txtResult"></div>
-<div id="loading" style="display: none">
-    <img src="~/Images/Spinner-0.7s-324px.gif" />
-</div>
+    <script>
+        function onClick() {
+            $("#loading").show();
+            $.ajax({
+                type: "GET",
 
-<script>
-    function onClick() {
-        $("#loading").show();
-        $.ajax({
-            type: "GET",
-
-            url: 'loadIndex',
-            success: function (result) {
-                $("#loading").hide();
-                $('#txtResult').html(result);
-            }
-        });
-    }
-</script>
+                url: 'loadIndex',
+                success: function (result) {
+                    $("#loading").hide();
+                    $('#txtResult').html(result);
+                }
+            });
+        }
+    </script>*@
