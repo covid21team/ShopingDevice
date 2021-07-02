@@ -1,0 +1,147 @@
+﻿@model IEnumerable<TSP_Covid21.Models.ShopEntity.RATINGPRODUCT>
+
+@{
+    var sumRating = Model.Sum(p => p.RATE);
+    var countTotal = Model.Count();
+    var countRating_1 = Model.Count(p => p.RATE < 2 && p.RATE >= 1);
+    var countRating_2 = Model.Count(p => p.RATE < 3 && p.RATE >= 2);
+    var countRating_3 = Model.Count(p => p.RATE < 4 && p.RATE >= 3);
+    var countRating_4 = Model.Count(p => p.RATE < 5 && p.RATE >= 4);
+    var countRating_5 = Model.Count(p => p.RATE == 5);
+
+    float ratioRating = 0;
+    if (sumRating > 0)
+    {
+        ratioRating = float.Parse(String.Format("{0:0.0}", (sumRating / countTotal)));
+    }
+
+    float ratioRating_1 = (countRating_1 / (float)countTotal) * 100;
+    float ratioRating_2 = (countRating_2 / (float)countTotal) * 100;
+    float ratioRating_3 = (countRating_3 / (float)countTotal) * 100;
+    float ratioRating_4 = (countRating_4 / (float)countTotal) * 100;
+    float ratioRating_5 = (countRating_5 / (float)countTotal) * 100;
+}
+
+<div class="rating-avg">
+    <span>@ratioRating</span>
+    <div class="rating-stars">
+        <!-- Load tỉ lệ đánh giá của tất cả khách hàng đã đánh giá-->
+        @if (ratioRating > 0.9)
+        {
+            <i class="fa fa-star"></i>
+            if (ratioRating > 1.9)
+            {
+                <i class="fa fa-star"></i>
+                if (ratioRating > 2.9)
+                {
+                    <i class="fa fa-star"></i>
+                    if (ratioRating > 3.9)
+                    {
+                        <i class="fa fa-star"></i>
+                        if (ratioRating > 4.9)
+                        {
+                            <i class="fa fa-star"></i>
+                        }
+                        else
+                        {
+                            <i class="fa fa-star-o"></i>
+                        }
+                    }
+                    else
+                    {
+                        <i class="fa fa-star-o"></i>
+                        <i class="fa fa-star-o"></i>
+                    }
+                }
+                else
+                {
+                    <i class="fa fa-star-o"></i>
+                    <i class="fa fa-star-o"></i>
+                    <i class="fa fa-star-o"></i>
+                }
+            }
+            else
+            {
+                <i class="fa fa-star-o"></i>
+                <i class="fa fa-star-o"></i>
+                <i class="fa fa-star-o"></i>
+                <i class="fa fa-star-o"></i>
+            }
+        }
+        else
+        {
+            <i class="fa fa-star-o"></i>
+            <i class="fa fa-star-o"></i>
+            <i class="fa fa-star-o"></i>
+            <i class="fa fa-star-o"></i>
+            <i class="fa fa-star-o"></i>
+        }
+    </div>
+</div>
+<ul class="rating">
+    <li>
+        <div class="rating-stars">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+        </div>
+        <div class="rating-progress">
+            <div style="width: @ratioRating_5%;"></div>
+        </div>
+        <span class="sum">@countRating_5</span>
+    </li>
+    <li>
+        <div class="rating-stars">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-o"></i>
+        </div>
+        <div class="rating-progress">
+            <div style="width: @ratioRating_4%;"></div>
+        </div>
+        <span class="sum">@countRating_4</span>
+    </li>
+    <li>
+        <div class="rating-stars">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-o"></i>
+            <i class="fa fa-star-o"></i>
+        </div>
+        <div class="rating-progress">
+            <div style="width: @ratioRating_3%;"></div>
+        </div>
+        <span class="sum">@countRating_3</span>
+    </li>
+    <li>
+        <div class="rating-stars">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-o"></i>
+            <i class="fa fa-star-o"></i>
+            <i class="fa fa-star-o"></i>
+        </div>
+        <div class="rating-progress">
+            <div style="width: @ratioRating_2%;"></div>
+        </div>
+        <span class="sum">@countRating_2</span>
+    </li>
+    <li>
+        <div class="rating-stars">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-o"></i>
+            <i class="fa fa-star-o"></i>
+            <i class="fa fa-star-o"></i>
+            <i class="fa fa-star-o"></i>
+        </div>
+        <div class="rating-progress">
+            <div style="width: @ratioRating_1%;"></div>
+        </div>
+        <span class="sum">@countRating_1</span>
+    </li>
+</ul>

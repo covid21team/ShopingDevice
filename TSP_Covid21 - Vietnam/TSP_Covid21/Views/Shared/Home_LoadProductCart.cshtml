@@ -1,0 +1,78 @@
+﻿<!--
+    ➠ Hiện chi tiết thông tin của sản phẩm                             ✔
+        ♡ Hình ảnh                                                      ✔
+        ♡ Tên sản phẩm                                                  ✔
+        ♡ Giá sản phẩm                                                  ✔
+        ♡ Số lượng sản phẩm muốn mua                                    ✔
+        ♡ Tổng tiền bỏ ra mua với số lượng sản phẩm                     ✔
+
+    ➠ Bấm vào View Cart ➔ đến form Cart                               ✔
+
+    ➠ Bấm vào Checkout ➔ form checkout (form checkout hiện chưa có)   ✔
+
+    ➠ Bấm vào hình ảnh hoặc tên sản phẩm ➔ đến product                ✔
+
+    ❦ Nơi sử dụng:
+        ☞ Form Home ➧ thuộc Control Covid21
+
+    ⛱ Form có thể đến
+        ➣ Cart
+        ➣ Product
+        ➣ CheckOut
+
+    ☯ Key Session
+        ➛ Session["user"]
+-->
+
+@model IEnumerable<TSP_Covid21.Models.ShopEntity.CART>
+
+@{
+    var total = 0;
+}
+<div class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+        <i class="fa fa-shopping-cart"></i>
+        <span>Giỏ hàng</span>
+        <div class="qty">@Model.Count()</div>
+    </a>
+    <div class="cart-dropdown">
+        <div class="cart-list">
+            @foreach (var item in Model)
+            {
+                <div class="product-widget">
+                    <div class="product-img">
+                        <a href="@Url.Action("Product","Covid21",new { productId = item.PRODUCTID})">
+                            <img src="~/@item.PRODUCT.MAINPIC" alt="" style="width: 60px; height:60px; object-fit: contain">
+                        </a>
+                    </div>
+                    <div class="product-body">
+                        <h3 class="product-name"><a href="@Url.Action("Product","Covid21",new { productId = item.PRODUCTID})">@item.PRODUCT.PRODUCTNAME</a></h3>
+                        @{
+                            var Sum = item.AMOUNT * item.PRODUCT.PRODUCTPRICE;
+                            total = total + Convert.ToInt32(Sum);
+                            var temp = String.Format("{0:#,##0.##}", Sum);
+                            temp += "đ";
+                        }
+                        <h4 class="product-price"><span class="qty">@item.AMOUNT</span>@temp</h4>
+                    </div>
+                    <button class="delete"><i class="fa fa-close"></i></button>
+                </div>
+            }
+        </div>
+        <div class="cart-summary">
+            @{
+                var temp_Total = String.Format("{0:#,##0.##}", total);
+            }
+            <small>@Model.Count() Item(s) selected</small>
+            <h5>SUBTOTAL: @temp_Total VNĐ</h5>
+        </div>
+        <div class="cart-btns">
+            <a href="@Url.Action("Cart","Covid21",new { user = Session["user"]})">Giỏ hàng</a>
+            <a href="@Url.Action("CheckOut","Covid21",new { user = Session["user"]})">Thanh toán<i class="fa fa-arrow-circle-right"></i></a>
+        </div>
+    </div>
+</div>
+
+
+
+

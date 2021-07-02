@@ -1,0 +1,21 @@
+﻿<!--
+    ➠ Hiện ra số lượng sản phẩm người dùng yêu thích                    ✔
+
+    ➠ Bấm vào Your Wishlist ➔ đến danh sách sản phẩm yêu thích         ✘
+
+    ❦ Nơi sử dụng:
+        ☞ Form Home ➧ thuộc Control Covid21
+
+    ⛱ Form có thể đến
+        ➣ Favourite
+-->
+
+@model string
+
+<div>
+    <a href="@Url.Action("Favourite","Covid21",new { user = Session["user"] })">
+        <i class="fa fa-heart-o"></i>
+        <span>Sản phẩm yêu thích</span>
+        <div class="qty">@Model</div>
+    </a>
+</div>
