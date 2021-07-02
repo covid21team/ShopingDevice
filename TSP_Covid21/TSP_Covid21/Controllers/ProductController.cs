@@ -19,7 +19,7 @@ namespace TSP_Covid21.Controllers
         {
             PB = new Product_BUS();
         }
-        
+
         /*  - Tại sao lại không khai báo biến result ở ngoài.
             Vì khi khai báo ở ngoài thì cần gắn giá trí trước.
             Nhưng khi gắn giá trị trước thì lại không thay đổi đc giá trị sao khi xử lí.
@@ -122,14 +122,14 @@ namespace TSP_Covid21.Controllers
             },
         };*/
 
-       /* [HttpGet]
-        public JsonResult testJson()
-        {
-            List<COMMENT> test = PB.testJson();
-            return Json(new {
-                data = test,
-            },JsonRequestBehavior.AllowGet);
-        }*/
+        /* [HttpGet]
+         public JsonResult testJson()
+         {
+             List<COMMENT> test = PB.testJson();
+             return Json(new {
+                 data = test,
+             },JsonRequestBehavior.AllowGet);
+         }*/
 
         // Tải 4 sản phẩm liên quan đến sản phẩm đang xem 
         public IEnumerable<PRODUCT> loadRelatedProduct(int productTypeId, int brandId)
@@ -141,10 +141,10 @@ namespace TSP_Covid21.Controllers
         [HttpPost]
         public void insert_RatingAndComment(int productId, string user, int rate, string comment)
         {
-            if(comment != "")
-                PB.insertComment(productId,user,comment);
+            if (comment != "")
+                PB.insertComment(productId, user, comment);
 
-             PB.insertRating(productId, user, rate);
+            PB.insertRating(productId, user, rate);
         }
 
         // Thêm sản phẩm vào giỏ hàng
@@ -184,6 +184,83 @@ namespace TSP_Covid21.Controllers
             var result = PB.loadRatingProduct(productId);
 
             return PartialView(result);
+        }
+
+        [HttpPost]
+        //Dùng vào lúc chọn lọc sản phẩm theo mong muoonscuar khách hàng
+        public ActionResult listProduct(string productTypeName, int valuePrice, int sort, string listbrand)
+        {
+            int startPrice = 0;
+            int endPrice = 100000000;
+            switch (valuePrice)
+            {
+                case 1:
+                    {
+                        startPrice = 0;
+                        endPrice = 100000000;
+                    }
+                    break;
+                case 2:
+                    {
+                        startPrice = 0;
+                        endPrice = 1000000;
+                    }
+                    break;
+                case 3:
+                    {
+                        startPrice = 1000000;
+                        endPrice = 5000000;
+                    }
+                    break;
+                case 4:
+                    {
+                        startPrice = 5000000;
+                        endPrice = 10000000;
+                    }
+                    break;
+                case 5:
+                    {
+                        startPrice = 10000000;
+                        endPrice = 20000000;
+                    }
+                    break;
+                case 6:
+                    {
+                        startPrice = 20000000;
+                        endPrice = 100000000;
+                    }
+                    break;
+            }
+
+            List<string> BS = new List<string>();
+            string temp = "";
+            for (int i = 0; i < listbrand.Length; i++)
+            {
+                if (listbrand[i].ToString().Equals(","))
+                {
+                    BS.Add(temp);
+                    temp = "";
+                }
+                else
+                {
+                    temp += listbrand[i];
+                }
+            }
+
+            var result = PB.listProduct(productTypeName, startPrice, endPrice, sort, BS);
+
+            return PartialView(result);
+        }
+
+        //productTypeName ở đây 
+        [HttpPost]
+        public ActionResult search()
+        {
+            string key = " Điện thoại";
+            Session["ProductTypeName"] = "All";
+            var result = PB.search(key);
+
+            return View(result);
         }
     }
 }

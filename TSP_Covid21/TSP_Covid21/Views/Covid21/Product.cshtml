@@ -427,14 +427,13 @@
 
     //Dùng lúc bấm submit rating và comment kiểm tra xem đăng nhập chưa, khi đăng nhập thì up rating và comment lên
     $("#btn_commentproduct").click(function () {
-        $("#loading_web").show();
         var value, Comment;
 
         // tại sao lại so sánh admin thì do truyền Session vào khi chưa có user thì bị lỗi nên ban đầu gắn bằng admin để xác định chưa có user đăng nhập
         if (tempUser == null || tempUser == "") {
-            $("#loading_web").hide();
             modal.style.display = "block";
         } else {
+            $("#loading_web").show();
             value = $("input:radio[name=rating]:checked").val();
             Comment = $('#comment_User').val();
             $.ajax({

@@ -215,11 +215,14 @@
                                     <option value="4">Headphone</option>
                                     <option value="5">Smartwatch</option>
                                 </select>
-                                <input class="input" placeholder="Search here">
-                                <button class="search-btn">Search</button>
+
+                                <input name="key" id="key" class="input" placeholder="Search here">
+                                <button class="search-btn" id="btn_Search"><a href="@Url.Action("search", "Product")">Search</a></button>
+
                             </form>
                         </div>
                     </div>
+
                     <!-- /SEARCH BAR -->
                     <!-- ACCOUNT -->
                     <div class="col-md-3 clearfix">
@@ -439,6 +442,7 @@
 <script src="~/Asset/js/cart.js"></script>
 <script src="~/Asset/js/Login.js"></script>
 
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/f20d460fd9.js" crossorigin="anonymous"></script>
 
 <script src="~/Asset/JS/library_number_cart.js"></script>

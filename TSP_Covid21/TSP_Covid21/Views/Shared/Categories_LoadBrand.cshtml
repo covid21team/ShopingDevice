@@ -7,14 +7,12 @@
         ☞ Form Categories ➧ thuộc Control Covid21
 
     ☯ Key Session
-        ➛ Session["user"]
         ➛ Session["ProductTypeName"]
 -->
 
 @model IEnumerable<TSP_Covid21.Models.ViewModel.BrandViewModel>
 
 @{
-    var user = Session["user"];
     var ProductTypeName = Session["ProductTypeName"];
 }
 <div class="aside">
@@ -24,18 +22,11 @@
         @foreach (var item in Model)
         {
             <div class="input-checkbox">
-                <input type="checkbox" id="@item.BrandId">
+                <input type="checkbox" id="@item.BrandId" class="brandName_Categories" value="@item.BrandName">
                 <label for="@item.BrandId">
                     <span></span>
                     @item.BrandName
-                    @if (ProductTypeName.Equals(user))
-                    {
-                        <small>@item.Product.Count</small>
-                    }
-                    else
-                    {
-                        <small>@item.Product.Count(c => c.PRODUCTTYPE.PRODUCTTYPENAME == ProductTypeName.ToString())</small>
-                    }
+                    <small>@item.Product.Count(c => c.PRODUCTTYPE.PRODUCTTYPENAME == ProductTypeName.ToString())</small>
                 </label>
             </div>
         }

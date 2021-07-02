@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TSP_Covid21.Models.BUS;
+using TSP_Covid21.Models.ShopEntity;
 
 namespace TSP_Covid21.Controllers
 {
@@ -40,9 +41,9 @@ namespace TSP_Covid21.Controllers
             var db = new Models.BUS.Product_BUS();
 
             Session["ProductTypeName"] = ProductTypeName;
-       
-            var result = db.loadProduct(1, 9, ProductTypeName);
-           
+
+            var result = db.loadProduct(ProductTypeName);
+
             return View(result);
         }
 
