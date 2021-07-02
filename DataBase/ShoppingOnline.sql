@@ -371,6 +371,37 @@ insert into PRODUCT values (
 	N'Này nghe là thích muốn té xuống ruộng lên nghe tiếp luôn',
 	GETDATE())
 
+insert into PRODUCT values (
+	N'Samsung A02',
+	1,
+	2,
+	'Asset/images/SmartPhone/SamSung/SamsungA02/samsung-a02-1.jpg',
+	'Asset/images/SmartPhone/SamSung/SamsungA02/samsung-a02-2.jpg',
+	'Asset/images/SmartPhone/SamSung/SamsungA02/samsung-a02-3.jpg',
+	'Asset/images/SmartPhone/SamSung/SamsungA02/samsung-a02-4.jpg',
+	'Asset/images/SmartPhone/SamSung/SamsungA02/samsung-a02-5.jpg',
+	1,
+	'2590000',
+	'100',
+	N'Này xài mượt',
+	GETDATE())
+
+
+insert into PRODUCT values (
+	N'Xiaomi Mi 11',
+	3,
+	2,
+	'Asset/images/SmartPhone/Xiaomi/Xiaomi-Mi-11/xiaomi-mi-11-1.jpg',
+	'Asset/images/SmartPhone/Xiaomi/Xiaomi-Mi-11/xiaomi-mi-11-2.jpg',
+	'Asset/images/SmartPhone/Xiaomi/Xiaomi-Mi-11/xiaomi-mi-11-3.jpg',
+	'Asset/images/SmartPhone/Xiaomi/Xiaomi-Mi-11/xiaomi-mi-11-4.jpg',
+	'Asset/images/SmartPhone/Xiaomi/Xiaomi-Mi-11/xiaomi-mi-11-5.jpg',
+	1,
+	'21990000',
+	'100',
+	N'Này xài mượt',
+	GETDATE())
+
 
 go --(CONFIGNAME, DECRIPTIONCONFIGNAME)
 INSERT INTO CONFIG VALUES ('RAM',N'BỘ nhớ đệm')                 --1
