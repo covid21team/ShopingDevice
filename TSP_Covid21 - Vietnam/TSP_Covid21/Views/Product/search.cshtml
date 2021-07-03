@@ -65,54 +65,11 @@
         <div id="responsive-nav">
             <!-- NAV -->
             <ul class="main-nav nav navbar-nav">
-                @if (Session["ProductTypeName"].Equals("SmartPhone"))
-                {
-                    <li class="active"><a href="@Url.Action("Store","Covid21", new { ProductTypeName = "SmartPhone" })"><i class="fa fa-mobile-phone"></i> SmarPhone</a></li>
-                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "Laptop" })"><i class="fa fa-laptop"></i> Laptop</a></li>
-                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "Tablet" })"><i class="fa fa-tablet"></i> Tablet</a></li>
-                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "HeadPhone" })"><i class="fa fa-headphones"></i> Headphone</a></li>
-                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "SmartWatch" })"><i class="fa fa-clock-o"></i> Smartwatch</a></li>
-                }
-                else if (Session["ProductTypeName"].Equals("Laptop"))
-                {
-                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "SmartPhone" })"><i class="fa fa-mobile-phone"></i> SmarPhone</a></li>
-                    <li class="active"><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "Laptop" })"><i class="fa fa-laptop"></i> Laptop</a></li>
-                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "Tablet" })"><i class="fa fa-tablet"></i> Tablet</a></li>
-                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "HeadPhone" })"><i class="fa fa-headphones"></i> Headphone</a></li>
-                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "SmartWatch" })"><i class="fa fa-clock-o"></i> Smartwatch</a></li>
-                }
-                else if (Session["ProductTypeName"].Equals("Tablet"))
-                {
-                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "SmartPhone" })"><i class="fa fa-mobile-phone"></i> SmarPhone</a></li>
-                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "Laptop" })"><i class="fa fa-laptop"></i> Laptop</a></li>
-                    <li class="active"><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "Tablet" })"><i class="fa fa-tablet"></i> Tablet</a></li>
-                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "HeadPhone" })"><i class="fa fa-headphones"></i> Headphone</a></li>
-                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "SmartWatch" })"><i class="fa fa-clock-o"></i> Smartwatch</a></li>
-                }
-                else if (Session["ProductTypeName"].Equals("HeadPhone"))
-                {
-                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "SmartPhone" })"><i class="fa fa-mobile-phone"></i> SmarPhone</a></li>
-                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "Laptop" })"><i class="fa fa-laptop"></i> Laptop</a></li>
-                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "Tablet" })"><i class="fa fa-tablet"></i> Tablet</a></li>
-                    <li class="active"><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "HeadPhone" })"><i class="fa fa-headphones"></i> Headphone</a></li>
-                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "SmartWatch" })"><i class="fa fa-clock-o"></i> Smartwatch</a></li>
-                }
-                else if (Session["ProductTypeName"].Equals("SmartWatch"))
-                {
-                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "SmartPhone" })"><i class="fa fa-mobile-phone"></i> SmarPhone</a></li>
-                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "Laptop" })"><i class="fa fa-laptop"></i> Laptop</a></li>
-                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "Tablet" })"><i class="fa fa-tablet"></i> Tablet</a></li>
-                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "HeadPhone" })"><i class="fa fa-headphones"></i> Headphone</a></li>
-                    <li class="active"><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "SmartWatch" })"><i class="fa fa-clock-o"></i> Smartwatch</a></li>
-                }
-                else
-                {
                     <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "SmartPhone" })"><i class="fa fa-mobile-phone"></i> SmarPhone</a></li>
                     <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "Laptop" })"><i class="fa fa-laptop"></i> Laptop</a></li>
                     <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "Tablet" })"><i class="fa fa-tablet"></i> Tablet</a></li>
                     <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "HeadPhone" })"><i class="fa fa-headphones"></i> Headphone</a></li>
                     <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "SmartWatch" })"><i class="fa fa-clock-o"></i> Smartwatch</a></li>
-                }
             </ul>
             <!-- /NAV -->
         </div>
@@ -130,30 +87,9 @@
             <div class="col-md-12">
                 <ul class="breadcrumb-tree">
                     <li><a href="@Url.Action("Home","Covid21")">Home</a></li>
-                    @if (Session["ProductTypeName"].Equals("SmartPhone"))
-                    {
-                        <li class="active">Smartphone</li>
-                    }
-                    else if (Session["ProductTypeName"].Equals("Laptop"))
-                    {
-                        <li class="active">Laptop</li>
-                    }
-                    else if (Session["ProductTypeName"].Equals("Tablet"))
-                    {
-                        <li class="active">Tablet</li>
-                    }
-                    else if (Session["ProductTypeName"].Equals("HeadPhone"))
-                    {
-                        <li class="active">HeadPhone</li>
-                    }
-                    else if (Session["ProductTypeName"].Equals("SmartWatch"))
-                    {
-                        <li class="active">SmartWatch</li>
-                    }
-                    else
-                    {
-                        <li class="active">Your Wishlist</li>
-                    }
+
+                        <li class="active">Your Search</li>
+
                 </ul>
             </div>
         </div>
@@ -265,6 +201,14 @@
                 <!-- store products --> <!--Show sản phẩm và giảm giá-->
                 <div class="row" id="listProduct">
                     <!-- product -->
+
+                    @if (Model.Count() == 0)
+                    {
+                        <div class="col-md-4 col-xs-6" style="margin-left: 42%;">
+                            (Không có sản phẩm)
+                        </div>
+                    }
+
 
                     @foreach (var item in Model)
                     {

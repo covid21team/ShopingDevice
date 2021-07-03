@@ -206,7 +206,8 @@
                     <!-- SEARCH BAR -->
                     <div class="col-md-6">
                         <div class="header-search">
-                            <form>
+                            @using (Html.BeginForm("search", "Product"))
+                            {
                                 <select class="input-select">
                                     <option value="0">Tất cả thể loại</option>
                                     <option value="1">Điện thoại</option>
@@ -217,9 +218,9 @@
                                 </select>
 
                                 <input name="key" id="key" class="input" placeholder="Tìm kiếm ở đây">
-                                <button class="search-btn" id="btn_Search"><a href="@Url.Action("search", "Product")">Tìm kiếm</a></button>
-
-                            </form>
+                                <button class="search-btn" id="btn_Search">Tìm kiếm</button>
+                            }
+         
                         </div>
                     </div>
 
