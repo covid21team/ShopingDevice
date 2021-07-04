@@ -1,0 +1,62 @@
+﻿<!--
+    ➠ Hiện danh sách cấu hình của sản phẩm    ✔
+
+    ❦ Nơi sử dụng:
+        ☞ Form Categories ➧ thuộc Control Covid21
+-->
+
+@model IEnumerable<TSP_Covid21.Models.ShopEntity.CONFIGDETAIL>
+
+<style>
+    table {
+        width: 400px;
+        margin: 0 auto;
+    
+        height: 10px;
+        overflow-y: scroll;
+    }
+
+    th {
+        position: sticky;
+        top: 0px;
+        text-align: center;
+        background: #CCCCCC;
+    }
+
+    th {
+        line-height: 25px;
+    }
+
+    .config_product {
+        width: 150px;
+        border-right: 3px solid #BBBBBB;
+    }
+
+    td {
+        text-align: left;
+        padding-left: 15px;
+    }
+</style>
+
+<div id="tab2" class="tab-pane fade in">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="table-1" style="height: 450px; background: #EEEEEE;overflow-y: scroll">
+                <table>
+                    <tr>
+                        <th class="config_product">TÊN CẤU HÌNH</th>
+                        <th>THÔNG TIN</th>
+                    </tr>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td class="config_product">@item.CONFIG.DECRIPTIONCONFIGNAME</td>
+                            <td class="config_inf">@item.INFORMATION</td>
+                        </tr>
+                    }
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
