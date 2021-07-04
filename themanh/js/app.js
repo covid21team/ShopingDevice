@@ -7,7 +7,7 @@ $(function() {
         var z = 0
         if (getAttr == 'type1') {
 
-            $('#media-list').html('');
+            //$('#media-list').html('');
             $('#media-list').html('<li class="myupload"><span><i class="fa fa-plus" aria-hidden="true"></i><input type="file" click-type="type2" id="picupload" class="picupload" multiple accept="image/*"></span></li>');
             $('#hint_brand').modal('show');
 
@@ -22,13 +22,13 @@ $(function() {
 
                         var div = document.createElement("li");
 
-
+                        
                         div.innerHTML = "<img src='" + picFile.result + "'" +
                             "title='" + picFile.name + "'/><div  class='post-thumb'><div class='inner-post-thumb'><a href='javascript:void(0);' data-id='" + event.target.fileName + "' class='remove-pic'><i class='fa fa-times' aria-hidden='true'></i></a><div></div>";
 
                         $("#media-list").prepend(div);
-
-
+                        //hiện tên hình
+                        alert(picFile.fileName);
                     });
                 } 
                 picReader.readAsDataURL(file);
