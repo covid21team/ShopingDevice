@@ -62,75 +62,6 @@ namespace TSP_Covid21.Controllers
             return PB.ReviewRatingOfUser(user, productId);
         }
 
-        /*List<Employee> listEmployee = new List<Employee>()
-        {
-            new Employee()
-            {
-                ID = 1,
-                Name = "hlhl",
-                Salary = 2000,
-                Status = true
-            },
-            new Employee()
-            {
-                ID = 2,
-                Name = "hihi",
-                Salary = 2000,
-                Status = true
-            },
-            new Employee()
-            {
-                ID = 3,
-                Name = "bgbg",
-                Salary = 2000,
-                Status = true
-            },
-            new Employee()
-            {
-                ID = 4,
-                Name = "hkhk",
-                Salary = 2000,
-                Status = true
-            },
-            new Employee()
-            {
-                ID = 5,
-                Name = "haha",
-                Salary = 2000,
-                Status = true
-            },
-            new Employee()
-            {
-                ID = 6,
-                Name = "huhu",
-                Salary = 2000,
-                Status = true
-            },
-            new Employee()
-            {
-                ID = 7,
-                Name = "ssww",
-                Salary = 2000,
-                Status = true
-            },
-            new Employee()
-            {
-                ID = 8,
-                Name = "hyhy",
-                Salary = 2000,
-                Status = true
-            },
-        };*/
-
-        /* [HttpGet]
-         public JsonResult testJson()
-         {
-             List<COMMENT> test = PB.testJson();
-             return Json(new {
-                 data = test,
-             },JsonRequestBehavior.AllowGet);
-         }*/
-
         // Tải 4 sản phẩm liên quan đến sản phẩm đang xem 
         public IEnumerable<PRODUCT> loadRelatedProduct(int productTypeId, int brandId)
         {
@@ -254,9 +185,8 @@ namespace TSP_Covid21.Controllers
 
         //productTypeName ở đây 
         [HttpPost]
-        public ActionResult search()
+        public ActionResult search(string key)
         {
-            string key = " Điện thoại";
             Session["ProductTypeName"] = "All";
             var result = PB.search(key);
 

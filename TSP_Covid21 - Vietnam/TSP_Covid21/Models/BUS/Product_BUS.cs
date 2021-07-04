@@ -369,7 +369,7 @@ namespace TSP_Covid21.Models.BUS
 
             if(key != null)
             {
-                result = result.Where(p => p.PRODUCTNAME.Contains(key)).ToList();
+                result = result.Where(p => p.PRODUCTNAME.ToUpper().Contains(key.ToUpper())).ToList();
             }
 
             return result;
