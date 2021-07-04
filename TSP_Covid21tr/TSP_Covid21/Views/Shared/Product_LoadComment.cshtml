@@ -1,0 +1,174 @@
+﻿<!--
+    ➠ Hiện danh sách comment của sản phẩm     ✔
+
+    ❦ Nơi sử dụng:
+        ☞ Form Product ➧ thuộc Control Covid21
+
+    ✹ Một số form share
+        ➽ Product_ReviewRatingOfUser
+-->
+
+@model IEnumerable<TSP_Covid21.Models.ShopEntity.COMMENT>
+
+@{
+    TSP_Covid21.Controllers.ProductController PC = new TSP_Covid21.Controllers.ProductController();
+
+    var productId = ViewData["productId"];
+}
+
+@{
+    var quantity = Model.Count(); //số lượng comment của product
+    float page = 3; // số lượng comment hiện trên 1 trang
+    var pageIndex = Math.Ceiling(quantity / page); //số trang command
+
+    float pageAppear = 10; // số lượng trang được hiện
+}
+
+
+<div id="reviews">
+    <ul class="reviews" id="comment_Product" style="height: 270px">
+
+        @foreach (var item in Model)
+        {
+            <li class="comments_product" style="display: none">
+                <div class="review-heading">
+                    <h5 class="name" style="width: 120%">@item.ACCOUNT.FULLNAME</h5>
+                    <p class="date">@item.DATECOMMENT</p>
+                    <div class="review-rating">
+
+                        <!--Review rating of user-->
+                        @Html.Partial("Product_ReviewRatingOfUser", PC.ReviewRatingOfUser(item.USER, Convert.ToInt32(item.PRODUCTID)))
+
+                    </div>
+                </div>
+                <div class="review-body">
+                    <p>@item.COMMENTTEXT</p>
+                </div>
+            </li>
+        }
+
+    </ul>
+    <ul class="reviews-pagination">
+        <li class="btn_first" style="text-decoration: none; border: none"><i class="fas fa-angle-double-left"></i></li>
+        <li class="btn_back" style="text-decoration: none; border: none"><a><i class="fas fa-angle-left"></i></a></li>
+        @for (int i = 1; i <= pageIndex; i++)
+        {
+            <li class="btn_page" style="border-radius: 10px; border: 2px solid white; text-decoration: none; display:none"><a><b>@i</b></a></li>
+        }
+        <li class="btn_next" style="text-decoration: none; border: none"><a><i class="fas fa-angle-right"></i></li>
+        <li class="btn_last" style="text-decoration: none; border: none"><i class="fas fa-angle-double-right"></i></li>
+    </ul>
+</div>
+
+<script src="~/Asset/JS/Loadmore/jquery-latest.min.js"></script>
+<!-- Phân trang danh sách command -->
+<script>
+    var number = 1;
+    var comment = document.getElementsByClassName('btn_page');
+
+    $('.btn_page').click(function () {
+        unappear();
+        $(this).css({ "border-color": "#D10024" });
+        number = $(this).children().text();
+        var end = (number *@page);
+        var start = end -@page;
+        $('.comments_product').slice(0, @quantity).hide();
+        $('.comments_product').slice(start, end).show();
+    });
+
+    var startRange = 1;
+    var endRange = @pageAppear;
+
+    $('.btn_back').click(function () {
+        if (number > 1) {
+            number--;
+            unappear();
+            appear();
+            var end = (number *@page);
+            var start = end -@page;
+
+            $('.comments_product').slice(0, @quantity).hide();
+            $('.comments_product').slice(start, end).show();
+        }
+        //khi con số trang comment được chọn bé hơn nhưng con số đang hiện thì sẽ đổi những con số đang hiên
+        if (number <= startRange) {
+            $('.btn_page').slice(0, @pageIndex).hide();
+            $('.btn_page').slice(number-1, number + @pageAppear-1).show();
+            startRange = number-1;
+            endRange = number + @pageAppear-1;
+        }
+    });
+
+    $(".btn_next").click(function () {
+        if (number < @pageIndex) {
+            number++;
+            unappear();
+            appear();
+            var end = (number *@page);
+            var start = end -@page;
+
+            $('.comments_product').slice(0, @quantity).hide();
+            $('.comments_product').slice(start, end).show();
+        }
+         //khi con số trang comment được chọn lớn hơn nhưng con số đang hiện thì sẽ đổi những con số đang hiên
+        if (number > endRange) {
+            $('.btn_page').slice(0, @pageIndex).hide();
+            $('.btn_page').slice(number - @pageAppear, number).show();
+            startRange = number - @pageAppear;
+            endRange = number;
+        }
+    });
+
+    // Khi bấm vào First sẽ đến trang đầu tiên
+    $('.btn_first').click(function () {
+        number = 1;
+        startRange = 1;
+        endRange = @pageAppear;
+
+        unappear();
+        appear();
+        $('.btn_page').slice(0, @pageIndex).hide();
+        $('.btn_page').slice(number - 1, number + @pageAppear-1).show();
+        var end = (number *@page);
+        var start = end -@page;
+
+        $('.comments_product').slice(0, @quantity).hide();
+        $('.comments_product').slice(start, end).show();
+    });
+
+    // Khi bấm vào Last sẽ đến trang cuối cùng
+    $('.btn_last').click(function () {
+        number = @pageIndex;
+        startRange = @pageIndex - @pageAppear;
+        endRange = @pageAppear;
+
+        unappear();
+        appear();
+        $('.btn_page').slice(0, @pageIndex).hide();
+        $('.btn_page').slice(number - @pageAppear, number).show();
+        var end = (number *@page);
+        var start = end -@page;
+
+        $('.comments_product').slice(0, @quantity).hide();
+        $('.comments_product').slice(start, end).show();
+    });
+
+    // cho tất cả các nút trong dãy tở về mặc định
+    function unappear() {
+        var i = 0;
+        $('.comments_product').each(function () {
+            $(comment[i]).css({ "border-color": "white" });
+            i++;
+        });
+    }
+
+    //Cho nút vừa lựa chọn có viền màu đỏ
+    function appear() {
+        $(comment[number - 1]).css({ "border-color": "#D10024" });
+    }
+
+    $(comment[0]).css({ "border-color": "#D10024" });
+    $('.comments_product').slice(0, @page).show();
+    $('.btn_page').slice(0, @pageAppear).show();
+</script>
+
