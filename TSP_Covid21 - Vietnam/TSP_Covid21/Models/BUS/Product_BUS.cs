@@ -26,21 +26,21 @@ namespace TSP_Covid21.Models.BUS
         public IEnumerable<PRODUCT> loadProductNew()
         {
             var date = DateTime.Now;
-            var result = db.PRODUCTs.OrderByDescending(t => t.DATEADD).Take(5);
+            var result = db.PRODUCTs.Where(p => p.STATUSPRODUCT == true).OrderByDescending(t => t.DATEADD).Take(5);
             return result;
         }
 
         // Load product top sale
         public IEnumerable<PRODUCT> loadProductTop()
         {
-            var result = db.PRODUCTs.OrderByDescending(t => t.PRODUCTID).Take(5);
+            var result = db.PRODUCTs.Where(p => p.STATUSPRODUCT == true).OrderByDescending(t => t.PRODUCTID).Take(5);
             return result;
         }
 
         // Load product top sale at page product
         public IEnumerable<PRODUCT> loadProductTop_Product(int page, int pagesize)
         {
-            var result = db.PRODUCTs.OrderByDescending(t => t.PRODUCTID).Take(18);
+            var result = db.PRODUCTs.Where(p => p.STATUSPRODUCT == true).OrderByDescending(t => t.PRODUCTID).Take(18);
             return result.ToPagedList(page, pagesize);
         }
 
@@ -49,7 +49,7 @@ namespace TSP_Covid21.Models.BUS
         {
             var result = from c in db.PRODUCTs
                          orderby (c.PRODUCTTYPE.PRODUCTTYPENAME)
-                         where c.PRODUCTTYPE.PRODUCTTYPENAME == "SmartPhone"
+                         where c.PRODUCTTYPE.PRODUCTTYPENAME == "SmartPhone" & c.STATUSPRODUCT == true
                          select c;
 
             return result;
@@ -60,7 +60,7 @@ namespace TSP_Covid21.Models.BUS
         {
             var result = from c in db.PRODUCTs
                          orderby (c.PRODUCTTYPE.PRODUCTTYPENAME)
-                         where c.PRODUCTTYPE.PRODUCTTYPENAME == "SmartWatch"
+                         where c.PRODUCTTYPE.PRODUCTTYPENAME == "SmartWatch" & c.STATUSPRODUCT == true
                          select c;
 
             return result;
@@ -71,7 +71,7 @@ namespace TSP_Covid21.Models.BUS
         {
             var result = from c in db.PRODUCTs
                          orderby (c.PRODUCTTYPE.PRODUCTTYPENAME)
-                         where c.PRODUCTTYPE.PRODUCTTYPENAME == "Laptop"
+                         where c.PRODUCTTYPE.PRODUCTTYPENAME == "Laptop" & c.STATUSPRODUCT == true
                          select c;
 
             return result;
@@ -80,7 +80,7 @@ namespace TSP_Covid21.Models.BUS
         // Load product for product page
         public IEnumerable<PRODUCT> loadProduct(string productTypeName)
         {           
-            var result = db.PRODUCTs.Where(p => p.PRODUCTTYPE.PRODUCTTYPENAME == productTypeName);  
+            var result = db.PRODUCTs.Where(p => p.PRODUCTTYPE.PRODUCTTYPENAME == productTypeName & p.STATUSPRODUCT == true);  
 
             return result;
         }
@@ -99,8 +99,8 @@ namespace TSP_Covid21.Models.BUS
         {
             var list = from a in db.PRODUCTs
                        join b in db.ACCOUNTLIKEs
-    on a.PRODUCTID equals b.PRODUCTID
-                       where b.USER == user
+                       on a.PRODUCTID equals b.PRODUCTID
+                       where b.USER == user & a.STATUSPRODUCT == true
                        select new ProductViewModel
                        {
                            ProductId = a.PRODUCTID,
@@ -129,7 +129,7 @@ namespace TSP_Covid21.Models.BUS
             var list = from a in db.PRODUCTs
                        join b in db.CARTs
                         on a.PRODUCTID equals b.PRODUCTID
-                       where b.USER == user
+                       where b.USER == user & a.STATUSPRODUCT == true
                        select new ProductOfCartViewModel
                        {
                            ProductId = a.PRODUCTID,
@@ -166,7 +166,7 @@ namespace TSP_Covid21.Models.BUS
         // Load list product in cart
         public IEnumerable<CART> loadCart(string user)
         {
-            var list = db.CARTs.Where(c => c.USER == user);
+            var list = db.CARTs.Where(c => c.USER == user & c.PRODUCT.STATUSPRODUCT == true);
             return list;
         }
 
@@ -176,7 +176,7 @@ namespace TSP_Covid21.Models.BUS
             var result = from a in db.TEMPPRODUCTs
                          join b in db.PRODUCTTYPEs
                          on a.PRODUCTTYPEID equals b.PRODUCTTYPEID
-                         where b.PRODUCTTYPENAME == ProductTypeName
+                         where b.PRODUCTTYPENAME == ProductTypeName 
                          select new BrandViewModel
                          {
                              BrandId = a.BRANDID,

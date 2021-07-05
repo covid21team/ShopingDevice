@@ -52,8 +52,9 @@
         <h3 class="product-name"><a href="@Url.Action("Product","Covid21",new { productId = Model.PRODUCTID})">@Model.PRODUCTNAME</a></h3>
         @{
             var temp = String.Format("{0:#,##0.##}", Model.PRODUCTPRICE);
+            temp += "đ";
         }
-        <h4 class="product-price">@temp VNĐ </h4>
+        <h4 class="product-price">@temp</h4>
 
         <!-- rating product-->
         @Html.Partial("Public_RatingProduct", PC.loadRatingProduct(Model.PRODUCTID))
