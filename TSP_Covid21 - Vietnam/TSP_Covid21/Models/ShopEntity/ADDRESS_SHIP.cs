@@ -12,22 +12,26 @@ namespace TSP_Covid21.Models.ShopEntity
     using System;
     using System.Collections.Generic;
     
-    public partial class VOUCHER
+    public partial class ADDRESS_SHIP
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public VOUCHER()
+        public ADDRESS_SHIP()
         {
-            this.VOCHERDETAILs = new HashSet<VOCHERDETAIL>();
             this.BILLs = new HashSet<BILL>();
         }
     
-        public int VOUCHERID { get; set; }
-        public string DECRIPTIONVOUCHER { get; set; }
-        public Nullable<System.DateTime> DATEENDTIRE { get; set; }
-        public Nullable<bool> STATUSVOUCHER { get; set; }
+        public int ADDRESSID { get; set; }
+        public string USER { get; set; }
+        public string FULLNAME { get; set; }
+        public string PHONE { get; set; }
+        public string CITY { get; set; }
+        public string DISTRICT { get; set; }
+        public string WARDS { get; set; }
+        public string ADDRESS { get; set; }
+        public Nullable<bool> DEFAULT { get; set; }
+        public Nullable<bool> ADDRESS_STATUS { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<VOCHERDETAIL> VOCHERDETAILs { get; set; }
+        public virtual ACCOUNT ACCOUNT { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BILL> BILLs { get; set; }
     }

@@ -18,6 +18,7 @@ namespace TSP_Covid21.Models.ShopEntity
         public ACCOUNT()
         {
             this.ACCOUNTLIKEs = new HashSet<ACCOUNTLIKE>();
+            this.ADDRESS_SHIP = new HashSet<ADDRESS_SHIP>();
             this.CARTs = new HashSet<CART>();
             this.COMMENTs = new HashSet<COMMENT>();
             this.RATINGPRODUCTs = new HashSet<RATINGPRODUCT>();
@@ -32,9 +33,12 @@ namespace TSP_Covid21.Models.ShopEntity
         public Nullable<System.DateTime> DATAOFBIRTH { get; set; }
         public Nullable<bool> STATUSACCOUNT { get; set; }
         public string PHONENUMBER { get; set; }
+        public string EMAIL { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ACCOUNTLIKE> ACCOUNTLIKEs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ADDRESS_SHIP> ADDRESS_SHIP { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CART> CARTs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

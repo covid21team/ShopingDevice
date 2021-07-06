@@ -26,7 +26,7 @@
 
     ⛱ Form có thể đến
         ➣ Home
-        ➣ Categories
+        ➣ Favourite
         ➣ Cart
 
     ☯ Key Session
@@ -71,6 +71,8 @@
     <link rel="stylesheet" href="~/Asset/css/Signin.css">
 
     <link rel="stylesheet" href="~/Asset/css/banchonuser.css">
+
+    <link href="~/Asset/css/thongtincanhan.css" rel="stylesheet" />
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -150,7 +152,7 @@
                                                 </a>
                                             </li>
                                             <li class="setting-item">
-                                                <a href="#">
+                                                <a href="@Url.Action("Personal","Covid21",new { user = Session["user"]})">
                                                     <div class="icon1">
                                                         <span class="fas fa-cog"></span>
                                                     </div>
@@ -220,7 +222,7 @@
                                 <input name="key" id="key" class="input" placeholder="Tìm kiếm ở đây">
                                 <button class="search-btn" id="btn_Search">Tìm kiếm</button>
                             }
-         
+
                         </div>
                     </div>
 
@@ -385,7 +387,7 @@
                                 {
                                     <li><a href="@Url.Action("Cart","Covid21",new { user = Session["user"]})">Giỏ hàng</a></li>
 
-                                    <li><a href="@Url.Action("Categories","Covid21",new { ProductTypeName = Session["user"] })">Yêu thích</a></li>
+                                    <li><a href="@Url.Action("Favourite","Covid21",new { user = Session["user"] })">Yêu thích</a></li>
                                 }
                                 <li><a href="#">Track My Order</a></li>
                                 <li><a href="#">Help</a></li>
@@ -442,6 +444,7 @@
 <script src="~/Asset/js/CountDownTimer.js"></script>
 <script src="~/Asset/js/cart.js"></script>
 <script src="~/Asset/js/Login.js"></script>
+<script src="~/Asset/JS/personal-information.js"></script>
 
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/f20d460fd9.js" crossorigin="anonymous"></script>

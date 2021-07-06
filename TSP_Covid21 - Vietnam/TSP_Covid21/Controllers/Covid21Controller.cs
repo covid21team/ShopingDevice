@@ -13,10 +13,12 @@ namespace TSP_Covid21.Controllers
         // GET: Covid21
 
         Product_BUS PB;
+        Account_BUS AB;
 
         public Covid21Controller()
         {
             PB = new Product_BUS();
+            AB = new Account_BUS();
         }
 
         public ActionResult Home()
@@ -69,6 +71,10 @@ namespace TSP_Covid21.Controllers
             var db = new Product_BUS();
 
             var result = db.productDetail(productId);
+            if(Session["user"] != null)
+            {
+                db.insertView(productId, Session["user"].ToString());
+            }
             return View(result);
         }
 
@@ -85,6 +91,30 @@ namespace TSP_Covid21.Controllers
         {
             var db = new Product_BUS();
             var result = db.loadProductCheckout(user);
+
+            return View(result);
+        }
+
+        public ActionResult Personal(string user)
+        {
+            var db = new Account_BUS();
+            ACCOUNT result = db.account(user);
+
+            return View(result);
+        }
+
+        public ActionResult View(string user)
+        {
+            var db = new Account_BUS();
+            var result = db.view(user);
+
+            return View(result);
+        }
+
+        public ActionResult Rating(string user)
+        {
+            var db = new Account_BUS();
+            var result = db.rating(user);
 
             return View(result);
         }

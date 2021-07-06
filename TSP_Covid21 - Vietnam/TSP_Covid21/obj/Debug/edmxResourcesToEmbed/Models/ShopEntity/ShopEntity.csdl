@@ -1,28 +1,154 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="COVIDModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CONFIG">
+    <Key>
+      <PropertyRef Name="CONFIGNAME" />
+    </Key>
+    <Property Name="CONFIGNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DECRIPTIONCONFIGNAME" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CONFIGDETAILs" Relationship="COVIDModel.FK__CONFIGDET__CONFI__35BCFE0A" FromRole="CONFIG" ToRole="CONFIGDETAIL" />
+  </EntityType>
+  <EntityContainer Name="COVIDEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CONFIGs" EntityType="Self.CONFIG" />
+    <FunctionImport Name="CheckLogin" ReturnType="Collection(String)">
+      <Parameter Name="username" Mode="In" Type="String" />
+      <Parameter Name="password" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="ACCOUNTs" EntityType="COVIDModel.ACCOUNT" />
+    <EntitySet Name="ACCOUNT_ADMIN" EntityType="COVIDModel.ACCOUNT_ADMIN" />
+    <EntitySet Name="ACCOUNTLIKEs" EntityType="COVIDModel.ACCOUNTLIKE" />
+    <EntitySet Name="ADDRESS_SHIP" EntityType="COVIDModel.ADDRESS_SHIP" />
+    <EntitySet Name="BILLDETAILs" EntityType="COVIDModel.BILLDETAIL" />
+    <EntitySet Name="BRANDs" EntityType="COVIDModel.BRAND" />
+    <EntitySet Name="CARTs" EntityType="COVIDModel.CART" />
+    <EntitySet Name="COMMENTs" EntityType="COVIDModel.COMMENT" />
+    <EntitySet Name="CONFIGDETAILs" EntityType="COVIDModel.CONFIGDETAIL" />
+    <EntitySet Name="PRODUCTs" EntityType="COVIDModel.PRODUCT" />
+    <EntitySet Name="PRODUCTTYPEs" EntityType="COVIDModel.PRODUCTTYPE" />
+    <EntitySet Name="RATINGPRODUCTs" EntityType="COVIDModel.RATINGPRODUCT" />
+    <EntitySet Name="TEMPPRODUCTs" EntityType="COVIDModel.TEMPPRODUCT" />
+    <EntitySet Name="VIEWNUMBERs" EntityType="COVIDModel.VIEWNUMBER" />
+    <EntitySet Name="VOCHERDETAILs" EntityType="COVIDModel.VOCHERDETAIL" />
+    <EntitySet Name="VOUCHERs" EntityType="COVIDModel.VOUCHER" />
+    <AssociationSet Name="FK__ACCOUNTLIK__USER__4F7CD00D" Association="COVIDModel.FK__ACCOUNTLIK__USER__4F7CD00D">
+      <End Role="ACCOUNT" EntitySet="ACCOUNTs" />
+      <End Role="ACCOUNTLIKE" EntitySet="ACCOUNTLIKEs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ADDRESS_SH__USER__3E52440B" Association="COVIDModel.FK__ADDRESS_SH__USER__3E52440B">
+      <End Role="ACCOUNT" EntitySet="ACCOUNTs" />
+      <End Role="ADDRESS_SHIP" EntitySet="ADDRESS_SHIP" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CART__USER__534D60F1" Association="COVIDModel.FK__CART__USER__534D60F1">
+      <End Role="ACCOUNT" EntitySet="ACCOUNTs" />
+      <End Role="CART" EntitySet="CARTs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__COMMENT__USER__4BAC3F29" Association="COVIDModel.FK__COMMENT__USER__4BAC3F29">
+      <End Role="ACCOUNT" EntitySet="ACCOUNTs" />
+      <End Role="COMMENT" EntitySet="COMMENTs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RATINGPROD__USER__44FF419A" Association="COVIDModel.FK__RATINGPROD__USER__44FF419A">
+      <End Role="ACCOUNT" EntitySet="ACCOUNTs" />
+      <End Role="RATINGPRODUCT" EntitySet="RATINGPRODUCTs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__VIEWNUMBER__USER__412EB0B6" Association="COVIDModel.FK__VIEWNUMBER__USER__412EB0B6">
+      <End Role="ACCOUNT" EntitySet="ACCOUNTs" />
+      <End Role="VIEWNUMBER" EntitySet="VIEWNUMBERs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__VOCHERDETA__USER__60A75C0F" Association="COVIDModel.FK__VOCHERDETA__USER__60A75C0F">
+      <End Role="ACCOUNT" EntitySet="ACCOUNTs" />
+      <End Role="VOCHERDETAIL" EntitySet="VOCHERDETAILs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ACCOUNTLI__PRODU__5070F446" Association="COVIDModel.FK__ACCOUNTLI__PRODU__5070F446">
+      <End Role="PRODUCT" EntitySet="PRODUCTs" />
+      <End Role="ACCOUNTLIKE" EntitySet="ACCOUNTLIKEs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BILLDETAI__PRODU__6477ECF3" Association="COVIDModel.FK__BILLDETAI__PRODU__6477ECF3">
+      <End Role="PRODUCT" EntitySet="PRODUCTs" />
+      <End Role="BILLDETAIL" EntitySet="BILLDETAILs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PRODUCT__BRANDID__2F10007B" Association="COVIDModel.FK__PRODUCT__BRANDID__2F10007B">
+      <End Role="BRAND" EntitySet="BRANDs" />
+      <End Role="PRODUCT" EntitySet="PRODUCTs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TEMPPRODU__BRAND__2A4B4B5E" Association="COVIDModel.FK__TEMPPRODU__BRAND__2A4B4B5E">
+      <End Role="BRAND" EntitySet="BRANDs" />
+      <End Role="TEMPPRODUCT" EntitySet="TEMPPRODUCTs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CART__PRODUCTID__5441852A" Association="COVIDModel.FK__CART__PRODUCTID__5441852A">
+      <End Role="PRODUCT" EntitySet="PRODUCTs" />
+      <End Role="CART" EntitySet="CARTs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__COMMENT__PRODUCT__4CA06362" Association="COVIDModel.FK__COMMENT__PRODUCT__4CA06362">
+      <End Role="PRODUCT" EntitySet="PRODUCTs" />
+      <End Role="COMMENT" EntitySet="COMMENTs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CONFIGDET__CONFI__35BCFE0A" Association="COVIDModel.FK__CONFIGDET__CONFI__35BCFE0A">
+      <End Role="CONFIG" EntitySet="CONFIGs" />
+      <End Role="CONFIGDETAIL" EntitySet="CONFIGDETAILs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CONFIGDET__PRODU__34C8D9D1" Association="COVIDModel.FK__CONFIGDET__PRODU__34C8D9D1">
+      <End Role="PRODUCT" EntitySet="PRODUCTs" />
+      <End Role="CONFIGDETAIL" EntitySet="CONFIGDETAILs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PRODUCT__PRODUCT__300424B4" Association="COVIDModel.FK__PRODUCT__PRODUCT__300424B4">
+      <End Role="PRODUCTTYPE" EntitySet="PRODUCTTYPEs" />
+      <End Role="PRODUCT" EntitySet="PRODUCTs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RATINGPRO__PRODU__45F365D3" Association="COVIDModel.FK__RATINGPRO__PRODU__45F365D3">
+      <End Role="PRODUCT" EntitySet="PRODUCTs" />
+      <End Role="RATINGPRODUCT" EntitySet="RATINGPRODUCTs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__VIEWNUMBE__PRODU__4222D4EF" Association="COVIDModel.FK__VIEWNUMBE__PRODU__4222D4EF">
+      <End Role="PRODUCT" EntitySet="PRODUCTs" />
+      <End Role="VIEWNUMBER" EntitySet="VIEWNUMBERs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TEMPPRODU__PRODU__2B3F6F97" Association="COVIDModel.FK__TEMPPRODU__PRODU__2B3F6F97">
+      <End Role="PRODUCTTYPE" EntitySet="PRODUCTTYPEs" />
+      <End Role="TEMPPRODUCT" EntitySet="TEMPPRODUCTs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__VOCHERDET__VOUCH__5FB337D6" Association="COVIDModel.FK__VOCHERDET__VOUCH__5FB337D6">
+      <End Role="VOUCHER" EntitySet="VOUCHERs" />
+      <End Role="VOCHERDETAIL" EntitySet="VOCHERDETAILs" />
+    </AssociationSet>
+    <EntitySet Name="BILLs" EntityType="COVIDModel.BILL" />
+    <AssociationSet Name="FK__BILL__ADDRESSID__5CD6CB2B" Association="COVIDModel.FK__BILL__ADDRESSID__5CD6CB2B">
+      <End Role="ADDRESS_SHIP" EntitySet="ADDRESS_SHIP" />
+      <End Role="BILL" EntitySet="BILLs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BILL__VOUCHERID__5BE2A6F2" Association="COVIDModel.FK__BILL__VOUCHERID__5BE2A6F2">
+      <End Role="VOUCHER" EntitySet="VOUCHERs" />
+      <End Role="BILL" EntitySet="BILLs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BILLDETAI__BILLI__6383C8BA" Association="COVIDModel.FK__BILLDETAI__BILLI__6383C8BA">
+      <End Role="BILL" EntitySet="BILLs" />
+      <End Role="BILLDETAIL" EntitySet="BILLDETAILs" />
+    </AssociationSet>
+  </EntityContainer>
   <EntityType Name="ACCOUNT">
     <Key>
       <PropertyRef Name="USER" />
     </Key>
-    <Property Name="USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="USER" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
     <Property Name="PASSWORD" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
     <Property Name="FULLNAME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="SEX" Type="Boolean" />
     <Property Name="DATAOFBIRTH" Type="DateTime" Precision="0" />
     <Property Name="STATUSACCOUNT" Type="Boolean" />
     <Property Name="PHONENUMBER" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="ACCOUNTLIKEs" Relationship="Self.FK__ACCOUNTLIK__USER__4BAC3F29" FromRole="ACCOUNT" ToRole="ACCOUNTLIKE" />
-    <NavigationProperty Name="CARTs" Relationship="Self.FK__CART__USER__4F7CD00D" FromRole="ACCOUNT" ToRole="CART" />
-    <NavigationProperty Name="COMMENTs" Relationship="Self.FK__COMMENT__USER__47DBAE45" FromRole="ACCOUNT" ToRole="COMMENT" />
-    <NavigationProperty Name="RATINGPRODUCTs" Relationship="Self.FK__RATINGPROD__USER__412EB0B6" FromRole="ACCOUNT" ToRole="RATINGPRODUCT" />
-    <NavigationProperty Name="VIEWNUMBERs" Relationship="Self.FK__VIEWNUMBER__USER__3D5E1FD2" FromRole="ACCOUNT" ToRole="VIEWNUMBER" />
-    <NavigationProperty Name="VOCHERDETAILs" Relationship="Self.FK__VOCHERDETA__USER__5BE2A6F2" FromRole="ACCOUNT" ToRole="VOCHERDETAIL" />
+    <Property Name="EMAIL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ACCOUNTLIKEs" Relationship="COVIDModel.FK__ACCOUNTLIK__USER__4F7CD00D" FromRole="ACCOUNT" ToRole="ACCOUNTLIKE" />
+    <NavigationProperty Name="ADDRESS_SHIP" Relationship="COVIDModel.FK__ADDRESS_SH__USER__3E52440B" FromRole="ACCOUNT" ToRole="ADDRESS_SHIP" />
+    <NavigationProperty Name="CARTs" Relationship="COVIDModel.FK__CART__USER__534D60F1" FromRole="ACCOUNT" ToRole="CART" />
+    <NavigationProperty Name="COMMENTs" Relationship="COVIDModel.FK__COMMENT__USER__4BAC3F29" FromRole="ACCOUNT" ToRole="COMMENT" />
+    <NavigationProperty Name="RATINGPRODUCTs" Relationship="COVIDModel.FK__RATINGPROD__USER__44FF419A" FromRole="ACCOUNT" ToRole="RATINGPRODUCT" />
+    <NavigationProperty Name="VIEWNUMBERs" Relationship="COVIDModel.FK__VIEWNUMBER__USER__412EB0B6" FromRole="ACCOUNT" ToRole="VIEWNUMBER" />
+    <NavigationProperty Name="VOCHERDETAILs" Relationship="COVIDModel.FK__VOCHERDETA__USER__60A75C0F" FromRole="ACCOUNT" ToRole="VOCHERDETAIL" />
   </EntityType>
   <EntityType Name="ACCOUNT_ADMIN">
     <Key>
       <PropertyRef Name="USER" />
     </Key>
-    <Property Name="USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="USER" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
     <Property Name="PASSWORD" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
     <Property Name="FULLNAME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="STATUSACCOUNT" Type="Boolean" />
@@ -32,24 +158,28 @@
       <PropertyRef Name="USER" />
       <PropertyRef Name="PRODUCTID" />
     </Key>
-    <Property Name="USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="USER" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
     <Property Name="PRODUCTID" Type="Int32" Nullable="false" />
     <Property Name="DATELIKE" Type="DateTime" Precision="0" />
-    <NavigationProperty Name="ACCOUNT" Relationship="Self.FK__ACCOUNTLIK__USER__4BAC3F29" FromRole="ACCOUNTLIKE" ToRole="ACCOUNT" />
-    <NavigationProperty Name="PRODUCT" Relationship="Self.FK__ACCOUNTLI__PRODU__4CA06362" FromRole="ACCOUNTLIKE" ToRole="PRODUCT" />
+    <NavigationProperty Name="ACCOUNT" Relationship="COVIDModel.FK__ACCOUNTLIK__USER__4F7CD00D" FromRole="ACCOUNTLIKE" ToRole="ACCOUNT" />
+    <NavigationProperty Name="PRODUCT" Relationship="COVIDModel.FK__ACCOUNTLI__PRODU__5070F446" FromRole="ACCOUNTLIKE" ToRole="PRODUCT" />
   </EntityType>
-  <EntityType Name="BILL">
+  <EntityType Name="ADDRESS_SHIP">
     <Key>
-      <PropertyRef Name="BILLID" />
+      <PropertyRef Name="ADDRESSID" />
     </Key>
-    <Property Name="BILLID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ADDRESSID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="FULLNAME" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+    <Property Name="PHONE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CITY" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="DISTRICT" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="WARDS" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <Property Name="ADDRESS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="PHONENUMBERRECIVE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-    <Property Name="DATECREATE" Type="DateTime" Precision="0" />
-    <Property Name="VOUCHERID" Type="Int32" />
-    <NavigationProperty Name="VOUCHER" Relationship="Self.FK__BILL__VOUCHERID__5812160E" FromRole="BILL" ToRole="VOUCHER" />
-    <NavigationProperty Name="BILLDETAILs" Relationship="Self.FK__BILLDETAI__BILLI__5EBF139D" FromRole="BILL" ToRole="BILLDETAIL" />
+    <Property Name="DEFAULT" Type="Boolean" />
+    <Property Name="ADDRESS_STATUS" Type="Boolean" />
+    <NavigationProperty Name="ACCOUNT" Relationship="COVIDModel.FK__ADDRESS_SH__USER__3E52440B" FromRole="ADDRESS_SHIP" ToRole="ACCOUNT" />
+    <NavigationProperty Name="BILLs" Relationship="COVIDModel.FK__BILL__ADDRESSID__5CD6CB2B" FromRole="ADDRESS_SHIP" ToRole="BILL" />
   </EntityType>
   <EntityType Name="BILLDETAIL">
     <Key>
@@ -59,8 +189,8 @@
     <Property Name="BILLID" Type="Int32" Nullable="false" />
     <Property Name="PRODUCTID" Type="Int32" Nullable="false" />
     <Property Name="AMOUNT" Type="Int32" />
-    <NavigationProperty Name="BILL" Relationship="Self.FK__BILLDETAI__BILLI__5EBF139D" FromRole="BILLDETAIL" ToRole="BILL" />
-    <NavigationProperty Name="PRODUCT" Relationship="Self.FK__BILLDETAI__PRODU__5FB337D6" FromRole="BILLDETAIL" ToRole="PRODUCT" />
+    <NavigationProperty Name="PRODUCT" Relationship="COVIDModel.FK__BILLDETAI__PRODU__6477ECF3" FromRole="BILLDETAIL" ToRole="PRODUCT" />
+    <NavigationProperty Name="BILL" Relationship="COVIDModel.FK__BILLDETAI__BILLI__6383C8BA" FromRole="BILLDETAIL" ToRole="BILL" />
   </EntityType>
   <EntityType Name="BRAND">
     <Key>
@@ -69,20 +199,20 @@
     <Property Name="BRANDID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="BRANDNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="STATUSBRAND" Type="Boolean" />
-    <NavigationProperty Name="PRODUCTs" Relationship="Self.FK__PRODUCT__BRANDID__2F10007B" FromRole="BRAND" ToRole="PRODUCT" />
-    <NavigationProperty Name="TEMPPRODUCTs" Relationship="Self.FK__TEMPPRODU__BRAND__2A4B4B5E" FromRole="BRAND" ToRole="TEMPPRODUCT" />
+    <NavigationProperty Name="PRODUCTs" Relationship="COVIDModel.FK__PRODUCT__BRANDID__2F10007B" FromRole="BRAND" ToRole="PRODUCT" />
+    <NavigationProperty Name="TEMPPRODUCTs" Relationship="COVIDModel.FK__TEMPPRODU__BRAND__2A4B4B5E" FromRole="BRAND" ToRole="TEMPPRODUCT" />
   </EntityType>
   <EntityType Name="CART">
     <Key>
       <PropertyRef Name="USER" />
       <PropertyRef Name="PRODUCTID" />
     </Key>
-    <Property Name="USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="USER" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
     <Property Name="PRODUCTID" Type="Int32" Nullable="false" />
     <Property Name="AMOUNT" Type="Int32" />
     <Property Name="PRODUCTSTATUS" Type="Boolean" />
-    <NavigationProperty Name="ACCOUNT" Relationship="Self.FK__CART__USER__4F7CD00D" FromRole="CART" ToRole="ACCOUNT" />
-    <NavigationProperty Name="PRODUCT" Relationship="Self.FK__CART__PRODUCTID__5070F446" FromRole="CART" ToRole="PRODUCT" />
+    <NavigationProperty Name="ACCOUNT" Relationship="COVIDModel.FK__CART__USER__534D60F1" FromRole="CART" ToRole="ACCOUNT" />
+    <NavigationProperty Name="PRODUCT" Relationship="COVIDModel.FK__CART__PRODUCTID__5441852A" FromRole="CART" ToRole="PRODUCT" />
   </EntityType>
   <EntityType Name="COMMENT">
     <Key>
@@ -93,16 +223,8 @@
     <Property Name="USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
     <Property Name="COMMENTTEXT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="DATECOMMENT" Type="DateTime" Precision="3" />
-    <NavigationProperty Name="ACCOUNT" Relationship="Self.FK__COMMENT__USER__47DBAE45" FromRole="COMMENT" ToRole="ACCOUNT" />
-    <NavigationProperty Name="PRODUCT" Relationship="Self.FK__COMMENT__PRODUCT__48CFD27E" FromRole="COMMENT" ToRole="PRODUCT" />
-  </EntityType>
-  <EntityType Name="CONFIG">
-    <Key>
-      <PropertyRef Name="CONFIGNAME" />
-    </Key>
-    <Property Name="CONFIGNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="DECRIPTIONCONFIGNAME" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="CONFIGDETAILs" Relationship="Self.FK__CONFIGDET__CONFI__35BCFE0A" FromRole="CONFIG" ToRole="CONFIGDETAIL" />
+    <NavigationProperty Name="ACCOUNT" Relationship="COVIDModel.FK__COMMENT__USER__4BAC3F29" FromRole="COMMENT" ToRole="ACCOUNT" />
+    <NavigationProperty Name="PRODUCT" Relationship="COVIDModel.FK__COMMENT__PRODUCT__4CA06362" FromRole="COMMENT" ToRole="PRODUCT" />
   </EntityType>
   <EntityType Name="CONFIGDETAIL">
     <Key>
@@ -110,10 +232,10 @@
       <PropertyRef Name="CONFIGNAME" />
     </Key>
     <Property Name="PRODUCTID" Type="Int32" Nullable="false" />
-    <Property Name="CONFIGNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CONFIGNAME" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="INFORMATION" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="CONFIG" Relationship="Self.FK__CONFIGDET__CONFI__35BCFE0A" FromRole="CONFIGDETAIL" ToRole="CONFIG" />
-    <NavigationProperty Name="PRODUCT" Relationship="Self.FK__CONFIGDET__PRODU__34C8D9D1" FromRole="CONFIGDETAIL" ToRole="PRODUCT" />
+    <NavigationProperty Name="CONFIG" Relationship="COVIDModel.FK__CONFIGDET__CONFI__35BCFE0A" FromRole="CONFIGDETAIL" ToRole="CONFIG" />
+    <NavigationProperty Name="PRODUCT" Relationship="COVIDModel.FK__CONFIGDET__PRODU__34C8D9D1" FromRole="CONFIGDETAIL" ToRole="PRODUCT" />
   </EntityType>
   <EntityType Name="PRODUCT">
     <Key>
@@ -133,15 +255,15 @@
     <Property Name="PRODUCTAMOUNT" Type="Int32" />
     <Property Name="DECRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="DATEADD" Type="DateTime" Precision="0" />
-    <NavigationProperty Name="ACCOUNTLIKEs" Relationship="Self.FK__ACCOUNTLI__PRODU__4CA06362" FromRole="PRODUCT" ToRole="ACCOUNTLIKE" />
-    <NavigationProperty Name="BILLDETAILs" Relationship="Self.FK__BILLDETAI__PRODU__5FB337D6" FromRole="PRODUCT" ToRole="BILLDETAIL" />
-    <NavigationProperty Name="BRAND" Relationship="Self.FK__PRODUCT__BRANDID__2F10007B" FromRole="PRODUCT" ToRole="BRAND" />
-    <NavigationProperty Name="CARTs" Relationship="Self.FK__CART__PRODUCTID__5070F446" FromRole="PRODUCT" ToRole="CART" />
-    <NavigationProperty Name="COMMENTs" Relationship="Self.FK__COMMENT__PRODUCT__48CFD27E" FromRole="PRODUCT" ToRole="COMMENT" />
-    <NavigationProperty Name="CONFIGDETAILs" Relationship="Self.FK__CONFIGDET__PRODU__34C8D9D1" FromRole="PRODUCT" ToRole="CONFIGDETAIL" />
-    <NavigationProperty Name="PRODUCTTYPE" Relationship="Self.FK__PRODUCT__PRODUCT__300424B4" FromRole="PRODUCT" ToRole="PRODUCTTYPE" />
-    <NavigationProperty Name="RATINGPRODUCTs" Relationship="Self.FK__RATINGPRO__PRODU__4222D4EF" FromRole="PRODUCT" ToRole="RATINGPRODUCT" />
-    <NavigationProperty Name="VIEWNUMBERs" Relationship="Self.FK__VIEWNUMBE__PRODU__3E52440B" FromRole="PRODUCT" ToRole="VIEWNUMBER" />
+    <NavigationProperty Name="ACCOUNTLIKEs" Relationship="COVIDModel.FK__ACCOUNTLI__PRODU__5070F446" FromRole="PRODUCT" ToRole="ACCOUNTLIKE" />
+    <NavigationProperty Name="BILLDETAILs" Relationship="COVIDModel.FK__BILLDETAI__PRODU__6477ECF3" FromRole="PRODUCT" ToRole="BILLDETAIL" />
+    <NavigationProperty Name="BRAND" Relationship="COVIDModel.FK__PRODUCT__BRANDID__2F10007B" FromRole="PRODUCT" ToRole="BRAND" />
+    <NavigationProperty Name="CARTs" Relationship="COVIDModel.FK__CART__PRODUCTID__5441852A" FromRole="PRODUCT" ToRole="CART" />
+    <NavigationProperty Name="COMMENTs" Relationship="COVIDModel.FK__COMMENT__PRODUCT__4CA06362" FromRole="PRODUCT" ToRole="COMMENT" />
+    <NavigationProperty Name="CONFIGDETAILs" Relationship="COVIDModel.FK__CONFIGDET__PRODU__34C8D9D1" FromRole="PRODUCT" ToRole="CONFIGDETAIL" />
+    <NavigationProperty Name="PRODUCTTYPE" Relationship="COVIDModel.FK__PRODUCT__PRODUCT__300424B4" FromRole="PRODUCT" ToRole="PRODUCTTYPE" />
+    <NavigationProperty Name="RATINGPRODUCTs" Relationship="COVIDModel.FK__RATINGPRO__PRODU__45F365D3" FromRole="PRODUCT" ToRole="RATINGPRODUCT" />
+    <NavigationProperty Name="VIEWNUMBERs" Relationship="COVIDModel.FK__VIEWNUMBE__PRODU__4222D4EF" FromRole="PRODUCT" ToRole="VIEWNUMBER" />
   </EntityType>
   <EntityType Name="PRODUCTTYPE">
     <Key>
@@ -150,19 +272,19 @@
     <Property Name="PRODUCTTYPEID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="PRODUCTTYPENAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="STATUSPRODUCTTYPE" Type="Boolean" />
-    <NavigationProperty Name="PRODUCTs" Relationship="Self.FK__PRODUCT__PRODUCT__300424B4" FromRole="PRODUCTTYPE" ToRole="PRODUCT" />
-    <NavigationProperty Name="TEMPPRODUCTs" Relationship="Self.FK__TEMPPRODU__PRODU__2B3F6F97" FromRole="PRODUCTTYPE" ToRole="TEMPPRODUCT" />
+    <NavigationProperty Name="PRODUCTs" Relationship="COVIDModel.FK__PRODUCT__PRODUCT__300424B4" FromRole="PRODUCTTYPE" ToRole="PRODUCT" />
+    <NavigationProperty Name="TEMPPRODUCTs" Relationship="COVIDModel.FK__TEMPPRODU__PRODU__2B3F6F97" FromRole="PRODUCTTYPE" ToRole="TEMPPRODUCT" />
   </EntityType>
   <EntityType Name="RATINGPRODUCT">
     <Key>
       <PropertyRef Name="USER" />
       <PropertyRef Name="PRODUCTID" />
     </Key>
-    <Property Name="USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="USER" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
     <Property Name="PRODUCTID" Type="Int32" Nullable="false" />
     <Property Name="RATE" Type="Int32" />
-    <NavigationProperty Name="ACCOUNT" Relationship="Self.FK__RATINGPROD__USER__412EB0B6" FromRole="RATINGPRODUCT" ToRole="ACCOUNT" />
-    <NavigationProperty Name="PRODUCT" Relationship="Self.FK__RATINGPRO__PRODU__4222D4EF" FromRole="RATINGPRODUCT" ToRole="PRODUCT" />
+    <NavigationProperty Name="ACCOUNT" Relationship="COVIDModel.FK__RATINGPROD__USER__44FF419A" FromRole="RATINGPRODUCT" ToRole="ACCOUNT" />
+    <NavigationProperty Name="PRODUCT" Relationship="COVIDModel.FK__RATINGPRO__PRODU__45F365D3" FromRole="RATINGPRODUCT" ToRole="PRODUCT" />
   </EntityType>
   <EntityType Name="TEMPPRODUCT">
     <Key>
@@ -172,19 +294,19 @@
     <Property Name="PRODUCTTYPEID" Type="Int32" Nullable="false" />
     <Property Name="BRANDID" Type="Int32" Nullable="false" />
     <Property Name="TEMPPRODUCTSTATUS" Type="Boolean" />
-    <NavigationProperty Name="BRAND" Relationship="Self.FK__TEMPPRODU__BRAND__2A4B4B5E" FromRole="TEMPPRODUCT" ToRole="BRAND" />
-    <NavigationProperty Name="PRODUCTTYPE" Relationship="Self.FK__TEMPPRODU__PRODU__2B3F6F97" FromRole="TEMPPRODUCT" ToRole="PRODUCTTYPE" />
+    <NavigationProperty Name="BRAND" Relationship="COVIDModel.FK__TEMPPRODU__BRAND__2A4B4B5E" FromRole="TEMPPRODUCT" ToRole="BRAND" />
+    <NavigationProperty Name="PRODUCTTYPE" Relationship="COVIDModel.FK__TEMPPRODU__PRODU__2B3F6F97" FromRole="TEMPPRODUCT" ToRole="PRODUCTTYPE" />
   </EntityType>
   <EntityType Name="VIEWNUMBER">
     <Key>
       <PropertyRef Name="USER" />
       <PropertyRef Name="PRODUCTID" />
     </Key>
-    <Property Name="USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="USER" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
     <Property Name="PRODUCTID" Type="Int32" Nullable="false" />
     <Property Name="DATESEEN" Type="DateTime" Precision="0" />
-    <NavigationProperty Name="ACCOUNT" Relationship="Self.FK__VIEWNUMBER__USER__3D5E1FD2" FromRole="VIEWNUMBER" ToRole="ACCOUNT" />
-    <NavigationProperty Name="PRODUCT" Relationship="Self.FK__VIEWNUMBE__PRODU__3E52440B" FromRole="VIEWNUMBER" ToRole="PRODUCT" />
+    <NavigationProperty Name="ACCOUNT" Relationship="COVIDModel.FK__VIEWNUMBER__USER__412EB0B6" FromRole="VIEWNUMBER" ToRole="ACCOUNT" />
+    <NavigationProperty Name="PRODUCT" Relationship="COVIDModel.FK__VIEWNUMBE__PRODU__4222D4EF" FromRole="VIEWNUMBER" ToRole="PRODUCT" />
   </EntityType>
   <EntityType Name="VOCHERDETAIL">
     <Key>
@@ -192,10 +314,10 @@
       <PropertyRef Name="USER" />
     </Key>
     <Property Name="VOUCHERID" Type="Int32" Nullable="false" />
-    <Property Name="USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="USER" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
     <Property Name="DATEENDTIRE" Type="DateTime" Precision="0" />
-    <NavigationProperty Name="ACCOUNT" Relationship="Self.FK__VOCHERDETA__USER__5BE2A6F2" FromRole="VOCHERDETAIL" ToRole="ACCOUNT" />
-    <NavigationProperty Name="VOUCHER" Relationship="Self.FK__VOCHERDET__VOUCH__5AEE82B9" FromRole="VOCHERDETAIL" ToRole="VOUCHER" />
+    <NavigationProperty Name="ACCOUNT" Relationship="COVIDModel.FK__VOCHERDETA__USER__60A75C0F" FromRole="VOCHERDETAIL" ToRole="ACCOUNT" />
+    <NavigationProperty Name="VOUCHER" Relationship="COVIDModel.FK__VOCHERDET__VOUCH__5FB337D6" FromRole="VOCHERDETAIL" ToRole="VOUCHER" />
   </EntityType>
   <EntityType Name="VOUCHER">
     <Key>
@@ -205,12 +327,12 @@
     <Property Name="DECRIPTIONVOUCHER" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="DATEENDTIRE" Type="DateTime" Precision="0" />
     <Property Name="STATUSVOUCHER" Type="Boolean" />
-    <NavigationProperty Name="BILLs" Relationship="Self.FK__BILL__VOUCHERID__5812160E" FromRole="VOUCHER" ToRole="BILL" />
-    <NavigationProperty Name="VOCHERDETAILs" Relationship="Self.FK__VOCHERDET__VOUCH__5AEE82B9" FromRole="VOUCHER" ToRole="VOCHERDETAIL" />
+    <NavigationProperty Name="VOCHERDETAILs" Relationship="COVIDModel.FK__VOCHERDET__VOUCH__5FB337D6" FromRole="VOUCHER" ToRole="VOCHERDETAIL" />
+    <NavigationProperty Name="BILLs" Relationship="COVIDModel.FK__BILL__VOUCHERID__5BE2A6F2" FromRole="VOUCHER" ToRole="BILL" />
   </EntityType>
-  <Association Name="FK__ACCOUNTLIK__USER__4BAC3F29">
-    <End Role="ACCOUNT" Type="Self.ACCOUNT" Multiplicity="1" />
-    <End Role="ACCOUNTLIKE" Type="Self.ACCOUNTLIKE" Multiplicity="*" />
+  <Association Name="FK__ACCOUNTLIK__USER__4F7CD00D">
+    <End Type="COVIDModel.ACCOUNT" Role="ACCOUNT" Multiplicity="1" />
+    <End Type="COVIDModel.ACCOUNTLIKE" Role="ACCOUNTLIKE" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="ACCOUNT">
         <PropertyRef Name="USER" />
@@ -220,9 +342,21 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__CART__USER__4F7CD00D">
-    <End Role="ACCOUNT" Type="Self.ACCOUNT" Multiplicity="1" />
-    <End Role="CART" Type="Self.CART" Multiplicity="*" />
+  <Association Name="FK__ADDRESS_SH__USER__3E52440B">
+    <End Type="COVIDModel.ACCOUNT" Role="ACCOUNT" Multiplicity="0..1" />
+    <End Type="COVIDModel.ADDRESS_SHIP" Role="ADDRESS_SHIP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ACCOUNT">
+        <PropertyRef Name="USER" />
+      </Principal>
+      <Dependent Role="ADDRESS_SHIP">
+        <PropertyRef Name="USER" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CART__USER__534D60F1">
+    <End Type="COVIDModel.ACCOUNT" Role="ACCOUNT" Multiplicity="1" />
+    <End Type="COVIDModel.CART" Role="CART" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="ACCOUNT">
         <PropertyRef Name="USER" />
@@ -232,9 +366,9 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__COMMENT__USER__47DBAE45">
-    <End Role="ACCOUNT" Type="Self.ACCOUNT" Multiplicity="0..1" />
-    <End Role="COMMENT" Type="Self.COMMENT" Multiplicity="*" />
+  <Association Name="FK__COMMENT__USER__4BAC3F29">
+    <End Type="COVIDModel.ACCOUNT" Role="ACCOUNT" Multiplicity="0..1" />
+    <End Type="COVIDModel.COMMENT" Role="COMMENT" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="ACCOUNT">
         <PropertyRef Name="USER" />
@@ -244,9 +378,9 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__RATINGPROD__USER__412EB0B6">
-    <End Role="ACCOUNT" Type="Self.ACCOUNT" Multiplicity="1" />
-    <End Role="RATINGPRODUCT" Type="Self.RATINGPRODUCT" Multiplicity="*" />
+  <Association Name="FK__RATINGPROD__USER__44FF419A">
+    <End Type="COVIDModel.ACCOUNT" Role="ACCOUNT" Multiplicity="1" />
+    <End Type="COVIDModel.RATINGPRODUCT" Role="RATINGPRODUCT" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="ACCOUNT">
         <PropertyRef Name="USER" />
@@ -256,9 +390,9 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__VIEWNUMBER__USER__3D5E1FD2">
-    <End Role="ACCOUNT" Type="Self.ACCOUNT" Multiplicity="1" />
-    <End Role="VIEWNUMBER" Type="Self.VIEWNUMBER" Multiplicity="*" />
+  <Association Name="FK__VIEWNUMBER__USER__412EB0B6">
+    <End Type="COVIDModel.ACCOUNT" Role="ACCOUNT" Multiplicity="1" />
+    <End Type="COVIDModel.VIEWNUMBER" Role="VIEWNUMBER" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="ACCOUNT">
         <PropertyRef Name="USER" />
@@ -268,9 +402,9 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__VOCHERDETA__USER__5BE2A6F2">
-    <End Role="ACCOUNT" Type="Self.ACCOUNT" Multiplicity="1" />
-    <End Role="VOCHERDETAIL" Type="Self.VOCHERDETAIL" Multiplicity="*" />
+  <Association Name="FK__VOCHERDETA__USER__60A75C0F">
+    <End Type="COVIDModel.ACCOUNT" Role="ACCOUNT" Multiplicity="1" />
+    <End Type="COVIDModel.VOCHERDETAIL" Role="VOCHERDETAIL" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="ACCOUNT">
         <PropertyRef Name="USER" />
@@ -280,9 +414,9 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__ACCOUNTLI__PRODU__4CA06362">
-    <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
-    <End Role="ACCOUNTLIKE" Type="Self.ACCOUNTLIKE" Multiplicity="*" />
+  <Association Name="FK__ACCOUNTLI__PRODU__5070F446">
+    <End Type="COVIDModel.PRODUCT" Role="PRODUCT" Multiplicity="1" />
+    <End Type="COVIDModel.ACCOUNTLIKE" Role="ACCOUNTLIKE" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="PRODUCT">
         <PropertyRef Name="PRODUCTID" />
@@ -292,33 +426,9 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__BILL__VOUCHERID__5812160E">
-    <End Role="VOUCHER" Type="Self.VOUCHER" Multiplicity="0..1" />
-    <End Role="BILL" Type="Self.BILL" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="VOUCHER">
-        <PropertyRef Name="VOUCHERID" />
-      </Principal>
-      <Dependent Role="BILL">
-        <PropertyRef Name="VOUCHERID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__BILLDETAI__BILLI__5EBF139D">
-    <End Role="BILL" Type="Self.BILL" Multiplicity="1" />
-    <End Role="BILLDETAIL" Type="Self.BILLDETAIL" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="BILL">
-        <PropertyRef Name="BILLID" />
-      </Principal>
-      <Dependent Role="BILLDETAIL">
-        <PropertyRef Name="BILLID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__BILLDETAI__PRODU__5FB337D6">
-    <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
-    <End Role="BILLDETAIL" Type="Self.BILLDETAIL" Multiplicity="*" />
+  <Association Name="FK__BILLDETAI__PRODU__6477ECF3">
+    <End Type="COVIDModel.PRODUCT" Role="PRODUCT" Multiplicity="1" />
+    <End Type="COVIDModel.BILLDETAIL" Role="BILLDETAIL" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="PRODUCT">
         <PropertyRef Name="PRODUCTID" />
@@ -329,8 +439,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK__PRODUCT__BRANDID__2F10007B">
-    <End Role="BRAND" Type="Self.BRAND" Multiplicity="0..1" />
-    <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="*" />
+    <End Type="COVIDModel.BRAND" Role="BRAND" Multiplicity="0..1" />
+    <End Type="COVIDModel.PRODUCT" Role="PRODUCT" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="BRAND">
         <PropertyRef Name="BRANDID" />
@@ -341,8 +451,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK__TEMPPRODU__BRAND__2A4B4B5E">
-    <End Role="BRAND" Type="Self.BRAND" Multiplicity="1" />
-    <End Role="TEMPPRODUCT" Type="Self.TEMPPRODUCT" Multiplicity="*" />
+    <End Type="COVIDModel.BRAND" Role="BRAND" Multiplicity="1" />
+    <End Type="COVIDModel.TEMPPRODUCT" Role="TEMPPRODUCT" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="BRAND">
         <PropertyRef Name="BRANDID" />
@@ -352,9 +462,9 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__CART__PRODUCTID__5070F446">
-    <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
-    <End Role="CART" Type="Self.CART" Multiplicity="*" />
+  <Association Name="FK__CART__PRODUCTID__5441852A">
+    <End Type="COVIDModel.PRODUCT" Role="PRODUCT" Multiplicity="1" />
+    <End Type="COVIDModel.CART" Role="CART" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="PRODUCT">
         <PropertyRef Name="PRODUCTID" />
@@ -364,9 +474,9 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__COMMENT__PRODUCT__48CFD27E">
-    <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="0..1" />
-    <End Role="COMMENT" Type="Self.COMMENT" Multiplicity="*" />
+  <Association Name="FK__COMMENT__PRODUCT__4CA06362">
+    <End Type="COVIDModel.PRODUCT" Role="PRODUCT" Multiplicity="0..1" />
+    <End Type="COVIDModel.COMMENT" Role="COMMENT" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="PRODUCT">
         <PropertyRef Name="PRODUCTID" />
@@ -377,8 +487,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK__CONFIGDET__CONFI__35BCFE0A">
-    <End Role="CONFIG" Type="Self.CONFIG" Multiplicity="1" />
-    <End Role="CONFIGDETAIL" Type="Self.CONFIGDETAIL" Multiplicity="*" />
+    <End Type="COVIDModel.CONFIG" Role="CONFIG" Multiplicity="1" />
+    <End Type="COVIDModel.CONFIGDETAIL" Role="CONFIGDETAIL" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="CONFIG">
         <PropertyRef Name="CONFIGNAME" />
@@ -389,8 +499,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK__CONFIGDET__PRODU__34C8D9D1">
-    <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
-    <End Role="CONFIGDETAIL" Type="Self.CONFIGDETAIL" Multiplicity="*" />
+    <End Type="COVIDModel.PRODUCT" Role="PRODUCT" Multiplicity="1" />
+    <End Type="COVIDModel.CONFIGDETAIL" Role="CONFIGDETAIL" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="PRODUCT">
         <PropertyRef Name="PRODUCTID" />
@@ -401,8 +511,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK__PRODUCT__PRODUCT__300424B4">
-    <End Role="PRODUCTTYPE" Type="Self.PRODUCTTYPE" Multiplicity="0..1" />
-    <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="*" />
+    <End Type="COVIDModel.PRODUCTTYPE" Role="PRODUCTTYPE" Multiplicity="0..1" />
+    <End Type="COVIDModel.PRODUCT" Role="PRODUCT" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="PRODUCTTYPE">
         <PropertyRef Name="PRODUCTTYPEID" />
@@ -412,9 +522,9 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__RATINGPRO__PRODU__4222D4EF">
-    <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
-    <End Role="RATINGPRODUCT" Type="Self.RATINGPRODUCT" Multiplicity="*" />
+  <Association Name="FK__RATINGPRO__PRODU__45F365D3">
+    <End Type="COVIDModel.PRODUCT" Role="PRODUCT" Multiplicity="1" />
+    <End Type="COVIDModel.RATINGPRODUCT" Role="RATINGPRODUCT" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="PRODUCT">
         <PropertyRef Name="PRODUCTID" />
@@ -424,9 +534,9 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__VIEWNUMBE__PRODU__3E52440B">
-    <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
-    <End Role="VIEWNUMBER" Type="Self.VIEWNUMBER" Multiplicity="*" />
+  <Association Name="FK__VIEWNUMBE__PRODU__4222D4EF">
+    <End Type="COVIDModel.PRODUCT" Role="PRODUCT" Multiplicity="1" />
+    <End Type="COVIDModel.VIEWNUMBER" Role="VIEWNUMBER" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="PRODUCT">
         <PropertyRef Name="PRODUCTID" />
@@ -437,8 +547,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK__TEMPPRODU__PRODU__2B3F6F97">
-    <End Role="PRODUCTTYPE" Type="Self.PRODUCTTYPE" Multiplicity="1" />
-    <End Role="TEMPPRODUCT" Type="Self.TEMPPRODUCT" Multiplicity="*" />
+    <End Type="COVIDModel.PRODUCTTYPE" Role="PRODUCTTYPE" Multiplicity="1" />
+    <End Type="COVIDModel.TEMPPRODUCT" Role="TEMPPRODUCT" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="PRODUCTTYPE">
         <PropertyRef Name="PRODUCTTYPEID" />
@@ -448,9 +558,9 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__VOCHERDET__VOUCH__5AEE82B9">
-    <End Role="VOUCHER" Type="Self.VOUCHER" Multiplicity="1" />
-    <End Role="VOCHERDETAIL" Type="Self.VOCHERDETAIL" Multiplicity="*" />
+  <Association Name="FK__VOCHERDET__VOUCH__5FB337D6">
+    <End Type="COVIDModel.VOUCHER" Role="VOUCHER" Multiplicity="1" />
+    <End Type="COVIDModel.VOCHERDETAIL" Role="VOCHERDETAIL" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="VOUCHER">
         <PropertyRef Name="VOUCHERID" />
@@ -460,111 +570,55 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="COVIDEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="ACCOUNTs" EntityType="Self.ACCOUNT" />
-    <EntitySet Name="ACCOUNT_ADMIN" EntityType="Self.ACCOUNT_ADMIN" />
-    <EntitySet Name="ACCOUNTLIKEs" EntityType="Self.ACCOUNTLIKE" />
-    <EntitySet Name="BILLs" EntityType="Self.BILL" />
-    <EntitySet Name="BILLDETAILs" EntityType="Self.BILLDETAIL" />
-    <EntitySet Name="BRANDs" EntityType="Self.BRAND" />
-    <EntitySet Name="CARTs" EntityType="Self.CART" />
-    <EntitySet Name="COMMENTs" EntityType="Self.COMMENT" />
-    <EntitySet Name="CONFIGs" EntityType="Self.CONFIG" />
-    <EntitySet Name="CONFIGDETAILs" EntityType="Self.CONFIGDETAIL" />
-    <EntitySet Name="PRODUCTs" EntityType="Self.PRODUCT" />
-    <EntitySet Name="PRODUCTTYPEs" EntityType="Self.PRODUCTTYPE" />
-    <EntitySet Name="RATINGPRODUCTs" EntityType="Self.RATINGPRODUCT" />
-    <EntitySet Name="TEMPPRODUCTs" EntityType="Self.TEMPPRODUCT" />
-    <EntitySet Name="VIEWNUMBERs" EntityType="Self.VIEWNUMBER" />
-    <EntitySet Name="VOCHERDETAILs" EntityType="Self.VOCHERDETAIL" />
-    <EntitySet Name="VOUCHERs" EntityType="Self.VOUCHER" />
-    <AssociationSet Name="FK__ACCOUNTLIK__USER__4BAC3F29" Association="Self.FK__ACCOUNTLIK__USER__4BAC3F29">
-      <End Role="ACCOUNT" EntitySet="ACCOUNTs" />
-      <End Role="ACCOUNTLIKE" EntitySet="ACCOUNTLIKEs" />
-    </AssociationSet>
-    <AssociationSet Name="FK__CART__USER__4F7CD00D" Association="Self.FK__CART__USER__4F7CD00D">
-      <End Role="ACCOUNT" EntitySet="ACCOUNTs" />
-      <End Role="CART" EntitySet="CARTs" />
-    </AssociationSet>
-    <AssociationSet Name="FK__COMMENT__USER__47DBAE45" Association="Self.FK__COMMENT__USER__47DBAE45">
-      <End Role="ACCOUNT" EntitySet="ACCOUNTs" />
-      <End Role="COMMENT" EntitySet="COMMENTs" />
-    </AssociationSet>
-    <AssociationSet Name="FK__RATINGPROD__USER__412EB0B6" Association="Self.FK__RATINGPROD__USER__412EB0B6">
-      <End Role="ACCOUNT" EntitySet="ACCOUNTs" />
-      <End Role="RATINGPRODUCT" EntitySet="RATINGPRODUCTs" />
-    </AssociationSet>
-    <AssociationSet Name="FK__VIEWNUMBER__USER__3D5E1FD2" Association="Self.FK__VIEWNUMBER__USER__3D5E1FD2">
-      <End Role="ACCOUNT" EntitySet="ACCOUNTs" />
-      <End Role="VIEWNUMBER" EntitySet="VIEWNUMBERs" />
-    </AssociationSet>
-    <AssociationSet Name="FK__VOCHERDETA__USER__5BE2A6F2" Association="Self.FK__VOCHERDETA__USER__5BE2A6F2">
-      <End Role="ACCOUNT" EntitySet="ACCOUNTs" />
-      <End Role="VOCHERDETAIL" EntitySet="VOCHERDETAILs" />
-    </AssociationSet>
-    <AssociationSet Name="FK__ACCOUNTLI__PRODU__4CA06362" Association="Self.FK__ACCOUNTLI__PRODU__4CA06362">
-      <End Role="PRODUCT" EntitySet="PRODUCTs" />
-      <End Role="ACCOUNTLIKE" EntitySet="ACCOUNTLIKEs" />
-    </AssociationSet>
-    <AssociationSet Name="FK__BILL__VOUCHERID__5812160E" Association="Self.FK__BILL__VOUCHERID__5812160E">
-      <End Role="VOUCHER" EntitySet="VOUCHERs" />
-      <End Role="BILL" EntitySet="BILLs" />
-    </AssociationSet>
-    <AssociationSet Name="FK__BILLDETAI__BILLI__5EBF139D" Association="Self.FK__BILLDETAI__BILLI__5EBF139D">
-      <End Role="BILL" EntitySet="BILLs" />
-      <End Role="BILLDETAIL" EntitySet="BILLDETAILs" />
-    </AssociationSet>
-    <AssociationSet Name="FK__BILLDETAI__PRODU__5FB337D6" Association="Self.FK__BILLDETAI__PRODU__5FB337D6">
-      <End Role="PRODUCT" EntitySet="PRODUCTs" />
-      <End Role="BILLDETAIL" EntitySet="BILLDETAILs" />
-    </AssociationSet>
-    <AssociationSet Name="FK__PRODUCT__BRANDID__2F10007B" Association="Self.FK__PRODUCT__BRANDID__2F10007B">
-      <End Role="BRAND" EntitySet="BRANDs" />
-      <End Role="PRODUCT" EntitySet="PRODUCTs" />
-    </AssociationSet>
-    <AssociationSet Name="FK__TEMPPRODU__BRAND__2A4B4B5E" Association="Self.FK__TEMPPRODU__BRAND__2A4B4B5E">
-      <End Role="BRAND" EntitySet="BRANDs" />
-      <End Role="TEMPPRODUCT" EntitySet="TEMPPRODUCTs" />
-    </AssociationSet>
-    <AssociationSet Name="FK__CART__PRODUCTID__5070F446" Association="Self.FK__CART__PRODUCTID__5070F446">
-      <End Role="PRODUCT" EntitySet="PRODUCTs" />
-      <End Role="CART" EntitySet="CARTs" />
-    </AssociationSet>
-    <AssociationSet Name="FK__COMMENT__PRODUCT__48CFD27E" Association="Self.FK__COMMENT__PRODUCT__48CFD27E">
-      <End Role="PRODUCT" EntitySet="PRODUCTs" />
-      <End Role="COMMENT" EntitySet="COMMENTs" />
-    </AssociationSet>
-    <AssociationSet Name="FK__CONFIGDET__CONFI__35BCFE0A" Association="Self.FK__CONFIGDET__CONFI__35BCFE0A">
-      <End Role="CONFIG" EntitySet="CONFIGs" />
-      <End Role="CONFIGDETAIL" EntitySet="CONFIGDETAILs" />
-    </AssociationSet>
-    <AssociationSet Name="FK__CONFIGDET__PRODU__34C8D9D1" Association="Self.FK__CONFIGDET__PRODU__34C8D9D1">
-      <End Role="PRODUCT" EntitySet="PRODUCTs" />
-      <End Role="CONFIGDETAIL" EntitySet="CONFIGDETAILs" />
-    </AssociationSet>
-    <AssociationSet Name="FK__PRODUCT__PRODUCT__300424B4" Association="Self.FK__PRODUCT__PRODUCT__300424B4">
-      <End Role="PRODUCTTYPE" EntitySet="PRODUCTTYPEs" />
-      <End Role="PRODUCT" EntitySet="PRODUCTs" />
-    </AssociationSet>
-    <AssociationSet Name="FK__RATINGPRO__PRODU__4222D4EF" Association="Self.FK__RATINGPRO__PRODU__4222D4EF">
-      <End Role="PRODUCT" EntitySet="PRODUCTs" />
-      <End Role="RATINGPRODUCT" EntitySet="RATINGPRODUCTs" />
-    </AssociationSet>
-    <AssociationSet Name="FK__VIEWNUMBE__PRODU__3E52440B" Association="Self.FK__VIEWNUMBE__PRODU__3E52440B">
-      <End Role="PRODUCT" EntitySet="PRODUCTs" />
-      <End Role="VIEWNUMBER" EntitySet="VIEWNUMBERs" />
-    </AssociationSet>
-    <AssociationSet Name="FK__TEMPPRODU__PRODU__2B3F6F97" Association="Self.FK__TEMPPRODU__PRODU__2B3F6F97">
-      <End Role="PRODUCTTYPE" EntitySet="PRODUCTTYPEs" />
-      <End Role="TEMPPRODUCT" EntitySet="TEMPPRODUCTs" />
-    </AssociationSet>
-    <AssociationSet Name="FK__VOCHERDET__VOUCH__5AEE82B9" Association="Self.FK__VOCHERDET__VOUCH__5AEE82B9">
-      <End Role="VOUCHER" EntitySet="VOUCHERs" />
-      <End Role="VOCHERDETAIL" EntitySet="VOCHERDETAILs" />
-    </AssociationSet>
-    <FunctionImport Name="CheckLogin" ReturnType="Collection(String)">
-      <Parameter Name="username" Mode="In" Type="String" />
-      <Parameter Name="password" Mode="In" Type="String" />
-    </FunctionImport>
-  </EntityContainer>
+  <EntityType Name="BILL">
+    <Key>
+      <PropertyRef Name="BILLID" />
+    </Key>
+    <Property Name="BILLID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="ADDRESSID" Type="Int32" />
+    <Property Name="PHONENUMBERRECIVE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="DATECREATE" Type="DateTime" Precision="0" />
+    <Property Name="VOUCHERID" Type="Int32" />
+    <Property Name="TOTALBILL" Type="Int64" />
+    <NavigationProperty Name="ADDRESS_SHIP" Relationship="COVIDModel.FK__BILL__ADDRESSID__5CD6CB2B" FromRole="BILL" ToRole="ADDRESS_SHIP" />
+    <NavigationProperty Name="VOUCHER" Relationship="COVIDModel.FK__BILL__VOUCHERID__5BE2A6F2" FromRole="BILL" ToRole="VOUCHER" />
+    <NavigationProperty Name="BILLDETAILs" Relationship="COVIDModel.FK__BILLDETAI__BILLI__6383C8BA" FromRole="BILL" ToRole="BILLDETAIL" />
+  </EntityType>
+  <Association Name="FK__BILL__ADDRESSID__5CD6CB2B">
+    <End Type="COVIDModel.ADDRESS_SHIP" Role="ADDRESS_SHIP" Multiplicity="0..1" />
+    <End Type="COVIDModel.BILL" Role="BILL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ADDRESS_SHIP">
+        <PropertyRef Name="ADDRESSID" />
+      </Principal>
+      <Dependent Role="BILL">
+        <PropertyRef Name="ADDRESSID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BILL__VOUCHERID__5BE2A6F2">
+    <End Type="COVIDModel.VOUCHER" Role="VOUCHER" Multiplicity="0..1" />
+    <End Type="COVIDModel.BILL" Role="BILL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VOUCHER">
+        <PropertyRef Name="VOUCHERID" />
+      </Principal>
+      <Dependent Role="BILL">
+        <PropertyRef Name="VOUCHERID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BILLDETAI__BILLI__6383C8BA">
+    <End Type="COVIDModel.BILL" Role="BILL" Multiplicity="1" />
+    <End Type="COVIDModel.BILLDETAIL" Role="BILLDETAIL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BILL">
+        <PropertyRef Name="BILLID" />
+      </Principal>
+      <Dependent Role="BILLDETAIL">
+        <PropertyRef Name="BILLID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

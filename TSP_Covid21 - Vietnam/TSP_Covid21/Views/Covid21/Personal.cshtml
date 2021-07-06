@@ -1,0 +1,353 @@
+﻿@model TSP_Covid21.Models.ShopEntity.ACCOUNT
+@{
+    ViewBag.Title = "Personal";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    TSP_Covid21.Controllers.AccountController AC = new TSP_Covid21.Controllers.AccountController();
+}
+
+@Html.Partial("Public_Navigation")
+<!-- BREADCRUMB -->
+<div id="breadcrumb" class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <div class="col-md-12"></div>
+            <ul class="breadcrumb-tree">
+                <li><a href="@Url.Action("Home", "Covid21")">Home</a></li>
+                <li class="active">Personal Information</li>
+            </ul>
+        </div>
+    </div>
+    <!-- /row -->
+</div>
+<!-- /container -->
+<!-- /BREADCRUMB -->
+<!-- SECTION -->
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <div id="aside" class="col-md-3">
+                <div class="aside">
+                    <h3 class="aside-title">
+                        <i class="fas fa-user" style="font-size: 50px;"></i> @Model.FULLNAME
+                    </h3>
+                    <div class="checkbox-filter">
+                        <div class="container ggg">
+                            <label for="" class="tablinks" onclick="openCity(event, 'banthongtincanhan')">
+                                <span></span>
+                                <a><i class="fas fa-user-cog"></i>Thông tin cá nhân</a>
+                            </label>
+                        </div>
+                        <div class="container ggg">
+                            <label class="tablinks" onclick="openCity(event, 'diachigiaohang')">
+                                <span></span>
+                                <a><i class="fas fa-map-marker-alt"></i> Địa chỉ</a>
+                            </label>
+                        </div>
+                        <div class="container ggg">
+                            <label for="brand-2">
+                                <span></span>
+                                <a href="@Url.Action("Cart","Covid21",new { user = Session["user"]})"><i class="fas fa-shopping-cart"></i> Giỏ hàng</a>
+                            </label>
+                        </div>
+                        <div class="container ggg">
+                            <label>
+                                <span></span>
+                                <a href="@Url.Action("Favourite","Covid21",new { user = Session["user"] })"><i class="fas fa-heart"></i>Yêu thích</a>
+                            </label>
+                        </div>
+                        <div class="container ggg">
+                            <label for="brand-4">
+                                <span></span>
+
+                                <a href="@Url.Action("View","Covid21",new { user = Session["user"] })"><i class="fas fa-eye"></i>Xem</a>
+                            </label>
+                        </div>
+                        <div class="container ggg">
+                            <label for="brand-4">
+                                <span></span>
+                                <a href="@Url.Action("Rating","Covid21",new { user = Session["user"] })"><i class="fas fa-star"></i>Đánh giá</a>
+                            </label>
+                        </div>
+                        <div class="container ggg">
+                            <label for="brand-4" class="tablinks" onclick="openCity(event, 'donhangdamua')">
+                                <span></span>
+                                <a><i class="fas fa-book"></i>Hóa đơn</a>
+                            </label>
+                        </div>
+                        <div class="container ggg">
+                            <label for="brand-4">
+                                <span></span>
+                                <a href="@Url.Action("Home","Covid21")"> <i class="far fa-times-circle"></i> Thoát</a>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <!--
+                <div id="mainform"> -->
+
+                <h4 style="margin-top: 22px; margin-left: 15px; ">THÔNG TIN CÁ NHÂN</h4><br>
+
+                <!--=================================================================-->
+
+                <div id="hienthongtin">
+                    <div id="banthongtincanhan" class="thongtincanhan">
+                        <div>
+                            <span></span>
+                            <label for="">Họ và Tên: </label>
+                            <input id="id1" type="text" placeholder="Input full name" value="@Model.FULLNAME">
+                        </div>
+                        <div>
+                            <span></span>
+                            <label for="">Số điện thoại: </label>
+                            <input id="id2" type="text" placeholder="Input phone number" value="@Model.PHONENUMBER">
+                        </div>
+                        <div>
+                            <span></span>
+                            <label for="">Email: </label>
+                            <input id="id3" type="text" placeholder="Input Email" value="@Model.EMAIL">
+                        </div>
+
+                        <div>
+                            <label>
+                                Giới tính:
+
+                                @if (Model.SEX == true)
+                                {
+                                    <input id="id4" type="radio" checked="checked" name="radio"> <label>Nam</label>
+                                    <input id="id5" type="radio" name="radio"> <label>Nữ</label>
+                                }
+                                else
+                                {
+                                    <input id="id4" type="radio" name="radio"> <label>Nam</label>
+                                    <input id="id5" type="radio" checked="checked" name="radio"> <label>Nữ</label>
+                                }
+                            </label>
+                        </div>
+                        <div>
+                            <span></span>
+                            <label for="">Ngày sinh nhật: </label>
+                            <input id="id6" class="text1" type="date" value="@Model.DATAOFBIRTH">
+                        </div>
+                        <div>
+                            <span></span>
+
+                            <input id="id7" onclick="myFunction()" class="text1" type="checkbox">
+                            <label for="">Thay đổi mật khẩu </label>
+                        </div>
+                        <div style="display: none;" id="passan">
+                            <div>
+                                <span></span>
+                                <label for="">Mật khẩu: </label>
+                                <input id="id8" class="text1" type="text" placeholder="Reinput password">
+                            </div>
+                            <div>
+                                <span></span>
+                                <label for="">Mật khẩu mới: </label>
+                                <input id="id9" class="text1" type="text" placeholder="Reinput new password">
+                            </div>
+                            <div>
+                                <span></span>
+                                <label for="">Xác nhận mật khẩu: </label>
+                                <input id="id10" class="text1" type="text" placeholder="Reinput confirm password">
+                            </div>
+                        </div>
+                        <div>
+                            <span></span>
+                            <input id="id11" class="text1" type="submit" value="Gửi">
+                        </div>
+                    </div>
+                    <div id="diachigiaohang" class="thongtincanhan" style="display: none;">
+                        <div id="tatbangiaohang">
+                            <div>
+                                <div>
+                                    <span></span>
+                                    <p id="id12" onclick="openthem()">
+                                        <i style="color: yellowgreen;"
+                                           class="fas fa-plus"></i> <b> Thêm địa chỉ</b>
+                                    </p>
+                                </div>
+                            </div>
+                            @{
+                                IEnumerable<TSP_Covid21.Models.ShopEntity.ADDRESS_SHIP> listAddress = AC.loadAddress(Model.USER);
+                            }
+                            <table>
+                                @if (listAddress.Count() == 0)
+                                {
+                                    <tr style="text-align:center">(Chưa có địa chỉ giao hàng)</tr>
+                                }
+                                @foreach (var item in listAddress)
+                                {
+                                    <tr>
+                                        <th class="id13" style="width:  700px;">
+                                            @if (@item.DEFAULT == true)
+                                            {
+                                                <label>@item.FULLNAME</label><small>(Địa chỉ mặc định)</small>
+                                            }
+                                            else
+                                            {
+                                                <label>@item.FULLNAME</label>
+                                            }
+                                            <br><label>@item.ADDRESS</label><br>
+                                            <label>@item.PHONE</label>
+
+                                        </th>
+                                        <td>
+                                            <label class="id14" onclick="suathem()"> Thay đổi</label>
+                                        </td>
+                                    </tr>
+                                }
+                            </table>
+                        </div>
+                        <!--Thêm địa chỉ giao hàng-->
+                        <div style="display: none;" id="themthongtingiaohang">
+                            <input class="thoat" onclick="tatthem()" value="✖" type="button">
+                            <div>
+                                <span></span>
+                                <label for="">Họ và Tên: </label>
+                                <input id="id15" type="text" placeholder="Nhập họ và tên">
+                            </div>
+                            <div>
+                                <span></span>
+                                <label for="">Số điện thoại: </label>
+                                <input id="id16" type="text" placeholder="Nhập số điện thoại">
+                            </div>
+                            <div>
+                                <span></span>
+                                <label for="">Thành phố/Tỉnh: </label>
+                                <select class="addr" id="province_address" none="province" onchange="changeFunc()"
+                                        style="margin-left: 3.8%; border-radius: 5px;">
+                                    <option value="" selected>Province / City</option>
+                                </select>
+                            </div>
+                            <div>
+                                <span></span>
+                                <label for="">Quận/Huyện: </label>
+                                <select class="addr" id="district_address" none="district" onchange="changeFuncDistrict()"
+                                        style="margin-left: 6.4%; border-radius: 5px;">
+                                    <option value="" selected>District </option>
+                                </select>
+                            </div>
+                            <div>
+                                <span></span>
+                                <label for="">Phường/Xã:</label>
+                                <select class="addr" id="ward" none="ward" aria-placeholder="Quận Huyện"
+                                        style="margin-left: 7.1%; border-radius: 5px;">
+                                    <option value="" selected>Wards </option>
+                                </select>
+                            </div>
+                            <div>
+                                <span></span>
+                                <label for="" style="margin-top: 1px">Địa chỉ:</label>
+                                <textarea id="id20" rows="2"></textarea>
+                            </div>
+                            <div>
+                                <span></span>
+
+                                <input id="id22" class="text1" type="checkbox">
+                                <label for="">Địa chỉ mặc định</label>
+                            </div>
+                            <div>
+                                <input id="id21" type="submit" onclick="okthem()" value="Xác nhận">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Đơn hàng đã mua -->
+                    <div id="donhangdamua" class="thongtincanhan" style="display: none;">
+                        <table class="tabledg">
+                            <tr style="background: rgb(67, 85, 94); color: white;">
+                                <th>
+                                    <p class="tablea">id</p>
+                                </th>
+                                <th>
+                                    <p class="tablea">Ngày dặt hàng</p>
+                                </th>
+                                <th>
+                                    <p class="tablea">Sản phẩm</p>
+                                </th>
+                                <th>
+                                    <p class="tablea">Tổng tiền</p>
+                                </th>
+                            </tr>
+                            @{
+                                IEnumerable<TSP_Covid21.Models.ShopEntity.BILL> listBill = AC.loadBill(Model.USER);
+                            }
+
+                            @foreach (var item in listBill)
+                            {
+                                <tr class="hoverdonhang">
+                                    <td>
+                                        <p class="tableb">@item.BILLID</p>
+                                    </td>
+                                    <td>
+                                        <p class="tableb">@item.DATECREATE</p>
+                                    </td>
+                                    @{
+                                        string listProduct = "";
+                                        foreach (var item1 in item.BILLDETAILs)
+                                        {
+                                            listProduct += item1.PRODUCT.PRODUCTNAME + ", ";
+                                        }
+                                    }
+                                    <td>
+                                        <p class="tableb">@listProduct</p>
+                                    </td>
+
+                                    <td>
+                                        <p class="tableb">@item.TOTALBILL</p>
+                                    </td>
+                                </tr>
+                            }
+                        </table>
+                    </div>
+                </div>
+                <!-- </div> -->
+            </div>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /SECTION -->
+
+<script>
+    var address = {
+        loaddata: function () {
+            alert("hihi");
+            var selectedBox = document.getElementById("province_address")
+            var selectedValue = selectedBox.options[selectedBox.selectedIndex].getAttribute('data-province')
+            var district = document.getElementById('district_address');
+            $.ajax({
+                url: "https://dev-online-gateway.ghn.vn/shiip/public-api/master-data/district",
+                headers: {
+                    'token': "260fcbb6-d4ae-11eb-aa92-d25db748eae9",
+                    'content-Type': 'application/json'
+                },
+                method: 'GET',
+                dataType: 'json',
+
+                success: function (response) {
+                    var str = "<option selected>District </option>";
+                    for (var i = 0; i < response.data.length; i++) {
+                        if (response.data[i].ProvinceID == selectedValue) {
+                            str = str + "<option class='districtID' data-district='" + response.data[i].DistrictID + "'>" + response.data[i].DistrictName
+                                + "</option>"
+                        }
+
+                    }
+                    district.innerHTML = str;
+                }
+            });
+        }
+    }
+    address.loaddata();
+</script>

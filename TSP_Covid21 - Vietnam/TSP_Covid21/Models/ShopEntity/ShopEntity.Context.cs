@@ -27,15 +27,15 @@ namespace TSP_Covid21.Models.ShopEntity
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<CONFIG> CONFIGs { get; set; }
         public virtual DbSet<ACCOUNT> ACCOUNTs { get; set; }
         public virtual DbSet<ACCOUNT_ADMIN> ACCOUNT_ADMIN { get; set; }
         public virtual DbSet<ACCOUNTLIKE> ACCOUNTLIKEs { get; set; }
-        public virtual DbSet<BILL> BILLs { get; set; }
+        public virtual DbSet<ADDRESS_SHIP> ADDRESS_SHIP { get; set; }
         public virtual DbSet<BILLDETAIL> BILLDETAILs { get; set; }
         public virtual DbSet<BRAND> BRANDs { get; set; }
         public virtual DbSet<CART> CARTs { get; set; }
         public virtual DbSet<COMMENT> COMMENTs { get; set; }
-        public virtual DbSet<CONFIG> CONFIGs { get; set; }
         public virtual DbSet<CONFIGDETAIL> CONFIGDETAILs { get; set; }
         public virtual DbSet<PRODUCT> PRODUCTs { get; set; }
         public virtual DbSet<PRODUCTTYPE> PRODUCTTYPEs { get; set; }
@@ -44,6 +44,7 @@ namespace TSP_Covid21.Models.ShopEntity
         public virtual DbSet<VIEWNUMBER> VIEWNUMBERs { get; set; }
         public virtual DbSet<VOCHERDETAIL> VOCHERDETAILs { get; set; }
         public virtual DbSet<VOUCHER> VOUCHERs { get; set; }
+        public virtual DbSet<BILL> BILLs { get; set; }
     
         public virtual ObjectResult<string> CheckLogin(string username, string password)
         {

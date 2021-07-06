@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TSP_Covid21.Models.ShopEntity;
+using TSP_Covid21.Models.BUS;
 
 namespace TSP_Covid21.Controllers
 {
@@ -61,10 +63,27 @@ namespace TSP_Covid21.Controllers
             if (checkPhone(phone))
                 return false;
 
-            Models.BUS.Account_BUS AB = new Models.BUS.Account_BUS();
+            Account_BUS AB = new Account_BUS();
             AB.Signup(user, pass, fullname, phone);
 
             return true;
+        }
+
+        public IEnumerable<BILL> loadBill(string user)
+        {
+            Account_BUS AB = new Account_BUS();
+            var result = AB.loadBill(user);
+
+            return result;
+        }
+
+        public IEnumerable<ADDRESS_SHIP> loadAddress(string user)
+        {
+            Account_BUS AB = new Account_BUS();
+            var result = AB.loadAddress(user);
+
+            return result;
+
         }
     }
 }

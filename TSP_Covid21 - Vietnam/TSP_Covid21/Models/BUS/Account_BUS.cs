@@ -65,5 +65,30 @@ namespace TSP_Covid21.Models.BUS
             db.ACCOUNTs.AddOrUpdate(a);
             db.SaveChanges();
         }
+
+        public ACCOUNT account(string user)
+        {
+            return db.ACCOUNTs.Where(p => p.USER == user).FirstOrDefault();
+        }
+
+        public IEnumerable<VIEWNUMBER> view(string user)
+        {
+            return db.VIEWNUMBERs.Where(p => p.USER == user);
+        }
+
+        public IEnumerable<RATINGPRODUCT> rating(string user)
+        {
+            return db.RATINGPRODUCTs.Where(p => p.USER == user);
+        }
+
+        public IEnumerable<BILL> loadBill(string user)
+        {
+            return db.BILLs.Where(p => p.USER == user);
+        }
+
+        public IEnumerable<ADDRESS_SHIP> loadAddress(string user)
+        {
+            return db.ADDRESS_SHIP.Where(p => p.USER == user & p.ADDRESS_STATUS == true);
+        }
     }
 }

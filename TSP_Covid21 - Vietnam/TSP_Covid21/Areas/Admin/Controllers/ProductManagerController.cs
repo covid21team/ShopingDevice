@@ -101,7 +101,7 @@ namespace TSP_Covid21.Areas.Admin.Controllers
                 }
             }
 
-            PS.editProduct(id, productName, productType, brand, amount, description, status, price, pic1, pic2, pic3, pic4, pic5);
+            PS.editProduct(id, productName, productType, brand, amount, description, status, price, pic1, pic2, pic3, pic4, pic5, configname, configinf);
         }
 
         public ActionResult addProduct()
