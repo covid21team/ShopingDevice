@@ -89,8 +89,25 @@ CREATE TABLE ACCOUNT
 	SEX BIT,					 -- 1 LÀ NAM 0 LÀ NỮ
 	DATAOFBIRTH DATE,
 	STATUSACCOUNT BIT DEFAULT 1 ,
-	PHONENUMBER VARCHAR(10) CHECK (LEN(PHONENUMBER) = 10)
+	PHONENUMBER VARCHAR(10) CHECK (LEN(PHONENUMBER) = 10),
+	EMAIL Varchar(100),
+)
 
+go
+CREATE TABLE ADDRESS_SHIP
+(
+	ADDRESSID INT IDENTITY PRIMARY KEY,
+	[USER] VARCHAR(30),
+	FULLNAME NVARCHAR(3),
+	PHONE VARCHAR(20) CHECK (LEN(PHONE) = 10),
+	CITY NVARCHAR(20),
+	DISTRICT NVARCHAR(20),
+	WARDS NVARCHAR(20),
+	[ADDRESS] NVARCHAR(MAX),
+	[DEFAULT] BIT,
+	ADDRESS_STATUS BIT,
+
+	foreign key ([USER]) references ACCOUNT([USER]) on update cascade,
 )
 
 CREATE TABLE VIEWNUMBER
@@ -175,12 +192,13 @@ CREATE TABLE BILL
 (
 	BILLID INT IDENTITY PRIMARY KEY,
 	[USER] VARCHAR(30),
-	[ADDRESS] NVARCHAR(MAX),
+	ADDRESSID INT,
 	[PHONENUMBERRECIVE] VARCHAR(10) CHECK (LEN([PHONENUMBERRECIVE]) = 10),
 	DATECREATE DATE DEFAULT GETDATE(),
 	VOUCHERID INT,
 
 	foreign key (VOUCHERID) references VOUCHER(VOUCHERID) on update cascade ,
+	foreign key (ADDRESSID) references ADDRESS_SHIP(ADDRESSID) on update cascade ,
 )
 
 
@@ -535,14 +553,14 @@ INSERT INTO CONFIGDETAIL VALUES ('7',N'BlueTooth',N'5.0')
 
 
 
-go --([USER], [PASSWORD], FULLNAME, SEX ,DATEOFBIRTHM STATUSACCOUNT, PHONENUMBER)
-Insert into ACCOUNT values ('Admin','Admin123',N'Admin','0',GETDATE(),'1','0999999999') 
-Insert into ACCOUNT values ('Phus','123456789',N'Trương Gia Phú','1','07/08/2000','1','0123456789') 
-Insert into ACCOUNT values ('Syx','123456789',N'Nguyễn Quang Sỹ','1','20/11/2000','1','0987654321') 
-Insert into ACCOUNT values ('Tris','123456789',N'Nguyễn Hoang Trí','1','25/11/2000','1','0578964123') 
-Insert into ACCOUNT values ('Tuans','123456789',N'Hồ Quốc Tuấn','1',GETDATE(),'1','0968745213') 
-Insert into ACCOUNT values ('Long','123456789',N'Nguyễn Thành Long','1',GETDATE(),'1','0325416987') 
-Insert into ACCOUNT values ('Tinhs','123456789',N'Nguyễn Ngọc Tính','1','30/04/2000','1','0975468321') 
+go --([USER], [PASSWORD], FULLNAME, SEX ,DATEOFBIRTHM STATUSACCOUNT, PHONENUMBER, EMAIL)
+Insert into ACCOUNT values ('Admin','Admin123',N'Admin','0',GETDATE(),'1','0999999999','') 
+Insert into ACCOUNT values ('Phus','123456789',N'Trương Gia Phú','1','07/08/2000','1','0123456789','') 
+Insert into ACCOUNT values ('Syx','123456789',N'Nguyễn Quang Sỹ','1','20/11/2000','1','0987654321','') 
+Insert into ACCOUNT values ('Tris','123456789',N'Nguyễn Hoang Trí','1','25/11/2000','1','0578964123','') 
+Insert into ACCOUNT values ('Tuans','123456789',N'Hồ Quốc Tuấn','1',GETDATE(),'1','0968745213','') 
+Insert into ACCOUNT values ('Long','123456789',N'Nguyễn Thành Long','1',GETDATE(),'1','0325416987','') 
+Insert into ACCOUNT values ('Tinhs','123456789',N'Nguyễn Ngọc Tính','1','30/04/2000','1','0975468321','') 
 
 go --([USER], [PASSWORD], FULLNAME, STATUSACCOUNT)
 Insert into ACCOUNT_ADMIN values (N'admin','admin',N'Trí Đẹp Trai','1') 

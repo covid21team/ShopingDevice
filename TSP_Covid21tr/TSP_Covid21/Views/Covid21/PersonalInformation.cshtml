@@ -7,7 +7,8 @@
 @{
     TSP_Covid21.Controllers.Covid21Controller CC = new TSP_Covid21.Controllers.Covid21Controller();
 
-    TSP_Covid21.Models.ShopEntity.ACCOUNT loadPI = CC.loadPI(Session["user"].ToString()/*"Tris"*/);
+    /*"Tris"*/
+    TSP_Covid21.Models.ShopEntity.ACCOUNT loadPI = CC.loadPI(Session["user"].ToString());
 
     //Chỉnh radius giới tính
     string s = loadPI.SEX.ToString();
@@ -18,13 +19,13 @@
 
     // hiện ngày
     string d = loadPI.DATAOFBIRTH.ToString();
-        //Loại bỏ các ký tự thừa đằng sau
+    //Loại bỏ các ký tự thừa đằng sau
     d = d.Remove(d.Length - 12);
-        //Cắt ra lấy ngày tháng năm
+    //Cắt ra lấy ngày tháng năm
     string Year = (d.Split('/')[2]);
     string Day = (d.Split('/')[1]);
     string Month = (d.Split('/')[0]);
-        //nếu ngày không đủ 2 số thì thêm số 0 trước nó
+    //nếu ngày không đủ 2 số thì thêm số 0 trước nó
     if (Day.Length == 1)
     {
         Day = "0" + Day;
