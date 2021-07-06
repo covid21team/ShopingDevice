@@ -197,6 +197,7 @@ CREATE TABLE BILL
 	DATECREATE DATE DEFAULT GETDATE(),
 	VOUCHERID INT,
 	TOTALBILL bigint,
+	NOTE nvarchar(max),
 
 	foreign key (VOUCHERID) references VOUCHER(VOUCHERID) on update cascade ,
 	foreign key (ADDRESSID) references ADDRESS_SHIP(ADDRESSID) on update cascade ,
@@ -624,7 +625,7 @@ go --(VOUCHERID, [USER], DATEENDTIRE)
 INSERT INTO  VOCHERDETAIL VALUES ('1','syx','30/12/2021')
 
 go --(BILLID, [USER], [ADDRESS], [PHONENUMBERRECIVE], DATECREATE, VOUCHERID)
-Insert into BILL values ('Phus','7 núi','0123456789',GETDATE(),1)
+Insert into BILL values ('Phus','7 núi','0123456789',GETDATE(),1,'')
 
 go --(BILLID, PRODUCTID, AMOUNT)
 Insert into BILLDETAIL values (1,1,10)
