@@ -125,7 +125,7 @@
                             Open file
                         </span>
                     </label>
-                    <input id="filebutton" name="Pic2" class="input-file" type="file" accept="image/*"
+                    <input id="filebutton" name="Pic2" class="input-file" type="file" multiple accept="image/*"
                            style="display: none" />
                 </div>
                 <div class="card-deck" id="appearPic">
@@ -298,7 +298,6 @@
 </div>
 
 <input class="btn_Edit" type="button" value="Chỉnh sửa" style="margin-left: 61.5%; width: 10%" />
-<input class="btn_Check" type="button" value="Check" style="margin-left: 61.5%; width: 10%" />
 
 <script>
     // Chỉnh sửa thông tin sản phẩm
@@ -388,8 +387,8 @@
 
             create.innerHTML = '<div class="card mb-4 pictureProduct" style="width: 104px; float: left;">' +
                                     '<figure class="snip0068 yellow">' +
-                                        '<input type="text" value="Asset/images/iPhone/'+ file.name +'" style="display: none" class="takePath" />' +
-                                        '<img src="/Asset/images/iPhone/' + file.name + '"/>' +
+                                        '<input type="text" value="Asset/images/'+ file.name +'" style="display: none" class="takePath" />' +
+                                        '<img src="/Asset/images/' + file.name + '"/>' +
                                         '<figcaption> ' +
                                             '<div>' +
                                                 '<span class="removePic"><i class="far fa-trash-alt"></i> Remove</span>' +
@@ -406,7 +405,7 @@
 
 <!-- Hàm thử nghiệm -->
 <script>
-    $(".configInf").change(function () {
+    /*$(".configInf").change(function () {
         alert("iebfi");
         var parent = $(this).parent().parent();
         var check = $(parent).children().children().children(".click");
@@ -436,5 +435,5 @@
         }
         alert(name);
         alert(inf);
-    });
+    });*/
 </script>

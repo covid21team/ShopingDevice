@@ -1,0 +1,255 @@
+﻿#mainform{
+    margin-top: 20px;
+
+}
+
+.ggg{
+    font-size: 17px;
+}
+#hienthongtin{
+    background: rgb(248, 249, 250);
+    width: 900px ;   
+    min-height: 347px ;
+    margin-left: 300px;
+    margin-top: -10px;
+    border-radius: 5px;
+    margin-bottom: 1%;
+
+}
+
+
+.thongtincanhan{
+    margin-left:10px;
+    margin-top: 5px;
+}
+
+
+/* ================================ */
+
+.ggg label.active {
+    border-bottom:2.5px solid red;
+  }
+
+
+/* .namedo :active{
+color: #D10024;
+} */
+/*======================================= */
+/*Họ và Tên của Account*/
+#id1{
+    margin-left: 7.8%;
+    width: 300px;   
+    margin-top: 5px;
+    border-radius: 5px;
+}
+/*Số điện thoại account*/
+#id2{
+    margin-left: 5.5%; 
+    width: 300px;
+    margin-top: 5px;
+    border-radius: 5px;
+}
+/*Email*/
+#id3{
+   margin-left: 11.2%; 
+   width: 300px;
+   margin-top: 5px;
+   border-radius: 5px;
+}
+/*radio Nam*/
+#id4{
+    margin-left: 81px; 
+    transform: scale(1.5);
+    margin-top: 15px;
+    
+}
+/*radio Nữ*/
+#id5{
+    margin-left: 50px;
+    transform: scale(1.5);
+    margin-top: 15px;
+}
+/*Ngày sinh nhật*/
+#id6{
+    margin-left: 4.3%; 
+    width: 150px;
+    margin-top: 5px;
+    border-radius: 5px;
+}
+/*check bõ thay đổi mật khẩu*/
+#id7{
+    transform: scale(1.5);
+    margin-left: 16.8%;
+    margin-top: 10px;
+
+}
+/*Mật khẩu củ*/
+#id8{
+    margin-left: 8.5%;
+    width: 300px;
+    margin-top: 5px;
+    border-radius: 5px;
+}
+/*Mật khẩu mới*/
+#id9{
+    margin-left: 5.1%;
+    width: 300px;
+    margin-top: 5px;
+    border-radius: 5px;
+}
+/*Xác nhận mật khẩu mới*/
+#id10{
+    margin-left: 1%;
+    width: 300px;
+    margin-top: 5px;
+    border-radius: 5px;
+}
+/*button Gửi*/
+#id11 {
+    margin-left: 39%;
+    width: 100px;
+    margin-top: 5px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background: #D10024;
+    border: #e6556d;
+    color: white;
+    font-size: 20px;
+}
+    #id11:hover {
+        background: #FF0000;
+    }
+#id12{
+    text-align: center;
+    padding: 10px;
+    font-size: 20px;
+    border-style: dotted ;
+    margin-top: 5px;
+    border-radius: 5px;
+    margin-left: -10px;
+    color: rgb(159, 209, 102);
+  
+}
+#id12:hover{
+    color: #D10024;
+}
+.id13{
+    width: 30%; padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+}
+/*Thay đổi địa chỉ*/
+.id14{
+    /* margin-left: 80%; */
+    margin-top: 5px;
+    border-radius: 5px;   
+}
+.id14:hover{
+    color: red;
+}
+/*Họ và tên địa chỉ thêm*/
+#id15{
+    margin-left: 8%; 
+    width: 300px;
+    margin-top: 5px;
+    border-radius: 5px;
+}
+/*số điện thoại địa chỉ thêm*/
+#id16{
+    margin-left: 5.7%; 
+    width: 300px;
+    margin-top: 5px;
+    border-radius: 5px;
+}
+/*Thành phố*/
+#id17{
+    margin-left: 2%; 
+    width: 300px;
+    margin-top: 5px;
+    border-radius: 5px;
+}
+/*Quận*/
+#id18{
+    margin-left: 82px; 
+    width: 300px;
+    margin-top: 5px;
+    border-radius: 5px;
+}
+#id19{
+    margin-left: 90px; 
+    width: 300px;
+    margin-top: 5px;
+    border-radius: 5px;
+}
+/*Địa chỉ cụ thể*/
+#id20{
+    margin-left: 10.5%; 
+    width: 300px;
+    margin-top: 5px;
+    border-radius: 5px;
+}
+/*button xác nhận thêm địa chỉ*/
+#id21 {
+    margin-left: 39%;
+    width: 100px;
+    margin-top: 5px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background: #D10024;
+    border: none;
+    font-size: 20px;
+    color: white;
+}
+    #id21:hover {
+        background: #FF0000;
+    }
+.thoat{
+    background: none;
+    border: none;
+    margin-left: 48%;
+    border-radius: 5px;
+}
+.thoat:hover{
+    color: red;
+}
+/*Checkbox địa chỉ mặc định*/
+#id22{
+    transform: scale(1.5);
+    margin-left: 16.9%;
+    margin-top: 5px;
+}
+
+#donhangdamua table{
+     margin-left:0px;
+     margin-top: 10px;
+      width: 880px;   
+      text-align: center; 
+      margin-bottom: 10px;
+     
+}
+.tabledg tr{
+    line-height: 10px;
+    box-shadow: 0px 0px 0px 1px rgb(51, 49, 49);
+}
+.tablea{
+   text-align: center; margin-top: 7px;
+   font-size: 20px;
+   padding: 8px;
+ 
+}
+.tableb{
+    text-align: center; margin-top: 7px; 
+   font-size: 15px;
+   padding: 5px;
+ }
+ .hoverdonhang:hover{
+     background: rgb(227, 232, 233);
+ }
+
+.addr {
+    margin-left: 100px; 
+    width: 300px;
+    margin-top: 5px;
+    border-radius: 5px;
+}

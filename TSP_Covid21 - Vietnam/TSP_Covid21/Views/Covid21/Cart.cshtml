@@ -44,7 +44,7 @@
             <div class="col-md-12">
                 <ul class="breadcrumb-tree">
                     <li><a href="@Url.Action("Home","Covid21")">Trang chủ</a></li>
-                    <li class="active">Your cart</li>
+                    <li class="active">Giỏ hàng</li>
                 </ul>
             </div>
         </div>
@@ -66,10 +66,10 @@
                             <th class="checkbox_cart"></th>
                             <th>Hình ảnh</th>
                             <th>Tên sản phẩm</th>
-                            <th class="edit_width_cart">Price</th>
+                            <th class="edit_width_cart">Giá</th>
                             <th>Số lượng</th>
                             <th>Xóa</th>
-                            <th class="edit_width_cart">Total</th>
+                            <th class="edit_width_cart">Tổng</th>
                         </tr>
                         @foreach (var item in Model)
                         {
@@ -147,7 +147,7 @@
                             <td class="totals_value" id="tax_cart">@temp_total_tax</td>
                         </tr>
                         <tr>
-                            <th>Vân chuyển</th>
+                            <th>Vận chuyển</th>
                             <td class="totals_value" id="shipping_cart">Free Ship</td>
                         </tr>
                         <tr>
@@ -157,7 +157,7 @@
                     </table>
                     <div style="margin-top: 20px; float: right;">
                         <a href="@Url.Action("CheckOut","Covid21",new { user = Session["user"]})">
-                            <button class="checkout_cart"><i class="fas fa-hand-holding-usd"></i> Checkout</button>
+                            <button class="checkout_cart"><i class="fas fa-hand-holding-usd"></i> Thanh toán</button>
                         </a>
                     </div>
                 </div>

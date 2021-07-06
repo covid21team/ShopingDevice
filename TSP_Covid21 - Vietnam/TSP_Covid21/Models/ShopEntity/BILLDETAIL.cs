@@ -18,7 +18,7 @@ namespace TSP_Covid21.Models.ShopEntity
         public int PRODUCTID { get; set; }
         public Nullable<int> AMOUNT { get; set; }
     
-        public virtual BILL BILL { get; set; }
         public virtual PRODUCT PRODUCT { get; set; }
+        public virtual BILL BILL { get; set; }
     }
 }

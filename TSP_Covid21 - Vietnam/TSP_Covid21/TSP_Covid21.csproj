@@ -154,6 +154,9 @@
     <Compile Include="Models\ShopEntity\ACCOUNT_ADMIN.cs">
       <DependentUpon>ShopEntity.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ShopEntity\ADDRESS_SHIP.cs">
+      <DependentUpon>ShopEntity.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ShopEntity\BILL.cs">
       <DependentUpon>ShopEntity.tt</DependentUpon>
     </Compile>
@@ -390,6 +393,7 @@
     <Content Include="Asset\css\slick-theme.css" />
     <Content Include="Asset\css\slick.css" />
     <Content Include="Asset\css\style.css" />
+    <Content Include="Asset\css\thongtincanhan.css" />
     <Content Include="Asset\fonts\fontawesome-webfont.svg" />
     <Content Include="Asset\fonts\slick.svg" />
     <Content Include="Asset\images\HeadPhone\Apple\12.290.000 ₫ max.txt" />
@@ -518,21 +522,21 @@
     <Content Include="Asset\images\SmartPhone\Iphone\iPhone_XR\iphone-xr-3.jpg" />
     <Content Include="Asset\images\SmartPhone\Iphone\iPhone_XR\iphone-xr-4.jpg" />
     <Content Include="Asset\images\SmartPhone\Iphone\iPhone_XR\iphone-xr-5.jpg" />
-    <Content Include="Asset\images\SmartPhone\Oppo\OPPO Find X3 Pro 5G\oppo-find-x3-pro-den-1-org.jpg" />
-    <Content Include="Asset\images\SmartPhone\Oppo\OPPO Find X3 Pro 5G\oppo-find-x3-pro-den-2-org.jpg" />
-    <Content Include="Asset\images\SmartPhone\Oppo\OPPO Find X3 Pro 5G\oppo-find-x3-pro-den-3-org.jpg" />
-    <Content Include="Asset\images\SmartPhone\Oppo\OPPO Find X3 Pro 5G\oppo-find-x3-pro-den-4-org.jpg" />
-    <Content Include="Asset\images\SmartPhone\Oppo\OPPO Find X3 Pro 5G\oppo-find-x3-pro-den-5-org.jpg" />
-    <Content Include="Asset\images\SmartPhone\Oppo\OPPO Reno4 Pro\oppo-reno4-pro-trang-1-org.jpg" />
-    <Content Include="Asset\images\SmartPhone\Oppo\OPPO Reno4 Pro\oppo-reno4-pro-trang-2-org.jpg" />
-    <Content Include="Asset\images\SmartPhone\Oppo\OPPO Reno4 Pro\oppo-reno4-pro-trang-3-org.jpg" />
-    <Content Include="Asset\images\SmartPhone\Oppo\OPPO Reno4 Pro\oppo-reno4-pro-trang-4-org.jpg" />
-    <Content Include="Asset\images\SmartPhone\Oppo\OPPO Reno4 Pro\oppo-reno4-pro-trang-5-org.jpg" />
-    <Content Include="Asset\images\SmartPhone\Oppo\OPPO Reno5\oppo-reno5-bac-1-org.jpg" />
-    <Content Include="Asset\images\SmartPhone\Oppo\OPPO Reno5\oppo-reno5-bac-2-org.jpg" />
-    <Content Include="Asset\images\SmartPhone\Oppo\OPPO Reno5\oppo-reno5-bac-3-org.jpg" />
-    <Content Include="Asset\images\SmartPhone\Oppo\OPPO Reno5\oppo-reno5-bac-4-org.jpg" />
-    <Content Include="Asset\images\SmartPhone\Oppo\OPPO Reno5\oppo-reno5-bac-5-org.jpg" />
+    <Content Include="Asset\images\oppo-find-x3-pro-den-1-org.jpg" />
+    <Content Include="Asset\images\oppo-find-x3-pro-den-2-org.jpg" />
+    <Content Include="Asset\images\oppo-find-x3-pro-den-3-org.jpg" />
+    <Content Include="Asset\images\oppo-find-x3-pro-den-4-org.jpg" />
+    <Content Include="Asset\images\oppo-find-x3-pro-den-5-org.jpg" />
+    <Content Include="Asset\images\oppo-reno4-pro-trang-1-org.jpg" />
+    <Content Include="Asset\images\oppo-reno4-pro-trang-2-org.jpg" />
+    <Content Include="Asset\images\oppo-reno4-pro-trang-3-org.jpg" />
+    <Content Include="Asset\images\oppo-reno4-pro-trang-4-org.jpg" />
+    <Content Include="Asset\images\oppo-reno4-pro-trang-5-org.jpg" />
+    <Content Include="Asset\images\oppo-reno5-bac-1-org.jpg" />
+    <Content Include="Asset\images\oppo-reno5-bac-2-org.jpg" />
+    <Content Include="Asset\images\oppo-reno5-bac-3-org.jpg" />
+    <Content Include="Asset\images\oppo-reno5-bac-4-org.jpg" />
+    <Content Include="Asset\images\oppo-reno5-bac-5-org.jpg" />
     <Content Include="Asset\images\SmartPhone\SamSung\Galaxy Z Fold2 5G Đặc biệt\samsung-galaxy-z-fold2-5g-dac-biet-vang-dong-1-1-org.jpg" />
     <Content Include="Asset\images\SmartPhone\SamSung\Galaxy Z Fold2 5G Đặc biệt\samsung-galaxy-z-fold2-5g-dac-biet-vang-dong-2-org.jpg" />
     <Content Include="Asset\images\SmartPhone\SamSung\Galaxy Z Fold2 5G Đặc biệt\samsung-galaxy-z-fold2-5g-dac-biet-vang-dong-3-org.jpg" />
@@ -662,6 +666,7 @@
     <Content Include="Asset\JS\main.js" />
     <Content Include="Asset\JS\nouislider.min.js" />
     <Content Include="Asset\JS\password.js" />
+    <Content Include="Asset\JS\personal-information.js" />
     <Content Include="Asset\JS\slick.min.js" />
     <Content Include="Asset\screenshot\Checkout.png" />
     <Content Include="Asset\screenshot\Index.png" />
@@ -806,7 +811,6 @@
     <Content Include="Asset\images\Tablet\SamSung\cau hinh s7.docx" />
     <Content Include="Asset\images\Tablet\SamSung\mo ta a7.docx" />
     <Content Include="Asset\images\Tablet\SamSung\mo ta s7.docx" />
-    <Content Include="Areas\Admin\Views\Home\ProductManager.cshtml" />
     <Content Include="Areas\Admin\AssetAdmin\bootstrap\dist\.DS_Store" />
     <Content Include="Areas\Admin\AssetAdmin\bootstrap\dist\css\bootstrap-grid.css.map" />
     <Content Include="Areas\Admin\AssetAdmin\bootstrap\dist\css\bootstrap-grid.min.css.map" />
@@ -1066,8 +1070,6 @@
     <Content Include="Areas\Admin\AssetAdmin\scss\widgets\profile.scss" />
     <Content Include="Areas\Admin\AssetAdmin\scss\widgets\steamline.scss" />
     <Content Include="Areas\Admin\AssetAdmin\scss\widgets\widgets.scss" />
-    <Content Include="Areas\Admin\Views\Home\productDetail.cshtml" />
-    <Content Include="Areas\Admin\Views\Home\editProduct.cshtml" />
     <Content Include="Asset\images\iPhone\Quick access - Shortcut.lnk" />
     <Content Include="Areas\Admin\Views\ProductManager\addProduct.cshtml" />
     <Content Include="Areas\Admin\Views\ProductManager\ListProduct.cshtml" />
@@ -1123,6 +1125,9 @@
     <Content Include="Views\Product\listRating.cshtml" />
     <Content Include="Views\Product\listProduct.cshtml" />
     <Content Include="Views\Product\search.cshtml" />
+    <Content Include="Views\Covid21\Personal.cshtml" />
+    <Content Include="Views\Covid21\View.cshtml" />
+    <Content Include="Views\Covid21\Rating.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1163,7 +1168,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>60424</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:60424/</IISUrl>
+          <IISUrl>http://localhost:2021/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

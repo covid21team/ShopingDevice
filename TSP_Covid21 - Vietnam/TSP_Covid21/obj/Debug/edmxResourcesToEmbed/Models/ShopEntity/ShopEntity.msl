@@ -1,89 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="COVIDModelStoreContainer" CdmEntityContainer="COVIDEntities">
-    <EntitySetMapping Name="ACCOUNTs">
-      <EntityTypeMapping TypeName="COVIDModel.ACCOUNT">
-        <MappingFragment StoreEntitySet="ACCOUNT">
-          <ScalarProperty Name="USER" ColumnName="USER" />
-          <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
-          <ScalarProperty Name="FULLNAME" ColumnName="FULLNAME" />
-          <ScalarProperty Name="SEX" ColumnName="SEX" />
-          <ScalarProperty Name="DATAOFBIRTH" ColumnName="DATAOFBIRTH" />
-          <ScalarProperty Name="STATUSACCOUNT" ColumnName="STATUSACCOUNT" />
-          <ScalarProperty Name="PHONENUMBER" ColumnName="PHONENUMBER" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="ACCOUNT_ADMIN">
-      <EntityTypeMapping TypeName="COVIDModel.ACCOUNT_ADMIN">
-        <MappingFragment StoreEntitySet="ACCOUNT_ADMIN">
-          <ScalarProperty Name="USER" ColumnName="USER" />
-          <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
-          <ScalarProperty Name="FULLNAME" ColumnName="FULLNAME" />
-          <ScalarProperty Name="STATUSACCOUNT" ColumnName="STATUSACCOUNT" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="ACCOUNTLIKEs">
-      <EntityTypeMapping TypeName="COVIDModel.ACCOUNTLIKE">
-        <MappingFragment StoreEntitySet="ACCOUNTLIKE">
-          <ScalarProperty Name="USER" ColumnName="USER" />
-          <ScalarProperty Name="PRODUCTID" ColumnName="PRODUCTID" />
-          <ScalarProperty Name="DATELIKE" ColumnName="DATELIKE" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="BILLs">
-      <EntityTypeMapping TypeName="COVIDModel.BILL">
-        <MappingFragment StoreEntitySet="BILL">
-          <ScalarProperty Name="BILLID" ColumnName="BILLID" />
-          <ScalarProperty Name="USER" ColumnName="USER" />
-          <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
-          <ScalarProperty Name="PHONENUMBERRECIVE" ColumnName="PHONENUMBERRECIVE" />
-          <ScalarProperty Name="DATECREATE" ColumnName="DATECREATE" />
-          <ScalarProperty Name="VOUCHERID" ColumnName="VOUCHERID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="BILLDETAILs">
-      <EntityTypeMapping TypeName="COVIDModel.BILLDETAIL">
-        <MappingFragment StoreEntitySet="BILLDETAIL">
-          <ScalarProperty Name="BILLID" ColumnName="BILLID" />
-          <ScalarProperty Name="PRODUCTID" ColumnName="PRODUCTID" />
-          <ScalarProperty Name="AMOUNT" ColumnName="AMOUNT" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="BRANDs">
-      <EntityTypeMapping TypeName="COVIDModel.BRAND">
-        <MappingFragment StoreEntitySet="BRAND">
-          <ScalarProperty Name="BRANDID" ColumnName="BRANDID" />
-          <ScalarProperty Name="BRANDNAME" ColumnName="BRANDNAME" />
-          <ScalarProperty Name="STATUSBRAND" ColumnName="STATUSBRAND" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="CARTs">
-      <EntityTypeMapping TypeName="COVIDModel.CART">
-        <MappingFragment StoreEntitySet="CART">
-          <ScalarProperty Name="USER" ColumnName="USER" />
-          <ScalarProperty Name="PRODUCTID" ColumnName="PRODUCTID" />
-          <ScalarProperty Name="AMOUNT" ColumnName="AMOUNT" />
-          <ScalarProperty Name="PRODUCTSTATUS" ColumnName="PRODUCTSTATUS" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="COMMENTs">
-      <EntityTypeMapping TypeName="COVIDModel.COMMENT">
-        <MappingFragment StoreEntitySet="COMMENT">
-          <ScalarProperty Name="COMMENTID" ColumnName="COMMENTID" />
-          <ScalarProperty Name="PRODUCTID" ColumnName="PRODUCTID" />
-          <ScalarProperty Name="USER" ColumnName="USER" />
-          <ScalarProperty Name="COMMENTTEXT" ColumnName="COMMENTTEXT" />
-          <ScalarProperty Name="DATECOMMENT" ColumnName="DATECOMMENT" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="CONFIGs">
       <EntityTypeMapping TypeName="COVIDModel.CONFIG">
         <MappingFragment StoreEntitySet="CONFIG">
@@ -92,90 +9,191 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="CheckLogin" FunctionName="COVIDModel.Store.CheckLogin" />
+    <EntitySetMapping Name="ACCOUNTs">
+      <EntityTypeMapping TypeName="COVIDModel.ACCOUNT">
+        <MappingFragment StoreEntitySet="ACCOUNT">
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="PHONENUMBER" ColumnName="PHONENUMBER" />
+          <ScalarProperty Name="STATUSACCOUNT" ColumnName="STATUSACCOUNT" />
+          <ScalarProperty Name="DATAOFBIRTH" ColumnName="DATAOFBIRTH" />
+          <ScalarProperty Name="SEX" ColumnName="SEX" />
+          <ScalarProperty Name="FULLNAME" ColumnName="FULLNAME" />
+          <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+          <ScalarProperty Name="USER" ColumnName="USER" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ACCOUNT_ADMIN">
+      <EntityTypeMapping TypeName="COVIDModel.ACCOUNT_ADMIN">
+        <MappingFragment StoreEntitySet="ACCOUNT_ADMIN">
+          <ScalarProperty Name="STATUSACCOUNT" ColumnName="STATUSACCOUNT" />
+          <ScalarProperty Name="FULLNAME" ColumnName="FULLNAME" />
+          <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+          <ScalarProperty Name="USER" ColumnName="USER" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ACCOUNTLIKEs">
+      <EntityTypeMapping TypeName="COVIDModel.ACCOUNTLIKE">
+        <MappingFragment StoreEntitySet="ACCOUNTLIKE">
+          <ScalarProperty Name="DATELIKE" ColumnName="DATELIKE" />
+          <ScalarProperty Name="PRODUCTID" ColumnName="PRODUCTID" />
+          <ScalarProperty Name="USER" ColumnName="USER" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ADDRESS_SHIP">
+      <EntityTypeMapping TypeName="COVIDModel.ADDRESS_SHIP">
+        <MappingFragment StoreEntitySet="ADDRESS_SHIP">
+          <ScalarProperty Name="ADDRESS_STATUS" ColumnName="ADDRESS_STATUS" />
+          <ScalarProperty Name="DEFAULT" ColumnName="DEFAULT" />
+          <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+          <ScalarProperty Name="WARDS" ColumnName="WARDS" />
+          <ScalarProperty Name="DISTRICT" ColumnName="DISTRICT" />
+          <ScalarProperty Name="CITY" ColumnName="CITY" />
+          <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+          <ScalarProperty Name="FULLNAME" ColumnName="FULLNAME" />
+          <ScalarProperty Name="USER" ColumnName="USER" />
+          <ScalarProperty Name="ADDRESSID" ColumnName="ADDRESSID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BILLDETAILs">
+      <EntityTypeMapping TypeName="COVIDModel.BILLDETAIL">
+        <MappingFragment StoreEntitySet="BILLDETAIL">
+          <ScalarProperty Name="AMOUNT" ColumnName="AMOUNT" />
+          <ScalarProperty Name="PRODUCTID" ColumnName="PRODUCTID" />
+          <ScalarProperty Name="BILLID" ColumnName="BILLID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BRANDs">
+      <EntityTypeMapping TypeName="COVIDModel.BRAND">
+        <MappingFragment StoreEntitySet="BRAND">
+          <ScalarProperty Name="STATUSBRAND" ColumnName="STATUSBRAND" />
+          <ScalarProperty Name="BRANDNAME" ColumnName="BRANDNAME" />
+          <ScalarProperty Name="BRANDID" ColumnName="BRANDID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CARTs">
+      <EntityTypeMapping TypeName="COVIDModel.CART">
+        <MappingFragment StoreEntitySet="CART">
+          <ScalarProperty Name="PRODUCTSTATUS" ColumnName="PRODUCTSTATUS" />
+          <ScalarProperty Name="AMOUNT" ColumnName="AMOUNT" />
+          <ScalarProperty Name="PRODUCTID" ColumnName="PRODUCTID" />
+          <ScalarProperty Name="USER" ColumnName="USER" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="COMMENTs">
+      <EntityTypeMapping TypeName="COVIDModel.COMMENT">
+        <MappingFragment StoreEntitySet="COMMENT">
+          <ScalarProperty Name="DATECOMMENT" ColumnName="DATECOMMENT" />
+          <ScalarProperty Name="COMMENTTEXT" ColumnName="COMMENTTEXT" />
+          <ScalarProperty Name="USER" ColumnName="USER" />
+          <ScalarProperty Name="PRODUCTID" ColumnName="PRODUCTID" />
+          <ScalarProperty Name="COMMENTID" ColumnName="COMMENTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="CONFIGDETAILs">
       <EntityTypeMapping TypeName="COVIDModel.CONFIGDETAIL">
         <MappingFragment StoreEntitySet="CONFIGDETAIL">
-          <ScalarProperty Name="PRODUCTID" ColumnName="PRODUCTID" />
-          <ScalarProperty Name="CONFIGNAME" ColumnName="CONFIGNAME" />
           <ScalarProperty Name="INFORMATION" ColumnName="INFORMATION" />
+          <ScalarProperty Name="CONFIGNAME" ColumnName="CONFIGNAME" />
+          <ScalarProperty Name="PRODUCTID" ColumnName="PRODUCTID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="PRODUCTs">
       <EntityTypeMapping TypeName="COVIDModel.PRODUCT">
         <MappingFragment StoreEntitySet="PRODUCT">
-          <ScalarProperty Name="PRODUCTID" ColumnName="PRODUCTID" />
-          <ScalarProperty Name="PRODUCTNAME" ColumnName="PRODUCTNAME" />
-          <ScalarProperty Name="BRANDID" ColumnName="BRANDID" />
-          <ScalarProperty Name="PRODUCTTYPEID" ColumnName="PRODUCTTYPEID" />
-          <ScalarProperty Name="MAINPIC" ColumnName="MAINPIC" />
-          <ScalarProperty Name="PIC1" ColumnName="PIC1" />
-          <ScalarProperty Name="PIC2" ColumnName="PIC2" />
-          <ScalarProperty Name="PIC3" ColumnName="PIC3" />
-          <ScalarProperty Name="PIC4" ColumnName="PIC4" />
-          <ScalarProperty Name="STATUSPRODUCT" ColumnName="STATUSPRODUCT" />
-          <ScalarProperty Name="PRODUCTPRICE" ColumnName="PRODUCTPRICE" />
-          <ScalarProperty Name="PRODUCTAMOUNT" ColumnName="PRODUCTAMOUNT" />
-          <ScalarProperty Name="DECRIPTION" ColumnName="DECRIPTION" />
           <ScalarProperty Name="DATEADD" ColumnName="DATEADD" />
+          <ScalarProperty Name="DECRIPTION" ColumnName="DECRIPTION" />
+          <ScalarProperty Name="PRODUCTAMOUNT" ColumnName="PRODUCTAMOUNT" />
+          <ScalarProperty Name="PRODUCTPRICE" ColumnName="PRODUCTPRICE" />
+          <ScalarProperty Name="STATUSPRODUCT" ColumnName="STATUSPRODUCT" />
+          <ScalarProperty Name="PIC4" ColumnName="PIC4" />
+          <ScalarProperty Name="PIC3" ColumnName="PIC3" />
+          <ScalarProperty Name="PIC2" ColumnName="PIC2" />
+          <ScalarProperty Name="PIC1" ColumnName="PIC1" />
+          <ScalarProperty Name="MAINPIC" ColumnName="MAINPIC" />
+          <ScalarProperty Name="PRODUCTTYPEID" ColumnName="PRODUCTTYPEID" />
+          <ScalarProperty Name="BRANDID" ColumnName="BRANDID" />
+          <ScalarProperty Name="PRODUCTNAME" ColumnName="PRODUCTNAME" />
+          <ScalarProperty Name="PRODUCTID" ColumnName="PRODUCTID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="PRODUCTTYPEs">
       <EntityTypeMapping TypeName="COVIDModel.PRODUCTTYPE">
         <MappingFragment StoreEntitySet="PRODUCTTYPE">
-          <ScalarProperty Name="PRODUCTTYPEID" ColumnName="PRODUCTTYPEID" />
-          <ScalarProperty Name="PRODUCTTYPENAME" ColumnName="PRODUCTTYPENAME" />
           <ScalarProperty Name="STATUSPRODUCTTYPE" ColumnName="STATUSPRODUCTTYPE" />
+          <ScalarProperty Name="PRODUCTTYPENAME" ColumnName="PRODUCTTYPENAME" />
+          <ScalarProperty Name="PRODUCTTYPEID" ColumnName="PRODUCTTYPEID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="RATINGPRODUCTs">
       <EntityTypeMapping TypeName="COVIDModel.RATINGPRODUCT">
         <MappingFragment StoreEntitySet="RATINGPRODUCT">
-          <ScalarProperty Name="USER" ColumnName="USER" />
-          <ScalarProperty Name="PRODUCTID" ColumnName="PRODUCTID" />
           <ScalarProperty Name="RATE" ColumnName="RATE" />
+          <ScalarProperty Name="PRODUCTID" ColumnName="PRODUCTID" />
+          <ScalarProperty Name="USER" ColumnName="USER" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="TEMPPRODUCTs">
       <EntityTypeMapping TypeName="COVIDModel.TEMPPRODUCT">
         <MappingFragment StoreEntitySet="TEMPPRODUCT">
-          <ScalarProperty Name="PRODUCTTYPEID" ColumnName="PRODUCTTYPEID" />
-          <ScalarProperty Name="BRANDID" ColumnName="BRANDID" />
           <ScalarProperty Name="TEMPPRODUCTSTATUS" ColumnName="TEMPPRODUCTSTATUS" />
+          <ScalarProperty Name="BRANDID" ColumnName="BRANDID" />
+          <ScalarProperty Name="PRODUCTTYPEID" ColumnName="PRODUCTTYPEID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="VIEWNUMBERs">
       <EntityTypeMapping TypeName="COVIDModel.VIEWNUMBER">
         <MappingFragment StoreEntitySet="VIEWNUMBER">
-          <ScalarProperty Name="USER" ColumnName="USER" />
-          <ScalarProperty Name="PRODUCTID" ColumnName="PRODUCTID" />
           <ScalarProperty Name="DATESEEN" ColumnName="DATESEEN" />
+          <ScalarProperty Name="PRODUCTID" ColumnName="PRODUCTID" />
+          <ScalarProperty Name="USER" ColumnName="USER" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="VOCHERDETAILs">
       <EntityTypeMapping TypeName="COVIDModel.VOCHERDETAIL">
         <MappingFragment StoreEntitySet="VOCHERDETAIL">
-          <ScalarProperty Name="VOUCHERID" ColumnName="VOUCHERID" />
-          <ScalarProperty Name="USER" ColumnName="USER" />
           <ScalarProperty Name="DATEENDTIRE" ColumnName="DATEENDTIRE" />
+          <ScalarProperty Name="USER" ColumnName="USER" />
+          <ScalarProperty Name="VOUCHERID" ColumnName="VOUCHERID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="VOUCHERs">
       <EntityTypeMapping TypeName="COVIDModel.VOUCHER">
         <MappingFragment StoreEntitySet="VOUCHER">
-          <ScalarProperty Name="VOUCHERID" ColumnName="VOUCHERID" />
-          <ScalarProperty Name="DECRIPTIONVOUCHER" ColumnName="DECRIPTIONVOUCHER" />
-          <ScalarProperty Name="DATEENDTIRE" ColumnName="DATEENDTIRE" />
           <ScalarProperty Name="STATUSVOUCHER" ColumnName="STATUSVOUCHER" />
+          <ScalarProperty Name="DATEENDTIRE" ColumnName="DATEENDTIRE" />
+          <ScalarProperty Name="DECRIPTIONVOUCHER" ColumnName="DECRIPTIONVOUCHER" />
+          <ScalarProperty Name="VOUCHERID" ColumnName="VOUCHERID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <FunctionImportMapping FunctionImportName="CheckLogin" FunctionName="COVIDModel.Store.CheckLogin" />
+    <EntitySetMapping Name="BILLs">
+      <EntityTypeMapping TypeName="COVIDModel.BILL">
+        <MappingFragment StoreEntitySet="BILL">
+          <ScalarProperty Name="TOTALBILL" ColumnName="TOTALBILL" />
+          <ScalarProperty Name="VOUCHERID" ColumnName="VOUCHERID" />
+          <ScalarProperty Name="DATECREATE" ColumnName="DATECREATE" />
+          <ScalarProperty Name="PHONENUMBERRECIVE" ColumnName="PHONENUMBERRECIVE" />
+          <ScalarProperty Name="ADDRESSID" ColumnName="ADDRESSID" />
+          <ScalarProperty Name="USER" ColumnName="USER" />
+          <ScalarProperty Name="BILLID" ColumnName="BILLID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

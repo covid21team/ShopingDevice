@@ -217,6 +217,20 @@ namespace TSP_Covid21.Models.BUS
             return result;
         }
 
+        //Khi xem sản phẩm
+        public void insertView(int productId, string user)
+        {
+            DateTime time = DateTime.Now;
+            VIEWNUMBER v = new VIEWNUMBER
+            {
+                USER = user,
+                PRODUCTID = productId,
+                DATESEEN = time,
+            };
+            db.VIEWNUMBERs.AddOrUpdate(v);
+            db.SaveChanges();
+        }
+
         // Lấy danh sách đánh giá của sản phẩm
         public IEnumerable<RATINGPRODUCT> loadRatingProduct(int productId)
         {

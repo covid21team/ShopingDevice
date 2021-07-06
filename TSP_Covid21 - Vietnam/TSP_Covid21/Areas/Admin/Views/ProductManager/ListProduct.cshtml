@@ -4,16 +4,18 @@
     Layout = "~/Areas/Admin/Views/Shared/MainLayoutAdmin.cshtml";
 }
 
+
+
 <!-- Page wrapper  -->
 <!-- ============================================================== -->
-<div class="page-wrapper" style="min-height: 250px;">
+<div class="page-wrapper" style="min-height: 250px;" id="productManager">
     <!-- ============================================================== -->
     <!-- Bread crumb and right sidebar toggle -->
     <!-- ============================================================== -->
     <div class="page-breadcrumb bg-white">
         <div class="row align-items-center">
             <h2>
-                PRODUCTS LIST
+                DANH SÁCH SẢN PHẨM
             </h2>
 
         </div>
@@ -43,10 +45,14 @@
                             <th style="font-size:15px;">Giá</th>
                             <th style="font-size:15px;">Đánh giá</th>
                             <th style="font-size:15px;">Số lượng</th>
-                            <th style="font-size:15px;">Ngày thêm   </th>
-                            <th style="font-size:15px;">
+                            <th style="font-size:15px;" class="add_Product">
                                 <a>
-                                    <i id="add_Product" class="fas fa-plus-circle" style="color: #bcd451;"></i>
+                                    <i class="fas fa-plus-circle" style="color: #bcd451;"></i>
+                                </a>
+                            </th>
+                            <th style="font-size:15px;" class="add_Product">
+                                <a>
+                                    <i  class="fas fa-plus-circle" style="color: #bcd451;"></i>
                                 </a>
                             </th>
                         </tr>
@@ -82,11 +88,9 @@
                                 <td class="click_Product">@tempPrice</td>
                                 <td class="click_Product">@item.RATINGPRODUCTs.Count()</td>
                                 <td class="click_Product">@item.PRODUCTAMOUNT</td>
-                                <td class="click_Product">@item.DATEADD</td>
-                                <td>
-                                    <i class="fas fa-edit edit_Product"></i>
-                                    <i class="fas fa-trash-alt delete_product" style="color: red; margin-left: 5px;"></i>
-                                </td>
+                                <td class="edit_Product"><i class="fas fa-edit"></i></td>
+                                <td class="delete_product">
+                                    <i class="fas fa-trash-alt" style="color: red;"></i></td>
                             </tr>
                         }
 
@@ -111,9 +115,14 @@
     </div>
 </div>
 <!-- ============================================================== -->
-<!-- End PAge Content -->
 
-
+@{ 
+    var user = "temp";
+    if(@Session["userAdmin"] != null)
+    {
+        user = Session["userAdmin"].ToString();
+    }
+}
 <script>
     $(".click_Product").click(function () {
         var parent = $(this).parent();
@@ -132,7 +141,7 @@
     });
 
     $(".delete_product").click(function () {
-        var parent = $(this).parent().parent();
+        var parent = $(this).parent();
         var id = $(parent).children(".productId").text();
         var status = $(parent).children(".statusProduct");
         $.ajax({
@@ -148,7 +157,7 @@
     });
 
     $(".edit_Product").click(function () {
-        var parent = $(this).parent().parent();
+        var parent = $(this).parent();
         var id = $(parent).children(".productId").text();
         $.ajax({
             url: '@Url.Action("editProduct", "ProductManager")',
@@ -163,7 +172,7 @@
         });
     });
 
-    $("#add_Product").click(function () {
+    $(".add_Product").click(function () {
         $.ajax({
             url: '@Url.Action("addProduct", "ProductManager")',
             type: 'POST',
@@ -173,4 +182,17 @@
             }
         });
     });
+
+    var start = {   
+        loaddata: function () {
+            if ('@user' == "temp") {
+                
+                
+            } else {
+                
+                
+            }
+        },
+    }
+    start.loaddata();
 </script>

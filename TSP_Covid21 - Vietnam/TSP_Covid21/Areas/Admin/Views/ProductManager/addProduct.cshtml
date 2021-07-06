@@ -80,7 +80,7 @@
                             Open file
                         </span>
                     </label>
-                    <input id="filebutton" name="Pic2" class="input-file" type="file" accept="image/*"
+                    <input id="filebutton" name="Pic2" class="input-file" type="file" multiple accept="image/*"
                            style="display: none" />
                 </div>
                 <div class="card-deck" id="appearPic">
@@ -183,8 +183,8 @@
 
             create.innerHTML = '<div class="card mb-4 pictureProduct" style="width: 104px; float: left;">' +
                                     '<figure class="snip0068 yellow">' +
-                                        '<input type="text" value="Asset/images/iPhone/'+ file.name +'" style="display: none" class="takePath" />' +
-                                        '<img src="/Asset/images/iPhone/' + file.name + '"/>' +
+                                        '<input type="text" value="Asset/images/'+ file.name +'" style="display: none" class="takePath" />' +
+                                        '<img src="/Asset/images/' + file.name + '"/>' +
                                         '<figcaption> ' +
                                             '<div>' +
                                                 '<span class="removePic"><i class="far fa-trash-alt"></i> Remove</span>' +

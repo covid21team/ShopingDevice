@@ -71,7 +71,7 @@ namespace TSP_Covid21.Areas.Admin.Models
             return db.PRODUCTTYPEs;
         }
 
-        public void editProduct(int id, string productName, int productType, int brand, int amount, string description, bool status, int price, string pic1, string pic2, string pic3, string pic4, string pic5)
+        public void editProduct(int id, string productName, int productType, int brand, int amount, string description, bool status, int price, string pic1, string pic2, string pic3, string pic4, string pic5, List<string> name, List<string> inf)
         {
             var dateadd = db.PRODUCTs.Where(t => t.PRODUCTID == id).Select(c => c.DATEADD).FirstOrDefault();
 
@@ -94,6 +94,25 @@ namespace TSP_Covid21.Areas.Admin.Models
             };
             db.PRODUCTs.AddOrUpdate(p);
             db.SaveChanges();
+
+            var temp = db.CONFIGDETAILs.Where(h => h.PRODUCTID == id).ToList();
+            foreach(var item in temp)
+            {
+                db.CONFIGDETAILs.Remove(item);
+            }
+            db.SaveChanges();
+
+            for(int i = 0; i < name.Count(); i++)
+            {
+                CONFIGDETAIL c = new CONFIGDETAIL
+                {
+                    PRODUCTID = id,
+                    CONFIGNAME = name[i],
+                    INFORMATION = inf[i],
+                };
+                db.CONFIGDETAILs.AddOrUpdate(c);
+                db.SaveChanges();
+            }
         }
 
         public void addSP(string productName, int productType, int brand, int amount, string description, int price, string pic1, string pic2, string pic3, string pic4, string pic5)
