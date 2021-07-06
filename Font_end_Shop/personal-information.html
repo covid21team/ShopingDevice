@@ -215,75 +215,69 @@
 	<div class="section">
 		<!-- container -->
 		<div class="container">
-			<!-- row -->
-			<div class="row">
-				<div id="aside" class="col-md-3">
-					<div class="aside">
-						<h3 class="aside-title"><i class="fas fa-user" style="font-size: 50px;"></i> Nguyễn Hoàng Trí
-						</h3>
-						<div class="checkbox-filter">
-							<div class="container ggg">
-								<label for="" class="tablinks" onclick="openCity(event, 'banthongtincanhan')">
-									<span></span>
-									<a><i class="fas fa-user-cog"></i> Personal Information</a>
-								</label>
-							</div>
-							<div class="container ggg">
-								<label class="tablinks" onclick="openCity(event, 'diachigiaohang')">
-									<span></span>
-									<a><i class="fas fa-map-marker-alt"></i> Adress</a>
-								</label>
-							</div>
-							<div class="container ggg">
-								<label for="brand-2">
-									<span></span>
-									<a><i class="fas fa-shopping-cart"></i> My Cart</a>
-								</label>
-							</div>
-							<div class="container ggg">
-								<label>
-									<span></span>
-									<a><i class="fas fa-heart"></i> Like</a>
-								</label>
-							</div>
-							<div class="container ggg">
-								<label for="brand-4">
-									<span></span>
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-sm-3">
+						<div class="aside">
+							<h3 class="aside-title"><i class="fas fa-user" style="font-size: 50px;"></i> Nguyễn Hoàng
+								Trí
+							</h3>
+							<div class="checkbox-filter">
+								<div class="container ggg">
+									<label for="" class="tablinks" onclick="openCity(event, 'banthongtincanhan')">
+										<span></span>
+										<a><i class="fas fa-user-cog"></i> Personal Information</a>
+									</label>
+								</div>
+								<div class="container ggg">
+									<label class="tablinks" onclick="openCity(event, 'diachigiaohang')">
+										<span></span>
+										<a><i class="fas fa-map-marker-alt"></i> Adress</a>
+									</label>
+								</div>
+								<div class="container ggg">
+									<label for="brand-2">
+										<span></span>
+										<a><i class="fas fa-shopping-cart"></i> My Cart</a>
+									</label>
+								</div>
+								<div class="container ggg">
+									<label>
+										<span></span>
+										<a><i class="fas fa-heart"></i> Like</a>
+									</label>
+								</div>
+								<div class="container ggg">
+									<label for="brand-4">
+										<span></span>
 
-									<a><i class="fas fa-eye"></i> Seen</a>
-								</label>
-							</div>
-							<div class="container ggg">
-								<label for="brand-4">
-									<span></span>
-									<a><i class="fas fa-star"></i> Rating</a>
-								</label>
-							</div>
-							<div class="container ggg">
-								<label for="brand-4" class="tablinks" onclick="openCity(event, 'donhangdamua')">
-									<span></span>
-									<a><i class="fas fa-book"></i> Purchased </a>
-								</label>
-							</div>
-							<div class="container ggg">
-								<label for="brand-4">
-									<span></span>
-									<a> <i class="far fa-times-circle"></i> Exit</a>
-								</label>
+										<a><i class="fas fa-eye"></i> Seen</a>
+									</label>
+								</div>
+								<div class="container ggg">
+									<label for="brand-4">
+										<span></span>
+										<a><i class="fas fa-star"></i> Rating</a>
+									</label>
+								</div>
+								<div class="container ggg">
+									<label for="brand-4" class="tablinks" onclick="openCity(event, 'donhangdamua')">
+										<span></span>
+										<a><i class="fas fa-book"></i> Purchased </a>
+									</label>
+								</div>
+								<div class="container ggg">
+									<label for="brand-4">
+										<span></span>
+										<a> <i class="far fa-times-circle"></i> Exit</a>
+									</label>
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-
-				<div class="row">
-					<!-- 
-				<div id="mainform"> -->
-
-					<h4 style="margin-top: 22px; margin-left: 15px; ">Individual information</h4><br>
-
-					<!--=================================================================-->
-
-					<div id="hienthongtin">
+					<div class="col-sm-9 bg-success">
+						<br>
+						<h4>Individual information</h4>
 						<div id="banthongtincanhan" class="thongtincanhan">
 							<div>
 								<span></span>
@@ -303,9 +297,10 @@
 
 							<div>
 								<label>Sex:
-									<input id="id4" type="radio" checked="checked" name="radio">
+									<input id="id4" type="radio"  name="radio">
 									<label>Male</label>
-									<input id="id5" type="radio" name="radio"> <label>Female</label>
+									<input id="id5" type="radio" name="radio">
+									 <label>Female</label>
 								</label>
 							</div>
 							<div>
@@ -426,9 +421,8 @@
 								</div>
 							</div>
 						</div>
-						<!-- Đơn hàng đã mua -->
 						<div id="donhangdamua" class="thongtincanhan" style="display: none;">
-							<table class="tabledg">
+							<table class="tabledg" style="width: 100%;">
 								<tr style="background: rgb(67, 85, 94); color: white;">
 									<th>
 										<p class="tablea">Bill ID</p>
@@ -461,9 +455,10 @@
 							</table>
 						</div>
 					</div>
-					<!-- </div> -->
 				</div>
 			</div>
+			<!-- row -->
+		
 			<!-- /row -->
 		</div>
 		<!-- /container -->

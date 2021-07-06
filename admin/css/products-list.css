@@ -44,6 +44,7 @@ h2 {
     border-collapse: collapse;
     align-content: center;
     background-color: #fefefe;
+    /* margin-top: 50%; */
     /* margin: 5% auto 15% auto; 5% from the top, 15% from the bottom and centered */
     border: 1px solid #888;
     width: 54%; /* Could be more or less, depending on screen size */
