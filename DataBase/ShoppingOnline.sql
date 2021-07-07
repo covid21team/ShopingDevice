@@ -56,7 +56,7 @@ CREATE TABLE PRODUCT
 	--PRODUCTVIEW INT DEFAULT 0,
 	PRODUCTAMOUNT INT,
 	DECRIPTION NVARCHAR(MAX),
-	[DATEADD] DATE, -- Ngày nhập hàng vào
+	[DATEADD] DATETIME, -- Ngày nhập hàng vào
 	foreign key (BRANDID) references Brand(BRANDID) on update cascade,
 	foreign key (PRODUCTTYPEID) references PRODUCTTYPE(PRODUCTTYPEID) on update cascade,
 )
@@ -114,7 +114,7 @@ CREATE TABLE VIEWNUMBER
 (
 	[USER] VARCHAR(30),
 	PRODUCTID INT,
-	DATESEEN DATE, -- Đây là ngày khách hàng xem sản phẩm Tris cũng không muốn để đâu này là ép buộc đó
+	DATESEEN DATETIME, -- Đây là ngày khách hàng xem sản phẩm Tris cũng không muốn để đâu này là ép buộc đó
 	primary key([USER], PRODUCTID),
 	foreign key ([USER]) references ACCOUNT([USER]) on update cascade,
 	foreign key (PRODUCTID) references PRODUCT(PRODUCTID) on update cascade,
@@ -157,7 +157,7 @@ CREATE TABLE ACCOUNTLIKE
 (
 	[USER] VARCHAR(30),
 	PRODUCTID INT,
-	DATELIKE DATE, -- lí do tồn tại thì có gì liên hệ Sỹ để biết câu trả lời
+	DATELIKE DATETIME, -- lí do tồn tại thì có gì liên hệ Sỹ để biết câu trả lời
 	PRIMARY KEY ([USER] , PRODUCTID),
 	foreign key ([USER]) references ACCOUNT([USER]) on update cascade ,
 	foreign key (PRODUCTID) references PRODUCT(PRODUCTID) on update cascade ,
@@ -182,7 +182,7 @@ CREATE TABLE VOUCHER
 (
 	VOUCHERID INT IDENTITY PRIMARY KEY,
 	DECRIPTIONVOUCHER NVARCHAR(MAX),
-	DATEENDTIRE DATE,
+	DATEENDTIRE DATETIME,
 	STATUSVOUCHER BIT DEFAULT 1
 )
 
@@ -193,7 +193,7 @@ CREATE TABLE BILL
 	BILLID INT IDENTITY PRIMARY KEY,
 	[USER] VARCHAR(30),
 	ADDRESSID INT,
-	DATECREATE DATE DEFAULT GETDATE(),
+	DATECREATE DATETIME DEFAULT GETDATE(),
 	VOUCHERID INT,
 	TOTALBILL bigint,
 	NOTE nvarchar(max),
@@ -209,7 +209,7 @@ CREATE TABLE VOCHERDETAIL
 (
 	VOUCHERID INT,
 	[USER] VARCHAR(30),
-	DATEENDTIRE DATE, -- ngày hết hạn sở hữu của khách hàng về voucher, do sẽ có một số voucher tồn tại vĩnh viễn
+	DATEENDTIRE DATETIME, -- ngày hết hạn sở hữu của khách hàng về voucher, do sẽ có một số voucher tồn tại vĩnh viễn
 	PRIMARY KEY (VOUCHERID,[USER]),
 	foreign key (VOUCHERID) references VOUCHER(VOUCHERID) on update cascade ,
 	foreign key ([USER]) references ACCOUNT([USER]) on update cascade ,
@@ -227,6 +227,8 @@ CREATE TABLE BILLDETAIL
 	foreign key (PRODUCTID) references PRODUCT(PRODUCTID) on update cascade ,
 
 )
+
+SET DATEFORMAT DMY
 
 ----------------------------------------------------TRIGER PASSWORD----------------------------------------------------
 
