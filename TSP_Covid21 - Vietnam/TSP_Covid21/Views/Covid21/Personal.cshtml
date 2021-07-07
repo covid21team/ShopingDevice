@@ -20,8 +20,8 @@
         <div class="row">
             <div class="col-md-12"></div>
             <ul class="breadcrumb-tree">
-                <li><a href="@Url.Action("Home", "Covid21")">Home</a></li>
-                <li class="active">Personal Information</li>
+                <li><a href="@Url.Action("Home", "Covid21")">Trang chủ</a></li>
+                <li class="active">Thông tin cá nhân</li>
             </ul>
         </div>
     </div>
@@ -101,17 +101,17 @@
                         <div>
                             <span></span>
                             <label for="">Họ và Tên: </label>
-                            <input id="id1" type="text" placeholder="Input full name" value="@Model.FULLNAME"> <span style="color: red; display: none; position:absolute" id="inf_fullname">(Tên người đùng không được để trống)</span>
+                            <input id="id1" type="text" placeholder="Nhập họ và tên" value="@Model.FULLNAME"> <span style="color: red; display: none; position:absolute" id="inf_fullname">(Tên người đùng không được để trống)</span>
                         </div>
                         <div>
                             <span></span>
                             <label for="">Số điện thoại: </label>
-                            <input id="id2" type="text" placeholder="Input phone number" value="@Model.PHONENUMBER"> <span style="color: red; display: none" id="inf_phone">(SĐT không được để trống)</span>
+                            <input id="id2" type="text" placeholder="Nhập số điện thoại" value="@Model.PHONENUMBER"> <span style="color: red; display: none" id="inf_phone">(SĐT không được để trống)</span> <span style="color: red; display: none" id="inf_check_phone">(Vui lòng nhập số điện thoại)</span>
                         </div>
                         <div>
                             <span></span>
                             <label for="">Email: </label>
-                            <input id="id3" type="text" placeholder="Input Email" value="@Model.EMAIL">
+                            <input id="id3" type="text" placeholder="Nhập Email" value="@Model.EMAIL">
                         </div>
 
                         <div>
@@ -119,20 +119,40 @@
                                 Giới tính:
                                 @if (Model.SEX == true)
                                 {
-                                    <input id="id4" value="1" type="radio" checked="checked" name="radio"> <label>Nam</label>
-                                    <input id="id5" value="0" type="radio" name="radio"> <label>Nữ</label>
+                                    <input id="id4" value="true" type="radio" checked="checked" name="radio"> <label>Nam</label>
+                                    <input id="id5" value="false" type="radio" name="radio"> <label>Nữ</label>
                                 }
                                 else
                                 {
-                                    <input id="id4" value="1" type="radio" name="radio"> <label>Nam</label>
-                                    <input id="id5" value="0" type="radio" checked="checked" name="radio"> <label>Nữ</label>
+                                    <input id="id4" value="true" type="radio" name="radio"> <label>Nam</label>
+                                    <input id="id5" value="false" type="radio" checked="checked" name="radio"> <label>Nữ</label>
                                 }
                             </label>
                         </div>
+                        @{ 
+                            // hiện ngày
+                            string d = Model.DATAOFBIRTH.ToString();
+                            //Loại bỏ các ký tự thừa đằng sau
+                            d = d.Remove(d.Length - 12);
+                            //Cắt ra lấy ngày tháng năm
+                            string Year = (d.Split('/')[2]);
+                            string Day = (d.Split('/')[0]);
+                            string Month = (d.Split('/')[1]);
+                            //nếu ngày không đủ 2 số thì thêm số 0 trước nó
+                            if (Day.Length == 1)
+                            {
+                                Day = "0" + Day;
+                            }
+                            if (Month.Length == 1)
+                            {
+                                Month = "0" + Month;
+                            }
+                            d = String.Format(Year.ToString() + "-" + Month.ToString() + "-" + Day, ToString());
+                        }
                         <div>
                             <span></span>
                             <label for="">Ngày sinh: </label>
-                            <input id="id6" class="text1" type="date" value="@Model.DATAOFBIRTH">
+                            <input id="id6" class="text1" type="date" value="@d">
                         </div>
                         <div>
                             <span></span>
@@ -144,17 +164,17 @@
                             <div>
                                 <span></span>
                                 <label for="">Mật khẩu: </label>
-                                <input id="id8" class="text1" type="text" placeholder="Reinput password"> <span style="color: red;">(Mật khẩu không chính xác)</span>
+                                <input id="id8" class="text1" type="text" placeholder="Nhập mật khẩu"> <span style="color: red; display: none" id="inf_pass">(Mật khẩu không chính xác)</span>
                             </div>
                             <div>
                                 <span></span>
                                 <label for="">Mật khẩu mới: </label>
-                                <input id="id9" class="text1" type="text" placeholder="Reinput new password"> <span style="color: red;">(Mật khẩu mới không được để trống)</span>
+                                <input id="id9" class="text1" type="text" placeholder="Nhập mật khẩu mới"> <span style="color: red; display: none" id="inf_pass_new">(Mật khẩu mới không được để trống)</span> <span style="color: red; display: none" id="inf_check_pass">(Vui lòng nhập hơn 8 kí tự)</span>
                             </div>
                             <div>
                                 <span></span>
                                 <label for="">Xác nhận mật khẩu: </label>
-                                <input id="id10" class="text1" type="text" placeholder="Reinput confirm password"> <span style="color: red;">(Vui lòng nhập lại chính xác)</span>
+                                <input id="id10" class="text1" type="text" placeholder="Xác nhận lại nhận khẩu"> <span style="color: red; display: none" id="inf_confirm_pass">(Vui lòng nhập lại chính xác)</span>
                             </div>
                         </div>
                         <div>
@@ -259,9 +279,17 @@
                             </div>
                         </div>
                     </div>
-                    <div id="donhangdamua" class="thongtincanhan" style="display: none;">
+                    <style>
+                        #table_bill th {
+                            position: sticky;
+                            top: 0px;
+                            background: rgb(67, 85, 94);
+                            color: white;
+                        }
+                    </style>
+                    <div id="donhangdamua" class="thongtincanhan" style="display: none; height: 320px; overflow-y: scroll;">
                         <table class="tabledg" style="width: 100%;">
-                            <tr style="background: rgb(67, 85, 94); color: white;">
+                            <tr id="table_bill">
                                 <th>
                                     <p class="tablea">ID</p>
                                 </th>
@@ -281,28 +309,31 @@
 
                             @foreach (var item in listBill)
                             {
-                                <tr class="hoverdonhang">
-                                    <td>
-                                        <p class="tableb">@item.BILLID</p>
-                                    </td>
-                                    <td>
-                                        <p class="tableb">@item.DATECREATE</p>
-                                    </td>
-                                    @{
-                                        string listProduct = "";
-                                        foreach (var item1 in item.BILLDETAIL)
-                                        {
-                                            listProduct += item1.PRODUCT.PRODUCTNAME + ", ";
-                                        }
+                            <tr class="hoverdonhang">
+                                <td>
+                                    <p class="tableb">@item.BILLID</p>
+                                </td>
+                                <td style="width: 200px">
+                                    <p class="tableb">@item.DATECREATE</p>
+                                </td>
+                                @{
+                                    string listProduct = "";
+                                    foreach (var item1 in item.BILLDETAIL)
+                                    {
+                                        listProduct += item1.PRODUCT.PRODUCTNAME + ", ";
                                     }
-                                    <td>
-                                        <p class="tableb">@listProduct</p>
-                                    </td>
-
-                                    <td>
-                                        <p class="tableb">@item.TOTALBILL</p>
-                                    </td>
-                                </tr>
+                                }
+                                <td>
+                                    <p class="tableb">@listProduct</p>
+                                </td>
+                                @{
+                                    var temp = String.Format("{0:#,##0.##}", item.TOTALBILL);
+                                    temp += "đ";
+                                }
+                                <td>
+                                    <p class="tableb">@temp</p>
+                                </td>
+                            </tr>
                             }
 
                         </table>
@@ -346,7 +377,6 @@
 <!--Thay đổi thông tin cá nhân-->
 <script>
     $("#id11").click(function () {
-        var check = false;
         var fullname = $("#id1").val();
         var phone = $("#id2").val();
         var email = $("#id3").val();
@@ -361,38 +391,104 @@
 
         //Kiểm tra đủ điều khiện để xác định thông tin không
         if (fullname == "") {
-            $("#inf_fullname").css({ "display": "block" });
+            $("#inf_fullname").css({ "display": "inline-block" });
         } else {
             $("#inf_fullname").css({ "display": "none" });
         }
 
         if (phone == "") {
-            $("#inf_phone").css({ "display": "block" });
+            $("#inf_phone").css({ "display": "inline-block" });
         } else {
             $("#inf_phone").css({ "display": "none" });
+
+            if (phone.length != 10) {
+                $("#inf_check_phone").css({ "display": "inline-block" });
+            } else {
+                $("#inf_check_phone").css({ "display": "none" });
+            }
         }
 
-        /*if (check == true) {
+        if (fullname != "" && phone != "" && phone.length == 10) {
             $.ajax({
-                url: 'Url.Action()',
+                url: '@Url.Action("changeInf", "Account")',
                 type: "POST",
                 data: {
-                    user: Model.USER,
+                    user: '@Model.USER',
                     fullname: fullname,
                     sex: sex,
-                    birth = birth,
-                    phone = phone,
-                    email = email,
+                    birth: birth,
+                    phone: phone,
+                    email: email,
                 },
+                success: function () {
+                    if (checkChangePass == false) {
+                        location.reload();
+                    }
+                }
             });
-        }*/
+        }
+
+        if (checkChangePass == true) {
+            var pass = $("#id8").val();
+            var pass_new = $("#id9").val();
+            var confirmpass = $("#id10").val();
+            
+            $.ajax({
+                url: '@Url.Action("checkPass", "Account")',
+                type: 'POST',
+                data: {
+                    user: '@Model.USER',
+                    pass: pass,
+                },
+                success: function (result) {
+                    if (result == "False") {
+                        $("#inf_pass").css({ "display": "inline-block" });
+                    } else {
+                        $("#inf_pass").css({ "display": "none" });
+                    }
+
+                    if (pass_new == "") {
+                        $("#inf_pass_new").css({ "display": "inline-block" });
+                    } else {
+                        $("#inf_pass_new").css({ "display": "none" });
+
+                        if (pass_new.length <= 8) {
+                            $("#inf_check_pass").css({ "display": "inline-block" });
+                        } else {
+                            $("#inf_check_pass").css({ "display": "none" });
+                        }
+                    }
+
+                    if (confirmpass != pass_new) {
+                        $("#inf_confirm_pass").css({ "display": "inline-block" });
+                    } else {
+                        $("#inf_confirm_pass").css({ "display": "none" });
+                    }
+
+                    if (result == "True" && pass_new != "" && pass_new.length > 8 && confirmpass == pass_new) {
+                        $.ajax({
+                            url: '@Url.Action("changePass", "Account")',
+                            type: 'POST',
+                            data: {
+                                user: '@Model.USER',
+                                pass_new: pass_new,
+                            },
+                            success: function () {
+                                location.reload();
+                            }
+                        });
+                    }
+                }
+            });
+
+        }
     });
 </script>
 
 <!-- Thêm địa chỉ -->
 <script>
     $("#id21").click(function () {
-        var check = false;
+
         var fullname = $("#id15").val();
         var phone = $("#id16").val();
         var city = $("#province").val();
@@ -402,37 +498,37 @@
         var addDefault = $("#id22").is(":checked");
 
         if (fullname == "") {
-            $("#inf_add_fullname").css({ "display": "block" });
+            $("#inf_add_fullname").css({ "display": "inline-block" });
         } else {
             $("#inf_add_fullname").css({ "display": "none" });
         }
 
         if (phone == "") {
-            $("#inf_add_phone").css({ "display": "block" });
+            $("#inf_add_phone").css({ "display": "inline-block" });
         } else {
             $("#inf_add_phone").css({ "display": "none" });
 
             if (phone.length != 10) {
-                $("#inf_add_phone_check").css({ "display": "block" });
+                $("#inf_add_phone_check").css({ "display": "inline-block" });
             } else {
                 $("#inf_add_phone_check").css({ "display": "none" });
             }
         }
 
         if (district == null) {
-            $("#inf_add_district").css({ "display": "block" });
+            $("#inf_add_district").css({ "display": "inline-block" });
         } else {
             $("#inf_add_district").css({ "display": "none" });
         }
 
         if (ward == null) {
-            $("#id_add_ward").css({ "display": "block" });
+            $("#id_add_ward").css({ "display": "inline-block" });
         } else {
             $("#id_add_ward").css({ "display": "none" });
         }
 
         if (address == "") {
-            $("#inf_add").css({ "display": "block" });
+            $("#inf_add").css({ "display": "inline-block" });
             check = false;
         } else {
             $("#inf_add").css({ "display": "none" });
@@ -463,4 +559,9 @@
             });
         }
     });
+</script>
+
+<!--Chỉnh sửa địa chỉ-->
+<script>
+
 </script>

@@ -27,16 +27,37 @@ namespace TSP_Covid21.Controllers
             {
                 Session["user"] = checkLogin;
                 Session["fullname"] = AB.takeFullName(user);
+                Session["gmail"] = AB.takeGmail(user);
                 return true;
             }
             return false;
         }
 
+        public bool checkPass(string user, string pass)
+        {
+            Account_BUS AB = new Account_BUS();
+
+            string checkLogin = AB.checkLogin(user, pass);
+            if (checkLogin == user)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public void changePass(string user, string pass_new)
+        {
+            Account_BUS AB = new Account_BUS();
+            AB.changePass(user, pass_new);
+        }
+
         [HttpPost]
-        public void Logout()
+        public ActionResult Logout()
         {
             Session["user"] = null;
             Session["fullname"] = null;
+
+            return RedirectToAction("Home", "Covid21");
         }
 
         public bool checkUser(string user)
@@ -94,9 +115,16 @@ namespace TSP_Covid21.Controllers
             return result;
         }
 
-        public void changeInf(string user, string fullname, bool sex, DateTime birth, string email, string phone)
+        public void changeInf(string user, string fullname, bool sex, string birth, string email, string phone)
         {
+            DateTime date = DateTime.Parse(birth);
 
+            Account_BUS AB = new Account_BUS();
+
+            AB.changeInf(user, fullname, sex, date, email, phone);
+
+            Session["fullname"] = fullname;
+            Session["gmail"] = email;
         }
 
         public void insertAddress(string user, string fullname, string phone, string city, string district, string ward, string address, bool addDefault)

@@ -405,7 +405,7 @@ namespace TSP_Covid21.Models.BUS
             db.BILL.Add(b);
             db.SaveChanges();
 
-            int id = db.BILL.Where(p => p.USER == user).OrderBy(y => y.DATECREATE).Select(t => t.BILLID).FirstOrDefault();
+            int id = db.BILL.Where(p => p.USER == user).OrderByDescending(y => y.DATECREATE).Select(t => t.BILLID).FirstOrDefault();
             IEnumerable<CART> c = db.CART.Where(p => p.USER == user & p.PRODUCTSTATUS == true);
 
             foreach(var item in c)

@@ -193,10 +193,12 @@ namespace TSP_Covid21.Controllers
             return View(result);
         }
 
-        public void insertBill(string note, int total)
+        public ActionResult insertBill(string note, int total)
         {
             string user = Session["user"].ToString();
             PB.insertBill(user, note, total);
+
+            return RedirectToAction("Home", " Covid21");
         }
     } 
 }

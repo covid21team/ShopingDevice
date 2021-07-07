@@ -211,10 +211,11 @@
 
     $("#create_bill").click(function () {
         var add = @addressDefault.Count();
+        var quantity = @Model.Count();
         var note = $("#noteBill").val();
         var total = @total_cart;
 
-        if (add != null) {
+        if (add != 0 && quantity != 0) {
             $.ajax({
                 url: '@Url.Action("insertBill", "Product")',
                 type: "POST",
@@ -222,9 +223,6 @@
                     note: note,
                     total: total,
                 },
-                success: function () {
-                    alert("Đặt hàng thành công");
-                }
             });
         }
     });

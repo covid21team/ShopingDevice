@@ -1,5 +1,5 @@
 ﻿//var newcurr = accounting.formatMoney(number,"", 0, ",", "."); // 4300 => 4,300
-//var number = Number(currency.replace(/[^0-9.-]+/g,""));       // 4,300 => 4300
+//var number = Number(currency.replace(/[.-]+/g,""));       // 4,300 => 4300
 
 /* Set rates + misc */
 var taxRate = 0.05;
@@ -18,7 +18,7 @@ $('.remove_cart button').click(function () {
 
 
 $('.checkbox_cart input').change(function () {
-    updatePrice(this);
+    updatePrice();
 });
 
 /* Recalculate cart */
@@ -30,15 +30,15 @@ function recalculateCart() {
         Nếu lấy giá text thì hãy trỏ đến vị trí của nó
     */
     var checkbox_cart = document.getElementsByClassName('checkbox_price_cart'); //Tạo mảng lưu các giá trị boolean
-
+   
     $('.product_cart').each(function () {
-
+       // alert($(this).children().children(".product_line_price_cart").text());
         if (checkbox_cart[i].checked == true) {
-            var temp_subtotal = $(this).children().children('.product_line_price_cart').text();
+            var temp_subtotal = $(this).children().children(".product_line_price_cart").text();
 
             temp_subtotal = temp_subtotal.replace("đ", "");
 
-            temp_subtotal = Number(temp_subtotal.replace(/[^0-9.-]+/g, ""));
+            temp_subtotal = Number(temp_subtotal.replace(/[.]+/g, ""));
 
             subtotal += parseInt(temp_subtotal);
         }
@@ -75,10 +75,10 @@ function recalculateCart() {
     $('.table_payment td').css({ "width": "220px" });
 }
 
-
-function updatePrice(quantityInput) {
+/* Khi bấm checkbox */
+function updatePrice() {
     /* Calculate line price */
-    var productRow = $(quantityInput).parent().parent();
+    /*var productRow = $(quantityInput).parent().parent();
     var price_temp = productRow.children().children('.product_price_cart').text();
     var price = Number(price_temp.replace(/[^0-9.-]+/g, "")); // 4,300 => 4300
     var quantity = parseInt(productRow.children('.number_car').children('.number_quantity_cart').val());
@@ -87,7 +87,7 @@ function updatePrice(quantityInput) {
 
     var temp_linePrice = accounting.formatMoney(linePrice, "", 0, ",", "."); // 4300 => 4,300
 
-    productRow.children().children('.product_line_price_cart').html(temp_linePrice + "đ");
+    productRow.children().children('.product_line_price_cart').html(temp_linePrice + "đ");*/
 
     recalculateCart();
 }
@@ -97,7 +97,7 @@ function updateQuantity(quantityInput) {
     /* Calculate line price */
     var productRow = $(quantityInput).parent().parent();
     var price_temp = productRow.children().children('.product_price_cart').text();
-    var price = Number(price_temp.replace(/[^0-9.-]+/g, "")); // 4,300 => 4300
+    var price = Number(price_temp.replace(/[.-]+/g, "")); // 4,300 => 4300
     var quantity = $(quantityInput).val();
     var linePrice = price * quantity;
 
