@@ -17,13 +17,13 @@ namespace TSP_Covid21.Models.ShopEntity
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public ACCOUNT()
         {
-            this.ACCOUNTLIKEs = new HashSet<ACCOUNTLIKE>();
+            this.ACCOUNTLIKE = new HashSet<ACCOUNTLIKE>();
             this.ADDRESS_SHIP = new HashSet<ADDRESS_SHIP>();
-            this.CARTs = new HashSet<CART>();
-            this.COMMENTs = new HashSet<COMMENT>();
-            this.RATINGPRODUCTs = new HashSet<RATINGPRODUCT>();
-            this.VIEWNUMBERs = new HashSet<VIEWNUMBER>();
-            this.VOCHERDETAILs = new HashSet<VOCHERDETAIL>();
+            this.CART = new HashSet<CART>();
+            this.COMMENT = new HashSet<COMMENT>();
+            this.RATINGPRODUCT = new HashSet<RATINGPRODUCT>();
+            this.VIEWNUMBER = new HashSet<VIEWNUMBER>();
+            this.VOCHERDETAIL = new HashSet<VOCHERDETAIL>();
         }
     
         public string USER { get; set; }
@@ -36,18 +36,18 @@ namespace TSP_Covid21.Models.ShopEntity
         public string EMAIL { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ACCOUNTLIKE> ACCOUNTLIKEs { get; set; }
+        public virtual ICollection<ACCOUNTLIKE> ACCOUNTLIKE { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ADDRESS_SHIP> ADDRESS_SHIP { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CART> CARTs { get; set; }
+        public virtual ICollection<CART> CART { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<COMMENT> COMMENTs { get; set; }
+        public virtual ICollection<COMMENT> COMMENT { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<RATINGPRODUCT> RATINGPRODUCTs { get; set; }
+        public virtual ICollection<RATINGPRODUCT> RATINGPRODUCT { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<VIEWNUMBER> VIEWNUMBERs { get; set; }
+        public virtual ICollection<VIEWNUMBER> VIEWNUMBER { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<VOCHERDETAIL> VOCHERDETAILs { get; set; }
+        public virtual ICollection<VOCHERDETAIL> VOCHERDETAIL { get; set; }
     }
 }

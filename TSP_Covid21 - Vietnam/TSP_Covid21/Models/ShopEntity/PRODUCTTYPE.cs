@@ -17,8 +17,8 @@ namespace TSP_Covid21.Models.ShopEntity
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public PRODUCTTYPE()
         {
-            this.PRODUCTs = new HashSet<PRODUCT>();
-            this.TEMPPRODUCTs = new HashSet<TEMPPRODUCT>();
+            this.PRODUCT = new HashSet<PRODUCT>();
+            this.TEMPPRODUCT = new HashSet<TEMPPRODUCT>();
         }
     
         public int PRODUCTTYPEID { get; set; }
@@ -26,8 +26,8 @@ namespace TSP_Covid21.Models.ShopEntity
         public Nullable<bool> STATUSPRODUCTTYPE { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PRODUCT> PRODUCTs { get; set; }
+        public virtual ICollection<PRODUCT> PRODUCT { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TEMPPRODUCT> TEMPPRODUCTs { get; set; }
+        public virtual ICollection<TEMPPRODUCT> TEMPPRODUCT { get; set; }
     }
 }

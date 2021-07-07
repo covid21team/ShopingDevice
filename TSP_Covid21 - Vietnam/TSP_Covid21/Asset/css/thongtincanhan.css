@@ -37,28 +37,28 @@ color: #D10024;
 /*======================================= */
 /*Họ và Tên của Account*/
 #id1{
-    margin-left: 7.8%;
+    margin-left: 63.5px;
     width: 300px;   
     margin-top: 5px;
     border-radius: 5px;
 }
 /*Số điện thoại account*/
 #id2{
-    margin-left: 5.5%; 
+    margin-left: 43px; 
     width: 300px;
     margin-top: 5px;
     border-radius: 5px;
 }
 /*Email*/
 #id3{
-   margin-left: 11.2%; 
+   margin-left: 93.5px; 
    width: 300px;
    margin-top: 5px;
    border-radius: 5px;
 }
 /*radio Nam*/
 #id4{
-    margin-left: 81px; 
+    margin-left: 75.5px; 
     transform: scale(1.5);
     margin-top: 15px;
     
@@ -71,7 +71,7 @@ color: #D10024;
 }
 /*Ngày sinh nhật*/
 #id6{
-    margin-left: 4.3%; 
+    margin-left: 63.5px; 
     width: 150px;
     margin-top: 5px;
     border-radius: 5px;
@@ -79,34 +79,34 @@ color: #D10024;
 /*check bõ thay đổi mật khẩu*/
 #id7{
     transform: scale(1.5);
-    margin-left: 16.8%;
+    margin-left: 142px;
     margin-top: 10px;
 
 }
 /*Mật khẩu củ*/
-#id8{
-    margin-left: 8.5%;
+#id8 {
+    margin-left: 70.5px;
     width: 300px;
     margin-top: 5px;
     border-radius: 5px;
 }
 /*Mật khẩu mới*/
 #id9{
-    margin-left: 5.1%;
+    margin-left: 40.5px;
     width: 300px;
     margin-top: 5px;
     border-radius: 5px;
 }
 /*Xác nhận mật khẩu mới*/
 #id10{
-    margin-left: 1%;
+    margin-left: 4px;
     width: 300px;
     margin-top: 5px;
     border-radius: 5px;
 }
 /*button Gửi*/
 #id11 {
-    margin-left: 39%;
+    margin-left: 340px;
     width: 100px;
     margin-top: 5px;
     border-radius: 5px;
@@ -150,21 +150,21 @@ color: #D10024;
 }
 /*Họ và tên địa chỉ thêm*/
 #id15{
-    margin-left: 8%; 
+    margin-left: 70px; 
     width: 300px;
     margin-top: 5px;
     border-radius: 5px;
 }
 /*số điện thoại địa chỉ thêm*/
 #id16{
-    margin-left: 5.7%; 
+    margin-left: 45px; 
     width: 300px;
     margin-top: 5px;
     border-radius: 5px;
 }
 /*Thành phố*/
 #id17{
-    margin-left: 2%; 
+    margin-left: 5px; 
     width: 300px;
     margin-top: 5px;
     border-radius: 5px;
@@ -184,14 +184,14 @@ color: #D10024;
 }
 /*Địa chỉ cụ thể*/
 #id20{
-    margin-left: 10.5%; 
+    margin-left: 88px; 
     width: 300px;
     margin-top: 5px;
     border-radius: 5px;
 }
 /*button xác nhận thêm địa chỉ*/
 #id21 {
-    margin-left: 39%;
+    margin-left: 343px;
     width: 100px;
     margin-top: 5px;
     border-radius: 5px;
@@ -207,16 +207,16 @@ color: #D10024;
 .thoat{
     background: none;
     border: none;
-    margin-left: 48%;
+    margin-left: 52%;
     border-radius: 5px;
 }
 .thoat:hover{
     color: red;
 }
 /*Checkbox địa chỉ mặc định*/
-#id22{
+#id22 {
     transform: scale(1.5);
-    margin-left: 16.9%;
+    margin-left: 145px;
     margin-top: 5px;
 }
 

@@ -17,13 +17,13 @@ namespace TSP_Covid21.Models.ShopEntity
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public CONFIG()
         {
-            this.CONFIGDETAILs = new HashSet<CONFIGDETAIL>();
+            this.CONFIGDETAIL = new HashSet<CONFIGDETAIL>();
         }
     
         public string CONFIGNAME { get; set; }
         public string DECRIPTIONCONFIGNAME { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CONFIGDETAIL> CONFIGDETAILs { get; set; }
+        public virtual ICollection<CONFIGDETAIL> CONFIGDETAIL { get; set; }
     }
 }

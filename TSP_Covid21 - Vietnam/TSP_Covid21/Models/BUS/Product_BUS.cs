@@ -26,28 +26,28 @@ namespace TSP_Covid21.Models.BUS
         public IEnumerable<PRODUCT> loadProductNew()
         {
             var date = DateTime.Now;
-            var result = db.PRODUCTs.Where(p => p.STATUSPRODUCT == true).OrderByDescending(t => t.DATEADD).Take(5);
+            var result = db.PRODUCT.Where(p => p.STATUSPRODUCT == true).OrderByDescending(t => t.DATEADD).Take(5);
             return result;
         }
 
         // Load product top sale
         public IEnumerable<PRODUCT> loadProductTop()
         {
-            var result = db.PRODUCTs.Where(p => p.STATUSPRODUCT == true).OrderByDescending(t => t.PRODUCTID).Take(5);
+            var result = db.PRODUCT.Where(p => p.STATUSPRODUCT == true).OrderByDescending(t => t.PRODUCTID).Take(5);
             return result;
         }
 
         // Load product top sale at page product
         public IEnumerable<PRODUCT> loadProductTop_Product(int page, int pagesize)
         {
-            var result = db.PRODUCTs.Where(p => p.STATUSPRODUCT == true).OrderByDescending(t => t.PRODUCTID).Take(18);
+            var result = db.PRODUCT.Where(p => p.STATUSPRODUCT == true).OrderByDescending(t => t.PRODUCTID).Take(18);
             return result.ToPagedList(page, pagesize);
         }
 
         // Load product of SmartPhone
         public IEnumerable<PRODUCT> loadSmartPhoneTop()
         {
-            var result = from c in db.PRODUCTs
+            var result = from c in db.PRODUCT
                          orderby (c.PRODUCTTYPE.PRODUCTTYPENAME)
                          where c.PRODUCTTYPE.PRODUCTTYPENAME == "SmartPhone" & c.STATUSPRODUCT == true
                          select c;
@@ -58,7 +58,7 @@ namespace TSP_Covid21.Models.BUS
         // Load product of SmartWatch
         public IEnumerable<PRODUCT> loadSmartWatchTop()
         {
-            var result = from c in db.PRODUCTs
+            var result = from c in db.PRODUCT
                          orderby (c.PRODUCTTYPE.PRODUCTTYPENAME)
                          where c.PRODUCTTYPE.PRODUCTTYPENAME == "SmartWatch" & c.STATUSPRODUCT == true
                          select c;
@@ -69,7 +69,7 @@ namespace TSP_Covid21.Models.BUS
         // Load product of LapTop
         public IEnumerable<PRODUCT> loadLapTopTop()
         {
-            var result = from c in db.PRODUCTs
+            var result = from c in db.PRODUCT
                          orderby (c.PRODUCTTYPE.PRODUCTTYPENAME)
                          where c.PRODUCTTYPE.PRODUCTTYPENAME == "Laptop" & c.STATUSPRODUCT == true
                          select c;
@@ -80,7 +80,7 @@ namespace TSP_Covid21.Models.BUS
         // Load product for product page
         public IEnumerable<PRODUCT> loadProduct(string productTypeName)
         {           
-            var result = db.PRODUCTs.Where(p => p.PRODUCTTYPE.PRODUCTTYPENAME == productTypeName & p.STATUSPRODUCT == true);  
+            var result = db.PRODUCT.Where(p => p.PRODUCTTYPE.PRODUCTTYPENAME == productTypeName & p.STATUSPRODUCT == true);  
 
             return result;
         }
@@ -88,7 +88,7 @@ namespace TSP_Covid21.Models.BUS
         // Load amount product of user like
         public string amountProductLike(string user)
         {
-            var list = db.ACCOUNTLIKEs.Where(c => c.USER == user);
+            var list = db.ACCOUNTLIKE.Where(c => c.USER == user);
 
             var result = list.Count();
             return result.ToString();
@@ -97,8 +97,8 @@ namespace TSP_Covid21.Models.BUS
         // Load product of user like for product page
         public IEnumerable<ProductViewModel> loadProductLike(int page, int pagesize, string user)
         {
-            var list = from a in db.PRODUCTs
-                       join b in db.ACCOUNTLIKEs
+            var list = from a in db.PRODUCT
+                       join b in db.ACCOUNTLIKE
                        on a.PRODUCTID equals b.PRODUCTID
                        where b.USER == user & a.STATUSPRODUCT == true
                        select new ProductViewModel
@@ -116,7 +116,7 @@ namespace TSP_Covid21.Models.BUS
                            ProductAmount = a.PRODUCTAMOUNT,
                            Decription = a.DECRIPTION,
                            DateAdd = a.DATEADD,
-                           ProductConfig = a.CONFIGDETAILs
+                           ProductConfig = a.CONFIGDETAIL
                        };
             var result = list.OrderByDescending(x => x.ProductId).Skip((page - 1) * pagesize).Take(20);
 
@@ -126,8 +126,8 @@ namespace TSP_Covid21.Models.BUS
         // Load product of user cart for cart page
         public IEnumerable<ProductOfCartViewModel> loadProductCart(string user)
         {
-            var list = from a in db.PRODUCTs
-                       join b in db.CARTs
+            var list = from a in db.PRODUCT
+                       join b in db.CART
                         on a.PRODUCTID equals b.PRODUCTID
                        where b.USER == user & a.STATUSPRODUCT == true
                        select new ProductOfCartViewModel
@@ -146,8 +146,8 @@ namespace TSP_Covid21.Models.BUS
         // Load product of user checkout for checkout page
         public IEnumerable<ProductOfCartViewModel> loadProductCheckout(string user)
         {
-            var list = from a in db.PRODUCTs
-                       join b in db.CARTs
+            var list = from a in db.PRODUCT
+                       join b in db.CART
                         on a.PRODUCTID equals b.PRODUCTID
                        where b.USER == user & b.PRODUCTSTATUS == true
                        select new ProductOfCartViewModel
@@ -166,23 +166,23 @@ namespace TSP_Covid21.Models.BUS
         // Load list product in cart
         public IEnumerable<CART> loadCart(string user)
         {
-            var list = db.CARTs.Where(c => c.USER == user & c.PRODUCT.STATUSPRODUCT == true);
+            var list = db.CART.Where(c => c.USER == user & c.PRODUCT.STATUSPRODUCT == true);
             return list;
         }
 
         //load brand of producttype
         public IEnumerable<BrandViewModel> loadBrand(string ProductTypeName)
         {
-            var result = from a in db.TEMPPRODUCTs
-                         join b in db.PRODUCTTYPEs
+            var result = from a in db.TEMPPRODUCT
+                         join b in db.PRODUCTTYPE
                          on a.PRODUCTTYPEID equals b.PRODUCTTYPEID
                          where b.PRODUCTTYPENAME == ProductTypeName 
                          select new BrandViewModel
                          {
                              BrandId = a.BRANDID,
                              BrandName = a.BRAND.BRANDNAME,
-                             Product = a.BRAND.PRODUCTs,
-                             TempProduct = b.TEMPPRODUCTs
+                             Product = a.BRAND.PRODUCT,
+                             TempProduct = b.TEMPPRODUCT
                          };
             return result;
 
@@ -191,13 +191,13 @@ namespace TSP_Covid21.Models.BUS
         //load all brand
         public IEnumerable<BrandViewModel> loadAllBrand()
         {
-            var result = from a in db.BRANDs
+            var result = from a in db.BRAND
                          select new BrandViewModel
                          {
                              BrandId = a.BRANDID,
                              BrandName = a.BRANDNAME,
-                             Product = a.PRODUCTs,
-                             TempProduct = a.TEMPPRODUCTs
+                             Product = a.PRODUCT,
+                             TempProduct = a.TEMPPRODUCT
                          };
             return result;
         }
@@ -205,15 +205,15 @@ namespace TSP_Covid21.Models.BUS
         // Xóa sản phẩm ở giỏ hang                                                                                                                                                                                                                                                             
         public void delProduct_Cart(int productId, string user)
         {
-            CART c = db.CARTs.Where(p => p.PRODUCTID == productId && p.USER == user).SingleOrDefault();
-            db.CARTs.Remove(c);
+            CART c = db.CART.Where(p => p.PRODUCTID == productId && p.USER == user).SingleOrDefault();
+            db.CART.Remove(c);
             db.SaveChanges();
         }
 
         // Lấy sản thông tin sản phẩm
         public PRODUCT productDetail(int productId)
         {
-            var result = db.PRODUCTs.Where(p => p.PRODUCTID == productId).SingleOrDefault();
+            var result = db.PRODUCT.Where(p => p.PRODUCTID == productId).SingleOrDefault();
             return result;
         }
 
@@ -227,21 +227,21 @@ namespace TSP_Covid21.Models.BUS
                 PRODUCTID = productId,
                 DATESEEN = time,
             };
-            db.VIEWNUMBERs.AddOrUpdate(v);
+            db.VIEWNUMBER.AddOrUpdate(v);
             db.SaveChanges();
         }
 
         // Lấy danh sách đánh giá của sản phẩm
         public IEnumerable<RATINGPRODUCT> loadRatingProduct(int productId)
         {
-            var result = db.RATINGPRODUCTs.Where(p => p.PRODUCTID == productId).ToList();
+            var result = db.RATINGPRODUCT.Where(p => p.PRODUCTID == productId).ToList();
             return result;
         }
 
         // Lấy cấu hình của sản phẩm
         public IEnumerable<CONFIGDETAIL> loadConfigProduct(int productId)
         {
-            var result = db.CONFIGDETAILs.Where(p => p.PRODUCTID == productId);
+            var result = db.CONFIGDETAIL.Where(p => p.PRODUCTID == productId);
             return result;
         }
 
@@ -249,7 +249,7 @@ namespace TSP_Covid21.Models.BUS
         public IEnumerable<COMMENT> loadCommentProduct(int productId)
         {
 
-            var list = db.COMMENTs.Where(p => p.PRODUCTID == productId);
+            var list = db.COMMENT.Where(p => p.PRODUCTID == productId);
 
             var result = list.OrderByDescending(x => x.PRODUCTID).Skip(0);
             return result;
@@ -258,14 +258,14 @@ namespace TSP_Covid21.Models.BUS
         // Lấy đánh giá của 1 người dùng về sản phẩm 
         public int ReviewRatingOfUser(string user, int productId)
         {
-            var resuft = db.RATINGPRODUCTs.Where(p => p.USER == user && p.PRODUCTID == productId).Select(p => p.RATE).SingleOrDefault();
+            var resuft = db.RATINGPRODUCT.Where(p => p.USER == user && p.PRODUCTID == productId).Select(p => p.RATE).SingleOrDefault();
             return Convert.ToInt32(resuft);
         }
 
         // Lấy danh sách sản phẩm liên quan
         public IEnumerable<PRODUCT> loadRelatedProduct(int productTypeId, int brandId)
         {
-            var result = db.PRODUCTs.Where(p => p.PRODUCTTYPEID == productTypeId && p.BRANDID == brandId).Take(4);
+            var result = db.PRODUCT.Where(p => p.PRODUCTTYPEID == productTypeId && p.BRANDID == brandId).Take(4);
             return result;
 
         }
@@ -282,7 +282,7 @@ namespace TSP_Covid21.Models.BUS
                 COMMENTTEXT = comment,
                 DATECOMMENT = time,
             };
-            db.COMMENTs.Add(c);
+            db.COMMENT.Add(c);
             db.SaveChanges();
         }
 
@@ -295,7 +295,7 @@ namespace TSP_Covid21.Models.BUS
                 USER = user,
                 RATE = rate,
             };
-            db.RATINGPRODUCTs.AddOrUpdate(r);
+            db.RATINGPRODUCT.AddOrUpdate(r);
             db.SaveChanges();
         }
 
@@ -309,7 +309,7 @@ namespace TSP_Covid21.Models.BUS
                 AMOUNT = 1,
                 PRODUCTSTATUS = true,
             };
-            db.CARTs.AddOrUpdate(c);
+            db.CART.AddOrUpdate(c);
             db.SaveChanges();
         }
 
@@ -323,7 +323,7 @@ namespace TSP_Covid21.Models.BUS
                 AMOUNT = amount,
                 PRODUCTSTATUS = true,
             };
-            db.CARTs.AddOrUpdate(c);
+            db.CART.AddOrUpdate(c);
             db.SaveChanges();
         }
 
@@ -337,14 +337,14 @@ namespace TSP_Covid21.Models.BUS
                 AMOUNT = quantity,
                 PRODUCTSTATUS = status,
             };
-            db.CARTs.AddOrUpdate(c);
+            db.CART.AddOrUpdate(c);
             db.SaveChanges();
         }
 
         //Dùng vào lúc chọn lọc sản phẩm theo mong muoonscuar khách hàng
         public IEnumerable<PRODUCT> listProduct(string productTypeName, int startPrice, int endPrice, int sort, List<string> listbrand)
         {
-            var list = from p in db.PRODUCTs
+            var list = from p in db.PRODUCT
                        where p.PRODUCTPRICE > startPrice &&
                        p.PRODUCTPRICE < endPrice
                        select p;
@@ -379,7 +379,7 @@ namespace TSP_Covid21.Models.BUS
         
         public  IEnumerable<PRODUCT> search(string key)
         {
-            var result = db.PRODUCTs.ToList();
+            var result = db.PRODUCT.ToList();
 
             if(key != null)
             {
@@ -387,6 +387,40 @@ namespace TSP_Covid21.Models.BUS
             }
 
             return result;
+        }
+
+        public void insertBill(string user, string note, int total)
+        {
+            int a = db.ADDRESS_SHIP.Where(p => p.USER == user & p.DEFAULT == true).Select(t => t.ADDRESSID).FirstOrDefault();
+            DateTime time = DateTime.Now;
+
+            BILL b = new BILL
+            {
+                USER = user,
+                ADDRESSID = a,
+                DATECREATE = time,
+                TOTALBILL = total,
+                NOTE = note,
+            };
+            db.BILL.Add(b);
+            db.SaveChanges();
+
+            int id = db.BILL.Where(p => p.USER == user).OrderBy(y => y.DATECREATE).Select(t => t.BILLID).FirstOrDefault();
+            IEnumerable<CART> c = db.CART.Where(p => p.USER == user & p.PRODUCTSTATUS == true);
+
+            foreach(var item in c)
+            {
+                BILLDETAIL bd = new BILLDETAIL
+                {
+                    BILLID = id,
+                    PRODUCTID = item.PRODUCTID,
+                    AMOUNT = item.AMOUNT,
+                };
+                db.BILLDETAIL.Add(bd);
+                db.CART.Remove(item);
+            }
+            db.SaveChanges();
+
         }
 
         #endregion

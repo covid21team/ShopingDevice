@@ -17,8 +17,8 @@ namespace TSP_Covid21.Models.ShopEntity
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public VOUCHER()
         {
-            this.VOCHERDETAILs = new HashSet<VOCHERDETAIL>();
-            this.BILLs = new HashSet<BILL>();
+            this.BILL = new HashSet<BILL>();
+            this.VOCHERDETAIL = new HashSet<VOCHERDETAIL>();
         }
     
         public int VOUCHERID { get; set; }
@@ -27,8 +27,8 @@ namespace TSP_Covid21.Models.ShopEntity
         public Nullable<bool> STATUSVOUCHER { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<VOCHERDETAIL> VOCHERDETAILs { get; set; }
+        public virtual ICollection<BILL> BILL { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BILL> BILLs { get; set; }
+        public virtual ICollection<VOCHERDETAIL> VOCHERDETAIL { get; set; }
     }
 }

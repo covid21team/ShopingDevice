@@ -37,11 +37,11 @@
     </Key>
     <Property Name="ADDRESSID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="USER" Type="varchar" MaxLength="30" />
-    <Property Name="FULLNAME" Type="nvarchar" MaxLength="3" />
-    <Property Name="PHONE" Type="varchar" MaxLength="20" />
-    <Property Name="CITY" Type="nvarchar" MaxLength="20" />
-    <Property Name="DISTRICT" Type="nvarchar" MaxLength="20" />
-    <Property Name="WARDS" Type="nvarchar" MaxLength="20" />
+    <Property Name="FULLNAME" Type="nvarchar" MaxLength="50" />
+    <Property Name="PHONE" Type="varchar" MaxLength="10" />
+    <Property Name="CITY" Type="nvarchar(max)" />
+    <Property Name="DISTRICT" Type="nvarchar(max)" />
+    <Property Name="WARDS" Type="nvarchar(max)" />
     <Property Name="ADDRESS" Type="nvarchar(max)" />
     <Property Name="DEFAULT" Type="bit" />
     <Property Name="ADDRESS_STATUS" Type="bit" />
@@ -53,10 +53,10 @@
     <Property Name="BILLID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="USER" Type="varchar" MaxLength="30" />
     <Property Name="ADDRESSID" Type="int" />
-    <Property Name="PHONENUMBERRECIVE" Type="varchar" MaxLength="10" />
     <Property Name="DATECREATE" Type="date" />
     <Property Name="VOUCHERID" Type="int" />
     <Property Name="TOTALBILL" Type="bigint" />
+    <Property Name="NOTE" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="BILLDETAIL">
     <Key>
@@ -219,7 +219,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__BILL__ADDRESSID__5CD6CB2B">
+  <Association Name="FK__BILL__ADDRESSID__5BE2A6F2">
     <End Role="ADDRESS_SHIP" Type="Self.ADDRESS_SHIP" Multiplicity="0..1" />
     <End Role="BILL" Type="Self.BILL" Multiplicity="*" />
     <ReferentialConstraint>
@@ -231,7 +231,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__BILL__VOUCHERID__5BE2A6F2">
+  <Association Name="FK__BILL__VOUCHERID__5AEE82B9">
     <End Role="VOUCHER" Type="Self.VOUCHER" Multiplicity="0..1" />
     <End Role="BILL" Type="Self.BILL" Multiplicity="*" />
     <ReferentialConstraint>
@@ -243,7 +243,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__BILLDETAI__BILLI__6383C8BA">
+  <Association Name="FK__BILLDETAI__BILLI__628FA481">
     <End Role="BILL" Type="Self.BILL" Multiplicity="1" />
     <End Role="BILLDETAIL" Type="Self.BILLDETAIL" Multiplicity="*" />
     <ReferentialConstraint>
@@ -255,7 +255,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__BILLDETAI__PRODU__6477ECF3">
+  <Association Name="FK__BILLDETAI__PRODU__6383C8BA">
     <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
     <End Role="BILLDETAIL" Type="Self.BILLDETAIL" Multiplicity="*" />
     <ReferentialConstraint>
@@ -435,7 +435,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__VOCHERDET__VOUCH__5FB337D6">
+  <Association Name="FK__VOCHERDET__VOUCH__5EBF139D">
     <End Role="VOUCHER" Type="Self.VOUCHER" Multiplicity="1" />
     <End Role="VOCHERDETAIL" Type="Self.VOCHERDETAIL" Multiplicity="*" />
     <ReferentialConstraint>
@@ -447,7 +447,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__VOCHERDETA__USER__60A75C0F">
+  <Association Name="FK__VOCHERDETA__USER__5FB337D6">
     <End Role="ACCOUNT" Type="Self.ACCOUNT" Multiplicity="1" />
     <End Role="VOCHERDETAIL" Type="Self.VOCHERDETAIL" Multiplicity="*" />
     <ReferentialConstraint>
@@ -494,19 +494,19 @@
       <End Role="ACCOUNT" EntitySet="ACCOUNT" />
       <End Role="ADDRESS_SHIP" EntitySet="ADDRESS_SHIP" />
     </AssociationSet>
-    <AssociationSet Name="FK__BILL__ADDRESSID__5CD6CB2B" Association="Self.FK__BILL__ADDRESSID__5CD6CB2B">
+    <AssociationSet Name="FK__BILL__ADDRESSID__5BE2A6F2" Association="Self.FK__BILL__ADDRESSID__5BE2A6F2">
       <End Role="ADDRESS_SHIP" EntitySet="ADDRESS_SHIP" />
       <End Role="BILL" EntitySet="BILL" />
     </AssociationSet>
-    <AssociationSet Name="FK__BILL__VOUCHERID__5BE2A6F2" Association="Self.FK__BILL__VOUCHERID__5BE2A6F2">
+    <AssociationSet Name="FK__BILL__VOUCHERID__5AEE82B9" Association="Self.FK__BILL__VOUCHERID__5AEE82B9">
       <End Role="VOUCHER" EntitySet="VOUCHER" />
       <End Role="BILL" EntitySet="BILL" />
     </AssociationSet>
-    <AssociationSet Name="FK__BILLDETAI__BILLI__6383C8BA" Association="Self.FK__BILLDETAI__BILLI__6383C8BA">
+    <AssociationSet Name="FK__BILLDETAI__BILLI__628FA481" Association="Self.FK__BILLDETAI__BILLI__628FA481">
       <End Role="BILL" EntitySet="BILL" />
       <End Role="BILLDETAIL" EntitySet="BILLDETAIL" />
     </AssociationSet>
-    <AssociationSet Name="FK__BILLDETAI__PRODU__6477ECF3" Association="Self.FK__BILLDETAI__PRODU__6477ECF3">
+    <AssociationSet Name="FK__BILLDETAI__PRODU__6383C8BA" Association="Self.FK__BILLDETAI__PRODU__6383C8BA">
       <End Role="PRODUCT" EntitySet="PRODUCT" />
       <End Role="BILLDETAIL" EntitySet="BILLDETAIL" />
     </AssociationSet>
@@ -566,11 +566,11 @@
       <End Role="ACCOUNT" EntitySet="ACCOUNT" />
       <End Role="VIEWNUMBER" EntitySet="VIEWNUMBER" />
     </AssociationSet>
-    <AssociationSet Name="FK__VOCHERDET__VOUCH__5FB337D6" Association="Self.FK__VOCHERDET__VOUCH__5FB337D6">
+    <AssociationSet Name="FK__VOCHERDET__VOUCH__5EBF139D" Association="Self.FK__VOCHERDET__VOUCH__5EBF139D">
       <End Role="VOUCHER" EntitySet="VOUCHER" />
       <End Role="VOCHERDETAIL" EntitySet="VOCHERDETAIL" />
     </AssociationSet>
-    <AssociationSet Name="FK__VOCHERDETA__USER__60A75C0F" Association="Self.FK__VOCHERDETA__USER__60A75C0F">
+    <AssociationSet Name="FK__VOCHERDETA__USER__5FB337D6" Association="Self.FK__VOCHERDETA__USER__5FB337D6">
       <End Role="ACCOUNT" EntitySet="ACCOUNT" />
       <End Role="VOCHERDETAIL" EntitySet="VOCHERDETAIL" />
     </AssociationSet>

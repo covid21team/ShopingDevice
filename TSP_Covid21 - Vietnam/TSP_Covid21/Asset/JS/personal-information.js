@@ -49,10 +49,10 @@ function tatthem() {
 
 }
 function okthem() {
-    var modal = document.getElementById('themthongtingiaohang');
+    /*var modal = document.getElementById('themthongtingiaohang');
     var modal1 = document.getElementById('tatbangiaohang');
     modal.style.display = "none";
-    modal1.style.display = "block";
+    modal1.style.display = "block";*/
 
 }
 function suathem() {
@@ -91,10 +91,10 @@ function changeFunc() {
 
         success: function (response) {
 
-            var str = "<option selected>District </option>";
+            var str = "";
             for (var i = 0; i < response.data.length; i++) {
                 if (response.data[i].ProvinceID == selectedValue) {
-                    str = str + "<option class='districtID' data-district='" + response.data[i].DistrictID + "'>" + response.data[i].DistrictName
+                    str = str + "<option class='districtID' data-district='" + response.data[i].DistrictID + "' value='" + response.data[i].DistrictName + "'>" + response.data[i].DistrictName
                         + "</option>"
                 }
 
@@ -120,9 +120,9 @@ function changeFuncDistrict() {
         dataType: 'json',
         success: function (response) {
             console.log(response.data);
-            var str = "<option selected>Wards</option>";
+            var str = "";
             for (var i = 0; i < response.data.length; i++) {
-                str = str + "<option class='wardID' data-ward='" + response.data[i].WardCode + "'>" + response.data[i].WardName
+                str = str + "<option class='wardID' data-ward='" + response.data[i].WardCode + "' value='" + response.data[i].WardName + "'>" + response.data[i].WardName
                     + "</option>"
             }
             district.innerHTML = str;

@@ -704,13 +704,6 @@
     <Content Include="Asset\fonts\slick.woff" />
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Views\Shared\MainLayoutAdmin.cshtml" />
-    <EntityDeploy Include="Models\ShopEntity\ShopEntity.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ShopEntity.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\ShopEntity\ShopEntity.edmx.diagram">
-      <DependentUpon>ShopEntity.edmx</DependentUpon>
-    </Content>
     <Content Include="Asset\images\HeadPhone\Apple\cau hinh airpod.docx" />
     <Content Include="Asset\images\HeadPhone\Apple\cau hinh max2.docx" />
     <Content Include="Asset\images\HeadPhone\Apple\mo ta airpod.docx" />
@@ -1075,6 +1068,13 @@
     <Content Include="Areas\Admin\Views\ProductManager\ListProduct.cshtml" />
     <Content Include="Areas\Admin\Views\ProductManager\productDetail.cshtml" />
     <Content Include="Areas\Admin\Views\ProductManager\editProduct.cshtml" />
+    <EntityDeploy Include="Models\ShopEntity\ShopEntity.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ShopEntity.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\ShopEntity\ShopEntity.edmx.diagram">
+      <DependentUpon>ShopEntity.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

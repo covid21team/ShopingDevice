@@ -85,5 +85,24 @@ namespace TSP_Covid21.Controllers
             return result;
 
         }
+
+        public IEnumerable<ADDRESS_SHIP> addressDefault(string user)
+        {
+            Account_BUS AB = new Account_BUS();
+            var result = AB.addressDefault(user);
+
+            return result;
+        }
+
+        public void changeInf(string user, string fullname, bool sex, DateTime birth, string email, string phone)
+        {
+
+        }
+
+        public void insertAddress(string user, string fullname, string phone, string city, string district, string ward, string address, bool addDefault)
+        {
+            Account_BUS AB = new Account_BUS();
+            AB.insertAddress(user, fullname, phone, city, district, ward, address, addDefault);
+        }
     }
 }

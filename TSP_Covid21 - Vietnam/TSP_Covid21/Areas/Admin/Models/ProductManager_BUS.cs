@@ -18,21 +18,21 @@ namespace TSP_Covid21.Areas.Admin.Models
 
         public IEnumerable<PRODUCT> loadProduct()
         {
-            var result = db.PRODUCTs;
+            var result = db.PRODUCT;
 
             return result;
         }
 
         public PRODUCT productDetail(int id)
         {
-            var result = db.PRODUCTs.Where(p => p.PRODUCTID == id).FirstOrDefault();
+            var result = db.PRODUCT.Where(p => p.PRODUCTID == id).FirstOrDefault();
 
             return result;
         }
 
         public void delProduct(int id)
         {
-            var product = db.PRODUCTs.Where(t => t.PRODUCTID == id).FirstOrDefault();
+            var product = db.PRODUCT.Where(t => t.PRODUCTID == id).FirstOrDefault();
 
             PRODUCT p = new PRODUCT
             {
@@ -51,29 +51,29 @@ namespace TSP_Covid21.Areas.Admin.Models
                 PRODUCTAMOUNT = product.PRODUCTAMOUNT,
                 DATEADD = product.DATEADD,
             };
-            db.PRODUCTs.AddOrUpdate(p);
+            db.PRODUCT.AddOrUpdate(p);
             db.SaveChanges();
         }
 
 
         public IEnumerable<CONFIG> loadConfig()
         {
-            return db.CONFIGs;
+            return db.CONFIG;
         }
 
         public IEnumerable<BRAND> loadBrand()
         {
-            return db.BRANDs;
+            return db.BRAND;
         }
 
         public IEnumerable<PRODUCTTYPE> loadType()
         {
-            return db.PRODUCTTYPEs;
+            return db.PRODUCTTYPE;
         }
 
         public void editProduct(int id, string productName, int productType, int brand, int amount, string description, bool status, int price, string pic1, string pic2, string pic3, string pic4, string pic5, List<string> name, List<string> inf)
         {
-            var dateadd = db.PRODUCTs.Where(t => t.PRODUCTID == id).Select(c => c.DATEADD).FirstOrDefault();
+            var dateadd = db.PRODUCT.Where(t => t.PRODUCTID == id).Select(c => c.DATEADD).FirstOrDefault();
 
             PRODUCT p = new PRODUCT
             {
@@ -92,13 +92,13 @@ namespace TSP_Covid21.Areas.Admin.Models
                 PRODUCTAMOUNT = amount,
                 DATEADD = dateadd,
             };
-            db.PRODUCTs.AddOrUpdate(p);
+            db.PRODUCT.AddOrUpdate(p);
             db.SaveChanges();
 
-            var temp = db.CONFIGDETAILs.Where(h => h.PRODUCTID == id).ToList();
+            var temp = db.CONFIGDETAIL.Where(h => h.PRODUCTID == id).ToList();
             foreach(var item in temp)
             {
-                db.CONFIGDETAILs.Remove(item);
+                db.CONFIGDETAIL.Remove(item);
             }
             db.SaveChanges();
 
@@ -110,7 +110,7 @@ namespace TSP_Covid21.Areas.Admin.Models
                     CONFIGNAME = name[i],
                     INFORMATION = inf[i],
                 };
-                db.CONFIGDETAILs.AddOrUpdate(c);
+                db.CONFIGDETAIL.AddOrUpdate(c);
                 db.SaveChanges();
             }
         }
@@ -135,7 +135,7 @@ namespace TSP_Covid21.Areas.Admin.Models
                 PRODUCTAMOUNT = amount,
                 DATEADD = time,
             };
-            db.PRODUCTs.Add(p);
+            db.PRODUCT.Add(p);
             db.SaveChanges();
         }
     }

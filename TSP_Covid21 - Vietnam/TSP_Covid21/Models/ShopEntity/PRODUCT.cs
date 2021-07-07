@@ -17,13 +17,13 @@ namespace TSP_Covid21.Models.ShopEntity
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public PRODUCT()
         {
-            this.ACCOUNTLIKEs = new HashSet<ACCOUNTLIKE>();
-            this.BILLDETAILs = new HashSet<BILLDETAIL>();
-            this.CARTs = new HashSet<CART>();
-            this.COMMENTs = new HashSet<COMMENT>();
-            this.CONFIGDETAILs = new HashSet<CONFIGDETAIL>();
-            this.RATINGPRODUCTs = new HashSet<RATINGPRODUCT>();
-            this.VIEWNUMBERs = new HashSet<VIEWNUMBER>();
+            this.ACCOUNTLIKE = new HashSet<ACCOUNTLIKE>();
+            this.BILLDETAIL = new HashSet<BILLDETAIL>();
+            this.CART = new HashSet<CART>();
+            this.COMMENT = new HashSet<COMMENT>();
+            this.CONFIGDETAIL = new HashSet<CONFIGDETAIL>();
+            this.RATINGPRODUCT = new HashSet<RATINGPRODUCT>();
+            this.VIEWNUMBER = new HashSet<VIEWNUMBER>();
         }
     
         public int PRODUCTID { get; set; }
@@ -42,20 +42,20 @@ namespace TSP_Covid21.Models.ShopEntity
         public Nullable<System.DateTime> DATEADD { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ACCOUNTLIKE> ACCOUNTLIKEs { get; set; }
+        public virtual ICollection<ACCOUNTLIKE> ACCOUNTLIKE { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BILLDETAIL> BILLDETAILs { get; set; }
+        public virtual ICollection<BILLDETAIL> BILLDETAIL { get; set; }
         public virtual BRAND BRAND { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CART> CARTs { get; set; }
+        public virtual ICollection<CART> CART { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<COMMENT> COMMENTs { get; set; }
+        public virtual ICollection<COMMENT> COMMENT { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CONFIGDETAIL> CONFIGDETAILs { get; set; }
+        public virtual ICollection<CONFIGDETAIL> CONFIGDETAIL { get; set; }
         public virtual PRODUCTTYPE PRODUCTTYPE { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<RATINGPRODUCT> RATINGPRODUCTs { get; set; }
+        public virtual ICollection<RATINGPRODUCT> RATINGPRODUCT { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<VIEWNUMBER> VIEWNUMBERs { get; set; }
+        public virtual ICollection<VIEWNUMBER> VIEWNUMBER { get; set; }
     }
 }

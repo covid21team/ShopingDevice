@@ -1,5 +1,5 @@
 ﻿<!--
-    
+
 -->
 
 @model IEnumerable<TSP_Covid21.Models.ViewModel.ProductOfCartViewModel>
@@ -7,7 +7,11 @@
     ViewBag.Title = "CheckOut";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<style>
+    .doidiachigiaohang {
+        color: rgb(0, 255, 13);
+    }
+</style>
 @Html.Partial("Public_Navigation")
 <!-- BREADCRUMB --><!--Đường dẫn-->
 <div id="breadcrumb" class="section">
@@ -35,37 +39,38 @@
     <div class="container">
         <!-- row -->
         <div class="row">
-
+            @{
+                TSP_Covid21.Controllers.AccountController AC = new TSP_Covid21.Controllers.AccountController();
+                IEnumerable<TSP_Covid21.Models.ShopEntity.ADDRESS_SHIP> addressDefault = AC.addressDefault(Session["user"].ToString());
+            }
             <div class="col-md-7">
                 <!-- Billing Details --> <!--Địa chỉ thanh toán--><!--Cần trí chỉnh lại đoạn văn-->
                 <div class="billing-details">
                     <div class="section-title">
                         <h3 class="title">Địa chỉ nhận</h3>
+                        <a class="doidiachigiaohang" style="margin-left: 40%;font-size: 15px;"><i class="fas fa-plus"></i> Thay đổi địa chỉ</a>
                     </div>
-                    <div class="form-group">
-                        <input class="input" type="text" name="first-name" placeholder="First Name">
-                    </div>
-                    <div class="form-group">
-                        <input class="input" type="text" name="last-name" placeholder="Last Name">
-                    </div>
-                    <div class="form-group">
-                        <input class="input" type="email" name="email" placeholder="Email">
-                    </div>
-                    <div class="form-group">
-                        <input class="input" type="text" name="address" placeholder="Địa chỉ">
-                    </div>
-                    <div class="form-group">
-                        <input class="input" type="text" name="city" placeholder="Thành phố">
-                    </div>
-                    <div class="form-group">
-                        <input class="input" type="text" name="country" placeholder="Quốc gia">
-                    </div>
-                    <!-- <div class="form-group">
-                        <input class="input" type="text" name="zip-code" placeholder="ZIP Code">
-                    </div> -->
-                    <div class="form-group">
-                        <input class="input" type="tel" name="tel" placeholder="Số điện thoại">
-                    </div>
+                    @foreach (var item in addressDefault)
+                    {
+                        <div class="form-group">
+                            <input class="input" type="text" name="first-name" placeholder="Họ và tên" value="@item.FULLNAME" disabled>
+                        </div>
+                        <div class="form-group">
+                            <input class="input" type="text" name="address" placeholder="Địa chỉ" value="@item.ADDRESS" disabled>
+                        </div>
+                        <div class="form-group">
+                            <input class="input" type="text" name="city" placeholder="Thành phố / Tỉnh" value="@item.CITY" disabled>
+                        </div>
+                        <div class="form-group">
+                            <input class="input" type="text" name="city" placeholder="Quận / Huyện" value="@item.DISTRICT" disabled>
+                        </div>
+                        <div class="form-group">
+                            <input class="input" type="text" name="city" placeholder="Phường / Xã" value="@item.WARDS" disabled>
+                        </div>
+                        <div class="form-group">
+                            <input class="input" type="tel" name="tel" placeholder="Số điện thoại" value="@item.PHONE" disabled>
+                        </div>
+                    }
                 </div>
                 <!-- /Billing Details -->
                 <!-- Shiping Details --><!--Chuyển cho người khác-->
@@ -79,12 +84,10 @@
                             <span></span>
                             Bạn muốn giao ở địa chỉ khác?
                         </label>
+                        <!-- Hiện 1 list địa chỉ khác-->
                         <div class="caption">
                             <div class="form-group">
-                                <input class="input" type="text" name="first-name" placeholder="First Name">
-                            </div>
-                            <div class="form-group">
-                                <input class="input" type="text" name="last-name" placeholder="Last Name">
+                                <input class="input" type="text" name="first-name" placeholder="Họ và tên">
                             </div>
                             <div class="form-group">
                                 <input class="input" type="email" name="email" placeholder="Email">
@@ -93,14 +96,14 @@
                                 <input class="input" type="text" name="address" placeholder="Địa chỉ">
                             </div>
                             <div class="form-group">
+                                <input class="input" type="text" name="city" placeholder="Thành phố / Tinh">
+                            </div>
+                            <div class="form-group">
                                 <input class="input" type="text" name="city" placeholder="Thành phố">
                             </div>
                             <div class="form-group">
-                                <input class="input" type="text" name="country" placeholder="Quốc gia">
+                                <input class="input" type="text" name="city" placeholder="Thành phố">
                             </div>
-                            <!-- <div class="form-group">
-                                <input class="input" type="text" name="zip-code" placeholder="ZIP Code">
-                            </div> -->
                             <div class="form-group">
                                 <input class="input" type="tel" name="tel" placeholder="Số điện thoại">
                             </div>
@@ -110,7 +113,7 @@
                 <!-- /Shiping Details -->
                 <!-- Order notes -->
                 <div class="order-notes">
-                    <textarea class="input" placeholder="Ghi chú"></textarea>
+                    <textarea id="noteBill" class="input" placeholder="Ghi chú"></textarea>
                 </div>
                 <!-- /Order notes -->
             </div>
@@ -168,14 +171,14 @@
                     </div>
                     <div class="order-col">
                         <div>Thuế(5%)</div>
-                        <div><strong >@temp_total_tax</strong></div>
+                        <div><strong>@temp_total_tax</strong></div>
                     </div>
                     <div class="order-col">
                         <div><strong>Tổng đơn hàng</strong></div>
                         <div><strong class="order-total">@temp_total_cart</strong></div>
                     </div>
                 </div>
-                
+
                 <div class="input-checkbox">
                     <input type="checkbox" id="terms">
                     <label for="terms">
@@ -183,7 +186,7 @@
                         I've read and accept the <a href="#">terms & conditions</a>
                     </label>
                 </div>
-                <a href="#" class="primary-btn order-submit" id="create_bill" onclick="alert('hello')">Đặt hàng</a>
+                <a href="#" class="primary-btn order-submit" id="create_bill">Đặt hàng</a>
             </div>
             <!-- /Order Details -->
         </div>
@@ -192,7 +195,37 @@
     <!-- /container -->
 </div>
 <!-- /SECTION -->
-
 <!-- dùng sử dụng $ -->
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
+<script>
+    var start = {
+        loadData: function () {
+            var input = document.getElementsByClassName("input");
+            for (var i = 0; i < input.length; i++) {
+                input[i].disable = false;
+            }
+        }
+    }
+    start.loadData();
+
+    $("#create_bill").click(function () {
+        var add = @addressDefault.Count();
+        var note = $("#noteBill").val();
+        var total = @total_cart;
+
+        if (add != null) {
+            $.ajax({
+                url: '@Url.Action("insertBill", "Product")',
+                type: "POST",
+                data: {
+                    note: note,
+                    total: total,
+                },
+                success: function () {
+                    alert("Đặt hàng thành công");
+                }
+            });
+        }
+    });
+</script>

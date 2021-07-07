@@ -17,20 +17,20 @@ namespace TSP_Covid21.Models.ShopEntity
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public BILL()
         {
-            this.BILLDETAILs = new HashSet<BILLDETAIL>();
+            this.BILLDETAIL = new HashSet<BILLDETAIL>();
         }
     
         public int BILLID { get; set; }
         public string USER { get; set; }
         public Nullable<int> ADDRESSID { get; set; }
-        public string PHONENUMBERRECIVE { get; set; }
         public Nullable<System.DateTime> DATECREATE { get; set; }
         public Nullable<int> VOUCHERID { get; set; }
         public Nullable<long> TOTALBILL { get; set; }
+        public string NOTE { get; set; }
     
         public virtual ADDRESS_SHIP ADDRESS_SHIP { get; set; }
         public virtual VOUCHER VOUCHER { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BILLDETAIL> BILLDETAILs { get; set; }
+        public virtual ICollection<BILLDETAIL> BILLDETAIL { get; set; }
     }
 }
