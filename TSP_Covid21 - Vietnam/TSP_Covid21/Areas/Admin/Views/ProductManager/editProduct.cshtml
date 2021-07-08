@@ -115,6 +115,39 @@
         </tr>
         <tr>
             <th>
+                <label class="picture">Hình chính</label>
+            </th>
+            <td>
+                <div style="float: none;">
+                    <label for="filebutton" id="upload-btn">
+                        <span>
+                            <i class="fas fa-folder-open " style="color:#fad859;"></i>
+                            Open file
+                        </span>
+                    </label>
+                    <input id="Mainpic" name="Pic2" class="input-file" type="file" multiple accept="image/*"
+                           style="display: none" />
+                </div>
+                <div class="card-deck" id="appearMainPic">
+                    <div>
+                        <div class="card mb-4 pictureProductMain" style="width: 104px;float: left;">
+                            <figure class="snip0068 yellow">
+                                <input type="text" value="@Model.MAINPIC" style="display: none" class="takePath" />
+                                <img src="~/@Model.MAINPIC" alt="sample12" />
+                                <figcaption>
+                                    <div>
+                                        <span class="removePic"><i class="far fa-trash-alt"></i> Remove</span>
+                                    </div>
+                                </figcaption>
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+                
+            </td>
+        </tr>
+        <tr>
+            <th>
                 <label class="picture">Hình</label>
             </th>
             <td>
@@ -129,19 +162,6 @@
                            style="display: none" />
                 </div>
                 <div class="card-deck" id="appearPic">
-                    <div>
-                        <div class="card mb-4 pictureProduct" style="width: 104px;float: left;">
-                            <figure class="snip0068 yellow">
-                                <input type="text" value="@Model.MAINPIC" style="display: none" class="takePath" />
-                                <img src="~/@Model.MAINPIC" alt="sample12" />
-                                <figcaption>
-                                    <div>
-                                        <span class="removePic"><i class="far fa-trash-alt"></i> Remove</span>
-                                    </div>
-                                </figcaption>
-                            </figure>
-                        </div>
-                    </div>
                     <div>
                         <div class="card mb-4 pictureProduct" style="width: 104px;float: left;">
                             <figure class="snip0068 yellow">
@@ -211,7 +231,7 @@
                 <label>Mô tả</label>
             </th>
             <td>
-                <textarea class="textarea" id="edit_productDescription" name="Config" >@Model.DECRIPTION</textarea>
+                <textarea class="textarea" id="edit_productDescription" name="Config">@Model.DECRIPTION</textarea>
             </td>
 
         </tr>
@@ -272,7 +292,7 @@
                                 @item.DECRIPTIONCONFIGNAME
                             </td>
                             @{
-                                var infConfig = @Model.CONFIGDETAILs.Where(p => p.CONFIGNAME == item.CONFIGNAME).Select(c => c.INFORMATION).FirstOrDefault();
+                                var infConfig = @Model.CONFIGDETAIL.Where(p => p.CONFIGNAME == item.CONFIGNAME).Select(c => c.INFORMATION).FirstOrDefault();
                             }
                             <td>
                                 <textarea class="textarea configInf" name="Config">@infConfig</textarea>
@@ -381,7 +401,7 @@
 
         var files = event.target.files;
 
-        for (var i = 0; i < files.length && i < 5-dem; i++) {
+        for (var i = 0; i < files.length && i < 4-dem; i++) {
             var file = files[i];
             var create = document.createElement("div");
 
@@ -398,6 +418,33 @@
                                 '</div>';
 
             $("#appearPic").prepend(create);
+        }
+    });
+
+    //Up ảnh đại diện
+    $("#filebutton").change(function (event) {
+
+        var dem = document.getElementsByClassName("pictureProductMain").length;
+
+        var files = event.target.files;
+
+        for (var i = 0; i < files.length && i < 1 - dem; i++) {
+            var file = files[i];
+            var create = document.createElement("div");
+
+            create.innerHTML = '<div class="card mb-4 pictureProductMain" style="width: 104px; float: left;">' +
+                '<figure class="snip0068 yellow">' +
+                '<input type="text" value="Asset/images/' + file.name + '" style="display: none" class="takePath" />' +
+                '<img src="/Asset/images/' + file.name + '"/>' +
+                '<figcaption> ' +
+                '<div>' +
+                '<span class="removePic"><i class="far fa-trash-alt"></i> Remove</span>' +
+                '</div>' +
+                '</figcaption>' +
+                '</figure>' +
+                '</div>';
+
+            $("#appearMainPic").prepend(create);
         }
     });
 </script>

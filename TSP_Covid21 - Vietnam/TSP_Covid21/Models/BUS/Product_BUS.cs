@@ -417,6 +417,8 @@ namespace TSP_Covid21.Models.BUS
                     AMOUNT = item.AMOUNT,
                 };
                 db.BILLDETAIL.Add(bd);
+                PRODUCT p = db.PRODUCT.Where(t => t.PRODUCTID == item.PRODUCTID).FirstOrDefault();
+                p.PRODUCTAMOUNT = p.PRODUCTAMOUNT - item.AMOUNT;
                 db.CART.Remove(item);
             }
             db.SaveChanges();

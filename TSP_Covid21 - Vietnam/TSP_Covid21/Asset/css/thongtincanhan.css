@@ -191,6 +191,21 @@ color: #D10024;
 }
 /*button xác nhận thêm địa chỉ*/
 #id21 {
+    margin-left: 290px;
+    width: 150px;
+    margin-top: 5px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background: #D10024;
+    border: none;
+    font-size: 20px;
+    color: white;
+}
+    #id21:hover {
+        background: #FF0000;
+    }
+/*Button chỉnh sửa địa chỉ*/
+#id23 {
     margin-left: 343px;
     width: 100px;
     margin-top: 5px;
@@ -201,7 +216,8 @@ color: #D10024;
     font-size: 20px;
     color: white;
 }
-    #id21:hover {
+
+    #id23:hover {
         background: #FF0000;
     }
 .thoat{

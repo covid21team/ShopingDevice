@@ -48,7 +48,7 @@
                 <div class="billing-details">
                     <div class="section-title">
                         <h3 class="title">Địa chỉ nhận</h3>
-                        <a class="doidiachigiaohang" style="margin-left: 40%;font-size: 15px;"><i class="fas fa-plus"></i> Thay đổi địa chỉ</a>
+                        <a href="@Url.Action("Personal","Covid21",new { user = Session["user"]})" class="doidiachigiaohang" style="margin-left: 40%;font-size: 15px;"><i class="fas fa-plus"></i> Thay đổi địa chỉ</a>
                     </div>
                     @foreach (var item in addressDefault)
                     {
@@ -86,26 +86,39 @@
                         </label>
                         <!-- Hiện 1 list địa chỉ khác-->
                         <div class="caption">
-                            <div class="form-group">
-                                <input class="input" type="text" name="first-name" placeholder="Họ và tên">
-                            </div>
-                            <div class="form-group">
-                                <input class="input" type="email" name="email" placeholder="Email">
-                            </div>
-                            <div class="form-group">
-                                <input class="input" type="text" name="address" placeholder="Địa chỉ">
-                            </div>
-                            <div class="form-group">
-                                <input class="input" type="text" name="city" placeholder="Thành phố / Tinh">
-                            </div>
-                            <div class="form-group">
-                                <input class="input" type="text" name="city" placeholder="Thành phố">
-                            </div>
-                            <div class="form-group">
-                                <input class="input" type="text" name="city" placeholder="Thành phố">
-                            </div>
-                            <div class="form-group">
-                                <input class="input" type="tel" name="tel" placeholder="Số điện thoại">
+                            @{
+                                IEnumerable<TSP_Covid21.Models.ShopEntity.ADDRESS_SHIP> listAddress = AC.loadAddress(Session["user"].ToString());
+                            }
+                            <div style="height: 280px; overflow-y: scroll;">
+                                <table>
+                                    @if (listAddress.Count() == 0)
+                                    {
+                                        <tr style="text-align:center">(Chưa có địa chỉ giao hàng)</tr>
+                                    }
+                                    @foreach (var item in listAddress)
+                                    {
+                                        <tr>
+                                            <th class="id13" style="width:  700px;">
+                                                <input type="text" value="@item.ADDRESSID" style="display: none" class="addressId" />
+
+                                                @if (@item.DEFAULT == true)
+                                                {
+                                                    <label>@item.FULLNAME</label><small>(Địa chỉ mặc định)</small>
+                                                }
+                                                else
+                                                {
+                                                    <label>@item.FULLNAME</label>
+                                                }
+                                                <br><label>@item.ADDRESS</label><br>
+                                                <label>@item.PHONE</label>
+
+                                            </th>
+                                            <td>
+                                                <label class="id14"> Chỉnh sửa</label>
+                                            </td>
+                                        </tr>
+                                    }
+                                </table>
                             </div>
                         </div>
                     </div>
@@ -223,6 +236,12 @@
                     note: note,
                     total: total,
                 },
+                success: function () {
+                    location.reload();
+                },
+                error: function () {
+                    alert("fail");
+                }
             });
         }
     });

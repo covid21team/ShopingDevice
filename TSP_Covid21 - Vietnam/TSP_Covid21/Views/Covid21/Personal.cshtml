@@ -129,7 +129,7 @@
                                 }
                             </label>
                         </div>
-                        @{ 
+                        @{
                             // hiện ngày
                             string d = Model.DATAOFBIRTH.ToString();
                             //Loại bỏ các ký tự thừa đằng sau
@@ -197,7 +197,7 @@
                                 IEnumerable<TSP_Covid21.Models.ShopEntity.ADDRESS_SHIP> listAddress = AC.loadAddress(Model.USER);
                             }
                             <div style="height: 280px; overflow-y: scroll;">
-                                <table >
+                                <table>
                                     @if (listAddress.Count() == 0)
                                     {
                                         <tr style="text-align:center">(Chưa có địa chỉ giao hàng)</tr>
@@ -206,6 +206,8 @@
                                     {
                                         <tr>
                                             <th class="id13" style="width:  700px;">
+                                                <input type="text" value="@item.ADDRESSID" style="display: none" class="addressId" />
+
                                                 @if (@item.DEFAULT == true)
                                                 {
                                                     <label>@item.FULLNAME</label><small>(Địa chỉ mặc định)</small>
@@ -219,7 +221,7 @@
 
                                             </th>
                                             <td>
-                                                <label class="id14" onclick="suathem()"> Chỉnh sửa</label>
+                                                <label class="id14"> Chỉnh sửa</label>
                                             </td>
                                         </tr>
                                     }
@@ -228,55 +230,7 @@
                         </div>
                         <!--Thêm địa chỉ giao hàng-->
                         <div style="display: none;" id="themthongtingiaohang">
-                            <input class="thoat" onclick="tatthem()" value="✖" type="button">
-                            <div>
-                                <span></span>
-                                <label for="">Họ và tên: </label>
-                                <input id="id15" type="text" placeholder="Nhập họ và tên"> <span style="color: red; display: none" id="inf_add_fullname">(Vui lòng nhập tên người nhận)</span>
-                            </div>
-                            <div>
-                                <span></span>
-                                <label for="">Số điện thoại: </label>
-                                <input id="id16" type="text" placeholder="Nhập số điện thoại"> <span style="color: red; display: none" id="inf_add_phone">(SĐT không được để trống)</span> <span style="color: red; display: none" id="inf_add_phone_check">(Vui lòng nhập đúng số điện thoại)</span>
-                            </div>
-                            <div>
-                                <span></span>
-                                <label for="">Thành phố/Tỉnh: </label>
-                                <select class="addr" id="province" none="province" onchange="changeFunc();"
-                                        style="margin-left: 29px;">
-                                    <option value="" selected>Thành phố / Tỉnh</option>
-                                </select>
-                            </div>
-                            <div>
-                                <span></span>
-                                <label for="">Quận/Huyện: </label>
-                                <select class="addr" id="district" none="district" onchange="changeFuncDistrict();"
-                                        style="margin-left: 51px;">
-       
-                                </select><span style="color: red; display: none" id="inf_add_district">(Vui lòng chọn khu vực)</span>
-                            </div>
-                            <div>
-                                <span></span>
-                                <label for="">Phường/Xã:</label>
-                                <select class="addr" id="ward" none="ward" aria-placeholder="Quận Huyện;"
-                                        style="margin-left: 58px;">
-                                   
-                                </select><span style="color: red; display: none" id="id_add_ward">(Vui lòng chọn khu vực)</span>
-                            </div>
-                            <div>
-                                <span></span>
-                                <label>Địa chỉ:</label>
-                                <textarea id="id20" rows="3"></textarea> <span style="color: red; display: none" id="inf_add">(Vui lòng nhập địa chỉ giao hàng)</span>
-                            </div>
-                            <div>
-                                <span></span>
 
-                                <input id="id22" class="text1" type="checkbox">
-                                <label for="">Địa chỉ mặc định</label>
-                            </div>
-                            <div>
-                                <input id="id21" type="button" onclick="okthem()" value="Xác nhận">
-                            </div>
                         </div>
                     </div>
                     <style>
@@ -309,31 +263,31 @@
 
                             @foreach (var item in listBill)
                             {
-                            <tr class="hoverdonhang">
-                                <td>
-                                    <p class="tableb">@item.BILLID</p>
-                                </td>
-                                <td style="width: 200px">
-                                    <p class="tableb">@item.DATECREATE</p>
-                                </td>
-                                @{
-                                    string listProduct = "";
-                                    foreach (var item1 in item.BILLDETAIL)
-                                    {
-                                        listProduct += item1.PRODUCT.PRODUCTNAME + ", ";
+                                <tr class="hoverdonhang">
+                                    <td>
+                                        <p class="tableb">@item.BILLID</p>
+                                    </td>
+                                    <td style="width: 200px">
+                                        <p class="tableb">@item.DATECREATE</p>
+                                    </td>
+                                    @{
+                                        string listProduct = "";
+                                        foreach (var item1 in item.BILLDETAIL)
+                                        {
+                                            listProduct += item1.PRODUCT.PRODUCTNAME + ", ";
+                                        }
                                     }
-                                }
-                                <td>
-                                    <p class="tableb">@listProduct</p>
-                                </td>
-                                @{
-                                    var temp = String.Format("{0:#,##0.##}", item.TOTALBILL);
-                                    temp += "đ";
-                                }
-                                <td>
-                                    <p class="tableb">@temp</p>
-                                </td>
-                            </tr>
+                                    <td>
+                                        <p class="tableb">@listProduct</p>
+                                    </td>
+                                    @{
+                                        var temp = String.Format("{0:#,##0.##}", item.TOTALBILL);
+                                        temp += "đ";
+                                    }
+                                    <td>
+                                        <p class="tableb">@temp</p>
+                                    </td>
+                                </tr>
                             }
 
                         </table>
@@ -349,30 +303,6 @@
 <!-- /SECTION -->
 
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        var province = document.getElementById("province");
-        window.onload = function () {
-            $.ajax({
-                url: "https://dev-online-gateway.ghn.vn/shiip/public-api/master-data/province",
-                headers: {
-                    'token': "260fcbb6-d4ae-11eb-aa92-d25db748eae9",
-                    'content-Type': 'application/json'
-                },
-                method: 'GET',
-                dataType: 'json',
-                success: function (response) {
-                    var str = "";
-                    for (var i = 0; i < response.data.length; i++) {
-                        str = str + "<option class = 'provinceID' data-province='" + response.data[i].ProvinceID + "' value='" + response.data[i].ProvinceName + "'>" + response.data[i].ProvinceName + "</option> "
-                    }
-                    province.innerHTML = str;
-                }
-            });
-        }
-    }, false)
-</script>
 
 <!--Thay đổi thông tin cá nhân-->
 <script>
@@ -432,7 +362,7 @@
             var pass = $("#id8").val();
             var pass_new = $("#id9").val();
             var confirmpass = $("#id10").val();
-            
+
             $.ajax({
                 url: '@Url.Action("checkPass", "Account")',
                 type: 'POST',
@@ -561,7 +491,46 @@
     });
 </script>
 
-<!--Chỉnh sửa địa chỉ-->
+<!--Chuyển form chỉnh sửa địa chỉ-->
 <script>
+    $(".id14").click(function () {
+        var modal = document.getElementById('themthongtingiaohang');
+        var modal1 = document.getElementById('tatbangiaohang');
+        modal.style.display = "block";
+        modal1.style.display = "none";
 
+        var parent = $(this).parent().parent();
+
+        var id = $(parent).children().children(".addressId").val();
+
+        $.ajax({
+            url: "@Url.Action("loadAddressInf", "Account")",
+            type: "POST",
+            data: {
+                addressId: id,
+            },
+            success: function (result) {
+                $("#themthongtingiaohang").html(result);
+            },
+        });
+    });
+</script>
+
+<!--Chuyển form thêm địa chỉ-->
+<script>
+    $("#id12").click(function () {
+        var modal = document.getElementById('themthongtingiaohang');
+        var modal1 = document.getElementById('tatbangiaohang');
+        modal.style.display = "block";
+        modal1.style.display = "none";
+
+        $.ajax({
+            url: "@Url.Action("formAddAddress", "Account")",
+            type: "POST",
+
+            success: function (result) {
+                $("#themthongtingiaohang").html(result);
+            },
+        });
+    });
 </script>

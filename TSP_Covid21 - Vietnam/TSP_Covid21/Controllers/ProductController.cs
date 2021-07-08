@@ -198,7 +198,7 @@ namespace TSP_Covid21.Controllers
             string user = Session["user"].ToString();
             PB.insertBill(user, note, total);
 
-            return RedirectToAction("Home", " Covid21");
+            return RedirectToAction("Home", "Covid21");
         }
     } 
 }

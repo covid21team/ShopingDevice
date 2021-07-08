@@ -107,6 +107,7 @@ namespace TSP_Covid21.Controllers
 
         }
 
+        // Chỉ lấy ra 1 địa chỉ, tại sao ở đây lại dùng list là do khi không địa chỉ thì bằng null dẫn đến web lỗi nên phải dùng list
         public IEnumerable<ADDRESS_SHIP> addressDefault(string user)
         {
             Account_BUS AB = new Account_BUS();
@@ -131,6 +132,27 @@ namespace TSP_Covid21.Controllers
         {
             Account_BUS AB = new Account_BUS();
             AB.insertAddress(user, fullname, phone, city, district, ward, address, addDefault);
+        }
+
+        // dùng thêm địa chỉ 
+        public ActionResult formAddAddress()
+        {
+            return PartialView();
+        }
+
+        // dùng lúc muốn chỉnh sửa lại nhưng địa chỉ có sẳn
+        public ActionResult loadAddressInf(int addressId)
+        {
+            Account_BUS AB = new Account_BUS();
+            ADDRESS_SHIP result = AB.loadadd(addressId);
+
+            return PartialView(result);
+        }
+
+        public void editAddress_ship(int addressId, string user, string fullname, string phone, string city, string district, string ward, string address, bool addDefault)
+        {
+            Account_BUS AB = new Account_BUS();
+            AB.editAddress_ship(addressId, user, fullname, phone, city, district, ward, address, addDefault);
         }
     }
 }
