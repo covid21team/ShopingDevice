@@ -405,7 +405,7 @@ namespace TSP_Covid21.Models.BUS
             db.BILL.Add(b);
             db.SaveChanges();
 
-            int id = db.BILL.Where(p => p.USER == user).OrderBy(y => y.DATECREATE).Select(t => t.BILLID).FirstOrDefault();
+            int id = db.BILL.Where(p => p.USER == user).OrderByDescending(y => y.DATECREATE).Select(t => t.BILLID).FirstOrDefault();
             IEnumerable<CART> c = db.CART.Where(p => p.USER == user & p.PRODUCTSTATUS == true);
 
             foreach(var item in c)
@@ -417,6 +417,8 @@ namespace TSP_Covid21.Models.BUS
                     AMOUNT = item.AMOUNT,
                 };
                 db.BILLDETAIL.Add(bd);
+                PRODUCT p = db.PRODUCT.Where(t => t.PRODUCTID == item.PRODUCTID).FirstOrDefault();
+                p.PRODUCTAMOUNT = p.PRODUCTAMOUNT - item.AMOUNT;
                 db.CART.Remove(item);
             }
             db.SaveChanges();

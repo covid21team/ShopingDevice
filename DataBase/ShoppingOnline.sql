@@ -56,7 +56,7 @@ CREATE TABLE PRODUCT
 	--PRODUCTVIEW INT DEFAULT 0,
 	PRODUCTAMOUNT INT,
 	DECRIPTION NVARCHAR(MAX),
-	[DATEADD] DATE, -- Ngày nhập hàng vào
+	[DATEADD] DATETIME, -- Ngày nhập hàng vào
 	foreign key (BRANDID) references Brand(BRANDID) on update cascade,
 	foreign key (PRODUCTTYPEID) references PRODUCTTYPE(PRODUCTTYPEID) on update cascade,
 )
@@ -114,7 +114,7 @@ CREATE TABLE VIEWNUMBER
 (
 	[USER] VARCHAR(30),
 	PRODUCTID INT,
-	DATESEEN DATE, -- Đây là ngày khách hàng xem sản phẩm Tris cũng không muốn để đâu này là ép buộc đó
+	DATESEEN DATETIME, -- Đây là ngày khách hàng xem sản phẩm Tris cũng không muốn để đâu này là ép buộc đó
 	primary key([USER], PRODUCTID),
 	foreign key ([USER]) references ACCOUNT([USER]) on update cascade,
 	foreign key (PRODUCTID) references PRODUCT(PRODUCTID) on update cascade,
@@ -157,7 +157,7 @@ CREATE TABLE ACCOUNTLIKE
 (
 	[USER] VARCHAR(30),
 	PRODUCTID INT,
-	DATELIKE DATE, -- lí do tồn tại thì có gì liên hệ Sỹ để biết câu trả lời
+	DATELIKE DATETIME, -- lí do tồn tại thì có gì liên hệ Sỹ để biết câu trả lời
 	PRIMARY KEY ([USER] , PRODUCTID),
 	foreign key ([USER]) references ACCOUNT([USER]) on update cascade ,
 	foreign key (PRODUCTID) references PRODUCT(PRODUCTID) on update cascade ,
@@ -182,7 +182,7 @@ CREATE TABLE VOUCHER
 (
 	VOUCHERID INT IDENTITY PRIMARY KEY,
 	DECRIPTIONVOUCHER NVARCHAR(MAX),
-	DATEENDTIRE DATE,
+	DATEENDTIRE DATETIME,
 	STATUSVOUCHER BIT DEFAULT 1
 )
 
@@ -193,7 +193,7 @@ CREATE TABLE BILL
 	BILLID INT IDENTITY PRIMARY KEY,
 	[USER] VARCHAR(30),
 	ADDRESSID INT,
-	DATECREATE DATE DEFAULT GETDATE(),
+	DATECREATE DATETIME DEFAULT GETDATE(),
 	VOUCHERID INT,
 	TOTALBILL bigint,
 	NOTE nvarchar(max),
@@ -209,7 +209,7 @@ CREATE TABLE VOCHERDETAIL
 (
 	VOUCHERID INT,
 	[USER] VARCHAR(30),
-	DATEENDTIRE DATE, -- ngày hết hạn sở hữu của khách hàng về voucher, do sẽ có một số voucher tồn tại vĩnh viễn
+	DATEENDTIRE DATETIME, -- ngày hết hạn sở hữu của khách hàng về voucher, do sẽ có một số voucher tồn tại vĩnh viễn
 	PRIMARY KEY (VOUCHERID,[USER]),
 	foreign key (VOUCHERID) references VOUCHER(VOUCHERID) on update cascade ,
 	foreign key ([USER]) references ACCOUNT([USER]) on update cascade ,
@@ -227,6 +227,8 @@ CREATE TABLE BILLDETAIL
 	foreign key (PRODUCTID) references PRODUCT(PRODUCTID) on update cascade ,
 
 )
+
+SET DATEFORMAT DMY
 
 ----------------------------------------------------TRIGER PASSWORD----------------------------------------------------
 
@@ -298,16 +300,16 @@ insert into TEMPPRODUCT values(5,3,1)
 
 go --(PRODUCTNAME, BRANDID, PRODUCTTYPEID, MAINPIC, PIC1, PIC2, PIC3, PIC4, STATUSPRODUCT, PRODUCTPRICE, PRODUCTAMOUNT, DECRIPTION, [DATEADD])
 --insert into PRODUCT values (N'Vsmart Joy 4',4,2,'Vsmart/Joy4/Main.jpg',null,null,null,null,1,'3590000','0','100',N'Điện thoại này từ VIệt Nam Chẩt lượng cao')
-insert into PRODUCT values (N'Apple watch series 6',2,4,'Asset/images/SmartWatch/AppleWatch/apple-watch-series-6-1.jpg','Asset/images/SmartWatch/AppleWatch/apple-watch-series-6-2.jpg','Asset/images/SmartWatch/AppleWatch/apple-watch-series-6-3.jpg','Asset/images/SmartWatch/AppleWatch/apple-watch-series-6-4.jpg','Asset/images/SmartWatch/AppleWatch/apple-watch-series-6-5.jpg',1,'18530000','100',N'Đồng hồ xịn nè lo mà mô tả nó đi',GETDATE())
+insert into PRODUCT values (N'Apple watch series 6',2,4,'Asset/images/apple-watch-series-6-1.jpg','Asset/images/apple-watch-series-6-2.jpg','Asset/images/apple-watch-series-6-3.jpg','Asset/images/apple-watch-series-6-4.jpg','Asset/images/apple-watch-series-6-5.jpg',1,'18530000','100',N'Đồng hồ xịn nè lo mà mô tả nó đi',GETDATE())
 insert into PRODUCT values (
 	N'Iphone 11',
 	2,
 	2,
-	'Asset/images/SmartPhone/Iphone/iPhone_11/iphone-11-1.jpg',
-	'Asset/images/SmartPhone/Iphone/iPhone_11/iphone-11-2.jpg',
-	'Asset/images/SmartPhone/Iphone/iPhone_11/iphone-11-3.jpg',
-	'Asset/images/SmartPhone/Iphone/iPhone_11/iphone-11-4.jpg',
-	'Asset/images/SmartPhone/Iphone/iPhone_11/iphone-11-5.jpg',
+	'Asset/images/iphone-11-1.jpg',
+	'Asset/images/iphone-11-2.jpg',
+	'Asset/images/iphone-11-3.jpg',
+	'Asset/images/iphone-11-4.jpg',
+	'Asset/images/iphone-11-5.jpg',
 	1,
 	'21490000',
 	'100',
@@ -318,11 +320,11 @@ insert into PRODUCT values (
 	N'Iphone 12',
 	2,
 	2,
-	'Asset/images/SmartPhone/Iphone/iPhone_12/iphone-12-1.jpg',
-	'Asset/images/SmartPhone/Iphone/iPhone_12/iphone-12-2.jpg',
-	'Asset/images/SmartPhone/Iphone/iPhone_12/iphone-12-3.jpg',
-	'Asset/images/SmartPhone/Iphone/iPhone_12/iphone-12-4.jpg',
-	'Asset/images/SmartPhone/Iphone/iPhone_12/iphone-12-5.jpg',
+	'Asset/images/iphone-12-1.jpg',
+	'Asset/images/iphone-12-2.jpg',
+	'Asset/images/iphone-12-3.jpg',
+	'Asset/images/iphone-12-4.jpg',
+	'Asset/images/iphone-12-5.jpg',
 	1,
 	'21990000',
 	'100',
@@ -333,11 +335,11 @@ insert into PRODUCT values (
 	N'Iphone XR',
 	2,
 	2,
-	'Asset/images/SmartPhone/Iphone/iPhone_XR/iphone-xr-1.jpg',
-	'Asset/images/SmartPhone/Iphone/iPhone_XR/iphone-xr-2.jpg',
-	'Asset/images/SmartPhone/Iphone/iPhone_XR/iphone-xr-3.jpg',
-	'Asset/images/SmartPhone/Iphone/iPhone_XR/iphone-xr-4.jpg',
-	'Asset/images/SmartPhone/Iphone/iPhone_XR/iphone-xr-5.jpg',
+	'Asset/images/iphone-xr-1.jpg',
+	'Asset/images/iphone-xr-2.jpg',
+	'Asset/images/iphone-xr-3.jpg',
+	'Asset/images/iphone-xr-4.jpg',
+	'Asset/images/iphone-xr-5.jpg',
 	1,
 	'13990000',
 	'100',
@@ -348,11 +350,11 @@ insert into PRODUCT values (
 	N'Laptop Acer Aspire 7 A715',
 	5,
 	1,
-	'Asset/images/Laptop/Acer/LaptopAcerAspire7A715/acer-aspire-7-a715-1.jpg',
-	'Asset/images/Laptop/Acer/LaptopAcerAspire7A715/acer-aspire-7-a715-2.jpg',
-	'Asset/images/Laptop/Acer/LaptopAcerAspire7A715/acer-aspire-7-a715-3.jpg',
-	'Asset/images/Laptop/Acer/LaptopAcerAspire7A715/acer-aspire-7-a715-4.jpg',
-	'Asset/images/Laptop/Acer/LaptopAcerAspire7A715/acer-aspire-7-a715-5.jpg',
+	'Asset/images/acer-aspire-7-a715-1.jpg',
+	'Asset/images/acer-aspire-7-a715-2.jpg',
+	'Asset/images/acer-aspire-7-a715-3.jpg',
+	'Asset/images/acer-aspire-7-a715-4.jpg',
+	'Asset/images/acer-aspire-7-a715-5.jpg',
 	1,
 	'21490000',
 	'100',
@@ -364,11 +366,11 @@ insert into PRODUCT values (
 	N'Samsung Galaxy Tab A7 Lite',
 	1,
 	3,
-	'Asset/images/Tablet/SamSung/samsung-galaxy-tab-a7-lite-1.jpg',
-	'Asset/images/Tablet/SamSung/samsung-galaxy-tab-a7-lite-2.jpg',
-	'Asset/images/Tablet/SamSung/samsung-galaxy-tab-a7-lite-3.jpg',
-	'Asset/images/Tablet/SamSung/samsung-galaxy-tab-a7-lite-4.jpg',
-	'Asset/images/Tablet/SamSung/samsung-galaxy-tab-a7-lite-5.jpg',
+	'Asset/images/samsung-galaxy-tab-a7-lite-1.jpg',
+	'Asset/images/samsung-galaxy-tab-a7-lite-2.jpg',
+	'Asset/images/samsung-galaxy-tab-a7-lite-3.jpg',
+	'Asset/images/samsung-galaxy-tab-a7-lite-4.jpg',
+	'Asset/images/samsung-galaxy-tab-a7-lite-5.jpg',
 	1,
 	'4490000',
 	'100',
@@ -379,11 +381,11 @@ insert into PRODUCT values (
 	N'Bluetooth Xiaomi Earphone Lite',
 	3,
 	5,
-	'Asset/images/HeadPhone/Xiaomi/Bluetooth-Xiaomi-Earphone-Lite-1.jpg',
-	'Asset/images/HeadPhone/Xiaomi/Bluetooth-Xiaomi-Earphone-Lite-2.jpg',
-	'Asset/images/HeadPhone/Xiaomi/Bluetooth-Xiaomi-Earphone-Lite-3.jpg',
-	'Asset/images/HeadPhone/Xiaomi/Bluetooth-Xiaomi-Earphone-Lite-4.png',
-	'Asset/images/HeadPhone/Xiaomi/Bluetooth-Xiaomi-Earphone-Lite-5.jpg',
+	'Asset/images/Bluetooth-Xiaomi-Earphone-Lite-1.jpg',
+	'Asset/images/Bluetooth-Xiaomi-Earphone-Lite-2.jpg',
+	'Asset/images/Bluetooth-Xiaomi-Earphone-Lite-3.jpg',
+	'Asset/images/Bluetooth-Xiaomi-Earphone-Lite-4.png',
+	'Asset/images/Bluetooth-Xiaomi-Earphone-Lite-5.jpg',
 	1,
 	'990000',
 	'100',
@@ -394,11 +396,11 @@ insert into PRODUCT values (
 	N'Samsung A02',
 	1,
 	2,
-	'Asset/images/SmartPhone/SamSung/SamsungA02/samsung-a02-1.jpg',
-	'Asset/images/SmartPhone/SamSung/SamsungA02/samsung-a02-2.jpg',
-	'Asset/images/SmartPhone/SamSung/SamsungA02/samsung-a02-3.jpg',
-	'Asset/images/SmartPhone/SamSung/SamsungA02/samsung-a02-4.jpg',
-	'Asset/images/SmartPhone/SamSung/SamsungA02/samsung-a02-5.jpg',
+	'Asset/images/samsung-a02-1.jpg',
+	'Asset/images/samsung-a02-2.jpg',
+	'Asset/images/samsung-a02-3.jpg',
+	'Asset/images/samsung-a02-4.jpg',
+	'Asset/images/samsung-a02-5.jpg',
 	1,
 	'2590000',
 	'100',
@@ -410,11 +412,11 @@ insert into PRODUCT values (
 	N'Xiaomi Mi 11',
 	3,
 	2,
-	'Asset/images/SmartPhone/Xiaomi/Xiaomi-Mi-11/xiaomi-mi-11-1.jpg',
-	'Asset/images/SmartPhone/Xiaomi/Xiaomi-Mi-11/xiaomi-mi-11-2.jpg',
-	'Asset/images/SmartPhone/Xiaomi/Xiaomi-Mi-11/xiaomi-mi-11-3.jpg',
-	'Asset/images/SmartPhone/Xiaomi/Xiaomi-Mi-11/xiaomi-mi-11-4.jpg',
-	'Asset/images/SmartPhone/Xiaomi/Xiaomi-Mi-11/xiaomi-mi-11-5.jpg',
+	'Asset/images/xiaomi-mi-11-1.jpg',
+	'Asset/images/xiaomi-mi-11-2.jpg',
+	'Asset/images/xiaomi-mi-11-3.jpg',
+	'Asset/images/xiaomi-mi-11-4.jpg',
+	'Asset/images/xiaomi-mi-11-5.jpg',
 	1,
 	'21990000',
 	'100',

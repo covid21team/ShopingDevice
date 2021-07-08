@@ -1,11 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:600|Noto+Sans|Open+Sans:400,700&display=swap');
-*{
-  margin: 0;
-  padding: 0;
-  border-radius: 5px;
-  box-sizing: border-box;
-}
-body{
+
+.login-body{
   height: 100vh;
   display: flex;
   align-items: center;
@@ -15,19 +9,29 @@ body{
   background: url(bg.jpg);
   background-size: cover;
   background-position: center;
+  z-index: 10000000000000000;
+  position: fixed;
+  width: 100%;
+
+  
+
+
 }
-.container{
+.container-login{
   position: relative;
   width: 400px;
   background: white;
   padding: 30px 40px;
+  border-radius: 5px;
+  box-sizing: border-box;
+
 }
-header{
+.header-login{
   font-size: 40px;
   margin-bottom: 40px;
   font-family: 'Montserrat', sans-serif;
 }
-.input-field, form .button{
+.input-field, form .button-login{
   margin: 25px 0;
   position: relative;
   height: 50px;
@@ -41,6 +45,8 @@ header{
   outline: none;
   font-size: 19px;
   transition: .4s;
+  border-radius: 5px;
+  box-sizing: border-box;
 }
 input:focus{
   border: 1px solid #1DA1F2;
@@ -77,12 +83,12 @@ input:valid ~ label{
   font-size: 16px;
   color: #1DA1F2;
 }
-form .button{
+form .button-login{
   margin-top: 30px;
   overflow: hidden;
   z-index: 111;
 }
-.button .inner{
+.button-login .inner{
   position: absolute;
   height: 100%;
   width: 300%;
@@ -91,10 +97,10 @@ form .button{
   transition: all .4s;
   background: -webkit-linear-gradient(right,#00dbde,#fc00ff,#00dbde,#fc00ff);
 }
-.button:hover .inner{
+.button-login:hover .inner{
   left: 0;
 }
-.button button{
+.button-login button{
   width: 100%;
   height: 100%;
   border: none;
@@ -110,20 +116,5 @@ form .button{
   font-size: 19px;
   color: grey;
 }
-.links{
-  display: flex;
-  cursor: pointer;
-}
-.links i{
-  font-size: 23px;
-  line-height: 40px;
-  margin-left: -90px;
-}
-.links span{
-  position: absolute;
-  font-size: 17px;
-  font-weight: bold;
-  padding-left: 8px;
-  font-family: 'Open Sans', sans-serif;
-}
+
 

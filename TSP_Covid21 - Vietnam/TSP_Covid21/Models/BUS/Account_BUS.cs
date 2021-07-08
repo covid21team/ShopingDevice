@@ -28,6 +28,12 @@ namespace TSP_Covid21.Models.BUS
             return result;
         }
 
+        public string takeGmail(string user)
+        {
+            var result = db.ACCOUNT.Where(c => c.USER == user).Select(p => p.EMAIL).SingleOrDefault();
+            return result;
+        }
+
         public bool checkUser(string user)
         {
             var result = db.ACCOUNT.Where(p => p.USER == user).SingleOrDefault();
@@ -98,7 +104,13 @@ namespace TSP_Covid21.Models.BUS
 
         public void changeInf(string user, string fullname, bool sex, DateTime birth, string email, string phone)
         {
-            
+            ACCOUNT a = db.ACCOUNT.Where(p => p.USER == user).SingleOrDefault();
+            a.FULLNAME = fullname;
+            a.SEX = sex;
+            a.DATAOFBIRTH = birth;
+            a.PHONENUMBER = phone;
+            a.EMAIL = email;
+            db.SaveChanges();
         }
 
         public void insertAddress(string user, string fullname, string phone, string city, string district, string ward, string address, bool addDefault)
@@ -106,8 +118,12 @@ namespace TSP_Covid21.Models.BUS
             if (addDefault == true)
             {
                 ADDRESS_SHIP c = db.ADDRESS_SHIP.Where(p => p.USER == user & p.DEFAULT == true).FirstOrDefault();
-                c.DEFAULT = false;
-                db.SaveChanges();
+                if(c != null)
+                {
+                    c.DEFAULT = false;
+                    db.SaveChanges();
+                }
+                
             }
             else
             {
@@ -132,6 +148,55 @@ namespace TSP_Covid21.Models.BUS
             };
             db.ADDRESS_SHIP.Add(a);
             db.SaveChanges();
+        }
+
+        public void changePass(string user, string pass_new)
+        {
+            ACCOUNT a = db.ACCOUNT.Where(p => p.USER == user).FirstOrDefault();
+            a.PASSWORD = pass_new;
+            db.SaveChanges();
+        }
+
+        public ADDRESS_SHIP loadadd(int addressId)
+        {
+            return db.ADDRESS_SHIP.Where(p => p.ADDRESSID == addressId).FirstOrDefault();
+        }
+
+        public void editAddress_ship(int addressId,string user, string fullname, string phone, string city, string district, string ward, string address, bool addDefault)
+        {
+            if (addDefault == true)
+            {
+                ADDRESS_SHIP c = db.ADDRESS_SHIP.Where(p => p.ADDRESSID == addressId & p.DEFAULT == true).FirstOrDefault();
+                c.DEFAULT = false;
+                db.SaveChanges();
+            }
+
+            ADDRESS_SHIP a = new ADDRESS_SHIP
+            {
+                ADDRESSID = addressId,
+                USER = user,
+                FULLNAME = fullname,
+                PHONE = phone,
+                CITY = city,
+                DISTRICT = district,
+                WARDS = ward,
+                ADDRESS = address,
+                DEFAULT = addDefault,
+                ADDRESS_STATUS = true,
+            };
+            db.ADDRESS_SHIP.AddOrUpdate(a);
+            db.SaveChanges();
+
+            if(addDefault == false)
+            {
+                IEnumerable<ADDRESS_SHIP> list = db.ADDRESS_SHIP.Where(p => p.DEFAULT == true);
+                if (list.Count() == 0)
+                {
+                    ADDRESS_SHIP s = db.ADDRESS_SHIP.Where(p => p.ADDRESSID == addressId).FirstOrDefault();
+                    s.DEFAULT = true;
+                    db.SaveChanges();
+                }
+            }
         }
     }
 }

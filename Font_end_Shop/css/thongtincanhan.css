@@ -235,3 +235,16 @@ color: #D10024;
     margin-top: 5px;
     border-radius: 5px;
 }
+.eye{
+    position: absolute;
+}
+#hidel2,#hidel4,#hidel6{
+    display: none;
+    margin-left: -27px;
+    margin-top: 11px;
+}
+#hidel1,#hidel3,#hidel5{
+    margin-left: -28px;
+    margin-top: 11px;
+}
+    

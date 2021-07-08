@@ -27,16 +27,37 @@ namespace TSP_Covid21.Controllers
             {
                 Session["user"] = checkLogin;
                 Session["fullname"] = AB.takeFullName(user);
+                Session["gmail"] = AB.takeGmail(user);
                 return true;
             }
             return false;
         }
 
+        public bool checkPass(string user, string pass)
+        {
+            Account_BUS AB = new Account_BUS();
+
+            string checkLogin = AB.checkLogin(user, pass);
+            if (checkLogin == user)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public void changePass(string user, string pass_new)
+        {
+            Account_BUS AB = new Account_BUS();
+            AB.changePass(user, pass_new);
+        }
+
         [HttpPost]
-        public void Logout()
+        public ActionResult Logout()
         {
             Session["user"] = null;
             Session["fullname"] = null;
+
+            return RedirectToAction("Home", "Covid21");
         }
 
         public bool checkUser(string user)
@@ -86,6 +107,7 @@ namespace TSP_Covid21.Controllers
 
         }
 
+        // Chỉ lấy ra 1 địa chỉ, tại sao ở đây lại dùng list là do khi không địa chỉ thì bằng null dẫn đến web lỗi nên phải dùng list
         public IEnumerable<ADDRESS_SHIP> addressDefault(string user)
         {
             Account_BUS AB = new Account_BUS();
@@ -94,15 +116,43 @@ namespace TSP_Covid21.Controllers
             return result;
         }
 
-        public void changeInf(string user, string fullname, bool sex, DateTime birth, string email, string phone)
+        public void changeInf(string user, string fullname, bool sex, string birth, string email, string phone)
         {
+            DateTime date = DateTime.Parse(birth);
 
+            Account_BUS AB = new Account_BUS();
+
+            AB.changeInf(user, fullname, sex, date, email, phone);
+
+            Session["fullname"] = fullname;
+            Session["gmail"] = email;
         }
 
         public void insertAddress(string user, string fullname, string phone, string city, string district, string ward, string address, bool addDefault)
         {
             Account_BUS AB = new Account_BUS();
             AB.insertAddress(user, fullname, phone, city, district, ward, address, addDefault);
+        }
+
+        // dùng thêm địa chỉ 
+        public ActionResult formAddAddress()
+        {
+            return PartialView();
+        }
+
+        // dùng lúc muốn chỉnh sửa lại nhưng địa chỉ có sẳn
+        public ActionResult loadAddressInf(int addressId)
+        {
+            Account_BUS AB = new Account_BUS();
+            ADDRESS_SHIP result = AB.loadadd(addressId);
+
+            return PartialView(result);
+        }
+
+        public void editAddress_ship(int addressId, string user, string fullname, string phone, string city, string district, string ward, string address, bool addDefault)
+        {
+            Account_BUS AB = new Account_BUS();
+            AB.editAddress_ship(addressId, user, fullname, phone, city, district, ward, address, addDefault);
         }
     }
 }

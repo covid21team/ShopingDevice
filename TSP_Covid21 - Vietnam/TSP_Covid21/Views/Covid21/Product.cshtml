@@ -37,6 +37,7 @@
     ☯ Key Session
         ➛ Session["user"]
         ➛ Session["fullname"]
+        ➛ Session["gmail"]
 
 -->
 
@@ -52,6 +53,7 @@
     TSP_Covid21.Controllers.ProductController PC = new TSP_Covid21.Controllers.ProductController();
 
     var FullName = Session["fullname"];
+    var Gmail = Session["gmail"];
 }
 
 @Html.Partial("Public_Navigation")
@@ -342,7 +344,7 @@
                                 <!-- Reviews -->
                                 <!-- Review Product -->
                                 <div class="col-md-6" id="commentBorder">
-                                    @Html.Partial("Product_LoadComment", Model.COMMENTs)
+                                    @Html.Partial("Product_LoadComment", Model.COMMENT)
                                 </div>
                                 <!-- /Reviews -->
                                 <!-- Review Form -->
@@ -350,7 +352,7 @@
                                     <div id="review-form">
                                         <form class="review-form">
                                             <input class="input" type="text" placeholder="Tên của bạn" value="@FullName">
-                                            <input class="input" type="email" placeholder="Email của bạn">
+                                            <input class="input" type="email" placeholder="Email của bạn" value="@Gmail">
                                             <textarea id="comment_User" class="input" placeholder="Ý kiến về sản phẩm"></textarea>
                                             <div class="input-rating">
                                                 <span>Đánh giá: </span>

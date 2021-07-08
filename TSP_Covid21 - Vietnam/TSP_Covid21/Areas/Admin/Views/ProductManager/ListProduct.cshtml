@@ -86,7 +86,7 @@
                                     tempPrice += "đ";
                                 }
                                 <td class="click_Product">@tempPrice</td>
-                                <td class="click_Product">@item.RATINGPRODUCTs.Count()</td>
+                                <td class="click_Product">@item.RATINGPRODUCT.Count()</td>
                                 <td class="click_Product">@item.PRODUCTAMOUNT</td>
                                 <td class="edit_Product"><i class="fas fa-edit"></i></td>
                                 <td class="delete_product">
@@ -136,6 +136,9 @@
             success: function (result) {
                 $("#productDetail").css({ "display": "block" });
                 $("#productDetail").html(result);
+            },
+            error: function () {
+                alert("fail");
             }
         });
     });
