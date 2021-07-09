@@ -269,3 +269,26 @@ color: #D10024;
     margin-top: 5px;
     border-radius: 5px;
 }
+
+.eye1 {
+    position: absolute;
+}
+
+#hidel8, #hidel10, #hidel12 {
+    display: none;
+    margin-left: -27px;
+    margin-top: 11px;
+}
+
+#hidel7, #hidel9, #hidel11 {
+    margin-left: -28px;
+    margin-top: 11px;
+}
+
+span.eye1 {
+    visibility: hidden;
+}
+
+input:valid ~ span.eye1 {
+    visibility: visible;
+}

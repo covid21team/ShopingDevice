@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using TSP_Covid21.Models.BUS;
 using TSP_Covid21.Models.ShopEntity;
+using TSP_Covid21.Models.ViewModel;
 
 namespace TSP_Covid21.Areas.Admin.Controllers
 {
@@ -25,8 +26,14 @@ namespace TSP_Covid21.Areas.Admin.Controllers
 
         // Doanh thu trong 1 năm
         public string Revenue()
-        {
-            return SB.Revenue();
+        { 
+            var result = SB.Revenue();
+            if(result == "")
+            {
+                result = "0";
+            }
+
+            return result;
         }
 
         // Số sản phẩm được bán ra trong 1 năm
@@ -46,6 +53,40 @@ namespace TSP_Covid21.Areas.Admin.Controllers
             return SB.loadBill();
         }
 
-       
+        public string StaticProductType()
+        {
+            string a = "";
+            IEnumerable<StaticProductType> data = SB.StaticProductType();
+            foreach(var item in data)
+            {
+                if (item.QUANTITY == null)
+                {
+                    item.QUANTITY = 0;
+                }
+                a += item.PRODUCTYPENAME + ":" + item.QUANTITY + ",";
+            }
+
+            return a;
+        }
+
+        public string StaticBrand(int productTypeId)
+        {
+            if(productTypeId == 0)
+            {
+                return StaticProductType();
+            }
+            string a = "";
+            IEnumerable<StaticBrand> data = SB.StaticBrand(productTypeId);
+            foreach (var item in data)
+            {
+                if(item.QUANTITY == null)
+                {
+                    item.QUANTITY = 0;
+                }
+                a += item.BRANDNAME + ":" + item.QUANTITY + ",";
+            }
+
+            return a;
+        }
     }
 }

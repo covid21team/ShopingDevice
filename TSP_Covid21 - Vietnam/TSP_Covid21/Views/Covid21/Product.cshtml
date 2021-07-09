@@ -66,9 +66,9 @@
             <div class="col-md-12">
                 <ul class="breadcrumb-tree">
                     <li><a href="@Url.Action("Home","Covid21")">Trang chủ</a></li>
-                    @if (Model.PRODUCTTYPE.PRODUCTTYPENAME.Equals("SmartPhone"))
+                    @if (Model.PRODUCTTYPE.PRODUCTTYPENAME.Equals("Điện thoại"))
                     {
-                        <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "SmartPhone" })">Điện thoại</a></li>
+                        <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "Điện thoại" })">Điện thoại</a></li>
                     }
                     @if (Model.PRODUCTTYPE.PRODUCTTYPENAME.Equals("Laptop"))
                     {
@@ -78,13 +78,13 @@
                     {
                         <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "Tablet" })">Tablet</a></li>
                     }
-                    @if (Model.PRODUCTTYPE.PRODUCTTYPENAME.Equals("SmartWatch"))
+                    @if (Model.PRODUCTTYPE.PRODUCTTYPENAME.Equals("Đồng hồ"))
                     {
-                        <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "SmartWatch" })">Đồng hồ</a></li>
+                        <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "Đồng hồ" })">Đồng hồ</a></li>
                     }
-                    @if (Model.PRODUCTTYPE.PRODUCTTYPENAME.Equals("HeadPhone"))
+                    @if (Model.PRODUCTTYPE.PRODUCTTYPENAME.Equals("Tai nghe"))
                     {
-                        <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "HeadPhone" })">Tai nghe</a></li>
+                        <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "Tai nghe" })">Tai nghe</a></li>
                     }
                     <li class="active">@Model.BRAND.BRANDNAME</li>
                 </ul>

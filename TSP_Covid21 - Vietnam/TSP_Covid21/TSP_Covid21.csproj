@@ -221,6 +221,8 @@
     <Compile Include="Models\ViewModel\CommentProduct.cs" />
     <Compile Include="Models\ViewModel\ProductOfCartViewModel.cs" />
     <Compile Include="Models\ViewModel\ProductViewModel.cs" />
+    <Compile Include="Models\ViewModel\StaticBrand.cs" />
+    <Compile Include="Models\ViewModel\StaticProductType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

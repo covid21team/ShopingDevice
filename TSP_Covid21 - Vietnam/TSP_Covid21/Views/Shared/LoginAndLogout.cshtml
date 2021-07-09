@@ -33,11 +33,12 @@
                 <input type="password" id="pass_signin" name="pass" required="">
                 <label class="lb">Mật khẩu</label>
 
+                <span class="eye" onclick="my2Function()">
+                    <i id="hidel6" class="fa fa-eye-slash"></i>
+                    <i id="hidel5" class="fa fa-eye"></i>
+                </span>
             </div>
-            <span class="eye" onclick="my2Function()">
-                <i id="hidel6" class="fa fa-eye-slash"></i>
-                <i id="hidel5" class="fa fa-eye"></i>
-            </span>
+            
             <!--Thông báo input user bị trống-->
             <div id="message_PassSigninInf" style="position: absolute; display:none; margin-top: -25px ; margin-left: 0px; z-index: 50;">
                 <p id="text_PassSigninInf" style="color: red; font-size: 12px"><i class="fas fa-exclamation-triangle"></i> Mật khẩu bị trống</p>
@@ -86,12 +87,14 @@
             <div class="user-box">
                 <input type="password" id="pass1" name="pass1" required>
                 <label>Mật khẩu</label>
-            </div>
-            <span class="eye" onclick="myFunction()">
-                <i id="hidel4" class="fa fa-eye-slash"></i>
-                <i id="hidel3" class="fa fa-eye"></i>
 
-            </span>
+                <span class="eye" onclick="myFunction()">
+                    <i id="hidel4" class="fa fa-eye-slash"></i>
+                    <i id="hidel3" class="fa fa-eye"></i>
+
+                </span>
+            </div>
+            
 
             <!-- Kiểm tra số lượng mật khẩu -->
             <div id="message_Pass" style="position: absolute; display:none; margin-top: -25px ; margin-left: 0px; z-index: 50;">
@@ -106,12 +109,12 @@
                 <input type="password" id="pass2" name="" required="">
                 <label>Xác nhận mật khẩu</label>
 
-
+                <span class="eye" onclick="my1Function()">
+                    <i id="hidel2" class="fa fa-eye-slash"></i>
+                    <i id="hidel1" class="fa fa-eye"></i>
+                </span>
             </div>
-            <span class="eye" onclick="my1Function()">
-                <i id="hidel2" class="fa fa-eye-slash"></i>
-                <i id="hidel1" class="fa fa-eye"></i>
-            </span>
+            
 
             <!-- Kiểm tra nhập mật khẩu lại đúng không-->
             <div id="message_ConfirmPass" style="position: absolute; display:none; margin-top: -25px ; margin-left: 0px; z-index: 50;">

@@ -215,3 +215,30 @@ body {
 #hidel5 {
     display: none;
 }
+
+.eye {
+    position: absolute;
+    margin-top: 15px;
+    margin-left: -20px;
+    color: white;
+}
+
+#hidel1 {
+    display: none;
+}
+
+#hidel3 {
+    display: none;
+}
+
+#hidel5 {
+    display: none;
+}
+
+span.eye {
+    visibility: hidden;
+}
+
+input:valid ~ span.eye {
+    visibility: visible;
+}

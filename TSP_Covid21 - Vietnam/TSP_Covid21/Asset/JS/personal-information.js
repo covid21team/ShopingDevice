@@ -129,3 +129,46 @@ function changeFuncDistrict() {
         }
     });
 }
+
+function my4Function(){
+    var x =document.getElementById("id8");
+    var z =document.getElementById("hidel7");
+    var y =document.getElementById("hidel8");
+    if(x.type==='password'){
+        x.type = 'text';
+    y.style.display="block";
+    z.style.display="none"
+    }else{
+        x.type = 'password';
+    y.style.display="none";
+    z.style.display="block"
+    }
+}
+function my5Function(){
+    var x =document.getElementById("id9");
+    var z =document.getElementById("hidel9");
+    var y =document.getElementById("hidel10");
+    if(x.type==='password'){
+        x.type = 'text';
+    y.style.display="block";
+    z.style.display="none"
+    }else{
+        x.type = 'password';
+    y.style.display="none";
+    z.style.display="block"
+    }
+}
+function my6Function(){
+    var x =document.getElementById("id10");
+    var z =document.getElementById("hidel11");
+    var y =document.getElementById("hidel12");
+    if(x.type==='password'){
+        x.type = 'text';
+    y.style.display="block";
+    z.style.display="none"
+    }else{
+        x.type = 'password';
+    y.style.display="none";
+    z.style.display="block"
+    }
+}

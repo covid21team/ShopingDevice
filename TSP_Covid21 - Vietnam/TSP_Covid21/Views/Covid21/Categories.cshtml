@@ -66,53 +66,53 @@
         <div id="responsive-nav">
             <!-- NAV -->
             <ul class="main-nav nav navbar-nav">
-                @if (Session["ProductTypeName"].Equals("SmartPhone"))
+                @if (Session["ProductTypeName"].Equals("2"))
                 {
-                    <li class="active"><a href="@Url.Action("Store","Covid21", new { ProductTypeName = "SmartPhone" })"><i class="fa fa-mobile-phone"></i> Điện thoại</a></li>
-                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "Laptop" })"><i class="fa fa-laptop"></i> Laptop</a></li>
-                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "Tablet" })"><i class="fa fa-tablet"></i> Tablet</a></li>
-                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "HeadPhone" })"><i class="fa fa-headphones"></i> Tai nghe</a></li>
-                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "SmartWatch" })"><i class="fa fa-clock-o"></i> Đồng hồ</a></li>
+                    <li class="active"><a href="@Url.Action("Store","Covid21", new { ProductTypeId = "2" })"><i class="fa fa-mobile-phone"></i> Điện thoại</a></li>
+                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeId = "1" })"><i class="fa fa-laptop"></i> Laptop</a></li>
+                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeId = "3" })"><i class="fa fa-tablet"></i> Tablet</a></li>
+                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeId = "5" })"><i class="fa fa-headphones"></i> Tai nghe</a></li>
+                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeId = "4" })"><i class="fa fa-clock-o"></i> Đồng hồ</a></li>
                 }
-                else if (Session["ProductTypeName"].Equals("Laptop"))
+                else if (Session["ProductTypeName"].Equals("1"))
                 {
-                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "SmartPhone" })"><i class="fa fa-mobile-phone"></i> Điện thoại</a></li>
-                    <li class="active"><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "Laptop" })"><i class="fa fa-laptop"></i> Laptop</a></li>
-                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "Tablet" })"><i class="fa fa-tablet"></i> Tablet</a></li>
-                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "HeadPhone" })"><i class="fa fa-headphones"></i> Tai nghe</a></li>
-                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "SmartWatch" })"><i class="fa fa-clock-o"></i> Đồng hồ</a></li>
+                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeId = "2" })"><i class="fa fa-mobile-phone"></i> Điện thoại</a></li>
+                    <li class="active"><a href="@Url.Action("Categories","Covid21", new { ProductTypeId = "1" })"><i class="fa fa-laptop"></i> Laptop</a></li>
+                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeId = "3" })"><i class="fa fa-tablet"></i> Tablet</a></li>
+                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeId = "5" })"><i class="fa fa-headphones"></i> Tai nghe</a></li>
+                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeId = "4" })"><i class="fa fa-clock-o"></i> Đồng hồ</a></li>
                 }
-                else if (Session["ProductTypeName"].Equals("Tablet"))
+                else if (Session["ProductTypeName"].Equals("3"))
                 {
-                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "SmartPhone" })"><i class="fa fa-mobile-phone"></i> Điện thoại</a></li>
-                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "Laptop" })"><i class="fa fa-laptop"></i> Laptop</a></li>
-                    <li class="active"><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "Tablet" })"><i class="fa fa-tablet"></i> Tablet</a></li>
-                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "HeadPhone" })"><i class="fa fa-headphones"></i> Tai nghe</a></li>
-                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "SmartWatch" })"><i class="fa fa-clock-o"></i> Đồng hồ</a></li>
+                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeId = "2" })"><i class="fa fa-mobile-phone"></i> Điện thoại</a></li>
+                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeId = "1" })"><i class="fa fa-laptop"></i> Laptop</a></li>
+                    <li class="active"><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "3" })"><i class="fa fa-tablet"></i> Tablet</a></li>
+                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeId = "5" })"><i class="fa fa-headphones"></i> Tai nghe</a></li>
+                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeId = "4" })"><i class="fa fa-clock-o"></i> Đồng hồ</a></li>
                 }
-                else if (Session["ProductTypeName"].Equals("HeadPhone"))
+                else if (Session["ProductTypeName"].Equals("5"))
                 {
-                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "SmartPhone" })"><i class="fa fa-mobile-phone"></i> Điện thoại</a></li>
-                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "Laptop" })"><i class="fa fa-laptop"></i> Laptop</a></li>
-                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "Tablet" })"><i class="fa fa-tablet"></i> Tablet</a></li>
-                    <li class="active"><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "HeadPhone" })"><i class="fa fa-headphones"></i> Tai nghe</a></li>
-                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "SmartWatch" })"><i class="fa fa-clock-o"></i> Đồng hồ</a></li>
+                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeId = "2" })"><i class="fa fa-mobile-phone"></i> Điện thoại</a></li>
+                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeId = "1" })"><i class="fa fa-laptop"></i> Laptop</a></li>
+                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeId = "3" })"><i class="fa fa-tablet"></i> Tablet</a></li>
+                    <li class="active"><a href="@Url.Action("Categories","Covid21", new { ProductTypeId = "5" })"><i class="fa fa-headphones"></i> Tai nghe</a></li>
+                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeId = "4" })"><i class="fa fa-clock-o"></i> Đồng hồ</a></li>
                 }
-                else if (Session["ProductTypeName"].Equals("SmartWatch"))
+                else if (Session["ProductTypeName"].Equals("4"))
                 {
-                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "SmartPhone" })"><i class="fa fa-mobile-phone"></i> Điện thoại</a></li>
-                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "Laptop" })"><i class="fa fa-laptop"></i> Laptop</a></li>
-                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "Tablet" })"><i class="fa fa-tablet"></i> Tablet</a></li>
-                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "HeadPhone" })"><i class="fa fa-headphones"></i> Tai nghe</a></li>
-                    <li class="active"><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "SmartWatch" })"><i class="fa fa-clock-o"></i> Đồng hồ</a></li>
+                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeId = "2" })"><i class="fa fa-mobile-phone"></i> Điện thoại</a></li>
+                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeId = "1" })"><i class="fa fa-laptop"></i> Laptop</a></li>
+                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeId = "3" })"><i class="fa fa-tablet"></i> Tablet</a></li>
+                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeId = "5" })"><i class="fa fa-headphones"></i> Tai nghe</a></li>
+                    <li class="active"><a href="@Url.Action("Categories","Covid21", new { ProductTypeId = "4" })"><i class="fa fa-clock-o"></i> Đồng hồ</a></li>
                 }
                 else
                 {
-                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "SmartPhone" })"><i class="fa fa-mobile-phone"></i> Điện thoại</a></li>
-                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "Laptop" })"><i class="fa fa-laptop"></i> Laptop</a></li>
-                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "Tablet" })"><i class="fa fa-tablet"></i> Tablet</a></li>
-                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "HeadPhone" })"><i class="fa fa-headphones"></i> Tai nghe</a></li>
-                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "SmartWatch" })"><i class="fa fa-clock-o"></i> Đồng hồ</a></li>
+                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeId = "2" })"><i class="fa fa-mobile-phone"></i> Điện thoại</a></li>
+                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeId = "1" })"><i class="fa fa-laptop"></i> Laptop</a></li>
+                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeId = "3" })"><i class="fa fa-tablet"></i> Tablet</a></li>
+                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeId = "5" })"><i class="fa fa-headphones"></i> Tai nghe</a></li>
+                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeId = "4" })"><i class="fa fa-clock-o"></i> Đồng hồ</a></li>
                 }
             </ul>
             <!-- /NAV -->
@@ -131,23 +131,23 @@
             <div class="col-md-12">
                 <ul class="breadcrumb-tree">
                     <li><a href="@Url.Action("Home","Covid21")">Trang chủ</a></li>
-                    @if (Session["ProductTypeName"].Equals("SmartPhone"))
+                    @if (Session["ProductTypeName"].Equals("2"))
                     {
                         <li class="active">Điện thoại</li>
                     }
-                    else if (Session["ProductTypeName"].Equals("Laptop"))
+                    else if (Session["ProductTypeName"].Equals("1"))
                     {
                         <li class="active">Laptop</li>
                     }
-                    else if (Session["ProductTypeName"].Equals("Tablet"))
+                    else if (Session["ProductTypeName"].Equals("3"))
                     {
                         <li class="active">Tablet</li>
                     }
-                    else if (Session["ProductTypeName"].Equals("HeadPhone"))
+                    else if (Session["ProductTypeName"].Equals("5"))
                     {
                         <li class="active">Tai nghe</li>
                     }
-                    else if (Session["ProductTypeName"].Equals("SmartWatch"))
+                    else if (Session["ProductTypeName"].Equals("4"))
                     {
                         <li class="active">Đồng hồ</li>
                     }

@@ -38,7 +38,7 @@ function recalculateCart() {
 
             temp_subtotal = temp_subtotal.replace("đ", "");
 
-            temp_subtotal = Number(temp_subtotal.replace(/[,]+/g, "")); //4,300 => 4300
+            temp_subtotal = Number(temp_subtotal.replace(/[.]+/g, "")); //4,300 => 4300
 
             subtotal += parseInt(temp_subtotal);
         }

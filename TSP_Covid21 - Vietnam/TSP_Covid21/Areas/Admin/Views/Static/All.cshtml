@@ -31,7 +31,7 @@
             <div class="col-lg-4 col-md-12">
                 <div class="white-box analytics-info">
                     <h3 class="box-title">Doanh Thu</h3>
-                    <ul class="list-inline two-part d-flex align-items-center mb-0">    
+                    <ul class="list-inline two-part d-flex align-items-center mb-0">
                         <li>
                             <div id="sparklinedash">
                                 <canvas width="67" height="30"
@@ -87,20 +87,33 @@
         <div class="row">
             <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
                 <div class="white-box">
-                    <h3 class="box-title">Products Yearly Sales</h3>
+                    <h3 class="box-title">Thống kế sản phẩm</h3>
                     <div class="d-md-flex">
                         <ul class="list-inline d-flex ms-auto">
                             <li class="ps-3">
-                                <h5><i class="fa fa-circle me-1 text-info"></i>Mac</h5>
+                                <input type="radio" name="productType" value="0" class="radioBrand" checked="1"/> Tất cả
                             </li>
                             <li class="ps-3">
-                                <h5><i class="fa fa-circle me-1 text-inverse"></i>Windows</h5>
+                                <input type="radio" name="productType" value="2" class="radioBrand" /> Điện thoại
+                            </li>
+                            <li class="ps-3">
+                                <input type="radio" name="productType" value="1" class="radioBrand" /> Laptop
+                            </li>
+                            <li class="ps-3">
+                                <input type="radio" name="productType" value="5" class="radioBrand" /> Tai nghe
+                            </li>
+                            <li class="ps-3">
+                                <input type="radio" name="productType" value="4" class="radioBrand" /> Đồng hồ
+                            </li>
+                            <li class="ps-3">
+                                <input type="radio" name="productType" value="3" class="radioBrand" /> Tablet
                             </li>
                         </ul>
+                        
                     </div>
-                    <div id="ct-visits" style="height: 405px;">
-                        <div class="chartist-tooltip" style="top: -17px; left: -12px;">
-                            <span class="chartist-tooltip-value">6</span>
+                    <div>
+                        <div class="container">
+                            <canvas id="myChartProduct"></canvas>
                         </div>
                     </div>
                 </div>
@@ -191,7 +204,7 @@
                                 <th>Số lượng</th>
                             </tr>
                         </thead>
-                        
+
                         <tbody>
                             <tr>
                                 <td>1</td>
@@ -343,10 +356,188 @@
             </div>
             <!-- /.col -->
         </div>
-    </div>  
+    </div>
     <!-- ============================================================== -->
     <!-- End Container fluid  -->
     <!-- ============================================================== -->
     <!-- ============================================================== -->
     <!-- ============================================================== -->
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+
+<script> 
+    var StaticProduct = {
+        loadData: function () {
+            let myChart = document.getElementById('myChartProduct').getContext('2d');
+            // Global Options
+            Chart.defaults.global.defaultFontFamily = 'Lato';
+            Chart.defaults.global.defaultFontSize = 18;
+            Chart.defaults.global.defaultFontColor = '#777';
+            let temp = [];
+            let temp_data = [];
+            let temp_background = [
+                'rgba(255, 99, 132, 0.6)',
+                'rgba(54, 162, 235, 0.6)',
+                'rgba(255, 206, 86, 0.6)',
+                'rgba(75, 192, 192, 0.6)',
+                'rgba(153, 102, 255, 0.6)',
+                'rgba(255, 159, 64, 0.6)',
+            ]
+
+            $.ajax({
+                url: '@Url.Action("StaticProductType", "Static")',
+                type: 'POST',
+                success: function (result) {
+                    var dem = 0;
+                    var stringnumber = "";
+                    for (var i = 0; i < result.length; i++) {
+                        if (result[i] == ",") {
+                            temp_data[dem] = stringnumber;
+                            stringnumber = "";
+                            dem++;
+                        } else if (result[i] == ":") {
+                            temp[dem] = stringnumber;
+                            stringnumber = "";
+                        } else {
+                            stringnumber += result[i];
+                        }
+                    }
+
+                    temp_data = new Chart(myChart, {
+                        type: 'bar',
+                        data: {
+                            labels: temp,
+                            datasets: [{
+                                label: ['Sản phẩm'],
+                                data: temp_data,
+                                backgroundColor: temp_background,
+                                borderWidth: 1,
+                                borderColor: temp_background,
+                                hoverBorderWidth: 3,
+                                hoverBorderColor: '#000'
+                            }]
+                        },
+                        options: {
+                            title: {
+                                display: true,
+                                fontSize: 25
+                            },
+                            legend: {
+                                display: true,
+                                position: 'right',
+                                labels: {
+                                    fontColor: '#000'
+                                }
+                            },
+                            layout: {
+                                padding: {
+                                    left: 50,
+                                    right: 0,
+                                    bottom: 0,
+                                    top: 0
+                                }
+                            },
+                            tooltips: {
+                                enabled: true
+                            }
+                        }
+                    });
+                }
+            });
+        }
+    }
+    StaticProduct.loadData();
+</script>
+
+<script>
+    $(".radioBrand").click(function () {
+        let myChart1 = document.getElementById('myChartProduct');
+        var parent = $(myChart1).parent();
+        myChart1.remove();
+
+        parent.html("<canvas id='myChartProduct'></canvas>");
+        let myChart2 = document.getElementById('myChartProduct').getContext('2d');
+        // Global Options
+        Chart.defaults.global.defaultFontFamily = 'Lato';
+        Chart.defaults.global.defaultFontSize = 18;
+        Chart.defaults.global.defaultFontColor = '#777';
+        let brand = [];
+        let quantity = [];
+        let temp_background1 = [
+            'rgba(255, 99, 132, 0.6)',
+            'rgba(54, 162, 235, 0.6)',
+            'rgba(255, 206, 86, 0.6)',
+            'rgba(75, 192, 192, 0.6)',
+            'rgba(153, 102, 255, 0.6)',
+            'rgba(255, 159, 64, 0.6)',
+        ];
+
+        var value = $("input:radio[name=productType]:checked").val();
+
+        $.ajax({
+            url: '@Url.Action("StaticBrand", "Static")',
+            type: 'POST',
+            data: {
+                productTypeId: value,
+            },
+            success: function (result) {
+                var dem = 0;
+                var stringnumber = "";
+                for (var i = 0; i < result.length; i++) {
+                    if (result[i] == ",") {
+                        quantity[dem] = stringnumber;   
+                        stringnumber = "";
+                        dem++;
+                    }else if (result[i] == ":") {
+                        brand[dem] = stringnumber;
+                        stringnumber = "";
+                    }else {
+                        stringnumber += result[i];
+                    }
+                }
+
+                temp_data = new Chart(myChart2, {
+                    type: 'bar',
+                    data: {
+                        labels: brand,
+                        datasets: [{
+                            label: ['Sản phẩm'],
+                            data: quantity,
+                            backgroundColor: temp_background1,
+                            borderWidth: 1,
+                            borderColor: temp_background1,
+                            hoverBorderWidth: 3,
+                            hoverBorderColor: '#000'
+                        }]
+                    },
+                    options: {
+                        title: {
+                            display: true,
+                            fontSize: 25
+                        },
+                        legend: {
+                            display: true,
+                            position: 'right',
+                            labels: {
+                                fontColor: '#000'
+                            }
+                        },
+                        layout: {
+                            padding: {
+                                left: 50,
+                                right: 0,
+                                bottom: 0,
+                                top: 0
+                            }
+                        },
+                        tooltips: {
+                            enabled: true
+                        }
+                    }
+                });
+            }
+        });
+    });
+
+</script>

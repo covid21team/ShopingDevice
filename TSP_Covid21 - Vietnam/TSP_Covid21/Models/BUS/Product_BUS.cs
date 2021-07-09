@@ -49,7 +49,7 @@ namespace TSP_Covid21.Models.BUS
         {
             var result = from c in db.PRODUCT
                          orderby (c.PRODUCTTYPE.PRODUCTTYPENAME)
-                         where c.PRODUCTTYPE.PRODUCTTYPENAME == "SmartPhone" & c.STATUSPRODUCT == true
+                         where c.PRODUCTTYPE.PRODUCTTYPEID == 2 & c.STATUSPRODUCT == true
                          select c;
 
             return result.Take(3);
@@ -60,7 +60,7 @@ namespace TSP_Covid21.Models.BUS
         {
             var result = from c in db.PRODUCT
                          orderby (c.PRODUCTTYPE.PRODUCTTYPENAME)
-                         where c.PRODUCTTYPE.PRODUCTTYPENAME == "SmartWatch" & c.STATUSPRODUCT == true
+                         where c.PRODUCTTYPE.PRODUCTTYPEID == 4 & c.STATUSPRODUCT == true
                          select c;
 
             return result.Take(3);
@@ -71,16 +71,16 @@ namespace TSP_Covid21.Models.BUS
         {
             var result = from c in db.PRODUCT
                          orderby (c.PRODUCTTYPE.PRODUCTTYPENAME)
-                         where c.PRODUCTTYPE.PRODUCTTYPENAME == "Laptop" & c.STATUSPRODUCT == true
+                         where c.PRODUCTTYPE.PRODUCTTYPEID == 1 & c.STATUSPRODUCT == true
                          select c;
 
             return result.Take(3);
         }
 
         // Load product for product page
-        public IEnumerable<PRODUCT> loadProduct(string productTypeName)
+        public IEnumerable<PRODUCT> loadProduct(int productTypeId)
         {           
-            var result = db.PRODUCT.Where(p => p.PRODUCTTYPE.PRODUCTTYPENAME == productTypeName & p.STATUSPRODUCT == true);  
+            var result = db.PRODUCT.Where(p => p.PRODUCTTYPE.PRODUCTTYPEID == productTypeId & p.STATUSPRODUCT == true);  
 
             return result;
         }
