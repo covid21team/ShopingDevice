@@ -58,13 +58,6 @@ namespace TSP_Covid21.Controllers
             return View(result);
         }
 
-        // xóa sản phẩm trong giỏ hàng của khách hàng khi bấm remove trong bảng giỏ hàng
-        public ActionResult delProduct_Cart(int productId, string user)
-        {
-            PB.delProduct_Cart(productId, user);
-
-            return RedirectToAction("Cart","Covid21", new { user = user});
-        }
 
         public ActionResult Product(int productId)
         {

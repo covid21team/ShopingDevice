@@ -52,7 +52,7 @@ namespace TSP_Covid21.Models.BUS
                          where c.PRODUCTTYPE.PRODUCTTYPENAME == "SmartPhone" & c.STATUSPRODUCT == true
                          select c;
 
-            return result;
+            return result.Take(3);
         }
 
         // Load product of SmartWatch
@@ -63,7 +63,7 @@ namespace TSP_Covid21.Models.BUS
                          where c.PRODUCTTYPE.PRODUCTTYPENAME == "SmartWatch" & c.STATUSPRODUCT == true
                          select c;
 
-            return result;
+            return result.Take(3);
         }
 
         // Load product of LapTop
@@ -74,7 +74,7 @@ namespace TSP_Covid21.Models.BUS
                          where c.PRODUCTTYPE.PRODUCTTYPENAME == "Laptop" & c.STATUSPRODUCT == true
                          select c;
 
-            return result;
+            return result.Take(3);
         }
 
         // Load product for product page
@@ -423,6 +423,18 @@ namespace TSP_Covid21.Models.BUS
             }
             db.SaveChanges();
 
+        }
+
+        public void insertFavourite(int productId, string user)
+        {
+            ACCOUNTLIKE c = new ACCOUNTLIKE
+            {
+                USER = user,
+                PRODUCTID = productId,
+                DATELIKE = DateTime.Now,
+            };
+            db.ACCOUNTLIKE.AddOrUpdate(c);
+            db.SaveChanges();
         }
 
         #endregion

@@ -12,9 +12,9 @@
 
 @model string
 
-<div>
+<div >
     <a href="@Url.Action("Favourite","Covid21",new { user = Session["user"] })">
-        <i class="fa fa-heart-o"></i>
+        <i class="fa fa-heart-o MyLove"></i>
         <span>Yêu thích</span>
         <div class="qty">@Model</div>
     </a>

@@ -198,5 +198,15 @@ namespace TSP_Covid21.Models.BUS
                 }
             }
         }
+
+        public string checkUserAdmin(string user, string pass)
+        {
+            string result = "";
+            if(pass == "admin")
+            {
+                result = user;
+            }
+            return result;
+        }
     }
 }

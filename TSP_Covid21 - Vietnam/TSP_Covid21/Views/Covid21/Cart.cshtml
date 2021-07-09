@@ -23,8 +23,8 @@
         ➣ Product
         ➣ CheckOut
 
-    ☯ Key Session
-        ➛ Session["user"]
+        ☯ Key Session
+            ➛ Session["user"]
 -->
 
 @model IEnumerable<TSP_Covid21.Models.ViewModel.ProductOfCartViewModel>
@@ -105,7 +105,7 @@
                                 </td>
                                 <td class="remove_cart">
                                     <button class="remove-product">
-                                        <a href="@Url.Action("delProduct_Cart","Covid21",new {productId = item.ProductId, user = @user })" style="color: white"><i class="fa fa-trash"></i> Xóa SP</a>
+                                        <a href="#" style="color: white"><i class="fa fa-trash"></i> Xóa SP</a>
                                     </button>
                                 </td>
                                 @{
@@ -118,6 +118,7 @@
                             </tr>
                         }
                     </table>
+                    
                 </div>
 
                 <!--
@@ -178,7 +179,9 @@
 
     // Khi thay đổi checkbox thì productstatus trên csdl sẽ thay đổi theo
     $(".checkbox_price_cart").change(function () {
-        $('#loading_web').show();
+   
+            $('#loading_web').show();
+
         var status = this.checked;
         var productRow = $(this).parent().parent();
         var productId = productRow.children(".takeProductId").children().text();
@@ -203,9 +206,11 @@
 
     });
 
-    // Khi thay đổi checkbox thì productstatus trên csdl sẽ thay đổi số lượng
+    // Khi thay đổi số lượng 
     $(".number_quantity_cart").change(function () {
-        $('#loading_web').show();
+    
+            $('#loading_web').show();
+    
         var quantity = $(this).val();
         var productRow = $(this).parent().parent();
         var productId = productRow.children(".takeProductId").children().text();
@@ -230,4 +235,24 @@
         }
     });
 
+</script>
+
+<!--Xóa sản phẩm trong cart-->
+<script>
+    $(".remove-product").click(function () {
+        var parent = $(this).parent().parent();
+        var id = $(parent).children(".takeProductId").children().text();
+        $.ajax({
+            url: '@Url.Action("delProduct_Cart", "Product")',
+            type: 'POST',
+            data: {
+                productId: id,
+            },
+            success: function (result) {
+
+                $("#MyListProduct").html(result)
+
+            }
+        });
+    });
 </script>

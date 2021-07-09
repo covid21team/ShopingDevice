@@ -1122,6 +1122,9 @@
     <Content Include="Views\Covid21\Rating.cshtml" />
     <Content Include="Views\Account\loadAddressInf.cshtml" />
     <Content Include="Views\Account\formAddAddress.cshtml" />
+    <Content Include="Views\Product\insertCart.cshtml" />
+    <Content Include="Views\Product\insertCartWithAmount.cshtml" />
+    <Content Include="Views\Product\delProduct_Cart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

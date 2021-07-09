@@ -267,7 +267,12 @@
                 <!-- store products --> <!--Show sản phẩm và giảm giá-->
                 <div class="row" id="listProduct">
                     <!-- product -->
-
+                    @if (Model.Count() == 0)
+                    {
+                        <div class="col-md-4 col-xs-6" style="margin-left: 42%;">
+                            (Không có sản phẩm)
+                        </div>
+                    }
                     @foreach (var item in Model)
                     {
                         <!-- product -->
@@ -295,10 +300,11 @@
                                     @Html.Partial("Public_RatingProduct", db_Ctrl.loadRatingProduct(item.PRODUCTID))
 
                                     <div class="product-btns">
-                                        <button class="add-to-wishlist"><i class="fa fa-heart" id="idheart"></i><span class="tooltipp">Thêm vào yêu thích</span></button>
+                                        <input type="text" value="@item.PRODUCTID" class="productId" style="display: none" />
+                                        <button class="add-to-wishlist"><i class="fa fa-heart" id="idheart"></i></button>
 
                                         <button class="quick-view" style=" display: inline-block">
-                                            <i class="fa fa-eye"></i><span class="tooltipp"></span>
+                                            <i class="fa fa-eye"></i>
                                             <div class="table_config" style="color: black; z-index: 100">
                                                 @Html.Partial("Categories_TableConfig", item.CONFIGDETAIL)
                                             </div>
@@ -306,7 +312,8 @@
                                     </div>
                                 </div>
                                 <div class="add-to-cart">
-                                    <button class="add-to-cart-btn" onclick="addToCart(@item.PRODUCTID)"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ hàng</button>
+                                    <input type="text" value="@item.PRODUCTID" class="productId" style="display: none" />
+                                    <button class="add-to-cart-btn addToCart"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ hàng</button>
                                 </div>
                             </div>
                         </div>
@@ -364,7 +371,15 @@
         var parent = $(this).parent().parent().parent();
 
         $(this).children('.table_config').css({ 'display': 'none' });
-        $(parent).css({ "z-index": "0" });
+        $(parent).css({ "z-index": "10" });
+    });
+
+    $(".product").mousemove(function () {
+        $(this).css({ "z-index": "50" });
+    });
+
+    $('.product').mouseout(function () {
+        $(this).css({ "z-index": "0" });
     });
 
 </script>
@@ -434,7 +449,6 @@
             if (brandselect[i].checked) {
                 listbrand += brandselect[i].value + ",";
             }
-
         }
 
         if (valuePrice == null) {

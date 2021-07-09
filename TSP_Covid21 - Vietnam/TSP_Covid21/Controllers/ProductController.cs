@@ -80,16 +80,30 @@ namespace TSP_Covid21.Controllers
 
         // Thêm sản phẩm vào giỏ hàng
         [HttpPost]
-        public void insertCart(int productId, string user)
+        public ActionResult insertCart(int productId, string user)
         {
             PB.insertCart(productId, user);
+
+            return PartialView();
         }
 
         // Thêm sản phẩm vào giỏ hàng với số lượng mong muốn
         [HttpPost]
-        public void insertCartWithAmount(int productId, string user, int amount)
+        public ActionResult insertCartWithAmount(int productId, string user, int amount)
         {
             PB.insertCartWithAmount(productId, user, amount);
+
+            return PartialView();
+        }
+
+        // xóa sản phẩm trong giỏ hàng của khách hàng khi bấm remove trong bảng giỏ hàng
+        public ActionResult delProduct_Cart(int productId)
+        {
+            string user = Session["user"].ToString();
+            PB.delProduct_Cart(productId, user);
+
+
+            return PartialView();
         }
 
         [HttpPost]
@@ -199,6 +213,12 @@ namespace TSP_Covid21.Controllers
             PB.insertBill(user, note, total);
 
             return RedirectToAction("Home", "Covid21");
+        }
+
+        [HttpPost]
+        public void insertFavourite(int productId, string user)
+        {
+            PB.insertFavourite(productId, user);
         }
     } 
 }

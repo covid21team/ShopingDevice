@@ -37,7 +37,7 @@
     </script>
 
 
-
+ @Html.Partial("LoginAdmin")
     <body>
         <!-- ============================================================== -->
         <!-- Preloader - style you can find in spinners.css -->
@@ -211,7 +211,6 @@
         <!-- ============================================================== -->
         <!-- <script src="plugins/bower_components/jquery/dist/jquery.min.js"></script> -->
         <!-- Bootstrap tether Core JavaScript -->
-        @Html.Partial("LoginAdmin")
     </body>
 </head>
 </html>
@@ -228,7 +227,6 @@
 <script src="~/Areas/Admin/AssetAdmin/js/table.js"></script>
 
 
-<script src="~/Areas/Admin/AssetAdmin/plugins/bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap tether Core JavaScript -->
 <script src="~/Areas/Admin/AssetAdmin/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script src="~/Areas/Admin/AssetAdmin/js/app-style-switcher.js"></script>
@@ -244,21 +242,22 @@
 <script src="~/Areas/Admin/AssetAdmin/plugins/bower_components/chartist/dist/chartist.min.js"></script>
 <script src="~/Areas/Admin/AssetAdmin/plugins/bower_components/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
 <script src="~/Areas/Admin/AssetAdmin/js/pages/dashboards/dashboard1.js"></script>
-
 @{
     var user = "temp";
     if (@Session["userAdmin"] != null)
     {
         user = Session["userAdmin"].ToString();
     }
+    var d = 0;
 }
 <script>
     var start = {
         loaddata: function () {
-            if ('@user' == "temp") {
+            if ('@user' == "temp" || '@user' == "") {
+                $(".login-body").css({ "display": "flex" });
 
             } else {
-
+                $(".login-body").css({ "display": "none"});
 
             }
         },

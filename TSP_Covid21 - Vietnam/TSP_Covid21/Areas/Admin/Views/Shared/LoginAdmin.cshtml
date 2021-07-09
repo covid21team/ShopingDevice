@@ -1,13 +1,14 @@
 ﻿<link href="~/Areas/Admin/AssetAdmin/css/loginAdmin.css" rel="stylesheet" />
 <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
-<body class="login-body">
+<div class="login-body">
     <div class="container-login">
-        <header class="header-login">Login Form</header>
+        <header class="header-login">
+        <img src="~/Asset/images/logo.png" /></header>
         <form>
             <div class="input-field">
-                <input type="text" required>
-                <label>Username</label>
+                <input id="UserAdmin" type="text" required>
+                <label >Username</label>
             </div>
             <div class="input-field">
                 <input class="pswrd" id="pass" type="password" required>
@@ -15,30 +16,53 @@
                     <i id="hidel2" class="fa fa-eye-slash"></i>
                     <i id="hidel1" class="fa fa-eye" style="display: none;"></i>
                 </span>
-                <label>Password</label>
+                <label >Password</label>
             </div>
             <div class="button-login">
                 <div class="inner"></div>
-                <button>LOGIN</button>
-            </div>
+                <input type="button" value="LOGIN" style="background: none; border: none; color: white; font-size: 25px;padding-top: 7px" />
+           </div>
         </form>
 
     </div>
-    <script>
-        function my1Function() {
-            var x = document.getElementById("pass");
-            var y = document.getElementById("hidel1");
-            var z = document.getElementById("hidel2");
 
-            if (x.type === 'password') {
-                x.type = 'text';
-                y.style.display = "block";
-                z.style.display = "none"
-            } else {
-                x.type = 'password';
-                y.style.display = "none";
-                z.style.display = "block"
-            }
+</div>
+
+
+<script>
+    function my1Function() {
+        var x = document.getElementById("pass");
+        var y = document.getElementById("hidel1");
+        var z = document.getElementById("hidel2");
+
+        if (x.type === 'password') {
+            x.type = 'text';
+            y.style.display = "block";
+            z.style.display = "none"
+        } else {
+            x.type = 'password';
+            y.style.display = "none";
+            z.style.display = "block"
         }
-    </script>
-</body>
+    }
+</script>
+
+<script>
+    $(".button-login").click(function () {
+        var user = $("#UserAdmin").val();
+        var pass = $("#pass").val();
+        $.ajax({
+            url: '@Url.Action("LoginAdmin", "AccountManager")',
+            type: 'POST',
+            data: {
+                user: user,
+                pass: pass,
+            },
+            success: function (result) {
+                if (result == "True") {
+                    location.reload();
+                }
+            }
+        });
+    });
+</script>
