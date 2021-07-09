@@ -277,10 +277,10 @@ Insert into Brand values (N'Acer','1')   --5
 
 go --(PRODUCTTYPENAME, STATUSPRODUCTTYPE)
 insert into ProductType values(N'Laptop','1')     --1
-insert into ProductType values(N'SmartPhone','1') --2
+insert into ProductType values(N'Điện thoại','1') --2
 insert into ProductType values(N'Tablet','1')	  --3
-insert into ProductType values(N'SmartWatch','1') --4
-insert into ProductType values(N'HeadPhone','1')  --5
+insert into ProductType values(N'Đồng hồ','1') --4
+insert into ProductType values(N'Tai nghe','1')  --5
 
 go --(PRODUCTTYPEID, BRANDID, Status)
 insert into TEMPPRODUCT values(1,2,1)
