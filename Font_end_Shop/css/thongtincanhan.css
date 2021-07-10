@@ -253,4 +253,33 @@ span.eye{
   input:valid ~ span.eye{
     visibility: visible;
   }
-    
+
+
+  .labelthongtin{
+      margin-top: 0.2rem;
+      margin-bottom: 0.2rem;
+      color: #333;
+  }
+.thanhkeobill{
+    background: white;
+	overflow: auto; 
+    height: 347px;
+    color: #333;
+}
+.mb-2{
+    margin-top: 10px;
+
+}
+.tablebill{
+    position: sticky;top:0px;background: rgb(255, 255, 255);
+}
+.modal12 {
+    display: none; 
+    position: absolute; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    overflow: auto; 
+    background: rgb(230, 245, 216);
+    top:0;
+    flex: 0;
+  }
+ 
