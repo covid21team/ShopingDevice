@@ -249,6 +249,22 @@ begin
 			where A.[Password] != B.[Password]
 end 
 
+go
+CREATE trigger [dbo].[MaHoaPasswordAdmin] on [dbo].[ACCOUNT_ADMIN] after insert, update as
+begin        
+		if not exists (select * from deleted)
+			update ACCOUNT_ADMIN
+			set [password] = convert( VARCHAR(30), hashbytes('MD5', B.[password]), 2)
+			from ACCOUNT_ADMIN A
+			join inserted B on A.[user] = B.[user]			
+		else
+			update ACCOUNT_ADMIN
+			set [password] = convert( VARCHAR(30), hashbytes('MD5', B.[password]), 2)	
+			from deleted A
+			join ACCOUNT_ADMIN B on A.[User] = B.[User] 
+			where A.[Password] != B.[Password]
+end 
+
 ----------------------------------------------------FUNCTION PASSWORD----------------------------------------------------
 
 go
@@ -260,6 +276,17 @@ begin
 	set @password = convert(varchar(30), hashbytes('MD5', @password), 2) 
 	select [USER]
 	from ACCOUNT
+	where @username = [USER] and @password = [PASSWORD]
+end
+
+go
+create procedure CheckLoginAdmin(@username varchar(10), @password varchar(50))
+as
+begin
+	--declare @roleName nvarchar(50)
+	set @password = convert(varchar(30), hashbytes('MD5', @password), 2) 
+	select [USER]
+	from ACCOUNT_ADMIN
 	where @username = [USER] and @password = [PASSWORD]
 end
 
