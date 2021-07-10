@@ -247,4 +247,10 @@ color: #D10024;
     margin-left: -28px;
     margin-top: 11px;
 }
+span.eye{
+    visibility: hidden;
+  }
+  input:valid ~ span.eye{
+    visibility: visible;
+  }
     

@@ -58,8 +58,6 @@
     transition: .5s;
   }
 
-  
-  
  
   .login-box .user-box input:focus ~ label,
   .login-box .user-box input:valid ~ label{
@@ -174,13 +172,10 @@
   }
   .eye{
     position: absolute;
-    margin-top: -60px;
-    margin-left: 300px;
+    margin-top: 15px;
+    margin-left: -20px;
     color: white;
   }
-  
-
-
   #hidel1{
     display: none;
   }
@@ -191,4 +186,11 @@
  
   #hidel5{
     display: none;
+
+  }
+  span.eye{
+    visibility: hidden;
+  }
+  input:valid ~ span.eye{
+    visibility: visible;
   }

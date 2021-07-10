@@ -1,0 +1,39 @@
+.diachi{
+    text-align: center;
+
+ 
+}
+.clsdt{
+    margin-left: 20px;
+    width: 45%;
+    border-radius: 5px;
+    outline: none;
+    padding-left: 7px;
+    border: 1px solid black;
+}
+.clemail{
+    margin-left: 74px;  
+    width: 45%;
+    border-radius: 5px;
+    outline: none;
+    padding-left: 7px;
+    border: 1px solid black;
+}
+.cldiachi{
+    margin-left: 65px; 
+    width: 45%;
+    border-radius: 5px;
+    outline: none;
+    padding-left: 7px;
+    border: 1px solid black;
+}
+.bntxacnhan{
+    margin-left: 100px;
+    background: #D10024;
+    border: #D10024;
+    color: white;
+    border-radius: 5px;
+}
+.bntxacnhan:hover{
+    background: red;
+}
