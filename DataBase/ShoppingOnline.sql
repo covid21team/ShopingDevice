@@ -196,6 +196,7 @@ CREATE TABLE BILL
 	DATECREATE DATETIME DEFAULT GETDATE(),
 	VOUCHERID INT,
 	TOTALBILL bigint,
+	BIllSTATUS int, --1: chờ xét duyệt 2: đang giao 3: đã giao 4: hủy đơn
 	NOTE nvarchar(max),
 
 	foreign key (VOUCHERID) references VOUCHER(VOUCHERID) on update cascade ,
