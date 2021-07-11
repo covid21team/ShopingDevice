@@ -28,7 +28,8 @@
   <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
   <script src="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css"></script>
-   
+
+
 </head>
 <div class="login-body" style="display: none;"> 
     <div class="container-login">
@@ -389,21 +390,60 @@
                             <div class="card-body">
                                 <h3 class="box-title mb-0">so hang ban duoc</h3>
                             </div>
-                                  <table id="soluongtong" class="table table-hover" >
+                                  <table id="soluongtong" class="table table-hover table-bordered" >
                                     <thead>
                                         <tr>
                                             <th style="width: 50px;">#</th>
                                             <th>tên sản phẩm</th>
                                             <th>Loại</th>
                                             <th>số lượng</th>
+                                            <th style="width: 20px;">%</th>
                                         </tr>
                                     </thead>
                                     <tbody>           
                                         <tr>
                                             <td>1</td>
                                             <td>iphoneXR</td>
+                                            <td>tablet</td>
+                                            <td>
+                                                <div class="progress progress-xs progress-striped active" style="margin-top: 11px;">
+                                                    <div class="progress-bar" style="width: 80%;background: rgb(71, 255, 102);"></div>
+                                                </div>
+                                            </td>
+                                            <td><span>90%</span></td>                                    
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>iphoneXR</td>
+                                            <td>laptop</td>
+                                            <td>
+                                                <div class="progress progress-xs progress-striped active" style="margin-top: 11px;">
+                                                    <div class="progress-bar" style="width: 80%;background: yellow;"></div>
+                                                </div>
+                                            </td>
+                                            <td><span>90%</span></td>                                    
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>iphoneXR</td>
                                             <td>Điện thoại</td>
-                                            <td>biểu đồ </td>                                      
+                                            <td>
+                                                <div class="progress progress-xs progress-striped active" style="margin-top: 11px;" >
+                                                    <div class="progress-bar" style="width: 80%;background: red;"></div>
+                                                </div>
+                                            </td>
+                                            <td><span>90%</span></td>                                    
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>iphoneXR</td>
+                                            <td>tai nghe</td>
+                                            <td>
+                                                <div class="progress progress-xs progress-striped active" style="margin-top: 11px;">
+                                                    <div class="progress-bar" style="width: 80%;"></div>
+                                                </div>
+                                            </td>
+                                            <td><span>90%</span></td>                                    
                                         </tr>
                                     </tbody>
                                 </table>
@@ -566,6 +606,7 @@
     <script src="plugins/bower_components/chartist/dist/chartist.min.js"></script>
     <script src="plugins/bower_components/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
     <script src="js/pages/dashboards/dashboard1.js"></script>
+    
  
     <script>
     function my1Function() {

@@ -254,24 +254,35 @@
                             top: 0px;
                             background: rgb(67, 85, 94);
                             color: white;
+                            
+                        }
+                        #donhangdamua {
+                            background: white;
+                            overflow: auto;
+                            height: 300px;
+                            color: #333;
                         }
                     </style>
-                    <div id="donhangdamua" class="thongtincanhan" style="display: none; height: 320px; overflow-y: scroll;">
-                        <table class="tabledg" style="width: 100%;">
-                            <tr id="table_bill">
-                                <th>
-                                    <p class="tablea">ID</p>
-                                </th>
-                                <th>
-                                    <p class="tablea">Ngày đặt hàng</p>
-                                </th>
-                                <th>
-                                    <p class="tablea">Sản phẩm</p>
-                                </th>
-                                <th>
-                                    <p class="tablea">Tổng</p>
-                                </th>
-                            </tr>
+                    <div id="donhangdamua" class="thongtincanhan" style="display: none;">
+                  
+                        <table class="tabledg" style="width: 100%; margin-top:0px;">
+                      
+                                <tr id="table_bill">
+                                    <th>
+                                        <p class="tablea">ID</p>
+                                    </th>
+                                    <th>
+                                        <p class="tablea">Ngày đặt hàng</p>
+                                    </th>
+                                    <th>
+                                        <p class="tablea">Sản phẩm</p>
+                                    </th>
+                                    <th>
+                                        <p class="tablea">Tổng</p>
+                                    </th>
+                                </tr>
+                                </
+                         
                             @{
                                 IEnumerable<TSP_Covid21.Models.ShopEntity.BILL> listBill = AC.loadBill(Model.USER);
                             }
@@ -306,7 +317,7 @@
                             }
 
                         </table>
-                    </div>
+                            </div>
                 </div>
             </div>
         </div>

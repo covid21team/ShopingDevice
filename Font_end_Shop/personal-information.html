@@ -444,8 +444,17 @@
 								</div>
 							</div>
 						</div>
+						<style>
+							#donhangdamua {
+								background: white;
+								overflow: auto;
+								height: 100px;
+								color: #333;
+							}
+						</style>
+						<input type="number" name="" id="">
 						<div id="donhangdamua" class="thongtincanhan" style="display: none;">
-							<table class="tabledg" style="width: 100%;padding: 2px;">
+							<table class="tabledg" style="width: 100%;">
 								<tr style="background: rgb(67, 85, 94); color: white;">
 									<th>
 										<p class="tablea">Bill ID</p>
@@ -507,144 +516,152 @@
 						</div>
 						<div>
 							<div class="container-fluid">
-								<div class="row modal12" id="idbill">
-									<div class="col-md-6 col-sm-6">
-										<div class="container-fluid mt-3">
-											<h4 class="mb-2">Mã Bill:01</h4>
-											<form>
-												<div>												
+								<div class="row">
+
+									<div id="id01" class="modal">
+
+
+
+										<div class="col-md-4 col-sm-6 syne">
+											<div class="container-fluid mt-3">
+												<h4 class="mb-2">Mã Bill:01</h4>
+												<form>
 													<div>
-														<label for="" class="labelthongtin">Người nhận</label>
-														<input type="text" class="form-control" id=""
-															placeholder="nguyễn Quang Sỹ">
+														<div>
+															<label for="" class="labelthongtin">Người nhận</label>
+															<input type="text" class="form-control" id=""
+																placeholder="nguyễn Quang Sỹ">
+														</div>
 													</div>
-												</div>
-												<div>
-													<label for="" class="labelthongtin">Thành phố</label>
-													<select class="form-control" id="province" none="province" onchange="changeFunc();"
-														>
-													<option value="" selected>Province / City</option>
-													</select>
-												</div>
-												<div>
-													<label for="" class="labelthongtin">Quận/Huyện</label>
-													<select class="form-control" id="province" none="province" onchange="changeFunc();"
-													>
-												<option value="" selected>Province / City</option>
-												</select>
-												</div>
-												<div>
-													<label for="" class="labelthongtin">Xã</label>
-													<select class="form-control" id="province" none="province" onchange="changeFunc();"
-													>
-												<option value="" selected>Province / City</option>
-												</select>
-												</div>
-												<div>
-													<label for="" class="labelthongtin">Địa chỉ</label>
-													<textarea class="form-control" name="" id="" cols="30" rows="2"></textarea>
-												</div>
-												<div>
-													<label for="" class="labelthongtin">Số điện thoại</label>
-													<input type="text" class="form-control bluan" id=""
-														placeholder="iphoneXR">
-												</div>
+													<div>
+														<label for="" class="labelthongtin">Thành phố</label>
+														<select class="form-control" id="province" none="province"
+															onchange="changeFunc();">
+															<option value="" selected>Province / City</option>
+														</select>
+													</div>
+													<div>
+														<label for="" class="labelthongtin">Quận/Huyện</label>
+														<select class="form-control" id="province" none="province"
+															onchange="changeFunc();">
+															<option value="" selected>Province / City</option>
+														</select>
+													</div>
+													<div>
+														<label for="" class="labelthongtin">Xã</label>
+														<select class="form-control" id="province" none="province"
+															onchange="changeFunc();">
+															<option value="" selected>Province / City</option>
+														</select>
+													</div>
+													<div>
+														<label for="" class="labelthongtin">Địa chỉ</label>
+														<textarea class="form-control" name="" id="" cols="30"
+															rows="2"></textarea>
+													</div>
+													<div>
+														<label for="" class="labelthongtin">Số điện thoại</label>
+														<input type="text" class="form-control bluan" id=""
+															placeholder="iphoneXR">
+													</div>
 
-												<button type="submit" class="btn btn-danger bluan"
-													style="margin-bottom: 15px; margin-top: 15px;">Hủy đơn</button>
-											</form>
+													<button type="submit" class="btn btn-danger bluan"
+														style="margin-bottom: 15px; margin-top: 15px;">Hủy đơn</button>
+												</form>
+											</div>
 										</div>
-									</div>
-									<div class="col-md-6 col-sm-6">
-										<label for="" class="labelbinhluan" style="margin-top: 40px;color: #333;">Sản
-											phẩm</label>
-										<div class="thanhkeobill">
-											<table class="table table-hover">
-												<thead class="tablebill">
-													<tr>
-														<th>#</th>
-														<th></th>
-														<th>tên sản phẩm</th>
-														<th>số lượng</th>
-														<th>giá tiền</th>
-													</tr>
-												</thead>
-												<tbody>
-													<tr>
-														<td>1</td>
-														<td><img src="img/product05.png" height="30px" alt=""></td>
-														<td>tai nghe chống chán nản</td>
-														<td>x1</td>
-														<td>250k</td>
-													</tr>
-													<tr>
-														<td>1</td>
-														<td><img src="img/product05.png" height="30px" alt=""></td>
-														<td>tai nghe chống chán nản</td>
-														<td>x1</td>
-														<td>250k</td>
-													</tr>
-													<tr>
-														<td>1</td>
-														<td><img src="img/product05.png" height="30px" alt=""></td>
-														<td>tai nghe chống chán nản</td>
-														<td>x1</td>
-														<td>250k</td>
-													</tr>
-													<tr>
-														<td>1</td>
-														<td><img src="img/product05.png" height="30px" alt=""></td>
-														<td>tai nghe chống chán nản</td>
-														<td>x1</td>
-														<td>250k</td>
-													</tr>
-													<tr>
-														<td>1</td>
-														<td><img src="img/product05.png" height="30px" alt=""></td>
-														<td>tai nghe chống chán nản</td>
-														<td>x1</td>
-														<td>250k</td>
-													</tr>
-													<tr>
-														<td>1</td>
-														<td><img src="img/product05.png" height="30px" alt=""></td>
-														<td>tai nghe chống chán nản</td>
-														<td>x1</td>
-														<td>250k</td>
-													</tr>
-													<tr>
-														<td>1</td>
-														<td><img src="img/product05.png" height="30px" alt=""></td>
-														<td>tai nghe chống chán nản</td>
-														<td>x1</td>
-														<td>250k</td>
-													</tr>
-													<tr>
-														<td>1</td>
-														<td><img src="img/product05.png" height="30px" alt=""></td>
-														<td>tai nghe chống chán nản</td>
-														<td>x1</td>
-														<td>250k</td>
-													</tr>
-													<tr>
-														<td>1</td>
-														<td><img src="img/product05.png" height="30px" alt=""></td>
-														<td>tai nghe chống chán nản</td>
-														<td>x1</td>
-														<td>250k</td>
-													</tr>
+										<div class="col-md-4 col-sm-6 syne">
+											<label for="" class="labelbinhluan"
+												style="margin-top: 40px;color: #333;">Sản
+												phẩm</label>
+											<div class="thanhkeobill">
+												<table class="table table-hover">
+													<thead class="tablebill">
+														<tr>
+															<th style="text-align: center;">#</th>
+															<th style="text-align: center;"> </th>
+															<th style="text-align: center;">tên sản phẩm</th>
+															<th style="text-align: center;">số lượng</th>
+															<th style="text-align: center;">giá tiền</th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td>1</td>
+															<td><img src="img/product05.png" height="30px" alt=""></td>
+															<td>tai nghe chống chán nản</td>
+															<td>x1</td>
+															<td>250k</td>
+														</tr>
+														<tr>
+															<td>1</td>
+															<td><img src="img/product05.png" height="30px" alt=""></td>
+															<td>tai nghe chống chán nản</td>
+															<td>x1</td>
+															<td>250k</td>
+														</tr>
+														<tr>
+															<td>1</td>
+															<td><img src="img/product05.png" height="30px" alt=""></td>
+															<td>tai nghe chống chán nản</td>
+															<td>x1</td>
+															<td>250k</td>
+														</tr>
+														<tr>
+															<td>1</td>
+															<td><img src="img/product05.png" height="30px" alt=""></td>
+															<td>tai nghe chống chán nản</td>
+															<td>x1</td>
+															<td>250k</td>
+														</tr>
+														<tr>
+															<td>1</td>
+															<td><img src="img/product05.png" height="30px" alt=""></td>
+															<td>tai nghe chống chán nản</td>
+															<td>x1</td>
+															<td>250k</td>
+														</tr>
+														<tr>
+															<td>1</td>
+															<td><img src="img/product05.png" height="30px" alt=""></td>
+															<td>tai nghe chống chán nản</td>
+															<td>x1</td>
+															<td>250k</td>
+														</tr>
+														<tr>
+															<td>1</td>
+															<td><img src="img/product05.png" height="30px" alt=""></td>
+															<td>tai nghe chống chán nản</td>
+															<td>x1</td>
+															<td>250k</td>
+														</tr>
+														<tr>
+															<td>1</td>
+															<td><img src="img/product05.png" height="30px" alt=""></td>
+															<td>tai nghe chống chán nản</td>
+															<td>x1</td>
+															<td>250k</td>
+														</tr>
+														<tr>
+															<td>1</td>
+															<td><img src="img/product05.png" height="30px" alt=""></td>
+															<td>tai nghe chống chán nản</td>
+															<td>x1</td>
+															<td>250k</td>
+														</tr>
 
 
-												</tbody>
-											</table>
+													</tbody>
+												</table>
+											</div>
+
+											<button type="submit" class="btn btn-danger bluan"
+												style="margin-bottom: 15px; margin-top: 15px;display:inline-block;margin-left: 250px;">Xác
+												nhận</button>
+
+
+
 										</div>
-
-										<button type="submit" class="btn btn-danger bluan"
-											style="margin-bottom: 15px; margin-top: 15px;display:inline-block;margin-left: 250px;">Xác
-											nhận</button>
-
-
-
 									</div>
 								</div>
 							</div>
@@ -652,11 +669,12 @@
 					</div>
 				</div>
 			</div>
-			<!-- row -->
-
-			<!-- /row -->
 		</div>
-		<!-- /container -->
+		<!-- row -->
+
+		<!-- /row -->
+	</div>
+	<!-- /container -->
 	</div>
 	<!-- /SECTION -->
 
@@ -879,9 +897,19 @@
 	}
 </script>
 <script>
-	function click12(){
-	var tri = document.getElementById("idbill")
-	tri.style.display ="block";
+	function click12() {
+		var tri = document.getElementById("id01")
+		tri.style.display = "block";
 	}
 </script>
+<script>
+	// Get the modal
+	var modal = document.getElementById('id01');
 
+	// When the user clicks anywhere outside of the modal, close it
+	window.onclick = function (event) {
+		if (event.target == modal) {
+			modal.style.display = "none";
+		}
+	}
+</script>
