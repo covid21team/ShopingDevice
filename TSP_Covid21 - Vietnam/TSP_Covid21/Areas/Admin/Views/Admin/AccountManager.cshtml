@@ -1,0 +1,121 @@
+﻿@{
+    ViewBag.Title = "AccountManager";
+    Layout = "~/Areas/Admin/Views/Shared/MainLayoutAdmin.cshtml";
+
+    TSP_Covid21.Areas.Admin.Controllers.AccountManagerController AC = new TSP_Covid21.Areas.Admin.Controllers.AccountManagerController();
+}
+
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="page-breadcrumb bg-white">
+        <div class="row align-items-center">
+            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                <h4 class="page-title">Danh Sách Tài Khoản</h4>
+            </div>
+            <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                <div class="d-md-flex">
+
+                </div>
+            </div>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+
+
+
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="white-box">
+
+                    <table id="example" class="table   table-hover" style="width:100%;text-align: center;">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Tên Đăng nhập</th>
+                                <th>Tên cá nhân</th>
+                                <th>Email</th>
+                                <th>Số điện thoại</th>
+                                <th>số sp đã mua</th>
+                                <th>số tiền đã mua</th>
+
+                            </tr>
+                        </thead>
+                        @{ 
+                            IEnumerable<TSP_Covid21.Models.ViewModel.ListAccount> listAccount = AC.listAccount();
+
+                            int i = 1;
+                        }
+                        <tbody>
+                            @foreach (var item in listAccount)
+                            {
+                            <tr>
+                                <td>@i</td>
+                                @{
+                                    i++;
+                                }
+                                <td>@item.USER</td>
+                                <td>@item.FULLNAME</td>
+                                <td>@item.EMAIL</td>
+                                <td>@item.PHONE</td>
+                                @if (@item.QUANTITYPRODUCT == null)
+                                {
+                                    <td>0</td>
+                                }
+                                else
+                                {
+                                    <td>@item.QUANTITYPRODUCT</td>
+                                }
+
+                                @{
+                                    var temp1 = "";
+                                    if (item.TOTAL == null)
+                                    {
+                                        temp1 += "0đ";
+                                    }
+                                    else
+                                    {
+                                        temp1 = String.Format("{0:#,##0.##}", item.TOTAL);
+                                        temp1 += "đ";
+                                    }
+
+                                }
+                                <td>@temp1</td>
+                            </tr>
+                            }
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End PAge Content -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Right sidebar -->
+        <!-- ============================================================== -->
+        <!-- .right-sidebar -->
+        <!-- ============================================================== -->
+        <!-- End Right sidebar -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Container fluid  -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+</div>

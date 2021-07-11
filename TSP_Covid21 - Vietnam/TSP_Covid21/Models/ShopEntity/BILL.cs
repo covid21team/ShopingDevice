@@ -22,13 +22,19 @@ namespace TSP_Covid21.Models.ShopEntity
     
         public int BILLID { get; set; }
         public string USER { get; set; }
-        public Nullable<int> ADDRESSID { get; set; }
         public Nullable<System.DateTime> DATECREATE { get; set; }
         public Nullable<int> VOUCHERID { get; set; }
         public Nullable<long> TOTALBILL { get; set; }
+        public Nullable<int> BIllSTATUS { get; set; }
         public string NOTE { get; set; }
+        public string FULLNAME { get; set; }
+        public string PHONE { get; set; }
+        public string CITY { get; set; }
+        public string DISTRICT { get; set; }
+        public string WARDS { get; set; }
+        public string ADDRESS { get; set; }
     
-        public virtual ADDRESS_SHIP ADDRESS_SHIP { get; set; }
+        public virtual ACCOUNT ACCOUNT { get; set; }
         public virtual VOUCHER VOUCHER { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BILLDETAIL> BILLDETAIL { get; set; }

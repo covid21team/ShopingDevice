@@ -18,21 +18,21 @@ namespace TSP_Covid21.Models.BUS
 
         public string Revenue()
         {
-            var result = db.BILL.Sum(p => p.TOTALBILL);
+            var result = db.BILL.Where(p => p.BIllSTATUS != 4).Sum(p => p.TOTALBILL);
 
             return result.ToString();
         }
 
         public string totalProduct()
         {
-            var result = db.BILLDETAIL.Sum(p => p.AMOUNT);
+            var result = db.BILLDETAIL.Where(p => p.BILL.BIllSTATUS != 4).Sum(p => p.AMOUNT);
 
             return result.ToString();
         }
 
         public string totalBill()
         {
-            var result = db.BILL.Count();
+            var result = db.BILL.Where(p => p.BIllSTATUS != 4).Count();
 
             return result.ToString();
         }
@@ -51,7 +51,7 @@ namespace TSP_Covid21.Models.BUS
                          {
                              PRODUCTTYPEID = c.PRODUCTTYPEID,
                              PRODUCTYPENAME = c.PRODUCTTYPENAME,
-                             QUANTITY = c.PRODUCT.Sum(a => a.BILLDETAIL.Sum(b => b.AMOUNT))
+                             QUANTITY = c.PRODUCT.Sum(a => a.BILLDETAIL.Where(t => t.BILL.BIllSTATUS != 4).Sum(b => b.AMOUNT))
                          };
 
             return result.OrderBy(p => p.PRODUCTTYPEID).ToList();
@@ -67,10 +67,17 @@ namespace TSP_Covid21.Models.BUS
                          {
                              BRANDID = a.BRANDID,
                              BRANDNAME = a.BRAND.BRANDNAME,
-                             QUANTITY = c.PRODUCT.Sum(a => a.BILLDETAIL.Where(t => t.PRODUCT.PRODUCTTYPEID == productTypeId).Sum(b => b.AMOUNT))
+                             QUANTITY = c.PRODUCT.Sum(a => a.BILLDETAIL.Where(t => t.PRODUCT.PRODUCTTYPEID == productTypeId & t.BILL.BIllSTATUS != 4).Sum(b => b.AMOUNT))
                          };
 
             return result;
+        }
+
+        public IEnumerable<PRODUCT> listProduct()
+        {
+            var result = db.PRODUCT;
+
+            return result.ToList();
         }
     }
 }

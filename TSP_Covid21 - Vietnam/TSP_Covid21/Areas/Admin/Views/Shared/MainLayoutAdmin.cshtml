@@ -11,13 +11,15 @@
     <meta name="description"
           content="Ample Admin Lite is powerful and clean admin dashboard template, inpired from Bootstrap Framework">
     <meta name="robots" content="noindex,nofollow">
-    <title>Ample Admin Lite Template by WrapPixel</title>
+    <title>Covid21 Admin</title>
     <link rel="canonical" href="https://www.wrappixel.com/templates/ample-admin-lite/" />
     <!-- Favicon icon -->
-    <link rel="icon" type="~/Areas/Admin/AssetAdmin/image/png" sizes="16x16" href="~/Areas/Admin/AssetAdmin/plugins/images/favicon.png">
+    <link rel="icon" type="~/Asset/images/logo.png" sizes="16x16" href="~/Asset/images/logo.png">
     <!-- Custom CSS -->
     <link href="~/Areas/Admin/AssetAdmin/css/style.min.css" rel="stylesheet">
     <link href="~/Areas/Admin/AssetAdmin/css/products-list.css" rel="stylesheet">
+
+    <link href="~/Areas/Admin/AssetAdmin/css/binhluan.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -37,7 +39,7 @@
     </script>
 
 
- @Html.Partial("LoginAdmin")
+    @Html.Partial("LoginAdmin")
     <body>
         <!-- ============================================================== -->
         <!-- Preloader - style you can find in spinners.css -->
@@ -56,23 +58,20 @@
             <!-- ============================================================== -->
             <!-- Topbar header - style you can find in pages.scss -->
             <!-- ============================================================== -->
-            <header class="topbar" data-navbarbg="skin5">
+            <header class="topbar" data-navbarbg="skin5" >
                 <nav class="navbar top-navbar navbar-expand-md navbar-dark">
-                    <div class="navbar-header" data-logobg="skin6">
+                    <div class="navbar-header" data-logobg="skin6" style="position: fixed; top: 0px; z-index: 10">
                         <!-- ============================================================== -->
                         <!-- Logo -->
                         <!-- ============================================================== -->
-                        <a class="navbar-brand" href="dashboard.html">
+                        <a class="navbar-brand" href="@Url.Action("Static","Admin")">
                             <!-- Logo icon -->
-                            <b class="logo-icon">
-                                <!-- Dark Logo icon -->
-                                <img src="~/Areas/Admin/AssetAdmin/plugins/images/logo-icon.png" alt="homepage" />
-                            </b>
+
                             <!--End Logo icon -->
                             <!-- Logo text -->
                             <span class="logo-text">
                                 <!-- dark Logo text -->
-                                <img src="~/Areas/Admin/AssetAdmin/plugins/images/logo-text.png" alt="homepage" />
+                                <img src="~/Asset/images/logo.png" alt="homepage" />
                             </span>
                         </a>
                         <!-- ============================================================== -->
@@ -88,7 +87,7 @@
                     <!-- ============================================================== -->
                     <!-- End Logo -->
                     <!-- ============================================================== -->
-                    <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin5">
+                    <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin5" style="position: fixed; top: 0px">
                         <ul class="navbar-nav d-none d-md-block d-lg-none">
                             <li class="nav-item">
                                 <a class="nav-toggler nav-link waves-effect waves-light text-white" href="javascript:void(0)">
@@ -102,22 +101,12 @@
                         <ul class="navbar-nav ms-auto d-flex align-items-center">
 
                             <!-- ============================================================== -->
-                            <!-- Search -->
-                            <!-- ============================================================== -->
-                            <li class=" in">
-                                <form role="search" class="app-search d-none d-md-block me-3">
-                                    <input type="text" placeholder="Search..." class="form-control mt-0">
-                                    <a href="" class="active">
-                                        <i class="fa fa-search"></i>
-                                    </a>
-                                </form>
-                            </li>
                             <!-- ============================================================== -->
                             <!-- User profile and search -->
                             <!-- ============================================================== -->
                             <li>
                                 <a class="profile-pic" href="#">
-                                    <img src="~/Areas/Admin/AssetAdmin/plugins/images/users/varun.jpg" alt="user-img" width="36" class="img-circle"><span class="text-white font-medium">Steave</span>
+                                    <img src="" width="36" class="img-circle"><span class="text-white font-medium">Admin</span>
                                 </a>
                             </li>
                             <!-- ============================================================== -->
@@ -133,7 +122,7 @@
             <!-- ============================================================== -->
             <!-- Left Sidebar - style you can find in sidebar.scss  -->
             <!-- ============================================================== -->
-            <aside class="left-sidebar" data-sidebarbg="skin6">
+            <aside class="left-sidebar" data-sidebarbg="skin6" style="position: fixed; top: 0px">
                 <!-- Sidebar scroll-->
                 <div class="scroll-sidebar">
                     <!-- Sidebar navigation-->
@@ -141,26 +130,45 @@
                         <ul id="sidebarnav">
                             <!-- User Profile-->
                             <li class="sidebar-item pt-2">
-                                <a class="sidebar-link waves-effect waves-dark sidebar-link" href="@Url.Action("All","Static")" aria-expanded="false">
+                                <a class="sidebar-link waves-effect waves-dark sidebar-link" href="@Url.Action("Static","Admin")" aria-expanded="false">
                                     <i class="far fa-clock" aria-hidden="true"></i>
                                     <span class="hide-menu">Thống kê</span>
                                 </a>
                             </li>
                             <li class="sidebar-item">
-                                <a class="sidebar-link waves-effect waves-dark sidebar-link" href="@Url.Action("ListProduct","ProductManager")" aria-expanded="false">
-                                    <i class="fa fa-table" aria-hidden="true"></i>
-                                    <span class="hide-menu">Danh sách sản phẩm</span>
+                                <a class="sidebar-link waves-effect waves-dark sidebar-link" href="@Url.Action("Personal","Admin")"
+                                   aria-expanded="false">
+                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                    <span class="hide-menu">Thông tin cá nhân</span>
                                 </a>
                             </li>
                             <li class="sidebar-item">
-                                <a class="sidebar-link waves-effect waves-dark sidebar-link" href="@Url.Action("Account","AccountManager")" aria-expanded="false">
+                                <a class="sidebar-link waves-effect waves-dark sidebar-link" href="@Url.Action("AccountManager","Admin")" aria-expanded="false">
                                     <i class="fa fa-table" aria-hidden="true"></i>
                                     <span class="hide-menu">Danh sách khách hàng</span>
                                 </a>
                             </li>
                             <li class="sidebar-item">
+                                <a class="sidebar-link waves-effect waves-dark sidebar-link" href="@Url.Action("ProductManager","Admin")" aria-expanded="false">
+                                    <i class="fa fa-table" aria-hidden="true"></i>
+                                    <span class="hide-menu">Danh sách sản phẩm</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link waves-effect waves-dark sidebar-link" href="@Url.Action("CommentManager","Admin")" aria-expanded="false">
+                                    <i class="fa fa-table" aria-hidden="true"></i>
+                                    <span class="hide-menu">Danh sách bình luận</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link waves-effect waves-dark sidebar-link" href="@Url.Action("BillManager","Admin")" aria-expanded="false">
+                                    <i class="fa fa-table" aria-hidden="true"></i>
+                                    <span class="hide-menu">Danh sách hóa đơn</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item">
                                 <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                   href=""
+                                   href="@Url.Action("PictureManager","Admin")"
                                    aria-expanded="false">
                                     <i class="fa fa-columns" aria-hidden="true"></i>
                                     <span class="hide-menu">Hình ảnh</span>
@@ -248,7 +256,6 @@
     {
         user = Session["userAdmin"].ToString();
     }
-    var d = 0;
 }
 <script>
     var start = {
@@ -258,7 +265,6 @@
 
             } else {
                 $(".login-body").css({ "display": "none"});
-
             }
         },
     }

@@ -96,7 +96,7 @@
                 </div>
                 <div class="col-sm-9 bg-success" style="height: 400px">
                     <br>
-                    <h4>THÔNG TIN CÁ NHÂN</h4>
+                    <h4>THÔNG TIN CÁ NHÂN <span id="inf_quantityAddress" style="display: none; color: red; font-size: 15px">(Quý khách không được thêm địa chỉ, do quý khác đã đủ 5 địa chỉ)</span></h4>
                     <div id="banthongtincanhan" class="thongtincanhan">
                         <div>
                             <span></span>
@@ -170,7 +170,8 @@
                                     <i id="hidel8" class="fa fa-eye"></i>
                                 </span>
                                 <span style="color: red; display: none" id="inf_pass">(Mật khẩu không chính xác)</span>
-                            </div>           
+                            </div>
+
                             <div>
                                 <span></span>
                                 <label for="">Mật khẩu mới: </label>
@@ -202,7 +203,7 @@
                             <div>
                                 <div>
                                     <span></span>
-                                    <p id="id12" onclick="openthem()">
+                                    <p id="id12">
                                         <i style="color: yellowgreen;"
                                            class="fas fa-plus"></i> <b> Thêm địa chỉ</b>
                                     </p>
@@ -254,44 +255,39 @@
                             top: 0px;
                             background: rgb(67, 85, 94);
                             color: white;
-                            
-                        }
-                        #donhangdamua {
-                            background: white;
-                            overflow: auto;
-                            height: 300px;
-                            color: #333;
                         }
                     </style>
-                    <div id="donhangdamua" class="thongtincanhan" style="display: none;">
-                  
-                        <table class="tabledg" style="width: 100%; margin-top:0px;">
-                      
-                                <tr id="table_bill">
-                                    <th>
-                                        <p class="tablea">ID</p>
-                                    </th>
-                                    <th>
-                                        <p class="tablea">Ngày đặt hàng</p>
-                                    </th>
-                                    <th>
-                                        <p class="tablea">Sản phẩm</p>
-                                    </th>
-                                    <th>
-                                        <p class="tablea">Tổng</p>
-                                    </th>
-                                </tr>
-                                </
-                         
+                    <div id="donhangdamua" class="thongtincanhan" style="display: none; height: 320px; overflow-y: scroll;">
+                        <table class="tabledg" style="width: 100%; margin-top: 0px">
+                            <tr id="table_bill">
+                                <th>
+                                    <p class="tablea">ID</p>
+                                </th>
+                                <th>
+                                    <p class="tablea">Ngày đặt hàng</p>
+                                </th>
+                                <th>
+                                    <p class="tablea">Sản phẩm</p>
+                                </th>
+                                <th>
+                                    <p class="tablea">Tổng</p>
+                                </th>
+                                <th>
+                                    <p class="tablea">Trạng thái</p>
+                                </th>
+                            </tr>
                             @{
                                 IEnumerable<TSP_Covid21.Models.ShopEntity.BILL> listBill = AC.loadBill(Model.USER);
+
+                                var BillDetail = listBill.Where(p => p.BILLID == 1).SingleOrDefault();
                             }
 
                             @foreach (var item in listBill)
                             {
-                                <tr class="hoverdonhang">
+                                <tr class="hoverdonhang viewBillDetail">
                                     <td>
-                                        <p class="tableb">@item.BILLID</p>
+
+                                        <p class="tableb billId">@item.BILLID</p>
                                     </td>
                                     <td style="width: 200px">
                                         <p class="tableb">@item.DATECREATE</p>
@@ -303,7 +299,7 @@
                                             listProduct += item1.PRODUCT.PRODUCTNAME + ", ";
                                         }
                                     }
-                                    <td>
+                                    <td style="width: 250px">
                                         <p class="tableb">@listProduct</p>
                                     </td>
                                     @{
@@ -313,11 +309,47 @@
                                     <td>
                                         <p class="tableb">@temp</p>
                                     </td>
+                                    <td>
+                                        @switch (item.BIllSTATUS)
+                                        {
+                                            case 1:
+                                                {
+                                                    <p class="tableb">Chờ xét duyệt</p>
+                                                }
+                                                break;
+                                            case 2:
+                                                {
+                                                    <p class="tableb">Đang giao</p>
+                                                }
+                                                break;
+                                            case 3:
+                                                {
+                                                    <p class="tableb">Đã giao</p>
+                                                }
+                                                break;
+                                            case 4:
+                                                {
+                                                    <p class="tableb">Hủy đơn</p>
+                                                }
+                                                break;
+                                        }
+                                    </td>
                                 </tr>
                             }
 
                         </table>
+                    </div>
+                    <!-- Chi tiết bill -->
+                    <div>
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div id="billDetail" class="modal12">
+                                   
+                                </div>
                             </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -444,7 +476,6 @@
 <!-- Thêm địa chỉ -->
 <script>
     $("#id21").click(function () {
-
         var fullname = $("#id15").val();
         var phone = $("#id16").val();
         var city = $("#province").val();
@@ -545,18 +576,54 @@
 <!--Chuyển form thêm địa chỉ-->
 <script>
     $("#id12").click(function () {
-        var modal = document.getElementById('themthongtingiaohang');
-        var modal1 = document.getElementById('tatbangiaohang');
-        modal.style.display = "block";
-        modal1.style.display = "none";
+        var quantity = @listAddress.Count();
+        if (quantity == 5) {
+            $("#inf_quantityAddress").css({ "display": "inline-block" });
+        } else {
+            var modal = document.getElementById('themthongtingiaohang');
+            var modal1 = document.getElementById('tatbangiaohang');
+            modal.style.display = "block";
+            modal1.style.display = "none";
+
+            $.ajax({
+                url: "@Url.Action("formAddAddress", "Account")",
+                type: "POST",
+                success: function (result) {
+                    $("#themthongtingiaohang").html(result);
+                },
+            });
+        }
+    });
+</script>
+
+<!--Xem chi tiết hóa đơn-->
+<script>
+    $(".viewBillDetail").click(function () {
+        var billDetail = document.getElementById("billDetail")
+        billDetail.style.display = "block";
+
+        var id = $(this).children().children(".billId").text();
 
         $.ajax({
-            url: "@Url.Action("formAddAddress", "Account")",
+            url: "@Url.Action("BillDetail", "Account")",
             type: "POST",
-
+            data: {
+                id: id,
+            },
             success: function (result) {
-                $("#themthongtingiaohang").html(result);
+                $("#billDetail").html(result);
             },
         });
     });
+</script>
+
+<script>
+    var model = document.getElementById('billDetail');
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target == model) {
+            model.style.display = "none";
+        }
+    }
 </script>

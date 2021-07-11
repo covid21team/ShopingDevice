@@ -105,7 +105,6 @@ function changeFunc() {
 
 };
 
-
 function changeFuncDistrict() {
     var selectedBox = document.getElementById("district")
     var selectedValue = selectedBox.options[selectedBox.selectedIndex].getAttribute('data-district')
@@ -131,17 +130,17 @@ function changeFuncDistrict() {
 }
 
 function my4Function() {
-    var x = document.getElementById("id8");
-    var z = document.getElementById("hidel7");
-    var y = document.getElementById("hidel8");
-    if (x.type === 'password') {
+    var x =document.getElementById("id8");
+    var z =document.getElementById("hidel7");
+    var y =document.getElementById("hidel8");
+    if(x.type==='password'){
         x.type = 'text';
-        y.style.display = "block";
-        z.style.display = "none"
-    } else {
+    y.style.display="block";
+    z.style.display="none"
+    }else{
         x.type = 'password';
-        y.style.display = "none";
-        z.style.display = "block"
+    y.style.display="none";
+    z.style.display="block"
     }
 }
 function my5Function(){

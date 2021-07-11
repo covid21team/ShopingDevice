@@ -199,7 +199,7 @@
                         I've read and accept the <a href="#">terms & conditions</a>
                     </label>
                 </div>
-                <a href="#" class="primary-btn order-submit" id="create_bill">Đặt hàng</a>
+                <a href="" class="primary-btn order-submit" id="create_bill">Đặt hàng</a>
             </div>
             <!-- /Order Details -->
         </div>
@@ -243,6 +243,10 @@
                     alert("fail");
                 }
             });
+        } else if (quantity == 0) {
+            alert("Vui lòng chọn hàng để thanh toán");
+        } else {
+            alert("Vui lòng thêm địa chỉ nhận hàng");
         }
     });
 </script>

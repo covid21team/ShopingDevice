@@ -51,13 +51,10 @@ namespace TSP_Covid21.Controllers
             AB.changePass(user, pass_new);
         }
 
-        [HttpPost]
-        public ActionResult Logout()
+        public void Logout()
         {
             Session["user"] = null;
             Session["fullname"] = null;
-
-            return RedirectToAction("Home", "Covid21");
         }
 
         public bool checkUser(string user)
@@ -153,6 +150,26 @@ namespace TSP_Covid21.Controllers
         {
             Account_BUS AB = new Account_BUS();
             AB.editAddress_ship(addressId, user, fullname, phone, city, district, ward, address, addDefault);
+        }
+
+        public ActionResult BillDetail(int id)
+        {
+            Account_BUS AB = new Account_BUS();
+            var result = AB.BillDetail(id);
+
+            return PartialView(result);
+        }
+
+        public void cancelBill(int id)
+        {
+            Account_BUS AB = new Account_BUS();
+            AB.cancelBill(id);
+        }
+
+        public void editAdress_Bill(int id, string fullname, string phone, string city, string district, string ward, string address)
+        {
+            Account_BUS AB = new Account_BUS();
+            AB.editAdress_Bill(id, fullname, phone, city, district, ward, address);
         }
     }
 }

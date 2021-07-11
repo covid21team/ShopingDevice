@@ -4,6 +4,7 @@ using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Web;
 using TSP_Covid21.Models.ShopEntity;
+using TSP_Covid21.Models.ViewModel;
 
 namespace TSP_Covid21.Models.BUS
 {
@@ -201,11 +202,57 @@ namespace TSP_Covid21.Models.BUS
 
         public string checkUserAdmin(string user, string pass)
         {
-            string result = "";
-            if(pass == "admin")
+           var result = db.CheckLoginAdmin(user, pass).SingleOrDefault();
+           return result;
+        }
+
+        public ACCOUNT_ADMIN acountAdmin(string user)
+        {
+            return db.ACCOUNT_ADMIN.Where(p => p.USER == user).SingleOrDefault();
+        }
+
+        public BILL BillDetail(int id)
+        {
+            return db.BILL.Find(id);
+        }
+
+        public void cancelBill(int id)
+        {
+            var Bill = db.BILL.Find(id);
+            foreach(var item in Bill.BILLDETAIL)
             {
-                result = user;
+                var product = db.PRODUCT.Find(item.PRODUCTID);
+                product.PRODUCTAMOUNT += item.AMOUNT;
             }
+            Bill.BIllSTATUS = 4;
+            db.SaveChanges();
+        }
+
+        public void editAdress_Bill(int id, string fullname, string phone, string city, string district, string ward, string address)
+        {
+            var bill = db.BILL.Find(id);
+            bill.FULLNAME = fullname;
+            bill.PHONE = phone;
+            bill.CITY = city;
+            bill.DISTRICT = district;
+            bill.WARDS = ward;
+            bill.ADDRESS = address;
+            db.SaveChanges();
+        }
+
+        public IEnumerable<ListAccount> listAccount()
+        {
+            var result = from a in db.ACCOUNT
+                         select new ListAccount()
+                         {
+                             USER = a.USER,
+                             FULLNAME = a.FULLNAME,
+                             PHONE = a.PHONENUMBER,
+                             EMAIL = a.EMAIL,
+                             QUANTITYPRODUCT = a.BILL.Sum(p => p.BILLDETAIL.Sum(t => t.AMOUNT)),
+                             TOTAL = a.BILL.Sum(p => p.BILLDETAIL.Sum(t => t.AMOUNT * t.PRODUCT.PRODUCTPRICE)),
+                         };
+
             return result;
         }
     }

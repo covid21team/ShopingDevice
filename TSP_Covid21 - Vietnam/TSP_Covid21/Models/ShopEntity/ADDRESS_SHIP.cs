@@ -14,12 +14,6 @@ namespace TSP_Covid21.Models.ShopEntity
     
     public partial class ADDRESS_SHIP
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ADDRESS_SHIP()
-        {
-            this.BILL = new HashSet<BILL>();
-        }
-    
         public int ADDRESSID { get; set; }
         public string USER { get; set; }
         public string FULLNAME { get; set; }
@@ -32,7 +26,5 @@ namespace TSP_Covid21.Models.ShopEntity
         public Nullable<bool> ADDRESS_STATUS { get; set; }
     
         public virtual ACCOUNT ACCOUNT { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BILL> BILL { get; set; }
     }
 }

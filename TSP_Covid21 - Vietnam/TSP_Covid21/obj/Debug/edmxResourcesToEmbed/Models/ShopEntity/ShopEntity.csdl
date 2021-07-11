@@ -19,15 +19,7 @@
     <NavigationProperty Name="RATINGPRODUCT" Relationship="Self.FK__RATINGPROD__USER__44FF419A" FromRole="ACCOUNT" ToRole="RATINGPRODUCT" />
     <NavigationProperty Name="VIEWNUMBER" Relationship="Self.FK__VIEWNUMBER__USER__412EB0B6" FromRole="ACCOUNT" ToRole="VIEWNUMBER" />
     <NavigationProperty Name="VOCHERDETAIL" Relationship="Self.FK__VOCHERDETA__USER__5FB337D6" FromRole="ACCOUNT" ToRole="VOCHERDETAIL" />
-  </EntityType>
-  <EntityType Name="ACCOUNT_ADMIN">
-    <Key>
-      <PropertyRef Name="USER" />
-    </Key>
-    <Property Name="USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="PASSWORD" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-    <Property Name="FULLNAME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="STATUSACCOUNT" Type="Boolean" />
+    <NavigationProperty Name="BILL" Relationship="COVIDModel.FK__BILL__USER__5BE2A6F2" FromRole="ACCOUNT" ToRole="BILL" />
   </EntityType>
   <EntityType Name="ACCOUNTLIKE">
     <Key>
@@ -36,7 +28,7 @@
     </Key>
     <Property Name="USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="PRODUCTID" Type="Int32" Nullable="false" />
-    <Property Name="DATELIKE" Type="DateTime" Precision="0" />
+    <Property Name="DATELIKE" Type="DateTime" Precision="3" />
     <NavigationProperty Name="ACCOUNT" Relationship="Self.FK__ACCOUNTLIK__USER__4F7CD00D" FromRole="ACCOUNTLIKE" ToRole="ACCOUNT" />
     <NavigationProperty Name="PRODUCT" Relationship="Self.FK__ACCOUNTLI__PRODU__5070F446" FromRole="ACCOUNTLIKE" ToRole="PRODUCT" />
   </EntityType>
@@ -55,22 +47,6 @@
     <Property Name="DEFAULT" Type="Boolean" />
     <Property Name="ADDRESS_STATUS" Type="Boolean" />
     <NavigationProperty Name="ACCOUNT" Relationship="Self.FK__ADDRESS_SH__USER__3E52440B" FromRole="ADDRESS_SHIP" ToRole="ACCOUNT" />
-    <NavigationProperty Name="BILL" Relationship="Self.FK__BILL__ADDRESSID__5BE2A6F2" FromRole="ADDRESS_SHIP" ToRole="BILL" />
-  </EntityType>
-  <EntityType Name="BILL">
-    <Key>
-      <PropertyRef Name="BILLID" />
-    </Key>
-    <Property Name="BILLID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-    <Property Name="ADDRESSID" Type="Int32" />
-    <Property Name="DATECREATE" Type="DateTime" Precision="0" />
-    <Property Name="VOUCHERID" Type="Int32" />
-    <Property Name="TOTALBILL" Type="Int64" />
-    <Property Name="NOTE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="ADDRESS_SHIP" Relationship="Self.FK__BILL__ADDRESSID__5BE2A6F2" FromRole="BILL" ToRole="ADDRESS_SHIP" />
-    <NavigationProperty Name="VOUCHER" Relationship="Self.FK__BILL__VOUCHERID__5AEE82B9" FromRole="BILL" ToRole="VOUCHER" />
-    <NavigationProperty Name="BILLDETAIL" Relationship="Self.FK__BILLDETAI__BILLI__628FA481" FromRole="BILL" ToRole="BILLDETAIL" />
   </EntityType>
   <EntityType Name="BILLDETAIL">
     <Key>
@@ -80,8 +56,8 @@
     <Property Name="BILLID" Type="Int32" Nullable="false" />
     <Property Name="PRODUCTID" Type="Int32" Nullable="false" />
     <Property Name="AMOUNT" Type="Int32" />
-    <NavigationProperty Name="BILL" Relationship="Self.FK__BILLDETAI__BILLI__628FA481" FromRole="BILLDETAIL" ToRole="BILL" />
     <NavigationProperty Name="PRODUCT" Relationship="Self.FK__BILLDETAI__PRODU__6383C8BA" FromRole="BILLDETAIL" ToRole="PRODUCT" />
+    <NavigationProperty Name="BILL" Relationship="COVIDModel.FK__BILLDETAI__BILLI__6383C8BA" FromRole="BILLDETAIL" ToRole="BILL" />
   </EntityType>
   <EntityType Name="BRAND">
     <Key>
@@ -153,7 +129,7 @@
     <Property Name="PRODUCTPRICE" Type="Int32" />
     <Property Name="PRODUCTAMOUNT" Type="Int32" />
     <Property Name="DECRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="DATEADD" Type="DateTime" Precision="0" />
+    <Property Name="DATEADD" Type="DateTime" Precision="3" />
     <NavigationProperty Name="ACCOUNTLIKE" Relationship="Self.FK__ACCOUNTLI__PRODU__5070F446" FromRole="PRODUCT" ToRole="ACCOUNTLIKE" />
     <NavigationProperty Name="BILLDETAIL" Relationship="Self.FK__BILLDETAI__PRODU__6383C8BA" FromRole="PRODUCT" ToRole="BILLDETAIL" />
     <NavigationProperty Name="BRAND" Relationship="Self.FK__PRODUCT__BRANDID__2F10007B" FromRole="PRODUCT" ToRole="BRAND" />
@@ -203,7 +179,7 @@
     </Key>
     <Property Name="USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="PRODUCTID" Type="Int32" Nullable="false" />
-    <Property Name="DATESEEN" Type="DateTime" Precision="0" />
+    <Property Name="DATESEEN" Type="DateTime" Precision="3" />
     <NavigationProperty Name="ACCOUNT" Relationship="Self.FK__VIEWNUMBER__USER__412EB0B6" FromRole="VIEWNUMBER" ToRole="ACCOUNT" />
     <NavigationProperty Name="PRODUCT" Relationship="Self.FK__VIEWNUMBE__PRODU__4222D4EF" FromRole="VIEWNUMBER" ToRole="PRODUCT" />
   </EntityType>
@@ -214,7 +190,7 @@
     </Key>
     <Property Name="VOUCHERID" Type="Int32" Nullable="false" />
     <Property Name="USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="DATEENDTIRE" Type="DateTime" Precision="0" />
+    <Property Name="DATEENDTIRE" Type="DateTime" Precision="3" />
     <NavigationProperty Name="ACCOUNT" Relationship="Self.FK__VOCHERDETA__USER__5FB337D6" FromRole="VOCHERDETAIL" ToRole="ACCOUNT" />
     <NavigationProperty Name="VOUCHER" Relationship="Self.FK__VOCHERDET__VOUCH__5EBF139D" FromRole="VOCHERDETAIL" ToRole="VOUCHER" />
   </EntityType>
@@ -224,10 +200,10 @@
     </Key>
     <Property Name="VOUCHERID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="DECRIPTIONVOUCHER" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="DATEENDTIRE" Type="DateTime" Precision="0" />
+    <Property Name="DATEENDTIRE" Type="DateTime" Precision="3" />
     <Property Name="STATUSVOUCHER" Type="Boolean" />
-    <NavigationProperty Name="BILL" Relationship="Self.FK__BILL__VOUCHERID__5AEE82B9" FromRole="VOUCHER" ToRole="BILL" />
     <NavigationProperty Name="VOCHERDETAIL" Relationship="Self.FK__VOCHERDET__VOUCH__5EBF139D" FromRole="VOUCHER" ToRole="VOCHERDETAIL" />
+    <NavigationProperty Name="BILL" Relationship="COVIDModel.FK__BILL__VOUCHERID__5CD6CB2B" FromRole="VOUCHER" ToRole="BILL" />
   </EntityType>
   <Association Name="FK__ACCOUNTLIK__USER__4F7CD00D">
     <End Role="ACCOUNT" Type="Self.ACCOUNT" Multiplicity="1" />
@@ -322,42 +298,6 @@
       </Principal>
       <Dependent Role="ACCOUNTLIKE">
         <PropertyRef Name="PRODUCTID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__BILL__ADDRESSID__5BE2A6F2">
-    <End Role="ADDRESS_SHIP" Type="Self.ADDRESS_SHIP" Multiplicity="0..1" />
-    <End Role="BILL" Type="Self.BILL" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="ADDRESS_SHIP">
-        <PropertyRef Name="ADDRESSID" />
-      </Principal>
-      <Dependent Role="BILL">
-        <PropertyRef Name="ADDRESSID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__BILL__VOUCHERID__5AEE82B9">
-    <End Role="VOUCHER" Type="Self.VOUCHER" Multiplicity="0..1" />
-    <End Role="BILL" Type="Self.BILL" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="VOUCHER">
-        <PropertyRef Name="VOUCHERID" />
-      </Principal>
-      <Dependent Role="BILL">
-        <PropertyRef Name="VOUCHERID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__BILLDETAI__BILLI__628FA481">
-    <End Role="BILL" Type="Self.BILL" Multiplicity="1" />
-    <End Role="BILLDETAIL" Type="Self.BILLDETAIL" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="BILL">
-        <PropertyRef Name="BILLID" />
-      </Principal>
-      <Dependent Role="BILLDETAIL">
-        <PropertyRef Name="BILLID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -507,10 +447,8 @@
   </Association>
   <EntityContainer Name="COVIDEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="ACCOUNT" EntityType="Self.ACCOUNT" />
-    <EntitySet Name="ACCOUNT_ADMIN" EntityType="Self.ACCOUNT_ADMIN" />
     <EntitySet Name="ACCOUNTLIKE" EntityType="Self.ACCOUNTLIKE" />
     <EntitySet Name="ADDRESS_SHIP" EntityType="Self.ADDRESS_SHIP" />
-    <EntitySet Name="BILL" EntityType="Self.BILL" />
     <EntitySet Name="BILLDETAIL" EntityType="Self.BILLDETAIL" />
     <EntitySet Name="BRAND" EntityType="Self.BRAND" />
     <EntitySet Name="CART" EntityType="Self.CART" />
@@ -555,18 +493,6 @@
     <AssociationSet Name="FK__ACCOUNTLI__PRODU__5070F446" Association="Self.FK__ACCOUNTLI__PRODU__5070F446">
       <End Role="PRODUCT" EntitySet="PRODUCT" />
       <End Role="ACCOUNTLIKE" EntitySet="ACCOUNTLIKE" />
-    </AssociationSet>
-    <AssociationSet Name="FK__BILL__ADDRESSID__5BE2A6F2" Association="Self.FK__BILL__ADDRESSID__5BE2A6F2">
-      <End Role="ADDRESS_SHIP" EntitySet="ADDRESS_SHIP" />
-      <End Role="BILL" EntitySet="BILL" />
-    </AssociationSet>
-    <AssociationSet Name="FK__BILL__VOUCHERID__5AEE82B9" Association="Self.FK__BILL__VOUCHERID__5AEE82B9">
-      <End Role="VOUCHER" EntitySet="VOUCHER" />
-      <End Role="BILL" EntitySet="BILL" />
-    </AssociationSet>
-    <AssociationSet Name="FK__BILLDETAI__BILLI__628FA481" Association="Self.FK__BILLDETAI__BILLI__628FA481">
-      <End Role="BILL" EntitySet="BILL" />
-      <End Role="BILLDETAIL" EntitySet="BILLDETAIL" />
     </AssociationSet>
     <AssociationSet Name="FK__BILLDETAI__PRODU__6383C8BA" Association="Self.FK__BILLDETAI__PRODU__6383C8BA">
       <End Role="PRODUCT" EntitySet="PRODUCT" />
@@ -620,5 +546,89 @@
       <Parameter Name="username" Mode="In" Type="String" />
       <Parameter Name="password" Mode="In" Type="String" />
     </FunctionImport>
+    <EntitySet Name="ACCOUNT_ADMIN" EntityType="COVIDModel.ACCOUNT_ADMIN" />
+    <FunctionImport Name="CheckLoginAdmin" ReturnType="Collection(String)">
+      <Parameter Name="username" Mode="In" Type="String" />
+      <Parameter Name="password" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="BILL" EntityType="COVIDModel.BILL" />
+    <AssociationSet Name="FK__BILL__USER__5BE2A6F2" Association="COVIDModel.FK__BILL__USER__5BE2A6F2">
+      <End Role="ACCOUNT" EntitySet="ACCOUNT" />
+      <End Role="BILL" EntitySet="BILL" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BILL__VOUCHERID__5CD6CB2B" Association="COVIDModel.FK__BILL__VOUCHERID__5CD6CB2B">
+      <End Role="VOUCHER" EntitySet="VOUCHER" />
+      <End Role="BILL" EntitySet="BILL" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BILLDETAI__BILLI__6383C8BA" Association="COVIDModel.FK__BILLDETAI__BILLI__6383C8BA">
+      <End Role="BILL" EntitySet="BILL" />
+      <End Role="BILLDETAIL" EntitySet="BILLDETAIL" />
+    </AssociationSet>
   </EntityContainer>
+  <EntityType Name="ACCOUNT_ADMIN">
+    <Key>
+      <PropertyRef Name="USER" />
+    </Key>
+    <Property Name="USER" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="PASSWORD" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="FULLNAME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="STATUSACCOUNT" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="BILL">
+    <Key>
+      <PropertyRef Name="BILLID" />
+    </Key>
+    <Property Name="BILLID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="DATECREATE" Type="DateTime" Precision="3" />
+    <Property Name="VOUCHERID" Type="Int32" />
+    <Property Name="TOTALBILL" Type="Int64" />
+    <Property Name="BIllSTATUS" Type="Int32" />
+    <Property Name="NOTE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FULLNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PHONE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="CITY" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DISTRICT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="WARDS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ADDRESS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ACCOUNT" Relationship="COVIDModel.FK__BILL__USER__5BE2A6F2" FromRole="BILL" ToRole="ACCOUNT" />
+    <NavigationProperty Name="VOUCHER" Relationship="COVIDModel.FK__BILL__VOUCHERID__5CD6CB2B" FromRole="BILL" ToRole="VOUCHER" />
+    <NavigationProperty Name="BILLDETAIL" Relationship="COVIDModel.FK__BILLDETAI__BILLI__6383C8BA" FromRole="BILL" ToRole="BILLDETAIL" />
+  </EntityType>
+  <Association Name="FK__BILL__USER__5BE2A6F2">
+    <End Type="COVIDModel.ACCOUNT" Role="ACCOUNT" Multiplicity="0..1" />
+    <End Type="COVIDModel.BILL" Role="BILL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ACCOUNT">
+        <PropertyRef Name="USER" />
+      </Principal>
+      <Dependent Role="BILL">
+        <PropertyRef Name="USER" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BILL__VOUCHERID__5CD6CB2B">
+    <End Type="COVIDModel.VOUCHER" Role="VOUCHER" Multiplicity="0..1" />
+    <End Type="COVIDModel.BILL" Role="BILL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VOUCHER">
+        <PropertyRef Name="VOUCHERID" />
+      </Principal>
+      <Dependent Role="BILL">
+        <PropertyRef Name="VOUCHERID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BILLDETAI__BILLI__6383C8BA">
+    <End Type="COVIDModel.BILL" Role="BILL" Multiplicity="1" />
+    <End Type="COVIDModel.BILLDETAIL" Role="BILLDETAIL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BILL">
+        <PropertyRef Name="BILLID" />
+      </Principal>
+      <Dependent Role="BILLDETAIL">
+        <PropertyRef Name="BILLID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

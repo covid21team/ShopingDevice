@@ -32,9 +32,9 @@ namespace TSP_Covid21.Controllers
                 + Sẽ không lấy được giá trị các biến bên trong câu điều kiện ra bên ngoài để xử lí tiếp tục
                 
             - Do ở đây là trong if đã đi thằng vào lớp Model nên không bị ảnh hưởng*/
-        public IEnumerable<BrandViewModel> loadBrandCtrl(string ProductTypeName)
+        public IEnumerable<BrandViewModel> loadBrandCtrl(int ProductTypeId)
         {
-            var result = PB.loadBrand(ProductTypeName);
+            var result = PB.loadBrand(ProductTypeId);
             return result;
         }
 
@@ -133,8 +133,10 @@ namespace TSP_Covid21.Controllers
 
         [HttpPost]
         //Dùng vào lúc chọn lọc sản phẩm theo mong muoonscuar khách hàng
-        public ActionResult listProduct(string productTypeName, int valuePrice, int sort, string listbrand)
+        public ActionResult listProduct(int ProductTypeId, int valuePrice, int sort, string listbrand)
         {
+            string key = Session["KeySearch"].ToString();
+
             int startPrice = 0;
             int endPrice = 100000000;
             switch (valuePrice)
@@ -192,7 +194,7 @@ namespace TSP_Covid21.Controllers
                 }
             }
 
-            var result = PB.listProduct(productTypeName, startPrice, endPrice, sort, BS);
+            var result = PB.listProduct(ProductTypeId, startPrice, endPrice, sort, BS, key);
 
             return PartialView(result);
         }
@@ -201,7 +203,8 @@ namespace TSP_Covid21.Controllers
         [HttpPost]
         public ActionResult search(string key)
         {
-            Session["ProductTypeName"] = "All";
+            Session["KeySearch"] = key;
+            Session["ProductTypeName"] = "0";
             var result = PB.search(key);
 
             return View(result);

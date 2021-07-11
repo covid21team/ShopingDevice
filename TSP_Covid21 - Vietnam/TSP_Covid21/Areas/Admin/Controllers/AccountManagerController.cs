@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TSP_Covid21.Models.BUS;
+using TSP_Covid21.Models.ShopEntity;
+using TSP_Covid21.Models.ViewModel;
 
 namespace TSP_Covid21.Areas.Admin.Controllers
 {
@@ -14,11 +16,6 @@ namespace TSP_Covid21.Areas.Admin.Controllers
         public AccountManagerController()
         {
             AB = new Account_BUS();
-        }
-        // GET: Admin/AccountManager
-        public ActionResult Acount()
-        {
-            return View();
         }
 
         public bool LoginAdmin(string user, string pass)
@@ -31,6 +28,16 @@ namespace TSP_Covid21.Areas.Admin.Controllers
                 return true;
             }
             return false;
+        }
+
+        public ACCOUNT_ADMIN account(string user)
+        {
+            return AB.acountAdmin(user);
+        }
+
+        public IEnumerable<ListAccount> listAccount()
+        {
+            return AB.listAccount();
         }
     }
 }

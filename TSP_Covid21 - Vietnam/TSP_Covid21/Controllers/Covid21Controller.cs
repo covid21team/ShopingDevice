@@ -40,7 +40,7 @@ namespace TSP_Covid21.Controllers
             - Do ở đây là trong if đã đi thằng vào lớp Model nên không bị ảnh hưởng*/
         public ActionResult Categories(int ProductTypeId) 
         {
-            var db = new Models.BUS.Product_BUS();
+            var db = new Product_BUS();
 
             Session["ProductTypeName"] = ProductTypeId.ToString();
 

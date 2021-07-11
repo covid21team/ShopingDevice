@@ -32,6 +32,7 @@
     ☯ Key Session
         ➛ Session["user"]
         ➛ Session["fullname"]
+        ➛ Session["KeySearch"]
 -->
 
 <!DOCTYPE html>
@@ -112,6 +113,7 @@
         var db = new TSP_Covid21.Models.BUS.Product_BUS();
         var db_Account = new TSP_Covid21.Models.BUS.Account_BUS();
         var user = Session["user"];
+        var key = Session["KeySearch"];
     }
 
     <!-- HEADER -->
@@ -121,7 +123,7 @@
             <div class="container">
                 <ul class="header-links pull-left">
                     <li><a href="#"><i class="fa fa-phone"></i> +0383 205 546 </a></li>
-                    <li><a href="#"><i class="fa fa-envelope-o"></i> Covid21@email.com</a></li>
+                    <li><a href="#"><i class="fa fa-envelope-o"></i> Covid21tsp@gmail.com</a></li>
                     <li><a href="#"><i class="fa fa-map-marker"></i> Long Khanh</a></li>
                 </ul>
                 <ul class="header-links pull-right">
@@ -170,7 +172,7 @@
 
 
                                             <li>
-                                                <a href="#" onclick="refresh()">
+                                                <a href="@Url.Action("Home","Covid21")" onclick="refresh()">
                                                     <div class="icon1">
                                                         <span class="fas fa-sign-out-alt"></span>
                                                     </div>
@@ -219,10 +221,10 @@
                                     <option value="5">Đồng hồ</option>
                                 </select>
 
-                                <input name="key" id="key" class="input" placeholder="Tìm kiếm ở đây">
+                                <input name="key" id="key" class="input" placeholder="Tìm kiếm ở đây" type="text" value="@key">
+
                                 <button class="search-btn" id="btn_Search">Tìm kiếm</button>
                             }
-
                         </div>
                     </div>
 
@@ -298,10 +300,10 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="newsletter">
-                        <p>Sign Up for the <strong>NEWSLETTER</strong></p>
+                        <p>Đăng ký nhận <strong>bản tin</strong></p>
                         <form>
-                            <input class="input" type="email" placeholder="Enter Your Email">
-                            <button class="newsletter-btn"><i class="fa fa-envelope"></i> Subscribe</button>
+                            <input class="input" type="email" placeholder="Nhập Email của bạn">
+                            <button class="newsletter-btn"><i class="fa fa-envelope"></i> Đăng ký</button>
                         </form>
                         <ul class="newsletter-follow">
                             <li>
@@ -340,7 +342,7 @@
                             <ul class="footer-links">
                                 <li><a href="#"><i class="fa fa-map-marker"></i>Long Khanh</a></li>
                                 <li><a href="#"><i class="fa fa-phone"></i>+0383 205 546</a></li>
-                                <li><a href="#"><i class="fa fa-envelope-o"></i>Covid21@email.com</a></li>
+                                <li><a href="#"><i class="fa fa-envelope-o"></i>Covid21tsp@gmail.com</a></li>
                             </ul>
                         </div>
                     </div>
@@ -463,10 +465,8 @@
         $.ajax({
             url: '@Url.Action("Logout", "Account")',
             type: 'POST',
-            async: false,
-            cache: false,
             success: function () {
-                location.reload();
+
             }
         });
     }
@@ -532,7 +532,7 @@
         }
 
     });
-    
+
 </script>
 
 <!--Hàm dùng add sản phẩm vào yêu thích(dùng ajax)-->
@@ -556,7 +556,7 @@
                     user: tempUser,
                 },
                 success: function () {
-                    
+
                 },
                 error: function () {
                     alert('Fail');

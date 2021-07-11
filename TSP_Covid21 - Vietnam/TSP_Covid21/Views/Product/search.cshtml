@@ -16,6 +16,7 @@
     ✘ Chưa thực hiện được việc lọc sản phẩm theo yêu cầu
 
     ✹ Một số form share
+        ➽ Public_Navigation
         ➽ Categories_TableConfig
         ➽ Categories_LoadBrand
         ➽ Categories_LoadProductTop
@@ -28,6 +29,7 @@
 
     ☯ Key Session
         ➛ Session["ProductTypeName"]
+        ➛ Session["KeySearch"
 -->
 
 @model IEnumerable<TSP_Covid21.Models.ShopEntity.PRODUCT>
@@ -42,7 +44,7 @@
 @{
     var db = new TSP_Covid21.Models.BUS.Product_BUS();
     var db_Ctrl = new TSP_Covid21.Controllers.ProductController();
-    var ProductTypeName = Session["ProductTypeName"];
+    int ProductTypeId = int.Parse(Session["ProductTypeName"].ToString());
 }
 
 <link href="~/Asset/css/loadmore.css" rel="stylesheet" />
@@ -57,27 +59,7 @@
     }
 </style>
 
-<!-- NAVIGATION --><!--menu chọn loại-->
-<nav id="navigation">
-    <!-- container -->
-    <div class="container">
-        <!-- responsive-nav -->
-        <div id="responsive-nav">
-            <!-- NAV -->
-            <ul class="main-nav nav navbar-nav">
-                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "SmartPhone" })"><i class="fa fa-mobile-phone"></i> SmarPhone</a></li>
-                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "Laptop" })"><i class="fa fa-laptop"></i> Laptop</a></li>
-                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "Tablet" })"><i class="fa fa-tablet"></i> Tablet</a></li>
-                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "HeadPhone" })"><i class="fa fa-headphones"></i> Headphone</a></li>
-                    <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "SmartWatch" })"><i class="fa fa-clock-o"></i> Smartwatch</a></li>
-            </ul>
-            <!-- /NAV -->
-        </div>
-        <!-- /responsive-nav -->
-    </div>
-    <!-- /container -->
-</nav>
-<!-- /NAVIGATION -->
+@Html.Partial("Public_Navigation")
 <!-- BREADCRUMB --><!--Đường dẫn -->
 <div id="breadcrumb" class="section" style="padding: 10px 0px">
     <!-- container -->
@@ -86,9 +68,9 @@
         <div class="row">
             <div class="col-md-12">
                 <ul class="breadcrumb-tree">
-                    <li><a href="@Url.Action("Home","Covid21")">Home</a></li>
+                    <li><a href="@Url.Action("Home","Covid21")">Trang chủ</a></li>
 
-                        <li class="active">Your Search</li>
+                    <li class="active">@Session["KeySearch"]</li>
 
                 </ul>
             </div>
@@ -109,7 +91,7 @@
                 <!--Lọc Thương hiệu-->
 
                 @{
-                    var loadBrandProduct = Html.Partial("Categories_LoadBrand", db_Ctrl.loadBrandCtrl(ProductTypeName.ToString()));
+                    var loadBrandProduct = Html.Partial("Categories_LoadBrand", db_Ctrl.loadBrandCtrl(ProductTypeId));
                     loadBrandProduct = new MvcHtmlString(loadBrandProduct.ToString());
                 }
                 @loadBrandProduct
@@ -117,14 +99,14 @@
                 <!--Lọc Thương hiệu-->
                 <!-- aside Widget --><!--Lọc giá-->
                 <div class="aside">
-                    <h3 class="aside-title">Price</h3>
+                    <h3 class="aside-title">Giá</h3>
                     <div class="checkbox-filter">
 
                         <div class="input-checkbox" id="input_checkbox_1">
                             <input type="checkbox" id="Price_1" name="productPrice" value="1" checked="1" />
                             <label for="Price_1">
                                 <span></span>
-                                All
+                                Tât cả
                             </label>
                         </div>
 
@@ -189,10 +171,10 @@
                 <div class="store-filter clearfix">
                     <div class="store-sort">
                         <label>
-                            Sort By:
+                            Sắp xếp theo:
                             <select class="input-select" id="sortSelect">
-                                <option value="0">low to high</option>
-                                <option value="1">high to low</option>
+                                <option value="0">thấp đến cao</option>
+                                <option value="1">cao xuống thấp</option>
                             </select>
                         </label>
                     </div>
@@ -386,7 +368,7 @@
             url: '@Url.Action("listProduct","Product")',
             type: 'POST',
             data: {
-                productTypeName: '@ProductTypeName',
+                productTypeId: @ProductTypeId,
                 valuePrice: valuePrice,
                 sort: sort,
                 listbrand: listbrand,

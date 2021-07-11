@@ -171,12 +171,12 @@ namespace TSP_Covid21.Models.BUS
         }
 
         //load brand of producttype
-        public IEnumerable<BrandViewModel> loadBrand(string ProductTypeName)
+        public IEnumerable<BrandViewModel> loadBrand(int ProductTypeId)
         {
             var result = from a in db.TEMPPRODUCT
                          join b in db.PRODUCTTYPE
                          on a.PRODUCTTYPEID equals b.PRODUCTTYPEID
-                         where b.PRODUCTTYPENAME == ProductTypeName 
+                         where b.PRODUCTTYPEID == ProductTypeId 
                          select new BrandViewModel
                          {
                              BrandId = a.BRANDID,
@@ -341,8 +341,8 @@ namespace TSP_Covid21.Models.BUS
             db.SaveChanges();
         }
 
-        //Dùng vào lúc chọn lọc sản phẩm theo mong muoonscuar khách hàng
-        public IEnumerable<PRODUCT> listProduct(string productTypeName, int startPrice, int endPrice, int sort, List<string> listbrand)
+        //Dùng vào lúc chọn lọc sản phẩm theo mong muốn của khách hàng
+        public IEnumerable<PRODUCT> listProduct(int ProductTypeId, int startPrice, int endPrice, int sort, List<string> listbrand, string key)
         {
             var list = from p in db.PRODUCT
                        where p.PRODUCTPRICE > startPrice &&
@@ -351,11 +351,15 @@ namespace TSP_Covid21.Models.BUS
 
             /*
              Kiểm tra người dùng đang bấm chọn loại sản phẩm hay tìm kiếm
-             All: có nghĩa là người dùng đang tìm kiếm sản phẩm
+             0: có nghĩa là người dùng đang tìm kiếm sản phẩm
              */
-            if (!productTypeName.Equals("All"))
+            if (ProductTypeId != 0)
             {
-                list = list.Where(p => p.PRODUCTTYPE.PRODUCTTYPENAME == productTypeName);
+                list = list.Where(p => p.PRODUCTTYPE.PRODUCTTYPEID == ProductTypeId);
+            }
+            else
+            {
+                list = list.Where(t => t.PRODUCTNAME.ToUpper().Contains(key.ToUpper()));
             }
 
             // Kiểm tra loại sản phẩm có nằm trong sản phẩm được chọn không
@@ -391,16 +395,22 @@ namespace TSP_Covid21.Models.BUS
 
         public void insertBill(string user, string note, int total)
         {
-            int a = db.ADDRESS_SHIP.Where(p => p.USER == user & p.DEFAULT == true).Select(t => t.ADDRESSID).FirstOrDefault();
+            var a = db.ADDRESS_SHIP.Where(p => p.USER == user & p.DEFAULT == true).FirstOrDefault();
             DateTime time = DateTime.Now;
 
             BILL b = new BILL
             {
                 USER = user,
-                ADDRESSID = a,
                 DATECREATE = time,
                 TOTALBILL = total,
+                BIllSTATUS = 1,
                 NOTE = note,
+                FULLNAME = a.FULLNAME,
+                PHONE = a.PHONE,
+                CITY = a.CITY,
+                DISTRICT = a.DISTRICT,
+                WARDS = a.WARDS,
+                ADDRESS = a.ADDRESS,
             };
             db.BILL.Add(b);
             db.SaveChanges();

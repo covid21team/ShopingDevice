@@ -29,7 +29,7 @@
     </Key>
     <Property Name="USER" Type="varchar" MaxLength="30" Nullable="false" />
     <Property Name="PRODUCTID" Type="int" Nullable="false" />
-    <Property Name="DATELIKE" Type="date" />
+    <Property Name="DATELIKE" Type="datetime" />
   </EntityType>
   <EntityType Name="ADDRESS_SHIP">
     <Key>
@@ -52,11 +52,17 @@
     </Key>
     <Property Name="BILLID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="USER" Type="varchar" MaxLength="30" />
-    <Property Name="ADDRESSID" Type="int" />
-    <Property Name="DATECREATE" Type="date" />
+    <Property Name="DATECREATE" Type="datetime" />
     <Property Name="VOUCHERID" Type="int" />
     <Property Name="TOTALBILL" Type="bigint" />
+    <Property Name="BIllSTATUS" Type="int" />
     <Property Name="NOTE" Type="nvarchar(max)" />
+    <Property Name="FULLNAME" Type="nvarchar" MaxLength="50" />
+    <Property Name="PHONE" Type="varchar" MaxLength="10" />
+    <Property Name="CITY" Type="nvarchar(max)" />
+    <Property Name="DISTRICT" Type="nvarchar(max)" />
+    <Property Name="WARDS" Type="nvarchar(max)" />
+    <Property Name="ADDRESS" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="BILLDETAIL">
     <Key>
@@ -128,7 +134,7 @@
     <Property Name="PRODUCTPRICE" Type="int" />
     <Property Name="PRODUCTAMOUNT" Type="int" />
     <Property Name="DECRIPTION" Type="nvarchar(max)" />
-    <Property Name="DATEADD" Type="date" />
+    <Property Name="DATEADD" Type="datetime" />
   </EntityType>
   <EntityType Name="PRODUCTTYPE">
     <Key>
@@ -163,7 +169,7 @@
     </Key>
     <Property Name="USER" Type="varchar" MaxLength="30" Nullable="false" />
     <Property Name="PRODUCTID" Type="int" Nullable="false" />
-    <Property Name="DATESEEN" Type="date" />
+    <Property Name="DATESEEN" Type="datetime" />
   </EntityType>
   <EntityType Name="VOCHERDETAIL">
     <Key>
@@ -172,7 +178,7 @@
     </Key>
     <Property Name="VOUCHERID" Type="int" Nullable="false" />
     <Property Name="USER" Type="varchar" MaxLength="30" Nullable="false" />
-    <Property Name="DATEENDTIRE" Type="date" />
+    <Property Name="DATEENDTIRE" Type="datetime" />
   </EntityType>
   <EntityType Name="VOUCHER">
     <Key>
@@ -180,7 +186,7 @@
     </Key>
     <Property Name="VOUCHERID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="DECRIPTIONVOUCHER" Type="nvarchar(max)" />
-    <Property Name="DATEENDTIRE" Type="date" />
+    <Property Name="DATEENDTIRE" Type="datetime" />
     <Property Name="STATUSVOUCHER" Type="bit" />
   </EntityType>
   <Association Name="FK__ACCOUNTLI__PRODU__5070F446">
@@ -219,19 +225,19 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__BILL__ADDRESSID__5BE2A6F2">
-    <End Role="ADDRESS_SHIP" Type="Self.ADDRESS_SHIP" Multiplicity="0..1" />
+  <Association Name="FK__BILL__USER__5BE2A6F2">
+    <End Role="ACCOUNT" Type="Self.ACCOUNT" Multiplicity="0..1" />
     <End Role="BILL" Type="Self.BILL" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="ADDRESS_SHIP">
-        <PropertyRef Name="ADDRESSID" />
+      <Principal Role="ACCOUNT">
+        <PropertyRef Name="USER" />
       </Principal>
       <Dependent Role="BILL">
-        <PropertyRef Name="ADDRESSID" />
+        <PropertyRef Name="USER" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__BILL__VOUCHERID__5AEE82B9">
+  <Association Name="FK__BILL__VOUCHERID__5CD6CB2B">
     <End Role="VOUCHER" Type="Self.VOUCHER" Multiplicity="0..1" />
     <End Role="BILL" Type="Self.BILL" Multiplicity="*" />
     <ReferentialConstraint>
@@ -243,7 +249,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__BILLDETAI__BILLI__628FA481">
+  <Association Name="FK__BILLDETAI__BILLI__6383C8BA">
     <End Role="BILL" Type="Self.BILL" Multiplicity="1" />
     <End Role="BILLDETAIL" Type="Self.BILLDETAIL" Multiplicity="*" />
     <ReferentialConstraint>
@@ -255,7 +261,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__BILLDETAI__PRODU__6383C8BA">
+  <Association Name="FK__BILLDETAI__PRODU__6477ECF3">
     <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
     <End Role="BILLDETAIL" Type="Self.BILLDETAIL" Multiplicity="*" />
     <ReferentialConstraint>
@@ -435,7 +441,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__VOCHERDET__VOUCH__5EBF139D">
+  <Association Name="FK__VOCHERDET__VOUCH__5FB337D6">
     <End Role="VOUCHER" Type="Self.VOUCHER" Multiplicity="1" />
     <End Role="VOCHERDETAIL" Type="Self.VOCHERDETAIL" Multiplicity="*" />
     <ReferentialConstraint>
@@ -447,7 +453,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__VOCHERDETA__USER__5FB337D6">
+  <Association Name="FK__VOCHERDETA__USER__60A75C0F">
     <End Role="ACCOUNT" Type="Self.ACCOUNT" Multiplicity="1" />
     <End Role="VOCHERDETAIL" Type="Self.VOCHERDETAIL" Multiplicity="*" />
     <ReferentialConstraint>
@@ -460,6 +466,10 @@
     </ReferentialConstraint>
   </Association>
   <Function Name="CheckLogin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="username" Type="varchar" Mode="In" />
+    <Parameter Name="password" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="CheckLoginAdmin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="username" Type="varchar" Mode="In" />
     <Parameter Name="password" Type="varchar" Mode="In" />
   </Function>
@@ -494,19 +504,19 @@
       <End Role="ACCOUNT" EntitySet="ACCOUNT" />
       <End Role="ADDRESS_SHIP" EntitySet="ADDRESS_SHIP" />
     </AssociationSet>
-    <AssociationSet Name="FK__BILL__ADDRESSID__5BE2A6F2" Association="Self.FK__BILL__ADDRESSID__5BE2A6F2">
-      <End Role="ADDRESS_SHIP" EntitySet="ADDRESS_SHIP" />
+    <AssociationSet Name="FK__BILL__USER__5BE2A6F2" Association="Self.FK__BILL__USER__5BE2A6F2">
+      <End Role="ACCOUNT" EntitySet="ACCOUNT" />
       <End Role="BILL" EntitySet="BILL" />
     </AssociationSet>
-    <AssociationSet Name="FK__BILL__VOUCHERID__5AEE82B9" Association="Self.FK__BILL__VOUCHERID__5AEE82B9">
+    <AssociationSet Name="FK__BILL__VOUCHERID__5CD6CB2B" Association="Self.FK__BILL__VOUCHERID__5CD6CB2B">
       <End Role="VOUCHER" EntitySet="VOUCHER" />
       <End Role="BILL" EntitySet="BILL" />
     </AssociationSet>
-    <AssociationSet Name="FK__BILLDETAI__BILLI__628FA481" Association="Self.FK__BILLDETAI__BILLI__628FA481">
+    <AssociationSet Name="FK__BILLDETAI__BILLI__6383C8BA" Association="Self.FK__BILLDETAI__BILLI__6383C8BA">
       <End Role="BILL" EntitySet="BILL" />
       <End Role="BILLDETAIL" EntitySet="BILLDETAIL" />
     </AssociationSet>
-    <AssociationSet Name="FK__BILLDETAI__PRODU__6383C8BA" Association="Self.FK__BILLDETAI__PRODU__6383C8BA">
+    <AssociationSet Name="FK__BILLDETAI__PRODU__6477ECF3" Association="Self.FK__BILLDETAI__PRODU__6477ECF3">
       <End Role="PRODUCT" EntitySet="PRODUCT" />
       <End Role="BILLDETAIL" EntitySet="BILLDETAIL" />
     </AssociationSet>
@@ -566,11 +576,11 @@
       <End Role="ACCOUNT" EntitySet="ACCOUNT" />
       <End Role="VIEWNUMBER" EntitySet="VIEWNUMBER" />
     </AssociationSet>
-    <AssociationSet Name="FK__VOCHERDET__VOUCH__5EBF139D" Association="Self.FK__VOCHERDET__VOUCH__5EBF139D">
+    <AssociationSet Name="FK__VOCHERDET__VOUCH__5FB337D6" Association="Self.FK__VOCHERDET__VOUCH__5FB337D6">
       <End Role="VOUCHER" EntitySet="VOUCHER" />
       <End Role="VOCHERDETAIL" EntitySet="VOCHERDETAIL" />
     </AssociationSet>
-    <AssociationSet Name="FK__VOCHERDETA__USER__5FB337D6" Association="Self.FK__VOCHERDETA__USER__5FB337D6">
+    <AssociationSet Name="FK__VOCHERDETA__USER__60A75C0F" Association="Self.FK__VOCHERDETA__USER__60A75C0F">
       <End Role="ACCOUNT" EntitySet="ACCOUNT" />
       <End Role="VOCHERDETAIL" EntitySet="VOCHERDETAIL" />
     </AssociationSet>

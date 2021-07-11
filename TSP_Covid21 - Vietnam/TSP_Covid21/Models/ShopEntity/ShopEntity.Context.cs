@@ -28,10 +28,8 @@ namespace TSP_Covid21.Models.ShopEntity
         }
     
         public virtual DbSet<ACCOUNT> ACCOUNT { get; set; }
-        public virtual DbSet<ACCOUNT_ADMIN> ACCOUNT_ADMIN { get; set; }
         public virtual DbSet<ACCOUNTLIKE> ACCOUNTLIKE { get; set; }
         public virtual DbSet<ADDRESS_SHIP> ADDRESS_SHIP { get; set; }
-        public virtual DbSet<BILL> BILL { get; set; }
         public virtual DbSet<BILLDETAIL> BILLDETAIL { get; set; }
         public virtual DbSet<BRAND> BRAND { get; set; }
         public virtual DbSet<CART> CART { get; set; }
@@ -45,6 +43,8 @@ namespace TSP_Covid21.Models.ShopEntity
         public virtual DbSet<VIEWNUMBER> VIEWNUMBER { get; set; }
         public virtual DbSet<VOCHERDETAIL> VOCHERDETAIL { get; set; }
         public virtual DbSet<VOUCHER> VOUCHER { get; set; }
+        public virtual DbSet<ACCOUNT_ADMIN> ACCOUNT_ADMIN { get; set; }
+        public virtual DbSet<BILL> BILL { get; set; }
     
         public virtual ObjectResult<string> CheckLogin(string username, string password)
         {
@@ -57,6 +57,19 @@ namespace TSP_Covid21.Models.ShopEntity
                 new ObjectParameter("password", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("CheckLogin", usernameParameter, passwordParameter);
+        }
+    
+        public virtual ObjectResult<string> CheckLoginAdmin(string username, string password)
+        {
+            var usernameParameter = username != null ?
+                new ObjectParameter("username", username) :
+                new ObjectParameter("username", typeof(string));
+    
+            var passwordParameter = password != null ?
+                new ObjectParameter("password", password) :
+                new ObjectParameter("password", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("CheckLoginAdmin", usernameParameter, passwordParameter);
         }
     }
 }

@@ -5,12 +5,10 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="f792a0e8f9c44b0d8ffbe0e955661d36" Name="Diagram1">
-        <EntityTypeShape EntityType="COVIDModel.ACCOUNT" Width="1.5" PointX="3" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="COVIDModel.ACCOUNT_ADMIN" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="COVIDModel.ACCOUNT" Width="1.5" PointX="0.5" PointY="2.875" IsExpanded="true" />
         <EntityTypeShape EntityType="COVIDModel.ACCOUNTLIKE" Width="1.5" PointX="5.25" PointY="8.75" IsExpanded="true" />
         <EntityTypeShape EntityType="COVIDModel.ADDRESS_SHIP" Width="1.5" PointX="0.75" PointY="16.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="COVIDModel.BILL" Width="1.5" PointX="3" PointY="18.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="COVIDModel.BILLDETAIL" Width="1.5" PointX="5.25" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="COVIDModel.BILLDETAIL" Width="1.5" PointX="6" PointY="14.75" IsExpanded="true" />
         <EntityTypeShape EntityType="COVIDModel.BRAND" Width="1.5" PointX="0.75" PointY="11.75" IsExpanded="true" />
         <EntityTypeShape EntityType="COVIDModel.CART" Width="1.5" PointX="8.25" PointY="11.625" IsExpanded="true" />
         <EntityTypeShape EntityType="COVIDModel.COMMENT" Width="1.5" PointX="8.25" PointY="8.5" IsExpanded="true" />
@@ -31,9 +29,6 @@
         <AssociationConnector Association="COVIDModel.FK__VIEWNUMBER__USER__412EB0B6" ManuallyRouted="false" />
         <AssociationConnector Association="COVIDModel.FK__VOCHERDETA__USER__5FB337D6" ManuallyRouted="false" />
         <AssociationConnector Association="COVIDModel.FK__ACCOUNTLI__PRODU__5070F446" ManuallyRouted="false" />
-        <AssociationConnector Association="COVIDModel.FK__BILL__ADDRESSID__5BE2A6F2" ManuallyRouted="false" />
-        <AssociationConnector Association="COVIDModel.FK__BILL__VOUCHERID__5AEE82B9" ManuallyRouted="false" />
-        <AssociationConnector Association="COVIDModel.FK__BILLDETAI__BILLI__628FA481" ManuallyRouted="false" />
         <AssociationConnector Association="COVIDModel.FK__BILLDETAI__PRODU__6383C8BA" ManuallyRouted="false" />
         <AssociationConnector Association="COVIDModel.FK__PRODUCT__BRANDID__2F10007B" ManuallyRouted="false" />
         <AssociationConnector Association="COVIDModel.FK__TEMPPRODU__BRAND__2A4B4B5E" ManuallyRouted="false" />
@@ -46,6 +41,11 @@
         <AssociationConnector Association="COVIDModel.FK__VIEWNUMBE__PRODU__4222D4EF" ManuallyRouted="false" />
         <AssociationConnector Association="COVIDModel.FK__TEMPPRODU__PRODU__2B3F6F97" ManuallyRouted="false" />
         <AssociationConnector Association="COVIDModel.FK__VOCHERDET__VOUCH__5EBF139D" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="COVIDModel.ACCOUNT_ADMIN" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="COVIDModel.BILL" Width="1.5" PointX="3.125" PointY="16.875" />
+        <AssociationConnector Association="COVIDModel.FK__BILL__USER__5BE2A6F2" />
+        <AssociationConnector Association="COVIDModel.FK__BILL__VOUCHERID__5CD6CB2B" />
+        <AssociationConnector Association="COVIDModel.FK__BILLDETAI__BILLI__6383C8BA" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

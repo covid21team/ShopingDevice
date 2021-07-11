@@ -88,5 +88,10 @@ namespace TSP_Covid21.Areas.Admin.Controllers
 
             return a;
         }
+
+        public IEnumerable<PRODUCT> listProduct()
+        {
+            return SB.listProduct();
+        }
     }
 }

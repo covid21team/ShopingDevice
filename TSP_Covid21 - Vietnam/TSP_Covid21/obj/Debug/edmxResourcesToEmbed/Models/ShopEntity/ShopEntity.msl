@@ -15,16 +15,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="ACCOUNT_ADMIN">
-      <EntityTypeMapping TypeName="COVIDModel.ACCOUNT_ADMIN">
-        <MappingFragment StoreEntitySet="ACCOUNT_ADMIN">
-          <ScalarProperty Name="USER" ColumnName="USER" />
-          <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
-          <ScalarProperty Name="FULLNAME" ColumnName="FULLNAME" />
-          <ScalarProperty Name="STATUSACCOUNT" ColumnName="STATUSACCOUNT" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="ACCOUNTLIKE">
       <EntityTypeMapping TypeName="COVIDModel.ACCOUNTLIKE">
         <MappingFragment StoreEntitySet="ACCOUNTLIKE">
@@ -47,19 +37,6 @@
           <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
           <ScalarProperty Name="DEFAULT" ColumnName="DEFAULT" />
           <ScalarProperty Name="ADDRESS_STATUS" ColumnName="ADDRESS_STATUS" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="BILL">
-      <EntityTypeMapping TypeName="COVIDModel.BILL">
-        <MappingFragment StoreEntitySet="BILL">
-          <ScalarProperty Name="BILLID" ColumnName="BILLID" />
-          <ScalarProperty Name="USER" ColumnName="USER" />
-          <ScalarProperty Name="ADDRESSID" ColumnName="ADDRESSID" />
-          <ScalarProperty Name="DATECREATE" ColumnName="DATECREATE" />
-          <ScalarProperty Name="VOUCHERID" ColumnName="VOUCHERID" />
-          <ScalarProperty Name="TOTALBILL" ColumnName="TOTALBILL" />
-          <ScalarProperty Name="NOTE" ColumnName="NOTE" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -195,5 +172,35 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <FunctionImportMapping FunctionImportName="CheckLogin" FunctionName="COVIDModel.Store.CheckLogin" />
+    <EntitySetMapping Name="ACCOUNT_ADMIN">
+      <EntityTypeMapping TypeName="COVIDModel.ACCOUNT_ADMIN">
+        <MappingFragment StoreEntitySet="ACCOUNT_ADMIN">
+          <ScalarProperty Name="STATUSACCOUNT" ColumnName="STATUSACCOUNT" />
+          <ScalarProperty Name="FULLNAME" ColumnName="FULLNAME" />
+          <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+          <ScalarProperty Name="USER" ColumnName="USER" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="CheckLoginAdmin" FunctionName="COVIDModel.Store.CheckLoginAdmin" />
+    <EntitySetMapping Name="BILL">
+      <EntityTypeMapping TypeName="COVIDModel.BILL">
+        <MappingFragment StoreEntitySet="BILL">
+          <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+          <ScalarProperty Name="WARDS" ColumnName="WARDS" />
+          <ScalarProperty Name="DISTRICT" ColumnName="DISTRICT" />
+          <ScalarProperty Name="CITY" ColumnName="CITY" />
+          <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+          <ScalarProperty Name="FULLNAME" ColumnName="FULLNAME" />
+          <ScalarProperty Name="NOTE" ColumnName="NOTE" />
+          <ScalarProperty Name="BIllSTATUS" ColumnName="BIllSTATUS" />
+          <ScalarProperty Name="TOTALBILL" ColumnName="TOTALBILL" />
+          <ScalarProperty Name="VOUCHERID" ColumnName="VOUCHERID" />
+          <ScalarProperty Name="DATECREATE" ColumnName="DATECREATE" />
+          <ScalarProperty Name="USER" ColumnName="USER" />
+          <ScalarProperty Name="BILLID" ColumnName="BILLID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>
