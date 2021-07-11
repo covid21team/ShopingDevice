@@ -186,21 +186,29 @@ CREATE TABLE VOUCHER
 	STATUSVOUCHER BIT DEFAULT 1
 )
 
+-- Lí do bảng bill lại có nhưng thuộc tính của địa chỉ mà không đơn giản gọi cái id thì sẽ có hết thông tin
+-- Vì khi tạo bill thì địa chỉ đã xác định rõ ràng
+-- Nếu kết nối với bảng địa chỉ thì khi thay đổi value của bảng địa chỉ thì đồng nghĩa bill bị thay đổi địa chỉ
+-- Dẫn đến việc xác định nơi nhận cái hóa đơn có thể bị thay đổi mọi lúc, khi xuất bill cho khách hàng sẽ không đúng chỉ mong muốn của khách hàng
 go
-
 CREATE TABLE BILL
 (
 	BILLID INT IDENTITY PRIMARY KEY,
 	[USER] VARCHAR(30),
-	ADDRESSID INT,
 	DATECREATE DATETIME DEFAULT GETDATE(),
 	VOUCHERID INT,
 	TOTALBILL bigint,
 	BIllSTATUS int, --1: chờ xét duyệt 2: đang giao 3: đã giao 4: hủy đơn
 	NOTE nvarchar(max),
+	FULLNAME NVARCHAR(50),
+	PHONE VARCHAR(10) CHECK (LEN(PHONE) = 10),
+	CITY NVARCHAR(MAX),
+	DISTRICT NVARCHAR(MAX),
+	WARDS NVARCHAR(MAX),
+	[ADDRESS] NVARCHAR(MAX),
+
 
 	foreign key (VOUCHERID) references VOUCHER(VOUCHERID) on update cascade ,
-	foreign key (ADDRESSID) references ADDRESS_SHIP(ADDRESSID) on update cascade ,
 )
 
 
