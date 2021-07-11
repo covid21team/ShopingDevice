@@ -207,7 +207,7 @@ CREATE TABLE BILL
 	WARDS NVARCHAR(MAX),
 	[ADDRESS] NVARCHAR(MAX),
 
-
+	foreign key ([USER]) references ACCOUNT([USER]) on update cascade,
 	foreign key (VOUCHERID) references VOUCHER(VOUCHERID) on update cascade ,
 )
 
