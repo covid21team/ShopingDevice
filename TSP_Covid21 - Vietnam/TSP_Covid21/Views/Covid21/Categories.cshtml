@@ -255,10 +255,6 @@
                             </select>
                         </label>
                     </div>
-                    <ul class="store-grid">
-                        <li class="active"><i class="fa fa-th"></i></li>
-                        <li><a href="#"><i class="fa fa-th-list"></i></a></li>
-                    </ul>
                 </div>
 
                 <!-- /store top filter -->
@@ -290,6 +286,7 @@
                                     <h3 class="product-name"><a href="@Url.Action("Product","Covid21",new { productId = item.PRODUCTID})">@item.PRODUCTNAME</a></h3>
                                     @{
                                         var temp = String.Format("{0:#,##0.##}", @item.PRODUCTPRICE);
+                                        temp = temp.Replace(".", ",");
                                         temp += "đ";
                                     }
                                     <h4 class="product-price">@temp</h4>

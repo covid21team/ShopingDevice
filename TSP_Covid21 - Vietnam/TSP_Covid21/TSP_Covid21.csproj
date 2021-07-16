@@ -225,6 +225,7 @@
     <Compile Include="Models\ShopEntity\VOUCHER.cs">
       <DependentUpon>ShopEntity.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ViewModel\AccountViewModel.cs" />
     <Compile Include="Models\ViewModel\BrandViewModel.cs" />
     <Compile Include="Models\ViewModel\CommentProduct.cs" />
     <Compile Include="Models\ViewModel\ListAccount.cs" />
@@ -1145,6 +1146,8 @@
     <Content Include="Views\Product\insertCartWithAmount.cshtml" />
     <Content Include="Views\Product\delProduct_Cart.cshtml" />
     <Content Include="Views\Account\BillDetail.cshtml" />
+    <Content Include="Views\Covid21\ContactUs.cshtml" />
+    <Content Include="Views\Covid21\PrivacyPolicy.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

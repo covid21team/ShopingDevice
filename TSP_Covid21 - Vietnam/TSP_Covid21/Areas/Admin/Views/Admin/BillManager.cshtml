@@ -80,6 +80,7 @@
                                                     <td style="text-align: center;">@item.DATECREATE</td>
                                                     @{ 
                                                         var temp1 = String.Format("{0:#,##0.##}", item.TOTALBILL);
+                                                        temp1 = temp1.Replace(".", ",");
                                                         temp1 += "đ";
                                                     }
                                                     <td style="text-align: center;">@temp1</td>
@@ -121,18 +122,18 @@
                                 <form>
                                     <div>
                                         <label for="" class="labelbilladmin">Người nhận</label>
-                                        <input type="text" class="form-control bluan" id="" placeholder="1">
+                                        <input type="text" class="form-control bluan" id="" disabled>
                                     </div>
                                     <div>
                                         <label for="" class="labelbilladmin">Địa chỉ</label>
                                         <textarea class="form-control" name="" id="" cols="30"
-                                                    rows="2"></textarea>
+                                                    rows="2" disabled></textarea>
                                     </div>
                                     <div>
                                         <label for="" class="labelbilladmin">SĐT</label>
-                                        <input type="text" class="form-control bluan" id="" placeholder="iphoneXR">
+                                        <input type="text" class="form-control bluan" id="" disabled>
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-group" >
                                         <label style="margin-left: 2px;" class="labelbilladmin">Sản phẩm</label>
                                         <div class="thanhkeobilladmin">
 
@@ -148,34 +149,7 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td><img src="img/product05.png" height="30px" alt=""></td>
-                                                        <td>tai nghe chống chán nản</td>
-                                                        <td>x1</td>
-                                                        <td>250k</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td><img src="img/product05.png" height="30px" alt=""></td>
-                                                        <td>tai nghe chống chán nản</td>
-                                                        <td>x1</td>
-                                                        <td>250k</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td><img src="img/product05.png" height="30px" alt=""></td>
-                                                        <td>tai nghe chống chán nản</td>
-                                                        <td>x1</td>
-                                                        <td>250k</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td><img src="img/product05.png" height="30px" alt=""></td>
-                                                        <td>tai nghe chống chán nản</td>
-                                                        <td>x1</td>
-                                                        <td>250k</td>
-                                                    </tr>
+
                                                 </tbody>
                                             </table>
                                         </div>
@@ -183,7 +157,7 @@
                                     <div style="text-align: center;">
                                         <div style="text-align: center;">
                                             <button type="button" class="btn btn-danger bluan"
-                                                    style="margin-bottom: 15px; margin-top: 15px;" >
+                                                    style="margin-bottom: 15px; margin-top: 15px;" disabled>
                                                 Duyệt
                                             </button>
                                         </div>

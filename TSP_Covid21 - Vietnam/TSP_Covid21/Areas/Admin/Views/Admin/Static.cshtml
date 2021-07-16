@@ -43,6 +43,7 @@
                         @{
                             long total = long.Parse(SC.Revenue());
                             var temp = String.Format("{0:#,##0.##}", total);
+                            temp = temp.Replace(".", ",");
                             temp += "đ";
                         }
                         <li class="ms-auto"><span class="counter text-success">@temp</span></li>
@@ -164,6 +165,7 @@
                                         @{
                                             int total1 = (int)@item.BILLDETAIL.Sum(t => t.AMOUNT * item.PRODUCTPRICE);
                                             var temp1 = String.Format("{0:#,##0.##}", total1);
+                                            temp1 = temp1.Replace(".", ",");
                                             temp1 += "đ";
                                         }
                                         <td><span class="text-info">@temp1</span></td>

@@ -38,6 +38,14 @@
         .btn_Edit:hover {
             background: #FF0000;
         }
+
+
+    .table_productDetail {
+        height: auto;
+        max-height: 550px;
+        overflow-y: scroll;
+    }
+
 </style>
 
 @{
@@ -55,7 +63,7 @@
     </tr>
 </table>
 
-<div id="table1" style="background: red; width: 43%; margin-left: 28.5%">
+<div id="table1" style="background: white; width: 43%; margin-left: 28.5%" class="table_productDetail">
     <table class="cus2">
 
         <tr>
@@ -119,7 +127,7 @@
             </th>
             <td>
                 <div style="float: none;">
-                    <label for="filebutton" id="upload-btn">
+                    <label for="Mainpic" id="upload-btn">
                         <span>
                             <i class="fas fa-folder-open " style="color:#fad859;"></i>
                             Open file
@@ -422,7 +430,7 @@
     });
 
     //Up ảnh đại diện
-    $("#filebutton").change(function (event) {
+    $("#Mainpic").change(function (event) {
 
         var dem = document.getElementsByClassName("pictureProductMain").length;
 
@@ -447,40 +455,4 @@
             $("#appearMainPic").prepend(create);
         }
     });
-</script>
-
-
-<!-- Hàm thử nghiệm -->
-<script>
-    /*$(".configInf").change(function () {
-        alert("iebfi");
-        var parent = $(this).parent().parent();
-        var check = $(parent).children().children().children(".click");
-        if ($(this).val != "") {
-            check.checked = true;
-        } else {
-            check.checked = false;
-        }
-    });
-
-    $(".btn_Check").click(function () {
-        var configs = document.getElementsByClassName("config_Product");
-        var name = "";
-        var inf = "";
-
-        for (var i = 0; i < configs.length; i++) {
-            var config = configs[i];
-            var configName = $(config).children().children(".configName").val();
-            var configInf = $(config).children().children(".configInf");
-            var condition = $(config).children().children().children(".click").is(":checked");
-
-            if (condition == true) {
-                name += configName + "&";
-                inf += $(configInf).val() + "&";
-            }
-            
-        }
-        alert(name);
-        alert(inf);
-    });*/
 </script>

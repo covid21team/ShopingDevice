@@ -149,6 +149,7 @@
                         <td>@quantity</td>
                         @{
                             var total = String.Format("{0:#,##0.##}", item.AMOUNT * item.PRODUCT.PRODUCTPRICE);
+                            total = total.Replace(".", ",");
                             total += "đ";
                         }
                         <td>@total</td>

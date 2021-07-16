@@ -2,7 +2,11 @@
     ViewBag.Title = "ProductManager";
     Layout = "~/Areas/Admin/Views/Shared/MainLayoutAdmin.cshtml";
 }
-
+<style>
+    .click_ProductManager:hover {
+        background: #BBBBBB;
+    }
+</style>
 <!-- Page wrapper  -->
 <!-- ============================================================== -->
 <div class="page-wrapper" style="min-height: 250px;" id="productManager">
@@ -43,15 +47,14 @@
                             <th style="font-size:15px;">Giá</th>
                             <th style="font-size:15px;">Đánh giá</th>
                             <th style="font-size:15px;">Số lượng</th>
-                            <th style="font-size:15px;" class="add_Product">
+                            <th style="font-size:15px;" class="add_Product click_ProductManager">
                                 <a>
                                     <i class="fas fa-plus-circle" style="color: #bcd451;"></i>
                                 </a>
                             </th>
-                            <th style="font-size:15px;" class="add_Product">
-                                <a>
-                                    <i class="fas fa-plus-circle" style="color: #bcd451;"></i>
-                                </a>
+                            
+                            <th >
+
                             </th>
                         </tr>
                     </thead>
@@ -81,13 +84,16 @@
                                 <td class="click_Product statusProduct">@temp</td>
                                 @{
                                     var tempPrice = String.Format("{0:#,##0.##}", item.PRODUCTPRICE);
+                                    tempPrice = tempPrice.Replace(".", ",");
                                     tempPrice += "đ";
                                 }
                                 <td class="click_Product">@tempPrice</td>
                                 <td class="click_Product">@item.RATINGPRODUCT.Count()</td>
                                 <td class="click_Product">@item.PRODUCTAMOUNT</td>
-                                <td class="edit_Product"><i class="fas fa-edit"></i></td>
-                                <td class="delete_product">
+                                <td class="edit_Product click_ProductManager">
+                                    <i class="fas fa-edit"></i>
+                                </td>
+                                <td class="delete_product click_ProductManager">
                                     <i class="fas fa-trash-alt" style="color: red;"></i>
                                 </td>
                             </tr>

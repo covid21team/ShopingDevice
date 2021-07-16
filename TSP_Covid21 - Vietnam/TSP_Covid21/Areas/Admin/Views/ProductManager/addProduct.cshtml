@@ -13,9 +13,15 @@
         .btn_Add:hover {
             background: #FF0000;
         }
+
+    .table_productDetail {
+        height: auto;
+        max-height: 550px;
+        overflow-y: scroll;
+    }
 </style>
 
-<div class="modal1-content" style="width: 43%; margin-left: 28.5%">
+<div class="modal1-content table_productDetail" style="width: 43%; margin-left: 28.5%">
 
     <table class="cus2">
         <tr>
@@ -74,17 +80,17 @@
             </th>
             <td>
                 <div style="float: none;">
-                    <label for="filebutton" id="upload-btn">
+                    <label for="AddMainpic" id="upload-btn">
                         <span>
                             <i class="fas fa-folder-open " style="color:#fad859;"></i>
                             Open file
                         </span>
                     </label>
-                    <input id="Mainpic" name="Pic2" class="input-file" type="file" multiple accept="image/*"
+                    <input id="AddMainpic" name="Pic2" class="input-file" type="file" multiple accept="image/*"
                            style="display: none" />
                 </div>
-                <div class="card-deck" id="appearMainPic">
-
+                <div class="card-deck" id="AddappearMainPic">
+ 
                 </div>
 
             </td>
@@ -221,9 +227,9 @@
     });
 
     //Up ảnh đại diện
-    $("#filebutton").change(function (event) {
-
-        var dem = document.getElementsByClassName("pictureProductMain").length;
+    $("#AddMainpic").change(function (event) {
+        
+        var dem = document.getElementsByClassName("AddpictureProductMain").length;
 
         var files = event.target.files;
 
@@ -231,7 +237,7 @@
             var file = files[i];
             var create = document.createElement("div");
 
-            create.innerHTML = '<div class="card mb-4 pictureProductMain" style="width: 104px; float: left;">' +
+            create.innerHTML = '<div class="card mb-4 AddpictureProductMain" style="width: 104px; float: left;">' +
                 '<figure class="snip0068 yellow">' +
                 '<input type="text" value="Asset/images/' + file.name + '" style="display: none" class="takePath" />' +
                 '<img src="/Asset/images/' + file.name + '"/>' +
@@ -243,7 +249,7 @@
                 '</figure>' +
                 '</div>';
 
-            $("#appearMainPic").prepend(create);
+            $("#AddappearMainPic").prepend(create);
         }
     });
 </script>

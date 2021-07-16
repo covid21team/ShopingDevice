@@ -1,5 +1,5 @@
 
-  function myFunction(){
+  function my10Function(){
     var x =document.getElementById("pass1");
     var t =document.getElementById("hidel3");
     var e =document.getElementById("hidel4");

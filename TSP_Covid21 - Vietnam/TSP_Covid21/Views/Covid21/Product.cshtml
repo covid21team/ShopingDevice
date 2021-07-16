@@ -164,8 +164,10 @@
                     <div>
                         @{
                             var temp = String.Format("{0:#,##0.##}", Model.PRODUCTPRICE);
+                            temp = temp.Replace(".", ",");
+                            temp += "đ";
                         }
-                        <h3 class="product-price">@temp đ</h3>
+                        <h3 class="product-price">@temp</h3>
                         @if (Model.PRODUCTAMOUNT <= 0)
                         {
                             <span class="product-available">Hết hàng</span>

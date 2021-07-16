@@ -38,7 +38,7 @@ function recalculateCart() {
 
             temp_subtotal = temp_subtotal.replace("đ", "");
 
-            temp_subtotal = Number(temp_subtotal.replace(/[.]+/g, "")); //4,300 => 4300
+            temp_subtotal = Number(temp_subtotal.replace(/[,]+/g, "")); //4,300 => 4300
 
             subtotal += parseInt(temp_subtotal);
         }
@@ -98,7 +98,7 @@ function updateQuantity(quantityInput) {
     var productRow = $(quantityInput).parent().parent();
     var price_temp = productRow.children().children('.product_price_cart').text();
     price_temp = price_temp.replace("đ", "");
-    var price = Number(price_temp.replace(/[.]+/g, "")); // 4.300 => 4300
+    var price = Number(price_temp.replace(/[,]+/g, "")); // 4.300 => 4300
     var quantity = $(quantityInput).val();
     var linePrice = price * quantity;
 
@@ -119,5 +119,3 @@ function removeItem(removeButton) {
         //recalculateCart();
     });
 }
-
-

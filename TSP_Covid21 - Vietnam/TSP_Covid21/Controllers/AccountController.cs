@@ -115,11 +115,9 @@ namespace TSP_Covid21.Controllers
 
         public void changeInf(string user, string fullname, bool sex, string birth, string email, string phone)
         {
-            DateTime date = DateTime.Parse(birth);
-
             Account_BUS AB = new Account_BUS();
 
-            AB.changeInf(user, fullname, sex, date, email, phone);
+            AB.changeInf(user, fullname, sex, birth, email, phone);
 
             Session["fullname"] = fullname;
             Session["gmail"] = email;

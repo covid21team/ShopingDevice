@@ -73,8 +73,10 @@
                                 <h3 class="product-name" style="height: 20px"><a ref="@Url.Action("Product","Covid21",new { productId = item.ProductId})">@item.ProductName</a></h3>
                                 @{
                                     var temp = String.Format("{0:#,##0.##}", item.ProductPrice);
+                                    temp = temp.Replace(".", ",");
+                                    temp += "đ";
                                 }
-                                <h4 class="product-price">@temp đ</h4>
+                                <h4 class="product-price">@temp</h4>
 
                                 <!-- rating product-->
                                 @Html.Partial("Public_RatingProduct", PC.loadRatingProduct(item.ProductId))

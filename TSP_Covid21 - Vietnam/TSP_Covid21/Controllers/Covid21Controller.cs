@@ -49,6 +49,16 @@ namespace TSP_Covid21.Controllers
             return View(result);
         }
 
+        public ActionResult ContactUs()
+        {
+            return View();
+        }
+
+        public ActionResult PrivacyPolicy()
+        {
+            return View();
+        }
+
         public ActionResult Cart(string user)
         {
             var db = new Product_BUS();
@@ -87,11 +97,11 @@ namespace TSP_Covid21.Controllers
 
             return View(result);
         }
-
-        public ActionResult Personal(string user)
+        // 1: thư mục chính 2: thư mục địa chỉ 3: thư mục hóa đơn
+        public ActionResult Personal(string user, int code)
         {
             var db = new Account_BUS();
-            ACCOUNT result = db.account(user);
+            var result = db.account(user, code);
 
             return View(result);
         }

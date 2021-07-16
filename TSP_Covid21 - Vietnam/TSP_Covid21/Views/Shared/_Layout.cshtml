@@ -40,7 +40,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <title>Covid21</title>
@@ -154,7 +154,7 @@
                                                 </a>
                                             </li>
                                             <li class="setting-item">
-                                                <a href="@Url.Action("Personal","Covid21",new { user = Session["user"]})">
+                                                <a href="@Url.Action("Personal","Covid21",new { user = Session["user"], code = 1})">
                                                     <div class="icon1">
                                                         <span class="fas fa-cog"></span>
                                                     </div>
@@ -214,11 +214,6 @@
                             {
                                 <select class="input-select">
                                     <option value="0">Tất cả thể loại</option>
-                                    <option value="1">Điện thoại</option>
-                                    <option value="2">Laptop</option>
-                                    <option value="3">Tablet</option>
-                                    <option value="4">Tai nghe</option>
-                                    <option value="5">Đồng hồ</option>
                                 </select>
 
                                 <input name="key" id="key" class="input" placeholder="Tìm kiếm ở đây" type="text" value="@key">
@@ -366,10 +361,18 @@
                         <div class="footer">
                             <h3 class="footer-title">Thông tin</h3>
                             <ul class="footer-links">
-                                <li><a href="#">About Us</a></li>
-                                <li><a href="#">Contact Us</a></li>
-                                <li><a href="#">Privacy Policy</a></li>
-                                <li><a href="#">Orders and Returns</a></li>
+                                <li><a href="#">Về chúng tôi</a></li>
+                                <li><a href="@Url.Action("ContactUs","Covid21")">Liên hệ</a></li>
+                                <li><a href="@Url.Action("PrivacyPolicy","Covid21")">Chính sách bảo mật</a></li>
+                                @if (Session["user"] == null)
+                                {
+                                    <li><a href="#" class="inf_login" onclick="document.getElementById('id01_login').style.display='block'">Orders and Returns</a></li>
+                                }
+                                else
+                                {
+                                    <li><a href="#">Orders and Returns</a></li>
+                                }
+                                
                                 <li><a href="#">Terms & Conditions</a></li>
                             </ul>
                         </div>
@@ -379,20 +382,21 @@
                         <div class="footer">
                             <h3 class="footer-title">Điều khoản</h3>
                             <ul class="footer-links">
-                                <li><a href="#">Tài khoản</a></li>
                                 @if (Session["user"] == null)
                                 {
+                                    <li><a href="#" class="inf_login" onclick="document.getElementById('id01_login').style.display='block'">Tài khoản</a></li>
                                     <li><a href="#" class="inf_login" onclick="document.getElementById('id01_login').style.display='block'">Giỏ hàng</a></li>
                                     <li><a href="#" class="inf_login" onclick="document.getElementById('id01_login').style.display='block'">Yêu thích</a></li>
+                                    <li><a href="#" class="inf_login" onclick="document.getElementById('id01_login').style.display='block'">Đơn hàng của tôi</a></li>
                                 }
                                 else
                                 {
+                                    <li><a href="@Url.Action("Personal","Covid21",new { user = Session["user"], code = 1})">Tài khoản</a></li>
                                     <li><a href="@Url.Action("Cart","Covid21",new { user = Session["user"]})">Giỏ hàng</a></li>
-
                                     <li><a href="@Url.Action("Favourite","Covid21",new { user = Session["user"] })">Yêu thích</a></li>
+                                    <li><a href="@Url.Action("Personal","Covid21",new { user = Session["user"], code = 3})">Theo dõi đơn hàng</a></li>
                                 }
-                                <li><a href="#">Track My Order</a></li>
-                                <li><a href="#">Help</a></li>
+                                <li><a href="#">Hỗ trợ</a></li>
                             </ul>
                         </div>
                     </div>

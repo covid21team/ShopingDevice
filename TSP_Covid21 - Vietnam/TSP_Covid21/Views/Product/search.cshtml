@@ -211,6 +211,7 @@
                                     <h3 class="product-name"><a href="@Url.Action("Product","Covid21",new { productId = item.PRODUCTID})">@item.PRODUCTNAME</a></h3>
                                     @{
                                         var temp = String.Format("{0:#,##0.##}", @item.PRODUCTPRICE);
+                                        temp = temp.Replace(".", ",");
                                         temp += "đ";
                                     }
                                     <h4 class="product-price">@temp</h4>

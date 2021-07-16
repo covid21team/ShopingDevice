@@ -1,4 +1,4 @@
-﻿@model TSP_Covid21.Models.ShopEntity.ACCOUNT
+﻿@model TSP_Covid21.Models.ViewModel.AccountViewModel
 @{
     ViewBag.Title = "Personal";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -6,11 +6,58 @@
 
 @{
     TSP_Covid21.Controllers.AccountController AC = new TSP_Covid21.Controllers.AccountController();
-    /*TSP_Covid21.Models.BUS.Account_BUS t = new TSP_Covid21.Models.BUS.Account_BUS();
+    /*TSP_Covid21.Model.accounts.BUS.Account_BUS t = new TSP_Covid21.Model.accounts.BUS.Account_BUS();
     Session["user"] = "Syx";
-    TSP_Covid21.Models.ShopEntity.ACCOUNT Model = t.account(Session["user"].ToString());*/
+    TSP_Covid21.Model.accounts.ShopEntity.ACCOUNT Model.account = t.account(Session["user"].ToString());*/
 }
+@if (Model.code == 2)
+{
+    <style>
+        #banthongtincanhan {
+            display: none;
+        }
 
+        #diachigiaohang {
+            display: block;
+        }
+
+        #donhangdamua {
+            display: none;
+        }
+    </style>
+}
+else if (Model.code == 3)
+{
+    <style>
+        #banthongtincanhan {
+            display: none;
+        }
+
+        #diachigiaohang {
+            display: none;
+        }
+
+        #donhangdamua {
+            display: block;
+        }
+    </style>
+}
+else if(Model.code == 1)
+{
+    <style>
+        #banthongtincanhan {
+            display: block;
+        }
+
+        #diachigiaohang {
+            display: none;
+        }
+
+        #donhangdamua {
+            display: none;
+        }
+    </style>
+}
 @Html.Partial("Public_Navigation")
 <!-- BREADCRUMB -->
 <div id="breadcrumb" class="section">
@@ -39,7 +86,7 @@
                     <div class="aside">
                         <h3 class="aside-title">
                             <i class="fas fa-user" style="font-size: 50px;"></i>
-                            @Model.FULLNAME
+                            @Model.account.FULLNAME
                         </h3>
                         <div class="checkbox-filter">
                             <div class="container ggg">
@@ -88,7 +135,7 @@
                             <div class="container ggg">
                                 <label for="brand-4">
                                     <span></span>
-                                    <a href="@Url.Action("Home","Covid21")"> <i class="far fa-times-circle"></i> Thoát</a>
+                                    <a href="@Url.Action("Home","Covid21")" onclick="refresh()"> <i class="far fa-times-circle"></i> Thoát</a>
                                 </label>
                             </div>
                         </div>
@@ -97,27 +144,28 @@
                 <div class="col-sm-9 bg-success" style="height: 400px">
                     <br>
                     <h4>THÔNG TIN CÁ NHÂN <span id="inf_quantityAddress" style="display: none; color: red; font-size: 15px">(Quý khách không được thêm địa chỉ, do quý khác đã đủ 5 địa chỉ)</span></h4>
+
                     <div id="banthongtincanhan" class="thongtincanhan">
                         <div>
                             <span></span>
                             <label for="">Họ và Tên: </label>
-                            <input id="id1" type="text" placeholder="Nhập họ và tên" value="@Model.FULLNAME"> <span style="color: red; display: none; position:absolute" id="inf_fullname">(Tên người đùng không được để trống)</span>
+                            <input id="id1" type="text" placeholder="Nhập họ và tên" value="@Model.account.FULLNAME"> <span style="color: red; display: none; position:absolute" id="inf_fullname">(Tên người đùng không được để trống)</span>
                         </div>
                         <div>
                             <span></span>
                             <label for="">Số điện thoại: </label>
-                            <input id="id2" type="text" placeholder="Nhập số điện thoại" value="@Model.PHONENUMBER"> <span style="color: red; display: none" id="inf_phone">(SĐT không được để trống)</span> <span style="color: red; display: none" id="inf_check_phone">(Vui lòng nhập số điện thoại)</span>
+                            <input id="id2" type="text" placeholder="Nhập số điện thoại" value="@Model.account.PHONENUMBER"> <span style="color: red; display: none" id="inf_phone">(SĐT không được để trống)</span> <span style="color: red; display: none" id="inf_check_phone">(Vui lòng nhập số điện thoại)</span>
                         </div>
                         <div>
                             <span></span>
                             <label for="">Email: </label>
-                            <input id="id3" type="text" placeholder="Nhập Email" value="@Model.EMAIL">
+                            <input id="id3" type="text" placeholder="Nhập Email" value="@Model.account.EMAIL">
                         </div>
 
                         <div>
                             <label>
                                 Giới tính:
-                                @if (Model.SEX == true)
+                                @if (Model.account.SEX == true)
                                 {
                                     <input id="id4" value="true" type="radio" checked="checked" name="radio"> <label>Nam</label>
                                     <input id="id5" value="false" type="radio" name="radio"> <label>Nữ</label>
@@ -131,23 +179,27 @@
                         </div>
                         @{
                             // hiện ngày
-                            string d = Model.DATAOFBIRTH.ToString();
-                            //Loại bỏ các ký tự thừa đằng sau
-                            d = d.Remove(d.Length - 12);
-                            //Cắt ra lấy ngày tháng năm
-                            string Year = (d.Split('/')[2]);
-                            string Day = (d.Split('/')[0]);
-                            string Month = (d.Split('/')[1]);
-                            //nếu ngày không đủ 2 số thì thêm số 0 trước nó
-                            if (Day.Length == 1)
+                            string d = Model.account.DATAOFBIRTH.ToString();
+
+                            if (d != "")
                             {
-                                Day = "0" + Day;
+                                //Loại bỏ các ký tự thừa đằng sau
+                                d = d.Remove(d.Length - 12);
+                                //Cắt ra lấy ngày tháng năm
+                                string Year = (d.Split('/')[2]);
+                                string Day = (d.Split('/')[0]);
+                                string Month = (d.Split('/')[1]);
+                                //nếu ngày không đủ 2 số thì thêm số 0 trước nó
+                                if (Day.Length == 1)
+                                {
+                                    Day = "0" + Day;
+                                }
+                                if (Month.Length == 1)
+                                {
+                                    Month = "0" + Month;
+                                }
+                                d = String.Format(Year.ToString() + "-" + Month.ToString() + "-" + Day, ToString());
                             }
-                            if (Month.Length == 1)
-                            {
-                                Month = "0" + Month;
-                            }
-                            d = String.Format(Year.ToString() + "-" + Month.ToString() + "-" + Day, ToString());
                         }
                         <div>
                             <span></span>
@@ -180,7 +232,8 @@
                                     <i id="hidel9" class="fa fa-eye-slash"></i>
                                     <i id="hidel10" class="fa fa-eye"></i>
                                 </span>
-                                <span style="color: red; display: none" id="inf_pass_new">(Mật khẩu mới không được để trống)</span> <span style="color: red; display: none" id="inf_check_pass">(Vui lòng nhập hơn 8 kí tự)</span>
+                                <span style="color: red; display: none" id="inf_pass_new">(Mật khẩu mới không được để trống)</span>
+                                <span style="color: red; display: none" id="inf_check_pass">(Vui lòng nhập hơn 8 kí tự)</span>
                             </div>
                             <div>
                                 <span></span>
@@ -198,7 +251,7 @@
                             <input id="id11" class="text1" type="button" value="Gửi">
                         </div>
                     </div>
-                    <div id="diachigiaohang" class="thongtincanhan" style="display: none;">
+                    <div id="diachigiaohang" class="thongtincanhan">
                         <div id="tatbangiaohang">
                             <div>
                                 <div>
@@ -210,7 +263,7 @@
                                 </div>
                             </div>
                             @{
-                                IEnumerable<TSP_Covid21.Models.ShopEntity.ADDRESS_SHIP> listAddress = AC.loadAddress(Model.USER);
+                                IEnumerable<TSP_Covid21.Models.ShopEntity.ADDRESS_SHIP> listAddress = AC.loadAddress(Model.account.USER);
                             }
                             <div style="height: 280px; overflow-y: scroll;">
                                 <table>
@@ -257,7 +310,7 @@
                             color: white;
                         }
                     </style>
-                    <div id="donhangdamua" class="thongtincanhan" style="display: none; height: 320px; overflow-y: scroll;">
+                    <div id="donhangdamua" class="thongtincanhan" style=" height: 320px; overflow-y: scroll;">
                         <table class="tabledg" style="width: 100%; margin-top: 0px">
                             <tr id="table_bill">
                                 <th>
@@ -277,7 +330,7 @@
                                 </th>
                             </tr>
                             @{
-                                IEnumerable<TSP_Covid21.Models.ShopEntity.BILL> listBill = AC.loadBill(Model.USER);
+                                IEnumerable<TSP_Covid21.Models.ShopEntity.BILL> listBill = AC.loadBill(Model.account.USER);
 
                                 var BillDetail = listBill.Where(p => p.BILLID == 1).SingleOrDefault();
                             }
@@ -304,6 +357,7 @@
                                     </td>
                                     @{
                                         var temp = String.Format("{0:#,##0.##}", item.TOTALBILL);
+                                        temp = temp.Replace(".", ",");
                                         temp += "đ";
                                     }
                                     <td>
@@ -344,7 +398,7 @@
                         <div class="container-fluid">
                             <div class="row">
                                 <div id="billDetail" class="modal12">
-                                   
+
                                 </div>
                             </div>
                         </div>
@@ -401,7 +455,7 @@
                 url: '@Url.Action("changeInf", "Account")',
                 type: "POST",
                 data: {
-                    user: '@Model.USER',
+                    user: '@Model.account.USER',
                     fullname: fullname,
                     sex: sex,
                     birth: birth,
@@ -425,7 +479,7 @@
                 url: '@Url.Action("checkPass", "Account")',
                 type: 'POST',
                 data: {
-                    user: '@Model.USER',
+                    user: '@Model.account.USER',
                     pass: pass,
                 },
                 success: function (result) {
@@ -458,7 +512,7 @@
                             url: '@Url.Action("changePass", "Account")',
                             type: 'POST',
                             data: {
-                                user: '@Model.USER',
+                                user: '@Model.account.USER',
                                 pass_new: pass_new,
                             },
                             success: function () {
@@ -527,7 +581,7 @@
                 url: '@Url.Action("insertAddress","Account")',
                 type: 'POST',
                 data: {
-                    user: '@Model.USER',
+                    user: '@Model.account.USER',
                     fullname: fullname,
                     phone: phone,
                     city: city,

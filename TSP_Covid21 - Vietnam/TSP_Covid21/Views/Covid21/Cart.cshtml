@@ -95,6 +95,7 @@
                                 </td>
                                 @{
                                     var temp = String.Format("{0:#,##0.##}", @item.ProductPrice);
+                                    temp = temp.Replace(".", ",");
                                     temp += "đ";
                                 }
                                 <td class="edit_width_cart">
@@ -110,6 +111,7 @@
                                 </td>
                                 @{
                                     var temp1 = String.Format("{0:#,##0.##}", @item.ProductPrice * item.ProductAmount);
+                                    temp1 = temp1.Replace(".", ",");
                                     temp1 += "đ";
                                 }
                                 <td class="edit_width_cart">
@@ -125,14 +127,17 @@
                 @{
                     var total = @Model.Where(p => p.Status == true).Sum(t => t.ProductAmount * t.ProductPrice);
                     var temp_total = String.Format("{0:#,##0.##}", total);
+                    temp_total = temp_total.Replace(".", ",");
                     temp_total += "đ";
 
                     var total_tax = total * 0.05;
                     var temp_total_tax = String.Format("{0:#,##0.##}", total_tax);
+                    temp_total_tax = temp_total_tax.Replace(".", ",");
                     temp_total_tax += "đ";
 
                     var total_cart = total + total_tax;
                     var temp_total_cart = String.Format("{0:#,##0.##}", total_cart);
+                    temp_total_cart = temp_total_cart.Replace(".", ",");
                     temp_total_cart += "đ";
                 }
                 -->

@@ -73,9 +73,16 @@ namespace TSP_Covid21.Models.BUS
             db.SaveChanges();
         }
 
-        public ACCOUNT account(string user)
+        public AccountViewModel account(string user,int code)
         {
-            return db.ACCOUNT.Where(p => p.USER == user).FirstOrDefault();
+            var result = from a in db.ACCOUNT
+                         where a.USER == user
+                         select new AccountViewModel()
+                         {
+                             account = a,
+                             code = code,
+                         };
+            return result.FirstOrDefault();
         }
 
         public IEnumerable<VIEWNUMBER> view(string user)
@@ -103,12 +110,16 @@ namespace TSP_Covid21.Models.BUS
             return db.ADDRESS_SHIP.Where(p => p.USER == user & p.DEFAULT == true);
         }
 
-        public void changeInf(string user, string fullname, bool sex, DateTime birth, string email, string phone)
+        public void changeInf(string user, string fullname, bool sex, string birth, string email, string phone)
         {
             ACCOUNT a = db.ACCOUNT.Where(p => p.USER == user).SingleOrDefault();
             a.FULLNAME = fullname;
             a.SEX = sex;
-            a.DATAOFBIRTH = birth;
+            if(birth != "NaN/NaN/NaN")
+            {
+                DateTime date = DateTime.Parse(birth);
+                a.DATAOFBIRTH = date;
+            }
             a.PHONENUMBER = phone;
             a.EMAIL = email;
             db.SaveChanges();
@@ -167,7 +178,7 @@ namespace TSP_Covid21.Models.BUS
         {
             if (addDefault == true)
             {
-                ADDRESS_SHIP c = db.ADDRESS_SHIP.Where(p => p.ADDRESSID == addressId & p.DEFAULT == true).FirstOrDefault();
+                ADDRESS_SHIP c = db.ADDRESS_SHIP.Where(p => p.DEFAULT == true).FirstOrDefault();
                 c.DEFAULT = false;
                 db.SaveChanges();
             }
