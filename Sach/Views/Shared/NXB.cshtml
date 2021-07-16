@@ -1,0 +1,13 @@
+﻿@model IEnumerable<Sach.Models.NHAXUATBAN>
+
+
+<h3>NHÀ XUẤT BẢN</h3>
+<div class="content">
+    <ul class="sidebar_list">
+        @foreach (var item in Model)
+        {
+            <li><a href="#">@item.TenNXB</a></li>
+        }
+   
+    </ul>
+</div>

@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutUser1.cshtml";
+}
+@{ 
+    Sach.Models.Bus.Books bb = new Sach.Models.Bus.Books();
+}
+
+
+<div id="templatemo_body_wrapper">
+    <div id="templatemo_wrapper">
+        <div id="templatemo_main">
+            <div id="sidebar" class="float_l">
+                <div class="sidebar_box">
+                    <span class="bottom"></span>
+                    @Html.Partial("ChuDe",bb.loadChuDe())
+                </div>
+                <div class="sidebar_box">
+                    <span class="bottom"></span>
+                    @Html.Partial("NXB",bb.loadNXB())
+                </div>
+            </div>
+            <div id="content" class="float_r">
+                <div>
+                    <div>
+         
+                        <img src="~/Content/images/Anhsach/gia-tri-cua-sach-va-viec-doc-sach-1.jpg"  style="width: 650px" />
+                    </div>
+                </div>
+                <br />
+                <h2 style="text-align:center; color: red; font-weight: bold">SÁCH MỚI</h2>
+                <script type="text/javascript" src="~/Content/js/jquery-1.4.3.min.js"></script>
+                <script type="text/javascript" src="~/Content/js/jquery.nivo.slider.pack.js"></script>
+                <script type="text/javascript">
+                    $(window).load(function () {
+                        $('#slider').nivoSlider();
+                    });
+                </script>
+                <h1>ĐÂY LÀ TRANG CHỦ</h1>
+                @Html.Partial("dlsach",bb.loadSach())
+            </div>
+            <div class="cleaner"></div>
+        </div> <!-- END of templatemo_main -->
+
+        <div id="templatemo_footer">
+
+
+            Copyright © Trương Gia Phú  <!-- Credit: www.templatemo.com -->
+        </div> <!-- END of templatemo_footer -->
+
+    </div> <!-- END of templatemo_wrapper -->
+</div> <!-- END of templatemo_body_wrapper -->

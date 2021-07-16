@@ -1,0 +1,13 @@
+﻿@model IEnumerable<Sach.Models.SACH>
+
+@foreach (var item in Model)
+{
+    <div class="product_box">
+        <h3>@item.Tensach</h3>
+        <a href="productdetail.html"><img src="~/@item.Anhbia" alt="Shoes 1" / style="width:180px;height:260px;object-fit:contain;"></a>
+        <p>@item.Mota</p>
+        <p class="product_price">@item.Giaban</p>
+        <a href="shoppingcart.html" class="addtocart"></a>
+        <a href="productdetail.html" class="detail"></a>
+    </div>
+}
