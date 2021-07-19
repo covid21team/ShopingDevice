@@ -1,0 +1,406 @@
+﻿﻿<!--
+    ➠ Hiện form đăng nhập để sử dụng web   ✔
+
+    ➠ Đăng ký tài khoản khách hàng         ✔
+
+    ❦ Nơi sử dụng:
+        ☞ _Layout
+        ☞ Product
+-->
+<!-- Login -->
+
+<div id="id01_login" class="modal_login">
+    <div class="login-box">
+        <h2>
+            <img src="~/Asset/images/logo.png" />
+        </h2>
+        <form>
+            <div id="message_account" style="position: absolute; background: none; display: none; margin-top: 130px ; margin-left: 00px; z-index: 110;">
+                <p id="text_phone" style="color: red"><i class="fas fa-exclamation-triangle"></i> Tài khoản hoặc mật khẩu bị sai</p>
+            </div>
+            <div class="user-box">
+                <input type="text" id="user_signin" name="user" required="">
+                <label class="lb">Tên tài khoản</label>
+            </div>
+            <!--Thông báo input user bị trống-->
+            <div id="message_UserSigninInf" style="position: absolute; display:none; margin-top: -25px ; margin-left: 0px; z-index: 50;">
+                <p id="text_UserSigninInf" style="color: red; font-size: 12px"><i class="fas fa-exclamation-triangle"></i> Tên tài khoản bị trống</p>
+            </div>
+
+            <div class="user-box">
+
+                <input type="password" id="pass_signin" name="pass" required="">
+                <label class="lb">Mật khẩu</label>
+
+                <span class="eye" onclick="my2Function()">
+                    <i id="hidel6" class="fa fa-eye-slash"></i>
+                    <i id="hidel5" class="fa fa-eye"></i>
+                </span>
+            </div>
+            
+            <!--Thông báo input user bị trống-->
+            <div id="message_PassSigninInf" style="position: absolute; display:none; margin-top: -25px ; margin-left: 0px; z-index: 50;">
+                <p id="text_PassSigninInf" style="color: red; font-size: 12px"><i class="fas fa-exclamation-triangle"></i> Mật khẩu bị trống</p>
+            </div>
+            <a href="#" id="filebutton">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <i class="fas fa-sign-in-alt">Login</i>
+            </a>
+
+            <a href="#" style="margin-left: 30px;" onclick="document.getElementById('id01_signin').style.display='block'">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <i class="fas fa-user-plus" id="signin">Signup</i>
+            </a>
+        </form>
+    </div>
+</div>
+
+<!-- End Login -->
+<!-- Sigin -->
+
+<div id="id01_signin" class="modal_login">
+    <div class="login-box">
+        <h2>
+            <img src="~/Asset/images/logo.png" />
+        </h2>
+        <form>
+            <div class="user-box">
+                <input type="text" name="user" id="user_signup" required="">
+                <label>Tên tài khoản</label>
+            </div>
+            <!--Thông báo khi nhập user bị trùng-->
+            <div id="message_user" style="position: absolute; margin-top: -25px ; margin-left: 0px; z-index: 50; display: none">
+                <p id="text_user" style="color: red; font-size: 12px"><i class="fas fa-exclamation-triangle"></i> Tên tài khoản này đã tồn tại</p>
+            </div>
+            <!--Thông báo input user bị trống-->
+            <div id="message_UserInf" style="position: absolute; display:none; margin-top: -25px ; margin-left: 0px; z-index: 50;">
+                <p id="text_UserInf" style="color: red; font-size: 12px"><i class="fas fa-exclamation-triangle"></i> Tên tài khoản bị trống</p>
+            </div>
+
+            <div class="user-box">
+                <input type="password" id="pass1" name="pass1" required>
+                <label>Mật khẩu</label>
+
+                <span class="eye" onclick="my10Function()">
+                    <i id="hidel4" class="fa fa-eye-slash"></i>
+                    <i id="hidel3" class="fa fa-eye"></i>
+
+                </span>
+            </div>
+            <!-- Kiểm tra số lượng mật khẩu -->
+            <div id="message_Pass" style="position: absolute; display:none; margin-top: -25px ; margin-left: 0px; z-index: 50;">
+                <p id="text_Pass" style="color: red; font-size: 12px"><i class="fas fa-exclamation-triangle"></i> Mật khẩu ít nhất 8 chữ số</p>
+            </div>
+            <!--Thông báo input pass bị trống-->
+            <div id="message_PassInf" style="position: absolute; display:none; margin-top: -25px ; margin-left: 0px; z-index: 50;">
+                <p id="text_PassInf" style="color: red; font-size: 12px"><i class="fas fa-exclamation-triangle"></i> Mật khẩu bị trống</p>
+            </div>
+
+            <div class="user-box">
+                <input type="password" id="pass2" name="" required="">
+                <label>Xác nhận mật khẩu</label>
+
+                <span class="eye" onclick="my1Function()">
+                    <i id="hidel2" class="fa fa-eye-slash"></i>
+                    <i id="hidel1" class="fa fa-eye"></i>
+                </span>
+            </div>
+            
+
+            <!-- Kiểm tra nhập mật khẩu lại đúng không-->
+            <div id="message_ConfirmPass" style="position: absolute; display:none; margin-top: -25px ; margin-left: 0px; z-index: 50;">
+                <p id="text_ConfirmPass" style="color: red; font-size: 12px"><i class="fas fa-exclamation-triangle"></i> Mật khẩu không trùng</p>
+            </div>
+
+            <div class="user-box">
+                <input type="text" id="phone" name="phone" required="">
+                <label>Số điện thoại</label>
+            </div>
+
+            <!-- Kiểm tra số điện thoại đã tồn tại-->
+            <div id="message_phone" style="position: absolute; display: none; margin-top: -25px ; margin-left: 0px; z-index: 50;">
+                <p id="text_phone" style="color: red; font-size: 12px"><i class="fas fa-exclamation-triangle"></i> Số điện thoại đã có tài khoản</p>
+            </div>
+            <!--Thông báo input sdt bị trống-->
+            <div id="message_PhoneInf" style="position: absolute; display:none; margin-top: -25px ; margin-left: 0px; z-index: 50;">
+                <p id="text_PhonePassInf" style="color: red; font-size: 12px"><i class="fas fa-exclamation-triangle"></i> Số tài khoản bị trốn</p>
+            </div>
+            <!-- Kiểm tra độ dài số điện thoại-->
+            <div id="message_phone_1" style="position: absolute; display: none; margin-top: -25px ; margin-left: 0px; z-index: 50;">
+                <p id="text_phone_1" style="color: red; font-size: 12px"><i class="fas fa-exclamation-triangle"></i> Nhập số điện thoại bị sai</p>
+            </div>
+
+            <div class="user-box">
+                <input type="text" name="" id="fullname" required="">
+                <label>Họ và Tên</label>
+            </div>
+            <!--Thông báo input fullname bị trống-->
+            <div id="message_FullNameInf" style="position: absolute; display:none; margin-top: -25px ; margin-left: 0px; z-index: 50;">
+                <p id="text_FullNameInf" style="color: red; font-size: 12px"><i class="fas fa-exclamation-triangle"></i> Họ và Tên bị trống</p>
+            </div>
+            <!--
+            <div id="message" style="position: absolute; margin-top: -240px;border: 1px solid rgb(0, 0, 0); margin-left:90px; background: rgb(246, 247, 191);border-radius:5%; z-index: 50;">
+
+                <h3 style="margin-left: 10px;">Password must contain the following:</h3>
+                <p id="letter" class="invalid">A lowercase letter</p>
+                <p id="capital" class="invalid">A capital (uppercase) letter</p>
+                <p id="number" class="invalid">A number</p>
+                <p id="length" class="invalid">Minimum 8 characters</p>
+            </div>
+            -->
+            <a href="#" onclick="Login()">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <i class="fas fa-sign-in-alt"></i> Login
+            </a>
+            <a href="#" style="margin-left: 20px;" id="signup_account">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <i class="fas fa-user-plus"></i> Signup
+            </a>
+        </form>
+    </div>
+</div>
+
+<!-- End Sigin -->
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+<!-- Dùng signin -->
+<script>
+    $('#filebutton').click(function () {
+        var user = $("#user_signin").val();
+        var pass = $('#pass_signin').val();
+
+        if (user != "" && pass != "") {
+            $("#message_UserSigninInf").hide();
+            $("#message_PassSigninInf").hide();
+            $("#loading_web").show();
+
+            $.ajax({
+                url: '@Url.Action("Signin", "Account")',
+                type: 'POST',
+                data: {
+                    user: user,
+                    pass: pass,
+                },
+                success: function (result) {
+                    $('#loading_web').hide();
+                    if (result == 'True') {
+                        location.reload();
+                    } else {
+                        $("#message_account").show();
+                    }
+                }
+            });
+
+        }else {
+            if (user == "") {
+                $("#message_UserSigninInf").show();
+            } else {
+                $("#message_UserSigninInf").hide();
+            }
+
+            if (pass == "") {
+                $("#message_PassSigninInf").show();
+            } else {
+                $("#message_PassSigninInf").hide();
+            }
+        }
+    });
+
+    var inputUser = document.getElementById('user_signin');
+    var inputPass = document.getElementById('pass_signin');
+
+    // When click outside inputUser
+    inputUser.onblur = function () {
+        var user = $("#user_signin").val();
+        if (user != "") {
+            $("#message_UserSigninInf").hide();
+        }
+    }
+
+    //when click outside inputPass
+    inputPass.blur = function () {
+        var pass = $('#pass_signin').val();
+        if (pass != "") {
+            $("#message_PassSigninInf").hide();
+        }
+    }
+</script>
+
+<!-- Dùng signup-->
+<script>
+    $("#signup_account").click(function () {
+
+        var user = $("#user_signup").val();
+        var pass = $("#pass1").val();
+        var fullname = $("#fullname").val();
+        var phone = $("#phone").val();
+        if (user != "" && pass != "" && fullname != "" && phone != "" && pass.length >= 8) {
+            $("#loading_web").show();
+            $.ajax({
+                url: '@Url.Action("Signup","Account")',
+                type: 'POST',
+                data: {
+                    user: user,
+                    pass: pass,
+                    fullname: fullname,
+                    phone: phone,
+                },
+                success: function (result) {
+                    $('#loading_web').hide();
+                    if (result == 'True') {
+                        $("#id01_signin").hide();
+                    }
+                },
+                error: function (result) {
+                    $('#loading_web').hide();
+                }
+            });
+        } else {
+            if (user == "") {
+                $("#message_UserInf").show();
+            } else {
+                $("#message_UserInf").hide();
+            }
+
+            if (pass == "") {
+                $("#message_PassInf").show();
+            } else {
+                $("#message_PassInf").hide();
+            }
+
+            if (phone == "") {
+                $("#message_PhoneInf").show();
+            } else {
+                $("#message_PhoneInf").hide();
+            }
+
+            if (fullname == "") {
+                $("#message_FullNameInf").show();
+            } else {
+                $("#message_FullNameInf").hide();
+            }
+        }
+    });
+</script>
+
+<!-- Kiểm tra user đã tồn tại chưa-->
+<script>
+    var inputUser_signup = document.getElementById('user_signup');
+
+    // When click outside inputUser
+    inputUser_signup.onblur = function () {
+        $("#message_UserInf").hide();
+        var user = $('#user_signup').val();
+        $.ajax({
+            url: '@Url.Action("checkUser", "Account")',
+            type: 'POST',
+            data: {
+                user: user,
+            },
+            success: function (result) {
+                if (result == 'True') {
+                    $("#message_user").show();
+                } else {
+                    $("#message_user").hide();
+                }
+            }
+        });
+    }
+</script>
+
+<!--kiểm tra sđt có tài khoản chưa-->
+<script>
+    var inputPhone_signup = document.getElementById('phone');
+
+    // When click outside inputPhone_signup
+    inputPhone_signup.onblur = function () {
+        $("#message_PhoneInf").hide();
+        if (inputPhone_signup.value.length == 10) {
+            $("#message_phone_1").hide();
+            var phone = $('#phone').val();
+            $.ajax({
+                url: '@Url.Action("checkPhone", "Account")',
+                type: 'POST',
+                data: {
+                    phone: phone,
+                },
+                success: function (result) {
+                    if (result == 'True') {
+                        $("#message_phone").show();
+                    } else {
+                        $("#message_phone").hide();
+                    }
+                }
+            });
+        } else {
+            $("#message_phone").hide();
+            $("#message_phone_1").show();
+        }
+    }
+</script>
+
+<!-- Kiểm tra số lượng pass-->
+<script>
+    var inputPass = document.getElementById("pass1");
+
+    inputPass.onblur = function () {
+        $("#message_PassInf").hide();
+        var Pass = $('#pass1').val();
+
+        if (Pass.length < 8) {
+            $("#message_Pass").show();
+        } else {
+            $("#message_Pass").hide();
+        }
+    }
+</script>
+
+<!--kiểm tra xác nhận mật khẩu-->
+<script>
+    var inputConfirmPass = document.getElementById("pass2");
+
+    inputConfirmPass.onblur = function () {
+        var Pass = $('#pass1').val();
+        var ConfirmPass = $('#pass2').val();
+
+        if (Pass == ConfirmPass) {
+            $("#message_ConfirmPass").hide();
+        } else {
+            $("#message_ConfirmPass").show();
+        }
+    }
+</script>
+
+<!--Hiện login và signup-->
+<script>
+    var modal = document.getElementById('id01_login');
+    var modal1 = document.getElementById('id01_signin');
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target == modal || event.target == modal1) {
+            modal.style.display = "none";
+            modal1.style.display = "none";
+        }
+    }
+
+    function Login() {
+        modal1.style.display = "none";
+    }
+
+
+</script>

@@ -1,0 +1,100 @@
+﻿<link href="~/Areas/Admin/AssetAdmin/css/loginAdmin.css" rel="stylesheet" />
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+<div class="login-body">
+    <div class="container-login">
+        <header class="header-login">
+        <img src="~/Asset/images/logo.png" /></header>
+        <form>
+            <div id="message_account" style="position: absolute; background: none; display: none; margin-top: 130px ; margin-left: 00px; z-index: 110;">
+                <p id="text_phone" style="color: red;font-size: 15px"><i class="fas fa-exclamation-triangle"></i> Tài khoản hoặc mật khẩu bị sai</p>
+            </div>
+            <div class="input-field">
+                <input id="UserAdmin" type="text" required>
+                <label>Username</label>
+            </div>
+            <!--Thông báo input user bị trống-->
+            <div id="message_UserSigninInf" style="position: absolute; display:none; margin-top: -25px ; margin-left: 0px; z-index: 50;">
+                <p id="text_UserSigninInf" style="color: red; font-size: 12px"><i class="fas fa-exclamation-triangle"></i> Tên tài khoản bị trống</p>
+            </div>
+            <div class="input-field">
+                <input class="pswrd" id="pass" type="password" required>
+                <span class="show" style="position: absolute;" onclick="my1Function()">
+                    <i id="hidel2" class="fa fa-eye-slash"></i>
+                    <i id="hidel1" class="fa fa-eye" style="display: none;"></i>
+                </span>
+                <label>Password</label>
+            </div>
+            <!--Thông báo input user bị trống-->
+            <div id="message_PassSigninInf" style="position: absolute; display:none; margin-top: -25px ; margin-left: 0px; z-index: 50;">
+                <p id="text_PassSigninInf" style="color: red; font-size: 12px"><i class="fas fa-exclamation-triangle"></i> Mật khẩu bị trống</p>
+            </div>
+
+            <div class="button-login">
+                <div class="inner"></div>
+                <input type="button" value="LOGIN" style="background: none; border: none; color: white; font-size: 25px;padding-top: 7px" />
+            </div>
+        </form>
+
+    </div>
+
+</div>
+
+
+<script>
+    function my1Function() {
+        var x = document.getElementById("pass");
+        var y = document.getElementById("hidel1");
+        var z = document.getElementById("hidel2");
+
+        if (x.type === 'password') {
+            x.type = 'text';
+            y.style.display = "block";
+            z.style.display = "none"
+        } else {
+            x.type = 'password';
+            y.style.display = "none";
+            z.style.display = "block"
+        }
+    }
+</script>
+
+<script>
+    $(".button-login").click(function () {
+        $("#message_account").css({ "display": "none" });
+        var user = $("#UserAdmin").val();
+        var pass = $("#pass").val();
+
+        if (user == "") {
+            $("#message_UserSigninInf").css({ "display": "block" });
+        } else {
+            $("#message_UserSigninInf").css({ "display": "none" });
+        }
+
+        if (pass == "") {
+            $("#message_PassSigninInf").css({ "display": "block" });
+        } else {
+            $("#message_PassSigninInf").css({ "display": "none" });
+        }
+
+        if (user != "" && pass != "") {
+            $.ajax({
+                url: '@Url.Action("LoginAdmin", "AccountManager")',
+                type: 'POST',
+                data: {
+                    user: user,
+                    pass: pass,
+                },
+                success: function (result) {
+                    if (result == "True") {
+                        location.reload();
+                    }
+                    else {
+                        $("#message_account").css({ "display": "block" });
+                    }
+                }
+            });
+        }
+        
+    });
+</script>

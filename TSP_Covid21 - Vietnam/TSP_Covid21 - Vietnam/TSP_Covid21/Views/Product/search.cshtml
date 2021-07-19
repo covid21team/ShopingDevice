@@ -1,0 +1,390 @@
+﻿<!--
+    ✔ Load ra toàn bộ sản phẩm theo loại mà khách hàng lựa chọn
+
+    ✔ Có thể add sản phẩm vào giỏ hàng (nhưng không cập nhật lại trang nên thông số trên giỏ hành chưa thay đổi được)
+        ✈ Khi khách hàng chưa đăng nhập ➔ sẽ thông báo chưa đăng nhập (Cách hiện thông báo nên xem lại)
+        ✈ Khi khách hàng đăng nhập rồi ➔ có thể add vào giỏ hàng
+
+    ✔ Khi bấm vào hình ảnh hoặc tên của sản phẩm thì có thể đi đến chi tiết sản phẩm
+
+    ✔ Load được 5 sản phẩm top selling (Hiện tại thì chưa được mà chỉ đang load 5 sản phẩm đầu tiên)
+
+    ✔ Bấm vào "Add To Cart" ➔ thêm vào giỏ hàng
+
+    ✘ Bấm vào "Add To Wishlist" ➔ thêm vào danh sách yêu thích
+
+    ✘ Chưa thực hiện được việc lọc sản phẩm theo yêu cầu
+
+    ✹ Một số form share
+        ➽ Public_Navigation
+        ➽ Categories_TableConfig
+        ➽ Categories_LoadBrand
+        ➽ Categories_LoadProductTop
+        ➽ Public_RatingProduct
+
+    ⛱ Form có thể đến
+        ➣ Home
+        ➣ Categories
+        ➣ Product
+
+    ☯ Key Session
+        ➛ Session["ProductTypeName"]
+        ➛ Session["KeySearch"
+-->
+
+@model IEnumerable<TSP_Covid21.Models.ShopEntity.PRODUCT>
+@using PagedList.Mvc;
+
+
+@{
+    ViewBag.Title = "search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    var db = new TSP_Covid21.Models.BUS.Product_BUS();
+    var db_Ctrl = new TSP_Covid21.Controllers.ProductController();
+    int ProductTypeId = int.Parse(Session["ProductTypeName"].ToString());
+}
+
+<link href="~/Asset/css/loadmore.css" rel="stylesheet" />
+<link href="~/Asset/css/Filter.css" rel="stylesheet" />
+<style>
+    .table_config {
+        position: absolute;
+        margin-top: -250px;
+        margin-left: 50px;
+        z-index: 100;
+        display: none;
+    }
+</style>
+
+@Html.Partial("Public_Navigation")
+<!-- BREADCRUMB --><!--Đường dẫn -->
+<div id="breadcrumb" class="section" style="padding: 10px 0px">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <div class="col-md-12">
+                <ul class="breadcrumb-tree">
+                    <li><a href="@Url.Action("Home","Covid21")">Trang chủ</a></li>
+
+                    <li class="active">@Session["KeySearch"]</li>
+
+                </ul>
+            </div>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /BREADCRUMB -->
+<!-- SECTION -->
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <!-- ASIDE -->
+            <div id="aside" class="col-md-3">
+                <!--Lọc Thương hiệu-->
+
+                @{
+                    var loadBrandProduct = Html.Partial("Categories_LoadBrand", db_Ctrl.loadBrandCtrl(ProductTypeId));
+                    loadBrandProduct = new MvcHtmlString(loadBrandProduct.ToString());
+                }
+                @loadBrandProduct
+
+                <!--Lọc Thương hiệu-->
+                <!-- aside Widget --><!--Lọc giá-->
+                <div class="aside">
+                    <h3 class="aside-title">Giá</h3>
+                    <div class="checkbox-filter">
+
+                        <div class="input-checkbox" id="input_checkbox_1">
+                            <input type="checkbox" id="Price_1" name="productPrice" value="1" checked="1" />
+                            <label for="Price_1">
+                                <span></span>
+                                Tât cả
+                            </label>
+                        </div>
+
+                        <div class="input-checkbox" id="input_checkbox_2">
+                            <input type="checkbox" id="Price_2" name="productPrice" value="2">
+                            <label for="Price_2">
+                                <span></span>
+                                Dưới 1,000,000đ
+                            </label>
+                        </div>
+
+                        <div class="input-checkbox" id="input_checkbox_3">
+                            <input type="checkbox" id="Price_3" name="productPrice" value="3">
+                            <label for="Price_3">
+                                <span></span>
+                                1,000,000đ - 5,000,000d
+                            </label>
+                        </div>
+
+                        <div class="input-checkbox" id="input_checkbox_4">
+                            <input type="checkbox" id="Price_4" name="productPrice" value="4">
+                            <label for="Price_4">
+                                <span></span>
+                                5,000,000đ - 10,000,000d
+
+                            </label>
+                        </div>
+
+                        <div class="input-checkbox" id="input_checkbox_5">
+                            <input type="checkbox" id="Price_5" name="productPrice" value="5">
+                            <label for="Price_5">
+                                <span></span>
+                                10,000,000đ - 20,000,000d
+                            </label>
+                        </div>
+
+                        <div class="input-checkbox" id="input_checkbox_6">
+                            <input type="checkbox" id="Price_6" name="productPrice" value="6">
+                            <label for="Price_6">
+                                <span></span>
+                                Trên 20,000,000đ
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <input type="button" value="Lọc sản phẩm" id="btn_filter" />
+                <!-- /aside Widget -->
+                <!-- aside Widget --><!--Sản Phẩm Bán Được Nhiều nhất-->
+
+                @{
+                    var loadProductTop = Html.Partial("Categories_LoadProductTop", db.loadProductTop_Product(1, 5));
+                    loadProductTop = new MvcHtmlString(loadProductTop.ToString());
+                }
+                @loadProductTop
+
+                <!-- /aside Widget -->
+            </div>
+            <!-- /ASIDE -->
+            <!-- STORE -->
+            <div id="store" class="col-md-9">
+                <!-- store top filter --> <!--Chỉnh Số Lượng Load-->
+                <div class="store-filter clearfix">
+                    <div class="store-sort">
+                        <label>
+                            Sắp xếp theo:
+                            <select class="input-select" id="sortSelect">
+                                <option value="0">thấp đến cao</option>
+                                <option value="1">cao xuống thấp</option>
+                            </select>
+                        </label>
+                    </div>
+                </div>
+                <!-- /store top filter -->
+                <!-- store products --> <!--Show sản phẩm và giảm giá-->
+                <div class="row" id="listProduct">
+                    <!-- product -->
+
+                    @if (Model.Count() == 0)
+                    {
+                        <div class="col-md-4 col-xs-6" style="margin-left: 42%;">
+                            (Không có sản phẩm)
+                        </div>
+                    }
+
+
+                    @foreach (var item in Model)
+                    {
+                        <!-- product -->
+                        <div class="col-md-4 col-xs-6" style="display: none">
+                            <div class="product">
+                                <div class="product-img">
+                                    <a href="@Url.Action("Product","Covid21",new { productId = item.PRODUCTID})">
+                                        <img src="~/@item.MAINPIC" alt="" style="width: 263px; height: 263px; object-fit: contain">
+                                    </a>
+                                    <div class="product-label">
+
+                                        <span class="new">NEW</span>
+                                    </div>
+                                </div>
+                                <div class="product-body">
+                                    <p class="product-category">Category</p>
+                                    <h3 class="product-name"><a href="@Url.Action("Product","Covid21",new { productId = item.PRODUCTID})">@item.PRODUCTNAME</a></h3>
+                                    @{
+                                        var temp = String.Format("{0:#,##0.##}", @item.PRODUCTPRICE);
+                                        temp = temp.Replace(".", ",");
+                                        temp += "đ";
+                                    }
+                                    <h4 class="product-price">@temp</h4>
+
+                                    <!-- rating product-->
+                                    @Html.Partial("Public_RatingProduct", db_Ctrl.loadRatingProduct(item.PRODUCTID))
+
+                                    <div class="product-btns">
+                                        <button class="add-to-wishlist"><i class="fa fa-heart" id="idheart"></i><span class="tooltipp">add to wishlist</span></button>
+
+                                        <button class="quick-view" style=" display: inline-block">
+                                            <i class="fa fa-eye"></i><span class="tooltipp">quick view</span>
+                                            <div class="table_config" style="color: black; z-index: 100">
+                                                @Html.Partial("Categories_TableConfig", item.CONFIGDETAIL)
+                                            </div>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="add-to-cart">
+                                    <button class="add-to-cart-btn" onclick="addToCart(@item.PRODUCTID)"><i class="fa fa-shopping-cart"></i> add to cart</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /product -->
+
+                    }
+                    @if (Model.Count() > 6)
+                    {
+                        <button class="loadMore">Load More</button>
+                    }
+                </div>
+                <!-- /store products -->
+            </div>
+            <!-- /STORE -->
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /SECTION -->
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<script src="~/Asset/JS/Loadmore/jquery-latest.min.js"></script>
+<!--
+    Khi load thành công sản phẩm lên form
+    Và ẩn hết tất cả sản phẩm
+    Dùng script benen dưới để mở theo số lượng tùy ý
+-->
+<!-- Load more -->
+<script>
+    $(".col-xs-6").slice(0, 6).show(); //hiện số lượng sản phẩm mặc định
+
+    $(".loadMore").on("click", function () {
+        $(".col-xs-6:hidden").slice(0, 6).show(); // số sản phẩm hiện lên sau khi bấm loadmore
+
+        if ($(".col-xs-6:hidden").length == 0) {
+            $(".loadMore").fadeOut(); //this will hide
+            //button when length is 0
+        }
+    })
+</script>
+
+<!-- Khi rê chuột vào mắt thì hiện bảng config lên, khi rê chuột ra ngoài thì tự động abngr mất -->
+<script>
+    $('.quick-view').mousemove(function () {
+        var parent = $(this).parent().parent().parent();
+
+        $(this).children('.table_config').css({ 'display': 'block' });
+        $(parent).css({ "z-index": "50" });
+    });
+
+    $('.quick-view').mouseout(function () {
+        var parent = $(this).parent().parent().parent();
+
+        $(this).children('.table_config').css({ 'display': 'none' });
+        $(parent).css({ "z-index": "0" });
+    });
+
+</script>
+
+<!-- Checkbox price product-->
+<script>
+    $("#input_checkbox_1").click(function () {
+        document.getElementById("Price_2").checked = false;
+        document.getElementById("Price_3").checked = false;
+        document.getElementById("Price_4").checked = false;
+        document.getElementById("Price_5").checked = false;
+        document.getElementById("Price_6").checked = false;
+    });
+
+    $("#input_checkbox_2").click(function () {
+        document.getElementById("Price_1").checked = false;
+        document.getElementById("Price_3").checked = false;
+        document.getElementById("Price_4").checked = false;
+        document.getElementById("Price_5").checked = false;
+        document.getElementById("Price_6").checked = false;
+    });
+
+    $("#input_checkbox_3").click(function () {
+        document.getElementById("Price_2").checked = false;
+        document.getElementById("Price_1").checked = false;
+        document.getElementById("Price_4").checked = false;
+        document.getElementById("Price_5").checked = false;
+        document.getElementById("Price_6").checked = false;
+    });
+
+    $("#input_checkbox_4").click(function () {
+        document.getElementById("Price_2").checked = false;
+        document.getElementById("Price_3").checked = false;
+        document.getElementById("Price_1").checked = false;
+        document.getElementById("Price_5").checked = false;
+        document.getElementById("Price_6").checked = false;
+    });
+
+    $("#input_checkbox_5").click(function () {
+        document.getElementById("Price_2").checked = false;
+        document.getElementById("Price_3").checked = false;
+        document.getElementById("Price_4").checked = false;
+        document.getElementById("Price_1").checked = false;
+        document.getElementById("Price_6").checked = false;
+    });
+
+    $("#input_checkbox_6").click(function () {
+        document.getElementById("Price_2").checked = false;
+        document.getElementById("Price_3").checked = false;
+        document.getElementById("Price_4").checked = false;
+        document.getElementById("Price_5").checked = false;
+        document.getElementById("Price_1").checked = false;
+    });
+</script>
+
+<!-- Lọc sản phẩm theo lựa chọn-->
+<script>
+    $("#btn_filter").click(function () {
+        $("#loading_web").show();
+        var valuePrice = $("input:checkbox[name=productPrice]:checked").val()
+        var sort = $('#sortSelect').val(); // 0: tăng dần; 1: giảm dần
+
+        // Lấy danh sách những thương hiệu người dùng muốn xem, đưa vào chuỗi để truyền đi
+        var listbrand = "";
+        var brandselect = document.getElementsByClassName('brandName_Categories');
+        for (var i = 0; i < brandselect.length; i++){
+            if (brandselect[i].checked) {
+                listbrand += brandselect[i].value + ",";
+            }
+
+        }
+
+        if (valuePrice == null) {
+            valuePrice = 0; //Nếu không chọn giá thì thay đổi thì giá trị có nghĩa là lấy tất cả
+        }
+
+        $.ajax({
+            url: '@Url.Action("listProduct","Product")',
+            type: 'POST',
+            data: {
+                productTypeId: @ProductTypeId,
+                valuePrice: valuePrice,
+                sort: sort,
+                listbrand: listbrand,
+            },
+            success: function (result) {
+                $("#loading_web").hide();
+                $("#listProduct").html(result);
+            },
+            error: function () {
+                ("#loading_web").hide();
+                $("#listProduct").html("Fail");
+            }
+        });
+    });
+
+</script>
+
+
