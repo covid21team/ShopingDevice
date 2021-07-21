@@ -38,8 +38,11 @@
                     <img src="~/@item.MAINPIC" alt="" style="width: 263px; height: 263px; object-fit: contain">
                 </a>
                 <div class="product-label">
+                    @if (item.STATUSPRODUCT == false)
+                    {
+                        <span class="new">Ngưng kinh doanh</span>
+                    }
 
-                    <span class="new">NEW</span>
                 </div>
             </div>
             <div class="product-body">
@@ -65,10 +68,14 @@
                     </button>
                 </div>
             </div>
-            <div class="add-to-cart">
-                <input type="text" value="@item.PRODUCTID" class="productId" style="display: none" />
-                <button class="add-to-cart-btn addToCart"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ hàng</button>
-            </div>
+            @if (item.STATUSPRODUCT == false)
+            {
+                <div class="add-to-cart">
+                    <input type="text" value="@item.PRODUCTID" class="productId" style="display: none" />
+                    <button class="add-to-cart-btn addToCart"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ hàng</button>
+                </div>
+            }
+
         </div>
     </div>
     <!-- /product -->

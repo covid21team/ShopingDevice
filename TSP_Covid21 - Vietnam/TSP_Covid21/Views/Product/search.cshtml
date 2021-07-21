@@ -202,8 +202,11 @@
                                         <img src="~/@item.MAINPIC" alt="" style="width: 263px; height: 263px; object-fit: contain">
                                     </a>
                                     <div class="product-label">
-
-                                        <span class="new">NEW</span>
+                                        @if(item.STATUSPRODUCT == false)
+                                        {
+                                            <span class="new">Ngưng kinh doanh</span>
+                                        }
+                                            
                                     </div>
                                 </div>
                                 <div class="product-body">
@@ -230,9 +233,13 @@
                                         </button>
                                     </div>
                                 </div>
-                                <div class="add-to-cart">
-                                    <button class="add-to-cart-btn" onclick="addToCart(@item.PRODUCTID)"><i class="fa fa-shopping-cart"></i> add to cart</button>
-                                </div>
+                                @if(item.STATUSPRODUCT == true)
+                                {
+                                    <div class="add-to-cart">
+                                        <button class="add-to-cart-btn" onclick="addToCart(@item.PRODUCTID)"><i class="fa fa-shopping-cart"></i> add to cart</button>
+                                    </div>
+                                }
+                                    
                             </div>
                         </div>
                         <!-- /product -->
