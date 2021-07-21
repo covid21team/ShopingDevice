@@ -486,7 +486,7 @@
         let cart = $(".myCart");
         let imgtodrag = $(this).parent().parent().find("img").eq(0);
         if (tempUser == null || tempUser == "") {
-            alert("Please Login");
+            alert("Vui lòng đăng nhập tài khoản");
             modal.style.display = "block";
         } else {
             $.ajax({
@@ -547,7 +547,7 @@
         var modal = document.getElementById('id01_login');
         var tempUser = '@user';
         if (tempUser == null || tempUser == "") {
-            alert("Please Login");
+            alert("Vui lòng đăng nhập tài khoản");
             modal.style.display = "block";
         } else{
             $.ajax({

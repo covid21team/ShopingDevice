@@ -131,12 +131,10 @@ namespace TSP_Covid21.Controllers
             return PartialView(result);
         }
 
-        [HttpPost]
         //Dùng vào lúc chọn lọc sản phẩm theo mong muoonscuar khách hàng
-        public ActionResult listProduct(int ProductTypeId, int valuePrice, int sort, string listbrand)
+        [HttpPost]
+        public ActionResult listProduct(int ProductTypeId, int valuePrice, int sort, string listbrand, string key)
         {
-            string key = Session["KeySearch"].ToString();
-
             int startPrice = 0;
             int endPrice = 100000000;
             switch (valuePrice)

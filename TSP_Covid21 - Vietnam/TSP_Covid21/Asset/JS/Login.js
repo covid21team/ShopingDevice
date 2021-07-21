@@ -1,3 +1,3 @@
 ﻿$('.inf_login').click(function () {
-    alert("Please login")
+    alert("Vui lòng đăng nhập tài khoản")
 });

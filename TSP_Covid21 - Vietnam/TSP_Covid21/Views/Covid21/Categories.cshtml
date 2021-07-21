@@ -336,7 +336,7 @@
 <!--
     Khi load thành công sản phẩm lên form
     Và ẩn hết tất cả sản phẩm
-    Dùng script benen dưới để mở theo số lượng tùy ý
+    Dùng script bên dưới để mở theo số lượng tùy ý
 -->
 
 <!-- Load more -->
@@ -430,6 +430,13 @@
     });
 </script>
 
+@{ 
+    string key = "";
+    if(Session["KeySearch"] != null)
+    {
+        key = Session["KeySearch"].ToString();
+    }
+}
 <!-- Lọc sản phẩm theo lựa chọn-->
 <script>
     $("#btn_filter").click(function () {
@@ -458,6 +465,7 @@
                 valuePrice: valuePrice,
                 sort: sort,
                 listbrand: listbrand,
+                key:'@key',
             },
             success: function (result) {
                 $("#loading_web").hide();
