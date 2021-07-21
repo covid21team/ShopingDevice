@@ -183,10 +183,7 @@
 <script>
 
     // Khi thay đổi checkbox thì productstatus trên csdl sẽ thay đổi theo
-    $(".checkbox_price_cart").change(function () {
-   
-            $('#loading_web').show();
-
+    $(".checkbox_price_cart").change(function () { 
         var status = this.checked;
         var productRow = $(this).parent().parent();
         var productId = productRow.children(".takeProductId").children().text();
@@ -201,11 +198,10 @@
                 quantity: quantity,
             },
             success: function () {
-                $('#loading_web').hide();
+
             },
             error: function () {
                 alert('Click Slow! Please');
-                $('#loading_web').hide();
             }
         });
 
@@ -213,9 +209,6 @@
 
     // Khi thay đổi số lượng 
     $(".number_quantity_cart").change(function () {
-    
-            $('#loading_web').show();
-    
         var quantity = $(this).val();
         var productRow = $(this).parent().parent();
         var productId = productRow.children(".takeProductId").children().text();
@@ -230,11 +223,11 @@
                     quantity: quantity,
                 },
                 success: function () {
-                    $('#loading_web').hide();
+
                 },
                 error: function () {
                     alert('Click Slow! Please');
-                    $('#loading_web').hide();
+
                 }
             });
         }

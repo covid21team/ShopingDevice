@@ -20,6 +20,7 @@ namespace TSP_Covid21.Models.ViewModel
         public Nullable<int> ProductPrice { set; get; }
         public Nullable<int> ProductAmount { set; get; }
         public string Decription { set; get; }
+        public Nullable<Boolean> Status { get; set; }
         public Nullable<DateTime> DateAdd { set; get; }
         public virtual ICollection<CONFIGDETAIL> ProductConfig { set; get; }
     }

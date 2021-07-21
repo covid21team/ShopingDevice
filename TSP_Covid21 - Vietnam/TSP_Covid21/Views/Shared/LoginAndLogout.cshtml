@@ -129,7 +129,7 @@
             </div>
             <!--Thông báo input sdt bị trống-->
             <div id="message_PhoneInf" style="position: absolute; display:none; margin-top: -25px ; margin-left: 0px; z-index: 50;">
-                <p id="text_PhonePassInf" style="color: red; font-size: 12px"><i class="fas fa-exclamation-triangle"></i> Số tài khoản bị trốn</p>
+                <p id="text_PhonePassInf" style="color: red; font-size: 12px"><i class="fas fa-exclamation-triangle"></i> Số tài khoản bị trống</p>
             </div>
             <!-- Kiểm tra độ dài số điện thoại-->
             <div id="message_phone_1" style="position: absolute; display: none; margin-top: -25px ; margin-left: 0px; z-index: 50;">
@@ -243,7 +243,7 @@
 <!-- Dùng signup-->
 <script>
     $("#signup_account").click(function () {
-
+        $("#message_PhoneInf").hide();
         var user = $("#user_signup").val();
         var pass = $("#pass1").val();
         var fullname = $("#fullname").val();
@@ -277,12 +277,15 @@
             }
 
             if (pass == "") {
+                $("#message_Pass").hide();
                 $("#message_PassInf").show();
             } else {
                 $("#message_PassInf").hide();
             }
 
             if (phone == "") {
+                $("#message_phone").hide();
+                $("#message_phone_1").hide();
                 $("#message_PhoneInf").show();
             } else {
                 $("#message_PhoneInf").hide();
@@ -355,10 +358,11 @@
 
 <!-- Kiểm tra số lượng pass-->
 <script>
+    
     var inputPass = document.getElementById("pass1");
 
     inputPass.onblur = function () {
-        $("#message_PassInf").hide();
+        $("#message_Pass").hide();
         var Pass = $('#pass1').val();
 
         if (Pass.length < 8) {

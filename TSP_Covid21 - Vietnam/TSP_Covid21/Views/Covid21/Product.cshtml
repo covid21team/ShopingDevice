@@ -68,23 +68,23 @@
                     <li><a href="@Url.Action("Home","Covid21")">Trang chủ</a></li>
                     @if (Model.PRODUCTTYPE.PRODUCTTYPENAME.Equals("Điện thoại"))
                     {
-                        <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "Điện thoại" })">Điện thoại</a></li>
+                        <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeId = "2" })">Điện thoại</a></li>
                     }
                     @if (Model.PRODUCTTYPE.PRODUCTTYPENAME.Equals("Laptop"))
                     {
-                        <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "Laptop" })">Laptop</a></li>
+                        <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeId = "1" })">Laptop</a></li>
                     }
                     @if (Model.PRODUCTTYPE.PRODUCTTYPENAME.Equals("Tablet"))
                     {
-                        <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "Tablet" })">Tablet</a></li>
+                        <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeId = "3" })">Tablet</a></li>
                     }
                     @if (Model.PRODUCTTYPE.PRODUCTTYPENAME.Equals("Đồng hồ"))
                     {
-                        <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "Đồng hồ" })">Đồng hồ</a></li>
+                        <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeId = "4" })">Đồng hồ</a></li>
                     }
                     @if (Model.PRODUCTTYPE.PRODUCTTYPENAME.Equals("Tai nghe"))
                     {
-                        <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeName = "Tai nghe" })">Tai nghe</a></li>
+                        <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeId = "5" })">Tai nghe</a></li>
                     }
                     <li class="active">@Model.BRAND.BRANDNAME</li>
                 </ul>
@@ -157,7 +157,12 @@
             <div class="col-md-5">
                 <div class="product-details">
                     <h2 class="product-name">@Model.PRODUCTNAME</h2>
-
+                    <div class="product-label">
+                        @if (Model.STATUSPRODUCT == false)
+                        {
+                            <span style="font-size: 25px; color: darkred">(Ngưng kinh doanh)</span>
+                        }
+                    </div>
                     <!--Rating of product-->
                     @Html.Partial("Public_RatingProduct", PC.loadRatingProduct(Model.PRODUCTID))
 
@@ -168,14 +173,18 @@
                             temp += "đ";
                         }
                         <h3 class="product-price">@temp</h3>
-                        @if (Model.PRODUCTAMOUNT <= 0)
+                        @if (Model.STATUSPRODUCT == true)
                         {
-                            <span class="product-available">Hết hàng</span>
+                            if (Model.PRODUCTAMOUNT <= 0)
+                            {
+                                <span class="product-available">Hết hàng</span>
+                            }
+                            else
+                            {
+                                <span class="product-available">Còn hàng</span>
+                            }
                         }
-                        else
-                        {
-                            <span class="product-available">Còn hàng</span>
-                        }
+
                     </div>
                     <p></p>
 
@@ -207,14 +216,17 @@
                                 </div>
                             }
                         </div>
-                
-                        <button class="add-to-cart-btn " id="addToCartWithAmount"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ hàng</button>
+                        @if (Model.STATUSPRODUCT == true)
+                        {
+                            <button class="add-to-cart-btn " id="addToCartWithAmount"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ hàng</button>
+                        }
+
                     </div>
 
                     <ul class="product-btns">
 
                         <li>
-                   
+
                             <a class="add-to-wishlist" onclick="addFavourite(@Model.PRODUCTID)"><i class="fa fa-heart" id="idheart"></i> Thêm yêu thích</a>
                         </li>
                     </ul>
@@ -518,6 +530,7 @@
     });
 </script>
 
+<!--add sản phẩm vòa giỏ hàng-->
 <script>
     var modal = document.getElementById('id01_login');
     var tempUser = '@Session["user"]';

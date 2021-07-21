@@ -35,7 +35,7 @@
         <div class="row">
             <div class="col-md-12 container white-box">
 
-                <table id="example" class="table  table-bordered table-hover" style="width:100%">
+                <table id="DSProduct" class="table  table-bordered table-hover" style="width:100%">
                     <thead>
                         <tr style="text-align: center; ">
                             <th style="font-size:15px;">ID</th>
@@ -189,5 +189,32 @@
                 $("#AddProduct").html(result);
             }
         });
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+
+        // Cấu hình các nhãn phân trang
+        $('#DSProduct').dataTable({
+            "language": {
+                "sProcessing": "Đang xử lý...",
+                "sLengthMenu": "Xem _MENU_ mục",
+                "sZeroRecords": "Không tìm thấy dòng nào phù hợp",
+                "sInfo": "Đang xem _START_ đến _END_ trong tổng số _TOTAL_ mục",
+                "sInfoEmpty": "Đang xem 0 đến 0 trong tổng số 0 mục",
+                "sInfoFiltered": "(được lọc từ _MAX_ mục)",
+                "sInfoPostFix": "",
+                "sSearch": "Tìm:",
+                "sUrl": "",
+                "oPaginate": {
+                    "sFirst": "Đầu",
+                    "sPrevious": "Trước",
+                    "sNext": "Tiếp",
+                    "sLast": "Cuối"
+                }
+            }
+        });
+
     });
 </script>

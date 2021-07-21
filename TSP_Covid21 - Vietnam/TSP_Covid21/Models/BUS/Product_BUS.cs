@@ -26,21 +26,21 @@ namespace TSP_Covid21.Models.BUS
         public IEnumerable<PRODUCT> loadProductNew()
         {
             var date = DateTime.Now;
-            var result = db.PRODUCT.Where(p => p.STATUSPRODUCT == true).OrderByDescending(t => t.DATEADD).Take(5);
+            var result = db.PRODUCT.OrderByDescending(t => t.DATEADD).Where(p => p.STATUSPRODUCT == true).Take(5);
             return result;
         }
 
         // Load product top sale
         public IEnumerable<PRODUCT> loadProductTop()
         {
-            var result = db.PRODUCT.Where(p => p.STATUSPRODUCT == true).OrderByDescending(t => t.PRODUCTID).Take(5);
+            var result = db.PRODUCT.OrderByDescending(t => t.PRODUCTID).Where(p => p.STATUSPRODUCT == true).Take(5);
             return result;
         }
 
         // Load product top sale at page product
         public IEnumerable<PRODUCT> loadProductTop_Product(int page, int pagesize)
         {
-            var result = db.PRODUCT.Where(p => p.STATUSPRODUCT == true).OrderByDescending(t => t.PRODUCTID).Take(18);
+            var result = db.PRODUCT.OrderByDescending(t => t.PRODUCTID).Where(p => p.STATUSPRODUCT == true).Take(18);
             return result.ToPagedList(page, pagesize);
         }
 
@@ -80,7 +80,7 @@ namespace TSP_Covid21.Models.BUS
         // Load product for product page
         public IEnumerable<PRODUCT> loadProduct(int productTypeId)
         {           
-            var result = db.PRODUCT.Where(p => p.PRODUCTTYPE.PRODUCTTYPEID == productTypeId & p.STATUSPRODUCT == true);  
+            var result = db.PRODUCT.Where(p => p.PRODUCTTYPE.PRODUCTTYPEID == productTypeId);  
 
             return result;
         }
@@ -100,7 +100,7 @@ namespace TSP_Covid21.Models.BUS
             var list = from a in db.PRODUCT
                        join b in db.ACCOUNTLIKE
                        on a.PRODUCTID equals b.PRODUCTID
-                       where b.USER == user & a.STATUSPRODUCT == true
+                       where b.USER == user
                        select new ProductViewModel
                        {
                            ProductId = a.PRODUCTID,
@@ -115,6 +115,7 @@ namespace TSP_Covid21.Models.BUS
                            ProductPrice = a.PRODUCTPRICE,
                            ProductAmount = a.PRODUCTAMOUNT,
                            Decription = a.DECRIPTION,
+                           Status = a.STATUSPRODUCT,
                            DateAdd = a.DATEADD,
                            ProductConfig = a.CONFIGDETAIL
                        };
@@ -129,7 +130,7 @@ namespace TSP_Covid21.Models.BUS
             var list = from a in db.PRODUCT
                        join b in db.CART
                         on a.PRODUCTID equals b.PRODUCTID
-                       where b.USER == user & a.STATUSPRODUCT == true
+                       where b.USER == user
                        select new ProductOfCartViewModel
                        {
                            ProductId = a.PRODUCTID,
@@ -149,7 +150,7 @@ namespace TSP_Covid21.Models.BUS
             var list = from a in db.PRODUCT
                        join b in db.CART
                         on a.PRODUCTID equals b.PRODUCTID
-                       where b.USER == user & b.PRODUCTSTATUS == true
+                       where b.USER == user
                        select new ProductOfCartViewModel
                        {
                            ProductId = a.PRODUCTID,
@@ -166,7 +167,7 @@ namespace TSP_Covid21.Models.BUS
         // Load list product in cart
         public IEnumerable<CART> loadCart(string user)
         {
-            var list = db.CART.Where(c => c.USER == user & c.PRODUCT.STATUSPRODUCT == true);
+            var list = db.CART.Where(c => c.USER == user);
             return list;
         }
 
