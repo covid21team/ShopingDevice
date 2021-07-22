@@ -42,6 +42,7 @@
                                             <th>Tên người bình luận</th>
                                             <th>sản phẩm</th>
                                             <th>bình luận</th>
+                                            <th></th>
                                         </tr>
                                     </thead>
                                     @{ 
@@ -51,18 +52,21 @@
                                     <tbody>
                                         @foreach (var item in listComment)
                                         {
-                                            <tr>
-                                                <td class="number">
-                                                    <input type="text" value="@item.COMMENTDATE" style="display: none" class="CommentDate"/>
-                                                    <p class="numberid">@i</p>
-                                                </td>
-                                                @{ 
-                                                    i++;
-                                                }
-                                                <td class="CommentName">@item.NAME</td>
-                                                <td class="ProductComment">@item.PRODUCTNAME</td>
-                                                <td class="CommentText"><textarea>@item.COMMENTTEXT</textarea></td>
-                                            </tr>
+                                        <tr>
+                                            <td class="number">
+                                                <input type="text" value="@item.COMMENTDATE" style="display: none" class="CommentDate" />
+                                                <p class="numberid">@i</p>
+                                            </td>
+                                            @{
+                                                i++;
+                                            }
+                                            <td class="CommentName">@item.NAME</td>
+                                            <td class="ProductComment">@item.PRODUCTNAME</td>
+                                            <td class="CommentText"><textarea>@item.COMMENTTEXT</textarea></td>
+                                            <td class="delete_product click_ProductManager">
+                                                <i class="fas fa-trash-alt" style="color: red;"></i>
+                                            </td>
+                                        </tr>
                                         }
 
                                     </tbody>
