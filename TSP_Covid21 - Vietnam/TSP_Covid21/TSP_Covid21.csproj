@@ -307,6 +307,8 @@
     <Content Include="Areas\Admin\AssetAdmin\css\Them.css" />
     <Content Include="Areas\Admin\AssetAdmin\css\Toggle-Switch.css" />
     <Content Include="Areas\Admin\AssetAdmin\images\bg.jpg" />
+    <Content Include="Areas\Admin\AssetAdmin\images\LoginLogo.png" />
+    <Content Include="Areas\Admin\AssetAdmin\images\viruses-solid1.png" />
     <Content Include="Areas\Admin\AssetAdmin\js\app-style-switcher.js" />
     <Content Include="Areas\Admin\AssetAdmin\js\custom.js" />
     <Content Include="Areas\Admin\AssetAdmin\js\pages\dashboards\dashboard1.js" />
