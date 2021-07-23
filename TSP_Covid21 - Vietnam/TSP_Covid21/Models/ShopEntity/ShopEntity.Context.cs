@@ -28,8 +28,10 @@ namespace TSP_Covid21.Models.ShopEntity
         }
     
         public virtual DbSet<ACCOUNT> ACCOUNT { get; set; }
+        public virtual DbSet<ACCOUNT_ADMIN> ACCOUNT_ADMIN { get; set; }
         public virtual DbSet<ACCOUNTLIKE> ACCOUNTLIKE { get; set; }
         public virtual DbSet<ADDRESS_SHIP> ADDRESS_SHIP { get; set; }
+        public virtual DbSet<BILL> BILL { get; set; }
         public virtual DbSet<BILLDETAIL> BILLDETAIL { get; set; }
         public virtual DbSet<BRAND> BRAND { get; set; }
         public virtual DbSet<CART> CART { get; set; }
@@ -43,8 +45,6 @@ namespace TSP_Covid21.Models.ShopEntity
         public virtual DbSet<VIEWNUMBER> VIEWNUMBER { get; set; }
         public virtual DbSet<VOCHERDETAIL> VOCHERDETAIL { get; set; }
         public virtual DbSet<VOUCHER> VOUCHER { get; set; }
-        public virtual DbSet<ACCOUNT_ADMIN> ACCOUNT_ADMIN { get; set; }
-        public virtual DbSet<BILL> BILL { get; set; }
     
         public virtual ObjectResult<string> CheckLogin(string username, string password)
         {
