@@ -1,0 +1,68 @@
+
+ .bluan{
+   border-radius: 8px;
+ }
+  .speech .media-heading {
+    font-size: 1.2em;
+    color: #317787;
+    display: block;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    font-weight: 300;
+  }
+
+  .speech {
+    position: relative;
+    background: #b7dcfe;
+    color: #317787;
+    display: inline-block;
+    border-radius: 8px;
+    padding: 10px 20px;
+  }
+
+  .speech-right>.speech:before {
+    left: auto;
+    right: 0;
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+    border-left: 7px solid #ffdc91;
+    border-right: 0;
+    margin: 15px -6px 0 0;
+    border-radius: 8px;
+  }
+
+  .speech-right {
+    text-align: right;
+  }
+
+  .speech-right>.speech {
+    background: #ffda87;
+    color: #a07617;
+    text-align: right;
+  }
+.brbluan{
+    background: white;
+    overflow: auto; 
+    height: 300px;
+}
+.liuser{
+    padding-top: 15px;
+    margin-left: -32px;
+    padding-left: 15px;
+}
+.liadmin{
+    padding-bottom: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+}
+.liuser p{
+    text-align: right;
+}
+.liadmin p{
+    text-align: left;
+}
+.labelbinhluan{
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+}

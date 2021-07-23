@@ -1,0 +1,14 @@
+﻿#btn_filter {
+    background: #D10024;
+    color: white;
+    margin: 20px;
+    border: none;
+    width: 200px;
+    height: 30px;
+    font-size: 20px;
+    border-radius: 10px;
+}
+
+    #btn_filter:hover {
+        background: #FF0000;
+    }
