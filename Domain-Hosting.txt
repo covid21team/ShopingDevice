@@ -1,0 +1,18 @@
+SQL
+server name: covid21tsp.space\MSSQLSERVER2017, 1436
+user: TSPTeam
+pass: _0lft68W
+
+FTP
+ip: 203.113.174.12
+user: iavoqlwyhosting
+pass: @Aa123456789
+
+Mail:
+MainMail: Nm_i6p26
+TRI: x3Dz5d_7
+PHU: 0Tmw1l6~
+
+Facebook: 
+User: covid21tsp@gmail.com
+Pass: 123456@a
