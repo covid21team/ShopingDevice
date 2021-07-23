@@ -17,7 +17,7 @@ namespace TSP_Covid21.Models.BUS
 
         public IEnumerable<BILL> listBill()
         {
-            return db.BILL;
+            return db.BILL.OrderBy(p => p.BIllSTATUS).ToList();
         }
 
         public BILL billDetail(int billId)

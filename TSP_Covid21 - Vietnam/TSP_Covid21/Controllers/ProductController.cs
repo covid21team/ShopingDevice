@@ -102,8 +102,14 @@ namespace TSP_Covid21.Controllers
             string user = Session["user"].ToString();
             PB.delProduct_Cart(productId, user);
 
-
             return PartialView();
+        }
+
+        // xóa sản phẩm ở downdrop phần header
+        public void delProduct(int productId)
+        {
+            string user = Session["user"].ToString();
+            PB.delProduct(productId, user);
         }
 
         [HttpPost]

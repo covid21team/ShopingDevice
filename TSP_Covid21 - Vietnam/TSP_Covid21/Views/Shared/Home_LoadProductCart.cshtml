@@ -40,6 +40,7 @@
             @foreach (var item in Model)
             {
                 <div class="product-widget">
+                    <p class="productId_header" style="display: none">@item.PRODUCTID</p>
                     <div class="product-img">
                         <a href="@Url.Action("Product","Covid21",new { productId = item.PRODUCTID})">
                             <img src="~/@item.PRODUCT.MAINPIC" alt="" style="width: 60px; height:60px; object-fit: contain">
@@ -51,9 +52,13 @@
                             var Sum = item.AMOUNT * item.PRODUCT.PRODUCTPRICE;
                             total = total + Convert.ToInt32(Sum);
                             var temp = String.Format("{0:#,##0.##}", Sum);
+                            temp = temp.Replace(".", ",");
                             temp += "đ";
                         }
-                        <h4 class="product-price"><span class="qty">@item.AMOUNT</span>@temp</h4>
+                        <h4 class="product-price">
+                            <span class="qty">@item.AMOUNT</span>
+                            @temp
+                        </h4>
                     </div>
                     <button class="delete"><i class="fa fa-close"></i></button>
                 </div>
@@ -63,8 +68,8 @@
             @{
                 var temp_Total = String.Format("{0:#,##0.##}", total);
             }
-            <small>@Model.Count() Item(s) selected</small>
-            <h5>SUBTOTAL: @temp_Total VNĐ</h5>
+            <small id="count_Cart_header">@Model.Count() sản phẩm</small>
+            <h5 id="total_Cart_header">Tổng: @temp_Total VNĐ</h5>
         </div>
         <div class="cart-btns">
             <a href="@Url.Action("Cart","Covid21",new { user = Session["user"]})">Giỏ hàng</a>
@@ -72,3 +77,26 @@
         </div>
     </div>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+<script>
+    $(".delete").click(function () {
+        var product_header = $(this).parent();
+        var id_header = $(product_header).children(".productId_header").text();
+        var total_header = $("#total_Cart_header");
+
+        $.ajax({
+            url: '@Url.Action("delProduct", "Product")',
+            type: 'POST',
+            data: {
+                productId: id_header,
+            },
+            success: function () {
+                product_header.remove();
+
+                
+            }
+        });
+    });
+</script>

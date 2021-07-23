@@ -211,6 +211,13 @@ namespace TSP_Covid21.Models.BUS
             db.SaveChanges();
         }
 
+        public void delProduct(int productId, string user)
+        {
+            var result = db.CART.Where(p => p.PRODUCTID == productId & p.USER == user).SingleOrDefault();
+            db.CART.Remove(result);
+            db.SaveChanges();
+        }
+
         // Lấy sản thông tin sản phẩm
         public PRODUCT productDetail(int productId)
         {

@@ -6,6 +6,11 @@
     TSP_Covid21.Areas.Admin.Controllers.CommentManagerController CC = new TSP_Covid21.Areas.Admin.Controllers.CommentManagerController();
 }
 
+<style>
+    .delete_comment:hover {
+        background: #BBBBBB;
+    }
+</style>
 <div class="page-wrapper" style="min-height: 250px;">
     <!-- ============================================================== -->
     <!-- Bread crumb and right sidebar toggle -->
@@ -38,15 +43,14 @@
                                 <table id="comment" class="table table-hover" style="text-align: center;">
                                     <thead>
                                         <tr>
-                                            <th>STT</th>
+                                            <th>Mã bình luận</th>
                                             <th>Tên người bình luận</th>
-                                            <th>sản phẩm</th>
-                                            <th>bình luận</th>
+                                            <th>Sản phẩm</th>
+                                            <th>Bình luận</th>
                                             <th></th>
                                         </tr>
                                     </thead>
                                     @{ 
-                                        var i = 0;
                                         var listComment = CC.listComment();
                                     }
                                     <tbody>
@@ -54,16 +58,13 @@
                                         {
                                         <tr>
                                             <td class="number">
-                                                <input type="text" value="@item.COMMENTDATE" style="display: none" class="CommentDate" />
-                                                <p class="numberid">@i</p>
+                                                <input type="text" value="@item.DATECOMMENT" style="display: none" class="CommentDate" />
+                                                <p class="numberid">@item.COMMENTID</p>
                                             </td>
-                                            @{
-                                                i++;
-                                            }
-                                            <td class="CommentName">@item.NAME</td>
-                                            <td class="ProductComment">@item.PRODUCTNAME</td>
+                                            <td class="CommentName">@item.ACCOUNT.FULLNAME</td>
+                                            <td class="ProductComment">@item.PRODUCT.PRODUCTNAME</td>
                                             <td class="CommentText"><textarea>@item.COMMENTTEXT</textarea></td>
-                                            <td class="delete_product click_ProductManager">
+                                            <td class="delete_comment click_CommentManager">
                                                 <i class="fas fa-trash-alt" style="color: red;"></i>
                                             </td>
                                         </tr>
@@ -199,4 +200,22 @@
         $("#textComment").html(text);
         $("#dateComment").html(date);
     }
+</script>
+
+<!--Xóa bình luận-->
+<script>
+    $(".delete_comment").click(function () {
+        var parent = $(this).parent();
+        var id = $(parent).children().children(".numberid").text();
+        $.ajax({
+            url: '@Url.Action("delComment", "CommentManager")',
+            type: 'POST',
+            data: {
+                commentId: id,
+            },
+            success: function () {
+                parent.remove();
+            }
+        });
+    });
 </script>

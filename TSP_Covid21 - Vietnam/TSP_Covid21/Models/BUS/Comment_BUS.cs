@@ -16,20 +16,19 @@ namespace TSP_Covid21.Models.BUS
             db = new COVIDEntities();
         }
 
-        public IEnumerable<ListComment> listComment()
+        public IEnumerable<COMMENT> listComment()
         {
             var result = from a in db.COMMENT
-                         select new ListComment()
-                         {
-                             USER = a.USER,
-                             NAME = a.ACCOUNT.FULLNAME,
-                             PRODUCTID = a.PRODUCTID,
-                             PRODUCTNAME = a.PRODUCT.PRODUCTNAME,
-                             COMMENTTEXT = a.COMMENTTEXT,
-                             COMMENTDATE = a.DATECOMMENT,
-                         };
+                         select a;
 
             return result;
+        }
+
+        public void delComment(int commentId)
+        {
+            var result = db.COMMENT.Find(commentId);
+            db.COMMENT.Remove(result);
+            db.SaveChanges();
         }
     }
 }
