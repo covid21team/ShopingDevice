@@ -10,6 +10,6 @@
 2. Admin
 - Trả lời được bình luận của khách hàng khi đánh giá vào sản phẩm
 - Cấu hình của sản phẩm được phân biệt rõ ràng hơn
-- Từ chối đơn hàng khi sản phẩm bị hết với lí do đầy đủ
+- Từ chối đơn hàng vì lý do khách quan
 - Phân quyền cho quản trị viên
 - Hủy đơn hàng theo yêu cầu của khách hàng (hệ thống gữi mã về điện thoại khách hàng để xác nhận)
