@@ -460,6 +460,11 @@ namespace TSP_Covid21.Models.BUS
             db.SaveChanges();
         }
 
+        public BILL takeBill(string user)
+        {
+            return db.BILL.Where(p => p.USER == user).OrderByDescending(c => c.BILLID).FirstOrDefault();
+        }
+
         #endregion
 
     }

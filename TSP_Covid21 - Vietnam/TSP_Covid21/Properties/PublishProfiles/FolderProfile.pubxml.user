@@ -2127,6 +2127,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Asset/screenshot/Store.png">
       <publishTime>06/19/2021 23:15:42</publishTime>
     </File>
+    <File Include="Asset/SendMail.html">
+      <publishTime>07/24/2021 21:20:34</publishTime>
+    </File>
     <File Include="bin/Antlr3.Runtime.dll">
       <publishTime>09/10/2013 16:29:20</publishTime>
     </File>
@@ -2314,10 +2317,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/01/2018 12:20:56</publishTime>
     </File>
     <File Include="bin/TSP_Covid21.dll">
-      <publishTime>07/24/2021 12:35:13</publishTime>
+      <publishTime>07/24/2021 21:24:13</publishTime>
     </File>
     <File Include="bin/TSP_Covid21.pdb">
-      <publishTime>07/24/2021 12:35:13</publishTime>
+      <publishTime>07/24/2021 21:24:13</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>01/23/2014 13:57:34</publishTime>
@@ -2431,10 +2434,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/21/2021 11:24:04</publishTime>
     </File>
     <File Include="Views/Covid21/CheckOut.cshtml">
-      <publishTime>07/21/2021 09:48:20</publishTime>
+      <publishTime>07/24/2021 17:01:06</publishTime>
     </File>
     <File Include="Views/Covid21/ContactUs.cshtml">
-      <publishTime>07/24/2021 11:21:51</publishTime>
+      <publishTime>07/24/2021 16:10:44</publishTime>
     </File>
     <File Include="Views/Covid21/Favourite.cshtml">
       <publishTime>07/21/2021 11:48:35</publishTime>
@@ -2476,10 +2479,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/01/2021 16:50:47</publishTime>
     </File>
     <File Include="Views/Product/search.cshtml">
-      <publishTime>07/24/2021 11:10:35</publishTime>
+      <publishTime>07/24/2021 17:22:57</publishTime>
     </File>
     <File Include="Views/Shared/Categories_LoadBrand.cshtml">
-      <publishTime>07/10/2021 08:41:02</publishTime>
+      <publishTime>07/24/2021 15:49:33</publishTime>
     </File>
     <File Include="Views/Shared/Categories_LoadProductTop.cshtml">
       <publishTime>07/14/2021 10:21:17</publishTime>
@@ -2530,7 +2533,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/21/2021 11:30:29</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>07/24/2021 09:50:29</publishTime>
+      <publishTime>07/24/2021 13:04:10</publishTime>
     </File>
     <File Include="Views/sitemap.xml">
       <publishTime>07/24/2021 11:46:51</publishTime>
@@ -2542,7 +2545,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/19/2021 22:27:02</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>07/24/2021 12:27:35</publishTime>
+      <publishTime>07/24/2021 14:38:56</publishTime>
     </File>
   </ItemGroup>
 </Project>
