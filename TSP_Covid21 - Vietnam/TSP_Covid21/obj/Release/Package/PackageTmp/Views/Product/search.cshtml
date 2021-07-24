@@ -89,12 +89,27 @@
             <!-- ASIDE -->
             <div id="aside" class="col-md-3">
                 <!--Lọc Thương hiệu-->
-
                 @{
-                    var loadBrandProduct = Html.Partial("Categories_LoadBrand", db_Ctrl.loadBrandCtrl(ProductTypeId));
-                    loadBrandProduct = new MvcHtmlString(loadBrandProduct.ToString());
+                    var listBrand = db_Ctrl.listBrand();
                 }
-                @loadBrandProduct
+
+                <div class="aside">
+                    <h3 class="aside-title">Thương hiệu</h3>
+                    <div class="checkbox-filter">
+
+                        @foreach (var item in listBrand)
+                        {
+                            <div class="input-checkbox">
+                                <input type="checkbox" id="@item.BRANDID" class="brandName_Categories" value="@item.BRANDNAME">
+                                <label for="@item.BRANDID">
+                                    <span></span>
+                                    @item.BRANDNAME
+                                    <small>@item.PRODUCT.Count()</small>
+                                </label>
+                            </div>
+                        }
+                    </div>
+                </div>
 
                 <!--Lọc Thương hiệu-->
                 <!-- aside Widget --><!--Lọc giá-->
