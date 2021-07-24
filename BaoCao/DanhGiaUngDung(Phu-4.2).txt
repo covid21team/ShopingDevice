@@ -1,0 +1,18 @@
+- ưu điểm:
++ Web dễ sử dụng
++ không load lại trang nhiều lần 
++ Hiệu ứng thêm giỏ hàng
++ 
+
+
+- Nhược điểm:
++ Bảo mật trang web chưa cao
++ Chưa sửa được lỗi hiện tim ở trang chủ 
+
+- thuận lợi và khó khăn
++ thuận lợi
+. Có nhiều tài liệu để tra cứu
+. 
++ khó khăn
+. Không đọc được tài liệu tiếng anh
+. 
