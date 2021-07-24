@@ -57,6 +57,17 @@ namespace TSP_Covid21.Models.BUS
             return true;
         }
 
+        public bool checkEmail(string email)
+        {
+            var result = db.ACCOUNT.Where(p => p.EMAIL == email).SingleOrDefault();
+
+            if (result == null)
+            {
+                return false;
+            }
+            return true;
+        }
+
         public void Signup(string user, string pass, string fullname, string phone)
         {
             ACCOUNT a = new ACCOUNT

@@ -1,4 +1,5 @@
-﻿﻿<!--
+﻿﻿
+<!--
     ➠ Hiện form đăng nhập để sử dụng web   ✔
 
     ➠ Đăng ký tài khoản khách hàng         ✔
@@ -37,7 +38,7 @@
                     <i id="hidel5" class="fa fa-eye"></i>
                 </span>
             </div>
-            
+
             <!--Thông báo input user bị trống-->
             <div id="message_PassSigninInf" style="position: absolute; display:none; margin-top: -25px ; margin-left: 0px; z-index: 50;">
                 <p id="text_PassSigninInf" style="color: red; font-size: 12px"><i class="fas fa-exclamation-triangle"></i> Mật khẩu bị trống</p>
@@ -82,6 +83,10 @@
             <div id="message_UserInf" style="position: absolute; display:none; margin-top: -25px ; margin-left: 0px; z-index: 50;">
                 <p id="text_UserInf" style="color: red; font-size: 12px"><i class="fas fa-exclamation-triangle"></i> Tên tài khoản bị trống</p>
             </div>
+            <!--Thông báo input user quá dài-->
+            <div id="message_UserCount" style="position: absolute; display:none; margin-top: -25px ; margin-left: 0px; z-index: 50;">
+                <p id="text_UserCount" style="color: red; font-size: 12px"><i class="fas fa-exclamation-triangle"></i> Tên tài khoản quá dài</p>
+            </div>
 
             <div class="user-box">
                 <input type="password" id="pass1" name="pass1" required>
@@ -111,7 +116,7 @@
                     <i id="hidel1" class="fa fa-eye"></i>
                 </span>
             </div>
-            
+
 
             <!-- Kiểm tra nhập mật khẩu lại đúng không-->
             <div id="message_ConfirmPass" style="position: absolute; display:none; margin-top: -25px ; margin-left: 0px; z-index: 50;">
@@ -122,7 +127,6 @@
                 <input type="text" id="phone" name="phone" required="">
                 <label>Số điện thoại</label>
             </div>
-
             <!-- Kiểm tra số điện thoại đã tồn tại-->
             <div id="message_phone" style="position: absolute; display: none; margin-top: -25px ; margin-left: 0px; z-index: 50;">
                 <p id="text_phone" style="color: red; font-size: 12px"><i class="fas fa-exclamation-triangle"></i> Số điện thoại đã có tài khoản</p>
@@ -143,6 +147,28 @@
             <!--Thông báo input fullname bị trống-->
             <div id="message_FullNameInf" style="position: absolute; display:none; margin-top: -25px ; margin-left: 0px; z-index: 50;">
                 <p id="text_FullNameInf" style="color: red; font-size: 12px"><i class="fas fa-exclamation-triangle"></i> Họ và Tên bị trống</p>
+            </div>
+
+            <div class="user-box">
+                <input type="text" name="" id="email" required="">
+                <label>Email</label>
+            </div>
+            <!-- Kiểm tra email đã tồn tại-->
+            <div id="message_email" style="position: absolute; display: none; margin-top: -25px ; margin-left: 0px; z-index: 50;">
+                <p id="text_email" style="color: red; font-size: 12px"><i class="fas fa-exclamation-triangle"></i>Email đã có tài khoản</p>
+            </div>
+            <!--Thông báo input email bị trống-->
+            <div id="message_EmailInf" style="position: absolute; display:none; margin-top: -25px ; margin-left: 0px; z-index: 50;">
+                <p id="text_EmailInf" style="color: red; font-size: 12px"><i class="fas fa-exclamation-triangle"></i>Email bị trống</p>
+            </div>
+
+            <div class="user-box">
+                <input type="text" name="" id="script" required="">
+                <label>Mã Code</label>
+            </div>
+            <!--Thông báo input scrpit bị trống-->
+            <div id="message_Script" style="position: absolute; display:none; margin-top: -25px ; margin-left: 0px; z-index: 50;">
+                <p id="text_Script" style="color: red; font-size: 12px"><i class="fas fa-exclamation-triangle"></i>Mã code đã sai</p>
             </div>
             <!--
             <div id="message" style="position: absolute; margin-top: -240px;border: 1px solid rgb(0, 0, 0); margin-left:90px; background: rgb(246, 247, 191);border-radius:5%; z-index: 50;">
@@ -173,10 +199,38 @@
 </div>
 
 <!-- End Sigin -->
-
+@if(Session["script"] == null)
+{
+    @Session["script"] = "999999";
+}
 
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
+<!-- Kiểm tra Email đã tồn tại chưa
+<script>
+    var inputEmail_signup = document.getElementById('email');
+
+    // When click outside inputPhone_signup
+    inputEmail_signup.onblur = function () {
+        $("#message_EmailInf").hide();
+        var email = $('#email').val();
+        $.ajax({
+            url: 'Url.Action("checkEmail", "Account")',
+            type: 'POST',
+            data: {
+                email: email,
+            },
+            success: function (result) {
+                if (result == 'True') {
+                    $("#message_email").show();
+                } else {
+                    $("#message_email").hide();
+                }
+            }
+        });
+    }
+</script>
+-->
 <!-- Dùng signin -->
 <script>
     $('#filebutton').click(function () {
@@ -242,13 +296,41 @@
 
 <!-- Dùng signup-->
 <script>
+    //Kiểm tra Email đã tồn tại chưa
+    var inputEmail_signup = document.getElementById('email');
+    var script = "998765";
+
+    // When click outside inputPhone_signup
+    inputEmail_signup.onblur = function () {
+        $("#message_EmailInf").hide();
+        var email = $('#email').val();
+        $.ajax({
+            url: '@Url.Action("checkEmail", "Account")',
+            type: 'POST',
+            data: {
+                email: email,
+            },
+            success: function (result) {
+                if (result == '999999') {
+                    $("#message_email").show();
+                    script = @Session["script"].ToString();
+                } else {
+                    $("#message_email").hide();
+                }
+            }
+        });
+    }
+
     $("#signup_account").click(function () {
         $("#message_PhoneInf").hide();
         var user = $("#user_signup").val();
         var pass = $("#pass1").val();
         var fullname = $("#fullname").val();
         var phone = $("#phone").val();
-        if (user != "" && pass != "" && fullname != "" && phone != "" && pass.length >= 8) {
+        var email = $("#email").val();
+        var code = $("#script").val();
+
+        if (code == script && user != "" && pass != "" && fullname != "" && phone != "" && phone.length == 10 && pass.length >= 8 && user.length < 30) {
             $("#loading_web").show();
             $.ajax({
                 url: '@Url.Action("Signup","Account")',
@@ -271,34 +353,51 @@
                 }
             });
         } else {
-            if (user == "") {
-                $("#message_UserInf").show();
-            } else {
-                $("#message_UserInf").hide();
-            }
-
-            if (pass == "") {
-                $("#message_Pass").hide();
-                $("#message_PassInf").show();
-            } else {
-                $("#message_PassInf").hide();
-            }
-
-            if (phone == "") {
-                $("#message_phone").hide();
-                $("#message_phone_1").hide();
-                $("#message_PhoneInf").show();
-            } else {
-                $("#message_PhoneInf").hide();
-            }
-
-            if (fullname == "") {
-                $("#message_FullNameInf").show();
-            } else {
-                $("#message_FullNameInf").hide();
-            }
+            checkInput(user, pass, phone, fullname, email, code);
         }
     });
+
+    function checkInput(user, pass, phone, fullname, email, code) {
+        if (user == "") {
+            $("#message_UserInf").show();
+        } else {
+            $("#message_UserInf").hide();
+        }
+
+        if (pass == "") {
+            $("#message_Pass").hide();
+            $("#message_PassInf").show();
+        } else {
+            $("#message_PassInf").hide();
+        }
+
+        if (phone == "") {
+            $("#message_phone").hide();
+            $("#message_phone_1").hide();
+            $("#message_PhoneInf").show();
+        } else {
+            $("#message_PhoneInf").hide();
+        }
+
+        if (fullname == "") {
+            $("#message_FullNameInf").show();
+        } else {
+            $("#message_FullNameInf").hide();
+        }
+
+        if (email == "") {
+            $("#message_email").hide();
+            $("#message_EmailInf").show();
+        } else {
+            $("#message_EmailInf").hide();
+        }
+
+        if (code != script) {
+            $("#message_Script").show();
+        } else {
+            $("#message_Script").hide();
+        }
+    }
 </script>
 
 <!-- Kiểm tra user đã tồn tại chưa-->
@@ -307,22 +406,28 @@
 
     // When click outside inputUser
     inputUser_signup.onblur = function () {
-        $("#message_UserInf").hide();
         var user = $('#user_signup').val();
-        $.ajax({
-            url: '@Url.Action("checkUser", "Account")',
-            type: 'POST',
-            data: {
-                user: user,
-            },
-            success: function (result) {
-                if (result == 'True') {
-                    $("#message_user").show();
-                } else {
-                    $("#message_user").hide();
+        if (user.length > 30) {
+            $("#message_UserCount").show();
+        } else {
+            $("#message_UserCount").hide();
+
+            $("#message_UserInf").hide();
+            $.ajax({
+                url: '@Url.Action("checkUser", "Account")',
+                type: 'POST',
+                data: {
+                    user: user,
+                },
+                success: function (result) {
+                    if (result == 'True') {
+                        $("#message_user").show();
+                    } else {
+                        $("#message_user").hide();
+                    }
                 }
-            }
-        });
+            });
+        }
     }
 </script>
 
@@ -359,14 +464,14 @@
 
 <!-- Kiểm tra số lượng pass-->
 <script>
-    
+
     var inputPass = document.getElementById("pass1");
 
     inputPass.onblur = function () {
         $("#message_Pass").hide();
         var Pass = $('#pass1').val();
-
         if (Pass.length < 8) {
+            $("#message_PassInf").hide();
             $("#message_Pass").show();
         } else {
             $("#message_Pass").hide();

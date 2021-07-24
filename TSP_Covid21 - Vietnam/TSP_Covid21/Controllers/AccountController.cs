@@ -8,6 +8,8 @@ using TSP_Covid21.Models.BUS;
 using System.Text;
 using System.Xml.Linq;
 using System.Globalization;
+using System.Net.Mail;
+using System.Net;
 
 namespace TSP_Covid21.Controllers
 {
@@ -74,6 +76,49 @@ namespace TSP_Covid21.Controllers
             var result = AB.checkPhone(phone);
 
             return result;
+        }
+
+        public string checkEmail(string email)
+        {
+            Models.BUS.Account_BUS AB = new Models.BUS.Account_BUS();
+            var result = AB.checkEmail(email);
+
+            if (!result)
+                return SendCode(email);
+            return "999999";
+        }
+
+        public string SendCode(string email)
+        {
+            string gmailshop = "covid21tsp@gmail.com";
+            string passshop = "123456@a";
+            string title = "Mã xác nhận Email từ Covid21Shop";
+
+            Random TenBienRanDom = new Random();
+            var script = TenBienRanDom.Next(123456, 987654);//Trả về giá trị kiểu int
+            try
+            {
+                SmtpClient mailclient = new SmtpClient("smtp.gmail.com", 587);
+                mailclient.EnableSsl = true;
+                mailclient.Credentials = new NetworkCredential(gmailshop, passshop);
+
+                MailMessage message = new MailMessage(gmailshop, email);
+
+                string htmlText = System.IO.File.ReadAllText(Server.MapPath("~/Asset/SendCode.html"));
+                htmlText = htmlText.Replace("{{script}}", script.ToString());
+                message.Subject = title;
+                message.Body = htmlText;
+
+                message.IsBodyHtml = true;
+                mailclient.Send(message);
+
+            }
+            catch (Exception ex)
+            {
+                return "999999";
+            }
+            Session["script"] = script.ToString();
+            return script.ToString();
         }
 
         [HttpPost]

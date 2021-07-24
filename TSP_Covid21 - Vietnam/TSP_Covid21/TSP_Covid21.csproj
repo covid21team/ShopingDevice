@@ -660,6 +660,7 @@
     <Content Include="Asset\screenshot\Product.png" />
     <Content Include="Asset\screenshot\Regular.png" />
     <Content Include="Asset\screenshot\Store.png" />
+    <Content Include="Asset\SendCode.html" />
     <Content Include="Asset\SendMail.html" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
