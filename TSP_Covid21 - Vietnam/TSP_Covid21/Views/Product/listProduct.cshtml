@@ -90,6 +90,7 @@
     $(".col-xs-6").slice(0, 6).show();
 </script>
 
+<!--LoadMore-->
 <script>
     $(".col-xs-6").slice(0, 6).show(); //hiện số lượng sản phẩm mặc định
 
@@ -101,69 +102,6 @@
             //button when length is 0
         }
     })
-</script>
-
-<!--Hàm dùng add sản phẩm vào giỏ hàng(dùng ajax)-->
-<script>
-    $(".addToCart").click(function () {
-        var modal = document.getElementById('id01_login');
-        var parent = $(this).parent();
-        var id = $(parent).children(".productId").val();
-        var tempUser = '@user';
-        let cart = $(".myCart");
-        let imgtodrag = $(this).parent().parent().find("img").eq(0);
-        if (tempUser == null || tempUser == "") {
-            alert("Please Login");
-            modal.style.display = "block";
-        } else {
-            $.ajax({
-                url: '@Url.Action("insertCart", "Product")',
-                type: 'POST',
-                async: false,
-                cache: false,
-                data: {
-                    productId: id,
-                    user: tempUser,
-                },
-                success: function (result) {
-                    if (imgtodrag) {
-                        // duplicate the img
-                        var imgclone = imgtodrag.clone().offset({
-                            top: imgtodrag.offset().top,
-                            left: imgtodrag.offset().left
-                        }).css({
-                            'opacity': '0.8',
-                            'position': 'absolute',
-                            'height': '150px',
-                            'width': '150px',
-                            'z-index': '100'
-                        }).appendTo($('body')).animate({
-                            'top': cart.offset().top + 7,
-                            'left': cart.offset().left + 47,
-                            'width': 75,
-                            'height': 75
-                        }, 1000, 'easeInOutExpo');
-
-                        imgclone.animate({
-                            'width': 0,
-                            'height': 0
-                        }, function () {
-                            $(this).detach()
-                        });
-                    }
-
-                    setTimeout(function () {
-                        $("#MyListProduct").html(result)
-                    }, 1500);
-                },
-                error: function () {
-                    alert('Fail');
-                }
-            });
-        }
-
-    });
-
 </script>
 
 <!-- Khi rê chuột vào mắt thì hiện bảng config lên, khi rê chuột ra ngoài thì tự động abngr mất -->

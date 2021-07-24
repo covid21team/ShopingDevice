@@ -5,6 +5,9 @@ using System.Web;
 using System.Web.Mvc;
 using TSP_Covid21.Models.ShopEntity;
 using TSP_Covid21.Models.BUS;
+using System.Text;
+using System.Xml.Linq;
+using System.Globalization;
 
 namespace TSP_Covid21.Controllers
 {
@@ -168,6 +171,206 @@ namespace TSP_Covid21.Controllers
         {
             Account_BUS AB = new Account_BUS();
             AB.editAdress_Bill(id, fullname, phone, city, district, ward, address);
+        }
+
+
+
+        public class SitemapNode
+        {
+            public string loc { get; set; }
+            public DateTime? lastmod { get; set; }
+            public double? priority { get; set; }
+        }
+
+        public string GetSitemapDocument(IEnumerable<SitemapNode> sitemapNodes)
+        {
+            XNamespace xmlns = "http://www.sitemaps.org/schemas/sitemap/0.9";
+            XElement root = new XElement(xmlns + "urlset");
+            foreach (SitemapNode sitemapNode in sitemapNodes)
+            {
+                XElement urlElement = new XElement(
+                    xmlns + "url",
+                    new XElement(xmlns + "loc", Uri.EscapeUriString(sitemapNode.loc)),
+                    sitemapNode.lastmod == null ? null : new XElement(
+                        xmlns + "lastmod",
+                        sitemapNode.lastmod.Value.ToLocalTime().ToString("yyyy-MM-ddTHH:mm:sszzz")),
+                    sitemapNode.priority == null ? null : new XElement(
+                        xmlns + "priority",
+                        sitemapNode.priority.Value.ToString("F1", CultureInfo.InvariantCulture)));
+                root.Add(urlElement);
+            }
+            XDocument document = new XDocument(root);
+            return document.ToString();
+        }
+        public IReadOnlyCollection<SitemapNode> GetSitemapNodes()
+        {
+            List<SitemapNode> nodes = new List<SitemapNode>();
+
+            nodes.Add(
+                new SitemapNode()
+                {
+                    loc = "https://covid21tsp.space/",
+                    priority = 1.0
+                });
+            nodes.Add(
+                new SitemapNode()
+                {
+                    loc = "https://covid21tsp.space/Covid21/Categories?ProductTypeId=2",
+                    priority = 0.8
+                });
+            nodes.Add(
+                new SitemapNode()
+                {
+                    loc = "https://covid21tsp.space/Covid21/Categories?ProductTypeId=1",
+                    priority = 0.8
+                });
+            nodes.Add(
+                new SitemapNode()
+                {
+                    loc = "https://covid21tsp.space/Covid21/Categories?ProductTypeId=3",
+                    priority = 0.8
+                });
+            nodes.Add(
+                new SitemapNode()
+                {
+                    loc = "https://covid21tsp.space/Covid21/Categories?ProductTypeId=4",
+                    priority = 0.8
+                });
+            nodes.Add(
+                new SitemapNode()
+                {
+                    loc = "https://covid21tsp.space/Covid21/Categories?ProductTypeId=5",
+                    priority = 0.8
+                });
+            nodes.Add(
+                new SitemapNode()
+                {
+                    loc = "https://covid21tsp.space/Covid21/Product?productId=5",
+                    priority = 0.8
+                });
+            nodes.Add(
+                new SitemapNode()
+                {
+                    loc = "https://covid21tsp.space/Covid21/Product?productId=1",
+                    priority = 0.8
+                });
+            nodes.Add(
+                new SitemapNode()
+                {
+                    loc = "https://covid21tsp.space/Covid21/Product?productId=2",
+                    priority = 0.8
+                });
+            nodes.Add(
+                new SitemapNode()
+                {
+                    loc = "https://covid21tsp.space/Covid21/Product?productId=3",
+                    priority = 0.8
+                });
+            nodes.Add(
+                new SitemapNode()
+                {
+                    loc = "https://covid21tsp.space/Covid21/Product?productId=4",
+                    priority = 0.8
+                });
+            nodes.Add(
+                new SitemapNode()
+                {
+                    loc = "https://covid21tsp.space/Covid21/Product?productId=6",
+                    priority = 0.8
+                });
+            nodes.Add(
+                new SitemapNode()
+                {
+                    loc = "https://covid21tsp.space/Covid21/Product?productId=7",
+                    priority = 0.8
+                });
+            nodes.Add(
+                new SitemapNode()
+                {
+                    loc = "https://covid21tsp.space/Covid21/Product?productId=8",
+                    priority = 0.8
+                });
+            nodes.Add(
+                new SitemapNode()
+                {
+                    loc = "https://covid21tsp.space/Covid21/Product?productId=9",
+                    priority = 0.8
+                });
+            nodes.Add(
+                new SitemapNode()
+                {
+                    loc = "https://covid21tsp.space/Covid21/Product?productId=10",
+                    priority = 0.8
+                });
+            nodes.Add(
+                new SitemapNode()
+                {
+                    loc = "https://covid21tsp.space/Covid21/Product?productId=11",
+                    priority = 0.8
+                });
+            nodes.Add(
+                new SitemapNode()
+                {
+                    loc = "https://covid21tsp.space/Covid21/Product?productId=12",
+                    priority = 0.8
+                });
+            nodes.Add(
+                new SitemapNode()
+                {
+                    loc = "https://covid21tsp.space/Covid21/Product?productId=13",
+                    priority = 0.8
+                });
+            nodes.Add(
+                new SitemapNode()
+                {
+                    loc = "https://covid21tsp.space/Covid21/Product?productId=14",
+                    priority = 0.8
+                });
+            nodes.Add(
+                new SitemapNode()
+                {
+                    loc = "https://covid21tsp.space/Covid21/Product?productId=15",
+                    priority = 0.8
+                });
+            nodes.Add(
+                new SitemapNode()
+                {
+                    loc = "https://covid21tsp.space/Covid21/Product?productId=16",
+                    priority = 0.8
+                });
+            nodes.Add(
+                new SitemapNode()
+                {
+                    loc = "https://covid21tsp.space/Covid21/Product?productId=17",
+                    priority = 0.8
+                });
+            nodes.Add(
+                new SitemapNode()
+                {
+                    loc = "https://covid21tsp.space/Covid21/Product?productId=18",
+                    priority = 0.8
+                });
+            nodes.Add(
+                new SitemapNode()
+                {
+                    loc = "https://covid21tsp.space/Covid21/ContactUs",
+                    priority = 0.8
+                });
+            nodes.Add(
+                new SitemapNode()
+                {
+                    loc = "https://covid21tsp.space/Covid21/PrivacyPolicy",
+                    priority = 0.8
+                });
+            return nodes;
+        }
+
+        [Route("sitemap.xml")]
+        public ActionResult testSiteMap()
+        {
+            var sitemapNodes = GetSitemapNodes();
+            string xml = GetSitemapDocument(sitemapNodes);
+            return Content(xml, "text/xml", Encoding.UTF8);
         }
     }
 }

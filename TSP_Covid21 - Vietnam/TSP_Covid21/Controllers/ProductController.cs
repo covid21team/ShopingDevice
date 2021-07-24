@@ -8,6 +8,8 @@ using TSP_Covid21.Models.ViewModel;
 using TSP_Covid21.Models.ShopEntity;
 using System.Web.Services;
 using TSP_Covid21.Models;
+using System.Net.Mail;
+using System.Net;
 
 namespace TSP_Covid21.Controllers
 {
@@ -223,6 +225,29 @@ namespace TSP_Covid21.Controllers
         {
             string user = Session["user"].ToString();
             PB.insertBill(user, note, total);
+
+            string gmailshop = "covid21tsp@gmail.com";
+            string passshop = "123456@a";
+            string gmail = "xyz8642@gmail.com";
+            string title = "Đơn đặt hàng của bạn";
+            string content = "Cảm ơn bạn đã đặt hàng bên chúng tôi";
+            try
+            {
+                SmtpClient mailclient = new SmtpClient("smtp.gmail.com", 587);
+                mailclient.EnableSsl = true;
+                mailclient.Credentials = new NetworkCredential(gmailshop, passshop);
+
+                MailMessage message = new MailMessage(gmailshop, gmail);
+                message.Subject = title;
+                message.Body = content;
+
+                mailclient.Send(message);
+                
+            }
+            catch (Exception ex)
+            {
+                return RedirectToAction("Home", "Covid21");
+            }
 
             return RedirectToAction("Home", "Covid21");
         }
