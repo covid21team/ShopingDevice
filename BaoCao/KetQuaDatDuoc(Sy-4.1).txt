@@ -28,4 +28,14 @@
 - Quản lí bình luận
 	+ Xóa bình luận 
 - Quản lí hình ảnh
+
+
+
+------------------------------------------Kết quả đạt được---------------------------------------------------
+- Sử dụng GitHub để các thành viên trong nhóm tương tác với nhau
+- Dùng SQL Server vào mục định lưu dữ liệu
+- Giao diện sử dụng Bootstrap và chỉnh sửa bằng Visual Code
+- Viết phần xử lí trên phần mềm Visual Studio với ASP.NET MVC
+- Sử dụng ENTITY Framework nhằm liên kết với Database
+ 
 	
