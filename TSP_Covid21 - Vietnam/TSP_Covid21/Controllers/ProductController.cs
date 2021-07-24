@@ -10,6 +10,7 @@ using System.Web.Services;
 using TSP_Covid21.Models;
 using System.Net.Mail;
 using System.Net;
+using System.Text;
 
 namespace TSP_Covid21.Controllers
 {
@@ -226,7 +227,7 @@ namespace TSP_Covid21.Controllers
         {
             string gmailshop = "covid21tsp@gmail.com";
             string passshop = "123456@a";
-            string gmail = "xyzsy8642@gmail.com";
+            string gmail = Session["gmail"].ToString() ;
             string title = "Đơn đặt hàng của bạn";
             string content = "Cảm ơn bạn đã đặt hàng bên chúng tôi";
             try
@@ -236,9 +237,12 @@ namespace TSP_Covid21.Controllers
                 mailclient.Credentials = new NetworkCredential(gmailshop, passshop);
 
                 MailMessage message = new MailMessage(gmailshop, gmail);
-                message.Subject = title;
-                message.Body = content;
 
+                string htmlText = "The <b>fancy</b> part.";
+                message.Subject = title;
+                message.Body = htmlText;
+
+                message.IsBodyHtml = true;
                 mailclient.Send(message);
 
                 string user = Session["user"].ToString();
