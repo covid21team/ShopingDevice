@@ -189,6 +189,11 @@ namespace TSP_Covid21.Models.BUS
 
         }
 
+        public IEnumerable<BRAND> listBrand()
+        {
+            return db.BRAND;
+        }
+
         //load all brand
         public IEnumerable<BrandViewModel> loadAllBrand()
         {

@@ -19,12 +19,12 @@ namespace TSP_Covid21.Models.ShopEntity
         {
             this.ACCOUNTLIKE = new HashSet<ACCOUNTLIKE>();
             this.ADDRESS_SHIP = new HashSet<ADDRESS_SHIP>();
+            this.BILL = new HashSet<BILL>();
             this.CART = new HashSet<CART>();
             this.COMMENT = new HashSet<COMMENT>();
             this.RATINGPRODUCT = new HashSet<RATINGPRODUCT>();
             this.VIEWNUMBER = new HashSet<VIEWNUMBER>();
             this.VOCHERDETAIL = new HashSet<VOCHERDETAIL>();
-            this.BILL = new HashSet<BILL>();
         }
     
         public string USER { get; set; }
@@ -41,6 +41,8 @@ namespace TSP_Covid21.Models.ShopEntity
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ADDRESS_SHIP> ADDRESS_SHIP { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<BILL> BILL { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CART> CART { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<COMMENT> COMMENT { get; set; }
@@ -50,7 +52,5 @@ namespace TSP_Covid21.Models.ShopEntity
         public virtual ICollection<VIEWNUMBER> VIEWNUMBER { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<VOCHERDETAIL> VOCHERDETAIL { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BILL> BILL { get; set; }
     }
 }

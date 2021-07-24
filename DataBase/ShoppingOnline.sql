@@ -242,7 +242,7 @@ SET DATEFORMAT DMY
 ----------------------------------------------------TRIGER PASSWORD----------------------------------------------------
 
 go
-CREATE trigger [dbo].[MaHoaPassword] on [dbo].[Account] after insert, update as
+CREATE trigger [TSPTeam].[MaHoaPassword] on [TSPTeam].[Account] after insert, update as
 begin        
 		if not exists (select * from deleted)
 			update Account
@@ -258,7 +258,7 @@ begin
 end 
 
 go
-CREATE trigger [dbo].[MaHoaPasswordAdmin] on [dbo].[ACCOUNT_ADMIN] after insert, update as
+CREATE trigger [TSPTeam].[MaHoaPasswordAdmin] on [TSPTeam].[ACCOUNT_ADMIN] after insert, update as
 begin        
 		if not exists (select * from deleted)
 			update ACCOUNT_ADMIN
@@ -310,6 +310,11 @@ insert into Brand values(N'Apple','1')	  --2
 insert into Brand values(N'Xiaomi','1')	  --3
 Insert into Brand values (N'Oppo','1')    --4
 Insert into Brand values (N'Acer','1')   --5
+Insert into Brand values (N'Msi','1')   --5
+Insert into Brand values (N'Sony','1')   --5
+Insert into Brand values (N'Lenovo','1')   --5
+Insert into Brand values (N'IPad','1')   --5
+Insert into Brand values (N'Asus','1')   --5
 
 go --(PRODUCTTYPENAME, STATUSPRODUCTTYPE)
 insert into ProductType values(N'Laptop','1')     --1
@@ -332,6 +337,11 @@ insert into TEMPPRODUCT values(4,2,1)
 insert into TEMPPRODUCT values(4,3,1)
 insert into TEMPPRODUCT values(5,2,1)
 insert into TEMPPRODUCT values(5,3,1)
+insert into TEMPPRODUCT values(1,6,1)
+insert into TEMPPRODUCT values(5,7,1)
+insert into TEMPPRODUCT values(3,8,1)
+insert into TEMPPRODUCT values(3,9,1)
+insert into TEMPPRODUCT values(1,10,1)
 
 
 go --(PRODUCTNAME, BRANDID, PRODUCTTYPEID, MAINPIC, PIC1, PIC2, PIC3, PIC4, STATUSPRODUCT, PRODUCTPRICE, PRODUCTAMOUNT, DECRIPTION, [DATEADD])
@@ -461,7 +471,7 @@ insert into PRODUCT values (
 
 
 go --(CONFIGNAME, DECRIPTIONCONFIGNAME)
-INSERT INTO CONFIG VALUES ('RAM',N'BỘ nhớ đệm')                 --1
+INSERT INTO CONFIG VALUES ('RAM',N'Bộ nhớ đệm')                 --1
 INSERT INTO CONFIG VALUES ('ROM',N'Ổ cứng')						--2
 INSERT INTO CONFIG VALUES ('SCREEN',N'Công nghệ màn hình')		--3
 INSERT INTO CONFIG VALUES ('RESOLUTION',N'Độ phân giải')		--4
@@ -602,7 +612,7 @@ Insert into ACCOUNT values ('Long','123456789',N'Nguyễn Thành Long','1',GETDA
 Insert into ACCOUNT values ('Tinhs','123456789',N'Nguyễn Ngọc Tính','1','30/04/2000','1','0975468321','') 
 
 go --([USER], [PASSWORD], FULLNAME, STATUSACCOUNT)
-Insert into ACCOUNT_ADMIN values (N'admin','admin',N'Trí Đẹp Trai','1') 
+Insert into ACCOUNT_ADMIN values (N'admin','admin',N'Trang Chủ','1') 
 
 go --(COMMENTID, PRODUCTID, [USER], COMMENTTEXT, DATACOMMENT)
 Insert into COMMENT values (1,'Phus',N'Hàng này cùi vl',GETDATE())

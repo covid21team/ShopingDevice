@@ -38,6 +38,11 @@ namespace TSP_Covid21.Controllers
             return result;
         }
 
+        public IEnumerable<BRAND> listBrand()
+        {
+            return PB.listBrand();
+        }
+
         // Tải đánh giá của sản phẩm
         public IEnumerable<RATINGPRODUCT> loadRatingProduct(int productId)
         {

@@ -953,13 +953,6 @@
     <Content Include="Areas\Admin\Views\ProductManager\addProduct.cshtml" />
     <Content Include="Areas\Admin\Views\ProductManager\productDetail.cshtml" />
     <Content Include="Areas\Admin\Views\ProductManager\editProduct.cshtml" />
-    <EntityDeploy Include="Models\ShopEntity\ShopEntity.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ShopEntity.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\ShopEntity\ShopEntity.edmx.diagram">
-      <DependentUpon>ShopEntity.edmx</DependentUpon>
-    </Content>
     <Content Include="Areas\Admin\Views\Shared\LoginAdmin.cshtml" />
     <Content Include="Areas\Admin\Views\Admin\ProductManager.cshtml" />
     <Content Include="Areas\Admin\Views\Admin\Static.cshtml" />
@@ -970,6 +963,13 @@
     <Content Include="Areas\Admin\Views\Admin\PictureManager.cshtml" />
     <Content Include="Areas\Admin\Views\Admin\BillManager.cshtml" />
     <Content Include="Areas\Admin\Views\BillManager\billDetail.cshtml" />
+    <EntityDeploy Include="Models\ShopEntity\ShopEntity.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ShopEntity.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\ShopEntity\ShopEntity.edmx.diagram">
+      <DependentUpon>ShopEntity.edmx</DependentUpon>
+    </Content>
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
