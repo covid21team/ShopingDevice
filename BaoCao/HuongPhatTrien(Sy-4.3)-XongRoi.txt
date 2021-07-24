@@ -5,7 +5,11 @@
 - Khi đặt hàng, hệ thống gửi thông báo về điện thoại
 - Hệ thống gửi sản phẩm mới về những mail đăng ký nhận thông báo
 - Thanh toán khi đặt hàng bằng hình thức online hay qua atm
+- Có nhiều lựa chọn về 1 sản phẩm hơn như màu, kích thước, bộ nhớ
+- Chỉnh sửa đơn hàng khi đã đặt
 2. Admin
 - Trả lời được bình luận của khách hàng khi đánh giá vào sản phẩm
 - Cấu hình của sản phẩm được phân biệt rõ ràng hơn
 - Từ chối đơn hàng khi sản phẩm bị hết với lí do đầy đủ
+- Phân quyền cho quản trị viên
+- Hủy đơn hàng theo yêu cầu của khách hàng (hệ thống gữi mã về điện thoại khách hàng để xác nhận)
