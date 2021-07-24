@@ -16,6 +16,7 @@ namespace TSP_Covid21.Controllers
     public class ProductController : Controller
     {
         Product_BUS PB;
+        private object smtp;
 
         public ProductController()
         {
@@ -221,14 +222,11 @@ namespace TSP_Covid21.Controllers
             return View(result);
         }
 
-        public ActionResult insertBill(string note, int total)
+        public string insertBill(string note, int total)
         {
-            string user = Session["user"].ToString();
-            PB.insertBill(user, note, total);
-
             string gmailshop = "covid21tsp@gmail.com";
             string passshop = "123456@a";
-            string gmail = "xyz8642@gmail.com";
+            string gmail = "xyzsy8642@gmail.com";
             string title = "Đơn đặt hàng của bạn";
             string content = "Cảm ơn bạn đã đặt hàng bên chúng tôi";
             try
@@ -242,14 +240,17 @@ namespace TSP_Covid21.Controllers
                 message.Body = content;
 
                 mailclient.Send(message);
-                
+
+                string user = Session["user"].ToString();
+                PB.insertBill(user, note, total);
+
             }
             catch (Exception ex)
             {
-                return RedirectToAction("Home", "Covid21");
+                return ex.ToString();
             }
 
-            return RedirectToAction("Home", "Covid21");
+            return "True";
         }
 
         [HttpPost]

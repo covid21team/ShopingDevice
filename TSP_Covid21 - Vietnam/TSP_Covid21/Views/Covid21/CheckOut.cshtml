@@ -233,9 +233,14 @@
                     note: note,
                     total: total,
                 },
-                success: function () {
-                    alert("Đã đặt hàng thành công");
-                    location.reload();
+                success: function (result) {
+                    if (result != 'True') {
+                        alert(result);
+                    }
+                    else {
+                        alert("Đã đặt hàng thành công");
+                        location.reload();
+                    }
                 },
                 error: function () {
                     alert("fail");
