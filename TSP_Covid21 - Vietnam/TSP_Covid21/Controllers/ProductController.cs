@@ -225,11 +225,22 @@ namespace TSP_Covid21.Controllers
 
         public string insertBill(string note, int total)
         {
+            string user = Session["user"].ToString();
+            PB.insertBill(user, note, total);
+
+            BILL b = PB.takeBill(user);
+            string fullName = Session["fullname"].ToString();
+            string email = Session["gmail"].ToString();
+            string price = String.Format("{0:#,##0.##}", b.BILLDETAIL.Sum(t => t.PRODUCT.PRODUCTPRICE * t.AMOUNT));
+            string totalprice = String.Format("{0:#,##0.##}", b.TOTALBILL);
+            price = price.Replace(".", ",");
+            totalprice = totalprice.Replace(".", ",");
+
             string gmailshop = "covid21tsp@gmail.com";
             string passshop = "123456@a";
             string gmail = Session["gmail"].ToString() ;
             string title = "Đơn đặt hàng của bạn";
-            string content = "Cảm ơn bạn đã đặt hàng bên chúng tôi";
+            string str = "";
             try
             {
                 SmtpClient mailclient = new SmtpClient("smtp.gmail.com", 587);
@@ -238,15 +249,37 @@ namespace TSP_Covid21.Controllers
 
                 MailMessage message = new MailMessage(gmailshop, gmail);
 
-                string htmlText = "The <b>fancy</b> part.";
+                string htmlText = System.IO.File.ReadAllText(Server.MapPath("~/Asset/SendMail.html"));
+                foreach (var item in b.BILLDETAIL)
+                {
+                    var temp = String.Format("{0:#,##0.##}", item.AMOUNT * item.PRODUCT.PRODUCTPRICE);
+                    temp = temp.Replace(".", ",");
+                    str += "<tr style='text - align: left'>"+
+                                "<td class='tablechinh'>"+
+                                    "<p>"+item.PRODUCT.PRODUCTNAME+"</p>"+
+                                "</td>"+
+                                "<td class='tablechinh'>"+
+                                    "<p>X"+item.AMOUNT+"</p>"+
+                                "</td>"+
+                                "<td class='tablechinh'>"+
+                                    "<p>"+temp+"đ</p>"+
+                                "</td>"+
+                            "</tr>";
+                }
+                htmlText = htmlText.Replace("{{FullName}}", fullName);
+                htmlText = htmlText.Replace("{{BillId}}", b.BILLID.ToString());
+                htmlText = htmlText.Replace("{{DateCreate}}", b.DATECREATE.ToString());
+                htmlText = htmlText.Replace("{{ListProduct}}", str);
+                htmlText = htmlText.Replace("{{Price}}", price + "đ");
+                htmlText = htmlText.Replace("{{TotalPrice}}", totalprice + "đ");
+                htmlText = htmlText.Replace("{{Address}}", b.ADDRESS+", "+b.WARDS+", "+b.DISTRICT+", "+b.CITY);
+                htmlText = htmlText.Replace("{{Phone}}", b.PHONE);
+                htmlText = htmlText.Replace("{{Gmail}}", email);
                 message.Subject = title;
                 message.Body = htmlText;
 
                 message.IsBodyHtml = true;
                 mailclient.Send(message);
-
-                string user = Session["user"].ToString();
-                PB.insertBill(user, note, total);
 
             }
             catch (Exception ex)
