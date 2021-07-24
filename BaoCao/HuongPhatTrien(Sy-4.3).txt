@@ -1,4 +1,0 @@
-1. Client
-- Yêu thích sản phẩm và bỏ yêu thích 
-- Tạo ra những gói ưu đãi
-- Có phần chatbot để giải đáp thắc mắc
