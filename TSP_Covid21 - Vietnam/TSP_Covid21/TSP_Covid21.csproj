@@ -416,6 +416,8 @@
     <Content Include="Asset\css\thongtincanhan.css" />
     <Content Include="Asset\fonts\fontawesome-webfont.svg" />
     <Content Include="Asset\fonts\slick.svg" />
+    <Content Include="Asset\images\AboutUs\quangsy.jpg" />
+    <Content Include="Asset\images\AboutUs\tringu.jpg" />
     <Content Include="Asset\images\apple-airpods-max-2-1 - Copy.jpg" />
     <Content Include="Asset\images\apple-airpods-max-2-1.jpg" />
     <Content Include="Asset\images\apple-airpods-max-2-2 - Copy.jpg" />
@@ -1024,7 +1026,6 @@
     <Content Include="Views\Product\listProduct.cshtml" />
     <Content Include="Views\Product\search.cshtml" />
     <Content Include="Views\Covid21\Personal.cshtml" />
-    <Content Include="Views\Covid21\View.cshtml" />
     <Content Include="Views\Covid21\Rating.cshtml" />
     <Content Include="Views\Account\loadAddressInf.cshtml" />
     <Content Include="Views\Account\formAddAddress.cshtml" />
@@ -1034,6 +1035,8 @@
     <Content Include="Views\Account\BillDetail.cshtml" />
     <Content Include="Views\Covid21\ContactUs.cshtml" />
     <Content Include="Views\Covid21\PrivacyPolicy.cshtml" />
+    <Content Include="Views\Covid21\Seen.cshtml" />
+    <Content Include="Views\Covid21\AboutUs.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

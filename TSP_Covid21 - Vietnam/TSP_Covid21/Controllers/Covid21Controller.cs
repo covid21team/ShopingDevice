@@ -106,7 +106,7 @@ namespace TSP_Covid21.Controllers
             return View(result);
         }
 
-        public ActionResult View(string user)
+        public ActionResult Seen(string user)
         {
             var db = new Account_BUS();
             var result = db.view(user);
@@ -120,6 +120,11 @@ namespace TSP_Covid21.Controllers
             var result = db.rating(user);
 
             return View(result);
+        }
+
+        public ActionResult AboutUs()
+        {
+            return View();
         }
     }
 }
