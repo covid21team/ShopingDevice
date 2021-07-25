@@ -427,7 +427,7 @@
         var user = $("#user_signin").val();
         var pass = $('#pass_signin').val();
 
-        if (user != "" && pass != "") {
+        if (user.trim().length > 0 && pass.trim().length > 0) {
             $("#message_UserSigninInf").hide();
             $("#message_PassSigninInf").hide();
             $("#loading_web").show();
@@ -450,13 +450,13 @@
             });
 
         }else {
-            if (user == "") {
+            if (user.trim() < 1) {
                 $("#message_UserSigninInf").show();
             } else {
                 $("#message_UserSigninInf").hide();
             }
 
-            if (pass == "") {
+            if (pass.trim() < 1) {
                 $("#message_PassSigninInf").show();
             } else {
                 $("#message_PassSigninInf").hide();
@@ -470,7 +470,7 @@
     // When click outside inputUser
     inputUser.onblur = function () {
         var user = $("#user_signin").val();
-        if (user != "") {
+        if (user.trim().length > 0) {
             $("#message_UserSigninInf").hide();
         }
     }
@@ -478,7 +478,7 @@
     //when click outside inputPass
     inputPass.blur = function () {
         var pass = $('#pass_signin').val();
-        if (pass != "") {
+        if (pass.trim().length > 0) {
             $("#message_PassSigninInf").hide();
         }
     }
@@ -495,7 +495,7 @@
         var email = $("#email").val();
         var code = $("#script").val();
 
-        if (user != "" && pass != "" && fullname != "" && phone != "" && phone.length == 10 && pass.length >= 8 && user.length < 30) {
+        if (user.trim().length > 0 && pass.trim().length > 0 && fullname.trim().length > 0 && phone.trim().length > 0 && phone.length == 10 && pass.length >= 8 && user.length < 30) {
             $("#loading_web").show();
             $.ajax({
                 url: '@Url.Action("Signup","Account")',
@@ -528,20 +528,20 @@
     });
 
     function checkInput(user, pass, phone, fullname, email, code) {
-        if (user == "") {
+        if (user.trim() < 1) {
             $("#message_UserInf").show();
         } else {
             $("#message_UserInf").hide();
         }
 
-        if (pass == "") {
+        if (pass.trim() < 1) {
             $("#message_Pass").hide();
             $("#message_PassInf").show();
         } else {
             $("#message_PassInf").hide();
         }
 
-        if (phone == "") {
+        if (phone.trim() < 1) {
             $("#message_phone").hide();
             $("#message_phone_1").hide();
             $("#message_PhoneInf").show();
@@ -549,13 +549,13 @@
             $("#message_PhoneInf").hide();
         }
 
-        if (fullname == "") {
+        if (fullname.trim() < 1) {
             $("#message_FullNameInf").show();
         } else {
             $("#message_FullNameInf").hide();
         }
 
-        if (email == "") {
+        if (email.trim() < 1) {
             $("#message_email").hide();
             $("#message_EmailInf").show();
         } else {

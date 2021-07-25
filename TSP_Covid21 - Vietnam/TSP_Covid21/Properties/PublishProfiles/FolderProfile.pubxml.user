@@ -1395,6 +1395,12 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Asset/fonts/slick.woff">
       <publishTime>06/19/2021 23:15:42</publishTime>
     </File>
+    <File Include="Asset/images/AboutUs/quangsy.jpg">
+      <publishTime>07/25/2021 14:47:31</publishTime>
+    </File>
+    <File Include="Asset/images/AboutUs/tringu.jpg">
+      <publishTime>07/25/2021 14:48:01</publishTime>
+    </File>
     <File Include="Asset/images/acer-aspire-7-a715-1.jpg">
       <publishTime>07/02/2021 17:58:36</publishTime>
     </File>
@@ -2320,10 +2326,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/01/2018 12:20:56</publishTime>
     </File>
     <File Include="bin/TSP_Covid21.dll">
-      <publishTime>07/25/2021 13:02:08</publishTime>
+      <publishTime>07/25/2021 15:28:38</publishTime>
     </File>
     <File Include="bin/TSP_Covid21.pdb">
-      <publishTime>07/25/2021 13:02:08</publishTime>
+      <publishTime>07/25/2021 15:28:38</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>01/23/2014 13:57:34</publishTime>
@@ -2425,10 +2431,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/14/2021 09:22:21</publishTime>
     </File>
     <File Include="Views/Account/formAddAddress.cshtml">
-      <publishTime>07/24/2021 09:29:17</publishTime>
+      <publishTime>07/25/2021 14:28:52</publishTime>
     </File>
     <File Include="Views/Account/loadAddressInf.cshtml">
-      <publishTime>07/24/2021 09:29:59</publishTime>
+      <publishTime>07/25/2021 14:28:51</publishTime>
+    </File>
+    <File Include="Views/Covid21/AboutUs.cshtml">
+      <publishTime>07/25/2021 15:01:37</publishTime>
     </File>
     <File Include="Views/Covid21/Cart.cshtml">
       <publishTime>07/23/2021 09:30:29</publishTime>
@@ -2449,7 +2458,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/21/2021 12:17:19</publishTime>
     </File>
     <File Include="Views/Covid21/Personal.cshtml">
-      <publishTime>07/24/2021 09:30:03</publishTime>
+      <publishTime>07/25/2021 14:32:41</publishTime>
     </File>
     <File Include="Views/Covid21/PrivacyPolicy.cshtml">
       <publishTime>07/14/2021 10:58:48</publishTime>
@@ -2459,6 +2468,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Views/Covid21/Rating.cshtml">
       <publishTime>07/21/2021 11:48:39</publishTime>
+    </File>
+    <File Include="Views/Covid21/Seen.cshtml">
+      <publishTime>07/25/2021 14:31:58</publishTime>
     </File>
     <File Include="Views/Covid21/View.cshtml">
       <publishTime>07/21/2021 11:48:39</publishTime>
@@ -2512,7 +2524,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/02/2021 23:14:58</publishTime>
     </File>
     <File Include="Views/Shared/LoginAndLogout.cshtml">
-      <publishTime>07/25/2021 12:55:38</publishTime>
+      <publishTime>07/25/2021 14:28:54</publishTime>
     </File>
     <File Include="Views/Shared/Product_LoadComment.cshtml">
       <publishTime>07/07/2021 19:30:28</publishTime>
@@ -2536,7 +2548,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/21/2021 11:30:29</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>07/25/2021 13:01:22</publishTime>
+      <publishTime>07/25/2021 15:20:02</publishTime>
     </File>
     <File Include="Views/sitemap.xml">
       <publishTime>07/24/2021 11:46:51</publishTime>

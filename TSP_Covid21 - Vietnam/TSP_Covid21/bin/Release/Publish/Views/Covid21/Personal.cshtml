@@ -117,7 +117,7 @@ else if(Model.code == 1)
                                 <label for="brand-4">
                                     <span></span>
 
-                                    <a href="@Url.Action("View","Covid21",new { user = Session["user"] })"><i class="fas fa-eye"></i> Xem</a>
+                                    <a href="@Url.Action("Seen","Covid21",new { user = Session["user"] })"><i class="fas fa-eye"></i> Xem</a>
                                 </label>
                             </div>
                             <div class="container ggg">
@@ -160,6 +160,7 @@ else if(Model.code == 1)
                             <span></span>
                             <label for="">Email: </label>
                             <input id="id3" type="text" placeholder="Nhập Email" value="@Model.account.EMAIL">
+                            <span style="color: red; display: none" id="inf_email">Email này đã có tài khoản</span>
                         </div>
 
                         <div>
@@ -432,13 +433,13 @@ else if(Model.code == 1)
         var checkChangePass = $("#id7").is(":checked");
 
         //Kiểm tra đủ điều khiện để xác định thông tin không
-        if (fullname == "") {
+        if (fullname.trim() < 1) {
             $("#inf_fullname").css({ "display": "inline-block" });
         } else {
             $("#inf_fullname").css({ "display": "none" });
         }
 
-        if (phone == "") {
+        if (phone.trim() < 1) {
             $("#inf_phone").css({ "display": "inline-block" });
         } else {
             $("#inf_phone").css({ "display": "none" });
@@ -450,24 +451,40 @@ else if(Model.code == 1)
             }
         }
 
-        if (fullname != "" && phone != "" && phone.length == 10) {
+        if (fullname.trim().length > 0 && phone.trim().length > 0 && phone.length == 10) {
             $.ajax({
-                url: '@Url.Action("changeInf", "Account")',
+                url: "@Url.Action("checkMailPersonal", "Account")",
                 type: "POST",
                 data: {
-                    user: '@Model.account.USER',
-                    fullname: fullname,
-                    sex: sex,
-                    birth: birth,
-                    phone: phone,
                     email: email,
                 },
-                success: function () {
-                    if (checkChangePass == false) {
-                        location.reload();
+                success: function (result) {
+                    if (result == "True") {
+                        $("#inf_email").show();
+                    } else {
+                        $("#inf_email").hide();
+                        $.ajax({
+                            url: '@Url.Action("changeInf", "Account")',
+                            type: "POST",
+                            data: {
+                                user: '@Model.account.USER',
+                                fullname: fullname,
+                                sex: sex,
+                                birth: birth,
+                                phone: phone,
+                                email: email,
+                            },
+                            success: function () {
+                                if (checkChangePass == false) {
+                                    location.reload();
+                                }
+                            }
+                        });
+                        alert("Thay đổi thông tin thành công")
                     }
                 }
             });
+            
         }
 
         if (checkChangePass == true) {
@@ -489,7 +506,7 @@ else if(Model.code == 1)
                         $("#inf_pass").css({ "display": "none" });
                     }
 
-                    if (pass_new == "") {
+                    if (pass_new.trim() < 1) {
                         $("#inf_pass_new").css({ "display": "inline-block" });
                     } else {
                         $("#inf_pass_new").css({ "display": "none" });
@@ -507,7 +524,7 @@ else if(Model.code == 1)
                         $("#inf_confirm_pass").css({ "display": "none" });
                     }
 
-                    if (result == "True" && pass_new != "" && pass_new.length > 8 && confirmpass == pass_new) {
+                    if (result == "True" && pass_new.trim().length > 0 && pass_new.length > 8 && confirmpass == pass_new) {
                         $.ajax({
                             url: '@Url.Action("changePass", "Account")',
                             type: 'POST',

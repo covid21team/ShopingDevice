@@ -84,13 +84,13 @@
         var address = $("#id20").val();
         var addDefault = $("#id22").is(":checked");
 
-        if (fullname == "") {
+        if (fullname.trim() < 1) {
             $("#inf_add_fullname").css({ "display": "inline-block" });
         } else {
             $("#inf_add_fullname").css({ "display": "none" });
         }
 
-        if (phone == "") {
+        if (phone.trim() < 1) {
             $("#inf_add_phone").css({ "display": "inline-block" });
         } else {
             $("#inf_add_phone").css({ "display": "none" });
@@ -114,7 +114,7 @@
             $("#id_add_ward").css({ "display": "none" });
         }
 
-        if (address == "") {
+        if (address.trim() < 1) {
             $("#inf_add").css({ "display": "inline-block" });
             check = false;
         } else {
@@ -122,7 +122,7 @@
             check = true;
         }
 
-        if (fullname != "" && phone != "" && phone.length == 10 && district != null && ward != null && address != "") {
+        if (fullname.trim().length > 0 && phone.trim().length > 0 && phone.length == 10 && district != null && ward != null && address.trim().length > 0) {
             $.ajax({
                 url: '@Url.Action("insertAddress","Account")',
                 type: 'POST',
