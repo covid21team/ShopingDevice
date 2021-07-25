@@ -174,9 +174,18 @@ namespace TSP_Covid21.Models.BUS
             db.SaveChanges();
         }
 
+        //Đổi mật khẩu bằng user
         public void changePass(string user, string pass_new)
         {
             ACCOUNT a = db.ACCOUNT.Where(p => p.USER == user).FirstOrDefault();
+            a.PASSWORD = pass_new;
+            db.SaveChanges();
+        }
+
+        //Đổi mật khẩu bằng email
+        public void changePassWithEmail(string email, string pass_new)
+        {
+            ACCOUNT a = db.ACCOUNT.Where(p => p.EMAIL == email).FirstOrDefault();
             a.PASSWORD = pass_new;
             db.SaveChanges();
         }

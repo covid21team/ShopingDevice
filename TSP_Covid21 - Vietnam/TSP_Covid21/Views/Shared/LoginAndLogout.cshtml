@@ -20,7 +20,7 @@
                 <p id="text_phone" style="color: red"><i class="fas fa-exclamation-triangle"></i> Tài khoản hoặc mật khẩu bị sai</p>
             </div>
             <div id="message_account" style="position: absolute; background: none; margin-top: 130px ; margin-left: 220px; z-index: 110;">
-                <p id="text_phone" style="color: red" onclick="document.getElementById('id01_forgot').style.display='block'">(Quên mật khẩu)</p>
+                <p id="text_phone" style="color: red" onclick="document.getElementById('id01_forgot').style.display='block'"><b><i>(Quên mật khẩu)</i></b></p>
             </div>
             <div class="user-box">
                 <input type="text" id="user_signin" name="user" required="">
@@ -102,12 +102,8 @@
                 </span>
             </div>
             <!-- Kiểm tra số lượng mật khẩu -->
-            <div id="message_Pass" style="position: absolute; display:none; margin-top: -25px ; margin-left: 0px; z-index: 50;">
-                <p id="text_Pass" style="color: red; font-size: 12px"><i class="fas fa-exclamation-triangle"></i> Mật khẩu ít nhất 8 chữ số</p>
-            </div>
-            <!--Thông báo input pass bị trống-->
-            <div id="message_PassInf" style="position: absolute; display:none; margin-top: -25px ; margin-left: 0px; z-index: 50;">
-                <p id="text_PassInf" style="color: red; font-size: 12px"><i class="fas fa-exclamation-triangle"></i> Mật khẩu bị trống</p>
+            <div id="message_PassForgot" style="position: absolute; display:none; margin-top: -25px ; margin-left: 0px; z-index: 50;">
+                <p id="text_PassForgot" style="color: red; font-size: 12px"><i class="fas fa-exclamation-triangle"></i> Mật khẩu ít nhất 8 chữ số</p>
             </div>
 
             <div class="user-box" style="display: none" id="pass_forgot2">
@@ -120,11 +116,11 @@
                 </span>
             </div>
             <!-- Kiểm tra nhập mật khẩu lại đúng không-->
-            <div id="message_ConfirmPass" style="position: absolute; display:none; margin-top: -25px ; margin-left: 0px; z-index: 50;">
-                <p id="text_ConfirmPass" style="color: red; font-size: 12px"><i class="fas fa-exclamation-triangle"></i> Mật khẩu không trùng</p>
+            <div id="message_ConfirmPassForgot" style="position: absolute; display:none; margin-top: -25px ; margin-left: 0px; z-index: 50;">
+                <p id="text_ConfirmPassForgot" style="color: red; font-size: 12px"><i class="fas fa-exclamation-triangle"></i> Mật khẩu không trùng</p>
             </div>
 
-            <a href="#" style="margin-left: 70px;" id="forgot_account0" onclick="SendCode()">
+            <a href="#" style="margin-left: 80px;" id="forgot_account0" onclick="SendCode()">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -138,7 +134,7 @@
                 <span></span>
                 <i class="fas fa-user-plus">XÁC NHẬN</i>
             </a>
-            <a href="#" style="margin-left: 50px; display: none" id="Confirmforgot_account">
+            <a href="#" style="margin-left: 50px; display: none" id="Confirmforgot_account" onclick="ConfirmChangePass()">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -285,6 +281,49 @@
 <!-- End Sigin -->
 
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+<!--Đổi mật khẩu-->
+<script>
+    function ConfirmChangePass() {
+        var modal2 = document.getElementById('id01_forgot');
+        var pass = $("#pass_forgot1").val();
+        var confirmpass = $("#pass_forgot3").val();
+
+        if (pass < 8) {
+            $("#message_PassForgot").show();
+        } else {
+            $("#message_PassForgot").hide();
+            if (pass != confirmpass) {
+                $("#message_ConfirmPassForgot").show();
+            } else {
+                $("#message_ConfirmPassForgot").hide();
+                $.ajax({
+                    url: "@Url.Action("changePassWithEmail","Account")",
+                    type: "POST",
+                    data: {
+                        pass_new: pass,
+                    },
+                    success: function () {
+                        alert("Thay đổi mật khẩu thành công");
+                        $("#message_forgot").hide(); // thông báo sai code
+
+                        $("#codeForgot").hide(); //khối chứa input code
+                        $("#scriptForgot").val(""); //input code
+                        $("#pass_forgot").hide(); // khối chứa input mật khẩu mới
+                        $("#pass_forgot1").val(""); // input mật khẩu mới
+                        $("#pass_forgot2").hide(); // khối chứa input xác nhận mật khẩu mới
+                        $("#pass_forgot3").val(""); //input xác nhận mật khẩu mới
+                        $("#forgot_account0").show(); // button gửi mã
+                        $("#forgot_account1").hide(); // button xác nhận mã
+                        $("#Confirmforgot_account").hide(); // button xác nhận đổi mật khẩu
+                        modal2.style.display = "none";
+                    }
+                });
+            }
+        }
+
+    }
+</script>
 
 <!--Gửi mã xác nhận để đổi mật khẩu-->
 <script>
@@ -637,15 +676,17 @@
         }
 
         if (event.target == modal2) {
-            //$("#codeForgot").hide(); //input code
-            $("#codeForgot").text(""); // value code
-            $("#pass_forgot").hide(); //Mật khẩu mới
-            $("#pass_forgot").text("");
-            $("#pass_forgot2").hide();
-            $("#pass_forgot2").text(""); //Xác nhận mật khẩu mới
-            $("#forgot_account0").show();
-            $("#forgot_account1").hide();
-            $("#Confirmforgot_account").hide();
+            $("#message_forgot").hide(); // thông báo sai code
+
+            $("#codeForgot").hide(); //khối chứa input code
+            $("#scriptForgot").val(""); //input code
+            $("#pass_forgot").hide(); // khối chứa input mật khẩu mới
+            $("#pass_forgot1").val(""); // input mật khẩu mới
+            $("#pass_forgot2").hide(); // khối chứa input xác nhận mật khẩu mới
+            $("#pass_forgot3").val(""); //input xác nhận mật khẩu mới
+            $("#forgot_account0").show(); // button gửi mã
+            $("#forgot_account1").hide(); // button xác nhận mã
+            $("#Confirmforgot_account").hide(); // button xác nhận đổi mật khẩu
             modal2.style.display = "none";
         }
     }

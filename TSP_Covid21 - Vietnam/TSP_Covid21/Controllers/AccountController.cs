@@ -50,10 +50,19 @@ namespace TSP_Covid21.Controllers
             return false;
         }
 
+        // Đổi mật khẩu khi đã đăng nhập, dùng user để đổi
         public void changePass(string user, string pass_new)
         {
             Account_BUS AB = new Account_BUS();
             AB.changePass(user, pass_new);
+        }
+
+        // Đổi mật khẩu khi chưa đăng nhập, dùng email để đổi
+        public void changePassWithEmail(string pass_new)
+        {
+            string email = Session["gmail"].ToString();
+            Account_BUS AB = new Account_BUS();
+            AB.changePassWithEmail(email, pass_new);
         }
 
         public void Logout()
@@ -110,6 +119,7 @@ namespace TSP_Covid21.Controllers
                 message.IsBodyHtml = true;
                 mailclient.Send(message);
                 Session["script"] = script.ToString();
+                Session["gmail"] = email;
 
             }
             catch (Exception ex)
