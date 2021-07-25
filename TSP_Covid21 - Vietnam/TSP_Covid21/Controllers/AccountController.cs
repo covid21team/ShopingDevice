@@ -95,6 +95,16 @@ namespace TSP_Covid21.Controllers
             return result;
         }
 
+        // kiểm tra email ở view personal
+        public bool checkMailPersonal(string email)
+        {
+            string user = Session["user"].ToString();
+            Account_BUS AB = new Account_BUS();
+            var result = AB.checkMailPersonal(email, user);
+
+            return result;
+        }
+
         public void SendCode(string email)
         {
             string gmailshop = "covid21tsp@gmail.com";

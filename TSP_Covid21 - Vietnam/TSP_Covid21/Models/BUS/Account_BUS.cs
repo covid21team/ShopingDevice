@@ -59,9 +59,24 @@ namespace TSP_Covid21.Models.BUS
 
         public bool checkEmail(string email)
         {
-            var result = db.ACCOUNT.Where(p => p.EMAIL == email).FirstOrDefault();
+            var result = db.ACCOUNT.Where(p => p.EMAIL == email).Select(t => t.USER).FirstOrDefault();
 
             if (result == null)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public bool checkMailPersonal(string email, string user)
+        {
+            var result = db.ACCOUNT.Where(p => p.EMAIL == email).Select(t => t.USER).FirstOrDefault();
+
+            if (result == null)
+            {
+                return false;
+            }
+            if (result == user)
             {
                 return false;
             }
