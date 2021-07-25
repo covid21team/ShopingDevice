@@ -1,20 +1,54 @@
+function ForgotFunction1() {
+    var x = document.getElementById("pass_forgot1");
+    var t = document.getElementById("hidel_forgot2");
+    var e = document.getElementById("hidel_forgot1");
 
-  function my10Function(){
+    if (x.type === 'password') {
+        x.type = 'text';
+        t.style.display = "block";
+        e.style.display = "none"
+    } else {
+        x.type = 'password';
+        t.style.display = "none";
+        e.style.display = "block"
+    }
+
+} 
+
+function ForgotFunction2() {
+    var x = document.getElementById("pass_forgot3");
+    var t = document.getElementById("hidel_forgot4");
+    var e = document.getElementById("hidel_forgot3");
+
+    if (x.type === 'password') {
+        x.type = 'text';
+        t.style.display = "block";
+        e.style.display = "none"
+    } else {
+        x.type = 'password';
+        t.style.display = "none";
+        e.style.display = "block"
+    }
+
+} 
+
+
+function my10Function(){
     var x =document.getElementById("pass1");
     var t =document.getElementById("hidel3");
     var e =document.getElementById("hidel4");
   
     if(x.type==='password'){
-    x.type ='text';
-    t.style.display="block";
-    e.style.display="none"
-  }else{
-    x.type ='password';
-    t.style.display="none";
-    e.style.display="block"
-  }
+        x.type ='text';
+        t.style.display="block";
+        e.style.display="none"
+    }else{
+        x.type ='password';
+        t.style.display="none";
+        e.style.display="block"
+    }
     
-  } 
+} 
 function my1Function(){
   var x =document.getElementById("pass2");
   var y =document.getElementById("hidel1");

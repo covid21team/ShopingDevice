@@ -8,6 +8,8 @@ using TSP_Covid21.Models.BUS;
 using System.Text;
 using System.Xml.Linq;
 using System.Globalization;
+using System.Net.Mail;
+using System.Net;
 
 namespace TSP_Covid21.Controllers
 {
@@ -76,18 +78,70 @@ namespace TSP_Covid21.Controllers
             return result;
         }
 
-        [HttpPost]
-        public bool Signup(string user, string pass, string fullname, string phone)
+        public bool checkEmail(string email)
         {
+            Account_BUS AB = new Account_BUS();
+            var result = AB.checkEmail(email);
+
+            return result;
+        }
+
+        public void SendCode(string email)
+        {
+            string gmailshop = "covid21tsp@gmail.com";
+            string passshop = "123456@a";
+            string title = "Mã xác nhận Email từ Covid21Shop";
+
+            Random TenBienRanDom = new Random();
+            var script = TenBienRanDom.Next(123456, 987654);//Trả về giá trị kiểu int
+            try
+            {
+                SmtpClient mailclient = new SmtpClient("smtp.gmail.com", 587);
+                mailclient.EnableSsl = true;
+                mailclient.Credentials = new NetworkCredential(gmailshop, passshop);
+
+                MailMessage message = new MailMessage(gmailshop, email);
+
+                string htmlText = System.IO.File.ReadAllText(Server.MapPath("~/Asset/SendCode.html"));
+                htmlText = htmlText.Replace("{{script}}", script.ToString());
+                message.Subject = title;
+                message.Body = htmlText;
+
+                message.IsBodyHtml = true;
+                mailclient.Send(message);
+                Session["script"] = script.ToString();
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+        public bool ConfirmCode(string code)
+        {
+            if(code == Session["script"].ToString())
+            {
+                return true;
+            }
+            return false;
+        }
+
+        [HttpPost]
+        public string Signup(string user, string pass, string fullname, string phone, string email, string code)
+        {
+            string script = Session["script"].ToString();
             if (checkUser(user))
-                return false;
+                return "Flase";
             if (checkPhone(phone))
-                return false;
+                return "Flase";
+            if (!code.Equals(script))
+                return "CodeFail";
 
             Account_BUS AB = new Account_BUS();
-            AB.Signup(user, pass, fullname, phone);
+            AB.Signup(user, pass, fullname, phone, email);
 
-            return true;
+            return "True";
         }
 
         public IEnumerable<BILL> loadBill(string user)

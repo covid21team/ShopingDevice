@@ -239,7 +239,7 @@ namespace TSP_Covid21.Controllers
             string gmailshop = "covid21tsp@gmail.com";
             string passshop = "123456@a";
             string gmail = Session["gmail"].ToString() ;
-            string title = "Đơn đặt hàng của bạn";
+            string title = "Đơn đặt hàng của bạn từ Covid21Shop";
             string str = "";
             try
             {
@@ -248,7 +248,7 @@ namespace TSP_Covid21.Controllers
                 mailclient.Credentials = new NetworkCredential(gmailshop, passshop);
 
                 MailMessage message = new MailMessage(gmailshop, gmail);
-
+                
                 string htmlText = System.IO.File.ReadAllText(Server.MapPath("~/Asset/SendMail.html"));
                 foreach (var item in b.BILLDETAIL)
                 {
