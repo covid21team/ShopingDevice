@@ -19,6 +19,9 @@
             <div id="message_account" style="position: absolute; background: none; display: none; margin-top: 130px ; margin-left: 00px; z-index: 110;">
                 <p id="text_phone" style="color: red"><i class="fas fa-exclamation-triangle"></i> Tài khoản hoặc mật khẩu bị sai</p>
             </div>
+            <div id="message_account" style="position: absolute; background: none; margin-top: 130px ; margin-left: 220px; z-index: 110;">
+                <p id="text_phone" style="color: red" onclick="document.getElementById('id01_forgot').style.display='block'">(Quên mật khẩu)</p>
+            </div>
             <div class="user-box">
                 <input type="text" id="user_signin" name="user" required="">
                 <label class="lb">Tên tài khoản</label>
@@ -63,6 +66,89 @@
 </div>
 
 <!-- End Login -->
+<!--Forgot password-->
+
+<div id="id01_forgot" class="modal_login">
+    <div class="login-box">
+        <h2>
+            <img src="~/Asset/images/logo.png" />
+        </h2>
+        <form>
+            <div id="message_forgot" style="position: absolute; background: none; display: none; margin-top: 130px ; margin-left: 00px; z-index: 110;">
+                <p id="text_phone" style="color: red"><i class="fas fa-exclamation-triangle"></i> Mã xác nhận bị sai</p>
+            </div>
+            <div class="user-box">
+                <input type="text" id="email_forgot" name="user" required="">
+                <label class="lb">Email đăng ký</label>
+            </div>
+            <!-- Kiểm tra email đã tồn tại-->
+            <div id="message_emailforgot" style="position: absolute; display: none; margin-top: -25px ; margin-left: 0px; z-index: 50;">
+                <p id="text_emailforgot" style="color: red; font-size: 12px"><i class="fas fa-exclamation-triangle"></i>Email chưa đăng ký tài khoản</p>
+            </div>
+
+            <div class="user-box" style="display: none" id="codeForgot">
+                <input type="text" name="" id="scriptForgot" required="">
+                <label>Mã Code</label>
+            </div>
+
+            <div class="user-box" style="display: none" id="pass_forgot">
+                <input type="password" id="pass_forgot1" name="pass1" required>
+                <label>Mật khẩu mới</label>
+
+                <span class="eye" onclick="ForgotFunction1()">
+                    <i id="hidel_forgot1" class="fa fa-eye-slash"></i>
+                    <i id="hidel_forgot2" class="fa fa-eye" style="display: none"></i>
+
+                </span>
+            </div>
+            <!-- Kiểm tra số lượng mật khẩu -->
+            <div id="message_Pass" style="position: absolute; display:none; margin-top: -25px ; margin-left: 0px; z-index: 50;">
+                <p id="text_Pass" style="color: red; font-size: 12px"><i class="fas fa-exclamation-triangle"></i> Mật khẩu ít nhất 8 chữ số</p>
+            </div>
+            <!--Thông báo input pass bị trống-->
+            <div id="message_PassInf" style="position: absolute; display:none; margin-top: -25px ; margin-left: 0px; z-index: 50;">
+                <p id="text_PassInf" style="color: red; font-size: 12px"><i class="fas fa-exclamation-triangle"></i> Mật khẩu bị trống</p>
+            </div>
+
+            <div class="user-box" style="display: none" id="pass_forgot2">
+                <input type="password" id="pass_forgot3" name="" required="">
+                <label>Xác nhận mật khẩu</label>
+
+                <span class="eye" onclick="ForgotFunction2()">
+                    <i id="hidel_forgot3" class="fa fa-eye-slash"></i>
+                    <i id="hidel_forgot4" class="fa fa-eye" style="display: none"></i>
+                </span>
+            </div>
+            <!-- Kiểm tra nhập mật khẩu lại đúng không-->
+            <div id="message_ConfirmPass" style="position: absolute; display:none; margin-top: -25px ; margin-left: 0px; z-index: 50;">
+                <p id="text_ConfirmPass" style="color: red; font-size: 12px"><i class="fas fa-exclamation-triangle"></i> Mật khẩu không trùng</p>
+            </div>
+
+            <a href="#" style="margin-left: 70px;" id="forgot_account0" onclick="SendCode()">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <i class="fas fa-user-plus">GỬI MÃ</i>
+            </a>
+            <a href="#" style="margin-left: 70px; display: none" id="forgot_account1" onclick="ConfirmCode()">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <i class="fas fa-user-plus">XÁC NHẬN</i>
+            </a>
+            <a href="#" style="margin-left: 50px; display: none" id="Confirmforgot_account">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <i class="fas fa-user-plus">ĐỔI MẬT KHẨU</i>
+            </a>
+        </form>
+    </div>
+</div>
+<!--End Forgot password-->
 <!-- Sigin -->
 
 <div id="id01_signin" class="modal_login">
@@ -116,8 +202,6 @@
                     <i id="hidel1" class="fa fa-eye"></i>
                 </span>
             </div>
-
-
             <!-- Kiểm tra nhập mật khẩu lại đúng không-->
             <div id="message_ConfirmPass" style="position: absolute; display:none; margin-top: -25px ; margin-left: 0px; z-index: 50;">
                 <p id="text_ConfirmPass" style="color: red; font-size: 12px"><i class="fas fa-exclamation-triangle"></i> Mật khẩu không trùng</p>
@@ -162,7 +246,7 @@
                 <p id="text_EmailInf" style="color: red; font-size: 12px"><i class="fas fa-exclamation-triangle"></i>Email bị trống</p>
             </div>
 
-            <div class="user-box">
+            <div class="user-box" style="display: none" id="code">
                 <input type="text" name="" id="script" required="">
                 <label>Mã Code</label>
             </div>
@@ -199,23 +283,79 @@
 </div>
 
 <!-- End Sigin -->
-@if(Session["script"] == null)
-{
-    @Session["script"] = "999999";
-}
 
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
-<!-- Kiểm tra Email đã tồn tại chưa
+<!--Gửi mã xác nhận để đổi mật khẩu-->
 <script>
-    var inputEmail_signup = document.getElementById('email');
+    function SendCode() {
+        var email = $('#email_forgot').val();
+        $.ajax({
+            url: '@Url.Action("checkEmail", "Account")',
+            type: 'POST',
+            data: {
+                email: email,
+            },
+            success: function (result) {
+                if (result == 'False') {
+                    $("#message_emailforgot").show();
+                    $("#codeForgot").hide();
+                } else {
+                    $("#message_emailforgot").hide();
+                    // Giúp xử lí 1 đường khác, trách xử lí thao tác hiện bị delay
+                    $.ajax({
+                        url: "@Url.Action("SendCode", "Account")",
+                        type: "POST",
+                        data: {
+                            email: email,
+                        },
+                    });
+                    $("#forgot_account0").hide();
+                    $("#forgot_account1").show();
+                    $("#codeForgot").show();
+                    alert("Vui lòng kiểm tra Email để nhận mã");
+                }
+            }
+        });
+    }
+</script>
+
+<!--Xác nhận mã-->
+<script>
+    function ConfirmCode() {
+        var code = $("#scriptForgot").val();
+        $.ajax({
+            url: "@Url.Action("ConfirmCode", "Account")",
+            type: "POST",
+            data: {
+                code: code,
+            },
+            success: function (result) {
+                if (result == "False") {
+                    $("#message_forgot").show();
+                } else {
+                    $("#message_forgot").hide();
+                    $("#forgot_account1").hide();
+                    $("#Confirmforgot_account").show();
+                    $("#pass_forgot").show(); //Mật khẩu mới
+                    $("#pass_forgot2").show(); // Xác nhận mật khẩu mới
+                }
+
+            }
+        });
+    }
+</script>
+
+<!-- Kiểm tra Email đã tồn tại chưa-->
+<script>
+     var inputEmail_signup = document.getElementById('email');
 
     // When click outside inputPhone_signup
     inputEmail_signup.onblur = function () {
         $("#message_EmailInf").hide();
         var email = $('#email').val();
         $.ajax({
-            url: 'Url.Action("checkEmail", "Account")',
+            url: '@Url.Action("checkEmail", "Account")',
             type: 'POST',
             data: {
                 email: email,
@@ -223,14 +363,25 @@
             success: function (result) {
                 if (result == 'True') {
                     $("#message_email").show();
+                    $("#code").hide();
                 } else {
                     $("#message_email").hide();
+                    $("#code").show();
+                    // Giúp xử lí 1 đường khác, trách xử lí thao tác hiện bị delay
+                    $.ajax({
+                        url: "@Url.Action("SendCode", "Account")",
+                        type: "POST",
+                        data: {
+                            email: email,
+                        },
+                    });
+                    alert("Vui lòng kiểm tra Email để nhận mã");
                 }
             }
         });
     }
 </script>
--->
+
 <!-- Dùng signin -->
 <script>
     $('#filebutton').click(function () {
@@ -296,31 +447,6 @@
 
 <!-- Dùng signup-->
 <script>
-    //Kiểm tra Email đã tồn tại chưa
-    var inputEmail_signup = document.getElementById('email');
-    var script = "998765";
-
-    // When click outside inputPhone_signup
-    inputEmail_signup.onblur = function () {
-        $("#message_EmailInf").hide();
-        var email = $('#email').val();
-        $.ajax({
-            url: '@Url.Action("checkEmail", "Account")',
-            type: 'POST',
-            data: {
-                email: email,
-            },
-            success: function (result) {
-                if (result == '999999') {
-                    $("#message_email").show();
-                    script = @Session["script"].ToString();
-                } else {
-                    $("#message_email").hide();
-                }
-            }
-        });
-    }
-
     $("#signup_account").click(function () {
         $("#message_PhoneInf").hide();
         var user = $("#user_signup").val();
@@ -330,7 +456,7 @@
         var email = $("#email").val();
         var code = $("#script").val();
 
-        if (code == script && user != "" && pass != "" && fullname != "" && phone != "" && phone.length == 10 && pass.length >= 8 && user.length < 30) {
+        if (user != "" && pass != "" && fullname != "" && phone != "" && phone.length == 10 && pass.length >= 8 && user.length < 30) {
             $("#loading_web").show();
             $.ajax({
                 url: '@Url.Action("Signup","Account")',
@@ -340,12 +466,17 @@
                     pass: pass,
                     fullname: fullname,
                     phone: phone,
+                    email: email,
+                    code: code,
                 },
                 success: function (result) {
                     $('#loading_web').hide();
                     if (result == 'True') {
+                        $("#message_Script").hide();
                         alert("Đã đăng ký thành công");
                         $("#id01_signin").hide();
+                    } else if (result == "CodeFail") {
+                        $("#message_Script").show();
                     }
                 },
                 error: function (result) {
@@ -390,12 +521,6 @@
             $("#message_EmailInf").show();
         } else {
             $("#message_EmailInf").hide();
-        }
-
-        if (code != script) {
-            $("#message_Script").show();
-        } else {
-            $("#message_Script").hide();
         }
     }
 </script>
@@ -498,13 +623,30 @@
 <!--Hiện login và signup-->
 <script>
     var modal = document.getElementById('id01_login');
+    var modal2 = document.getElementById('id01_forgot');
     var modal1 = document.getElementById('id01_signin');
 
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function (event) {
-        if (event.target == modal || event.target == modal1) {
+        if (event.target == modal) {
             modal.style.display = "none";
+
+        }
+        if (event.target == modal1) {
             modal1.style.display = "none";
+        }
+
+        if (event.target == modal2) {
+            //$("#codeForgot").hide(); //input code
+            $("#codeForgot").text(""); // value code
+            $("#pass_forgot").hide(); //Mật khẩu mới
+            $("#pass_forgot").text("");
+            $("#pass_forgot2").hide();
+            $("#pass_forgot2").text(""); //Xác nhận mật khẩu mới
+            $("#forgot_account0").show();
+            $("#forgot_account1").hide();
+            $("#Confirmforgot_account").hide();
+            modal2.style.display = "none";
         }
     }
 

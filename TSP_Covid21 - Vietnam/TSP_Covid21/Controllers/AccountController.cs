@@ -78,17 +78,15 @@ namespace TSP_Covid21.Controllers
             return result;
         }
 
-        public string checkEmail(string email)
+        public bool checkEmail(string email)
         {
-            Models.BUS.Account_BUS AB = new Models.BUS.Account_BUS();
+            Account_BUS AB = new Account_BUS();
             var result = AB.checkEmail(email);
 
-            if (!result)
-                return SendCode(email);
-            return "999999";
+            return result;
         }
 
-        public string SendCode(string email)
+        public void SendCode(string email)
         {
             string gmailshop = "covid21tsp@gmail.com";
             string passshop = "123456@a";
@@ -111,28 +109,39 @@ namespace TSP_Covid21.Controllers
 
                 message.IsBodyHtml = true;
                 mailclient.Send(message);
+                Session["script"] = script.ToString();
 
             }
             catch (Exception ex)
             {
-                return "999999";
+
             }
-            Session["script"] = script.ToString();
-            return script.ToString();
+        }
+
+        public bool ConfirmCode(string code)
+        {
+            if(code == Session["script"].ToString())
+            {
+                return true;
+            }
+            return false;
         }
 
         [HttpPost]
-        public bool Signup(string user, string pass, string fullname, string phone)
+        public string Signup(string user, string pass, string fullname, string phone, string email, string code)
         {
+            string script = Session["script"].ToString();
             if (checkUser(user))
-                return false;
+                return "Flase";
             if (checkPhone(phone))
-                return false;
+                return "Flase";
+            if (!code.Equals(script))
+                return "CodeFail";
 
             Account_BUS AB = new Account_BUS();
-            AB.Signup(user, pass, fullname, phone);
+            AB.Signup(user, pass, fullname, phone, email);
 
-            return true;
+            return "True";
         }
 
         public IEnumerable<BILL> loadBill(string user)
