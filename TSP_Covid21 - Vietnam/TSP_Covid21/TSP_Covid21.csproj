@@ -145,6 +145,7 @@
     <Compile Include="Areas\Admin\Controllers\StaticController.cs" />
     <Compile Include="Areas\Admin\Models\ProductManager_BUS.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ApiController.cs" />
     <Compile Include="Controllers\Covid21Controller.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">
@@ -1044,6 +1045,8 @@
     <Folder Include="Areas\Admin\Views\PictureManager\" />
     <Folder Include="Areas\Admin\Views\Profile\" />
     <Folder Include="Areas\Admin\Views\Static\" />
+    <Folder Include="Views\Api\" />
+    <Folder Include="Views\testApi\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
