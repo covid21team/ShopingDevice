@@ -91,7 +91,7 @@ namespace TSP_Covid21.Controllers
         {
             Account_BUS AB = new Account_BUS();
             var result = AB.checkEmail(email);
-
+            Session["script"] = "9999999";
             return result;
         }
 
@@ -134,7 +134,7 @@ namespace TSP_Covid21.Controllers
             }
             catch (Exception ex)
             {
-
+                Console.Write(ex);
             }
         }
 
@@ -152,9 +152,9 @@ namespace TSP_Covid21.Controllers
         {
             string script = Session["script"].ToString();
             if (checkUser(user))
-                return "Flase";
+                return "UserFail";
             if (checkPhone(phone))
-                return "Flase";
+                return "PhoneFail";
             if (!code.Equals(script))
                 return "CodeFail";
 

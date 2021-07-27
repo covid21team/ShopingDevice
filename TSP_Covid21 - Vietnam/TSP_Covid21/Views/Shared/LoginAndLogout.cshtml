@@ -1,5 +1,4 @@
-﻿﻿
-<!--
+﻿﻿<!--
     ➠ Hiện form đăng nhập để sử dụng web   ✔
 
     ➠ Đăng ký tài khoản khách hàng         ✔
@@ -230,8 +229,12 @@
             </div>
 
             <div class="user-box">
-                <input type="text" name="" id="email" required="">
+                <input type="text" name="" id="email" required="" onchange="ChangeValue()">
                 <label>Email</label>
+
+                <span class="eye" onclick="SendMail()" style="margin-left: -50px">
+                    <i id="sendMail" style="color: #CC0000; "><b>Gửi mã</b></i>
+                </span>
             </div>
             <!-- Kiểm tra email đã tồn tại-->
             <div id="message_email" style="position: absolute; display: none; margin-top: -25px ; margin-left: 0px; z-index: 50;">
@@ -246,20 +249,24 @@
                 <input type="text" name="" id="script" required="">
                 <label>Mã Code</label>
             </div>
-            <!--Thông báo input scrpit bị trống-->
+            <!--Thông báo input scrpit bị sai-->
             <div id="message_Script" style="position: absolute; display:none; margin-top: -25px ; margin-left: 0px; z-index: 50;">
                 <p id="text_Script" style="color: red; font-size: 12px"><i class="fas fa-exclamation-triangle"></i>Mã code đã sai</p>
             </div>
-            <!--
-            <div id="message" style="position: absolute; margin-top: -240px;border: 1px solid rgb(0, 0, 0); margin-left:90px; background: rgb(246, 247, 191);border-radius:5%; z-index: 50;">
-
-                <h3 style="margin-left: 10px;">Password must contain the following:</h3>
-                <p id="letter" class="invalid">A lowercase letter</p>
-                <p id="capital" class="invalid">A capital (uppercase) letter</p>
-                <p id="number" class="invalid">A number</p>
-                <p id="length" class="invalid">Minimum 8 characters</p>
+            <!--Thông báo input scrpit bị trống-->
+            <div id="message_ScriptInf" style="position: absolute; display:none; margin-top: -25px ; margin-left: 0px; z-index: 50;">
+                <p id="text_ScriptInf" style="color: red; font-size: 12px"><i class="fas fa-exclamation-triangle"></i>Mã code bị trống</p>
             </div>
-            -->
+            <!--
+    <div id="message" style="position: absolute; margin-top: -240px;border: 1px solid rgb(0, 0, 0); margin-left:90px; background: rgb(246, 247, 191);border-radius:5%; z-index: 50;">
+
+        <h3 style="margin-left: 10px;">Password must contain the following:</h3>
+        <p id="letter" class="invalid">A lowercase letter</p>
+        <p id="capital" class="invalid">A capital (uppercase) letter</p>
+        <p id="number" class="invalid">A number</p>
+        <p id="length" class="invalid">Minimum 8 characters</p>
+    </div>
+    -->
             <a href="#" onclick="Login()">
                 <span></span>
                 <span></span>
@@ -385,13 +392,20 @@
     }
 </script>
 
-<!-- Kiểm tra Email đã tồn tại chưa-->
+<!--Khi nhấn vào input gmail-->
 <script>
-     var inputEmail_signup = document.getElementById('email');
+    function ChangeValue() {
+        $("#code").hide();
+        $("#script").val("");
+    }
+</script>
 
+<!-- Kiểm tra Email đã tồn tại chưa và gửi mã xác nhận mail-->
+<script>
     // When click outside inputPhone_signup
-    inputEmail_signup.onblur = function () {
+    $("#sendMail").click(function () {
         $("#message_EmailInf").hide();
+        $("#message_Script").hide();
         var email = $('#email').val();
         $.ajax({
             url: '@Url.Action("checkEmail", "Account")',
@@ -418,7 +432,7 @@
                 }
             }
         });
-    }
+    })
 </script>
 
 <!-- Dùng signin -->
@@ -495,7 +509,8 @@
         var email = $("#email").val();
         var code = $("#script").val();
 
-        if (user.trim().length > 0 && pass.trim().length > 0 && fullname.trim().length > 0 && phone.trim().length > 0 && phone.length == 10 && pass.length >= 8 && user.length < 30) {
+        checkInput(user, pass, phone, fullname, email, code);
+        if (code.length < 7 && code.trim().length > 0 && email.trim().length > 0 && user.trim().length > 0 && pass.trim().length > 0 && fullname.trim().length > 0 && phone.trim().length > 0 && phone.length == 10 && pass.length >= 8 && user.length < 30) {
             $("#loading_web").show();
             $.ajax({
                 url: '@Url.Action("Signup","Account")',
@@ -512,18 +527,23 @@
                     $('#loading_web').hide();
                     if (result == 'True') {
                         $("#message_Script").hide();
+                        $("#message_user").hide();
+                        $("#message_phone").hide();
                         alert("Đã đăng ký thành công");
                         $("#id01_signin").hide();
                     } else if (result == "CodeFail") {
                         $("#message_Script").show();
+                    } else if (result == "UserFail") {
+                        $("#message_user").show();
+                    } else if (result == "PhoneFail") {
+                        $("#message_phone").show();
                     }
                 },
-                error: function (result) {
+                error: function () {
                     $('#loading_web').hide();
+                    alert("Vui lòng kiểm tra email");
                 }
             });
-        } else {
-            checkInput(user, pass, phone, fullname, email, code);
         }
     });
 
@@ -560,6 +580,18 @@
             $("#message_EmailInf").show();
         } else {
             $("#message_EmailInf").hide();
+        }
+
+        if (code.trim() < 1 && email.trim().length > 0) {
+            $("#message_ScriptInf").show();
+        } else {
+            $("#message_ScriptInf").hide();
+        }
+
+        if (code.length > 6) {
+            $("#message_Script").show();
+        } else {
+            $("#message_Script").hide();
         }
     }
 </script>
@@ -626,19 +658,45 @@
     }
 </script>
 
+<!--Kiểm tra họ và tên sau khi bấm khỏi input họ và tên-->
+<script>
+    var inputFullName_signup = document.getElementById('fullname');
+
+    inputFullName_signup.onblur = function () {
+        var fullname = $("#fullname").val();
+
+        if (fullname.trim() < 1) {
+            $("#message_FullNameInf").show();
+        } else {
+            $("#message_FullNameInf").hide();
+        }
+    }
+</script>
+
 <!-- Kiểm tra số lượng pass-->
 <script>
 
     var inputPass = document.getElementById("pass1");
 
     inputPass.onblur = function () {
-        $("#message_Pass").hide();
+        var ConfirmPass = $('#pass2').val();
         var Pass = $('#pass1').val();
-        if (Pass.length < 8) {
+        if (Pass.trim() < 1) {
+            $("#message_PassInf").show();
+        } else {
             $("#message_PassInf").hide();
+        }
+
+        if (Pass.length < 8) {
             $("#message_Pass").show();
         } else {
             $("#message_Pass").hide();
+        }
+
+        if (Pass == ConfirmPass) {
+            $("#message_ConfirmPass").hide();
+        } else {
+            $("#message_ConfirmPass").show();
         }
     }
 </script>
