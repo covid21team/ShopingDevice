@@ -61,6 +61,14 @@ CREATE TABLE PRODUCT
 	foreign key (PRODUCTTYPEID) references PRODUCTTYPE(PRODUCTTYPEID) on update cascade,
 )
 
+-- Picture chỉ là nơi để thể hiện những ảnh có ở dữ liệu
+-- Không nối bảng khác, lí do khi nối bảng khác mà ở picture thì nơi được nối sẽ bị xóa cụ thể product
+----------------------------Suy nghỉ thêm------------------------
+go
+create table PICTURE
+(
+	LinkName Varchar(max),
+)
 go
 CREATE TABLE CONFIG
 (
