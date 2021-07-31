@@ -643,7 +643,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/09/2021 08:33:09</publishTime>
     </File>
     <File Include="Areas/Admin/AssetAdmin/css/products-list.css">
-      <publishTime>07/08/2021 08:57:52</publishTime>
+      <publishTime>07/27/2021 20:34:25</publishTime>
     </File>
     <File Include="Areas/Admin/AssetAdmin/css/style.css">
       <publishTime>07/04/2021 08:55:05</publishTime>
@@ -1291,7 +1291,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/10/2021 18:42:56</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Admin/PictureManager.cshtml">
-      <publishTime>07/11/2021 22:02:54</publishTime>
+      <publishTime>07/27/2021 20:36:03</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Admin/ProductManager.cshtml">
       <publishTime>07/21/2021 12:05:33</publishTime>
@@ -1306,7 +1306,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/10/2021 20:26:57</publishTime>
     </File>
     <File Include="Areas/Admin/Views/ProductManager/addProduct.cshtml">
-      <publishTime>07/14/2021 20:38:13</publishTime>
+      <publishTime>07/27/2021 11:38:37</publishTime>
     </File>
     <File Include="Areas/Admin/Views/ProductManager/editProduct.cshtml">
       <publishTime>07/14/2021 10:07:09</publishTime>
@@ -1363,7 +1363,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/30/2021 09:54:20</publishTime>
     </File>
     <File Include="Asset/css/thongtincanhan.css">
-      <publishTime>07/11/2021 08:59:43</publishTime>
+      <publishTime>07/27/2021 10:27:55</publishTime>
     </File>
     <File Include="Asset/fonts/fontawesome-webfont.eot">
       <publishTime>06/19/2021 23:15:42</publishTime>
@@ -2326,10 +2326,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/01/2018 12:20:56</publishTime>
     </File>
     <File Include="bin/TSP_Covid21.dll">
-      <publishTime>07/27/2021 09:10:33</publishTime>
+      <publishTime>07/29/2021 08:59:30</publishTime>
     </File>
     <File Include="bin/TSP_Covid21.pdb">
-      <publishTime>07/27/2021 09:10:33</publishTime>
+      <publishTime>07/29/2021 08:59:30</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>01/23/2014 13:57:34</publishTime>
@@ -2446,7 +2446,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/21/2021 11:24:04</publishTime>
     </File>
     <File Include="Views/Covid21/CheckOut.cshtml">
-      <publishTime>07/24/2021 17:01:06</publishTime>
+      <publishTime>07/27/2021 18:47:07</publishTime>
     </File>
     <File Include="Views/Covid21/ContactUs.cshtml">
       <publishTime>07/24/2021 16:10:44</publishTime>
@@ -2458,7 +2458,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/21/2021 12:17:19</publishTime>
     </File>
     <File Include="Views/Covid21/Personal.cshtml">
-      <publishTime>07/25/2021 14:32:41</publishTime>
+      <publishTime>07/27/2021 10:19:59</publishTime>
     </File>
     <File Include="Views/Covid21/PrivacyPolicy.cshtml">
       <publishTime>07/14/2021 10:58:48</publishTime>

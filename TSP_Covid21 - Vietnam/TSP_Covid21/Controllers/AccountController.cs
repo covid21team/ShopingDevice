@@ -427,6 +427,42 @@ namespace TSP_Covid21.Controllers
             nodes.Add(
                 new SitemapNode()
                 {
+                    loc = "https://covid21tsp.space/Covid21/Product?productId=19",
+                    priority = 0.8
+                });
+            nodes.Add(
+                new SitemapNode()
+                {
+                    loc = "https://covid21tsp.space/Covid21/Product?productId=20",
+                    priority = 0.8
+                });
+            nodes.Add(
+                new SitemapNode()
+                {
+                    loc = "https://covid21tsp.space/Covid21/Product?productId=21",
+                    priority = 0.8
+                });
+            nodes.Add(
+                new SitemapNode()
+                {
+                    loc = "https://covid21tsp.space/Covid21/Product?productId=22",
+                    priority = 0.8
+                });
+            nodes.Add(
+                new SitemapNode()
+                {
+                    loc = "https://covid21tsp.space/Covid21/Product?productId=23",
+                    priority = 0.8
+                });
+            nodes.Add(
+                new SitemapNode()
+                {
+                    loc = "https://covid21tsp.space/Covid21/Product?productId=24",
+                    priority = 0.8
+                });
+            nodes.Add(
+                new SitemapNode()
+                {
                     loc = "https://covid21tsp.space/Covid21/ContactUs",
                     priority = 0.8
                 });
@@ -436,6 +472,12 @@ namespace TSP_Covid21.Controllers
                     loc = "https://covid21tsp.space/Covid21/PrivacyPolicy",
                     priority = 0.8
                 });
+            nodes.Add(
+               new SitemapNode()
+               {
+                   loc = "https://covid21tsp.space/Covid21/AboutUs",
+                   priority = 0.8
+               });
             return nodes;
         }
 

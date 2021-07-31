@@ -299,6 +299,7 @@
     <Content Include="Areas\Admin\AssetAdmin\css\icons\weather-icons\less\css\variables-time.css" />
     <Content Include="Areas\Admin\AssetAdmin\css\icons\weather-icons\less\css\variables-wind-names.css" />
     <Content Include="Areas\Admin\AssetAdmin\css\loginAdmin.css" />
+    <Content Include="Areas\Admin\AssetAdmin\css\picture.css" />
     <Content Include="Areas\Admin\AssetAdmin\css\products-list.css" />
     <Content Include="Areas\Admin\AssetAdmin\css\style.css" />
     <Content Include="Areas\Admin\AssetAdmin\css\style.min.css" />
