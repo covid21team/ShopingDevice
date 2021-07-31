@@ -196,7 +196,7 @@
                     </div>
                 </div>
 
-                <a href="" class="primary-btn order-submit" id="create_bill">Đặt hàng</a>
+                <a href="#" class="primary-btn order-submit" id="create_bill">Đặt hàng</a>
             </div>
             <!-- /Order Details -->
         </div>
@@ -226,6 +226,8 @@
         var total = @total_cart;
 
         if (add != 0 && quantity != 0) {
+            $("#loading_web").show();
+            $("#create_bill").hide();
             $.ajax({
                 url: '@Url.Action("insertBill", "Product")',
                 type: "POST",
@@ -234,6 +236,7 @@
                     total: total,
                 },
                 success: function (result) {
+                    $("#loading_web").hide();
                     if (result != 'True') {
                         alert(result);
                     }
@@ -244,6 +247,7 @@
                 },
                 error: function () {
                     alert("fail");
+                    $("#loading_web").hide();
                 }
             });
         } else if (quantity == 0) {

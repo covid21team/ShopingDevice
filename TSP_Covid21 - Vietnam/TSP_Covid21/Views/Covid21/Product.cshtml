@@ -175,7 +175,7 @@
                         <h3 class="product-price">@temp</h3>
                         @if (Model.STATUSPRODUCT == true)
                         {
-                            if (Model.PRODUCTAMOUNT <= 0)
+                            if (Model.PRODUCTAMOUNT <= 0 || Model.STATUSPRODUCT == false)
                             {
                                 <span class="product-available">Hết hàng</span>
                             }

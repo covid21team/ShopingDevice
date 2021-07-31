@@ -63,7 +63,7 @@
                                     <img src="~/@item.MainPic" alt="" style="width: 200px; height:200px; object-fit: contain">
                                 </a>
                                 <div class="product-label">
-                                    @if (item.Status == false)
+                                    @if (item.Status == false || item.ProductAmount < 1)
                                     {
                                         <span class="new">Ngưng kinh doanh</span>
                                     }
@@ -91,7 +91,7 @@
                                     </button>
                                 </div>
                             </div>
-                            @if(item.Status == true)
+                            @if(item.Status == true && item.ProductAmount > 0)
                             {
                                 <div class="add-to-cart">
                                     <input type="text" value="@item.ProductId" class="productId" style="display: none" />

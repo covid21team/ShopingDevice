@@ -42,7 +42,7 @@
         </a>
 
         <div class="product-label">
-            @if (Model.STATUSPRODUCT == false)
+            @if (Model.STATUSPRODUCT == false || Model.PRODUCTAMOUNT < 1)
             {
                 <span class="new">Ngưng kinh doanh</span>
             }
@@ -73,7 +73,7 @@
             </button>
         </div>
     </div>
-    @if (Model.STATUSPRODUCT == true)
+    @if (Model.STATUSPRODUCT == true && Model.PRODUCTAMOUNT > 0)
     {
         <div class="add-to-cart">
             <input type="text" value="@Model.PRODUCTID" class="productId" style="display: none" />

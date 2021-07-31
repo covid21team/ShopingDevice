@@ -316,7 +316,7 @@ input:valid ~ span.eye1 {
     background: rgb(255, 255, 255);
 }
 
-.modal12{
+.modal12 {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
@@ -327,7 +327,7 @@ input:valid ~ span.eye1 {
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-    padding-top: 250px;
+    padding-top: 9.5%;
     padding-left: 25%;
 }
 
