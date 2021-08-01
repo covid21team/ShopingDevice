@@ -67,6 +67,7 @@ CREATE TABLE PRODUCT
 go
 create table PICTURE
 (
+	PictureId INT IDENTITY PRIMARY KEY,
 	LinkName Varchar(max),
 )
 go
