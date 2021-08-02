@@ -1,0 +1,46 @@
+
+
+
+<div class="checkbox-wrapper">
+    <input type="checkbox" name="" id="check" hidden>
+    <label for="check" class="checkmark"></label>
+
+</div>
+
+
+<style>
+    .checkbox-wrapper{
+        position: absolute;
+        
+    }
+    .checkmark{
+        display: block;
+        width: 15px;
+        height: 15px;
+        background-color: white;
+        border-radius: 3px;
+        position: relative;
+        transition:  background-color 0.4s;
+        border: 0.2px solid black ;
+    }
+    #check:checked ~ .checkmark{
+        background-color: green;
+    }
+    .checkmark::after{
+        content: "";
+        position: absolute;
+        width: 3px;
+        height: 7px;
+        border-right: 1.5px solid white;
+        border-bottom: 1.5px solid white;
+        top:40%;
+        left: 50%;
+        transform: translate(-50%,-50%) rotateZ(40deg) scale(10);
+        opacity: 0;
+        transition: all 0.4s;
+    }
+    #check:checked ~ .checkmark::after{
+        opacity: 1;
+        transform: translate(-50%,-50%) rotateZ(40deg) scale(1);
+    }
+</style>
