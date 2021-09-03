@@ -1,0 +1,35 @@
+﻿@model IEnumerable<TSP_Covid21.Models.ShopEntity.ww_BAUCUA_PLAYER>
+
+<table>
+    <tbody>
+        @foreach(var item in Model)
+        {
+        <tr>
+            <td>@item.ww_BAUCUA_ACCOUNT.ACCOUNTNAME: </td>
+            <td>
+                <input type="button" value="Kích" class="Out_Player" />
+            </td>
+            <td>
+                <input type="text" value="@item.PLAYERID" class="Player_Id" />
+            </td>
+            <td>
+                <input type="text" value="@item.ww_BAUCUA_ACCOUNT.ACCOUNTNAME" class="Player_Name" />
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+<script>    
+    $(".Out_Player").click(function () {
+        $("#Parent_YesNo").css({ "display": "block" });
+        $("#Parent_Player").css({ "display": "none" });
+
+        var parent = $(this).parent().parent();
+        var playerId = $(parent).children().children(".Player_Id").val();
+        var playerName = $(parent).children().children(".Player_Name").val();
+
+        $("#Player_Id").val(playerId);
+        $("#Answer").val("Bạn có muốn đuổi " + playerName + " ?");
+    })
+</script>

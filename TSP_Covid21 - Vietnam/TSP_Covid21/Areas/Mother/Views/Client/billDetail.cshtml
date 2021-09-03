@@ -1,0 +1,78 @@
+﻿@model TSP_Covid21.Areas.Mother.ViewModel.BillDetail_Cus
+
+@if (Model.BillDetail == null)
+{
+    <div style="text-align: center">
+        (Chưa có đơn đặt hàng)
+    </div>
+}
+else
+{
+    <div style="text-align:center">
+        <b>Tên người đặt hàng: @Model.Customer.Name</b>
+    </div>
+    <style>
+        #Tablebill {
+            width: 900px;
+        }
+
+            #Tablebill th {
+                font-size: 20px;
+            }
+
+            #Tablebill th, td {
+                text-align: center;
+                padding: 15px;
+            }
+
+            #Tablebill tr {
+                border: 2px solid black;
+            }
+    </style>
+    <table id="Tablebill">
+        <thead>
+            <tr>
+                <th>Mặt hàng</th>
+                <th>Hình</th>
+                <th>Số lượng</th>
+                <th>Đơn vị</th>
+                <th>Giá</th>
+                <th>Tổng</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.BillDetail)
+            {
+                <tr>
+                    <td>@item.ww_Product.ProdutName</td>
+                    <td><img src="@item.ww_Product.Pic" style="height: 100px; width: 100px" /></td>
+                    <td>@Math.Round(item.Amount,1)</td>
+                    <td>Kg</td>
+                    @{
+                        var price = String.Format("{0:#,##0.##}", @item.ww_Product.Price);
+                        price = price.Replace(".", ",");
+                        price += " VNĐ/Kg";
+                    }
+                    <td>@price</td>
+                    @{
+                        var total = item.Amount * item.ww_Product.Price;
+                        var temp_total = String.Format("{0:#,##0.##}", item.ww_Product.Price * item.Amount);
+                        temp_total = temp_total.Replace(".", ",");
+                        temp_total += " VNĐ";
+                    }
+                    <td>@temp_total</td>
+                </tr>
+            }
+            @{ 
+                var totalBill = Model.BillDetail.Sum(t => t.Amount * t.ww_Product.Price);
+                var temp_totalBill = String.Format("{0:#,##0.##}", totalBill);
+                temp_totalBill = temp_totalBill.Replace(".", ",");
+                temp_totalBill += " VNĐ";
+            }
+            <tr>
+                <td colspan="2" style="font-size: 20px; font-weight: bold">Tổng đơn hàng</td>
+                <td colspan="4">@temp_totalBill</td>
+            </tr>
+        </tbody>
+    </table>
+}

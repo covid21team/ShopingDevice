@@ -1,0 +1,283 @@
+﻿@model TSP_Covid21.Models.ShopEntity.BILL
+
+<div class="col-md-4 col-sm-6" style="background: rgb(230, 245, 216)">
+    <div class="container-fluid mt-3">
+        @if (Model.BIllSTATUS == 4)
+        {
+            <h4 class="mb-2">Mã hóa đơn: @Model.BILLID <span style="font-size: 13px; color: red">(hóa đơn đã hủy)</span></h4>
+        }
+        else
+        {
+            <h4 class="mb-2">Mã hóa đơn: @Model.BILLID</h4>
+        }
+
+        @if (Model.BIllSTATUS == 2 || (DateTime.Now - (DateTime)Model.DATECREATE).Days > 1 || Model.BIllSTATUS == 4)
+        {
+            <form>
+                <div>
+                    <div>
+                        <label for="" class="labelthongtin">Người nhận</label>
+                        <input type="text" class="form-control"
+                               placeholder="" value="@Model.FULLNAME" disabled>
+                    </div>
+                </div>
+                <div>
+                    <label for="" class="labelthongtin">Thành phố/Tỉnh</label>
+                    <select class="form-control" none="province" onchange="changeFunc();" disabled>
+                        <option value="" selected>@Model.CITY</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="" class="labelthongtin">Quận/Huyện</label>
+                    <select class="form-control" none="province" onchange="changeFunc();" disabled>
+                        <option value="" selected>@Model.DISTRICT</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="" class="labelthongtin">Phường/Xã</label>
+                    <select class="form-control" none="province" onchange="changeFunc();" disabled>
+                        <option value="" selected>@Model.WARDS</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="" class="labelthongtin">Địa chỉ</label>
+                    <textarea class="form-control" name="" cols="30" rows="2" disabled>@Model.ADDRESS</textarea>
+                </div>
+                <div>
+                    <label for="" class="labelthongtin">Số điện thoại</label>
+                    <input type="text" class="form-control bluan" value="@Model.PHONE"
+                           placeholder="iphoneXR" disabled>
+                </div>
+
+                <button type="submit" class="btn btn-danger bluan"
+                        style="margin-bottom: 15px; margin-top: 15px; margin-left: 125px" disabled>
+                    (Không được thay đổi)
+                </button>
+            </form>
+        }
+        else
+        {
+            <form>
+                <div>
+                    <div>
+                        <label for="" class="labelthongtin">
+                            Người nhận
+                            <span style="color: red; display: none; font-size: 11px" id="inf_add_fullname">(Vui lòng nhập tên người nhận)</span>
+                        </label>
+                        <input type="text" class="form-control" id="fullname_billdetail"
+                               placeholder="" value="@Model.FULLNAME">
+                    </div>
+                </div>
+                <div>
+                    <label for="" class="labelthongtin">Thành phố/Tỉnh</label>
+                    <select class="form-control" id="province" none="province" onchange="changeFunc();">
+                        <option value="@Model.CITY" selected>@Model.CITY</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="" class="labelthongtin">Quận/Huyện</label>
+                    <select class="form-control" id="district" none="province" onchange="changeFuncDistrict();">
+                        <option value="@Model.DISTRICT" selected>@Model.DISTRICT</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="" class="labelthongtin">Phường/Xã</label>
+                    <select class="form-control" id="ward" none="province">
+                        <option value="@Model.WARDS" selected>@Model.WARDS</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="" class="labelthongtin">
+                        Địa chỉ
+                        <span style="color: red; display: none; font-size: 11px" id="inf_add">(Vui lòng nhập địa chỉ giao hàng)</span>
+                    </label>
+                    <textarea class="form-control" name="" id="address_billdetail" cols="30" rows="2">@Model.ADDRESS</textarea>
+                </div>
+                <div>
+                    <label for="" class="labelthongtin">
+                        Số điện thoại
+                        <span style="color: red; display: none; font-size: 11px" id="inf_add_phone">(SĐT không được để trống)</span>
+                        <span style="color: red; display: none; font-size: 11px" id="inf_add_phone_check">(Vui lòng nhập đúng số điện thoại)</span>
+                    </label>
+                    <input type="text" class="form-control bluan" id="phone_billdetail" placeholder="iphoneXR" value="@Model.PHONE" />
+                </div>
+
+                <button type="button" class="btn btn-danger bluan"
+                        style="margin-bottom: 15px; margin-top: 15px; margin-left: 160px" id="changeBillInf">
+                    Xác nhận
+                </button>
+            </form>
+        }
+    </div>
+</div>
+
+<div class="col-md-4 col-sm-6" style="background: rgb(230, 245, 216)">
+    <label for="" class="labelbinhluan" style="margin-top: 40px;color: #333;">
+        Sản
+        phẩm
+    </label>
+    <div class="thanhkeobill">
+        <table class="table table-hover">
+            <thead class="tablebill">
+                <tr>
+                    <th style="text-align:center">#</th>
+                    <th style="text-align:center">Hình</th>
+                    <th style="text-align:center">Tên sản phẩm</th>
+                    <th style="text-align:center">SL</th>
+                    <th style="text-align:center">Giá</th>
+                </tr>
+            </thead>
+            @{
+                int i = 1;
+            }
+            <tbody>
+                @foreach (var item in Model.BILLDETAIL)
+                {
+                    <tr>
+                        <td>@i</td>
+                        @{
+                            i++;
+                        }
+                        <td>
+                            <img src="@item.PRODUCT.PIC_PRODUCT.Where(t => t.MAINPIC == true).Select(c => c.PICTURE.PATH).SingleOrDefault()" style="height: 30px" alt="">
+                        </td>
+                        <td>@item.PRODUCT.PRODUCTNAME</td>
+                        @{
+                            var quantity = item.AMOUNT.ToString();
+                            quantity = "x" + quantity;
+                        }
+                        <td>@quantity</td>
+                        @{
+                            var total = String.Format("{0:#,##0.##}", item.AMOUNT * item.PRODUCT.PRODUCTPRICE);
+                            total = total.Replace(".", ",");
+                            total += "đ";
+                        }
+                        <td>@total</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    @if (Model.BIllSTATUS == 2 || (DateTime.Now - (DateTime)Model.DATECREATE).Days > 1 || Model.BIllSTATUS == 4)
+    {
+        <button type="submit" class="btn btn-danger bluan"
+                style="margin-bottom: 15px; margin-top: 15px;display:inline-block;margin-left: 145px;" disabled>
+            (Không được hủy đơn)
+        </button>
+    }
+    else
+    {
+        <button type="button" class="btn btn-danger bluan"
+                style="margin-bottom: 15px; margin-top: 15px;display:inline-block;margin-left: 200px;" id="cancelBill">
+            Hủy đơn
+        </button>
+    }
+</div>
+
+<!--Load các thành phố-->
+<script>
+    var start = {
+        loadData: function () {
+
+            var province = document.getElementById("province");
+
+            $.ajax({
+                url: "https://dev-online-gateway.ghn.vn/shiip/public-api/master-data/province",
+                headers: {
+                    'token': "260fcbb6-d4ae-11eb-aa92-d25db748eae9",
+                    'content-Type': 'application/json'
+                },
+                method: 'GET',
+                dataType: 'json',
+                success: function (response) {
+                    var str = '';
+                    for (var i = 0; i < response.data.length; i++) {
+                        if ('@Html.Raw(Model.CITY)' == response.data[i].ProvinceName) {
+                            str = str + "<option class = 'provinceID' data-province='" + response.data[i].ProvinceID + "' value='" + response.data[i].ProvinceName + "' selected>" + response.data[i].ProvinceName + "</option> "
+                        } else {
+                            str = str + "<option class = 'provinceID' data-province='" + response.data[i].ProvinceID + "' value='" + response.data[i].ProvinceName + "'>" + response.data[i].ProvinceName + "</option> "
+                        }
+                    }
+                    province.innerHTML = str;
+                    
+                }
+            });
+
+        }
+    }
+    start.loadData();
+</script>
+
+<!--Hủy đơn-->
+<script>
+    $("#cancelBill").click(function () {
+        $.ajax({
+            url: "@Url.Action("cancelBill", "Account")",
+            type: "POST",
+            data: {
+                id: @Model.BILLID,
+            },
+            success: function () {
+                location.reload();
+            }
+        });
+    });
+</script>
+
+<!--Chỉnh sử hóa đơn-->
+<script>
+    $("#changeBillInf").click(function () {
+        var fullname = $("#fullname_billdetail").val();
+        var phone = $("#phone_billdetail").val();
+        var city = $("#province").val();
+        var district = $("#district").val();
+        var ward = $("#ward").val();
+        var address = $("#address_billdetail").val();
+
+        if (fullname == "") {
+            $("#inf_add_fullname").css({ "display": "inline-block" });
+        } else {
+            $("#inf_add_fullname").css({ "display": "none" });
+        }
+
+        if (phone == "") {
+            $("#inf_add_phone").css({ "display": "inline-block" });
+        } else {
+            $("#inf_add_phone").css({ "display": "none" });
+
+            if (phone.length != 10) {
+                $("#inf_add_phone_check").css({ "display": "inline-block" });
+            } else {
+                $("#inf_add_phone_check").css({ "display": "none" });
+            }
+        }
+
+        if (address == "") {
+            $("#inf_add").css({ "display": "inline-block" });
+            check = false;
+        } else {
+            $("#inf_add").css({ "display": "none" });
+            check = true;
+        }
+
+        if (fullname != "" && phone != "" && phone.length == 10 && address != "") {
+            $.ajax({
+                url: "@Url.Action("editAdress_Bill", "Account")",
+                type: "POST",
+                data: {
+                    id: @Model.BILLID,
+                    fullname: fullname,
+                    phone: phone,
+                    city: city,
+                    district: district,
+                    ward: ward,
+                    address: address,
+                },
+                success: function () {
+                    location.reload();
+                }
+            });
+        }
+    });
+</script>

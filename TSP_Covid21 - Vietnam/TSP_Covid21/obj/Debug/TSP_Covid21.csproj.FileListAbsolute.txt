@@ -1,0 +1,672 @@
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\bin\TSP_Covid21.dll.config
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\bin\TSP_Covid21.dll
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\bin\TSP_Covid21.pdb
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\bin\roslyn\csc.exe
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\bin\roslyn\csc.exe.config
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\bin\roslyn\csc.rsp
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\bin\roslyn\csi.exe
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\bin\roslyn\csi.exe.config
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\bin\roslyn\csi.rsp
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\bin\roslyn\System.AppContext.dll
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\bin\roslyn\System.Console.dll
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\bin\roslyn\System.IO.Compression.dll
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\bin\roslyn\System.IO.Pipes.AccessControl.dll
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\bin\roslyn\System.IO.Pipes.dll
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\bin\roslyn\System.Security.AccessControl.dll
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\bin\roslyn\System.Security.Claims.dll
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\bin\roslyn\System.Security.Principal.Windows.dll
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\bin\roslyn\System.ValueTuple.dll
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\bin\roslyn\System.Xml.XPath.dll
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\bin\roslyn\vbc.exe
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\bin\roslyn\vbc.exe.config
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\bin\roslyn\vbc.rsp
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\bin\roslyn\VBCSCompiler.exe
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\bin\Antlr3.Runtime.dll
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\bin\EntityFramework.dll
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\bin\EntityFramework.SqlServer.dll
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\bin\Newtonsoft.Json.dll
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\bin\System.Web.Helpers.dll
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\bin\System.Web.Mvc.dll
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\bin\System.Web.Optimization.dll
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\bin\System.Web.Razor.dll
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\bin\System.Web.WebPages.Deployment.dll
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\bin\System.Web.WebPages.dll
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\bin\System.Web.WebPages.Razor.dll
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\bin\WebGrease.dll
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\bin\EntityFramework.xml
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\bin\EntityFramework.SqlServer.xml
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\bin\System.Web.Helpers.xml
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\bin\System.Web.Mvc.xml
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\bin\System.Web.Optimization.xml
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\bin\System.Web.Razor.xml
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\bin\System.Web.WebPages.xml
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\bin\System.Web.WebPages.Deployment.xml
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\bin\System.Web.WebPages.Razor.xml
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\bin\Newtonsoft.Json.xml
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\bin\Antlr3.Runtime.pdb
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\obj\Debug\TSP_Covid21.csprojAssemblyReference.cache
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\obj\Debug\TSP_Covid21.csproj.CoreCompileInputs.cache
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\obj\Debug\TSP_Covid21.csproj.CopyComplete
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\obj\Debug\TSP_Covid21.dll
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\obj\Debug\TSP_Covid21.pdb
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\bin\TSP_Covid21.dll.config
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\bin\TSP_Covid21.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\bin\TSP_Covid21.pdb
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\bin\roslyn\csc.exe
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\bin\roslyn\csc.exe.config
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\bin\roslyn\csc.rsp
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\bin\roslyn\csi.exe
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\bin\roslyn\csi.exe.config
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\bin\roslyn\csi.rsp
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\bin\roslyn\System.AppContext.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\bin\roslyn\System.Console.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\bin\roslyn\System.IO.Compression.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\bin\roslyn\System.IO.Pipes.AccessControl.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\bin\roslyn\System.IO.Pipes.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\bin\roslyn\System.Security.AccessControl.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\bin\roslyn\System.Security.Claims.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\bin\roslyn\System.Security.Principal.Windows.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\bin\roslyn\System.ValueTuple.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\bin\roslyn\System.Xml.XPath.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\bin\roslyn\vbc.exe
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\bin\roslyn\vbc.exe.config
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\bin\roslyn\vbc.rsp
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\bin\roslyn\VBCSCompiler.exe
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\bin\Antlr3.Runtime.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\bin\EntityFramework.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\bin\EntityFramework.SqlServer.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\bin\Newtonsoft.Json.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\bin\System.Web.Helpers.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\bin\System.Web.Mvc.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\bin\System.Web.Optimization.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\bin\System.Web.Razor.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\bin\System.Web.WebPages.Deployment.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\bin\System.Web.WebPages.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\bin\System.Web.WebPages.Razor.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\bin\WebGrease.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\bin\EntityFramework.xml
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\bin\EntityFramework.SqlServer.xml
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\bin\System.Web.Helpers.xml
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\bin\System.Web.Mvc.xml
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\bin\System.Web.Optimization.xml
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\bin\System.Web.Razor.xml
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\bin\System.Web.WebPages.xml
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\bin\System.Web.WebPages.Deployment.xml
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\bin\System.Web.WebPages.Razor.xml
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\bin\Newtonsoft.Json.xml
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\bin\Antlr3.Runtime.pdb
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\obj\Debug\TSP_Covid21.csprojAssemblyReference.cache
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\obj\Debug\TSP_Covid21.csproj.CoreCompileInputs.cache
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\obj\Debug\TSP_Covid21.csproj.CopyComplete
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\obj\Debug\TSP_Covid21.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\obj\Debug\TSP_Covid21.pdb
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\bin\PagedList.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\bin\PagedList.Mvc.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\bin\PagedList.xml
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21\TSP_Covid21\bin\PagedList.Mvc.xml
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\bin\PagedList.dll
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\bin\PagedList.Mvc.dll
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\bin\PagedList.xml
+C:\Users\xyzsy\OneDrive\Desktop\ShopingDevice\TSP_Covid21\TSP_Covid21\bin\PagedList.Mvc.xml
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\bin\TSP_Covid21.dll.config
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\bin\TSP_Covid21.dll
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\bin\TSP_Covid21.pdb
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\bin\roslyn\csc.exe
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\bin\roslyn\csc.exe.config
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\bin\roslyn\csc.rsp
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\bin\roslyn\csi.exe
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\bin\roslyn\csi.exe.config
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\bin\roslyn\csi.rsp
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\bin\roslyn\System.AppContext.dll
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\bin\roslyn\System.Console.dll
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\bin\roslyn\System.IO.Compression.dll
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\bin\roslyn\System.IO.Pipes.AccessControl.dll
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\bin\roslyn\System.IO.Pipes.dll
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\bin\roslyn\System.Security.AccessControl.dll
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\bin\roslyn\System.Security.Claims.dll
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\bin\roslyn\System.Security.Principal.Windows.dll
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\bin\roslyn\System.ValueTuple.dll
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\bin\roslyn\System.Xml.XPath.dll
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\bin\roslyn\vbc.exe
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\bin\roslyn\vbc.exe.config
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\bin\roslyn\vbc.rsp
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\bin\roslyn\VBCSCompiler.exe
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\bin\Antlr3.Runtime.dll
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\bin\EntityFramework.dll
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\bin\EntityFramework.SqlServer.dll
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\bin\Newtonsoft.Json.dll
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\bin\PagedList.dll
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\bin\PagedList.Mvc.dll
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\bin\System.Web.Helpers.dll
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\bin\System.Web.Mvc.dll
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\bin\System.Web.Optimization.dll
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\bin\System.Web.Razor.dll
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\bin\System.Web.WebPages.Deployment.dll
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\bin\System.Web.WebPages.dll
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\bin\System.Web.WebPages.Razor.dll
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\bin\WebGrease.dll
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\bin\EntityFramework.xml
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\bin\EntityFramework.SqlServer.xml
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\bin\PagedList.xml
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\bin\PagedList.Mvc.xml
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\bin\System.Web.Helpers.xml
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\bin\System.Web.Mvc.xml
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\bin\System.Web.Optimization.xml
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\bin\System.Web.Razor.xml
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\bin\System.Web.WebPages.xml
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\bin\System.Web.WebPages.Deployment.xml
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\bin\System.Web.WebPages.Razor.xml
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\bin\Newtonsoft.Json.xml
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\bin\Antlr3.Runtime.pdb
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\obj\Debug\TSP_Covid21.csprojAssemblyReference.cache
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\obj\Debug\TSP_Covid21.csproj.CoreCompileInputs.cache
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\obj\Debug\TSP_Covid21.csproj.CopyComplete
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\obj\Debug\TSP_Covid21.dll
+C:\Users\xyzsy\OneDrive\Desktop\New folder\TSP_Covid21\TSP_Covid21\obj\Debug\TSP_Covid21.pdb
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\TSP_Covid21.dll.config
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\TSP_Covid21.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\TSP_Covid21.pdb
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\csc.exe
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\csc.exe.config
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\csc.rsp
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\csi.exe
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\csi.exe.config
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\csi.rsp
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.AppContext.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Console.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.IO.Compression.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.IO.Pipes.AccessControl.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.IO.Pipes.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Security.AccessControl.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Security.Claims.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Security.Principal.Windows.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.ValueTuple.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Xml.XPath.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\vbc.exe
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\vbc.exe.config
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\vbc.rsp
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\VBCSCompiler.exe
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\Antlr3.Runtime.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\EntityFramework.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\EntityFramework.SqlServer.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\Newtonsoft.Json.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\PagedList.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\PagedList.Mvc.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\System.Web.Helpers.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\System.Web.Mvc.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\System.Web.Optimization.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\System.Web.Razor.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\System.Web.WebPages.Deployment.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\System.Web.WebPages.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\System.Web.WebPages.Razor.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\WebGrease.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\EntityFramework.xml
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\EntityFramework.SqlServer.xml
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\PagedList.xml
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\PagedList.Mvc.xml
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\System.Web.Helpers.xml
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\System.Web.Mvc.xml
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\System.Web.Optimization.xml
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\System.Web.Razor.xml
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\System.Web.WebPages.xml
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\System.Web.WebPages.Deployment.xml
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\System.Web.WebPages.Razor.xml
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\Newtonsoft.Json.xml
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\Antlr3.Runtime.pdb
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\obj\Debug\TSP_Covid21.csprojAssemblyReference.cache
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\obj\Debug\TSP_Covid21.csproj.CoreCompileInputs.cache
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\obj\Debug\TSP_Covid21.csproj.CopyComplete
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\obj\Debug\TSP_Covid21.dll
+C:\Users\xyzsy\OneDrive\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\obj\Debug\TSP_Covid21.pdb
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\TSP_Covid21.dll.config
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\TSP_Covid21.dll
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\TSP_Covid21.pdb
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\csc.exe
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\csc.exe.config
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\csc.rsp
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\csi.exe
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\csi.exe.config
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\csi.rsp
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.AppContext.dll
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Console.dll
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.IO.Compression.dll
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.IO.Pipes.AccessControl.dll
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.IO.Pipes.dll
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Security.AccessControl.dll
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Security.Claims.dll
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Security.Principal.Windows.dll
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.ValueTuple.dll
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Xml.XPath.dll
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\vbc.exe
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\vbc.exe.config
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\vbc.rsp
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\VBCSCompiler.exe
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\Antlr3.Runtime.dll
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\EntityFramework.dll
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\EntityFramework.SqlServer.dll
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\Newtonsoft.Json.dll
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\PagedList.dll
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\PagedList.Mvc.dll
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\System.Web.Helpers.dll
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\System.Web.Mvc.dll
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\System.Web.Optimization.dll
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\System.Web.Razor.dll
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\System.Web.WebPages.Deployment.dll
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\System.Web.WebPages.dll
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\System.Web.WebPages.Razor.dll
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\WebGrease.dll
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\EntityFramework.xml
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\EntityFramework.SqlServer.xml
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\PagedList.xml
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\PagedList.Mvc.xml
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\System.Web.Helpers.xml
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\System.Web.Mvc.xml
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\System.Web.Optimization.xml
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\System.Web.Razor.xml
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\System.Web.WebPages.xml
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\System.Web.WebPages.Deployment.xml
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\System.Web.WebPages.Razor.xml
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\Newtonsoft.Json.xml
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\Antlr3.Runtime.pdb
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\obj\Debug\TSP_Covid21.csprojAssemblyReference.cache
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\obj\Debug\TSP_Covid21.csproj.CoreCompileInputs.cache
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\obj\Debug\TSP_Covid21.csproj.CopyComplete
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\obj\Debug\TSP_Covid21.dll
+C:\Users\xyzsy\Desktop\TSP_Covid21 - Vietnam\TSP_Covid21\obj\Debug\TSP_Covid21.pdb
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\TSP_Covid21.dll.config
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\TSP_Covid21.dll
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\TSP_Covid21.pdb
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\csc.exe
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\csc.exe.config
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\csc.rsp
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\csi.exe
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\csi.exe.config
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\csi.rsp
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.AppContext.dll
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Console.dll
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.IO.Compression.dll
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.IO.Pipes.AccessControl.dll
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.IO.Pipes.dll
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Security.AccessControl.dll
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Security.Claims.dll
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Security.Principal.Windows.dll
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.ValueTuple.dll
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Xml.XPath.dll
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\vbc.exe
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\vbc.exe.config
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\vbc.rsp
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\VBCSCompiler.exe
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\Antlr3.Runtime.dll
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\EntityFramework.dll
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\EntityFramework.SqlServer.dll
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\Newtonsoft.Json.dll
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\PagedList.dll
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\PagedList.Mvc.dll
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\System.Web.Helpers.dll
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\System.Web.Mvc.dll
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\System.Web.Optimization.dll
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\System.Web.Razor.dll
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\System.Web.WebPages.Deployment.dll
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\System.Web.WebPages.dll
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\System.Web.WebPages.Razor.dll
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\WebGrease.dll
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\EntityFramework.xml
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\EntityFramework.SqlServer.xml
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\PagedList.xml
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\PagedList.Mvc.xml
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\System.Web.Helpers.xml
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\System.Web.Mvc.xml
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\System.Web.Optimization.xml
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\System.Web.Razor.xml
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\System.Web.WebPages.xml
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\System.Web.WebPages.Deployment.xml
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\System.Web.WebPages.Razor.xml
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\Newtonsoft.Json.xml
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\Antlr3.Runtime.pdb
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\obj\Debug\TSP_Covid21.csprojAssemblyReference.cache
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\obj\Debug\TSP_Covid21.csproj.CoreCompileInputs.cache
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\obj\Debug\TSP_Covid21.csproj.CopyComplete
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\obj\Debug\TSP_Covid21.dll
+C:\Users\xyzsy\Desktop\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\obj\Debug\TSP_Covid21.pdb
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\TSP_Covid21.dll.config
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\TSP_Covid21.dll
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\TSP_Covid21.pdb
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\csc.exe
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\csc.exe.config
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\csc.rsp
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\csi.exe
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\csi.exe.config
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\csi.rsp
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.AppContext.dll
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Console.dll
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.IO.Compression.dll
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.IO.Pipes.AccessControl.dll
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.IO.Pipes.dll
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Security.AccessControl.dll
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Security.Claims.dll
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Security.Principal.Windows.dll
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.ValueTuple.dll
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Xml.XPath.dll
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\vbc.exe
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\vbc.exe.config
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\vbc.rsp
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\VBCSCompiler.exe
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\Antlr3.Runtime.dll
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\EntityFramework.dll
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\EntityFramework.SqlServer.dll
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\Newtonsoft.Json.dll
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\PagedList.dll
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\PagedList.Mvc.dll
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\System.Web.Helpers.dll
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\System.Web.Mvc.dll
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\System.Web.Optimization.dll
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\System.Web.Razor.dll
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\System.Web.WebPages.Deployment.dll
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\System.Web.WebPages.dll
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\System.Web.WebPages.Razor.dll
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\WebGrease.dll
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\EntityFramework.xml
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\EntityFramework.SqlServer.xml
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\PagedList.xml
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\PagedList.Mvc.xml
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\System.Web.Helpers.xml
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\System.Web.Mvc.xml
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\System.Web.Optimization.xml
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\System.Web.Razor.xml
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\System.Web.WebPages.xml
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\System.Web.WebPages.Deployment.xml
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\System.Web.WebPages.Razor.xml
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\Newtonsoft.Json.xml
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\Antlr3.Runtime.pdb
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\obj\Debug\TSP_Covid21.csprojAssemblyReference.cache
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\obj\Debug\TSP_Covid21.csproj.CoreCompileInputs.cache
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\obj\Debug\TSP_Covid21.csproj.CopyComplete
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\obj\Debug\TSP_Covid21.dll
+C:\Users\trivi\OneDrive\Desktop\covid\ShopingDevice\TSP_Covid21 - Vietnam\TSP_Covid21\obj\Debug\TSP_Covid21.pdb
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\bin\TSP_Covid21.dll.config
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\bin\TSP_Covid21.dll
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\bin\TSP_Covid21.pdb
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\csc.exe
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\csc.exe.config
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\csc.rsp
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\csi.exe
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\csi.exe.config
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\csi.rsp
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.AppContext.dll
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Console.dll
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.IO.Compression.dll
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.IO.Pipes.AccessControl.dll
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.IO.Pipes.dll
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Security.AccessControl.dll
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Security.Claims.dll
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Security.Principal.Windows.dll
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.ValueTuple.dll
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Xml.XPath.dll
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\vbc.exe
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\vbc.exe.config
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\vbc.rsp
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\VBCSCompiler.exe
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\bin\Antlr3.Runtime.dll
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\bin\EntityFramework.dll
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\bin\EntityFramework.SqlServer.dll
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\bin\Newtonsoft.Json.dll
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\bin\PagedList.dll
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\bin\PagedList.Mvc.dll
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\bin\System.Web.Helpers.dll
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\bin\System.Web.Mvc.dll
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\bin\System.Web.Optimization.dll
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\bin\System.Web.Razor.dll
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\bin\System.Web.WebPages.Deployment.dll
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\bin\System.Web.WebPages.dll
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\bin\System.Web.WebPages.Razor.dll
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\bin\WebGrease.dll
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\bin\EntityFramework.xml
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\bin\EntityFramework.SqlServer.xml
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\bin\PagedList.xml
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\bin\PagedList.Mvc.xml
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\bin\System.Web.Helpers.xml
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\bin\System.Web.Mvc.xml
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\bin\System.Web.Optimization.xml
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\bin\System.Web.Razor.xml
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\bin\System.Web.WebPages.xml
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\bin\System.Web.WebPages.Deployment.xml
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\bin\System.Web.WebPages.Razor.xml
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\bin\Newtonsoft.Json.xml
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\bin\Antlr3.Runtime.pdb
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\obj\Debug\TSP_Covid21.csprojAssemblyReference.cache
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\obj\Debug\TSP_Covid21.csproj.CoreCompileInputs.cache
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\obj\Debug\TSP_Covid21.csproj.CopyComplete
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\obj\Debug\TSP_Covid21.dll
+C:\Users\xyzsy\Desktop\TestWeb\TSP_Covid21 - Vietnam\TSP_Covid21\obj\Debug\TSP_Covid21.pdb

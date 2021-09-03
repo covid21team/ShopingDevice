@@ -1,0 +1,184 @@
+﻿@model IEnumerable<TSP_Covid21.Models.ShopEntity.ww_BAUCUA_CHAT>
+
+@{ 
+    List<TSP_Covid21.Models.ShopEntity.ww_BAUCUA_CHAT> list_listChat = Model.ToList();
+    var chatRoomMater = list_listChat[0];
+    var chatPlayer_01 = list_listChat[1];
+    var chatPlayer_02 = list_listChat[2];
+    var chatPlayer_03 = list_listChat[3];
+    var chatPlayer_04 = list_listChat[4];
+    var chatPlayer_05 = list_listChat[5];
+    var chatPlayer_06 = list_listChat[6];
+}
+
+<style>
+    .Frame_Chat {
+        position: fixed;
+        z-index: 17;
+        width: 200px;
+        height: 70px;
+        display: none;
+    }
+
+    #Chat_PLayer_01 {
+        margin-top: -28px;
+        margin-left: -15px;
+    }
+
+    #Chat_PLayer_02 {
+        margin-top: 80px;
+        margin-left: -35px;
+    }
+
+    #Chat_PLayer_03 {
+        margin-top: 200px;
+        margin-left: -15px;
+    }
+
+    #Chat_PLayer_05 {
+        margin-top: 80px;
+        margin-left: 835px;
+    }
+
+    #Chat_PLayer_04 {
+        margin-top: -28px;
+        margin-left: 815px;
+    }
+
+    #Chat_PLayer_06 {
+        margin-top: 200px;
+        margin-left: 815px;
+    }
+
+    #Chat_Room_Master {
+        margin-top: -105px;
+        margin-left: 495px;
+    }
+
+    #Text_Chat_Player_01, #Text_Chat_Player_02, #Text_Chat_Player_03, #Text_Chat_Player_04, #Text_Chat_Player_05, #Text_Chat_Player_06, #Text_Chat_Room_Master {
+        width: 100px;
+        height: 60px;
+        position: fixed;
+        z-index: 18;
+        word-wrap: break-word;
+        margin-top: -60px;
+        margin-left: 50px;
+        font-size: 9px;
+        text-align: center;
+    }
+
+    #Chat_PLayer_01 img, #Chat_PLayer_02 img, #Chat_PLayer_03 img, #Chat_PLayer_04 img, #Chat_PLayer_05 img, #Chat_PLayer_06 img, #Chat_Room_Master img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+</style>
+
+<div id="Chat_Room_Master" class="Frame_Chat">
+    <img src="~/Areas/Game/Asset/Pic_Game/Player/Frame_Chat_Right_1.png" />
+    <!--lenght = 68-->
+    <div id="Text_Chat_Room_Master">
+        @chatRoomMater.TEXTCHAT
+    </div>
+</div>
+
+<div id="Chat_PLayer_01" class="Frame_Chat">
+    <img src="~/Areas/Game/Asset/Pic_Game/Player/Frame_Chat_Left_1.png" />
+    <!--lenght = 78-->
+    <div id="Text_Chat_Player_01">
+        @chatPlayer_01.TEXTCHAT
+    </div>
+</div>
+
+<div id="Chat_PLayer_02" class="Frame_Chat">
+    <img src="~/Areas/Game/Asset/Pic_Game/Player/Frame_Chat_Left_1.png" />
+    <!--lenght = 78-->
+    <div id="Text_Chat_Player_02">
+        @chatPlayer_02.TEXTCHAT
+    </div>
+</div>
+
+<div id="Chat_PLayer_03" class="Frame_Chat">
+    <img src="~/Areas/Game/Asset/Pic_Game/Player/Frame_Chat_Left_1.png" />
+    <!--lenght = 78-->
+    <div id="Text_Chat_Player_03">
+        @chatPlayer_03.TEXTCHAT
+    </div>
+</div>
+
+<div id="Chat_PLayer_04" class="Frame_Chat">
+    <img src="~/Areas/Game/Asset/Pic_Game/Player/Frame_Chat_Right_1.png" />
+    <!--lenght = 78-->
+    <div id="Text_Chat_Player_04">
+        @chatPlayer_04.TEXTCHAT
+    </div>
+</div>
+
+<div id="Chat_PLayer_05" class="Frame_Chat">
+    <img src="~/Areas/Game/Asset/Pic_Game/Player/Frame_Chat_Right_1.png" />
+    <!--lenght = 78-->
+    <div id="Text_Chat_Player_05">
+        @chatPlayer_05.TEXTCHAT
+    </div>
+</div>
+
+<div id="Chat_PLayer_06" class="Frame_Chat">
+    <img src="~/Areas/Game/Asset/Pic_Game/Player/Frame_Chat_Right_1.png" />
+    <!--lenght = 78-->
+    <div id="Text_Chat_Player_06">
+        @chatPlayer_06.TEXTCHAT
+    </div>
+</div>
+
+<script>
+    var start = {
+        loadData: function () {
+            loadChat();
+        }
+    }
+    start.loadData();
+
+    function loadChat() {
+        if (@chatRoomMater.PLAYERID > 0) {
+            $("#Chat_Room_Master").css({ "display": "block" });
+        } else {
+            $("#Chat_Room_Master").css({ "display": "none" });
+        }
+
+        if (@chatPlayer_01.PLAYERID > 0) {
+            $("#Chat_PLayer_01").css({ "display": "block" });
+        } else {
+            $("#Chat_PLayer_01").css({ "display": "none" });
+        }
+
+        if (@chatPlayer_02.PLAYERID > 0) {
+            $("#Chat_PLayer_02").css({ "display": "block" });
+        } else {
+            $("#Chat_PLayer_02").css({ "display": "none" });
+        }
+
+        if (@chatPlayer_03.PLAYERID > 0) {
+            $("#Chat_PLayer_03").css({ "display": "block" });
+        } else {
+            $("#Chat_PLayer_03").css({ "display": "none" });
+        }
+
+        if (@chatPlayer_04.PLAYERID > 0) {
+            $("#Chat_PLayer_04").css({ "display": "block" });
+        } else {
+            $("#Chat_PLayer_04").css({ "display": "none" });
+        }
+
+        if (@chatPlayer_05.PLAYERID > 0) {
+            $("#Chat_PLayer_05").css({ "display": "block" });
+        } else {
+            $("#Chat_PLayer_05").css({ "display": "none" });
+        }
+
+        if (@chatPlayer_06.PLAYERID > 0) {
+            $("#Chat_PLayer_06").css({ "display": "block" });
+        } else {
+            $("#Chat_PLayer_06").css({ "display": "none" });
+        }
+    }
+</script>

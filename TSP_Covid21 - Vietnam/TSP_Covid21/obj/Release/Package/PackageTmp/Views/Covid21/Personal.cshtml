@@ -1,0 +1,626 @@
+﻿@model TSP_Covid21.Models.ViewModel.AccountViewModel
+@{
+    ViewBag.Title = "Personal";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    TSP_Covid21.Controllers.AccountController AC = new TSP_Covid21.Controllers.AccountController();
+    /*TSP_Covid21.Model.accounts.BUS.Account_BUS t = new TSP_Covid21.Model.accounts.BUS.Account_BUS();
+    Session["user"] = "Syx";
+    TSP_Covid21.Model.accounts.ShopEntity.ACCOUNT Model.account = t.account(Session["user"].ToString());*/
+}
+@if (Model.code == 2)
+{
+    <style>
+        #banthongtincanhan {
+            display: none;
+        }
+
+        #diachigiaohang {
+            display: block;
+        }
+
+        #donhangdamua {
+            display: none;
+        }
+    </style>
+}
+else if (Model.code == 3)
+{
+    <style>
+        #banthongtincanhan {
+            display: none;
+        }
+
+        #diachigiaohang {
+            display: none;
+        }
+
+        #donhangdamua {
+            display: block;
+        }
+    </style>
+}
+else if(Model.code == 1)
+{
+    <style>
+        #banthongtincanhan {
+            display: block;
+        }
+
+        #diachigiaohang {
+            display: none;
+        }
+
+        #donhangdamua {
+            display: none;
+        }
+    </style>
+}
+@Html.Partial("Public_Navigation")
+<!-- BREADCRUMB -->
+<div id="breadcrumb" class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <div class="col-md-12"></div>
+            <ul class="breadcrumb-tree">
+                <li><a href="@Url.Action("Home", "Covid21")">Trang chủ</a></li>
+                <li class="active">Thông tin cá nhân</li>
+            </ul>
+        </div>
+    </div>
+    <!-- /row -->
+</div>
+<!-- /container -->
+<!-- /BREADCRUMB -->
+<!-- SECTION -->
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="aside">
+                        <h3 class="aside-title">
+                            <i class="fas fa-user" style="font-size: 50px;"></i>
+                            @Model.account.FULLNAME
+                        </h3>
+                        <div class="checkbox-filter">
+                            <div class="container ggg">
+                                <label for="" class="tablinks" onclick="openCity(event, 'banthongtincanhan')">
+                                    <span></span>
+                                    <a><i class="fas fa-user-cog"></i> Thông tin cá nhân</a>
+                                </label>
+                            </div>
+                            <div class="container ggg">
+                                <label class="tablinks" onclick="openCity(event, 'diachigiaohang')">
+                                    <span></span>
+                                    <a><i class="fas fa-map-marker-alt"></i> Địa chỉ</a>
+                                </label>
+                            </div>
+                            <div class="container ggg">
+                                <label for="brand-2">
+                                    <span></span>
+                                    <a href="@Url.Action("Cart","Covid21",new { user = Session["user"]})"><i class="fas fa-shopping-cart"></i> Giỏ hàng</a>
+                                </label>
+                            </div>
+                            <div class="container ggg">
+                                <label>
+                                    <span></span>
+                                    <a href="@Url.Action("Favourite","Covid21",new { user = Session["user"] })"><i class="fas fa-heart"></i> Yêu thích</a>
+                                </label>
+                            </div>
+                            <div class="container ggg">
+                                <label for="brand-4">
+                                    <span></span>
+
+                                    <a href="@Url.Action("Seen","Covid21",new { user = Session["user"] })"><i class="fas fa-eye"></i> Xem</a>
+                                </label>
+                            </div>
+                            <div class="container ggg">
+                                <label for="brand-4">
+                                    <span></span>
+                                    <a href="@Url.Action("Rating","Covid21",new { user = Session["user"] })"><i class="fas fa-star"></i> Đánh giá</a>
+                                </label>
+                            </div>
+                            <div class="container ggg">
+                                <label for="brand-4" class="tablinks" onclick="openCity(event, 'donhangdamua')">
+                                    <span></span>
+                                    <a><i class="fas fa-book"></i> Hóa đơn</a>
+                                </label>
+                            </div>
+                            <div class="container ggg">
+                                <label for="brand-4">
+                                    <span></span>
+                                    <a href="@Url.Action("Home","Covid21")" onclick="refresh()"> <i class="far fa-times-circle"></i> Thoát</a>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-9 bg-success" style="height: 400px">
+                    <br>
+                    <h4>THÔNG TIN CÁ NHÂN <span id="inf_quantityAddress" style="display: none; color: red; font-size: 15px">(Quý khách không được thêm địa chỉ, do quý khác đã đủ 5 địa chỉ)</span></h4>
+
+                    <div id="banthongtincanhan" class="thongtincanhan">
+                        <div>
+                            <span></span>
+                            <label for="">Họ và Tên: </label>
+                            <input id="id1" type="text" placeholder="Nhập họ và tên" value="@Model.account.FULLNAME"> <span style="color: red; display: none; position:absolute" id="inf_fullname">(Tên người đùng không được để trống)</span>
+                        </div>
+                        <div>
+                            <span></span>
+                            <label for="">Số điện thoại: </label>
+                            <input id="id2" type="text" placeholder="Nhập số điện thoại" value="@Model.account.PHONENUMBER"> <span style="color: red; display: none" id="inf_phone">(SĐT không được để trống)</span> <span style="color: red; display: none" id="inf_check_phone">(Vui lòng nhập số điện thoại)</span>
+                        </div>
+                        <div>
+                            <span></span>
+                            <label for="">Email: </label>
+                            <input id="id3" type="text" placeholder="Nhập Email" value="@Model.account.EMAIL">
+                            <span style="color: red; display: none" id="inf_email">Email này đã có tài khoản</span>
+                        </div>
+
+                        <div>
+                            <label>
+                                Giới tính:
+                                @if (Model.account.SEX == true)
+                                {
+                                    <input id="id4" value="true" type="radio" checked="checked" name="radio"> <label>Nam</label>
+                                    <input id="id5" value="false" type="radio" name="radio"> <label>Nữ</label>
+                                }
+                                else
+                                {
+                                    <input id="id4" value="true" type="radio" name="radio"> <label>Nam</label>
+                                    <input id="id5" value="false" type="radio" checked="checked" name="radio"> <label>Nữ</label>
+                                }
+                            </label>
+                        </div>
+                        @{
+                            // hiện ngày
+                            string d = Model.account.DATAOFBIRTH.ToString();
+
+                            if (d != "")
+                            {
+                                //Loại bỏ các ký tự thừa đằng sau
+                                d = d.Remove(d.Length - 12);
+                                //Cắt ra lấy ngày tháng năm
+                                string Year = (d.Split('/')[2]);
+                                string Day = (d.Split('/')[0]);
+                                string Month = (d.Split('/')[1]);
+                                //nếu ngày không đủ 2 số thì thêm số 0 trước nó
+                                if (Day.Length == 1)
+                                {
+                                    Day = "0" + Day;
+                                }
+                                if (Month.Length == 1)
+                                {
+                                    Month = "0" + Month;
+                                }
+                                d = String.Format(Year.ToString() + "-" + Month.ToString() + "-" + Day, ToString());
+                            }
+                        }
+                        <div>
+                            <span></span>
+                            <label for="">Ngày sinh: </label>
+                            <input id="id6" class="text1" type="date" value="@d">
+                        </div>
+                        <div>
+                            <span></span>
+
+                            <input id="id7" onclick="myFunction()" class="text1" type="checkbox">
+                            <label for="">Thay đổi mật khẩu </label>
+                        </div>
+                        <div style="display: none;" id="passan">
+                            <div>
+                                <span></span>
+                                <label for="">Mật khẩu: </label>
+                                <input id="id8" class="text1" type="password" placeholder="Nhập mật khẩu" required="">
+                                <span class="eye1" onclick="my4Function()">
+                                    <i id="hidel7" class="fa fa-eye-slash"></i>
+                                    <i id="hidel8" class="fa fa-eye"></i>
+                                </span>
+                                <span style="color: red; display: none" id="inf_pass">(Mật khẩu không chính xác)</span>
+                            </div>
+
+                            <div>
+                                <span></span>
+                                <label for="">Mật khẩu mới: </label>
+                                <input id="id9" class="text1" type="password" placeholder="Nhập mật khẩu mới" required="">
+                                <span class="eye1" onclick="my5Function()">
+                                    <i id="hidel9" class="fa fa-eye-slash"></i>
+                                    <i id="hidel10" class="fa fa-eye"></i>
+                                </span>
+                                <span style="color: red; display: none" id="inf_pass_new">(Mật khẩu mới không được để trống)</span>
+                                <span style="color: red; display: none" id="inf_check_pass">(Vui lòng nhập hơn 8 kí tự)</span>
+                            </div>
+                            <div>
+                                <span></span>
+                                <label for="">Xác nhận mật khẩu: </label>
+                                <input id="id10" class="text1" type="password" placeholder="Xác nhận lại nhận khẩu" required="">
+                                <span class="eye1" onclick="my6Function()">
+                                    <i id="hidel11" class="fa fa-eye-slash"></i>
+                                    <i id="hidel12" class="fa fa-eye"></i>
+                                </span>
+                                <span style="color: red; display: none" id="inf_confirm_pass">(Vui lòng nhập lại chính xác)</span>
+                            </div>
+                        </div>
+                        <div>
+                            <span></span>
+                            <input id="id11" class="text1" type="button" value="Gửi">
+                        </div>
+                    </div>
+                    <div id="diachigiaohang" class="thongtincanhan">
+                        <div id="tatbangiaohang">
+                            <div>
+                                <div>
+                                    <span></span>
+                                    <p id="id12">
+                                        <i style="color: yellowgreen;"
+                                           class="fas fa-plus"></i> <b> Thêm địa chỉ</b>
+                                    </p>
+                                </div>
+                            </div>
+                            @{
+                                IEnumerable<TSP_Covid21.Models.ShopEntity.ADDRESS_SHIP> listAddress = AC.loadAddress(Model.account.USER);
+                            }
+                            <div style="height: 280px; overflow-y: scroll;">
+                                <table>
+                                    @if (listAddress.Count() == 0)
+                                    {
+                                        <tr style="text-align:center">(Chưa có địa chỉ giao hàng)</tr>
+                                    }
+                                    @foreach (var item in listAddress)
+                                    {
+                                        <tr>
+                                            <th class="id13" style="width:  700px;">
+                                                <input type="text" value="@item.ADDRESSID" style="display: none" class="addressId" />
+
+                                                @if (@item.DEFAULT == true)
+                                                {
+                                                    <label>@item.FULLNAME</label><small>(Địa chỉ mặc định)</small>
+                                                }
+                                                else
+                                                {
+                                                    <label>@item.FULLNAME</label>
+                                                }
+                                                <br><label>@item.ADDRESS</label><br>
+                                                <label>@item.PHONE</label>
+
+                                            </th>
+                                            <td>
+                                                <label class="id14"> Chỉnh sửa</label>
+                                            </td>
+                                        </tr>
+                                    }
+                                </table>
+                            </div>
+                        </div>
+                        <!--Thêm địa chỉ giao hàng-->
+                        <div style="display: none;" id="themthongtingiaohang">
+
+                        </div>
+                    </div>
+                    <style>
+                        #table_bill th {
+                            position: sticky;
+                            top: 0px;
+                            background: rgb(67, 85, 94);
+                            color: white;
+                        }
+                    </style>
+                    <div id="donhangdamua" class="thongtincanhan" style=" height: 320px; overflow-y: scroll;">
+                        <table class="tabledg" style="width: 100%; margin-top: 0px">
+                            <tr id="table_bill">
+                                <th>
+                                    <p class="tablea">ID</p>
+                                </th>
+                                <th>
+                                    <p class="tablea">Ngày đặt hàng</p>
+                                </th>
+                                <th>
+                                    <p class="tablea">Sản phẩm</p>
+                                </th>
+                                <th>
+                                    <p class="tablea">Tổng</p>
+                                </th>
+                                <th>
+                                    <p class="tablea">Trạng thái</p>
+                                </th>
+                            </tr>
+                            @{
+                                IEnumerable<TSP_Covid21.Models.ShopEntity.BILL> listBill = AC.loadBill(Model.account.USER);
+
+                                var BillDetail = listBill.Where(p => p.BILLID == 1).SingleOrDefault();
+                            }
+
+                            @foreach (var item in listBill)
+                            {
+                                <tr class="hoverdonhang viewBillDetail">
+                                    <td>
+
+                                        <p class="tableb billId">@item.BILLID</p>
+                                    </td>
+                                    <td style="width: 200px">
+                                        <p class="tableb">@item.DATECREATE</p>
+                                    </td>
+                                    @{
+                                        string listProduct = "";
+                                        foreach (var item1 in item.BILLDETAIL)
+                                        {
+                                            listProduct += item1.PRODUCT.PRODUCTNAME + ", ";
+                                        }
+                                    }
+                                    <td style="width: 250px">
+                                        <p class="tableb">@listProduct</p>
+                                    </td>
+                                    @{
+                                        var temp = String.Format("{0:#,##0.##}", item.TOTALBILL);
+                                        temp = temp.Replace(".", ",");
+                                        temp += "đ";
+                                    }
+                                    <td>
+                                        <p class="tableb">@temp</p>
+                                    </td>
+                                    <td>
+                                        @switch (item.BIllSTATUS)
+                                        {
+                                            case 1:
+                                                {
+                                                    <p class="tableb">Chờ xét duyệt</p>
+                                                }
+                                                break;
+                                            case 2:
+                                                {
+                                                    <p class="tableb">Đang giao</p>
+                                                }
+                                                break;
+                                            case 3:
+                                                {
+                                                    <p class="tableb">Đã giao</p>
+                                                }
+                                                break;
+                                            case 4:
+                                                {
+                                                    <p class="tableb">Hủy đơn</p>
+                                                }
+                                                break;
+                                        }
+                                    </td>
+                                </tr>
+                            }
+
+                        </table>
+                    </div>
+                    <!-- Chi tiết bill -->
+                    <div>
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div id="billDetail" class="modal12">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <!-- row -->
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /SECTION -->
+
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+<!--Thay đổi thông tin cá nhân-->
+<script>
+    $("#id11").click(function () {
+        var fullname = $("#id1").val();
+        var phone = $("#id2").val();
+        var email = $("#id3").val();
+        var sex = $("input:radio[name=radio]:checked").val();
+        var day, month, year;
+        var date = new Date($('#id6').val());
+        day = date.getDate();
+        month = date.getMonth() + 1;
+        year = date.getFullYear();
+        var birth = [day, month, year].join('/');
+        var checkChangePass = $("#id7").is(":checked");
+
+        //Kiểm tra đủ điều khiện để xác định thông tin không
+        if (fullname.trim() < 1) {
+            $("#inf_fullname").css({ "display": "inline-block" });
+        } else {
+            $("#inf_fullname").css({ "display": "none" });
+        }
+
+        if (phone.trim() < 1) {
+            $("#inf_phone").css({ "display": "inline-block" });
+        } else {
+            $("#inf_phone").css({ "display": "none" });
+
+            if (phone.length != 10) {
+                $("#inf_check_phone").css({ "display": "inline-block" });
+            } else {
+                $("#inf_check_phone").css({ "display": "none" });
+            }
+        }
+
+        if (fullname.trim().length > 0 && phone.trim().length > 0 && phone.length == 10) {
+            $.ajax({
+                url: "@Url.Action("checkMailPersonal", "Account")",
+                type: "POST",
+                data: {
+                    email: email,
+                },
+                success: function (result) {
+                    if (result == "True") {
+                        $("#inf_email").show();
+                    } else {
+                        $("#inf_email").hide();
+                        $.ajax({
+                            url: '@Url.Action("changeInf", "Account")',
+                            type: "POST",
+                            data: {
+                                user: '@Model.account.USER',
+                                fullname: fullname,
+                                sex: sex,
+                                birth: birth,
+                                phone: phone,
+                                email: email,
+                            },
+                            success: function () {
+                                if (checkChangePass == false) {
+                                    location.reload();
+                                }
+                            }
+                        });
+                        alert("Thay đổi thông tin thành công")
+                    }
+                }
+            });
+            
+        }
+
+        if (checkChangePass == true) {
+            var pass = $("#id8").val();
+            var pass_new = $("#id9").val();
+            var confirmpass = $("#id10").val();
+
+            $.ajax({
+                url: '@Url.Action("checkPass", "Account")',
+                type: 'POST',
+                data: {
+                    user: '@Model.account.USER',
+                    pass: pass,
+                },
+                success: function (result) {
+                    if (result == "False") {
+                        $("#inf_pass").css({ "display": "inline-block" });
+                    } else {
+                        $("#inf_pass").css({ "display": "none" });
+                    }
+
+                    if (pass_new.trim() < 1) {
+                        $("#inf_pass_new").css({ "display": "inline-block" });
+                    } else {
+                        $("#inf_pass_new").css({ "display": "none" });
+
+                        if (pass_new.length <= 8) {
+                            $("#inf_check_pass").css({ "display": "inline-block" });
+                        } else {
+                            $("#inf_check_pass").css({ "display": "none" });
+                        }
+                    }
+
+                    if (confirmpass != pass_new) {
+                        $("#inf_confirm_pass").css({ "display": "inline-block" });
+                    } else {
+                        $("#inf_confirm_pass").css({ "display": "none" });
+                    }
+
+                    if (result == "True" && pass_new.trim().length > 0 && pass_new.length > 8 && confirmpass == pass_new) {
+                        $.ajax({
+                            url: '@Url.Action("changePass", "Account")',
+                            type: 'POST',
+                            data: {
+                                user: '@Model.account.USER',
+                                pass_new: pass_new,
+                            },
+                            success: function () {
+                                location.reload();
+                            }
+                        });
+                    }
+                }
+            });
+
+        }
+    });
+</script>
+
+<!--Chuyển form chỉnh sửa địa chỉ-->
+<script>
+    $(".id14").click(function () {
+        var modal = document.getElementById('themthongtingiaohang');
+        var modal1 = document.getElementById('tatbangiaohang');
+        modal.style.display = "block";
+        modal1.style.display = "none";
+
+        var parent = $(this).parent().parent();
+
+        var id = $(parent).children().children(".addressId").val();
+
+        $.ajax({
+            url: "@Url.Action("loadAddressInf", "Account")",
+            type: "POST",
+            data: {
+                addressId: id,
+            },
+            success: function (result) {
+                $("#themthongtingiaohang").html(result);
+            },
+        });
+    });
+</script>
+
+<!--Chuyển form thêm địa chỉ-->
+<script>
+    $("#id12").click(function () {
+        var quantity = @listAddress.Count();
+        if (quantity == 5) {
+            $("#inf_quantityAddress").css({ "display": "inline-block" });
+        } else {
+            var modal = document.getElementById('themthongtingiaohang');
+            var modal1 = document.getElementById('tatbangiaohang');
+            modal.style.display = "block";
+            modal1.style.display = "none";
+
+            $.ajax({
+                url: "@Url.Action("formAddAddress", "Account")",
+                type: "POST",
+                success: function (result) {
+                    $("#themthongtingiaohang").html(result);
+                },
+            });
+        }
+    });
+</script>
+
+<!--Xem chi tiết hóa đơn-->
+<script>
+    $(".viewBillDetail").click(function () {
+        var billDetail = document.getElementById("billDetail")
+        billDetail.style.display = "block";
+
+        var id = $(this).children().children(".billId").text();
+
+        $.ajax({
+            url: "@Url.Action("BillDetail", "Account")",
+            type: "POST",
+            data: {
+                id: id,
+            },
+            success: function (result) {
+                $("#billDetail").html(result);
+            },
+        });
+    });
+</script>
+
+<script>
+    var model = document.getElementById('billDetail');
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target == model) {
+            model.style.display = "none";
+        }
+    }
+</script>

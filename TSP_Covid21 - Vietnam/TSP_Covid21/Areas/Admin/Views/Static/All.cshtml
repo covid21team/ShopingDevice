@@ -1,0 +1,543 @@
+﻿
+@{
+    ViewBag.Title = "All";
+    Layout = "~/Areas/Admin/Views/Shared/MainLayoutAdmin.cshtml";
+}
+
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="page-breadcrumb bg-white">
+        <div class="row align-items-center">
+            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                <h4 class="page-title">Thống kê</h4>
+            </div>
+
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Three charts -->
+        <!-- ============================================================== -->
+        <div class="row justify-content-center">
+            <div class="col-lg-4 col-md-12">
+                <div class="white-box analytics-info">
+                    <h3 class="box-title">Doanh Thu</h3>
+                    <ul class="list-inline two-part d-flex align-items-center mb-0">
+                        <li>
+                            <div id="sparklinedash">
+                                <canvas width="67" height="30"
+                                        style="display: inline-block; width: 67px; height: 30px; vertical-align: top;"></canvas>
+                            </div>
+                        </li>
+                        @{
+                            TSP_Covid21.Areas.Admin.Controllers.StaticController SC = new TSP_Covid21.Areas.Admin.Controllers.StaticController();
+                            long total = long.Parse(SC.Revenue());
+                            var temp = String.Format("{0:#,##0.##}", total);
+                            temp += "đ";
+
+                        }
+                        <li class="ms-auto"><span class="counter text-success">@temp</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-12">
+                <div class="white-box analytics-info">
+                    <h3 class="box-title">Sản phẩm đã bán</h3>
+                    <ul class="list-inline two-part d-flex align-items-center mb-0">
+                        <li>
+                            <div id="sparklinedash2">
+                                <canvas width="67" height="30"
+                                        style="display: inline-block; width: 67px; height: 30px; vertical-align: top;"></canvas>
+                            </div>
+                        </li>
+                        <li class="ms-auto"><span class="counter text-purple">@SC.totalProduct()</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-12">
+                <div class="white-box analytics-info">
+                    <h3 class="box-title">Hóa đơn thành công</h3>
+                    <ul class="list-inline two-part d-flex align-items-center mb-0">
+                        <li>
+                            <div id="sparklinedash3">
+                                <canvas width="67" height="30"
+                                        style="display: inline-block; width: 67px; height: 30px; vertical-align: top;"></canvas>
+                            </div>
+                        </li>
+
+                        <li class="ms-auto">
+                            <span class="counter text-info">@SC.totalBill()</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- PRODUCTS YEARLY SALES -->
+        <!-- ============================================================== -->
+        <div class="row">
+            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                <div class="white-box">
+                    <h3 class="box-title">Thống kế sản phẩm</h3>
+                    <div class="d-md-flex">
+                        <ul class="list-inline d-flex ms-auto">
+                            <li class="ps-3">
+                                <input type="radio" name="productType" value="0" class="radioBrand" checked="1"/> Tất cả
+                            </li>
+                            <li class="ps-3">
+                                <input type="radio" name="productType" value="2" class="radioBrand" /> Điện thoại
+                            </li>
+                            <li class="ps-3">
+                                <input type="radio" name="productType" value="1" class="radioBrand" /> Laptop
+                            </li>
+                            <li class="ps-3">
+                                <input type="radio" name="productType" value="5" class="radioBrand" /> Tai nghe
+                            </li>
+                            <li class="ps-3">
+                                <input type="radio" name="productType" value="4" class="radioBrand" /> Đồng hồ
+                            </li>
+                            <li class="ps-3">
+                                <input type="radio" name="productType" value="3" class="radioBrand" /> Tablet
+                            </li>
+                        </ul>
+                        
+                    </div>
+                    <div>
+                        <div class="container">
+                            <canvas id="myChartProduct"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- RECENT SALES -->
+        <!-- ============================================================== -->
+        <div class="row">
+            <div class="col-md-12 col-lg-12 col-sm-12">
+                <div class="white-box">
+                    <div class="d-md-flex mb-3">
+                        <h3 class="box-title mb-0">Hóa đơn</h3>
+                        <div class="col-md-3 col-sm-4 col-xs-6 ms-auto">
+                            <select class="form-select shadow-none row border-top">
+                                <option>March 2021</option>
+                                <option>April 2021</option>
+                                <option>May 2021</option>
+                                <option>June 2021</option>
+                                <option>July 2021</option>
+                            </select>
+                        </div>
+                    </div>
+                    <style>
+                        .txt-oflo_listProduct {
+                            width: 100px;
+                        }
+                    </style>
+                    <div class="table-responsive">
+                        <table class="table no-wrap">
+                            <thead>
+                                <tr>
+                                    <th class="border-top-0">ID</th>
+                                    <th class="border-top-0">Người đặt</th>
+                                    <th class="border-top-0">Sản phẩm</th>
+                                    <th class="border-top-0">Ngày đặt hàng</th>
+                                    <th class="border-top-0">Trạng thái</th>
+                                    <th class="border-top-0">Tổng hóa đơn</th>
+                                </tr>
+                            </thead>
+                            @{
+                                IEnumerable<TSP_Covid21.Models.ShopEntity.BILL> listBill = SC.loadBill();
+                            }
+                            <tbody>
+                                @foreach (var item in listBill)
+                                {
+                                    <tr>
+                                        <td>@item.BILLID</td>
+                                        <td>@item.USER</td>
+                                        @{
+                                            string listProduct = "";
+                                            foreach (var item1 in item.BILLDETAIL)
+                                            {
+                                                listProduct += item1.AMOUNT + "x " + item1.PRODUCT.PRODUCTNAME + ", ";
+                                            }
+                                        }
+                                        <td class="txt-oflo_listProduct">@listProduct</td>
+                                        <td>@item.DATECREATE</td>
+                                        <td class="txt-oflo">Đang chờ xét duyệt</td>
+                                        @{
+                                            var totalBill = String.Format("{0:#,##0.##}", item.TOTALBILL);
+                                            totalBill += "đ";
+                                        }
+                                        <td><span class="text-success">@totalBill</span></td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- Recent Comments -->
+        <!-- ============================================================== -->
+        <div class="row">
+            <!-- .col -->
+            <div class="col-md-12 col-lg-8 col-sm-12">
+                <div class="card white-box p-0">
+                    <div class="card-body">
+                        <h3 class="box-title mb-0">Sản phẩm đã bán</h3>
+                    </div>
+                    <table class="table table-hover" style="text-align: center;">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Tên sản phẩm</th>
+                                <th>Số lượng</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>phan tram san pham</td>
+                                <td>1.000</td>
+                                <td>1ty</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>phan tram san pham</td>
+                                <td>1.000</td>
+                                <td>1ty</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>phan tram san pham</td>
+                                <td>1.000</td>
+                                <td>1ty</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-12 col-sm-12">
+                <div class="card white-box p-0">
+                    <div class="card-heading">
+                        <h3 class="box-title mb-0">Chat Listing</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul class="chatonline">
+                            <li>
+                                <div class="call-chat">
+                                    <button class="btn btn-success text-white btn-circle btn" type="button">
+                                        <i class="fas fa-phone"></i>
+                                    </button>
+                                    <button class="btn btn-info btn-circle btn" type="button">
+                                        <i class="far fa-comments text-white"></i>
+                                    </button>
+                                </div>
+                                <a href="javascript:void(0)" class="d-flex align-items-center">
+                                    <img src="plugins/images/users/varun.jpg" alt="user-img" class="img-circle">
+                                    <div class="ms-2">
+                                        <span class="text-dark">
+                                            Varun Dhavan <small class="d-block text-success d-block">online</small>
+                                        </span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <div class="call-chat">
+                                    <button class="btn btn-success text-white btn-circle btn" type="button">
+                                        <i class="fas fa-phone"></i>
+                                    </button>
+                                    <button class="btn btn-info btn-circle btn" type="button">
+                                        <i class="far fa-comments text-white"></i>
+                                    </button>
+                                </div>
+                                <a href="javascript:void(0)" class="d-flex align-items-center">
+                                    <img src="plugins/images/users/genu.jpg" alt="user-img" class="img-circle">
+                                    <div class="ms-2">
+                                        <span class="text-dark">
+                                            Genelia
+                                            Deshmukh <small class="d-block text-warning">Away</small>
+                                        </span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <div class="call-chat">
+                                    <button class="btn btn-success text-white btn-circle btn" type="button">
+                                        <i class="fas fa-phone"></i>
+                                    </button>
+                                    <button class="btn btn-info btn-circle btn" type="button">
+                                        <i class="far fa-comments text-white"></i>
+                                    </button>
+                                </div>
+                                <a href="javascript:void(0)" class="d-flex align-items-center">
+                                    <img src="plugins/images/users/ritesh.jpg" alt="user-img" class="img-circle">
+                                    <div class="ms-2">
+                                        <span class="text-dark">
+                                            Ritesh
+                                            Deshmukh <small class="d-block text-danger">Busy</small>
+                                        </span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <div class="call-chat">
+                                    <button class="btn btn-success text-white btn-circle btn" type="button">
+                                        <i class="fas fa-phone"></i>
+                                    </button>
+                                    <button class="btn btn-info btn-circle btn" type="button">
+                                        <i class="far fa-comments text-white"></i>
+                                    </button>
+                                </div>
+                                <a href="javascript:void(0)" class="d-flex align-items-center">
+                                    <img src="plugins/images/users/arijit.jpg" alt="user-img" class="img-circle">
+                                    <div class="ms-2">
+                                        <span class="text-dark">
+                                            Arijit
+                                            Sinh <small class="d-block text-muted">Offline</small>
+                                        </span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <div class="call-chat">
+                                    <button class="btn btn-success text-white btn-circle btn" type="button">
+                                        <i class="fas fa-phone"></i>
+                                    </button>
+                                    <button class="btn btn-info btn-circle btn" type="button">
+                                        <i class="far fa-comments text-white"></i>
+                                    </button>
+                                </div>
+                                <a href="javascript:void(0)" class="d-flex align-items-center">
+                                    <img src="plugins/images/users/govinda.jpg" alt="user-img"
+                                         class="img-circle">
+                                    <div class="ms-2">
+                                        <span class="text-dark">
+                                            Govinda
+                                            Star <small class="d-block text-success">online</small>
+                                        </span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <div class="call-chat">
+                                    <button class="btn btn-success text-white btn-circle btn" type="button">
+                                        <i class="fas fa-phone"></i>
+                                    </button>
+                                    <button class="btn btn-info btn-circle btn" type="button">
+                                        <i class="far fa-comments text-white"></i>
+                                    </button>
+                                </div>
+                                <a href="javascript:void(0)" class="d-flex align-items-center">
+                                    <img src="plugins/images/users/hritik.jpg" alt="user-img" class="img-circle">
+                                    <div class="ms-2">
+                                        <span class="text-dark">
+                                            John
+                                            Abraham<small class="d-block text-success">online</small>
+                                        </span>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- /.col -->
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Container fluid  -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+
+<script> 
+    var StaticProduct = {
+        loadData: function () {
+            let myChart = document.getElementById('myChartProduct').getContext('2d');
+            // Global Options
+            Chart.defaults.global.defaultFontFamily = 'Lato';
+            Chart.defaults.global.defaultFontSize = 18;
+            Chart.defaults.global.defaultFontColor = '#777';
+            let temp = [];
+            let temp_data = [];
+            let temp_background = [
+                'rgba(255, 99, 132, 0.6)',
+                'rgba(54, 162, 235, 0.6)',
+                'rgba(255, 206, 86, 0.6)',
+                'rgba(75, 192, 192, 0.6)',
+                'rgba(153, 102, 255, 0.6)',
+                'rgba(255, 159, 64, 0.6)',
+            ]
+
+            $.ajax({
+                url: '@Url.Action("StaticProductType", "Static")',
+                type: 'POST',
+                success: function (result) {
+                    var dem = 0;
+                    var stringnumber = "";
+                    for (var i = 0; i < result.length; i++) {
+                        if (result[i] == ",") {
+                            temp_data[dem] = stringnumber;
+                            stringnumber = "";
+                            dem++;
+                        } else if (result[i] == ":") {
+                            temp[dem] = stringnumber;
+                            stringnumber = "";
+                        } else {
+                            stringnumber += result[i];
+                        }
+                    }
+
+                    temp_data = new Chart(myChart, {
+                        type: 'bar',
+                        data: {
+                            labels: temp,
+                            datasets: [{
+                                label: ['Sản phẩm'],
+                                data: temp_data,
+                                backgroundColor: temp_background,
+                                borderWidth: 1,
+                                borderColor: temp_background,
+                                hoverBorderWidth: 3,
+                                hoverBorderColor: '#000'
+                            }]
+                        },
+                        options: {
+                            title: {
+                                display: true,
+                                fontSize: 25
+                            },
+                            legend: {
+                                display: true,
+                                position: 'right',
+                                labels: {
+                                    fontColor: '#000'
+                                }
+                            },
+                            layout: {
+                                padding: {
+                                    left: 50,
+                                    right: 0,
+                                    bottom: 0,
+                                    top: 0
+                                }
+                            },
+                            tooltips: {
+                                enabled: true
+                            }
+                        }
+                    });
+                }
+            });
+        }
+    }
+    StaticProduct.loadData();
+</script>
+
+<script>
+    $(".radioBrand").click(function () {
+        let myChart1 = document.getElementById('myChartProduct');
+        var parent = $(myChart1).parent();
+        myChart1.remove();
+
+        parent.html("<canvas id='myChartProduct'></canvas>");
+        let myChart2 = document.getElementById('myChartProduct').getContext('2d');
+        // Global Options
+        Chart.defaults.global.defaultFontFamily = 'Lato';
+        Chart.defaults.global.defaultFontSize = 18;
+        Chart.defaults.global.defaultFontColor = '#777';
+        let brand = [];
+        let quantity = [];
+        let temp_background1 = [
+            'rgba(255, 99, 132, 0.6)',
+            'rgba(54, 162, 235, 0.6)',
+            'rgba(255, 206, 86, 0.6)',
+            'rgba(75, 192, 192, 0.6)',
+            'rgba(153, 102, 255, 0.6)',
+            'rgba(255, 159, 64, 0.6)',
+        ];
+
+        var value = $("input:radio[name=productType]:checked").val();
+
+        $.ajax({
+            url: '@Url.Action("StaticBrand", "Static")',
+            type: 'POST',
+            data: {
+                productTypeId: value,
+            },
+            success: function (result) {
+                var dem = 0;
+                var stringnumber = "";
+                for (var i = 0; i < result.length; i++) {
+                    if (result[i] == ",") {
+                        quantity[dem] = stringnumber;   
+                        stringnumber = "";
+                        dem++;
+                    }else if (result[i] == ":") {
+                        brand[dem] = stringnumber;
+                        stringnumber = "";
+                    }else {
+                        stringnumber += result[i];
+                    }
+                }
+
+                temp_data = new Chart(myChart2, {
+                    type: 'bar',
+                    data: {
+                        labels: brand,
+                        datasets: [{
+                            label: ['Sản phẩm'],
+                            data: quantity,
+                            backgroundColor: temp_background1,
+                            borderWidth: 1,
+                            borderColor: temp_background1,
+                            hoverBorderWidth: 3,
+                            hoverBorderColor: '#000'
+                        }]
+                    },
+                    options: {
+                        title: {
+                            display: true,
+                            fontSize: 25
+                        },
+                        legend: {
+                            display: true,
+                            position: 'right',
+                            labels: {
+                                fontColor: '#000'
+                            }
+                        },
+                        layout: {
+                            padding: {
+                                left: 50,
+                                right: 0,
+                                bottom: 0,
+                                top: 0
+                            }
+                        },
+                        tooltips: {
+                            enabled: true
+                        }
+                    }
+                });
+            }
+        });
+    });
+
+</script>

@@ -1,0 +1,78 @@
+﻿<!--
+    ➠ Hiện danh sách cấu hình của sản phẩm    ✔
+
+    ❦ Nơi sử dụng:
+        ☞ Form Product ➧ thuộc Control Covid21
+-->
+
+
+@model IEnumerable<TSP_Covid21.Models.ShopEntity.CONFIGDETAIL>
+
+<link href="~/Asset/css/loadmore.css" rel="stylesheet" />
+<style>
+    table {
+        width: 800px;
+        margin: 0 auto;
+    }
+
+    th {
+        text-align: center;
+    }
+
+    th {
+        line-height: 50px;
+    }
+
+    .config_product {
+        width: 300px;
+        border-right: 3px solid #E4E7ED;
+    }
+
+    td {
+        text-align: left;
+        padding-left: 30px;
+    }
+</style>
+
+<div id="tab2" class="tab-pane fade in">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="table-1">
+                <table>
+                    <tr>
+                        <th class="config_product">TÊN CẤU HÌNH</th>
+                        <th>THÔNG TIN</th>
+                    </tr>
+                    @foreach (var item in Model)
+                    {
+                        <tr style="display: none" class="detail">
+                            <td class="config_product">@item.CONFIG.DECRIPTIONCONFIGNAME</td>
+                            <td class="config_inf">@item.INFORMATION</td>
+                        </tr>
+                    }
+
+                </table>
+                <button class="loadMore">Tải thêm</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/Asset/JS/Loadmore/jquery-latest.min.js"></script>
+<!--
+    Khi load thành công sản phẩm lên form
+    Và ẩn hết tất cả sản phẩm
+    Dùng script benen dưới để mở theo số lượng tùy ý
+-->
+<script>
+    $(".detail").slice(0, 4).show(); //hiện số lượng sản phẩm mặc định
+
+    $(".loadMore").on("click", function () {
+        $(".detail:hidden").slice(0, 4).show(); // số sản phẩm hiện lên sau khi bấm loadmore
+
+        if ($(".detail:hidden").length == 0) {
+            $(".loadMore").fadeOut(); //this will hide
+            //button when length is 0
+        }
+    })
+</script>

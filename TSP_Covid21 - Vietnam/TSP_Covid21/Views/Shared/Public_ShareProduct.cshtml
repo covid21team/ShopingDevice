@@ -1,0 +1,84 @@
+﻿<!--
+    ➠ Hiện thông tin sản phẩm                                       ✔
+
+    ➠ Bấm vào hình ảnh hoặc tên sản phẩm ➔ đến product             ✔
+
+    ➠ Bấm vào "Add To Wishlist" ➔ thêm vào danh sách yêu thích     ✘
+
+    ➠ Bấm vào "Add To Cart" ➔ thêm vào giỏ hàng                    ✔
+
+    ❦ Nơi sử dụng:
+        ☞ Form Product ➧ thuộc Control Covid21
+        ☞ Home_LoadProductNew
+        ☞ Home_LoadProductTopSelling
+
+    ✹ Một số form share
+        ➽ Public_RatingProduct
+
+    ⛱ Form có thể đến
+        ➣ Product
+
+    ☯ Key Session
+        ➛ Session["user"]
+-->
+
+@model TSP_Covid21.Models.ShopEntity.PRODUCT
+
+@{
+    TSP_Covid21.Controllers.ProductController PC = new TSP_Covid21.Controllers.ProductController();
+
+    string User = "";
+
+    if (Session["user"] != null)
+    {
+        User = Session["user"].ToString();
+    }
+}
+
+<div class="product">
+    <div class="product-img">
+        <a href="@Url.Action("Product","Covid21",new { productId = Model.PRODUCTID})">
+            <img src="@Model.PIC_PRODUCT.Where(t => t.MAINPIC == true && t.PRODUCTID == Model.PRODUCTID).Select(c => c.PICTURE.PATH).SingleOrDefault()" alt="" style="width: 263px; height: 263px; object-fit: contain">
+        </a>
+
+        <div class="product-label">
+            @if (Model.STATUSPRODUCT == false || Model.PRODUCTAMOUNT < 1)
+            {
+                <span class="new">Ngưng kinh doanh</span>
+            }
+
+        </div>
+    </div>
+    <div class="product-body">
+        <p class="product-category">Category</p>
+        <h3 class="product-name" style="height: 20px"><a href="@Url.Action("Product","Covid21",new { productId = Model.PRODUCTID})">@Model.PRODUCTNAME</a></h3>
+        @{
+            var temp = String.Format("{0:#,##0.##}", Model.PRODUCTPRICE);
+            temp = temp.Replace(".", ",");
+            temp += "đ";
+        }
+        <h4 class="product-price">@temp</h4>
+
+        <!-- rating product-->
+        @Html.Partial("Public_RatingProduct", PC.loadRatingProduct(Model.PRODUCTID))
+
+        <div class="product-btns">
+            <input type="text" value="@Model.PRODUCTID" class="productId" style="display: none" />
+            <button class="add-to-wishlist" onclick="addFavourite(@Model.PRODUCTID)"><i class="fa fa-heart" id="idheart"></i></button>
+            <button class="quick-view" style=" display: inline-block">
+                <i class="fa fa-eye"></i>
+                <div class="table_config" style="color: black; z-index: 100">
+                    @Html.Partial("Categories_TableConfig", Model.CONFIGDETAIL)
+                </div>
+            </button>
+        </div>
+    </div>
+    @if (Model.STATUSPRODUCT == true && Model.PRODUCTAMOUNT > 0)
+    {
+        <div class="add-to-cart">
+            <input type="text" value="@Model.PRODUCTID" class="productId" style="display: none" />
+            <button class="add-to-cart-btn addToCart"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ hàng</button>
+        </div>
+    }
+
+</div>

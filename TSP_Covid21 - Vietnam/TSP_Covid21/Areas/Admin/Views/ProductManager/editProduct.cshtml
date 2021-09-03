@@ -1,0 +1,575 @@
+﻿@model TSP_Covid21.Models.ShopEntity.PRODUCT
+
+<style>
+    .table-wrapper {
+        position: relative;
+    }
+
+    #table-scroll {
+        height: 550px;
+        overflow: auto;
+    }
+
+    #table-wrapper table {
+        width: 70%;
+        background: white;
+        margin-left: 23.8%;
+    }
+
+    .tb_config th {
+        position: sticky;
+        top: 0px;
+        background: #CCCCCC;
+        z-index: 10;
+        text-align: center;
+    }
+
+    .textarea {
+        text-align: left;
+    }
+
+    .btn_Edit {
+        border: none;
+        color: white;
+        background: #D10024;
+        font-size: 20px;
+    }
+
+        .btn_Edit:hover {
+            background: #FF0000;
+        }
+
+
+    .table_productDetail {
+        height: auto;
+        max-height: 550px;
+        overflow-y: scroll;
+    }
+</style>
+
+@{
+    TSP_Covid21.Areas.Admin.Controllers.ProductManagerController HC = new TSP_Covid21.Areas.Admin.Controllers.ProductManagerController();
+}
+
+<table class="cus1">
+    <tr>
+        <th style="width: 33.3%;font-size: 25px;background: #d6dee9;" onclick="Functionclick1()" class="edit">
+            Sửa thông tin
+        </th>
+        <th style="font-size: 25px;" onclick="Functionclick2()" class="btn_addConfig">
+            <div>Chỉnh cấu hình</div>
+        </th>
+        <th style="font-size: 25px;" onclick="Descrip()" class="btn_descrip">
+            <div>Mô tả</div>
+        </th>
+    </tr>
+</table>
+
+<div id="table1" style="background: white; width: 43%; margin-left: 28.5%;" class="table_productDetail">
+    <table class="cus2">
+
+        <tr>
+            <th style="width:150px;">
+                <label>Tên sản phẩm</label>
+            </th>
+            <td>
+                <input type="text" name="ProductsName" id="edit_productName" value="@Model.PRODUCTNAME">
+            </td>
+        </tr>
+        @{
+            IEnumerable<TSP_Covid21.Models.ShopEntity.PRODUCTTYPE> listType = HC.loadType();
+        }
+        <tr>
+            <th>
+                <label>Loại</label>
+            </th>
+            <td>
+                <select id="edit_productType">
+                    @foreach (var item in listType)
+                    {
+                        if (item.PRODUCTTYPEID == Model.PRODUCTTYPEID)
+                        {
+                            <option value="@item.PRODUCTTYPEID" selected>@item.PRODUCTTYPENAME</option>
+                        }
+                        else
+                        {
+                            <option value="@item.PRODUCTTYPEID">@item.PRODUCTTYPENAME</option>
+                        }
+                    }
+                </select>
+            </td>
+        </tr>
+        @{
+            IEnumerable<TSP_Covid21.Models.ShopEntity.BRAND> listBrand = HC.loadBrand();
+        }
+        <tr>
+            <th>
+                <label>Thương hiệu </label>
+            </th>
+            <td>
+                <select id="edit_productBrand">
+                    @foreach (var item in listBrand)
+                    {
+                        if (item.BRANDID == Model.BRANDID)
+                        {
+                            <option value="@item.BRANDID" selected>@item.BRANDNAME</option>
+                        }
+                        else
+                        {
+                            <option value="@item.BRANDID">@item.BRANDNAME</option>
+                        }
+                    }
+                </select>
+
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <label class="picture">Hình chính</label>
+            </th>
+            <td>
+                <div style="float: none;">
+                    <label for="Mainpic" id="upload-btn">
+                        <span>
+                            <i class="fas fa-folder-open " style="color:#fad859;"></i>
+                            Open file
+                        </span>
+                    </label>
+                    <input id="Mainpic" name="Pic2" class="input-file" type="button" multiple accept="image/*"
+                           style="display: none" />
+                </div>
+                <div class="card-deck" id="appearMainPic">
+                    <div>
+                        <div class="card mb-4 pictureProductMain" style="width: 104px;float: left;">
+                            <figure class="snip0068 yellow">
+                                <input type="text" value="@Model.PIC_PRODUCT.Where(t => t.PRODUCTID == Model.PRODUCTID && t.MAINPIC == true).Select(c => c.PICTUREID).SingleOrDefault()" style="display: none" class="takePath" />
+                                <img src="@Model.PIC_PRODUCT.Where(t => t.PRODUCTID == Model.PRODUCTID && t.MAINPIC == true).Select(c => c.PICTURE.PATH).SingleOrDefault()" alt="sample12" />
+                                <figcaption>
+                                    <div>
+                                        <span class="removePic"><i class="far fa-trash-alt"></i> Remove</span>
+                                    </div>
+                                </figcaption>
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <label class="picture">Hình</label>
+            </th>
+            <td>
+                <div style="float: none;">
+                    <label for="filebutton" id="upload-btn">
+                        <span>
+                            <i class="fas fa-folder-open " style="color:#fad859;"></i>
+                            Open file
+                        </span>
+                    </label>
+                    <input id="filebutton" name="Pic2" class="input-file" type="button" multiple accept="image/*"
+                           style="display: none" />
+                </div>
+                <div class="card-deck" id="appearPic">
+                    @foreach (var item in Model.PIC_PRODUCT.Where(t => t.PRODUCTID == Model.PRODUCTID && t.MAINPIC == false))
+                    {
+                        <div>
+                            <div class="card mb-4" style="width: 104px;float: left;">
+                                <figure class="snip0068 yellow">
+                                    <input type="text" value="@item.PICTUREID" style="display: none" class="takePath" />
+                                    <img src="@item.PICTURE.PATH" alt="sample12" />
+                                    <figcaption>
+                                        <div>
+                                            <span class="removePic"><i class="far fa-trash-alt"></i> Remove</span>
+                                        </div>
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <label>Số lượng</label> <br>
+            </th>
+            <td>
+                <input id="edit_productAmount" class="numberrit" type="number" value="@Model.PRODUCTAMOUNT" min="1">
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <label>Trạng thái</label>
+            </th>
+            <td>
+                <select id="edit_status">
+                    @if (Model.STATUSPRODUCT == true)
+                    {
+                        <option value="true" selected>Hoạt động</option>
+                        <option value="false">Ngưng hoạt động</option>
+                    }
+                    else
+                    {
+                        <option value="true">Hoạt động</option>
+                        <option value="false" selected>Ngưng hoạt động</option>
+                    }
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th style="width:150px;">
+                <label>Giá</label>
+            </th>
+            <td>
+                <input type="text" name="ProductPrice" id="edit_productPrice" value="@Model.PRODUCTPRICE">
+            </td>
+        </tr>
+    </table>
+
+</div>
+
+
+<!-- ========================================================================================= -->
+
+<div id="table2" style="display: none;background: white; width: 43%; margin-left: 28.5%">
+
+    <div class="table-wrapper">
+        <div id="table-scroll">
+            <table class="table tb_config">
+                <thead>
+                    <tr>
+                        <th>Tên thông số</th>
+                        <th>Thông tin</th>
+                        <th>Trạng thái</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        IEnumerable<TSP_Covid21.Models.ShopEntity.CONFIG> listConfig = HC.loadConfig();
+                    }
+                    @foreach (var item in listConfig)
+                    {
+                        <tr class="config_Product">
+                            <td style="text-align: center">
+                                <input type="text" style="display: none" value="@item.CONFIGNAME" class="configName" />
+                                @item.DECRIPTIONCONFIGNAME
+                            </td>
+                            @{
+                                var infConfig = @Model.CONFIGDETAIL.Where(p => p.CONFIGNAME == item.CONFIGNAME).Select(c => c.INFORMATION).FirstOrDefault();
+                            }
+                            <td>
+                                <textarea class="textarea configInf" name="Config">@infConfig</textarea>
+                            </td>
+                            <td style="text-align: center">
+                                <div class="checkbox">
+                                    @if (infConfig != null)
+                                    {
+                                        <input type="checkbox" class="click" checked="checked">
+                                    }
+                                    else
+                                    {
+                                        <input type="checkbox" class="click">
+                                    }
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+<!-- ========================================================================================= -->
+
+
+<script src="~/tinymce/js/tinymce/tinymce.min.js"></script>
+<script>
+    tinymce.init({
+        selector: "#edit_productDescription",
+        height: "550px",
+    });
+</script>
+@{
+    var descrip = Model.DECRIPTION;
+    //Lấy lại những kí tự đặc biệt của html từ database
+    descrip = descrip.Replace("&amp;", "&");
+    descrip = descrip.Replace("&gt;", ">");
+    descrip = descrip.Replace("&lt;", "<");
+    descrip = descrip.Replace("&quot;", "\"");
+    descrip = descrip.Replace("&#039;", "'");
+}
+<div id="table3" style="display: none;background: white; width: 43%; margin-left: 28.5%; height: 550px">
+    <div id="edit_productDescription" style="height: 100%">
+        @Html.Raw(descrip)
+    </div>
+</div>
+
+<input class="btn_Edit" type="button" value="Chỉnh sửa" style="margin-left: 61.5%; width: 10%" />
+
+@{
+    var PM = new TSP_Covid21.Areas.Admin.Controllers.ProductManagerController();
+    var listPic = PM.listPic(Model.PRODUCTID);
+}
+<style>
+    #appearPic_Edit {
+        background: #ffffff;
+        height: auto;
+        max-height: 550px;
+        overflow-y: scroll;
+        margin-left: 1%;
+        margin-right: 1%;
+    }
+
+    .picture {
+        margin: 20px;
+        padding: 10px;
+        width: 120px;
+    }
+</style>
+
+<div id="ListPic_Edit" class="modal" style="z-index: 50;">
+    <div id="appearPic_Edit" class="card-deck">
+        <input id="infButton_Edit" style="display: none" /> <!--Cho biết đang sử dụng thêm hình nào: 1 xử lí ảnh chính, 2 xử lí ảnh phụ-->
+        @foreach (var item in listPic)
+        {
+            if (item.Pic == true)
+            {
+                if (item.mainPic == true)
+                {
+                    <div class="picture" style="border: 3px solid #129640">
+                        <div style="transform: scale(1.5); margin-left: 85px; margin-top: -5px">
+                            <input type="checkbox" class="check" checked />
+                        </div>
+                        <div>
+                            <input type="text" value="@item.pictureId" style="display: none" class="picId" />
+                            <input type="text" value="@item.path" style="display: none" class="picPath" />
+                            <img src="@item.path" style="width: 100px; height: 100px; object-fit: contain" />
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <div class="picture" style="border: 3px solid #2356a2">
+                        <div style="transform: scale(1.5); margin-left: 85px; margin-top: -5px">
+                            <input type="checkbox" class="check" checked />
+                        </div>
+                        <div>
+                            <input type="text" value="@item.pictureId" style="display: none" class="picId" />
+                            <input type="text" value="@item.path" style="display: none" class="picPath" />
+                            <img src="@item.path" style="width: 100px; height: 100px; object-fit: contain" />
+                        </div>
+                    </div>
+                }
+            }
+            else
+            {
+                <div class="picture">
+                    <div style="transform: scale(1.5); margin-left: 85px; margin-top: -5px">
+                        <input type="checkbox" class="check" style=" display: none" />
+                    </div>
+                    <div>
+                        <input type="text" value="@item.pictureId" style="display: none" class="picId" />
+                        <input type="text" value="@item.path" style="display: none" class="picPath" />
+                        <img src="@item.path" style="width: 100px; height: 100px; object-fit: contain" />
+                    </div>
+                </div>
+            }
+        }
+        <input type="button" id="confirmPic_Edit" value="Xác nhận" />
+    </div>
+</div>
+<script>
+    $("#confirmPic_Edit").click(function () {
+        var parent = $(this).parent().parent();
+        parent.css({ "display": "none" });
+    })
+    $(".picture").click(function () {
+        var pa_parent = $(this).parent().parent();
+        var inf = $(pa_parent).children().children("#infButton_Edit").val();
+        var checkbox = $(this).children().children(".check");
+        var check = checkbox.is(":checked");
+        var picId = $(this).children().children(".picId").val();
+        var picPath = $(this).children().children(".picPath").val();
+
+        if (check == false) {
+            checkbox.prop("checked", true);
+            checkbox.css({ "display": "block" });
+            var create = document.createElement("div");
+
+            if (inf == "1") {
+                create.innerHTML = '<div class="card mb-4 AddpictureProductMain" style="width: 104px; float: left;">' +
+                    '<figure class="snip0068 yellow">' +
+                    '<input type="text" value="' + picId + '" style="display: none" class="takePath" />' +
+                    '<img src="' + picPath + '"/>' +
+                    '<figcaption> ' +
+                    '<div>' +
+                    '<span class="removePic"><i class="far fa-trash-alt"></i> Remove</span>' +
+                    '</div>' +
+                    '</figcaption>' +
+                    '</figure>' +
+                    '</div>';
+
+                $(this).css({ "border": "3px solid #129640" });
+                $("#appearMainPic").prepend(create);
+                pa_parent.css({ "display": "none" });
+            } else {
+                create.innerHTML = '<div class="card mb-4" style="width: 104px; float: left;">' +
+                    '<figure class="snip0068 yellow">' +
+                    '<input type="text" value="' + picId + '" style="display: none" class="takePath" />' +
+                    '<img src="' + picPath + '"/>' +
+                    '<figcaption> ' +
+                    '<div>' +
+                    '<span class="removePic"><i class="far fa-trash-alt"></i> Remove</span>' +
+                    '</div>' +
+                    '</figcaption>' +
+                    '</figure>' +
+                    '</div>';
+
+                $(this).css({ "border": "3px solid #2356a2" });
+                $("#appearPic").prepend(create);
+            }
+
+        } else {
+            checkbox.prop("checked", false);
+            checkbox.css({ "display": "none" });
+            $(this).css({ "border": "none" });
+
+            $('.card').each(function () {
+                pic = $(this).children().children(".takePath").val();
+                if (pic == picId) {
+                    $(this).parent().remove();
+                }
+            })
+        }
+    })
+</script>
+
+<!--Chỉnh sửa thông tin sản phẩm-->
+<script>
+    //Lược bỏ những kí tự đặc biệt của html để lưu lên database
+    function convert(str) {
+        str = str.replace(/&/g, "&amp;");
+        str = str.replace(/>/g, "&gt;");
+        str = str.replace(/</g, "&lt;");
+        str = str.replace(/"/g, "&quot;");
+        str = str.replace(/'/g, "&#039;");
+        return str;
+    }
+
+    $(".btn_Edit").click(function () {
+
+        var pic = document.getElementsByClassName("takePath");
+        if (pic.length < 5) {
+            alert("Vui lòng thêm đủ hình");
+        } else {
+            //thông tin sản phẩm
+            var productName = document.getElementById("edit_productName").value;
+            var productType = document.getElementById("edit_productType").value;
+            var brand = document.getElementById("edit_productBrand").value;
+            var amount = document.getElementById("edit_productAmount").value;
+            var description = tinymce.get('edit_productDescription').getContent();
+            description = convert(description);
+            var status = document.getElementById("edit_status").value;
+            var price = document.getElementById("edit_productPrice").value;
+            var pic1 = pic[0].value;
+            var pic2 = "";
+            for (var i = 1; i < pic.length; i++) {
+                pic2 += pic[i].value + ",";
+            }
+
+            //Thông tin cấu hình
+            var configs = document.getElementsByClassName("config_Product");
+            var name = "";
+            var inf = "";
+
+            for (var i = 0; i < configs.length; i++) {
+                var config = configs[i];
+                var configName = $(config).children().children(".configName").val();
+                var configInf = $(config).children().children(".configInf");
+                var condition = $(config).children().children().children(".click").is(":checked");
+
+                if (condition == true) {
+                    name += configName + "&";
+                    inf += $(configInf).val() + "&";
+                }
+            }
+
+            $.ajax({
+                url: '@Url.Action("upProduct", "ProductManager")',
+                type: 'POST',
+                data: {
+                    id: @Model.PRODUCTID,
+                    productName: productName,
+                    productType: productType,
+                    brand: brand,
+                    amount: amount,
+                    description: description,
+                    status: status,
+                    price: price,
+                    pic1: pic1,
+                    pic2: pic2,
+                    name: name,
+                    inf: inf,
+                },
+                success: function () {
+                    location.reload();
+                },
+                error: function () {
+                    alert("fail");
+                },
+            });
+        }
+    });
+</script>
+
+<script>
+    //Xóa ảnh
+    $("body").on("click", ".removePic", function () {
+        var parent = $(this).parent().parent().parent().parent().parent();
+        var id = $(parent).children().children().children(".takePath").val();
+        $('.picture').each(function () {
+            pic = $(this).children().children(".picId").val();
+            if (pic == id) {
+                $(this).css({ "border": "none" });
+                $(this).children().children(".check").css({ "display": "none" });
+                $(this).children().children(".check").prop("checked", false);
+            }
+        })
+
+        $(parent).remove();
+    });
+
+    //Up ảnh
+    $("#filebutton").click(function () {
+
+        $("#infButton_Edit").val("2");
+        $("#ListPic_Edit").css({ "display": "block" });
+    });
+
+    //Up ảnh đại diện
+    $("#Mainpic").click(function () {
+        var dem = document.getElementsByClassName("pictureProductMain").length;
+        if (dem < 1) {
+            $("#infButton_Edit").val("1");
+            $("#ListPic_Edit").css({ "display": "block" });
+        }
+    });
+</script>
+
+<script>
+    var modal = document.getElementById('ListPic_Edit');
+    var modal1 = document.getElementById('productDetail');
+
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+        if (event.target == modal1) {
+            modal1.style.display = "none";
+        }
+    }
+</script>

@@ -1,0 +1,46 @@
+﻿@{
+    ViewBag.Title = "Home";
+    Layout = "~/Areas/Game/Views/Shared/MainGame.cshtml";
+}
+
+<style>
+    #Frame_BauCua {
+        width: 1000px;
+        height: 500px;
+        background-color: #009900;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+</style>
+ 
+<div id="Frame_BauCua">
+    @Html.Partial("Loading")
+    <div id="Frame_Login">
+        @Html.Partial("Login")
+    </div>
+
+    <div id="Frame_ListRoom" style="display: none">
+
+    </div>
+
+    <div id="Frame_Room" style="display: none">
+
+    </div>
+</div>
+
+<script>
+    window.addEventListener('beforeunload', function (e) {
+        $.ajax({
+            url: "@Url.Action("CreateAccount","BauCua")",
+            type: "POST",
+            data: {
+                user: 'pppp',
+                pass: '123',
+                name: 'Tý xóa nha',
+            },
+        })
+        e.returnValue = '';
+    });
+</script>

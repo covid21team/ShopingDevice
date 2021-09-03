@@ -1,0 +1,636 @@
+﻿@model TSP_Covid21.Areas.Game.ViewModel.Inf_ChessBoard
+
+<!--
+@{
+    TSP_Covid21.Areas.Game.Controllers.BauCuaController BCC = new TSP_Covid21.Areas.Game.Controllers.BauCuaController();
+
+    var listPlayer = BCC.ListPlayer(Model.roomId);
+    List<TSP_Covid21.Models.ShopEntity.ww_BAUCUA_PLAYER> list_listPlayer = listPlayer.ToList();
+    var room_Master = list_listPlayer[0];
+    var player_01 = list_listPlayer[1];
+    var player_02 = list_listPlayer[2];
+    var player_03 = list_listPlayer[3];
+    var player_04 = list_listPlayer[4];
+    var player_05 = list_listPlayer[5];
+    var player_06 = list_listPlayer[6];
+
+    var listPlayerDetail = BCC.listPlayerDetail(Model.roomId);
+    List<TSP_Covid21.Models.ShopEntity.ww_BAUCUA_PLAYERDETAIL> list_listPlayerDetail = listPlayerDetail.ToList();
+}-->
+<!--
+@{
+    var deerPlayer01 = list_listPlayerDetail[0];
+    var gourdPlayer01 = list_listPlayerDetail[1];
+    var chickenPlayer01 = list_listPlayerDetail[2];
+    var fishPlayer01 = list_listPlayerDetail[3];
+    var crabPlayer01 = list_listPlayerDetail[4];
+    var shrimpPlayer01 = list_listPlayerDetail[5];
+}-->
+<!--
+@{
+    var deerPlayer02 = list_listPlayerDetail[6];
+    var gourdPlayer02 = list_listPlayerDetail[7];
+    var chickenPlayer02 = list_listPlayerDetail[8];
+    var fishPlayer02 = list_listPlayerDetail[9];
+    var crabPlayer02 = list_listPlayerDetail[10];
+    var shrimpPlayer02 = list_listPlayerDetail[11];
+}-->
+<!--
+@{
+    var deerPlayer03 = list_listPlayerDetail[12];
+    var gourdPlayer03 = list_listPlayerDetail[13];
+    var chickenPlayer03 = list_listPlayerDetail[14];
+    var fishPlayer03 = list_listPlayerDetail[15];
+    var crabPlayer03 = list_listPlayerDetail[16];
+    var shrimpPlayer03 = list_listPlayerDetail[17];
+}-->
+<!--
+@{
+    var deerPlayer04 = list_listPlayerDetail[18];
+    var gourdPlayer04 = list_listPlayerDetail[19];
+    var chickenPlayer04 = list_listPlayerDetail[20];
+    var fishPlayer04 = list_listPlayerDetail[21];
+    var crabPlayer04 = list_listPlayerDetail[22];
+    var shrimpPlayer04 = list_listPlayerDetail[23];
+}-->
+<!--
+@{
+    var deerPlayer05 = list_listPlayerDetail[24];
+    var gourdPlayer05 = list_listPlayerDetail[25];
+    var chickenPlayer05 = list_listPlayerDetail[26];
+    var fishPlayer05 = list_listPlayerDetail[27];
+    var crabPlayer05 = list_listPlayerDetail[28];
+    var shrimpPlayer05 = list_listPlayerDetail[29];
+}-->
+<!--
+@{
+    var deerPlayer06 = list_listPlayerDetail[30];
+    var gourdPlayer06 = list_listPlayerDetail[31];
+    var chickenPlayer06 = list_listPlayerDetail[32];
+    var fishPlayer06 = list_listPlayerDetail[33];
+    var crabPlayer06 = list_listPlayerDetail[34];
+    var shrimpPlayer06 = list_listPlayerDetail[35];
+}-->
+
+<div id="Owner">
+    <div style="width: 60px; margin: auto">
+        <img src="~/Areas/Game/Asset/Pic_Game/Player/images.png" style=" border-radius:50%; width:60px; height: 60px; object-fit: contain;" />
+    </div>
+    <div>
+        @room_Master.ww_BAUCUA_ACCOUNT.ACCOUNTNAME
+    </div>
+    <div>@room_Master.ww_BAUCUA_ACCOUNT.MONEY</div>
+</div>
+
+<div id="Animal_And_Players" style="width: 805px; margin: 0 auto">
+    <div id="Player_Left">
+        <div id="Player_01">
+            <div style="width: 60px; margin: auto">
+                <img src="~/Areas/Game/Asset/Pic_Game/Player/images.png" style="border-radius: 50%; width: 60px; height: 60px; object-fit: contain;" />
+            </div>
+            @if (player_01.USERNAME == "None")
+            {
+                <div>
+                    ??????????????
+                </div>
+                <div>??????</div>
+            }
+            else
+            {
+                <div>
+                    @player_01.ww_BAUCUA_ACCOUNT.ACCOUNTNAME
+                </div>
+                <div>@player_01.ww_BAUCUA_ACCOUNT.MONEY</div>
+            }
+        </div>
+        
+        <div id="Player_02">
+            <div style="width: 60px; margin: auto">
+                <img src="~/Areas/Game/Asset/Pic_Game/Player/images.png" style="border-radius: 50%; width: 60px; height: 60px; object-fit: contain;" />
+            </div>
+            @if (player_02.USERNAME == "None")
+            {
+                <div>
+                    ??????????????
+                </div>
+                <div>??????</div>
+            }
+            else
+            {
+                <div>
+                    @player_02.ww_BAUCUA_ACCOUNT.ACCOUNTNAME
+                </div>
+                <div>@player_02.ww_BAUCUA_ACCOUNT.MONEY</div>
+            }
+        </div>
+        
+        <div id="Player_03">
+            <div style="width: 60px; margin: auto">
+                <img src="~/Areas/Game/Asset/Pic_Game/Player/images.png" style="border-radius: 50%; width: 60px; height: 60px; object-fit: contain;" />
+            </div>
+            @if (player_03.USERNAME == "None")
+            {
+                <div>
+                    ??????????????
+                </div>
+                <div>??????</div>
+            }
+            else
+            {
+                <div>
+                    @player_03.ww_BAUCUA_ACCOUNT.ACCOUNTNAME
+                </div>
+                <div>@player_03.ww_BAUCUA_ACCOUNT.MONEY</div>
+            }
+        </div>
+        
+    </div>
+
+    <div id="Animal">
+        <div id="Row_Above">
+            <label id="Deer" onclick="Deer()">
+                <img src="~/Areas/Game/Asset/Pic_Game/Animal/deer.gif" class="Pic_Animal" />
+            </label>
+            <div style="position: fixed; margin-top: -120px; margin-left: -9px; font-size: 13px; text-align: center" onclick="Deer()">
+                <div style="height: 30px">
+                    <span style=" border: 3px solid red" class="Bet_Card" id="Deer_Player_01">
+                        0k
+                    </span>
+                </div>
+                <div style="height: 30px " class="Bets">
+                    <label style="border: 3px solid green; margin-right: 53px" class="Bet_Card" id="Deer_Player_02" >
+                        99k
+                    </label>
+                    <label style="border: 3px solid yellow" class="Bet_Card" id="Deer_Player_03">
+                        99k
+                    </label>
+                </div>
+                <div style="height: 30px; margin-top: 12px">
+                    <label style="border: 3px solid violet; margin-right: 53px" class="Bet_Card" id="Deer_Player_04">
+                        99k
+                    </label>
+                    <label style="border: 3px solid blue" class="Bet_Card" id="Deer_Player_05">
+                        99k
+                    </label>
+                </div>
+                <div style="height: 30px" class="Bets">
+                    <label style="border: 3px solid gray" class="Bet_Card" id="Deer_Player_06">
+                        99k
+                    </label>
+                </div>
+            </div>
+
+            <label id="Gourd" onclick="Gourd()">
+                <img src="~/Areas/Game/Asset/Pic_Game/Animal/gourd.png" class="Pic_Animal" />
+            </label>
+            <div style="position: fixed; margin-top: -120px; margin-left: 166px; font-size: 13px; text-align: center" onclick="Gourd()">
+                <div style="height: 30px">
+                    <label style="border: 3px solid red;" class="Bet_Card" id="Gourd_Player_01">
+                        99k
+                    </label>
+                </div>
+                <div style="height: 30px; " class="Bets">
+                    <label style="border: 3px solid green; margin-right: 53px" class="Bet_Card" id="Gourd_Player_02">
+                        99k
+                    </label>
+                    <label style="border: 3px solid yellow" class="Bet_Card" id="Gourd_Player_03">
+                        99k
+                    </label>
+                </div>
+                <div style="height: 30px; margin-top: 12px">
+                    <label style="border: 3px solid violet; margin-right: 53px" class="Bet_Card" id="Gourd_Player_04">
+                        99k
+                    </label>
+                    <label style="border: 3px solid blue" class="Bet_Card" id="Gourd_Player_05">
+                        99k
+                    </label>
+                </div>
+                <div style="height: 30px" class="Bets">
+                    <label style="border: 3px solid gray" class="Bet_Card" id="Gourd_Player_06">
+                        99k
+                    </label>
+                </div>
+            </div>
+
+            <label id="Chicken" onclick="Chicken()">
+                <img src="~/Areas/Game/Asset/Pic_Game/Animal/chicken.gif" class="Pic_Animal" />
+            </label>
+            <div style="position: fixed; margin-top: -120px; margin-left: 341px; font-size: 13px; text-align: center" onclick="Chicken()">
+                <div style="height: 30px">
+                    <label style="border: 3px solid red" class="Bet_Card" id="Chicken_Player_01">
+                        99k
+                    </label>
+                </div>
+                <div style="height: 30px; " class="Bets">
+                    <label style="border: 3px solid green; margin-right: 53px" class="Bet_Card" id="Chicken_Player_02">
+                        99k
+                    </label>
+                    <label style="border: 3px solid yellow" class="Bet_Card" id="Chicken_Player_03">
+                        99k
+                    </label>
+                </div>
+                <div style="height: 30px; margin-top: 12px">
+                    <label style="border: 3px solid violet; margin-right: 53px" class="Bet_Card" id="Chicken_Player_04">
+                        99k
+                    </label>
+                    <label style="border: 3px solid blue" class="Bet_Card" id="Chicken_Player_05">
+                        99k
+                    </label>
+                </div>
+                <div style="height: 30px" class="Bets">
+                    <label style="border: 3px solid gray" class="Bet_Card" id="Chicken_Player_06">
+                        99k
+                    </label>
+                </div>
+            </div>
+
+        </div>
+        <div id="Row_Below" style="margin-top: 40px">
+            <label id="Fish" onclick="Fish()">
+                <img src="~/Areas/Game/Asset/Pic_Game/Animal/fish.gif" class="Pic_Animal" />
+            </label>
+            <div style="position: fixed; margin-top: -120px; margin-left: -9px; font-size: 13px; text-align: center" onclick="Fish()">
+                <div style="height: 30px">
+                    <label style=" border: 3px solid red" class="Bet_Card" id="Fish_Player_01">
+                        99k
+                    </label>
+                </div>
+                <div style="height: 30px " class="Bets">
+                    <label style="border: 3px solid green; margin-right: 53px" class="Bet_Card" id="Fish_Player_02">
+                        99k
+                    </label>
+                    <label style="border: 3px solid yellow" class="Bet_Card" id="Fish_Player_03">
+                        99k
+                    </label>
+                </div>
+                <div style="height: 30px; margin-top: 12px">
+                    <label style="border: 3px solid violet; margin-right: 53px" class="Bet_Card" id="Fish_Player_04">
+                        99k
+                    </label>
+                    <label style="border: 3px solid blue" class="Bet_Card" id="Fish_Player_05">
+                        99k
+                    </label>
+                </div>
+                <div style="height: 30px" class="Bets">
+                    <label style="border: 3px solid gray" class="Bet_Card" id="Fish_Player_06">
+                        99k
+                    </label>
+                </div>
+            </div>
+
+            <label id="Crab" onclick="Crab()">
+                <img src="~/Areas/Game/Asset/Pic_Game/Animal/crab.gif" class="Pic_Animal" />
+            </label>
+            <div style="position: fixed; margin-top: -120px; margin-left: 166px; font-size: 13px; text-align: center" onclick="Crab()">
+                <div style="height: 30px">
+                    <label style="border: 3px solid red;" class="Bet_Card" id="Crab_Player_01">
+                        99k
+                    </label>
+                </div>
+                <div style="height: 30px; " class="Bets">
+                    <label style="border: 3px solid green; margin-right: 53px" class="Bet_Card" id="Crab_Player_02">
+                        99k
+                    </label>
+                    <label style="border: 3px solid yellow" class="Bet_Card" id="Crab_Player_03">
+                        99k
+                    </label>
+                </div>
+                <div style="height: 30px; margin-top: 12px">
+                    <label style="border: 3px solid violet; margin-right: 53px" class="Bet_Card" id="Crab_Player_04">
+                        99k
+                    </label>
+                    <label style="border: 3px solid blue" class="Bet_Card" id="Crab_Player_05">
+                        99k
+                    </label>
+                </div>
+                <div style="height: 30px" class="Bets">
+                    <label style="border: 3px solid gray" class="Bet_Card" id="Crab_Player_06">
+                        99k
+                    </label>
+                </div>
+            </div>
+
+            <label id="Shrimp" onclick="Shrimp()">
+                <img src="~/Areas/Game/Asset/Pic_Game/Animal/shrimp.gif" class="Pic_Animal" />
+            </label>
+            <div style="position: fixed; margin-top: -120px; margin-left: 341px; font-size: 13px; text-align: center" onclick="Shrimp()">
+                <div style="height: 30px">
+                    <label style="border: 3px solid red" class="Bet_Card" id="Shrimp_Player_01">
+                        99k
+                    </label>
+                </div>
+                <div style="height: 30px; " class="Bets">
+                    <label style="border: 3px solid green; margin-right: 53px" class="Bet_Card" id="Shrimp_Player_02">
+                        99k
+                    </label>
+                    <label style="border: 3px solid yellow" class="Bet_Card" id="Shrimp_Player_03">
+                        99k
+                    </label>
+                </div>
+                <div style="height: 30px; margin-top: 12px">
+                    <label style="border: 3px solid violet; margin-right: 53px" class="Bet_Card" id="Shrimp_Player_04">
+                        99k
+                    </label>
+                    <label style="border: 3px solid blue" class="Bet_Card" id="Shrimp_Player_05">
+                        99k
+                    </label>
+                </div>
+                <div style="height: 30px" class="Bets">
+                    <label style="border: 3px solid gray" class="Bet_Card" id="Shrimp_Player_06">
+                        99k
+                    </label>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="Player_Right">
+        <div id="Player_04">
+            <div style="width: 60px; margin: auto">
+                <img src="~/Areas/Game/Asset/Pic_Game/Player/images.png" style="border-radius: 50%; width: 60px; height: 60px; object-fit: contain;" />
+            </div>
+            @if (player_04.USERNAME == "None")
+            {
+                <div>
+                    ??????????????
+                </div>
+                <div>??????</div>
+            }
+            else
+            {
+                <div>
+                    @player_04.ww_BAUCUA_ACCOUNT.ACCOUNTNAME
+                </div>
+                <div>@player_04.ww_BAUCUA_ACCOUNT.MONEY</div>
+            }
+        </div>
+        
+        <div id="Player_05">
+            <div style="width: 60px; margin: auto">
+                <img src="~/Areas/Game/Asset/Pic_Game/Player/images.png" style="border-radius: 50%; width: 60px; height: 60px; object-fit: contain;" />
+            </div>
+            @if (player_05.USERNAME == "None")
+            {
+                <div>
+                    ??????????????
+                </div>
+                <div>??????</div>
+            }
+            else
+            {
+                <div>
+                    @player_05.ww_BAUCUA_ACCOUNT.ACCOUNTNAME
+                </div>
+                <div>@player_05.ww_BAUCUA_ACCOUNT.MONEY</div>
+            }
+        </div>
+        
+        <div id="Player_06">
+            <div style="width: 60px; margin: auto">
+                <img src="~/Areas/Game/Asset/Pic_Game/Player/images.png" style="border-radius: 50%; width: 60px; height: 60px; object-fit: contain;" />
+            </div>
+            @if (player_06.USERNAME == "None")
+            {
+                <div>
+                    ??????????????
+                </div>
+                <div>??????</div>
+            }
+            else
+            {
+                <div>
+                    @player_06.ww_BAUCUA_ACCOUNT.ACCOUNTNAME
+                </div>
+                <div>@player_06.ww_BAUCUA_ACCOUNT.MONEY</div>
+            }
+        </div>
+        
+    </div>
+</div>
+
+<!--Load tất cả player-->
+<script>
+    var start = {
+        loadData: function () {
+            BorderColor($("#Player_01 img"), @player_01.COLORID, 5);
+            BorderColor($("#Player_02 img"), @player_02.COLORID, 5);
+            BorderColor($("#Player_03 img"), @player_03.COLORID, 5);
+            BorderColor($("#Player_04 img"), @player_04.COLORID, 5);
+            BorderColor($("#Player_05 img"), @player_05.COLORID, 5);
+            BorderColor($("#Player_06 img"), @player_06.COLORID, 5);
+
+            loadBetsPlayer_01();
+            loadBetsPlayer_02();
+            loadBetsPlayer_03();
+
+            appearAnimal($("#Deer"), deer);
+            appearAnimal($("#Gourd"), gourd);
+            appearAnimal($("#Chicken"), chicken);
+            appearAnimal($("#Fish"), fish);
+            appearAnimal($("#Crab"), crab);
+            appearAnimal($("#Shrimp"), shrimp);
+        }
+    }
+    start.loadData();
+
+    function appearAnimal(t, value) {
+        switch (value) {
+            case 1: {
+                t.css({ "background": "yellow" })
+            } break;
+            case 2: {
+                t.css({ "background": "red" })
+            } break;
+            case 3: {
+                t.css({ "background": "blue" })
+            } break;
+        }
+    }
+
+    function loadBetsPlayer_01() {
+        if (@deerPlayer01.BETS > 0) {
+            $("#Deer_Player_01").css({ "display": "inline-block" });
+            BorderColor($("#Deer_Player_01"), @player_01.COLORID, 3);
+            TextBets($("#Deer_Player_01"), @deerPlayer01.BETS);
+        }
+        if(@gourdPlayer01.BETS > 0) {
+            $("#Gourd_Player_01").css({ "display": "inline-block" });
+            BorderColor($("#Gourd_Player_01"), @player_01.COLORID, 3);
+            TextBets($("#Gourd_Player_01"), @gourdPlayer01.BETS);
+        }
+        if(@chickenPlayer01.BETS > 0) {
+            $("#Chicken_Player_01").css({ "display": "inline-block" });
+            BorderColor($("#Chicken_Player_01"), @player_01.COLORID, 3);
+            TextBets($("#Chicken_Player_01"), @chickenPlayer01.BETS);
+        }
+        if (@fishPlayer01.BETS > 0) {
+            $("#Fish_Player_01").css({ "display": "inline-block" });
+            BorderColor($("#Fish_Player_01"), @player_01.COLORID, 3);
+            TextBets($("#Fish_Player_01"), @fishPlayer01.BETS);
+        }
+        if(@crabPlayer01.BETS > 0) {
+            $("#Crab_Player_01").css({ "display": "inline-block" });
+            BorderColor($("#Crab_Player_01"), @player_01.COLORID, 3);
+            TextBets($("#Crab_Player_01"), @crabPlayer01.BETS);
+        }
+        if(@shrimpPlayer01.BETS > 0) {
+            $("#Shrimp_Player_01").css({ "display": "inline-block" });
+            BorderColor($("#Shrimp_Player_01"), @player_01.COLORID, 3);
+            TextBets($("#Shrimp_Player_01"), @shrimpPlayer01.BETS);
+        }
+    }
+
+    function loadBetsPlayer_02() {
+        if (@deerPlayer02.BETS > 0) {
+            $("#Deer_Player_02").css({ "display": "inline-block" });
+            BorderColor($("#Deer_Player_02"), @player_02.COLORID, 3);
+            TextBets($("#Deer_Player_02"), @deerPlayer02.BETS);
+        }
+        if(@gourdPlayer02.BETS > 0) {
+            $("#Gourd_Player_02").css({ "display": "inline-block" });
+            BorderColor($("#Gourd_Player_02"), @player_02.COLORID, 3);
+            TextBets($("#Gourd_Player_02"), @gourdPlayer02.BETS);
+        }
+        if(@chickenPlayer02.BETS > 0) {
+            $("#Chicken_Player_02").css({ "display": "inline-block" });
+            BorderColor($("#Chicken_Player_02"), @player_02.COLORID, 3);
+            TextBets($("#Chicken_Player_02"), @chickenPlayer02.BETS);
+        }
+        if (@fishPlayer02.BETS > 0) {
+            $("#Fish_Player_02").css({ "display": "inline-block" });
+            BorderColor($("#Fish_Player_02"), @player_02.COLORID, 3);
+            TextBets($("#Fish_Player_02"), @fishPlayer02.BETS);
+        }
+        if(@crabPlayer02.BETS > 0) {
+            $("#Crab_Player_02").css({ "display": "inline-block" });
+            BorderColor($("#Crab_Player_02"), @player_02.COLORID, 3);
+            TextBets($("#Crab_Player_02"), @crabPlayer02.BETS);
+        }
+        if(@shrimpPlayer02.BETS > 0) {
+            $("#Shrimp_Player_02").css({ "display": "inline-block" });
+            BorderColor($("#Shrimp_Player_02"), @player_02.COLORID, 3);
+            TextBets($("#Shrimp_Player_02"), @shrimpPlayer02.BETS);
+        }
+    }
+
+    function loadBetsPlayer_03() {
+        if (@deerPlayer03.BETS > 0) {
+            $("#Deer_Player_03").css({ "display": "inline-block" });
+            BorderColor($("#Deer_Player_03"), @player_03.COLORID, 3);
+            TextBets($("#Deer_Player_03"), @deerPlayer03.BETS);
+        }
+        if(@gourdPlayer03.BETS > 0) {
+            $("#Gourd_Player_03").css({ "display": "inline-block" });
+            BorderColor($("#Gourd_Player_03"), @player_03.COLORID, 3);
+            TextBets($("#Gourd_Player_03"), @gourdPlayer03.BETS);
+        }
+        if(@chickenPlayer03.BETS > 0) {
+            $("#Chicken_Player_03").css({ "display": "inline-block" });
+            BorderColor($("#Chicken_Player_03"), @player_03.COLORID, 3);
+            TextBets($("#Chicken_Player_03"), @chickenPlayer03.BETS);
+        }
+        if (@fishPlayer03.BETS > 0) {
+            $("#Fish_Player_03").css({ "display": "inline-block" });
+            BorderColor($("#Fish_Player_03"), @player_03.COLORID, 3);
+            TextBets($("#Fish_Player_03"), @fishPlayer03.BETS);
+        }
+        if(@crabPlayer03.BETS > 0) {
+            $("#Crab_Player_03").css({ "display": "inline-block" });
+            BorderColor($("#Crab_Player_03"), @player_03.COLORID, 3);
+            TextBets($("#Crab_Player_03"), @crabPlayer03.BETS);
+        }
+        if(@shrimpPlayer03.BETS > 0) {
+            $("#Shrimp_Player_03").css({ "display": "inline-block" });
+            BorderColor($("#Shrimp_Player_03"), @player_03.COLORID, 3);
+            TextBets($("#Shrimp_Player_03"), @shrimpPlayer03.BETS);
+        }
+    }
+
+    function TextBets(t, bets) {
+        var txt = "";
+        if (bets / 1000000 >= 1) {
+            txt = (bets / 1000000) + "m";
+        } else if (bets / 1000 >= 1) {
+            txt = (bets / 1000) + "k";
+        }
+        t.text(txt);
+    }
+
+    function BorderColor(t, color, size) {
+        switch (size) {
+            case 3: {
+                switch (color) {
+                    case 1: {
+                        t.css({ "border": "3px solid red" })
+                    } break;
+                    case 2: {
+                        t.css({ "border": "3px solid yellow" })
+                    } break;
+                    case 3: {
+                        t.css({ "border": "3px solid green" })
+                    } break;
+                    case 4: {
+                        t.css({ "border": "3px solid blue" })
+                    } break;
+                    case 5: {
+                        t.css({ "border": "3px solid gray" })
+                    } break;
+                    case 6: {
+                        t.css({ "border": "3px solid violet" })
+                    } break;
+                }
+            } break;
+            case 5: {
+                switch (color) {
+                    case 1: {
+                        t.css({ "border": "5px solid red" })
+                    } break;
+                    case 2: {
+                        t.css({ "border": "5px solid yellow" })
+                    } break;
+                    case 3: {
+                        t.css({ "border": "5px solid green" })
+                    } break;
+                    case 4: {
+                        t.css({ "border": "5px solid blue" })
+                    } break;
+                    case 5: {
+                        t.css({ "border": "5px solid gray" })
+                    } break;
+                    case 6: {
+                        t.css({ "border": "5px solid violet" })
+                    } break;
+                }
+            } break;
+        }
+    }
+</script>
+
+<!--Chọn con để cược-->
+<script>
+    function Deer() {
+        $("#Bets_Parent").css({ "display": "block" });
+        $("#Select_Animal").text("1");
+    }
+    function Gourd() {
+        $("#Bets_Parent").css({ "display": "block" });
+        $("#Select_Animal").text("2");
+    }
+    function Chicken() {
+        $("#Bets_Parent").css({ "display": "block" });
+        $("#Select_Animal").text("3");
+    }
+    function Fish() {
+        $("#Bets_Parent").css({ "display": "block" });
+        $("#Select_Animal").text("4");
+    }
+    function Crab() {
+        $("#Bets_Parent").css({ "display": "block" });
+        $("#Select_Animal").text("5");
+    }
+    function Shrimp() {
+        $("#Bets_Parent").css({ "display": "block" });
+        $("#Select_Animal").text("6");
+    }
+</script>

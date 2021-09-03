@@ -1,0 +1,150 @@
+﻿<input class="thoat" onclick="tatthem()" value="✖" type="button">
+<div>
+    <span></span>
+    <label for="">Họ và tên: </label>
+    <input id="id15" type="text" placeholder="Nhập họ và tên"> <span style="color: red; display: none" id="inf_add_fullname">(Vui lòng nhập tên người nhận)</span>
+</div>
+<div>
+    <span></span>
+    <label for="">Số điện thoại: </label>
+    <input id="id16" type="text" placeholder="Nhập số điện thoại"> <span style="color: red; display: none" id="inf_add_phone">(SĐT không được để trống)</span> <span style="color: red; display: none" id="inf_add_phone_check">(Vui lòng nhập đúng số điện thoại)</span>
+</div>
+<div>
+    <span></span>
+    <label for="">Thành phố/Tỉnh: </label>
+    <select class="addr" id="province" none="province" onchange="changeFunc();"
+            style="margin-left: 29px;">
+        <option value="" selected>Thành phố / Tỉnh</option>
+    </select>
+</div>
+<div>
+    <span></span>
+    <label for="">Quận/Huyện: </label>
+    <select class="addr" id="district" none="district" onchange="changeFuncDistrict();"
+            style="margin-left: 51px;"></select><span style="color: red; display: none" id="inf_add_district">(Vui lòng chọn khu vực)</span>
+</div>
+<div>
+    <span></span>
+    <label for="">Phường/Xã:</label>
+    <select class="addr" id="ward" none="ward" aria-placeholder="Quận Huyện;"
+            style="margin-left: 58px;"></select><span style="color: red; display: none" id="id_add_ward">(Vui lòng chọn khu vực)</span>
+</div>
+<div>
+    <span></span>
+    <label>Địa chỉ:</label>
+    <textarea id="id20" rows="3"></textarea> <span style="color: red; display: none" id="inf_add">(Vui lòng nhập địa chỉ giao hàng)</span>
+</div>
+<div>
+    <span></span>
+
+    <input id="id22" class="text1" type="checkbox">
+    <label for="">Địa chỉ mặc định</label>
+</div>
+<div>
+    <input id="id21" type="button" onclick="okthem()" value="Thêm địa chỉ">
+</div>
+
+<!--Load các thành phố-->
+<script>
+    var start = {
+        loadData: function () {
+            var province = document.getElementById("province");
+
+            $.ajax({
+                url: "https://dev-online-gateway.ghn.vn/shiip/public-api/master-data/province",
+                headers: {
+                    'token': "260fcbb6-d4ae-11eb-aa92-d25db748eae9",
+                    'content-Type': 'application/json'
+                },
+                method: 'GET',
+                dataType: 'json',
+                success: function (response) {
+                    var str = "";
+                    for (var i = 0; i < response.data.length; i++) {
+                        str = str + "<option class = 'provinceID' data-province='" + response.data[i].ProvinceID + "' value='" + response.data[i].ProvinceName + "'>" + response.data[i].ProvinceName + "</option> "
+                    }
+                    province.innerHTML = str;
+                }
+            });
+
+        }
+    }
+    start.loadData();
+</script>
+
+<!-- Thêm địa chỉ -->
+<script>
+    $("#id21").click(function () {
+
+        var fullname = $("#id15").val();
+        var phone = $("#id16").val();
+        var city = $("#province").val();
+        var district = $("#district").val();
+        var ward = $("#ward").val();
+        var address = $("#id20").val();
+        var addDefault = $("#id22").is(":checked");
+
+        if (fullname.trim() < 1) {
+            $("#inf_add_fullname").css({ "display": "inline-block" });
+        } else {
+            $("#inf_add_fullname").css({ "display": "none" });
+        }
+
+        if (phone.trim() < 1) {
+            $("#inf_add_phone").css({ "display": "inline-block" });
+        } else {
+            $("#inf_add_phone").css({ "display": "none" });
+
+            if (phone.length != 10) {
+                $("#inf_add_phone_check").css({ "display": "inline-block" });
+            } else {
+                $("#inf_add_phone_check").css({ "display": "none" });
+            }
+        }
+
+        if (district == null) {
+            $("#inf_add_district").css({ "display": "inline-block" });
+        } else {
+            $("#inf_add_district").css({ "display": "none" });
+        }
+
+        if (ward == null) {
+            $("#id_add_ward").css({ "display": "inline-block" });
+        } else {
+            $("#id_add_ward").css({ "display": "none" });
+        }
+
+        if (address.trim() < 1) {
+            $("#inf_add").css({ "display": "inline-block" });
+            check = false;
+        } else {
+            $("#inf_add").css({ "display": "none" });
+            check = true;
+        }
+
+        if (fullname.trim().length > 0 && phone.trim().length > 0 && phone.length == 10 && district != null && ward != null && address.trim().length > 0) {
+            $.ajax({
+                url: '@Url.Action("insertAddress","Account")',
+                type: 'POST',
+                data: {
+                    user: '@Session["user"]',
+                    fullname: fullname,
+                    phone: phone,
+                    city: city,
+                    district,
+                    ward: ward,
+                    address: address,
+                    addDefault: addDefault,
+                },
+                success: function () {
+                    alert("Đã thêm địa chỉ thành công");
+                    location.reload();
+                    var modal = document.getElementById('themthongtingiaohang');
+                    var modal1 = document.getElementById('tatbangiaohang');
+                    modal.style.display = "none";
+                    modal1.style.display = "block";
+                }
+            });
+        }
+    });
+</script>

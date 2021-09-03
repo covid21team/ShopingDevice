@@ -1,0 +1,240 @@
+﻿
+@{
+    ViewBag.Title = "BillManager";
+    Layout = "~/Areas/Admin/Views/Shared/MainLayoutAdmin.cshtml";
+
+    TSP_Covid21.Areas.Admin.Controllers.BillManagerController BC = new TSP_Covid21.Areas.Admin.Controllers.BillManagerController();
+}
+
+<style>
+    .labelbilladmin {
+        margin-top: 0.2rem;
+        margin-bottom: 0.2rem;
+    }
+
+    .thanhkeobilladmin {
+        background: white;
+        overflow: auto;
+        height: 200px;
+        color: #333;
+    }
+
+    .tablebill {
+        position: sticky;
+        top: 0px;
+        background: rgb(255, 255, 255);
+    }
+</style>
+
+<div class="page-wrapper" style="min-height: 250px;">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="page-breadcrumb bg-white">
+        <div class="row align-items-center">
+            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                <h4 class="page-title">Danh sách hóa đơn</h4>
+            </div>
+
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <div class="row">
+            <div class="col-md-12 container">
+                <div class="white-box">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-8 ">
+                                <div class="container">
+                                    <table id="billmanager" class="table table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th style="width: 40px;">Mã</th>
+                                                <th style="text-align: center;">Tên người nhận</th>
+                                                <th style="text-align: center;">Ngày lập</th>
+                                                <th style="text-align: center;">Tiền</th>
+                                                <th style="text-align: center;">Trạng thái</th>
+                                            </tr>
+                                        </thead>
+                                        @{ 
+                                            var listBill = BC.listBill();
+                                        }
+                                        
+                                        <tbody>
+                                            @foreach (var item in listBill)
+                                            {
+                                                <tr class="hoverdonhang clickBill" onclick="click12()" >
+                                                    <td style="text-align: center;" class="billId">@item.BILLID</td>
+                                                    <td style="text-align: center;">@item.FULLNAME</td>
+
+                                                    <td style="text-align: center;">@item.DATECREATE</td>
+                                                    @{ 
+                                                        var temp1 = String.Format("{0:#,##0.##}", item.TOTALBILL);
+                                                        temp1 = temp1.Replace(".", ",");
+                                                        temp1 += "đ";
+                                                    }
+                                                    <td style="text-align: center;">@temp1</td>
+                                                    <td style="text-align: center;">
+                                                        @switch (item.BIllSTATUS)
+                                                        {
+                                                            case 1:
+                                                                {
+                                                                    <p class="tableb">Chờ xét duyệt</p>
+                                                                }
+                                                                break;
+                                                            case 2:
+                                                                {
+                                                                    <p class="tableb">Đang giao</p>
+                                                                }
+                                                                break;
+                                                            case 3:
+                                                                {
+                                                                    <p class="tableb">Đã giao</p>
+                                                                }
+                                                                break;
+                                                            case 4:
+                                                                {
+                                                                    <p class="tableb">Hủy đơn</p>
+                                                                }
+                                                                break;
+                                                        }
+                                                    </td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                        
+                                    </table>
+                                </div>
+                                
+                            </div>
+                            <div class="col-md-4" style="background: #E6F1D8;" id="billDetail">
+                                <h6 class="mb-2" style="margin-top: 5px;">Mã hóa đơn: </h6>
+                                <form>
+                                    <div>
+                                        <label for="" class="labelbilladmin">Người nhận</label>
+                                        <input type="text" class="form-control bluan" id="" disabled>
+                                    </div>
+                                    <div>
+                                        <label for="" class="labelbilladmin">Địa chỉ</label>
+                                        <textarea class="form-control" name="" id="" cols="30"
+                                                    rows="2" disabled></textarea>
+                                    </div>
+                                    <div>
+                                        <label for="" class="labelbilladmin">SĐT</label>
+                                        <input type="text" class="form-control bluan" id="" disabled>
+                                    </div>
+                                    <div class="form-group" >
+                                        <label style="margin-left: 2px;" class="labelbilladmin">Sản phẩm</label>
+                                        <div class="thanhkeobilladmin">
+
+
+                                            <table class="table table-hover">
+                                                <thead class="tablebill">
+                                                    <tr>
+                                                        <th style="text-align: center;">#</th>
+                                                        <th style="text-align: center;"> </th>
+                                                        <th style="text-align: center;">tên sản phẩm</th>
+                                                        <th style="text-align: center;">SL</th>
+                                                        <th style="text-align: center;">Tổng</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div style="text-align: center;">
+                                        <div style="text-align: center;">
+                                            <button type="button" class="btn btn-danger bluan"
+                                                    style="margin-bottom: 15px; margin-top: 15px;" disabled>
+                                                Duyệt
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End PAge Content -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Right sidebar -->
+        <!-- ============================================================== -->
+        <!-- .right-sidebar -->
+        <!-- ============================================================== -->
+        <!-- End Right sidebar -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Container fluid  -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+</div>
+
+<script>
+    $(document).ready(function () {
+
+        // Cấu hình các nhãn phân trang
+        $('#billmanager').dataTable({
+            "language": {
+                "sProcessing": "Đang xử lý...",
+                "sLengthMenu": "Xem _MENU_ mục",
+                "sZeroRecords": "Không tìm thấy dòng nào phù hợp",
+                "sInfo": "Đang xem _START_ đến _END_ trong tổng số _TOTAL_ mục",
+                "sInfoEmpty": "Đang xem 0 đến 0 trong tổng số 0 mục",
+                "sInfoFiltered": "(được lọc từ _MAX_ mục)",
+                "sInfoPostFix": "",
+                "sSearch": "Tìm:",
+                "sUrl": "",
+                "oPaginate": {
+                    "sFirst": "Đầu",
+                    "sPrevious": "Trước",
+                    "sNext": "Tiếp",
+                    "sLast": "Cuối"
+                }
+            },
+            "processing": true, // tiền xử lý trước
+            "aLengthMenu": [[5, 10, 20, 50], [5, 10, 20, 50]], // danh sách số trang trên 1 lần hiển thị bảng
+            "order": [[1, 'desc']] //sắp xếp giảm dần theo cột thứ 1
+        });
+
+
+    });
+</script> 
+
+<script>
+    $(".clickBill").click(function () {
+        var id = $(this).children(".billId").text();
+
+        $.ajax({
+            url: "@Url.Action("billDetail", "BillManager")",
+            type: "POST",
+            data: {
+                billId: id,
+            },
+            success: function (result) {
+                $("#billDetail").html(result);
+            }
+        });
+    });
+</script>
