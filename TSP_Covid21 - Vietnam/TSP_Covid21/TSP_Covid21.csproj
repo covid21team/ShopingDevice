@@ -144,14 +144,29 @@
     <Compile Include="Areas\Admin\Controllers\ProfileController.cs" />
     <Compile Include="Areas\Admin\Controllers\StaticController.cs" />
     <Compile Include="Areas\Admin\Models\ProductManager_BUS.cs" />
+    <Compile Include="Areas\Admin\Models\ViewModel\ListPic_Edit.cs" />
+    <Compile Include="Areas\Game\Controllers\BauCuaController.cs" />
+    <Compile Include="Areas\Game\GameAreaRegistration.cs" />
+    <Compile Include="Areas\Game\Models\BauCua.cs" />
+    <Compile Include="Areas\Game\ViewModel\Inf_ChessBoard.cs" />
+    <Compile Include="Areas\Game\ViewModel\Inf_Room.cs" />
+    <Compile Include="Areas\Mother\Controllers\AdminController.cs" />
+    <Compile Include="Areas\Mother\Controllers\ClientController.cs" />
+    <Compile Include="Areas\Mother\MotherAreaRegistration.cs" />
+    <Compile Include="Areas\Mother\ViewModel\BillDetail_Cus.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\ApiController.cs" />
+    <Compile Include="Controllers\Api\ApiAccountController.cs" />
+    <Compile Include="Controllers\Api\ApiProductController.cs" />
     <Compile Include="Controllers\Covid21Controller.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ApiObject\Account.cs" />
+    <Compile Include="Models\ApiObject\Product.cs" />
     <Compile Include="Models\BUS\Account_BUS.cs" />
+    <Compile Include="Models\BUS\Api\ApiAccount_BUS.cs" />
+    <Compile Include="Models\BUS\Api\ApiProduct_BUS.cs" />
     <Compile Include="Models\BUS\Bill_BUS.cs" />
     <Compile Include="Models\BUS\Comment_BUS.cs" />
     <Compile Include="Models\BUS\Picture_BUS.cs" />
@@ -190,6 +205,12 @@
     <Compile Include="Models\ShopEntity\CONFIGDETAIL.cs">
       <DependentUpon>ShopEntity.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ShopEntity\PICTURE.cs">
+      <DependentUpon>ShopEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ShopEntity\PIC_PRODUCT.cs">
+      <DependentUpon>ShopEntity.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ShopEntity\PRODUCT.cs">
       <DependentUpon>ShopEntity.tt</DependentUpon>
     </Compile>
@@ -224,6 +245,39 @@
       <DependentUpon>ShopEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ShopEntity\VOUCHER.cs">
+      <DependentUpon>ShopEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ShopEntity\ww_BAUCUA_ACCOUNT.cs">
+      <DependentUpon>ShopEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ShopEntity\ww_BAUCUA_ANIMAL.cs">
+      <DependentUpon>ShopEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ShopEntity\ww_BAUCUA_CHAT.cs">
+      <DependentUpon>ShopEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ShopEntity\ww_BAUCUA_COLOR.cs">
+      <DependentUpon>ShopEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ShopEntity\ww_BAUCUA_PLAYER.cs">
+      <DependentUpon>ShopEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ShopEntity\ww_BAUCUA_PLAYERDETAIL.cs">
+      <DependentUpon>ShopEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ShopEntity\ww_BAUCUA_ROOM.cs">
+      <DependentUpon>ShopEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ShopEntity\ww_Bill.cs">
+      <DependentUpon>ShopEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ShopEntity\ww_BillDetail.cs">
+      <DependentUpon>ShopEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ShopEntity\ww_Customer.cs">
+      <DependentUpon>ShopEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ShopEntity\ww_Product.cs">
       <DependentUpon>ShopEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ViewModel\AccountViewModel.cs" />
@@ -402,6 +456,69 @@
     <Content Include="Areas\Admin\AssetAdmin\plugins\images\users\ritesh.jpg" />
     <Content Include="Areas\Admin\AssetAdmin\plugins\images\users\sonu.jpg" />
     <Content Include="Areas\Admin\AssetAdmin\plugins\images\users\varun.jpg" />
+    <Content Include="Areas\Game\Asset\Js\JoinRoom.js" />
+    <Content Include="Areas\Game\Asset\Pic_Game\amount.png" />
+    <Content Include="Areas\Game\Asset\Pic_Game\amount_01.png" />
+    <Content Include="Areas\Game\Asset\Pic_Game\amount_02.png" />
+    <Content Include="Areas\Game\Asset\Pic_Game\amount_03.png" />
+    <Content Include="Areas\Game\Asset\Pic_Game\amount_04.png" />
+    <Content Include="Areas\Game\Asset\Pic_Game\amount_05.png" />
+    <Content Include="Areas\Game\Asset\Pic_Game\amount_06.png" />
+    <Content Include="Areas\Game\Asset\Pic_Game\Animal\chicken.gif" />
+    <Content Include="Areas\Game\Asset\Pic_Game\Animal\crab.gif" />
+    <Content Include="Areas\Game\Asset\Pic_Game\Animal\deer.gif" />
+    <Content Include="Areas\Game\Asset\Pic_Game\Animal\fish.gif" />
+    <Content Include="Areas\Game\Asset\Pic_Game\Animal\gourd.png" />
+    <Content Include="Areas\Game\Asset\Pic_Game\Animal\shrimp.gif" />
+    <Content Include="Areas\Game\Asset\Pic_Game\close_room.png" />
+    <Content Include="Areas\Game\Asset\Pic_Game\Dice\dice_chicken.png" />
+    <Content Include="Areas\Game\Asset\Pic_Game\Dice\dice01.gif" />
+    <Content Include="Areas\Game\Asset\Pic_Game\Dice\dice02.gif" />
+    <Content Include="Areas\Game\Asset\Pic_Game\Dice\dice03.gif" />
+    <Content Include="Areas\Game\Asset\Pic_Game\Dice\dice_crab.png" />
+    <Content Include="Areas\Game\Asset\Pic_Game\Dice\dice_deer.png" />
+    <Content Include="Areas\Game\Asset\Pic_Game\Dice\dice_fish.png" />
+    <Content Include="Areas\Game\Asset\Pic_Game\Dice\dice_gourd.png" />
+    <Content Include="Areas\Game\Asset\Pic_Game\Dice\dice_shrimp.png" />
+    <Content Include="Areas\Game\Asset\Pic_Game\Loading\loading.gif" />
+    <Content Include="Areas\Game\Asset\Pic_Game\logo.jfif" />
+    <Content Include="Areas\Game\Asset\Pic_Game\Player\Frame_Chat_Left.png" />
+    <Content Include="Areas\Game\Asset\Pic_Game\Player\Frame_Chat_Left_1.png" />
+    <Content Include="Areas\Game\Asset\Pic_Game\Player\Frame_Chat_Right.png" />
+    <Content Include="Areas\Game\Asset\Pic_Game\Player\Frame_Chat_Right_1.png" />
+    <Content Include="Areas\Game\Asset\Pic_Game\Player\images.png" />
+    <Content Include="Areas\Game\Asset\Pic_Game\Player\send.png" />
+    <Content Include="Areas\Game\Asset\Pic_Game\Player\send1.png" />
+    <Content Include="Areas\Game\Asset\Pic_Game\setting.gif" />
+    <Content Include="Areas\Mother\Asset\Pic_Mother\bapcai.jpeg" />
+    <Content Include="Areas\Mother\Asset\Pic_Mother\bau.jpeg" />
+    <Content Include="Areas\Mother\Asset\Pic_Mother\bi.jpeg" />
+    <Content Include="Areas\Mother\Asset\Pic_Mother\bido.jpeg" />
+    <Content Include="Areas\Mother\Asset\Pic_Mother\bun.jpeg" />
+    <Content Include="Areas\Mother\Asset\Pic_Mother\cachua.jpeg" />
+    <Content Include="Areas\Mother\Asset\Pic_Mother\caichua.jpeg" />
+    <Content Include="Areas\Mother\Asset\Pic_Mother\caithao.jpeg" />
+    <Content Include="Areas\Mother\Asset\Pic_Mother\caitrang.jpeg" />
+    <Content Include="Areas\Mother\Asset\Pic_Mother\carot.jpeg" />
+    <Content Include="Areas\Mother\Asset\Pic_Mother\catim.jpeg" />
+    <Content Include="Areas\Mother\Asset\Pic_Mother\cuden.jpeg" />
+    <Content Include="Areas\Mother\Asset\Pic_Mother\daubap.jpeg" />
+    <Content Include="Areas\Mother\Asset\Pic_Mother\dauque.jpeg" />
+    <Content Include="Areas\Mother\Asset\Pic_Mother\hanhdo.jpeg" />
+    <Content Include="Areas\Mother\Asset\Pic_Mother\dualeo.jpeg" />
+    <Content Include="Areas\Mother\Asset\Pic_Mother\duanon.jpeg" />
+    <Content Include="Areas\Mother\Asset\Pic_Mother\gia.jpeg" />
+    <Content Include="Areas\Mother\Asset\Pic_Mother\hanhcu.jpeg" />
+    <Content Include="Areas\Mother\Asset\Pic_Mother\hanhla.jpeg" />
+    <Content Include="Areas\Mother\Asset\Pic_Mother\hanhtay.jpeg" />
+    <Content Include="Areas\Mother\Asset\Pic_Mother\khoailang.jpeg" />
+    <Content Include="Areas\Mother\Asset\Pic_Mother\khoaitay.jpeg" />
+    <Content Include="Areas\Mother\Asset\Pic_Mother\khoqua.jpeg" />
+    <Content Include="Areas\Mother\Asset\Pic_Mother\muop.jpeg" />
+    <Content Include="Areas\Mother\Asset\Pic_Mother\ot.jpeg" />
+    <Content Include="Areas\Mother\Asset\Pic_Mother\su.jpeg" />
+    <Content Include="Areas\Mother\Asset\Pic_Mother\thom.jpeg" />
+    <Content Include="Areas\Mother\Asset\Pic_Mother\toi.jpeg" />
     <Content Include="Asset\css\banchonuser.css" />
     <Content Include="Asset\css\bootstrap.min.css" />
     <Content Include="Asset\css\cart.css" />
@@ -420,232 +537,13 @@
     <Content Include="Asset\fonts\slick.svg" />
     <Content Include="Asset\images\AboutUs\quangsy.jpg" />
     <Content Include="Asset\images\AboutUs\tringu.jpg" />
-    <Content Include="Asset\images\apple-airpods-max-2-1 - Copy.jpg" />
-    <Content Include="Asset\images\apple-airpods-max-2-1.jpg" />
-    <Content Include="Asset\images\apple-airpods-max-2-2 - Copy.jpg" />
-    <Content Include="Asset\images\apple-airpods-max-2-2.jpg" />
-    <Content Include="Asset\images\apple-airpods-max-2-3.jpg" />
-    <Content Include="Asset\images\apple-airpods-max-2-4 - Copy.jpg" />
-    <Content Include="Asset\images\apple-airpods-max-2-4.jpg" />
-    <Content Include="Asset\images\apple-airpods-max-2-5 - Copy.jpg" />
-    <Content Include="Asset\images\apple-airpods-max-2-5.jpg" />
-    <Content Include="Asset\images\bluetooth-apple-airpod-1.jpg" />
-    <Content Include="Asset\images\bluetooth-apple-airpod-2.jpg" />
-    <Content Include="Asset\images\bluetooth-apple-airpod-3.jpg" />
-    <Content Include="Asset\images\bluetooth-apple-airpod-4.jpg" />
-    <Content Include="Asset\images\bluetooth-apple-airpod-5.jpg" />
-    <Content Include="Asset\images\Loading\loading.gif" />
-    <Content Include="Asset\images\Sony-MDR-XB550AP-1.jpg" />
-    <Content Include="Asset\images\Sony-MDR-XB550AP-2.jpg" />
-    <Content Include="Asset\images\Sony-MDR-XB550AP-3.jpg" />
-    <Content Include="Asset\images\Sony-MDR-XB550AP-4.jpg" />
-    <Content Include="Asset\images\Sony-MDR-XB550AP-5.jpg" />
-    <Content Include="Asset\images\sony-wf-xb700-1.jpg" />
-    <Content Include="Asset\images\sony-wf-xb700-2.jpg" />
-    <Content Include="Asset\images\sony-wf-xb700-3.jpg" />
-    <Content Include="Asset\images\sony-wf-xb700-4.jpg" />
-    <Content Include="Asset\images\sony-wf-xb700-5.jpg" />
-    <Content Include="Asset\images\Bluetooth-Xiaomi-Earphone-Lite-1.jpg" />
-    <Content Include="Asset\images\Bluetooth-Xiaomi-Earphone-Lite-2.jpg" />
-    <Content Include="Asset\images\Bluetooth-Xiaomi-Earphone-Lite-3.jpg" />
-    <Content Include="Asset\images\Bluetooth-Xiaomi-Earphone-Lite-4.png" />
-    <Content Include="Asset\images\Bluetooth-Xiaomi-Earphone-Lite-5.jpg" />
-    <Content Include="Asset\images\xiaomi-mi-true-wireless-earbuds-basic-2-1.jpeg" />
-    <Content Include="Asset\images\xiaomi-mi-true-wireless-earbuds-basic-2-2.jpeg" />
-    <Content Include="Asset\images\xiaomi-mi-true-wireless-earbuds-basic-2-3.jpg" />
-    <Content Include="Asset\images\xiaomi-mi-true-wireless-earbuds-basic-2-4.jpg" />
-    <Content Include="Asset\images\xiaomi-mi-true-wireless-earbuds-basic-2-5.jpg" />
-    <Content Include="Asset\images\acer-aspire-7-a715-1.jpg" />
-    <Content Include="Asset\images\acer-aspire-7-a715-2.jpg" />
-    <Content Include="Asset\images\acer-aspire-7-a715-3.jpg" />
-    <Content Include="Asset\images\acer-aspire-7-a715-4.jpg" />
-    <Content Include="Asset\images\acer-aspire-7-a715-5.jpg" />
     <Content Include="Asset\images\acer-nitro-5-an515-1g.jpg" />
-    <Content Include="Asset\images\acer-nitro-5-an515-2.jpg" />
-    <Content Include="Asset\images\acer-nitro-5-an515-3.jpg" />
-    <Content Include="Asset\images\acer-nitro-5-an515-4.jpg" />
-    <Content Include="Asset\images\acer-nitro-5-an515-5.jpg" />
-    <Content Include="Asset\images\acer-swift-3-sf31-1.jpg" />
-    <Content Include="Asset\images\acer-swift-3-sf31-2.jpg" />
-    <Content Include="Asset\images\acer-swift-3-sf31-3.jpg" />
-    <Content Include="Asset\images\acer-swift-3-sf31-4.jpg" />
-    <Content Include="Asset\images\acer-swift-3-sf31-5.jpg" />
-    <Content Include="Asset\images\apple-macbook-air-m1-2020-1.jpg" />
-    <Content Include="Asset\images\apple-macbook-air-m1-2020-2.jpg" />
-    <Content Include="Asset\images\apple-macbook-air-m1-2020-3.jpg" />
-    <Content Include="Asset\images\apple-macbook-air-m1-2020-4.jpg" />
-    <Content Include="Asset\images\apple-macbook-air-m1-2020-5.jpg" />
-    <Content Include="Asset\images\Laptop Apple MacBook Pro M1 2020-1.jpg" />
-    <Content Include="Asset\images\Laptop Apple MacBook Pro M1 2020-2.jpg" />
-    <Content Include="Asset\images\Laptop Apple MacBook Pro M1 2020-3.jpg" />
-    <Content Include="Asset\images\Laptop Apple MacBook Pro M1 2020-4.jpg" />
-    <Content Include="Asset\images\Laptop Apple MacBook Pro M1 2020-5.jpg" />
-    <Content Include="Asset\images\asus-tuf-gaming-1.jpg" />
     <Content Include="Asset\images\asus-tuf-gaming-2.jpg" />
-    <Content Include="Asset\images\asus-tuf-gaming-3.jpg" />
-    <Content Include="Asset\images\asus-tuf-gaming-4.jpg" />
-    <Content Include="Asset\images\asus-tuf-gaming-5.jpg" />
-    <Content Include="Asset\images\asus-vivobook-1.jpg" />
-    <Content Include="Asset\images\asus-vivobook-2.jpg" />
-    <Content Include="Asset\images\asus-vivobook-3.jpg" />
-    <Content Include="Asset\images\asus-vivobook-4.jpg" />
-    <Content Include="Asset\images\asus-vivobook-5.jpg" />
-    <Content Include="Asset\images\asus-zenbook-1.jpg" />
-    <Content Include="Asset\images\asus-zenbook-2.jpg" />
-    <Content Include="Asset\images\asus-zenbook-3.jpg" />
-    <Content Include="Asset\images\asus-zenbook-4.jpg" />
-    <Content Include="Asset\images\asus-zenbook-5.jpg" />
-    <Content Include="Asset\images\MSI-GF63-10SC-1.jpg" />
-    <Content Include="Asset\images\MSI-GF63-10SC-2.jpg" />
-    <Content Include="Asset\images\MSI-GF63-10SC-3.jpg" />
-    <Content Include="Asset\images\MSI-GF63-10SC-4.jpg" />
-    <Content Include="Asset\images\MSI-GF63-10SC-5.jpg" />
-    <Content Include="Asset\images\msi-gf65-1.jpg" />
-    <Content Include="Asset\images\msi-gf65-2.jpg" />
-    <Content Include="Asset\images\msi-gf65-3.jpg" />
-    <Content Include="Asset\images\msi-gf65-4.jpg" />
-    <Content Include="Asset\images\msi-gf65-5.jpg" />
-    <Content Include="Asset\images\MSI-GF75-1.jpg" />
-    <Content Include="Asset\images\MSI-GF75-2.jpg" />
-    <Content Include="Asset\images\MSI-GF75-3.jpg" />
-    <Content Include="Asset\images\MSI-GF75-4.jpg" />
-    <Content Include="Asset\images\MSI-GF75-5.jpg" />
+    <Content Include="Asset\images\Loading\loading.gif" />
     <Content Include="Asset\images\logo.png" />
-    <Content Include="Asset\images\iphone-11-1.jpg" />
-    <Content Include="Asset\images\iphone-11-2.jpg" />
-    <Content Include="Asset\images\iphone-11-3.jpg" />
-    <Content Include="Asset\images\iphone-11-4.jpg" />
-    <Content Include="Asset\images\iphone-11-5.jpg" />
-    <Content Include="Asset\images\iphone-12-1.jpg" />
-    <Content Include="Asset\images\iphone-12-2.jpg" />
-    <Content Include="Asset\images\iphone-12-3.jpg" />
-    <Content Include="Asset\images\iphone-12-4.jpg" />
-    <Content Include="Asset\images\iphone-12-5.jpg" />
-    <Content Include="Asset\images\iphone-xr-1.jpg" />
-    <Content Include="Asset\images\iphone-xr-2.jpg" />
-    <Content Include="Asset\images\iphone-xr-3.jpg" />
-    <Content Include="Asset\images\iphone-xr-4.jpg" />
-    <Content Include="Asset\images\iphone-xr-5.jpg" />
-    <Content Include="Asset\images\oppo-find-x3-pro-den-1-org.jpg" />
-    <Content Include="Asset\images\oppo-find-x3-pro-den-2-org.jpg" />
-    <Content Include="Asset\images\oppo-find-x3-pro-den-3-org.jpg" />
-    <Content Include="Asset\images\oppo-find-x3-pro-den-4-org.jpg" />
-    <Content Include="Asset\images\oppo-find-x3-pro-den-5-org.jpg" />
-    <Content Include="Asset\images\oppo-reno4-pro-trang-1-org.jpg" />
-    <Content Include="Asset\images\oppo-reno4-pro-trang-2-org.jpg" />
-    <Content Include="Asset\images\oppo-reno4-pro-trang-3-org.jpg" />
-    <Content Include="Asset\images\oppo-reno4-pro-trang-4-org.jpg" />
-    <Content Include="Asset\images\oppo-reno4-pro-trang-5-org.jpg" />
-    <Content Include="Asset\images\oppo-reno5-bac-1-org.jpg" />
-    <Content Include="Asset\images\oppo-reno5-bac-2-org.jpg" />
-    <Content Include="Asset\images\oppo-reno5-bac-3-org.jpg" />
-    <Content Include="Asset\images\oppo-reno5-bac-4-org.jpg" />
-    <Content Include="Asset\images\oppo-reno5-bac-5-org.jpg" />
-    <Content Include="Asset\images\samsung-galaxy-z-fold2-5g-dac-biet-vang-dong-1-1-org.jpg" />
-    <Content Include="Asset\images\samsung-galaxy-z-fold2-5g-dac-biet-vang-dong-2-org.jpg" />
-    <Content Include="Asset\images\samsung-galaxy-z-fold2-5g-dac-biet-vang-dong-3-org.jpg" />
-    <Content Include="Asset\images\samsung-galaxy-z-fold2-5g-dac-biet-vang-dong-4-org.jpg" />
-    <Content Include="Asset\images\samsung-galaxy-z-fold2-5g-dac-biet-vang-dong-5-org.jpg" />
     <Content Include="Asset\images\samsung-a02-1.jpg" />
-    <Content Include="Asset\images\samsung-a02-2.jpg" />
-    <Content Include="Asset\images\samsung-a02-3.jpg" />
-    <Content Include="Asset\images\samsung-a02-4.jpg" />
-    <Content Include="Asset\images\samsung-a02-5.jpg" />
-    <Content Include="Asset\images\samsung-galaxy-s21-tim-1-org.jpg" />
-    <Content Include="Asset\images\samsung-galaxy-s21-tim-2-org.jpg" />
-    <Content Include="Asset\images\samsung-galaxy-s21-tim-3-org.jpg" />
-    <Content Include="Asset\images\samsung-galaxy-s21-tim-4-org.jpg" />
-    <Content Include="Asset\images\samsung-galaxy-s21-tim-5-org.jpg" />
-    <Content Include="Asset\images\xiaomi-mi-11-lite-4g-hong-1-org.jpg" />
-    <Content Include="Asset\images\xiaomi-mi-11-lite-4g-hong-2-org.jpg" />
-    <Content Include="Asset\images\xiaomi-mi-11-lite-4g-hong-3-org.jpg" />
-    <Content Include="Asset\images\xiaomi-mi-11-lite-4g-hong-4-org.jpg" />
-    <Content Include="Asset\images\xiaomi-mi-11-lite-4g-hong-5-org.jpg" />
-    <Content Include="Asset\images\xiaomi-poco-x3-xam-1-org.jpg" />
-    <Content Include="Asset\images\xiaomi-poco-x3-xam-2-org.jpg" />
-    <Content Include="Asset\images\xiaomi-poco-x3-xam-3-org.jpg" />
-    <Content Include="Asset\images\xiaomi-poco-x3-xam-4-org.jpg" />
-    <Content Include="Asset\images\xiaomi-poco-x3-xam-5-org.jpg" />
-    <Content Include="Asset\images\xiaomi-mi-11-1.jpg" />
-    <Content Include="Asset\images\xiaomi-mi-11-2.jpg" />
-    <Content Include="Asset\images\xiaomi-mi-11-3.jpg" />
-    <Content Include="Asset\images\xiaomi-mi-11-4.jpg" />
-    <Content Include="Asset\images\xiaomi-mi-11-5.jpg" />
-    <Content Include="Asset\images\apple-watch-series-6-1.jpg" />
-    <Content Include="Asset\images\apple-watch-series-6-2.jpg" />
-    <Content Include="Asset\images\apple-watch-series-6-3.jpg" />
-    <Content Include="Asset\images\apple-watch-series-6-4.jpg" />
-    <Content Include="Asset\images\apple-watch-series-6-5.jpg" />
     <Content Include="Asset\images\Samsung-Galaxy-Watch-Active-1.jpg" />
-    <Content Include="Asset\images\Samsung-Galaxy-Watch-Active-2.jpg" />
-    <Content Include="Asset\images\Samsung-Galaxy-Watch-Active-3.jpg" />
-    <Content Include="Asset\images\Samsung-Galaxy-Watch-Active-4.jpg" />
-    <Content Include="Asset\images\Samsung-Galaxy-Watch-Active-5.jpg" />
-    <Content Include="Asset\images\Samsung-Galaxy-Watch-Active-LTE-1.jpg" />
-    <Content Include="Asset\images\Samsung-Galaxy-Watch-Active-LTE-2.jpg" />
-    <Content Include="Asset\images\Samsung-Galaxy-Watch-Active-LTE-3.jpg" />
-    <Content Include="Asset\images\Samsung-Galaxy-Watch-Active-LTE-4.jpg" />
-    <Content Include="Asset\images\Samsung-Galaxy-Watch-Active-LTE-5.jpg" />
-    <Content Include="Asset\images\mi-watch-1.jpg" />
-    <Content Include="Asset\images\mi-watch-lite_1.jpg" />
-    <Content Include="Asset\images\mi-watch-lite_2.jpg" />
-    <Content Include="Asset\images\mi-watch-lite_3.png" />
-    <Content Include="Asset\images\mi-watch-lite_4.jpg" />
-    <Content Include="Asset\images\mi-watch-lite_5.jpg" />
-    <Content Include="Asset\images\xiaomi-mi-band-1.png" />
-    <Content Include="Asset\images\xiaomi-mi-band-2.jpg" />
-    <Content Include="Asset\images\xiaomi-mi-band-3.jpg" />
-    <Content Include="Asset\images\xiaomi-mi-band-4.jpg" />
-    <Content Include="Asset\images\xiaomi-mi-band-5.jpg" />
-    <Content Include="Asset\images\ipad-8-wifi-cellular-1.jpg" />
-    <Content Include="Asset\images\ipad-8-wifi-cellular-2.jpg" />
-    <Content Include="Asset\images\ipad-8-wifi-cellular-3.jpg" />
-    <Content Include="Asset\images\ipad-8-wifi-cellular-4.jpg" />
-    <Content Include="Asset\images\ipad-8-wifi-cellular-5.jpg" />
-    <Content Include="Asset\images\ipad-air-4-rose-gold-1.jpg" />
-    <Content Include="Asset\images\ipad-air-4-rose-gold-2.jpg" />
-    <Content Include="Asset\images\ipad-air-4-rose-gold-3.jpg" />
-    <Content Include="Asset\images\ipad-air-4-rose-gold-4.jpg" />
-    <Content Include="Asset\images\ipad-air-4-rose-gold-5.jpg" />
-    <Content Include="Asset\images\iPadPro11-1.png" />
-    <Content Include="Asset\images\iPadPro11-2.jpg" />
-    <Content Include="Asset\images\iPadPro11-3.jpeg" />
-    <Content Include="Asset\images\iPadPro11-4.jpeg" />
-    <Content Include="Asset\images\iPadPro11-5.jpeg" />
-    <Content Include="Asset\images\lenovo-tab-m10-fhd-plus-1.jpg" />
-    <Content Include="Asset\images\lenovo-tab-m10-fhd-plus-2.jpg" />
-    <Content Include="Asset\images\lenovo-tab-m10-fhd-plus-3.jpg" />
-    <Content Include="Asset\images\lenovo-tab-m10-fhd-plus-4.jpg" />
-    <Content Include="Asset\images\lenovo-tab-m10-fhd-plus-5.jpg" />
-    <Content Include="Asset\images\lenovo-tab-m8-1.jpg" />
-    <Content Include="Asset\images\lenovo-tab-m8-2.jpg" />
-    <Content Include="Asset\images\lenovo-tab-m8-3.jpg" />
-    <Content Include="Asset\images\lenovo-tab-m8-4.jpg" />
-    <Content Include="Asset\images\lenovo-tab-m8-5.jpg" />
-    <Content Include="Asset\images\samsung-galaxy-tab-a7-lite-1.jpg" />
-    <Content Include="Asset\images\samsung-galaxy-tab-a7-lite-2.jpg" />
-    <Content Include="Asset\images\samsung-galaxy-tab-a7-lite-3.jpg" />
-    <Content Include="Asset\images\samsung-galaxy-tab-a7-lite-4.jpg" />
-    <Content Include="Asset\images\samsung-galaxy-tab-a7-lite-5.jpg" />
-    <Content Include="Asset\images\samsung-galaxy-tab-s7-1.jpg" />
-    <Content Include="Asset\images\samsung-galaxy-tab-s7-2.jpg" />
-    <Content Include="Asset\images\samsung-galaxy-tab-s7-3.jpg" />
-    <Content Include="Asset\images\samsung-galaxy-tab-s7-4.jpg" />
-    <Content Include="Asset\images\samsung-galaxy-tab-s7-5.jpg" />
-    <Content Include="Asset\img\hotdeal.png" />
-    <Content Include="Asset\img\logo.png" />
-    <Content Include="Asset\img\product01.png" />
-    <Content Include="Asset\img\product02.png" />
-    <Content Include="Asset\img\product03.png" />
-    <Content Include="Asset\img\product04.png" />
-    <Content Include="Asset\img\product05.png" />
-    <Content Include="Asset\img\product06.png" />
-    <Content Include="Asset\img\product07.png" />
-    <Content Include="Asset\img\product08.png" />
-    <Content Include="Asset\img\product09.png" />
-    <Content Include="Asset\img\shop01.png" />
-    <Content Include="Asset\img\shop02.png" />
-    <Content Include="Asset\img\shop03.png" />
+    <Content Include="Asset\images\xiaomi-mi-11-lite-4g-hong-1-org.jpg" />
     <Content Include="Asset\JS\bootstrap.min.js" />
     <Content Include="Asset\JS\cart.js" />
     <Content Include="Asset\JS\CountDownTimer.js" />
@@ -969,6 +867,7 @@
     <Content Include="Areas\Admin\Views\Admin\PictureManager.cshtml" />
     <Content Include="Areas\Admin\Views\Admin\BillManager.cshtml" />
     <Content Include="Areas\Admin\Views\BillManager\billDetail.cshtml" />
+    <Content Include="Areas\Admin\Views\PictureManager\listPic.cshtml" />
     <EntityDeploy Include="Models\ShopEntity\ShopEntity.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ShopEntity.Designer.cs</LastGenOutput>
@@ -976,6 +875,23 @@
     <Content Include="Models\ShopEntity\ShopEntity.edmx.diagram">
       <DependentUpon>ShopEntity.edmx</DependentUpon>
     </Content>
+    <Content Include="Areas\Mother\Views\web.config" />
+    <Content Include="Areas\Mother\Views\Shared\MainMother.cshtml" />
+    <Content Include="Areas\Mother\Views\Client\Home.cshtml" />
+    <Content Include="Areas\Mother\Views\Client\billDetail.cshtml" />
+    <Content Include="Areas\Game\Views\web.config" />
+    <Content Include="Areas\Game\Views\Shared\MainGame.cshtml" />
+    <Content Include="Areas\Game\Views\BauCua\Home.cshtml" />
+    <Content Include="Areas\Game\Views\Shared\Login.cshtml" />
+    <Content Include="Areas\Game\Views\BauCua\ListRoom.cshtml" />
+    <Content Include="Areas\Game\Views\BauCua\CreateRoom.cshtml" />
+    <Content Include="Areas\Game\Views\BauCua\JoinRoom.cshtml" />
+    <Content Include="Areas\Game\Views\BauCua\Load_ListRoom.cshtml" />
+    <Content Include="Areas\Game\Views\BauCua\LoadRoom.cshtml" />
+    <Content Include="Areas\Game\Views\Shared\Loading.cshtml" />
+    <Content Include="Areas\Game\Views\BauCua\ListChat.cshtml" />
+    <Content Include="Areas\Game\Views\BauCua\PlayerOfRoom.cshtml" />
+    <Content Include="Areas\Game\Views\BauCua\TakePic.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -988,6 +904,76 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="tinymce\js\tinymce\icons\default\icons.min.js" />
+    <Content Include="tinymce\js\tinymce\jquery.tinymce.min.js" />
+    <Content Include="tinymce\js\tinymce\license.txt" />
+    <Content Include="tinymce\js\tinymce\plugins\advlist\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\anchor\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\autolink\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\autoresize\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\autosave\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\bbcode\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\charmap\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\codesample\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\code\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\colorpicker\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\contextmenu\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\directionality\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\emoticons\js\emojiimages.js" />
+    <Content Include="tinymce\js\tinymce\plugins\emoticons\js\emojiimages.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\emoticons\js\emojis.js" />
+    <Content Include="tinymce\js\tinymce\plugins\emoticons\js\emojis.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\emoticons\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\fullpage\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\fullscreen\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\help\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\hr\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\imagetools\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\image\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\importcss\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\insertdatetime\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\legacyoutput\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\link\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\lists\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\media\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\nonbreaking\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\noneditable\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\pagebreak\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\paste\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\preview\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\print\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\quickbars\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\save\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\searchreplace\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\spellchecker\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\tabfocus\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\table\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\template\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\textcolor\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\textpattern\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\toc\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\visualblocks\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\visualchars\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\wordcount\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\skins\content\dark\content.min.css" />
+    <Content Include="tinymce\js\tinymce\skins\content\default\content.min.css" />
+    <Content Include="tinymce\js\tinymce\skins\content\document\content.min.css" />
+    <Content Include="tinymce\js\tinymce\skins\content\writer\content.min.css" />
+    <Content Include="tinymce\js\tinymce\skins\ui\oxide-dark\content.inline.min.css" />
+    <Content Include="tinymce\js\tinymce\skins\ui\oxide-dark\content.min.css" />
+    <Content Include="tinymce\js\tinymce\skins\ui\oxide-dark\content.mobile.min.css" />
+    <Content Include="tinymce\js\tinymce\skins\ui\oxide-dark\skin.min.css" />
+    <Content Include="tinymce\js\tinymce\skins\ui\oxide-dark\skin.mobile.min.css" />
+    <Content Include="tinymce\js\tinymce\skins\ui\oxide-dark\skin.shadowdom.min.css" />
+    <Content Include="tinymce\js\tinymce\skins\ui\oxide\content.inline.min.css" />
+    <Content Include="tinymce\js\tinymce\skins\ui\oxide\content.min.css" />
+    <Content Include="tinymce\js\tinymce\skins\ui\oxide\content.mobile.min.css" />
+    <Content Include="tinymce\js\tinymce\skins\ui\oxide\skin.min.css" />
+    <Content Include="tinymce\js\tinymce\skins\ui\oxide\skin.mobile.min.css" />
+    <Content Include="tinymce\js\tinymce\skins\ui\oxide\skin.shadowdom.min.css" />
+    <Content Include="tinymce\js\tinymce\themes\mobile\theme.min.js" />
+    <Content Include="tinymce\js\tinymce\themes\silver\theme.min.js" />
+    <Content Include="tinymce\js\tinymce\tinymce.min.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -1039,13 +1025,21 @@
     <Content Include="Views\Covid21\PrivacyPolicy.cshtml" />
     <Content Include="Views\Covid21\Seen.cshtml" />
     <Content Include="Views\Covid21\AboutUs.cshtml" />
+    <Content Include="tinymce\CHANGELOG.md" />
+    <Content Include="tinymce\js\tinymce\langs\README.md" />
+    <Content Include="tinymce\js\tinymce\skins\ui\oxide-dark\fonts\tinymce-mobile.woff" />
+    <Content Include="tinymce\js\tinymce\skins\ui\oxide\fonts\tinymce-mobile.woff" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Views\AccountManager\" />
-    <Folder Include="Areas\Admin\Views\PictureManager\" />
     <Folder Include="Areas\Admin\Views\Profile\" />
     <Folder Include="Areas\Admin\Views\Static\" />
+    <Folder Include="Areas\Mother\Models\" />
+    <Folder Include="Areas\Mother\Views\Admin\" />
+    <Folder Include="Asset\images\Products\" />
+    <Folder Include="Views\ApiAccount\" />
+    <Folder Include="Views\ApiProduct\" />
     <Folder Include="Views\Api\" />
     <Folder Include="Views\testApi\" />
   </ItemGroup>

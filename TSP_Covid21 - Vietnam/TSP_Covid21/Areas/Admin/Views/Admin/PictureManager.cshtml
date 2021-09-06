@@ -21,47 +21,19 @@
                     <ol class="breadcrumb ms-auto">
                         <li><a href="#" class="fw-normal"></a></li>
                     </ol>
-                    <a class="btn btn-danger  d-none d-md-block pull-right ms-3 hidden-xs hidden-sm " id="btnUpPic">
-                        Tải ảnh lên
-                    </a>
+                    <label for="inputUpPic">
+                        <a class="btn btn-danger  d-none d-md-block pull-right ms-3 hidden-xs hidden-sm ">
+                            Tải ảnh lên
+                        </a>
+                    </label>
+                        <input id="inputUpPic" type="file" multiple accept="image/*"
+                               name="files" style="display: none"/>
                 </div>
             </div>
         </div>
         <!-- /.col-lg-12 -->
     </div>
 
-    <!--up picture-->
-    <div id="UpPic" class="upPic" style="z-index: 50;">
-       
-        <div id="customers1">
-            <div style="float: none; margin-left: 40%">
-                <label for="inputUpPic">
-                    <span>
-                        <i class="fas fa-folder-open " style="color:#fad859;"></i>
-                        Open file
-                    </span>
-                </label>
-                <input id="inputUpPic" type="file" multiple accept="image/*"
-                       name="files" />
-            </div>
-            <!--class="input-file"      style="display: block"-->
-            <div class="card-deck" id="appearPicUp">
-
-            </div>
-        </div>
-    </div>
-
-    <!-- ============================================================== -->
-    <!-- End Bread crumb and right sidebar toggle -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- Container fluid  -->
-    <!-- ============================================================== -->
-
-
-    @{
-        IEnumerable<string> listPic = PC.listPic();
-    }
     <div class="container-fluid">
         <!-- ============================================================== -->
         <!-- Start Page Content -->
@@ -71,13 +43,10 @@
                 <div class="white-box">
 
                     <div class="container-fluid">
-                        <div class="row">
-                            @foreach (var item in listPic)
-                            {
-                                <div class="col order-sm-2">
-                                    <img src="~/@item" style="height: 350px; width: 250px; object-fit:contain" alt="">
-                                </div>
-                            }
+                        <div class="row" id="appearPicUp">
+                            
+                            @Html.Partial("~/Areas/Admin/Views/PictureManager/listPic.cshtml")
+
                         </div>
                     </div>
 
@@ -95,50 +64,64 @@
         <!-- End Right sidebar -->
         <!-- ============================================================== -->
     </div>
-    <!-- ============================================================== -->
-    <!-- End Container fluid  -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
 </div>
+
+<!--Xác nhận xóa ảnh-->
+<script>
+    $(".yes").click(function () {
+        var parent_pa = $(this).parent().parent().parent().parent();
+        var parent = $(this).parent();
+        var id = $(parent).children(".picId").val();
+
+        $.ajax({
+            url: '@Url.Action("DelPic", "PictureManager")',
+            type: "POST",
+            data: {
+                id: id,
+            },
+            success: function () {
+                alert("Xóa ảnh thành công");
+            },
+            error: function () {
+                alert("Xóa ảnh thất bại");
+            }
+        });
+        $(parent_pa).remove();
+    })
+
+    $(".no").click(function () {
+        var parent = $(this).parent().parent().parent().parent();
+        $(parent).children(".upPic").css({ "display": "none" }); 
+    })
+</script>
+
+<!--Xóa ảnh-->
+<script>
+    $("body").on("click", ".removePicture", function () {
+        var parent = $(this).parent().parent().parent();
+
+        $(parent).children(".upPic").css({ "display": "block" });
+    });
+</script>
 
 <!--up ảnh lên trình duyệt-->
 <script>
-    $("body").on("click", ".removePic", function () {
-        $(this).parent().parent().parent().parent().parent().remove();
-    });
-
     $("#inputUpPic").change(function (event) {
         var files = event.target.files;
 
         for (var i = 0; i < files.length; i++) {
             var file = files[i];
 
-            // Bỏ ảnh đang up vào khung hiện
-            if (file.type.match("image")) {
-                var picReader = new FileReader();
-                picReader.addEventListener("load", function (event) {
-                    var picFile = event.target;
-
-                    var create = document.createElement("div");
-                    create.innerHTML = '<div class="card mb-4 pictureUp" style="width: 104px; float: left;">' +
-                                            '<figure class="snip0068 yellow">' +
-                                                '<img src="' + picFile.result + '"/>' +
-                                                '<figcaption> ' +
-                                                    '<div>' +
-                                                        '<span class="removePic"><i class="far fa-trash-alt"></i> Remove</span>' +
-                                                    '</div>' +
-                                                '</figcaption>' +
-                                            '</figure>' +
-                                        '</div>';
-
-                    $("#appearPicUp").prepend(create);
-                });
-            }
-            picReader.readAsDataURL(file);
-
             uploadImage(file);
         }
+
+        $.ajax({
+            url: '@Url.Action("listPic", "PictureManager")',
+            type: 'POST',
+            success: function (result) {
+                $("#appearPicUp").html(result);
+            }
+        });
     });
 
     //Up ảnh lên database
@@ -155,11 +138,3 @@
         });
     }
 </script>
-
-<!--Hiện khung chứa những ảnh load lên-->
-<script>
-    $("#btnUpPic").click(function (){
-        $("#UpPic").show();
-    })
-</script>
-

@@ -107,24 +107,14 @@
 
                     <!--Nếu được thì tạo thêm 1 bảng hình dành cho sản phẩm để có thể tự động load, không cần xét từng bức-->
                     <div class="product-preview">
-                        <img src="~/@Model.MAINPIC" alt="">
+                        <img src="@Model.PIC_PRODUCT.Where(t => t.MAINPIC == true && t.PRODUCTID == Model.PRODUCTID).Select(c => c.PICTURE.PATH).SingleOrDefault()" alt="">
                     </div>
-
-                    <div class="product-preview">
-                        <img src="~/@Model.PIC1" alt="">
-                    </div>
-
-                    <div class="product-preview">
-                        <img src="~/@Model.PIC2" alt="">
-                    </div>
-
-                    <div class="product-preview">
-                        <img src="~/@Model.PIC3" alt="">
-                    </div>
-
-                    <div class="product-preview">
-                        <img src="~/@Model.PIC4" alt="">
-                    </div>
+                    @foreach(var item in Model.PIC_PRODUCT.Where(t => t.MAINPIC == false && t.PRODUCTID == Model.PRODUCTID).Select(c => c.PICTURE.PATH))
+                    {
+                        <div class="product-preview">
+                            <img src="@item" alt="">
+                        </div>
+                    }
                 </div>
             </div>
             <!-- /Product main img -->
@@ -132,24 +122,14 @@
             <div class="col-md-2  col-md-pull-5">
                 <div id="product-imgs">
                     <div class="product-preview">
-                        <img src="~/@Model.MAINPIC" alt="">
+                        <img src="@Model.PIC_PRODUCT.Where(t => t.MAINPIC == true && t.PRODUCTID == Model.PRODUCTID).Select(c => c.PICTURE.PATH).SingleOrDefault()" alt="">
                     </div>
-
-                    <div class="product-preview">
-                        <img src="~/@Model.PIC1" alt="">
-                    </div>
-
-                    <div class="product-preview">
-                        <img src="~/@Model.PIC2" alt="">
-                    </div>
-
-                    <div class="product-preview">
-                        <img src="~/@Model.PIC3" alt="">
-                    </div>
-
-                    <div class="product-preview">
-                        <img src="~/@Model.PIC4" alt="">
-                    </div>
+                    @foreach (var item in Model.PIC_PRODUCT.Where(t => t.MAINPIC == false && t.PRODUCTID == Model.PRODUCTID).Select(c => c.PICTURE.PATH))
+                    {
+                        <div class="product-preview">
+                            <img src="@item" alt="">
+                        </div>
+                    }
                 </div>
             </div>
             <!-- /Product thumb imgs -->
@@ -285,14 +265,23 @@
                     </ul>
                     <!-- /product tab nav -->
                     <!-- product tab content -->
+                    @{
+                        var descrip = Model.DECRIPTION;
+                        //Lấy lại những kí tự đặc biệt của html từ database
+                        descrip = descrip.Replace("&amp;", "&");
+                        descrip = descrip.Replace("&gt;", ">");
+                        descrip = descrip.Replace("&lt;", "<");
+                        descrip = descrip.Replace("&quot;", "\"");
+                        descrip = descrip.Replace("&#039;", "'");
+                    }
                     <div class="tab-content">
                         <!-- tab1  -->
                         <div id="tab1" class="tab-pane fade in active">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <p>
-                                        @Model.DECRIPTION
-                                    </p>
+                                 
+                                        @Html.Raw(descrip)
+                               
                                 </div>
                             </div>
                         </div>
@@ -452,7 +441,7 @@
                 <!-- product -->
                 <div class="col-md-3 col-xs-6">
 
-                    @Html.Partial("Public_shareProduct", item);
+                    @Html.Partial("Public_shareProduct", item)
 
                 </div>
                 <!-- /product -->

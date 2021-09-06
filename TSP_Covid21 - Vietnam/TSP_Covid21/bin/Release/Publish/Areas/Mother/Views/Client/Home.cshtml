@@ -1,0 +1,445 @@
+﻿
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Areas/Mother/Views/Shared/MainMother.cshtml";
+}
+
+@{ 
+    TSP_Covid21.Areas.Mother.Controllers.ClientController CC = new TSP_Covid21.Areas.Mother.Controllers.ClientController();
+    var listProduct = CC.ListProduct();
+}
+<style>
+    #loading_web {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 300; /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        padding-top: 15%;
+        margin-left: 41%;
+    }
+</style>
+
+<div id="loading_web">
+    <img src="~/Asset/images/Loading/loading.gif" />
+</div>
+
+<style>
+    #btn {
+        text-align: center;
+        font-size: 30px;
+        position: sticky;
+        top: 0px;
+        background-color: #1dbc3d;
+        padding: 15px;
+    }
+</style>
+<div id="btn">
+    <input type="button" value="Danh sách mặt hàng" id="btn_List" style="background-color: #17a8be; border: none" />
+    <input type="button" value="Hàng đã chọn mua" id="btn_Cart" style="border: none" />
+    <input type="button" value="Đơn hàng đã đặt" id="btn_Search" style=" border: none" /> <span id="AmountProduct">0</span>
+</div>
+
+<style>
+    p{
+        color: #e9ea19;
+    }
+
+    #TableCart {
+        width: 900px;
+    }
+
+        #TableCart th {
+            font-size: 20px;
+        }
+
+        #TableCart th, td {
+            text-align: center;
+            padding: 15px;
+        }
+
+        #TableCart tr {
+            border: 2px solid black;
+        }
+
+    #MyCart, #Note, #billDetail{
+        background-color: #FFDC00;
+        width: 900px;
+        margin: 0 auto;
+    }
+    #List{
+        width: 1140px;
+        margin: 0 auto;
+    }
+
+    #Note {
+        background-color: #d2cfcf;
+        color: red;
+    }
+</style>
+
+<div id="FrameList" style="display: block">
+    <div id="List">
+        <div class="card-deck" id="List">
+            @foreach (var item in listProduct)
+            {
+                <div style="text-align: center; padding: 20px">
+                    <img src="@item.Pic" style="height: 150px; width: 150px; object-fit: contain; background-color: #ffffff" />
+                    <p style="font-size: 30px"><b>@item.ProdutName</b></p>
+                    @{
+                        var temp_total = String.Format("{0:#,##0.##}", @item.Price);
+                        temp_total = temp_total.Replace(".", ",");
+                        temp_total += " VNĐ/Kg";
+                    }
+                    <p>Giá: <span class="productPrice">@temp_total</span></p>
+                    <p>Còn: @Math.Round(item.Quantity, 1) Kg</p>
+                    <input type="text" value="@item.ProductId" style="display: none" class="productId" />
+                    <input type="text" value="@item.ProdutName" style="display: none" class="productName" />
+                    <input type="text" value="@item.Price" style="display: none" class="productPrice" />
+                    <input type="text" value="@item.Pic" style="display: none" class="productPic" />
+                    <input type="checkbox" style="display: none" class="productState" />
+                    <input type="button" value="Chọn Mua" class="PaySelect" />
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<div id="FrameCart" style="display: none;">
+    <div id="MyCart" style="margin-top: 15px">
+        <table id="TableCart">
+            <thead>
+                <tr>
+                    <th>Mặt hàng</th>
+                    <th>Hình</th>
+                    <th>Số lượng</th>
+                    <th>Đơn vị</th>
+                    <th>Giá</th>
+                    <th>Tổng</th>
+                </tr>
+            </thead>
+            <tbody id="infCart"></tbody>
+        </table>
+        <div style="font-size: 20px; text-align: center">
+            <b>Tổng tất cả: </b><span id="totalCart"></span>
+        </div>
+    </div>
+    <div id="infCus" style="text-align: center; margin: 10px">
+        <div>
+            <label style="font-weight: bold">Họ và Tên: </label>
+            <input type="text" placeholder="Nhập họ và tên" style="margin-left: 23px" id="NameCus" />
+        </div>
+        <span id="infName" style="display: none; font-size: 15px; color: #f98b8b;">(Họ và tên bị trống)</span>
+        <div>
+            <label style="font-weight: bold">Số điện thoại: </label>
+            <input type="text" placeholder="Nhập số điện thoại" id="PhoneCus" />
+        </div>
+        <span id="infPhone" style="display: none; font-size: 15px; color: #f98b8b">(Số điện thoại bị trống)</span>
+    </div>
+    <div id="Note">
+        <div style="font-weight: bold">
+            *Lưu ý:
+        </div>
+        <div>
+            .   - Khi đã bấm nút đặt hàng thì sẽ không được sửa lại, nên vui lòng kiểm tra kĩ trước khi bấm nút.
+        </div>
+        <div>
+            .   - Hàng được đặt tới 9h sáng ngày mai mà không đến lấy thì xem như không muốn mua, nếu bận thì gọi điện báo trước.
+        </div>
+        <div>
+            .   - Khi đặt hàng ở trên này thì mọi mặt hàng được tính theo kg.
+        </div>
+        <div>
+            .   - Bà con nhớ nhập đúng tên và số điện thoại nhầm xác nhận hàng bà con muốn mua.
+        </div>
+        <div>
+            .   - Số điện thoại liên hệ: 0978118631
+        </div>
+    </div>
+    <div style="text-align: center; font-size: 25px; padding: 15px">
+        <input type="button" value="Đặt Hàng" style="border: none" id="Payment" />
+    </div>
+</div>
+
+<div id="FrameSearch" style="display: none">
+    <div style="text-align:center; padding: 15px">
+        <input type="text" placeholder="Nhập số điện thoại" id="seach_phone"/>
+        <input type="button" value="Tìm kiếm" id="search_btn"/>
+    </div>
+    <div style="text-align:center; display: none; font-size: 15px; color: #f98b8b;" id="search_infPhone">
+        (Điện thoại bị trống)
+    </div>
+    <div id="billDetail">
+        
+    </div>
+</div>
+
+<div id="infBill" style="display: none; text-align: center;">
+    <div id="Thankyou" style=" font-size: 50px ;color: wheat">
+
+    </div>
+    <div style="font-size: 20px">
+        <input type="button" value="Tiếp tục mua hàng" id="ok" />
+    </div>
+</div>
+
+<!--Chọn mua-->
+<script>
+    var dem = 0;
+    $(".PaySelect").click(function () {
+        var parent = $(this).parent();
+        var id = $(parent).children(".productId").val();
+        var name = $(parent).children(".productName").val();
+        var pic = $(parent).children(".productPic").val();
+        var price = $(parent).children().children(".productPrice").text();
+        var price1 = $(parent).children(".productPrice").val();
+
+        var check = $(parent).children(".productState");
+        var valueCheck = check.is(":checked");
+        if (!valueCheck) {
+            dem += 1;
+            $("#AmountProduct").html(dem);
+
+            $(this).css({ "color": "red" });
+            $(this).val("Đã mua");
+            check.prop("checked", true);
+
+            var tr = document.createElement("tr");
+
+            tr.innerHTML = "<td class='productCart' style='display: none'>" + id + "</td>" +
+                            "<td>" + name + "</td>" +
+                            "<td> <img src = '" + pic + "' style = 'height = 100px; width: 100px; object-fit: contain' /> </td>" +
+                            "<td> <input type='number' value = '1' min='0.1' style='width: 50px' class='amountProduct' onchange='temp(this)'> </td>" +
+                            "<td> Kg </td>"+
+                            "<td> <input type='text' class='price' style='display: none' value='" + price1 + "'>" + price + "</td>" +
+                            "<td class='total'>" + price1 + " VNĐ</td>";
+
+            $("#infCart").prepend(tr);
+        } else {
+            dem -= 1;
+            $("#AmountProduct").html(dem);
+
+            $(this).css({ "color": "black" });
+            $(this).val("Chọn Mua");
+            check.prop("checked", false);
+
+            $('.productCart').each(function () {
+                var productId = $(this).text();
+                if (productId == id) {
+                    $(this).parent().remove();
+                }
+            })
+        }
+        TotalAll();
+    })
+
+    function format2(n) {
+        return n.toFixed(1).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+    }
+
+    function TotalAll() {
+        var total = 0;
+        $(".productCart").each(function () {
+            var parent = $(this).parent();
+            var amount = $(parent).children().children(".amountProduct").val();
+            var price = $(parent).children().children(".price").val();
+            var money = amount * price;
+            total += money;
+        })
+        $("#totalCart").text(format2(total) + " VNĐ");
+    }
+</script>
+
+<!--Thay đổi số lượng-->
+<script>
+    function temp(t) {
+        var parent = $(t).parent().parent();
+        var _amount = parseFloat($(t).val());
+        var id = parseInt($(parent).children(".productCart").text());
+        var price = $(parent).children().children(".price").val();
+
+        $.ajax({
+            url: '@Url.Action("checkAmount", "Client")',
+            type: "POST",
+            contentType: "application/json",
+            data: JSON.stringify({
+                id: id,
+                amount: _amount,
+            }),
+            success: function (result) {
+
+                $(t).val(result);
+
+                var total = result * price;
+
+                $(parent).children(".total").text(format2(total) + " VNĐ");
+
+                TotalAll();
+            },
+            error: function (error, result) {
+                alert("fail");
+            }
+        })
+    }
+
+</script>
+
+<!--Chuyển trang-->
+<script>
+    $("#btn_Cart").click(function () {
+        $("#FrameCart").css({ "display": "block" });
+        $("#FrameList").css({ "display": "none" });
+        $("#FrameSearch").css({ "display": "none" });
+        $(this).css({ "background-color": "#17a8be" });
+        $("#btn_List").css({ "background-color": "#ffffff" })
+        $("#btn_Search").css({ "background-color": "#ffffff" })
+    })
+
+    $("#btn_List").click(function () {
+        $("#FrameCart").css({ "display": "none" });
+        $("#FrameSearch").css({ "display": "none" });
+        $("#FrameList").css({ "display": "block" });
+        $(this).css({ "background-color": "#17a8be" });
+        $("#btn_Cart").css({ "background-color": "#ffffff" })
+        $("#btn_Search").css({ "background-color": "#ffffff" })
+    })
+
+    $("#btn_Search").click(function () {
+        $("#FrameCart").css({ "display": "none" });
+        $("#FrameList").css({ "display": "none" });
+        $("#FrameSearch").css({ "display": "block" });
+        $(this).css({ "background-color": "#17a8be" });
+        $("#btn_Cart").css({ "background-color": "#ffffff" })
+        $("#btn_List").css({ "background-color": "#ffffff" })
+    })
+</script>
+
+<!--Đặt hàng-->
+<script>
+    $("#Payment").click(function () {
+        var name = $("#NameCus").val();
+        var phone = $("#PhoneCus").val();
+
+        var list = "";
+        $(".productCart").each(function () {
+            var id = $(this).text();
+            list += id;
+        })
+
+        if (name.trim() < 1) {
+            $("#infName").css({ "display": "block" });
+            $("#infName").html("(Họ và Tên bị trống)");
+        } else {
+            $("#infName").css({ "display": "none" });
+        }
+
+        if (phone.trim() < 1) {
+            $("#infPhone").css({ "display": "block" });
+            $("#infPhone").html("(Số điện thoại bị trống)");
+        } else {
+            if (phone.length != 10) {
+                $("#infPhone").css({ "display": "block" });
+                $("#infPhone").html("(Vui lòng nhập đúng số điện thoại)");
+            } else {
+                $("#infPhone").css({ "display": "none" });
+            }
+        }
+
+        if (list.length == 0) {
+            alert("Chưa có mặt hàng muốn mua");
+            $("#FrameCart").css({ "display": "none" });
+            $("#FrameList").css({ "display": "block" });
+            $("#btn_List").css({ "background-color": "#17a8be" });
+            $("#btn_Cart").css({ "background-color": "#ffffff" })
+        }
+
+        if (phone.trim().length > 0 && phone.length == 10 && name.trim().length > 0 && list.length > 0) {
+            $("#loading_web").css({ "display": "block" });
+            $.ajax({
+                url: '@Url.Action("CreateBill","Client")',
+                type: "POST",
+                contentType: "application/json",
+                data: JSON.stringify({
+                    name: name,
+                    phone: phone,
+                }),
+                success: function () {
+                    $('.productCart').each(function () {
+                        var id = $(this).text();
+                        var parent = $(this).parent();
+                        var amountProduct = parseFloat($(parent).children().children(".amountProduct").val());
+
+                        $.ajax({
+                            url: "@Url.Action("AddBillDetal", "Client")",
+                            type: "POST",
+                            contentType: "application/json",
+                            data: JSON.stringify({
+                                productId: id,
+                                amount: amountProduct,
+                                phone: phone,
+                            }),
+                            success: function () {
+                                $("#FrameCart").css({ "display": "none" });
+                                $("#btn").css({ "display": "none" });
+                                $("#infBill").css({ "display": "block" });
+                                $("#Thankyou").html("Tôi xin cảm ơn " + name + " đã ghé sạp bán rau Vĩnh Dũng");
+                                $("#loading_web").css({ "display": "none" });
+                            }
+                        })
+                    })
+                },
+                error: function () {
+                    alert("fail");
+                }
+            })
+        }
+    })
+</script>
+
+<!--Xác nhận thành công-->
+<script>
+    $("#ok").click(function () {
+        location.reload();
+    })
+</script>
+
+<!--Tìm kiếm-->
+<script>
+    $("#search_btn").click(function () {
+        var phone = $("#seach_phone").val();
+
+        if (phone.trim() < 1) {
+            $("#search_infPhone").css({ "display": "block" });
+            $("#search_infPhone").html("(Số điện thoại bị trống)");
+        } else {
+            if (phone.length != 10) {
+                $("#search_infPhone").css({ "display": "block" });
+                $("#search_infPhone").html("(Vui lòng nhập đúng số điện thoại)");
+            } else {
+                $("#search_infPhone").css({ "display": "none" });
+            }
+        }
+
+        if (phone.length == 10) {
+            $("#loading_web").css({ "display": "block" });
+            $.ajax({
+                url: '@Url.Action("billDetail", "Client")',
+                type: "POST",
+                data: {
+                    phone: phone,
+                },
+                success: function (result) {
+                    $("#loading_web").css({ "display": "none" });
+                    $("#billDetail").html(result);
+                },
+                error: function () {
+                    $("#loading_web").css({ "display": "none" });
+                    alert("fail");
+                }
+            })
+        }
+    })
+</script>

@@ -38,11 +38,11 @@
 <div class="product">
     <div class="product-img">
         <a href="@Url.Action("Product","Covid21",new { productId = Model.PRODUCTID})">
-            <img src="~/@Model.MAINPIC" alt="" style="width: 263px; height: 263px; object-fit: contain">
+            <img src="@Model.PIC_PRODUCT.Where(t => t.MAINPIC == true && t.PRODUCTID == Model.PRODUCTID).Select(c => c.PICTURE.PATH).SingleOrDefault()" alt="" style="width: 263px; height: 263px; object-fit: contain">
         </a>
 
         <div class="product-label">
-            @if (Model.STATUSPRODUCT == false)
+            @if (Model.STATUSPRODUCT == false || Model.PRODUCTAMOUNT < 1)
             {
                 <span class="new">Ngưng kinh doanh</span>
             }
@@ -73,7 +73,7 @@
             </button>
         </div>
     </div>
-    @if (Model.STATUSPRODUCT == true)
+    @if (Model.STATUSPRODUCT == true && Model.PRODUCTAMOUNT > 0)
     {
         <div class="add-to-cart">
             <input type="text" value="@Model.PRODUCTID" class="productId" style="display: none" />

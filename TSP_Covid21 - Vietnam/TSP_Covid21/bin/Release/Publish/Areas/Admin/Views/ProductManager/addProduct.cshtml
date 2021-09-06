@@ -76,7 +76,7 @@
         </tr>
         <tr>
             <th>
-                <label class="picture">Hình chính</label>
+                <label>Hình chính</label>
             </th>
             <td>
                 <div style="float: none;">
@@ -86,18 +86,18 @@
                             Open file
                         </span>
                     </label>
-                    <input id="AddMainpic" name="Pic2" class="input-file" type="file" multiple accept="image/*"
+                    <input id="AddMainpic" name="Pic2" class="input-file" type="button" multiple accept="image/*"
                            style="display: none" />
                 </div>
                 <div class="card-deck" id="AddappearMainPic">
- 
+
                 </div>
 
             </td>
         </tr>
         <tr>
             <th>
-                <label class="picture">Hình</label>
+                <label>Hình</label>
             </th>
             <td>
                 <div style="float: none;">
@@ -107,7 +107,7 @@
                             Open file
                         </span>
                     </label>
-                    <input id="filebutton" name="Pic2" class="input-file" type="file" multiple accept="image/*"
+                    <input id="filebutton" name="Pic2" class="input-file" type="button" multiple accept="image/*"
                            style="display: none" />
                 </div>
                 <div class="card-deck" id="appearPic">
@@ -146,7 +146,113 @@
 
 <input class="btn_Add" type="button" value="Thêm" style="margin-left: 61.5%; width: 10%" />
 
-<!--Chỉnh sửa thông tin sản phẩm-->
+@{
+    var Pic_Manager = new TSP_Covid21.Areas.Admin.Controllers.PictureManagerController();
+    var listPic = Pic_Manager.loadPic();
+}
+<style>
+    #appearPic_Add {
+        background: #ffffff;
+        height: auto;
+        max-height: 550px;
+        overflow-y: scroll;
+        margin-left: 1%;
+        margin-right: 1%;
+    }
+
+    .picture {
+        margin: 20px;
+        padding: 10px;
+        width: 120px;
+    }
+</style>
+
+<div id="ListPic_Add" class="modal" style="z-index: 50;">
+    <div id="appearPic_Add" class="card-deck">
+        <input id="infButton_Add" style="display: none" /> <!--Cho biết đang sử dụng thêm hình nào: 1 xử lí ảnh chính, 2 xử lí ảnh phụ-->
+        @foreach (var item in listPic)
+        {
+            <div class="picture">
+                <div style="transform: scale(1.5); margin-left: 85px; margin-top: -5px">
+                    <input type="checkbox" class="check" style=" display: none" />
+                </div>
+                <div>
+                    <input type="text" value="@item.PICTUREID" style="display: none" class="picId" />
+                    <input type="text" value="@item.PATH" style="display: none" class="picPath" />
+                    <img src="@item.PATH" style="width: 100px; height: 100px; object-fit: contain" />
+                </div>
+            </div>
+        }
+        <input type="button" id="confirmPic_Add" value="Xác nhận" />
+    </div>
+</div>
+<script>
+    $("#confirmPic_Add").click(function () {
+        var parent = $(this).parent().parent();
+        parent.css({ "display": "none" });
+    })
+    $(".picture").click(function () {
+        var pa_parent = $(this).parent().parent();
+        var inf = $(pa_parent).children().children("#infButton_Add").val();
+        var checkbox = $(this).children().children(".check");
+        var check = checkbox.is(":checked");
+        var picId = $(this).children().children(".picId").val();
+        var picPath = $(this).children().children(".picPath").val();
+
+        if (check == false) {
+            checkbox.prop("checked", true);
+            checkbox.css({ "display": "block" });
+            var create = document.createElement("div");
+
+            if (inf == "1") {
+                create.innerHTML = '<div class="card mb-4 AddpictureProductMain" style="width: 104px; float: left;">' +
+                    '<figure class="snip0068 yellow">' +
+                    '<input type="text" value="' + picId + '" style="display: none" class="takePath" />' +
+                    '<img src="' + picPath + '"/>' +
+                    '<figcaption> ' +
+                    '<div>' +
+                    '<span class="removePic"><i class="far fa-trash-alt"></i> Remove</span>' +
+                    '</div>' +
+                    '</figcaption>' +
+                    '</figure>' +
+                    '</div>';
+
+                $(this).css({ "border": "3px solid #129640" });
+                $("#AddappearMainPic").prepend(create);
+                pa_parent.css({ "display": "none" });
+            } else {
+                create.innerHTML = '<div class="card mb-4" style="width: 104px; float: left;">' +
+                    '<figure class="snip0068 yellow">' +
+                    '<input type="text" value="' + picId + '" style="display: none" class="takePath" />' +
+                    '<img src="' + picPath + '"/>' +
+                    '<figcaption> ' +
+                    '<div>' +
+                    '<span class="removePic"><i class="far fa-trash-alt"></i> Remove</span>' +
+                    '</div>' +
+                    '</figcaption>' +
+                    '</figure>' +
+                    '</div>';
+
+                $(this).css({ "border": "3px solid #2356a2" });
+                $("#appearPic").prepend(create);
+            }
+
+        } else {
+            checkbox.prop("checked", false);
+            checkbox.css({ "display": "none" });
+            $(this).css({ "border": "none" });
+
+            $('.card').each(function () {
+                pic = $(this).children().children(".takePath").val();
+                if (pic == picId) {
+                    $(this).parent().remove();
+                }
+            })
+        }
+    })
+</script>
+
+<!--thêm sản phẩm-->
 <script>
     $('.btn_Add').click(function () {
         //thông tin sản phẩm
@@ -161,10 +267,10 @@
             var description = $("#add_productDescription").val();
             var price = document.getElementById("add_productPrice").value;
             var pic1 = pic[0].value;
-            var pic2 = pic[1].value;
-            var pic3 = pic[2].value;
-            var pic4 = pic[3].value;
-            var pic5 = pic[4].value;
+            var pic2 = "";
+            for (var i = 1; i < pic.length; i++){
+                pic2 += pic[i].value + ",";
+            }
 
             $.ajax({
                 url: '@Url.Action("addSP", "ProductManager")',
@@ -178,9 +284,6 @@
                     price: price,
                     pic1: pic1,
                     pic2: pic2,
-                    pic3: pic3,
-                    pic4: pic4,
-                    pic5: pic5,
                 },
                 success: function () {
                     location.reload();
@@ -196,60 +299,48 @@
 <script>
     //Xóa ảnh
     $("body").on("click", ".removePic", function () {
-        $(this).parent().parent().parent().parent().parent().remove();
+        var parent = $(this).parent().parent().parent().parent().parent();
+        var id = $(parent).children().children().children(".takePath").val();
+        $('.picture').each(function () {
+            pic = $(this).children().children(".picId").val();
+            if (pic == id) {
+                $(this).css({ "border": "none" });
+                $(this).children().children(".check").css({ "display": "none" });
+                $(this).children().children(".check").prop("checked", false);
+            }
+        })
+
+        $(parent).remove();
     });
 
     //Up ảnh
-    $("#filebutton").change(function (event) {
+    $("#filebutton").click(function () {
 
-        var dem = document.getElementsByClassName("pictureProduct").length;
-
-        var files = event.target.files;
-
-        for (var i = 0; i < files.length && i < 4 - dem; i++) {
-            var file = files[i];
-            var create = document.createElement("div");
-
-            create.innerHTML = '<div class="card mb-4 pictureProduct" style="width: 104px; float: left;">' +
-                '<figure class="snip0068 yellow">' +
-                '<input type="text" value="Asset/images/' + file.name + '" style="display: none" class="takePath" />' +
-                '<img src="/Asset/images/' + file.name + '"/>' +
-                '<figcaption> ' +
-                '<div>' +
-                '<span class="removePic"><i class="far fa-trash-alt"></i> Remove</span>' +
-                '</div>' +
-                '</figcaption>' +
-                '</figure>' +
-                '</div>';
-
-            $("#appearPic").prepend(create);
-        }
+        $("#infButton_Add").val("2");
+        $("#ListPic_Add").css({ "display": "block" });
     });
 
     //Up ảnh đại diện
-    $("#AddMainpic").change(function (event) {
-        
+    $("#AddMainpic").click(function () {
         var dem = document.getElementsByClassName("AddpictureProductMain").length;
-
-        var files = event.target.files;
-
-        for (var i = 0; i < files.length && i < 1 - dem; i++) {
-            var file = files[i];
-            var create = document.createElement("div");
-
-            create.innerHTML = '<div class="card mb-4 AddpictureProductMain" style="width: 104px; float: left;">' +
-                '<figure class="snip0068 yellow">' +
-                '<input type="text" value="Asset/images/' + file.name + '" style="display: none" class="takePath" />' +
-                '<img src="/Asset/images/' + file.name + '"/>' +
-                '<figcaption> ' +
-                '<div>' +
-                '<span class="removePic"><i class="far fa-trash-alt"></i> Remove</span>' +
-                '</div>' +
-                '</figcaption>' +
-                '</figure>' +
-                '</div>';
-
-            $("#AddappearMainPic").prepend(create);
+        if (dem < 1) {
+            $("#infButton_Add").val("1");
+            $("#ListPic_Add").css({ "display": "block" });
         }
     });
+</script>
+
+<script>
+    var modal = document.getElementById('ListPic_Add');
+    var modal1 = document.getElementById('productDetail');
+
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+        if (event.target == modal1) {
+            modal1.style.display = "none";
+        }
+    }
+
 </script>

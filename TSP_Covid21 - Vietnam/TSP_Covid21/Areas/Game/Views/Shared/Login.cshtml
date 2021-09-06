@@ -1,0 +1,163 @@
+﻿<style>
+    #Login, #SignUp {
+        width: 300px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    #btn_Login:hover, #btn_Signup:hover, #Btn_Signup1:hover, #Come_Back:hover {
+        background: #888888;
+    }
+</style>
+
+<div id="Login">
+    <div style="margin-bottom: 5px">
+        <input type="text" placeholder="Nhập username" style="width: 300px" id="username" />
+    </div>
+    <div style="margin-bottom: 5px">
+        <input type="text" placeholder="Nhập password" style="width: 300px" id="password" />
+    </div>
+    <div style="margin-left: 124px">
+        <input type="button" value="Đăng Ký" id="btn_Signup" />
+        <input type="button" value="Đăng Nhập" id="btn_Login" />
+    </div>
+</div>
+
+<div id="SignUp" style="display: none">
+    <div style="margin-bottom: 5px">
+        <input type="text" placeholder="Nhập tên bạn" style="width: 300px" id="SignUp_name" />
+    </div>
+    <div style="margin-bottom: 5px">
+        <input type="text" placeholder="Nhập username" style="width: 300px" id="SignUp_username" />
+    </div>
+    <div style="margin-bottom: 5px">
+        <input type="text" placeholder="Nhập password" style="width: 300px" id="SignUp_password" />
+    </div>
+    <div style="margin-left: 144px">
+        <input type="button" value="Quay Lại" id="Come_Back"/>
+        <input type="button" value="Đăng Ký" id="Btn_Signup1" />
+    </div>
+</div>
+
+<script>
+    $("#btn_Login").click(function () {
+        $("#Loading").css({ "display": "block" });
+        var user = $("#username").val();
+        var pass = $("#password").val();
+        $.ajax({
+            url: "@Url.Action("CheckAccount","BauCua")",
+            type: 'POST',
+            data: {
+                user: user,
+                pass: pass,
+            },
+            success: function (result) {
+                if (result == "1") {
+
+                    $.ajax({
+                        url: '@Url.Action("ListRoom","BauCua")',
+                        type: 'POST',
+                        success: function (result) {
+                            var create = document.createElement("div");
+
+                            $("#Frame_ListRoom").html(create)
+                            $("#Frame_ListRoom div").html(result)
+                            $("#Frame_Login").css({ "display": "none" });
+                            $("#Frame_ListRoom").css({ "display": "block" });
+                        }
+                    })
+                } else if (result == "0") {
+                    $("#Loading").css({ "display": "none" });
+                    alert("Tài khoản hoặc mật khẩu bị sai!!");
+                } else {
+                    $("#Loading").css({ "display": "none" });
+                    alert("Tài khoản đang được sử dụng")
+                }
+            }
+        })
+    }) 
+</script>
+
+@{
+    var user = "myfirstgameonline";
+    if (Session["user_BauCua"] != null)
+    {
+        user = Session["user_BauCua"].ToString();
+    }
+}
+
+<script>
+    var start = {
+        loadData: function () {
+            var u = '@user';
+            if (u != "myfirstgameonline") {
+                $.ajax({
+                    url: '@Url.Action("ListRoom","BauCua")',
+                    type: 'POST',
+                    success: function (result) {
+                        var create = document.createElement("div");
+
+                        $("#Frame_ListRoom").html(create)
+                        $("#Frame_ListRoom div").html(result)
+                        $("#Frame_Login").css({ "display": "none" });
+                        $("#Frame_ListRoom").css({ "display": "block" });
+                    }
+                })
+            }
+        }
+    }
+    start.loadData();
+</script>
+
+<!--Đăng ký-->
+<script>
+    $("#btn_Signup").click(function () {
+        $("#Login").css({ "display": "none" });
+        $("#SignUp").css({ "display": "block" });
+    })
+
+    $("#Btn_Signup1").click(function () {
+        var user = $("#SignUp_username").val();
+        var pass = $("#SignUp_password").val();
+        var name = $("#SignUp_name").val();
+
+        if (user.trim() < 1 || pass.trim() < 1 || name.trim() < 1) {
+            alert("Đừng để trống ô nào cả nha!");
+        } else {
+            $.ajax({
+                url: "@Url.Action("CheckUserExist", "BauCua")",
+                type: "POST",
+                data: {
+                    user: user,
+                },
+                success: function (result) {
+                    if (result == "True") {
+                        alert("Tài khoản có người sử dụng, bạn có thể chọn tên khác");
+                    } else {
+                        $.ajax({
+                            url: "@Url.Action("CreateAccount","BauCua")",
+                            type: "POST",
+                            data: {
+                                user: user,
+                                pass: pass,
+                                name: name,
+                            },
+                            success: function () {
+                                alert("Bạn đã có tài khoản rồi nha, cùng trải nghiệm game nào!");
+                                $("#Login").css({ "display": "block" });
+                                $("#SignUp").css({ "display": "none" });
+                            }
+                        })
+                    }
+                }
+            })
+        }
+    })
+
+    $("#Come_Back").click(function () {
+        $("#Login").css({ "display": "block" });
+        $("#SignUp").css({ "display": "none" });
+    })
+</script>

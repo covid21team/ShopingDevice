@@ -24,17 +24,13 @@ namespace TSP_Covid21.Models.ShopEntity
             this.CONFIGDETAIL = new HashSet<CONFIGDETAIL>();
             this.RATINGPRODUCT = new HashSet<RATINGPRODUCT>();
             this.VIEWNUMBER = new HashSet<VIEWNUMBER>();
+            this.PIC_PRODUCT = new HashSet<PIC_PRODUCT>();
         }
     
         public int PRODUCTID { get; set; }
         public string PRODUCTNAME { get; set; }
         public Nullable<int> BRANDID { get; set; }
         public Nullable<int> PRODUCTTYPEID { get; set; }
-        public string MAINPIC { get; set; }
-        public string PIC1 { get; set; }
-        public string PIC2 { get; set; }
-        public string PIC3 { get; set; }
-        public string PIC4 { get; set; }
         public Nullable<bool> STATUSPRODUCT { get; set; }
         public Nullable<int> PRODUCTPRICE { get; set; }
         public Nullable<int> PRODUCTAMOUNT { get; set; }
@@ -57,5 +53,7 @@ namespace TSP_Covid21.Models.ShopEntity
         public virtual ICollection<RATINGPRODUCT> RATINGPRODUCT { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<VIEWNUMBER> VIEWNUMBER { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PIC_PRODUCT> PIC_PRODUCT { get; set; }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Web;
 using TSP_Covid21.Models.ShopEntity;
@@ -14,34 +15,33 @@ namespace TSP_Covid21.Models.BUS
         {
             db = new COVIDEntities();
         }
-        public IEnumerable<string> listPic()
+        public IEnumerable<PICTURE> listPic()
         {
-            var result0 = db.PRODUCT.Select(p => p.MAINPIC).ToList();
-            var result1 = db.PRODUCT.Select(t => t.PIC1).ToList();
-            var result2 = db.PRODUCT.Select(t => t.PIC2).ToList();
-            var result3 = db.PRODUCT.Select(t => t.PIC3).ToList();
-            var result4 = db.PRODUCT.Select(t => t.PIC4).ToList();
+            return db.PICTURE.ToList();
+        }
 
-            List<string> result = new List<string>();
-
-            for(int i  = 0; i < result0.Count(); i ++)
+        public void InsertPic(string link, string path)
+        {
+            PICTURE pic = new PICTURE
             {
-                result.Add(result0[i]);
-                result.Add(result1[i]);
-                result.Add(result2[i]);
-                result.Add(result3[i]);
-                result.Add(result4[i]);
-            }
+                PATH = path,
+                LINK = link,
+            };
+            db.PICTURE.AddOrUpdate(pic);
+            db.SaveChanges();
+        }
 
+        public PICTURE pic(int id)
+        {
+            var result = db.PICTURE.Find(id);
             return result;
         }
 
-
-        /*public void test(string user)
+        public void del(int id)
         {
-            var t = db.ACCOUNT; //lấy ds
-            var h = db.ACCOUNT.Find(<id>) // lấy 1 hàng
-            var d = db.ACCOUNT.Where(p => p.USER == user).SingleOrDefault();
-        }*/
+            PICTURE pic = db.PICTURE.Find(id);
+            db.PICTURE.Remove(pic);
+            db.SaveChanges();
+        }
     }
 }

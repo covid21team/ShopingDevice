@@ -66,7 +66,7 @@
             <ul class="main-nav nav navbar-nav">
                 @if (Session["ProductTypeName"].Equals("2"))
                 {
-                    <li class="active"><a href="@Url.Action("Store","Covid21", new { ProductTypeId = "2" })"><i class="fa fa-mobile-phone"></i> Điện thoại</a></li>
+                    <li class="active"><a href="@Url.Action("Categories","Covid21", new { ProductTypeId = "2" })"><i class="fa fa-mobile-phone"></i> Điện thoại</a></li>
                     <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeId = "1" })"><i class="fa fa-laptop"></i> Laptop</a></li>
                     <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeId = "3" })"><i class="fa fa-tablet"></i> Tablet</a></li>
                     <li><a href="@Url.Action("Categories","Covid21", new { ProductTypeId = "5" })"><i class="fa fa-headphones"></i> Tai nghe</a></li>
@@ -274,10 +274,10 @@
                             <div class="product">
                                 <div class="product-img">
                                     <a href="@Url.Action("Product","Covid21",new { productId = item.PRODUCTID})">
-                                        <img src="~/@item.MAINPIC" alt="" style="width: 263px; height: 263px; object-fit: contain">
+                                        <img src="@item.PIC_PRODUCT.Where(t => t.MAINPIC == true && t.PRODUCTID == item.PRODUCTID).Select(c => c.PICTURE.PATH).SingleOrDefault()" alt="" style="width: 263px; height: 263px; object-fit: contain">
                                     </a>
                                     <div class="product-label">
-                                        @if (item.STATUSPRODUCT == false)
+                                        @if (item.STATUSPRODUCT == false || item.PRODUCTAMOUNT < 1)
                                         {
                                             <span class="new">Ngưng kinh doanh</span>
                                         }
@@ -309,7 +309,7 @@
                                         </button>
                                     </div>
                                 </div>
-                                @if (item.STATUSPRODUCT == true)
+                                @if (item.STATUSPRODUCT == true && item.PRODUCTAMOUNT > 0)
                                 {
                                     <div class="add-to-cart">
                                         <input type="text" value="@item.PRODUCTID" class="productId" style="display: none" />

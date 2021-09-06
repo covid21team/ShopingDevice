@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TSP_Covid21.Models.BUS;
+using TSP_Covid21.Models.ShopEntity;
 
 namespace TSP_Covid21.Areas.Admin.Controllers
 {
@@ -17,46 +18,44 @@ namespace TSP_Covid21.Areas.Admin.Controllers
             PB = new Picture_BUS();
         }
 
-        public IEnumerable<string> listPic()
+        public IEnumerable<PICTURE> loadPic()
         {
             return PB.listPic();
         }
 
-        [HttpPost]
-        public ActionResult upPic(HttpPostedFileBase[] files)
+        public ActionResult listPic()
         {
-            foreach (HttpPostedFileBase file in files)
-            {
-                //Checking file is available to save.  
-                if (file != null)
-                {
-                    var InputFileName = Path.GetFileName(file.FileName);
-                    var ServerSavePath = Path.Combine(Server.MapPath("~/Asset/images/Loading/") + InputFileName);
-                    //Save file to server folder  
-                    file.SaveAs(ServerSavePath);
-                }
-
-            }
-            return RedirectToAction("PictureManager","Admin");
+            return PartialView();
         }
 
-        public JsonResult SaveFile(HttpPostedFileBase file)
+        [HttpPost]
+        public JsonResult SaveFile(HttpPostedFileBase file) 
         {
-            string returnImagePath = string.Empty;
-            if (file.ContentLength > 0)
+            if (file.ContentLength > 0 && file != null)
             {
                 string fileName, fileExtension, imaageSavePath;
                 fileName = Path.GetFileNameWithoutExtension(file.FileName);
                 fileExtension = Path.GetExtension(file.FileName);
 
-                imaageSavePath = Server.MapPath("~/Asset/images/Loading/") + fileName + fileExtension;
+                imaageSavePath = Server.MapPath("~/Asset/images/Products/") + fileName + fileExtension;
+                string path = "/Asset/images/Products/" + fileName + fileExtension;
+                string link = "https://covid21tsp.space" + path; 
                 //Save file
-                file.SaveAs(imaageSavePath);
-
-                //Path to return
-                returnImagePath = "/uploadedImages/" + fileName + fileExtension;
+                if (!System.IO.File.Exists(imaageSavePath))
+                {
+                    file.SaveAs(imaageSavePath);
+                    PB.InsertPic(link, path);
+                }
             }
-            return Json(returnImagePath, JsonRequestBehavior.AllowGet);
+            return Json("", JsonRequestBehavior.AllowGet);
+        }
+
+        public void DelPic(int id)
+        {
+            PICTURE pic = PB.pic(id);
+            string path = Server.MapPath(pic.PATH); // giúp tìm đường dẫn tuyệt đối
+            System.IO.File.Delete(path);
+            PB.del(id);
         }
     }
 }

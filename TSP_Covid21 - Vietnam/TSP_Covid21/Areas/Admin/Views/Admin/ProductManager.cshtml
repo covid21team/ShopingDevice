@@ -52,8 +52,8 @@
                                     <i class="fas fa-plus-circle" style="color: #bcd451;"></i>
                                 </a>
                             </th>
-                            
-                            <th >
+
+                            <th>
 
                             </th>
                         </tr>
@@ -72,7 +72,7 @@
                                 <td class="click_Product">@item.BRAND.BRANDNAME</td>
                                 <td class="click_Product">@item.PRODUCTTYPE.PRODUCTTYPENAME</td>
                                 <td class="click_Product">
-                                    <img src="~/@item.MAINPIC" style="width: 50px; height: 50px; object-fit:contain" />
+                                    <img src="@item.PIC_PRODUCT.Where(t => t.MAINPIC == true && t.PRODUCTID == item.PRODUCTID).Select(c => c.PICTURE.PATH).SingleOrDefault()" style="width: 50px; height: 50px; object-fit:contain" />
                                 </td>
                                 @{
                                     var temp = "Hoạt động";
@@ -105,20 +105,24 @@
                 <div id="productDetail" class="modal" style="z-index: 50;">
 
                 </div>
-                <!-- them san pham-->
-
-                <div id="AddProduct" class="modal" style="z-index: 50;">
-
-
-                </div>
             </div>
-            <!--cau hinh san pham-->
-            <div id="EditProduct" class="modal" style="z-index: 50;">
 
-            </div>
         </div>
     </div>
+
+    
+    <!--<input type="button" id="testTiny"/>
+    <div id="mytextarea" style="height: 1500px"></div>
+    <div id="takeTiny"></div>
+
+    <script>
+        $("#testTiny").click(function () {
+            var text = tinymce.get('mytextarea').getContent();
+            $("#takeTiny").html(text);
+        })
+    </script>-->
 </div>
+
 <!-- ============================================================== -->
 
 @{
@@ -174,8 +178,8 @@
                 id: id,
             },
             success: function (result) {
-                $("#EditProduct").css({ "display": "block" });
-                $("#EditProduct").html(result);
+                $("#productDetail").css({ "display": "block" });
+                $("#productDetail").html(result);
             }
         });
     });
@@ -185,8 +189,8 @@
             url: '@Url.Action("addProduct", "ProductManager")',
             type: 'POST',
             success: function (result) {
-                $("#AddProduct").css({ "display": "block" });
-                $("#AddProduct").html(result);
+                $("#productDetail").css({ "display": "block" });
+                $("#productDetail").html(result);
             }
         });
     });

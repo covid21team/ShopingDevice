@@ -13,10 +13,6 @@ namespace TSP_Covid21.Models.ViewModel
         public string BrandName { set; get; }
         public string ProductTypeName { set; get; }
         public string MainPic { set; get; }
-        public string Pic1 { set; get; }
-        public string Pic2 { set; get; }
-        public string Pic3 { set; get; }
-        public string Pic4 { set; get; }
         public Nullable<int> ProductPrice { set; get; }
         public Nullable<int> ProductAmount { set; get; }
         public string Decription { set; get; }

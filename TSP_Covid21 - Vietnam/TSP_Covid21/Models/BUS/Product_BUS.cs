@@ -95,7 +95,7 @@ namespace TSP_Covid21.Models.BUS
         }
 
         // Load product of user like for product page
-        public IEnumerable<ProductViewModel> loadProductLike(int page, int pagesize, string user)
+        public IEnumerable<ProductViewModel> loadProductLike(string user)
         {
             var list = from a in db.PRODUCT
                        join b in db.ACCOUNTLIKE
@@ -107,21 +107,16 @@ namespace TSP_Covid21.Models.BUS
                            ProductName = a.PRODUCTNAME,
                            BrandName = a.BRAND.BRANDNAME,
                            ProductTypeName = a.PRODUCTTYPE.PRODUCTTYPENAME,
-                           MainPic = a.MAINPIC,
-                           Pic1 = a.PIC1,
-                           Pic2 = a.PIC2,
-                           Pic3 = a.PIC3,
-                           Pic4 = a.PIC4,
                            ProductPrice = a.PRODUCTPRICE,
                            ProductAmount = a.PRODUCTAMOUNT,
                            Decription = a.DECRIPTION,
                            Status = a.STATUSPRODUCT,
                            DateAdd = a.DATEADD,
-                           ProductConfig = a.CONFIGDETAIL
+                           ProductConfig = a.CONFIGDETAIL,
+                           MainPic = a.PIC_PRODUCT.Where(t => t.MAINPIC == true).Select(c => c.PICTURE.PATH).FirstOrDefault(),
                        };
-            var result = list.OrderByDescending(x => x.ProductId).Skip((page - 1) * pagesize).Take(20);
 
-            return result.ToPagedList(page, pagesize);
+            return list.ToList();
         }
 
         // Load product of user cart for cart page
@@ -135,9 +130,9 @@ namespace TSP_Covid21.Models.BUS
                        {
                            ProductId = a.PRODUCTID,
                            ProductName = a.PRODUCTNAME,
-                           MainPic = a.MAINPIC,
                            ProductPrice = a.PRODUCTPRICE,
                            ProductAmount = b.AMOUNT,
+                           MainPic = a.PIC_PRODUCT.Where(t => t.MAINPIC == true).Select(c => c.PICTURE.PATH).FirstOrDefault(),
                            Status = b.PRODUCTSTATUS,
                        };
 
@@ -155,7 +150,7 @@ namespace TSP_Covid21.Models.BUS
                        {
                            ProductId = a.PRODUCTID,
                            ProductName = a.PRODUCTNAME,
-                           MainPic = a.MAINPIC,
+                           MainPic = a.PIC_PRODUCT.Where(t => t.MAINPIC == true && t.PRODUCTID == a.PRODUCTID).Select(c => c.PICTURE.PATH).FirstOrDefault(),
                            ProductPrice = a.PRODUCTPRICE,
                            ProductAmount = b.AMOUNT,
                            Status = b.PRODUCTSTATUS,
@@ -183,7 +178,6 @@ namespace TSP_Covid21.Models.BUS
                              BrandId = a.BRANDID,
                              BrandName = a.BRAND.BRANDNAME,
                              Product = a.BRAND.PRODUCT,
-                             TempProduct = b.TEMPPRODUCT
                          };
             return result;
 
@@ -203,7 +197,6 @@ namespace TSP_Covid21.Models.BUS
                              BrandId = a.BRANDID,
                              BrandName = a.BRANDNAME,
                              Product = a.PRODUCT,
-                             TempProduct = a.TEMPPRODUCT
                          };
             return result;
         }

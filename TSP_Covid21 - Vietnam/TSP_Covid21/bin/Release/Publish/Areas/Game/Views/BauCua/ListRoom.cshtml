@@ -1,0 +1,490 @@
+﻿@model IEnumerable<TSP_Covid21.Models.ShopEntity.ww_BAUCUA_ROOM>
+
+@{
+    TSP_Covid21.Areas.Game.Controllers.BauCuaController BCC = new TSP_Covid21.Areas.Game.Controllers.BauCuaController();
+    var user = Session["user_BauCua"].ToString();
+    var acount = BCC.Account(user);
+}
+
+<style type="text/css">
+    #List_Room {
+        width: 100%;
+        height: 100%;
+    }
+
+    #List {
+        height: 420px;
+        background: linear-gradient(#C82E31, #F5B16D);
+        width: 950px;
+        margin: 0 auto;
+        overflow: scroll;
+    }
+
+        #List table {
+            padding-top: 20px;
+            width: 950px;
+        }
+
+            #List table td, #List table th {
+                text-align: center;
+                border-bottom: 1px solid #D59B00;
+                color: white
+            }
+
+            #List table tr:nth-child(even) {
+                background-color: #F19373;
+            }
+
+            #List table tr:hover {
+                background-color: #EC870E;
+            }
+
+            #List table th {
+                padding-top: 12px;
+                padding-bottom: 12px;
+                background-color: #04AA6D;
+                color: white;
+                top: 0px;
+                position: sticky;
+            }
+
+    #Menu_List {
+        margin-top: 10px;
+    }
+
+    #Btn_Join:hover, #Btn_Create:hover {
+        background: #888888;
+    }
+
+    .Menu {
+        font-size: 25px;
+        margin-left: 45px
+    }
+
+    #Inf_Parent, #Join_Parent, #Inf_Account_Parent {
+        display: none;
+        position: fixed;
+        z-index: 10;
+        width: 1000px;
+        height: 500px;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+
+    #Inf, #Join, #Inf_Account {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
+
+    #Inf, #Join {
+        width: 250px;
+        height: 50px;
+    }
+
+    #Join_Room:hover, #Log_Out:hover, #Pass_Room:hover {
+        background: #888888;
+    }
+
+    #Inf_Account {
+        width: 250px;
+        height: 50px;
+    }
+</style>
+
+<div id="List_Room">
+    <div id="Menu_List">
+        <span class="Menu" style="margin-right: 60px; border: none;">Tiền của bạn: @acount.MONEY</span>
+        <input class="Menu" style="margin-left:0px;" type="button" value="THAM GIA" id="Btn_Join" />
+        <input class="Menu" type="button" value="TẠO PHÒNG" id="Btn_Create" />
+        <span class="Menu" style="border: none;" id="Information">@acount.ACCOUNTNAME</span>
+    </div>
+
+    <div id="List" style="margin-top: 20px">
+        <table>
+            <thead>
+                <tr>
+                    <th>Mã Phòng</th>
+                    <th>Trạng Thái</th>
+                    <th>Số người</th>
+                    <th>Tiền cược tối thiểu</th>
+                    <th>Mật khẩu</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr class="Inf_Room">
+                        <td class="Id">@item.ROOMID</td>
+                        @if (item.ROOMSTATUS == false)
+                        {
+                            <td>Đang chờ</td>
+                        }
+                        else
+                        {
+                            <td>Đang đánh</td>
+                        }
+                        <td>
+                            @switch (item.AMOUNTPERSON)
+                            {
+                                case 0:
+                                    {
+                                        <img src="~/Areas/Game/Asset/Pic_Game/amount.png" />
+                                    }
+                                    break;
+                                case 1:
+                                    {
+                                        <img src="~/Areas/Game/Asset/Pic_Game/amount_01.png" />
+                                    }
+                                    break;
+                                case 2:
+                                    {
+                                        <img src="~/Areas/Game/Asset/Pic_Game/amount_02.png" />
+                                    }
+                                    break;
+                                case 3:
+                                    {
+                                        <img src="~/Areas/Game/Asset/Pic_Game/amount_03.png" />
+                                    }
+                                    break;
+                                case 4:
+                                    {
+                                        <img src="~/Areas/Game/Asset/Pic_Game/amount_04.png" />
+                                    }
+                                    break;
+                                case 5:
+                                    {
+                                        <img src="~/Areas/Game/Asset/Pic_Game/amount_05.png" />
+                                    }
+                                    break;
+                                case 6:
+                                    {
+                                        <img src="~/Areas/Game/Asset/Pic_Game/amount_06.png" />
+                                    }
+                                    break;
+                            }
+                        </td>
+                        <td>@item.MINBETS $</td>
+
+                        @if (item.PASS == null)
+                        {
+                            <td>Không</td>
+                        }
+                        else
+                        {
+                            <td>Có</td>
+                        }
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <div id="Inf_Parent">
+        <div id="Inf">
+            <div>
+                <input type="text" placeholder="Nhập pass của phòng" style="width: 250px" id="Text_Pass" />
+            </div>
+            <div style="display: none" id="Select_Id">
+
+            </div>
+            <div>
+                <input type="button" value="Xác Nhận" style="margin-left: 80px; margin-top: 10px" id="Pass_Room" />
+            </div>
+        </div>
+    </div>
+
+    <div id="Join_Parent">
+        <div id="Join">
+            <div>
+                <input type="text" placeholder="Nhập mã của phòng" style="width: 250px" id="Room_Id" onkeypress="return isNumberKey(event)" />
+            </div>
+            <div>
+                <input type="button" value="Tham Gia" style="margin-left: 80px; margin-top: 10px" id="Join_Room" />
+            </div>
+        </div>
+    </div>
+
+    <div id="Inf_Account_Parent">
+        <div id="Inf_Account">
+            <input type="button" value="Đăng Xuất" id="Log_Out" />
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    var start = {
+        loadData: function () {
+            $("#Loading").css({ "display": "none" });
+        }
+    }
+    start.loadData();
+    var isJoin = false;
+    init_reload();
+    function init_reload(){
+        setInterval(function () {
+            if (isJoin == false) {
+                $.ajax({
+                    url: '@Url.Action("Load_ListRoom", "BauCua")',
+                    type: 'POST',
+                    success: function (result) {
+                        $("#List").html(result);
+                    }
+                })
+            }
+
+          },2000);
+    }
+
+    //Chuyển form ván cờ
+    function Room(id) {
+        $("#Loading").css({ "display": "block" });
+        isJoin = true;
+        $.ajax({
+            url: "@Url.Action("JoinRoom", "BauCua")",
+            type: 'POST',
+            data: {
+                id: id,
+            },
+            success: function (result) {
+                $("#Frame_ListRoom div").remove();
+                var create = document.createElement("div");
+
+                $("#Frame_Room").html(create);
+                $("#Frame_Room div").html(result);
+                $("#Frame_Room").css({ "display": "block" });
+                $("#Frame_ListRoom").css({ "display": "none" });
+            },
+            error: function () {
+                alert("lỗi");
+            }
+        })
+    }
+</script>
+
+<!--Tạo phòng-->
+<script>
+    $("#Btn_Create").click(function () {
+        $("#Loading").css({ "display": "block" });
+        $.ajax({
+            url: "@Url.Action("CheckMoney", "BauCua")",
+            type: "POST",
+            data: {
+                minBets: 1000,
+            },
+            success: function (result) {
+                if (result == "True") {
+                    isJoin = true;
+                    $.ajax({
+                        url: '@Url.Action("CreateRoom","BauCua")',
+                        type: 'POST',
+                        success: function (result) {
+                            $("#Frame_ListRoom div").remove();
+                            var create = document.createElement("div");
+
+                            $("#Frame_Room").html(create);
+                            $("#Frame_Room div").html(result);
+                            $("#Frame_Room").css({ "display": "block" });
+                            $("#Frame_ListRoom").css({ "display": "none" });
+                        }
+                    })
+                }
+                else {
+                    $("#Loading").css({ "display": "none" });
+                    alert("Bạn phải có ít nhất 10000 để tạo phòng");
+                }
+            }
+        })
+        
+    })
+</script>
+
+<!--Tắt form không muốn sử dụng-->
+<script>
+    var modal = document.getElementById('Join_Parent');
+    var modal1 = document.getElementById('Inf_Parent');
+    var modal2 = document.getElementById('Inf_Account_Parent');
+
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            $("#Room_Id").val("");
+            modal.style.display = "none";
+        }
+
+        if (event.target == modal1) {
+            $("#Text_Pass").val("");
+            modal1.style.display = "none";
+        }
+
+        if (event.target == modal2) {
+            modal2.style.display = "none";
+        }
+    }
+</script>
+
+<!--Mở form Join Room-->
+<script>
+    $("#Btn_Join").click(function () {
+        $("#Join_Parent").css({ "display": "block" });
+    })
+</script>
+
+<!--Join Room-->
+<script>
+    $(".Inf_Room").click(function() {
+        var id = $(this).children(".Id").text();
+
+        $.ajax({
+            url: '@Url.Action("CheckAmount", "BauCua")',
+            type: 'POST',
+            data: {
+                roomId: id,
+            },
+            success: function (result) {
+                if (result == '0') {
+                    $.ajax({
+                        url: '@Url.Action("IsPass", "BauCua")',
+                        type: 'POST',
+                        data: {
+                            id: id,
+                        },
+                        success: function (result) {
+                            if (result == '0') {
+                                Room(id);
+                            }
+                            else {
+                                $("#Select_Id").text(id);
+                                $("#Inf_Parent").css({ "display": "block" });
+                            }
+                        }
+                    })
+                }
+                else {
+                    alert("Số lượng người đã đủ");
+                }
+            }
+        })
+    })
+
+    $("#Join_Room").click(function () {
+        joinRoom();
+    })
+
+    $("#Room_Id").keypress(function (event) {
+        var keycode = (event.keyCode ? event.keyCode : event.which);
+        if (keycode == '13') {
+            joinRoom();
+        }
+    })
+
+    function joinRoom() {
+        var id = $("#Room_Id").val();
+        $.ajax({
+            url: '@Url.Action("CheckAmount", "BauCua")',
+            type: 'POST',
+            data: {
+                roomId: id,
+            },
+            success: function (result) {
+                if (result == '0') {
+                    $.ajax({
+                        url: '@Url.Action("IsPass", "BauCua")',
+                        type: 'POST',
+                        data: {
+                            id: id,
+                        },
+                        success: function (result) {
+                            if (result == '0') {
+                                Room(id);
+                            } else if (result == "1") {
+                                $("#Select_Id").text(id);
+                                $("#Join_Parent").css({ "display": "none" });
+                                $("#Inf_Parent").css({ "display": "block" });
+                            } else {
+                                alert("Phòng không tồn tại");
+                            }
+                        }
+                    })
+                }
+                else {
+                    alert("Số lượng người đã đủ");
+                }
+            }
+        }
+    }
+</script>
+
+<!--Kiểm tra mật khẩu-->
+<script>
+    $("#Pass_Room").click(function () {
+        confirmRoom();
+    })
+
+    $("#Text_Pass").keypress(function (event) {
+        var keycode = (event.keyCode ? event.keyCode : event.which);
+        if (keycode == '13') {
+            confirmRoom();
+        }
+    })
+
+    function confirmRoom() {
+        var id = $("#Select_Id").text();
+        var pass = $("#Text_Pass").val();
+
+        $.ajax({
+            url: '@Url.Action("CheckPass", "BauCua")',
+            type: 'POST',
+            data: {
+                id: id,
+                pass: pass,
+            },
+            success: function (result) {
+                if (result == "True") {
+                    Room(id);
+                } else {
+                    alert("Mật khẩu bị sai");
+                }
+            }
+        })
+    }
+</script>
+
+<!--Xem thông tin cá nhân-->
+<script>
+    $("#Information").click(function () {
+        $("#Inf_Account_Parent").css({ "display": "block" });
+    })
+</script>
+
+<!--Logout-->
+<script>
+    $("#Log_Out").click(function () {
+        $.ajax({
+            url: '@Url.Action("LogOut", "BauCua")',
+            type: 'POST',
+            data: {
+                user: '@user',
+            },
+            success: function () {
+                location.reload();
+            },
+            error: function () {
+                alert("Error_ListRoom_LogOut");
+            }
+        })
+    })
+</script>
+
+<script>
+    function isNumberKey(e) {
+        var charCode = (e.which) ? e.which : e.keyCode;
+        if (charCode > 31 && (charCode < 48 || charCode > 57))
+            return false;
+        return true;
+    }
+</script>

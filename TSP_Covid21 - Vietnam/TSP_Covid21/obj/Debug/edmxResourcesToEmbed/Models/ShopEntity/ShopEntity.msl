@@ -15,16 +15,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="ACCOUNT_ADMIN">
-      <EntityTypeMapping TypeName="COVIDModel.ACCOUNT_ADMIN">
-        <MappingFragment StoreEntitySet="ACCOUNT_ADMIN">
-          <ScalarProperty Name="USER" ColumnName="USER" />
-          <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
-          <ScalarProperty Name="FULLNAME" ColumnName="FULLNAME" />
-          <ScalarProperty Name="STATUSACCOUNT" ColumnName="STATUSACCOUNT" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="ACCOUNTLIKE">
       <EntityTypeMapping TypeName="COVIDModel.ACCOUNTLIKE">
         <MappingFragment StoreEntitySet="ACCOUNTLIKE">
@@ -132,11 +122,6 @@
           <ScalarProperty Name="PRODUCTNAME" ColumnName="PRODUCTNAME" />
           <ScalarProperty Name="BRANDID" ColumnName="BRANDID" />
           <ScalarProperty Name="PRODUCTTYPEID" ColumnName="PRODUCTTYPEID" />
-          <ScalarProperty Name="MAINPIC" ColumnName="MAINPIC" />
-          <ScalarProperty Name="PIC1" ColumnName="PIC1" />
-          <ScalarProperty Name="PIC2" ColumnName="PIC2" />
-          <ScalarProperty Name="PIC3" ColumnName="PIC3" />
-          <ScalarProperty Name="PIC4" ColumnName="PIC4" />
           <ScalarProperty Name="STATUSPRODUCT" ColumnName="STATUSPRODUCT" />
           <ScalarProperty Name="PRODUCTPRICE" ColumnName="PRODUCTPRICE" />
           <ScalarProperty Name="PRODUCTAMOUNT" ColumnName="PRODUCTAMOUNT" />
@@ -202,5 +187,145 @@
     </EntitySetMapping>
     <FunctionImportMapping FunctionImportName="CheckLogin" FunctionName="COVIDModel.Store.CheckLogin" />
     <FunctionImportMapping FunctionImportName="CheckLoginAdmin" FunctionName="COVIDModel.Store.CheckLoginAdmin" />
+    <EntitySetMapping Name="PIC_PRODUCT">
+      <EntityTypeMapping TypeName="COVIDModel.PIC_PRODUCT">
+        <MappingFragment StoreEntitySet="PIC_PRODUCT">
+          <ScalarProperty Name="MAINPIC" ColumnName="MAINPIC" />
+          <ScalarProperty Name="PICTUREID" ColumnName="PICTUREID" />
+          <ScalarProperty Name="PRODUCTID" ColumnName="PRODUCTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PICTURE">
+      <EntityTypeMapping TypeName="COVIDModel.PICTURE">
+        <MappingFragment StoreEntitySet="PICTURE">
+          <ScalarProperty Name="LINK" ColumnName="LINK" />
+          <ScalarProperty Name="PATH" ColumnName="PATH" />
+          <ScalarProperty Name="PICTUREID" ColumnName="PICTUREID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ACCOUNT_ADMIN">
+      <EntityTypeMapping TypeName="COVIDModel.ACCOUNT_ADMIN">
+        <MappingFragment StoreEntitySet="ACCOUNT_ADMIN">
+          <ScalarProperty Name="STATUSACCOUNT" ColumnName="STATUSACCOUNT" />
+          <ScalarProperty Name="FULLNAME" ColumnName="FULLNAME" />
+          <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+          <ScalarProperty Name="USER" ColumnName="USER" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ww_Customer">
+      <EntityTypeMapping TypeName="COVIDModel.ww_Customer">
+        <MappingFragment StoreEntitySet="ww_Customer">
+          <ScalarProperty Name="Tag" ColumnName="Tag" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ww_Product">
+      <EntityTypeMapping TypeName="COVIDModel.ww_Product">
+        <MappingFragment StoreEntitySet="ww_Product">
+          <ScalarProperty Name="ProductState" ColumnName="ProductState" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Pic" ColumnName="Pic" />
+          <ScalarProperty Name="ProdutName" ColumnName="ProdutName" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ww_Bill">
+      <EntityTypeMapping TypeName="COVIDModel.ww_Bill">
+        <MappingFragment StoreEntitySet="ww_Bill">
+          <ScalarProperty Name="BillState" ColumnName="BillState" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="BillId" ColumnName="BillId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ww_BillDetail">
+      <EntityTypeMapping TypeName="COVIDModel.ww_BillDetail">
+        <MappingFragment StoreEntitySet="ww_BillDetail">
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="BillId" ColumnName="BillId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ww_BAUCUA_ACCOUNT">
+      <EntityTypeMapping TypeName="COVIDModel.ww_BAUCUA_ACCOUNT">
+        <MappingFragment StoreEntitySet="ww_BAUCUA_ACCOUNT">
+          <ScalarProperty Name="AC_STATUS" ColumnName="AC_STATUS" />
+          <ScalarProperty Name="MONEY" ColumnName="MONEY" />
+          <ScalarProperty Name="PASS" ColumnName="PASS" />
+          <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+          <ScalarProperty Name="ACCOUNTNAME" ColumnName="ACCOUNTNAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ww_BAUCUA_ANIMAL">
+      <EntityTypeMapping TypeName="COVIDModel.ww_BAUCUA_ANIMAL">
+        <MappingFragment StoreEntitySet="ww_BAUCUA_ANIMAL">
+          <ScalarProperty Name="ANIMALNAME" ColumnName="ANIMALNAME" />
+          <ScalarProperty Name="ANIMALID" ColumnName="ANIMALID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ww_BAUCUA_CHAT">
+      <EntityTypeMapping TypeName="COVIDModel.ww_BAUCUA_CHAT">
+        <MappingFragment StoreEntitySet="ww_BAUCUA_CHAT">
+          <ScalarProperty Name="NUMBERVIEWERS" ColumnName="NUMBERVIEWERS" />
+          <ScalarProperty Name="TEXTCHAT" ColumnName="TEXTCHAT" />
+          <ScalarProperty Name="PLAYERID" ColumnName="PLAYERID" />
+          <ScalarProperty Name="CHATID" ColumnName="CHATID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ww_BAUCUA_COLOR">
+      <EntityTypeMapping TypeName="COVIDModel.ww_BAUCUA_COLOR">
+        <MappingFragment StoreEntitySet="ww_BAUCUA_COLOR">
+          <ScalarProperty Name="COLORNAME" ColumnName="COLORNAME" />
+          <ScalarProperty Name="COLORID" ColumnName="COLORID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ww_BAUCUA_PLAYER">
+      <EntityTypeMapping TypeName="COVIDModel.ww_BAUCUA_PLAYER">
+        <MappingFragment StoreEntitySet="ww_BAUCUA_PLAYER">
+          <ScalarProperty Name="DICE" ColumnName="DICE" />
+          <ScalarProperty Name="COLORID" ColumnName="COLORID" />
+          <ScalarProperty Name="READY" ColumnName="READY" />
+          <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+          <ScalarProperty Name="ROOMID" ColumnName="ROOMID" />
+          <ScalarProperty Name="PLAYERID" ColumnName="PLAYERID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ww_BAUCUA_PLAYERDETAIL">
+      <EntityTypeMapping TypeName="COVIDModel.ww_BAUCUA_PLAYERDETAIL">
+        <MappingFragment StoreEntitySet="ww_BAUCUA_PLAYERDETAIL">
+          <ScalarProperty Name="BETS" ColumnName="BETS" />
+          <ScalarProperty Name="ANIMALID" ColumnName="ANIMALID" />
+          <ScalarProperty Name="PLAYERID" ColumnName="PLAYERID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ww_BAUCUA_ROOM">
+      <EntityTypeMapping TypeName="COVIDModel.ww_BAUCUA_ROOM">
+        <MappingFragment StoreEntitySet="ww_BAUCUA_ROOM">
+          <ScalarProperty Name="DICE3" ColumnName="DICE3" />
+          <ScalarProperty Name="DICE2" ColumnName="DICE2" />
+          <ScalarProperty Name="DICE1" ColumnName="DICE1" />
+          <ScalarProperty Name="PASS" ColumnName="PASS" />
+          <ScalarProperty Name="OWNER" ColumnName="OWNER" />
+          <ScalarProperty Name="MINBETS" ColumnName="MINBETS" />
+          <ScalarProperty Name="ROOMSTATUS" ColumnName="ROOMSTATUS" />
+          <ScalarProperty Name="AMOUNTPERSON" ColumnName="AMOUNTPERSON" />
+          <ScalarProperty Name="ROOMID" ColumnName="ROOMID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

@@ -85,7 +85,7 @@ namespace TSP_Covid21.Controllers
         {
             var db = new Product_BUS();
 
-            var result = db.loadProductLike(1, 9, user);
+            var result = db.loadProductLike(user);
 
             return View(result);
         }

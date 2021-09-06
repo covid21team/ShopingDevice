@@ -61,7 +61,7 @@
                         <div class="product" style="width: 200px; margin-bottom: 80px;">
                             <div class="product-img">
                                 <a href="@Url.Action("Product","Covid21",new { productId = item.PRODUCTID})">
-                                    <img src="~/@item.PRODUCT.MAINPIC" alt="" style="width: 200px; height:200px; object-fit: contain">
+                                    <img src="@item.PRODUCT.PIC_PRODUCT.Where(t => t.MAINPIC == true && t.PRODUCTID == item.PRODUCTID).Select(c => c.PICTURE.PATH).SingleOrDefault()" alt="" style="width: 200px; height:200px; object-fit: contain">
                                 </a>
 
                                 <div class="product-label">

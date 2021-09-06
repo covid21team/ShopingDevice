@@ -12,23 +12,14 @@
     <Property Name="STATUSACCOUNT" Type="Boolean" />
     <Property Name="PHONENUMBER" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
     <Property Name="EMAIL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="ACCOUNTLIKE" Relationship="Self.FK__ACCOUNTLIK__USER__74AE54BC" FromRole="ACCOUNT" ToRole="ACCOUNTLIKE" />
-    <NavigationProperty Name="ADDRESS_SHIP" Relationship="Self.FK__ADDRESS_SH__USER__6383C8BA" FromRole="ACCOUNT" ToRole="ADDRESS_SHIP" />
-    <NavigationProperty Name="BILL" Relationship="Self.FK__BILL__USER__01142BA1" FromRole="ACCOUNT" ToRole="BILL" />
-    <NavigationProperty Name="CART" Relationship="Self.FK__CART__USER__787EE5A0" FromRole="ACCOUNT" ToRole="CART" />
-    <NavigationProperty Name="COMMENT" Relationship="Self.FK__COMMENT__USER__70DDC3D8" FromRole="ACCOUNT" ToRole="COMMENT" />
-    <NavigationProperty Name="RATINGPRODUCT" Relationship="Self.FK__RATINGPROD__USER__6A30C649" FromRole="ACCOUNT" ToRole="RATINGPRODUCT" />
-    <NavigationProperty Name="VIEWNUMBER" Relationship="Self.FK__VIEWNUMBER__USER__66603565" FromRole="ACCOUNT" ToRole="VIEWNUMBER" />
-    <NavigationProperty Name="VOCHERDETAIL" Relationship="Self.FK__VOCHERDETA__USER__05D8E0BE" FromRole="ACCOUNT" ToRole="VOCHERDETAIL" />
-  </EntityType>
-  <EntityType Name="ACCOUNT_ADMIN">
-    <Key>
-      <PropertyRef Name="USER" />
-    </Key>
-    <Property Name="USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="PASSWORD" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-    <Property Name="FULLNAME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="STATUSACCOUNT" Type="Boolean" />
+    <NavigationProperty Name="ACCOUNTLIKE" Relationship="Self.FK__ACCOUNTLIK__USER__4C364F0E" FromRole="ACCOUNT" ToRole="ACCOUNTLIKE" />
+    <NavigationProperty Name="ADDRESS_SHIP" Relationship="Self.FK__ADDRESS_SH__USER__3B0BC30C" FromRole="ACCOUNT" ToRole="ADDRESS_SHIP" />
+    <NavigationProperty Name="BILL" Relationship="Self.FK__BILL__USER__589C25F3" FromRole="ACCOUNT" ToRole="BILL" />
+    <NavigationProperty Name="CART" Relationship="Self.FK__CART__USER__5006DFF2" FromRole="ACCOUNT" ToRole="CART" />
+    <NavigationProperty Name="COMMENT" Relationship="Self.FK__COMMENT__USER__4865BE2A" FromRole="ACCOUNT" ToRole="COMMENT" />
+    <NavigationProperty Name="RATINGPRODUCT" Relationship="Self.FK__RATINGPROD__USER__41B8C09B" FromRole="ACCOUNT" ToRole="RATINGPRODUCT" />
+    <NavigationProperty Name="VIEWNUMBER" Relationship="Self.FK__VIEWNUMBER__USER__3DE82FB7" FromRole="ACCOUNT" ToRole="VIEWNUMBER" />
+    <NavigationProperty Name="VOCHERDETAIL" Relationship="Self.FK__VOCHERDETA__USER__5D60DB10" FromRole="ACCOUNT" ToRole="VOCHERDETAIL" />
   </EntityType>
   <EntityType Name="ACCOUNTLIKE">
     <Key>
@@ -38,8 +29,8 @@
     <Property Name="USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="PRODUCTID" Type="Int32" Nullable="false" />
     <Property Name="DATELIKE" Type="DateTime" Precision="3" />
-    <NavigationProperty Name="ACCOUNT" Relationship="Self.FK__ACCOUNTLIK__USER__74AE54BC" FromRole="ACCOUNTLIKE" ToRole="ACCOUNT" />
-    <NavigationProperty Name="PRODUCT" Relationship="Self.FK__ACCOUNTLI__PRODU__75A278F5" FromRole="ACCOUNTLIKE" ToRole="PRODUCT" />
+    <NavigationProperty Name="ACCOUNT" Relationship="Self.FK__ACCOUNTLIK__USER__4C364F0E" FromRole="ACCOUNTLIKE" ToRole="ACCOUNT" />
+    <NavigationProperty Name="PRODUCT" Relationship="Self.FK__ACCOUNTLI__PRODU__4D2A7347" FromRole="ACCOUNTLIKE" ToRole="PRODUCT" />
   </EntityType>
   <EntityType Name="ADDRESS_SHIP">
     <Key>
@@ -55,7 +46,7 @@
     <Property Name="ADDRESS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="DEFAULT" Type="Boolean" />
     <Property Name="ADDRESS_STATUS" Type="Boolean" />
-    <NavigationProperty Name="ACCOUNT" Relationship="Self.FK__ADDRESS_SH__USER__6383C8BA" FromRole="ADDRESS_SHIP" ToRole="ACCOUNT" />
+    <NavigationProperty Name="ACCOUNT" Relationship="Self.FK__ADDRESS_SH__USER__3B0BC30C" FromRole="ADDRESS_SHIP" ToRole="ACCOUNT" />
   </EntityType>
   <EntityType Name="BILL">
     <Key>
@@ -74,9 +65,9 @@
     <Property Name="DISTRICT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="WARDS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="ADDRESS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="ACCOUNT" Relationship="Self.FK__BILL__USER__01142BA1" FromRole="BILL" ToRole="ACCOUNT" />
-    <NavigationProperty Name="VOUCHER" Relationship="Self.FK__BILL__VOUCHERID__02084FDA" FromRole="BILL" ToRole="VOUCHER" />
-    <NavigationProperty Name="BILLDETAIL" Relationship="Self.FK__BILLDETAI__BILLI__08B54D69" FromRole="BILL" ToRole="BILLDETAIL" />
+    <NavigationProperty Name="ACCOUNT" Relationship="Self.FK__BILL__USER__589C25F3" FromRole="BILL" ToRole="ACCOUNT" />
+    <NavigationProperty Name="VOUCHER" Relationship="Self.FK__BILL__VOUCHERID__59904A2C" FromRole="BILL" ToRole="VOUCHER" />
+    <NavigationProperty Name="BILLDETAIL" Relationship="Self.FK__BILLDETAI__BILLI__603D47BB" FromRole="BILL" ToRole="BILLDETAIL" />
   </EntityType>
   <EntityType Name="BILLDETAIL">
     <Key>
@@ -86,8 +77,8 @@
     <Property Name="BILLID" Type="Int32" Nullable="false" />
     <Property Name="PRODUCTID" Type="Int32" Nullable="false" />
     <Property Name="AMOUNT" Type="Int32" />
-    <NavigationProperty Name="BILL" Relationship="Self.FK__BILLDETAI__BILLI__08B54D69" FromRole="BILLDETAIL" ToRole="BILL" />
-    <NavigationProperty Name="PRODUCT" Relationship="Self.FK__BILLDETAI__PRODU__09A971A2" FromRole="BILLDETAIL" ToRole="PRODUCT" />
+    <NavigationProperty Name="BILL" Relationship="Self.FK__BILLDETAI__BILLI__603D47BB" FromRole="BILLDETAIL" ToRole="BILL" />
+    <NavigationProperty Name="PRODUCT" Relationship="Self.FK__BILLDETAI__PRODU__61316BF4" FromRole="BILLDETAIL" ToRole="PRODUCT" />
   </EntityType>
   <EntityType Name="BRAND">
     <Key>
@@ -96,8 +87,8 @@
     <Property Name="BRANDID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="BRANDNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="STATUSBRAND" Type="Boolean" />
-    <NavigationProperty Name="PRODUCT" Relationship="Self.FK__PRODUCT__BRANDID__5441852A" FromRole="BRAND" ToRole="PRODUCT" />
-    <NavigationProperty Name="TEMPPRODUCT" Relationship="Self.FK__TEMPPRODU__BRAND__4F7CD00D" FromRole="BRAND" ToRole="TEMPPRODUCT" />
+    <NavigationProperty Name="PRODUCT" Relationship="Self.FK__PRODUCT__BRANDID__2610A626" FromRole="BRAND" ToRole="PRODUCT" />
+    <NavigationProperty Name="TEMPPRODUCT" Relationship="Self.FK__TEMPPRODU__BRAND__214BF109" FromRole="BRAND" ToRole="TEMPPRODUCT" />
   </EntityType>
   <EntityType Name="CART">
     <Key>
@@ -108,8 +99,8 @@
     <Property Name="PRODUCTID" Type="Int32" Nullable="false" />
     <Property Name="AMOUNT" Type="Int32" />
     <Property Name="PRODUCTSTATUS" Type="Boolean" />
-    <NavigationProperty Name="ACCOUNT" Relationship="Self.FK__CART__USER__787EE5A0" FromRole="CART" ToRole="ACCOUNT" />
-    <NavigationProperty Name="PRODUCT" Relationship="Self.FK__CART__PRODUCTID__797309D9" FromRole="CART" ToRole="PRODUCT" />
+    <NavigationProperty Name="ACCOUNT" Relationship="Self.FK__CART__USER__5006DFF2" FromRole="CART" ToRole="ACCOUNT" />
+    <NavigationProperty Name="PRODUCT" Relationship="Self.FK__CART__PRODUCTID__50FB042B" FromRole="CART" ToRole="PRODUCT" />
   </EntityType>
   <EntityType Name="COMMENT">
     <Key>
@@ -120,8 +111,8 @@
     <Property Name="USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
     <Property Name="COMMENTTEXT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="DATECOMMENT" Type="DateTime" Precision="3" />
-    <NavigationProperty Name="ACCOUNT" Relationship="Self.FK__COMMENT__USER__70DDC3D8" FromRole="COMMENT" ToRole="ACCOUNT" />
-    <NavigationProperty Name="PRODUCT" Relationship="Self.FK__COMMENT__PRODUCT__71D1E811" FromRole="COMMENT" ToRole="PRODUCT" />
+    <NavigationProperty Name="ACCOUNT" Relationship="Self.FK__COMMENT__USER__4865BE2A" FromRole="COMMENT" ToRole="ACCOUNT" />
+    <NavigationProperty Name="PRODUCT" Relationship="Self.FK__COMMENT__PRODUCT__4959E263" FromRole="COMMENT" ToRole="PRODUCT" />
   </EntityType>
   <EntityType Name="CONFIG">
     <Key>
@@ -129,7 +120,7 @@
     </Key>
     <Property Name="CONFIGNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="DECRIPTIONCONFIGNAME" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="CONFIGDETAIL" Relationship="Self.FK__CONFIGDET__CONFI__5AEE82B9" FromRole="CONFIG" ToRole="CONFIGDETAIL" />
+    <NavigationProperty Name="CONFIGDETAIL" Relationship="Self.FK__CONFIGDET__CONFI__32767D0B" FromRole="CONFIG" ToRole="CONFIGDETAIL" />
   </EntityType>
   <EntityType Name="CONFIGDETAIL">
     <Key>
@@ -139,8 +130,8 @@
     <Property Name="PRODUCTID" Type="Int32" Nullable="false" />
     <Property Name="CONFIGNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="INFORMATION" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="CONFIG" Relationship="Self.FK__CONFIGDET__CONFI__5AEE82B9" FromRole="CONFIGDETAIL" ToRole="CONFIG" />
-    <NavigationProperty Name="PRODUCT" Relationship="Self.FK__CONFIGDET__PRODU__59FA5E80" FromRole="CONFIGDETAIL" ToRole="PRODUCT" />
+    <NavigationProperty Name="CONFIG" Relationship="Self.FK__CONFIGDET__CONFI__32767D0B" FromRole="CONFIGDETAIL" ToRole="CONFIG" />
+    <NavigationProperty Name="PRODUCT" Relationship="Self.FK__CONFIGDET__PRODU__318258D2" FromRole="CONFIGDETAIL" ToRole="PRODUCT" />
   </EntityType>
   <EntityType Name="PRODUCT">
     <Key>
@@ -150,25 +141,21 @@
     <Property Name="PRODUCTNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="BRANDID" Type="Int32" />
     <Property Name="PRODUCTTYPEID" Type="Int32" />
-    <Property Name="MAINPIC" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="PIC1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="PIC2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="PIC3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="PIC4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="STATUSPRODUCT" Type="Boolean" />
     <Property Name="PRODUCTPRICE" Type="Int32" />
     <Property Name="PRODUCTAMOUNT" Type="Int32" />
     <Property Name="DECRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="DATEADD" Type="DateTime" Precision="3" />
-    <NavigationProperty Name="ACCOUNTLIKE" Relationship="Self.FK__ACCOUNTLI__PRODU__75A278F5" FromRole="PRODUCT" ToRole="ACCOUNTLIKE" />
-    <NavigationProperty Name="BILLDETAIL" Relationship="Self.FK__BILLDETAI__PRODU__09A971A2" FromRole="PRODUCT" ToRole="BILLDETAIL" />
-    <NavigationProperty Name="BRAND" Relationship="Self.FK__PRODUCT__BRANDID__5441852A" FromRole="PRODUCT" ToRole="BRAND" />
-    <NavigationProperty Name="CART" Relationship="Self.FK__CART__PRODUCTID__797309D9" FromRole="PRODUCT" ToRole="CART" />
-    <NavigationProperty Name="COMMENT" Relationship="Self.FK__COMMENT__PRODUCT__71D1E811" FromRole="PRODUCT" ToRole="COMMENT" />
-    <NavigationProperty Name="CONFIGDETAIL" Relationship="Self.FK__CONFIGDET__PRODU__59FA5E80" FromRole="PRODUCT" ToRole="CONFIGDETAIL" />
-    <NavigationProperty Name="PRODUCTTYPE" Relationship="Self.FK__PRODUCT__PRODUCT__5535A963" FromRole="PRODUCT" ToRole="PRODUCTTYPE" />
-    <NavigationProperty Name="RATINGPRODUCT" Relationship="Self.FK__RATINGPRO__PRODU__6B24EA82" FromRole="PRODUCT" ToRole="RATINGPRODUCT" />
-    <NavigationProperty Name="VIEWNUMBER" Relationship="Self.FK__VIEWNUMBE__PRODU__6754599E" FromRole="PRODUCT" ToRole="VIEWNUMBER" />
+    <NavigationProperty Name="ACCOUNTLIKE" Relationship="Self.FK__ACCOUNTLI__PRODU__4D2A7347" FromRole="PRODUCT" ToRole="ACCOUNTLIKE" />
+    <NavigationProperty Name="BILLDETAIL" Relationship="Self.FK__BILLDETAI__PRODU__61316BF4" FromRole="PRODUCT" ToRole="BILLDETAIL" />
+    <NavigationProperty Name="BRAND" Relationship="Self.FK__PRODUCT__BRANDID__2610A626" FromRole="PRODUCT" ToRole="BRAND" />
+    <NavigationProperty Name="CART" Relationship="Self.FK__CART__PRODUCTID__50FB042B" FromRole="PRODUCT" ToRole="CART" />
+    <NavigationProperty Name="COMMENT" Relationship="Self.FK__COMMENT__PRODUCT__4959E263" FromRole="PRODUCT" ToRole="COMMENT" />
+    <NavigationProperty Name="CONFIGDETAIL" Relationship="Self.FK__CONFIGDET__PRODU__318258D2" FromRole="PRODUCT" ToRole="CONFIGDETAIL" />
+    <NavigationProperty Name="PRODUCTTYPE" Relationship="Self.FK__PRODUCT__PRODUCT__2704CA5F" FromRole="PRODUCT" ToRole="PRODUCTTYPE" />
+    <NavigationProperty Name="RATINGPRODUCT" Relationship="Self.FK__RATINGPRO__PRODU__42ACE4D4" FromRole="PRODUCT" ToRole="RATINGPRODUCT" />
+    <NavigationProperty Name="VIEWNUMBER" Relationship="Self.FK__VIEWNUMBE__PRODU__3EDC53F0" FromRole="PRODUCT" ToRole="VIEWNUMBER" />
+    <NavigationProperty Name="PIC_PRODUCT" Relationship="COVIDModel.FK__PIC_PRODU__PRODU__753864A1" FromRole="PRODUCT" ToRole="PIC_PRODUCT" />
   </EntityType>
   <EntityType Name="PRODUCTTYPE">
     <Key>
@@ -177,8 +164,8 @@
     <Property Name="PRODUCTTYPEID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="PRODUCTTYPENAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="STATUSPRODUCTTYPE" Type="Boolean" />
-    <NavigationProperty Name="PRODUCT" Relationship="Self.FK__PRODUCT__PRODUCT__5535A963" FromRole="PRODUCTTYPE" ToRole="PRODUCT" />
-    <NavigationProperty Name="TEMPPRODUCT" Relationship="Self.FK__TEMPPRODU__PRODU__5070F446" FromRole="PRODUCTTYPE" ToRole="TEMPPRODUCT" />
+    <NavigationProperty Name="PRODUCT" Relationship="Self.FK__PRODUCT__PRODUCT__2704CA5F" FromRole="PRODUCTTYPE" ToRole="PRODUCT" />
+    <NavigationProperty Name="TEMPPRODUCT" Relationship="Self.FK__TEMPPRODU__PRODU__22401542" FromRole="PRODUCTTYPE" ToRole="TEMPPRODUCT" />
   </EntityType>
   <EntityType Name="RATINGPRODUCT">
     <Key>
@@ -188,8 +175,8 @@
     <Property Name="USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="PRODUCTID" Type="Int32" Nullable="false" />
     <Property Name="RATE" Type="Int32" />
-    <NavigationProperty Name="ACCOUNT" Relationship="Self.FK__RATINGPROD__USER__6A30C649" FromRole="RATINGPRODUCT" ToRole="ACCOUNT" />
-    <NavigationProperty Name="PRODUCT" Relationship="Self.FK__RATINGPRO__PRODU__6B24EA82" FromRole="RATINGPRODUCT" ToRole="PRODUCT" />
+    <NavigationProperty Name="ACCOUNT" Relationship="Self.FK__RATINGPROD__USER__41B8C09B" FromRole="RATINGPRODUCT" ToRole="ACCOUNT" />
+    <NavigationProperty Name="PRODUCT" Relationship="Self.FK__RATINGPRO__PRODU__42ACE4D4" FromRole="RATINGPRODUCT" ToRole="PRODUCT" />
   </EntityType>
   <EntityType Name="TEMPPRODUCT">
     <Key>
@@ -199,8 +186,8 @@
     <Property Name="PRODUCTTYPEID" Type="Int32" Nullable="false" />
     <Property Name="BRANDID" Type="Int32" Nullable="false" />
     <Property Name="TEMPPRODUCTSTATUS" Type="Boolean" />
-    <NavigationProperty Name="BRAND" Relationship="Self.FK__TEMPPRODU__BRAND__4F7CD00D" FromRole="TEMPPRODUCT" ToRole="BRAND" />
-    <NavigationProperty Name="PRODUCTTYPE" Relationship="Self.FK__TEMPPRODU__PRODU__5070F446" FromRole="TEMPPRODUCT" ToRole="PRODUCTTYPE" />
+    <NavigationProperty Name="BRAND" Relationship="Self.FK__TEMPPRODU__BRAND__214BF109" FromRole="TEMPPRODUCT" ToRole="BRAND" />
+    <NavigationProperty Name="PRODUCTTYPE" Relationship="Self.FK__TEMPPRODU__PRODU__22401542" FromRole="TEMPPRODUCT" ToRole="PRODUCTTYPE" />
   </EntityType>
   <EntityType Name="VIEWNUMBER">
     <Key>
@@ -210,8 +197,8 @@
     <Property Name="USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="PRODUCTID" Type="Int32" Nullable="false" />
     <Property Name="DATESEEN" Type="DateTime" Precision="3" />
-    <NavigationProperty Name="ACCOUNT" Relationship="Self.FK__VIEWNUMBER__USER__66603565" FromRole="VIEWNUMBER" ToRole="ACCOUNT" />
-    <NavigationProperty Name="PRODUCT" Relationship="Self.FK__VIEWNUMBE__PRODU__6754599E" FromRole="VIEWNUMBER" ToRole="PRODUCT" />
+    <NavigationProperty Name="ACCOUNT" Relationship="Self.FK__VIEWNUMBER__USER__3DE82FB7" FromRole="VIEWNUMBER" ToRole="ACCOUNT" />
+    <NavigationProperty Name="PRODUCT" Relationship="Self.FK__VIEWNUMBE__PRODU__3EDC53F0" FromRole="VIEWNUMBER" ToRole="PRODUCT" />
   </EntityType>
   <EntityType Name="VOCHERDETAIL">
     <Key>
@@ -221,8 +208,8 @@
     <Property Name="VOUCHERID" Type="Int32" Nullable="false" />
     <Property Name="USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="DATEENDTIRE" Type="DateTime" Precision="3" />
-    <NavigationProperty Name="ACCOUNT" Relationship="Self.FK__VOCHERDETA__USER__05D8E0BE" FromRole="VOCHERDETAIL" ToRole="ACCOUNT" />
-    <NavigationProperty Name="VOUCHER" Relationship="Self.FK__VOCHERDET__VOUCH__04E4BC85" FromRole="VOCHERDETAIL" ToRole="VOUCHER" />
+    <NavigationProperty Name="ACCOUNT" Relationship="Self.FK__VOCHERDETA__USER__5D60DB10" FromRole="VOCHERDETAIL" ToRole="ACCOUNT" />
+    <NavigationProperty Name="VOUCHER" Relationship="Self.FK__VOCHERDET__VOUCH__5C6CB6D7" FromRole="VOCHERDETAIL" ToRole="VOUCHER" />
   </EntityType>
   <EntityType Name="VOUCHER">
     <Key>
@@ -232,10 +219,10 @@
     <Property Name="DECRIPTIONVOUCHER" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="DATEENDTIRE" Type="DateTime" Precision="3" />
     <Property Name="STATUSVOUCHER" Type="Boolean" />
-    <NavigationProperty Name="BILL" Relationship="Self.FK__BILL__VOUCHERID__02084FDA" FromRole="VOUCHER" ToRole="BILL" />
-    <NavigationProperty Name="VOCHERDETAIL" Relationship="Self.FK__VOCHERDET__VOUCH__04E4BC85" FromRole="VOUCHER" ToRole="VOCHERDETAIL" />
+    <NavigationProperty Name="BILL" Relationship="Self.FK__BILL__VOUCHERID__59904A2C" FromRole="VOUCHER" ToRole="BILL" />
+    <NavigationProperty Name="VOCHERDETAIL" Relationship="Self.FK__VOCHERDET__VOUCH__5C6CB6D7" FromRole="VOUCHER" ToRole="VOCHERDETAIL" />
   </EntityType>
-  <Association Name="FK__ACCOUNTLIK__USER__74AE54BC">
+  <Association Name="FK__ACCOUNTLIK__USER__4C364F0E">
     <End Role="ACCOUNT" Type="Self.ACCOUNT" Multiplicity="1" />
     <End Role="ACCOUNTLIKE" Type="Self.ACCOUNTLIKE" Multiplicity="*" />
     <ReferentialConstraint>
@@ -247,7 +234,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__ADDRESS_SH__USER__6383C8BA">
+  <Association Name="FK__ADDRESS_SH__USER__3B0BC30C">
     <End Role="ACCOUNT" Type="Self.ACCOUNT" Multiplicity="0..1" />
     <End Role="ADDRESS_SHIP" Type="Self.ADDRESS_SHIP" Multiplicity="*" />
     <ReferentialConstraint>
@@ -259,7 +246,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__BILL__USER__01142BA1">
+  <Association Name="FK__BILL__USER__589C25F3">
     <End Role="ACCOUNT" Type="Self.ACCOUNT" Multiplicity="0..1" />
     <End Role="BILL" Type="Self.BILL" Multiplicity="*" />
     <ReferentialConstraint>
@@ -271,7 +258,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__CART__USER__787EE5A0">
+  <Association Name="FK__CART__USER__5006DFF2">
     <End Role="ACCOUNT" Type="Self.ACCOUNT" Multiplicity="1" />
     <End Role="CART" Type="Self.CART" Multiplicity="*" />
     <ReferentialConstraint>
@@ -283,7 +270,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__COMMENT__USER__70DDC3D8">
+  <Association Name="FK__COMMENT__USER__4865BE2A">
     <End Role="ACCOUNT" Type="Self.ACCOUNT" Multiplicity="0..1" />
     <End Role="COMMENT" Type="Self.COMMENT" Multiplicity="*" />
     <ReferentialConstraint>
@@ -295,7 +282,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__RATINGPROD__USER__6A30C649">
+  <Association Name="FK__RATINGPROD__USER__41B8C09B">
     <End Role="ACCOUNT" Type="Self.ACCOUNT" Multiplicity="1" />
     <End Role="RATINGPRODUCT" Type="Self.RATINGPRODUCT" Multiplicity="*" />
     <ReferentialConstraint>
@@ -307,7 +294,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__VIEWNUMBER__USER__66603565">
+  <Association Name="FK__VIEWNUMBER__USER__3DE82FB7">
     <End Role="ACCOUNT" Type="Self.ACCOUNT" Multiplicity="1" />
     <End Role="VIEWNUMBER" Type="Self.VIEWNUMBER" Multiplicity="*" />
     <ReferentialConstraint>
@@ -319,7 +306,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__VOCHERDETA__USER__05D8E0BE">
+  <Association Name="FK__VOCHERDETA__USER__5D60DB10">
     <End Role="ACCOUNT" Type="Self.ACCOUNT" Multiplicity="1" />
     <End Role="VOCHERDETAIL" Type="Self.VOCHERDETAIL" Multiplicity="*" />
     <ReferentialConstraint>
@@ -331,7 +318,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__ACCOUNTLI__PRODU__75A278F5">
+  <Association Name="FK__ACCOUNTLI__PRODU__4D2A7347">
     <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
     <End Role="ACCOUNTLIKE" Type="Self.ACCOUNTLIKE" Multiplicity="*" />
     <ReferentialConstraint>
@@ -343,7 +330,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__BILL__VOUCHERID__02084FDA">
+  <Association Name="FK__BILL__VOUCHERID__59904A2C">
     <End Role="VOUCHER" Type="Self.VOUCHER" Multiplicity="0..1" />
     <End Role="BILL" Type="Self.BILL" Multiplicity="*" />
     <ReferentialConstraint>
@@ -355,7 +342,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__BILLDETAI__BILLI__08B54D69">
+  <Association Name="FK__BILLDETAI__BILLI__603D47BB">
     <End Role="BILL" Type="Self.BILL" Multiplicity="1" />
     <End Role="BILLDETAIL" Type="Self.BILLDETAIL" Multiplicity="*" />
     <ReferentialConstraint>
@@ -367,7 +354,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__BILLDETAI__PRODU__09A971A2">
+  <Association Name="FK__BILLDETAI__PRODU__61316BF4">
     <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
     <End Role="BILLDETAIL" Type="Self.BILLDETAIL" Multiplicity="*" />
     <ReferentialConstraint>
@@ -379,7 +366,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__PRODUCT__BRANDID__5441852A">
+  <Association Name="FK__PRODUCT__BRANDID__2610A626">
     <End Role="BRAND" Type="Self.BRAND" Multiplicity="0..1" />
     <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="*" />
     <ReferentialConstraint>
@@ -391,7 +378,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__TEMPPRODU__BRAND__4F7CD00D">
+  <Association Name="FK__TEMPPRODU__BRAND__214BF109">
     <End Role="BRAND" Type="Self.BRAND" Multiplicity="1" />
     <End Role="TEMPPRODUCT" Type="Self.TEMPPRODUCT" Multiplicity="*" />
     <ReferentialConstraint>
@@ -403,7 +390,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__CART__PRODUCTID__797309D9">
+  <Association Name="FK__CART__PRODUCTID__50FB042B">
     <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
     <End Role="CART" Type="Self.CART" Multiplicity="*" />
     <ReferentialConstraint>
@@ -415,7 +402,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__COMMENT__PRODUCT__71D1E811">
+  <Association Name="FK__COMMENT__PRODUCT__4959E263">
     <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="0..1" />
     <End Role="COMMENT" Type="Self.COMMENT" Multiplicity="*" />
     <ReferentialConstraint>
@@ -427,7 +414,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__CONFIGDET__CONFI__5AEE82B9">
+  <Association Name="FK__CONFIGDET__CONFI__32767D0B">
     <End Role="CONFIG" Type="Self.CONFIG" Multiplicity="1" />
     <End Role="CONFIGDETAIL" Type="Self.CONFIGDETAIL" Multiplicity="*" />
     <ReferentialConstraint>
@@ -439,7 +426,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__CONFIGDET__PRODU__59FA5E80">
+  <Association Name="FK__CONFIGDET__PRODU__318258D2">
     <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
     <End Role="CONFIGDETAIL" Type="Self.CONFIGDETAIL" Multiplicity="*" />
     <ReferentialConstraint>
@@ -451,7 +438,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__PRODUCT__PRODUCT__5535A963">
+  <Association Name="FK__PRODUCT__PRODUCT__2704CA5F">
     <End Role="PRODUCTTYPE" Type="Self.PRODUCTTYPE" Multiplicity="0..1" />
     <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="*" />
     <ReferentialConstraint>
@@ -463,7 +450,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__RATINGPRO__PRODU__6B24EA82">
+  <Association Name="FK__RATINGPRO__PRODU__42ACE4D4">
     <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
     <End Role="RATINGPRODUCT" Type="Self.RATINGPRODUCT" Multiplicity="*" />
     <ReferentialConstraint>
@@ -475,7 +462,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__VIEWNUMBE__PRODU__6754599E">
+  <Association Name="FK__VIEWNUMBE__PRODU__3EDC53F0">
     <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
     <End Role="VIEWNUMBER" Type="Self.VIEWNUMBER" Multiplicity="*" />
     <ReferentialConstraint>
@@ -487,7 +474,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__TEMPPRODU__PRODU__5070F446">
+  <Association Name="FK__TEMPPRODU__PRODU__22401542">
     <End Role="PRODUCTTYPE" Type="Self.PRODUCTTYPE" Multiplicity="1" />
     <End Role="TEMPPRODUCT" Type="Self.TEMPPRODUCT" Multiplicity="*" />
     <ReferentialConstraint>
@@ -499,7 +486,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__VOCHERDET__VOUCH__04E4BC85">
+  <Association Name="FK__VOCHERDET__VOUCH__5C6CB6D7">
     <End Role="VOUCHER" Type="Self.VOUCHER" Multiplicity="1" />
     <End Role="VOCHERDETAIL" Type="Self.VOCHERDETAIL" Multiplicity="*" />
     <ReferentialConstraint>
@@ -513,7 +500,6 @@
   </Association>
   <EntityContainer Name="COVIDEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="ACCOUNT" EntityType="Self.ACCOUNT" />
-    <EntitySet Name="ACCOUNT_ADMIN" EntityType="Self.ACCOUNT_ADMIN" />
     <EntitySet Name="ACCOUNTLIKE" EntityType="Self.ACCOUNTLIKE" />
     <EntitySet Name="ADDRESS_SHIP" EntityType="Self.ADDRESS_SHIP" />
     <EntitySet Name="BILL" EntityType="Self.BILL" />
@@ -530,95 +516,95 @@
     <EntitySet Name="VIEWNUMBER" EntityType="Self.VIEWNUMBER" />
     <EntitySet Name="VOCHERDETAIL" EntityType="Self.VOCHERDETAIL" />
     <EntitySet Name="VOUCHER" EntityType="Self.VOUCHER" />
-    <AssociationSet Name="FK__ACCOUNTLIK__USER__74AE54BC" Association="Self.FK__ACCOUNTLIK__USER__74AE54BC">
+    <AssociationSet Name="FK__ACCOUNTLIK__USER__4C364F0E" Association="Self.FK__ACCOUNTLIK__USER__4C364F0E">
       <End Role="ACCOUNT" EntitySet="ACCOUNT" />
       <End Role="ACCOUNTLIKE" EntitySet="ACCOUNTLIKE" />
     </AssociationSet>
-    <AssociationSet Name="FK__ADDRESS_SH__USER__6383C8BA" Association="Self.FK__ADDRESS_SH__USER__6383C8BA">
+    <AssociationSet Name="FK__ADDRESS_SH__USER__3B0BC30C" Association="Self.FK__ADDRESS_SH__USER__3B0BC30C">
       <End Role="ACCOUNT" EntitySet="ACCOUNT" />
       <End Role="ADDRESS_SHIP" EntitySet="ADDRESS_SHIP" />
     </AssociationSet>
-    <AssociationSet Name="FK__BILL__USER__01142BA1" Association="Self.FK__BILL__USER__01142BA1">
+    <AssociationSet Name="FK__BILL__USER__589C25F3" Association="Self.FK__BILL__USER__589C25F3">
       <End Role="ACCOUNT" EntitySet="ACCOUNT" />
       <End Role="BILL" EntitySet="BILL" />
     </AssociationSet>
-    <AssociationSet Name="FK__CART__USER__787EE5A0" Association="Self.FK__CART__USER__787EE5A0">
+    <AssociationSet Name="FK__CART__USER__5006DFF2" Association="Self.FK__CART__USER__5006DFF2">
       <End Role="ACCOUNT" EntitySet="ACCOUNT" />
       <End Role="CART" EntitySet="CART" />
     </AssociationSet>
-    <AssociationSet Name="FK__COMMENT__USER__70DDC3D8" Association="Self.FK__COMMENT__USER__70DDC3D8">
+    <AssociationSet Name="FK__COMMENT__USER__4865BE2A" Association="Self.FK__COMMENT__USER__4865BE2A">
       <End Role="ACCOUNT" EntitySet="ACCOUNT" />
       <End Role="COMMENT" EntitySet="COMMENT" />
     </AssociationSet>
-    <AssociationSet Name="FK__RATINGPROD__USER__6A30C649" Association="Self.FK__RATINGPROD__USER__6A30C649">
+    <AssociationSet Name="FK__RATINGPROD__USER__41B8C09B" Association="Self.FK__RATINGPROD__USER__41B8C09B">
       <End Role="ACCOUNT" EntitySet="ACCOUNT" />
       <End Role="RATINGPRODUCT" EntitySet="RATINGPRODUCT" />
     </AssociationSet>
-    <AssociationSet Name="FK__VIEWNUMBER__USER__66603565" Association="Self.FK__VIEWNUMBER__USER__66603565">
+    <AssociationSet Name="FK__VIEWNUMBER__USER__3DE82FB7" Association="Self.FK__VIEWNUMBER__USER__3DE82FB7">
       <End Role="ACCOUNT" EntitySet="ACCOUNT" />
       <End Role="VIEWNUMBER" EntitySet="VIEWNUMBER" />
     </AssociationSet>
-    <AssociationSet Name="FK__VOCHERDETA__USER__05D8E0BE" Association="Self.FK__VOCHERDETA__USER__05D8E0BE">
+    <AssociationSet Name="FK__VOCHERDETA__USER__5D60DB10" Association="Self.FK__VOCHERDETA__USER__5D60DB10">
       <End Role="ACCOUNT" EntitySet="ACCOUNT" />
       <End Role="VOCHERDETAIL" EntitySet="VOCHERDETAIL" />
     </AssociationSet>
-    <AssociationSet Name="FK__ACCOUNTLI__PRODU__75A278F5" Association="Self.FK__ACCOUNTLI__PRODU__75A278F5">
+    <AssociationSet Name="FK__ACCOUNTLI__PRODU__4D2A7347" Association="Self.FK__ACCOUNTLI__PRODU__4D2A7347">
       <End Role="PRODUCT" EntitySet="PRODUCT" />
       <End Role="ACCOUNTLIKE" EntitySet="ACCOUNTLIKE" />
     </AssociationSet>
-    <AssociationSet Name="FK__BILL__VOUCHERID__02084FDA" Association="Self.FK__BILL__VOUCHERID__02084FDA">
+    <AssociationSet Name="FK__BILL__VOUCHERID__59904A2C" Association="Self.FK__BILL__VOUCHERID__59904A2C">
       <End Role="VOUCHER" EntitySet="VOUCHER" />
       <End Role="BILL" EntitySet="BILL" />
     </AssociationSet>
-    <AssociationSet Name="FK__BILLDETAI__BILLI__08B54D69" Association="Self.FK__BILLDETAI__BILLI__08B54D69">
+    <AssociationSet Name="FK__BILLDETAI__BILLI__603D47BB" Association="Self.FK__BILLDETAI__BILLI__603D47BB">
       <End Role="BILL" EntitySet="BILL" />
       <End Role="BILLDETAIL" EntitySet="BILLDETAIL" />
     </AssociationSet>
-    <AssociationSet Name="FK__BILLDETAI__PRODU__09A971A2" Association="Self.FK__BILLDETAI__PRODU__09A971A2">
+    <AssociationSet Name="FK__BILLDETAI__PRODU__61316BF4" Association="Self.FK__BILLDETAI__PRODU__61316BF4">
       <End Role="PRODUCT" EntitySet="PRODUCT" />
       <End Role="BILLDETAIL" EntitySet="BILLDETAIL" />
     </AssociationSet>
-    <AssociationSet Name="FK__PRODUCT__BRANDID__5441852A" Association="Self.FK__PRODUCT__BRANDID__5441852A">
+    <AssociationSet Name="FK__PRODUCT__BRANDID__2610A626" Association="Self.FK__PRODUCT__BRANDID__2610A626">
       <End Role="BRAND" EntitySet="BRAND" />
       <End Role="PRODUCT" EntitySet="PRODUCT" />
     </AssociationSet>
-    <AssociationSet Name="FK__TEMPPRODU__BRAND__4F7CD00D" Association="Self.FK__TEMPPRODU__BRAND__4F7CD00D">
+    <AssociationSet Name="FK__TEMPPRODU__BRAND__214BF109" Association="Self.FK__TEMPPRODU__BRAND__214BF109">
       <End Role="BRAND" EntitySet="BRAND" />
       <End Role="TEMPPRODUCT" EntitySet="TEMPPRODUCT" />
     </AssociationSet>
-    <AssociationSet Name="FK__CART__PRODUCTID__797309D9" Association="Self.FK__CART__PRODUCTID__797309D9">
+    <AssociationSet Name="FK__CART__PRODUCTID__50FB042B" Association="Self.FK__CART__PRODUCTID__50FB042B">
       <End Role="PRODUCT" EntitySet="PRODUCT" />
       <End Role="CART" EntitySet="CART" />
     </AssociationSet>
-    <AssociationSet Name="FK__COMMENT__PRODUCT__71D1E811" Association="Self.FK__COMMENT__PRODUCT__71D1E811">
+    <AssociationSet Name="FK__COMMENT__PRODUCT__4959E263" Association="Self.FK__COMMENT__PRODUCT__4959E263">
       <End Role="PRODUCT" EntitySet="PRODUCT" />
       <End Role="COMMENT" EntitySet="COMMENT" />
     </AssociationSet>
-    <AssociationSet Name="FK__CONFIGDET__CONFI__5AEE82B9" Association="Self.FK__CONFIGDET__CONFI__5AEE82B9">
+    <AssociationSet Name="FK__CONFIGDET__CONFI__32767D0B" Association="Self.FK__CONFIGDET__CONFI__32767D0B">
       <End Role="CONFIG" EntitySet="CONFIG" />
       <End Role="CONFIGDETAIL" EntitySet="CONFIGDETAIL" />
     </AssociationSet>
-    <AssociationSet Name="FK__CONFIGDET__PRODU__59FA5E80" Association="Self.FK__CONFIGDET__PRODU__59FA5E80">
+    <AssociationSet Name="FK__CONFIGDET__PRODU__318258D2" Association="Self.FK__CONFIGDET__PRODU__318258D2">
       <End Role="PRODUCT" EntitySet="PRODUCT" />
       <End Role="CONFIGDETAIL" EntitySet="CONFIGDETAIL" />
     </AssociationSet>
-    <AssociationSet Name="FK__PRODUCT__PRODUCT__5535A963" Association="Self.FK__PRODUCT__PRODUCT__5535A963">
+    <AssociationSet Name="FK__PRODUCT__PRODUCT__2704CA5F" Association="Self.FK__PRODUCT__PRODUCT__2704CA5F">
       <End Role="PRODUCTTYPE" EntitySet="PRODUCTTYPE" />
       <End Role="PRODUCT" EntitySet="PRODUCT" />
     </AssociationSet>
-    <AssociationSet Name="FK__RATINGPRO__PRODU__6B24EA82" Association="Self.FK__RATINGPRO__PRODU__6B24EA82">
+    <AssociationSet Name="FK__RATINGPRO__PRODU__42ACE4D4" Association="Self.FK__RATINGPRO__PRODU__42ACE4D4">
       <End Role="PRODUCT" EntitySet="PRODUCT" />
       <End Role="RATINGPRODUCT" EntitySet="RATINGPRODUCT" />
     </AssociationSet>
-    <AssociationSet Name="FK__VIEWNUMBE__PRODU__6754599E" Association="Self.FK__VIEWNUMBE__PRODU__6754599E">
+    <AssociationSet Name="FK__VIEWNUMBE__PRODU__3EDC53F0" Association="Self.FK__VIEWNUMBE__PRODU__3EDC53F0">
       <End Role="PRODUCT" EntitySet="PRODUCT" />
       <End Role="VIEWNUMBER" EntitySet="VIEWNUMBER" />
     </AssociationSet>
-    <AssociationSet Name="FK__TEMPPRODU__PRODU__5070F446" Association="Self.FK__TEMPPRODU__PRODU__5070F446">
+    <AssociationSet Name="FK__TEMPPRODU__PRODU__22401542" Association="Self.FK__TEMPPRODU__PRODU__22401542">
       <End Role="PRODUCTTYPE" EntitySet="PRODUCTTYPE" />
       <End Role="TEMPPRODUCT" EntitySet="TEMPPRODUCT" />
     </AssociationSet>
-    <AssociationSet Name="FK__VOCHERDET__VOUCH__04E4BC85" Association="Self.FK__VOCHERDET__VOUCH__04E4BC85">
+    <AssociationSet Name="FK__VOCHERDET__VOUCH__5C6CB6D7" Association="Self.FK__VOCHERDET__VOUCH__5C6CB6D7">
       <End Role="VOUCHER" EntitySet="VOUCHER" />
       <End Role="VOCHERDETAIL" EntitySet="VOCHERDETAIL" />
     </AssociationSet>
@@ -630,5 +616,363 @@
       <Parameter Name="username" Mode="In" Type="String" />
       <Parameter Name="password" Mode="In" Type="String" />
     </FunctionImport>
+    <EntitySet Name="PIC_PRODUCT" EntityType="COVIDModel.PIC_PRODUCT" />
+    <EntitySet Name="PICTURE" EntityType="COVIDModel.PICTURE" />
+    <AssociationSet Name="FK__PIC_PRODU__PICTU__762C88DA" Association="COVIDModel.FK__PIC_PRODU__PICTU__762C88DA">
+      <End Role="PICTURE" EntitySet="PICTURE" />
+      <End Role="PIC_PRODUCT" EntitySet="PIC_PRODUCT" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PIC_PRODU__PRODU__753864A1" Association="COVIDModel.FK__PIC_PRODU__PRODU__753864A1">
+      <End Role="PRODUCT" EntitySet="PRODUCT" />
+      <End Role="PIC_PRODUCT" EntitySet="PIC_PRODUCT" />
+    </AssociationSet>
+    <EntitySet Name="ACCOUNT_ADMIN" EntityType="COVIDModel.ACCOUNT_ADMIN" />
+    <EntitySet Name="ww_Customer" EntityType="COVIDModel.ww_Customer" />
+    <EntitySet Name="ww_Product" EntityType="COVIDModel.ww_Product" />
+    <EntitySet Name="ww_Bill" EntityType="COVIDModel.ww_Bill" />
+    <EntitySet Name="ww_BillDetail" EntityType="COVIDModel.ww_BillDetail" />
+    <AssociationSet Name="FK__ww_Bill__Phone__1387E197" Association="COVIDModel.FK__ww_Bill__Phone__1387E197">
+      <End Role="ww_Customer" EntitySet="ww_Customer" />
+      <End Role="ww_Bill" EntitySet="ww_Bill" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ww_BillDe__BillI__1758727B" Association="COVIDModel.FK__ww_BillDe__BillI__1758727B">
+      <End Role="ww_Bill" EntitySet="ww_Bill" />
+      <End Role="ww_BillDetail" EntitySet="ww_BillDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ww_BillDe__Produ__16644E42" Association="COVIDModel.FK__ww_BillDe__Produ__16644E42">
+      <End Role="ww_Product" EntitySet="ww_Product" />
+      <End Role="ww_BillDetail" EntitySet="ww_BillDetail" />
+    </AssociationSet>
+    <EntitySet Name="ww_BAUCUA_ACCOUNT" EntityType="COVIDModel.ww_BAUCUA_ACCOUNT" />
+    <EntitySet Name="ww_BAUCUA_ANIMAL" EntityType="COVIDModel.ww_BAUCUA_ANIMAL" />
+    <EntitySet Name="ww_BAUCUA_CHAT" EntityType="COVIDModel.ww_BAUCUA_CHAT" />
+    <EntitySet Name="ww_BAUCUA_COLOR" EntityType="COVIDModel.ww_BAUCUA_COLOR" />
+    <EntitySet Name="ww_BAUCUA_PLAYER" EntityType="COVIDModel.ww_BAUCUA_PLAYER" />
+    <EntitySet Name="ww_BAUCUA_PLAYERDETAIL" EntityType="COVIDModel.ww_BAUCUA_PLAYERDETAIL" />
+    <EntitySet Name="ww_BAUCUA_ROOM" EntityType="COVIDModel.ww_BAUCUA_ROOM" />
+    <AssociationSet Name="FK__ww_BAUCUA__OWNER__19CACAD2" Association="COVIDModel.FK__ww_BAUCUA__OWNER__19CACAD2">
+      <End Role="ww_BAUCUA_ACCOUNT" EntitySet="ww_BAUCUA_ACCOUNT" />
+      <End Role="ww_BAUCUA_ROOM" EntitySet="ww_BAUCUA_ROOM" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ww_BAUCUA__USERN__1E8F7FEF" Association="COVIDModel.FK__ww_BAUCUA__USERN__1E8F7FEF">
+      <End Role="ww_BAUCUA_ACCOUNT" EntitySet="ww_BAUCUA_ACCOUNT" />
+      <End Role="ww_BAUCUA_PLAYER" EntitySet="ww_BAUCUA_PLAYER" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ww_BAUCUA__ANIMA__226010D3" Association="COVIDModel.FK__ww_BAUCUA__ANIMA__226010D3">
+      <End Role="ww_BAUCUA_ANIMAL" EntitySet="ww_BAUCUA_ANIMAL" />
+      <End Role="ww_BAUCUA_PLAYERDETAIL" EntitySet="ww_BAUCUA_PLAYERDETAIL" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ww_BAUCUA__PLAYE__253C7D7E" Association="COVIDModel.FK__ww_BAUCUA__PLAYE__253C7D7E">
+      <End Role="ww_BAUCUA_PLAYER" EntitySet="ww_BAUCUA_PLAYER" />
+      <End Role="ww_BAUCUA_CHAT" EntitySet="ww_BAUCUA_CHAT" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ww_BAUCUA__COLOR__1D9B5BB6" Association="COVIDModel.FK__ww_BAUCUA__COLOR__1D9B5BB6">
+      <End Role="ww_BAUCUA_COLOR" EntitySet="ww_BAUCUA_COLOR" />
+      <End Role="ww_BAUCUA_PLAYER" EntitySet="ww_BAUCUA_PLAYER" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ww_BAUCUA__PLAYE__216BEC9A" Association="COVIDModel.FK__ww_BAUCUA__PLAYE__216BEC9A">
+      <End Role="ww_BAUCUA_PLAYER" EntitySet="ww_BAUCUA_PLAYER" />
+      <End Role="ww_BAUCUA_PLAYERDETAIL" EntitySet="ww_BAUCUA_PLAYERDETAIL" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ww_BAUCUA__ROOMI__1CA7377D" Association="COVIDModel.FK__ww_BAUCUA__ROOMI__1CA7377D">
+      <End Role="ww_BAUCUA_ROOM" EntitySet="ww_BAUCUA_ROOM" />
+      <End Role="ww_BAUCUA_PLAYER" EntitySet="ww_BAUCUA_PLAYER" />
+    </AssociationSet>
   </EntityContainer>
+  <EntityType Name="PIC_PRODUCT">
+    <Key>
+      <PropertyRef Name="PRODUCTID" />
+      <PropertyRef Name="PICTUREID" />
+    </Key>
+    <Property Name="PRODUCTID" Type="Int32" Nullable="false" />
+    <Property Name="PICTUREID" Type="Int32" Nullable="false" />
+    <Property Name="MAINPIC" Type="Boolean" />
+    <NavigationProperty Name="PICTURE" Relationship="COVIDModel.FK__PIC_PRODU__PICTU__762C88DA" FromRole="PIC_PRODUCT" ToRole="PICTURE" />
+    <NavigationProperty Name="PRODUCT" Relationship="COVIDModel.FK__PIC_PRODU__PRODU__753864A1" FromRole="PIC_PRODUCT" ToRole="PRODUCT" />
+  </EntityType>
+  <EntityType Name="PICTURE">
+    <Key>
+      <PropertyRef Name="PICTUREID" />
+    </Key>
+    <Property Name="PICTUREID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PATH" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="LINK" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="PIC_PRODUCT" Relationship="COVIDModel.FK__PIC_PRODU__PICTU__762C88DA" FromRole="PICTURE" ToRole="PIC_PRODUCT" />
+  </EntityType>
+  <Association Name="FK__PIC_PRODU__PICTU__762C88DA">
+    <End Type="COVIDModel.PICTURE" Role="PICTURE" Multiplicity="1" />
+    <End Type="COVIDModel.PIC_PRODUCT" Role="PIC_PRODUCT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PICTURE">
+        <PropertyRef Name="PICTUREID" />
+      </Principal>
+      <Dependent Role="PIC_PRODUCT">
+        <PropertyRef Name="PICTUREID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PIC_PRODU__PRODU__753864A1">
+    <End Type="COVIDModel.PRODUCT" Role="PRODUCT" Multiplicity="1" />
+    <End Type="COVIDModel.PIC_PRODUCT" Role="PIC_PRODUCT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRODUCT">
+        <PropertyRef Name="PRODUCTID" />
+      </Principal>
+      <Dependent Role="PIC_PRODUCT">
+        <PropertyRef Name="PRODUCTID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="ACCOUNT_ADMIN">
+    <Key>
+      <PropertyRef Name="USER" />
+    </Key>
+    <Property Name="USER" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="PASSWORD" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="FULLNAME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="STATUSACCOUNT" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="ww_Customer">
+    <Key>
+      <PropertyRef Name="Phone" />
+    </Key>
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Tag" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ww_Bill" Relationship="COVIDModel.FK__ww_Bill__Phone__1387E197" FromRole="ww_Customer" ToRole="ww_Bill" />
+  </EntityType>
+  <EntityType Name="ww_Product">
+    <Key>
+      <PropertyRef Name="ProductId" />
+    </Key>
+    <Property Name="ProductId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProdutName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Pic" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Price" Type="Int32" Nullable="false" />
+    <Property Name="Quantity" Type="Double" Nullable="false" />
+    <Property Name="ProductState" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="ww_BillDetail" Relationship="COVIDModel.FK__ww_BillDe__Produ__16644E42" FromRole="ww_Product" ToRole="ww_BillDetail" />
+  </EntityType>
+  <EntityType Name="ww_Bill">
+    <Key>
+      <PropertyRef Name="BillId" />
+    </Key>
+    <Property Name="BillId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Phone" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="BillState" Type="Boolean" />
+    <NavigationProperty Name="ww_Customer" Relationship="COVIDModel.FK__ww_Bill__Phone__1387E197" FromRole="ww_Bill" ToRole="ww_Customer" />
+    <NavigationProperty Name="ww_BillDetail" Relationship="COVIDModel.FK__ww_BillDe__BillI__1758727B" FromRole="ww_Bill" ToRole="ww_BillDetail" />
+  </EntityType>
+  <EntityType Name="ww_BillDetail">
+    <Key>
+      <PropertyRef Name="BillId" />
+      <PropertyRef Name="ProductId" />
+    </Key>
+    <Property Name="BillId" Type="Int32" Nullable="false" />
+    <Property Name="ProductId" Type="Int32" Nullable="false" />
+    <Property Name="Amount" Type="Double" Nullable="false" />
+    <NavigationProperty Name="ww_Bill" Relationship="COVIDModel.FK__ww_BillDe__BillI__1758727B" FromRole="ww_BillDetail" ToRole="ww_Bill" />
+    <NavigationProperty Name="ww_Product" Relationship="COVIDModel.FK__ww_BillDe__Produ__16644E42" FromRole="ww_BillDetail" ToRole="ww_Product" />
+  </EntityType>
+  <Association Name="FK__ww_Bill__Phone__1387E197">
+    <End Type="COVIDModel.ww_Customer" Role="ww_Customer" Multiplicity="0..1" />
+    <End Type="COVIDModel.ww_Bill" Role="ww_Bill" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ww_Customer">
+        <PropertyRef Name="Phone" />
+      </Principal>
+      <Dependent Role="ww_Bill">
+        <PropertyRef Name="Phone" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ww_BillDe__BillI__1758727B">
+    <End Type="COVIDModel.ww_Bill" Role="ww_Bill" Multiplicity="1" />
+    <End Type="COVIDModel.ww_BillDetail" Role="ww_BillDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ww_Bill">
+        <PropertyRef Name="BillId" />
+      </Principal>
+      <Dependent Role="ww_BillDetail">
+        <PropertyRef Name="BillId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ww_BillDe__Produ__16644E42">
+    <End Type="COVIDModel.ww_Product" Role="ww_Product" Multiplicity="1" />
+    <End Type="COVIDModel.ww_BillDetail" Role="ww_BillDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ww_Product">
+        <PropertyRef Name="ProductId" />
+      </Principal>
+      <Dependent Role="ww_BillDetail">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="ww_BAUCUA_ACCOUNT">
+    <Key>
+      <PropertyRef Name="USERNAME" />
+    </Key>
+    <Property Name="ACCOUNTNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="USERNAME" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="PASS" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="MONEY" Type="Double" Nullable="false" />
+    <Property Name="AC_STATUS" Type="Boolean" />
+    <NavigationProperty Name="ww_BAUCUA_ROOM" Relationship="COVIDModel.FK__ww_BAUCUA__OWNER__19CACAD2" FromRole="ww_BAUCUA_ACCOUNT" ToRole="ww_BAUCUA_ROOM" />
+    <NavigationProperty Name="ww_BAUCUA_PLAYER" Relationship="COVIDModel.FK__ww_BAUCUA__USERN__1E8F7FEF" FromRole="ww_BAUCUA_ACCOUNT" ToRole="ww_BAUCUA_PLAYER" />
+  </EntityType>
+  <EntityType Name="ww_BAUCUA_ANIMAL">
+    <Key>
+      <PropertyRef Name="ANIMALID" />
+    </Key>
+    <Property Name="ANIMALID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ANIMALNAME" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ww_BAUCUA_PLAYERDETAIL" Relationship="COVIDModel.FK__ww_BAUCUA__ANIMA__226010D3" FromRole="ww_BAUCUA_ANIMAL" ToRole="ww_BAUCUA_PLAYERDETAIL" />
+  </EntityType>
+  <EntityType Name="ww_BAUCUA_CHAT">
+    <Key>
+      <PropertyRef Name="CHATID" />
+    </Key>
+    <Property Name="CHATID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PLAYERID" Type="Int32" />
+    <Property Name="TEXTCHAT" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NUMBERVIEWERS" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="ww_BAUCUA_PLAYER" Relationship="COVIDModel.FK__ww_BAUCUA__PLAYE__253C7D7E" FromRole="ww_BAUCUA_CHAT" ToRole="ww_BAUCUA_PLAYER" />
+  </EntityType>
+  <EntityType Name="ww_BAUCUA_COLOR">
+    <Key>
+      <PropertyRef Name="COLORID" />
+    </Key>
+    <Property Name="COLORID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="COLORNAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ww_BAUCUA_PLAYER" Relationship="COVIDModel.FK__ww_BAUCUA__COLOR__1D9B5BB6" FromRole="ww_BAUCUA_COLOR" ToRole="ww_BAUCUA_PLAYER" />
+  </EntityType>
+  <EntityType Name="ww_BAUCUA_PLAYER">
+    <Key>
+      <PropertyRef Name="PLAYERID" />
+    </Key>
+    <Property Name="PLAYERID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ROOMID" Type="Int32" Nullable="false" />
+    <Property Name="USERNAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="READY" Type="Boolean" Nullable="false" />
+    <Property Name="COLORID" Type="Int32" />
+    <Property Name="DICE" Type="Boolean" />
+    <NavigationProperty Name="ww_BAUCUA_ACCOUNT" Relationship="COVIDModel.FK__ww_BAUCUA__USERN__1E8F7FEF" FromRole="ww_BAUCUA_PLAYER" ToRole="ww_BAUCUA_ACCOUNT" />
+    <NavigationProperty Name="ww_BAUCUA_CHAT" Relationship="COVIDModel.FK__ww_BAUCUA__PLAYE__253C7D7E" FromRole="ww_BAUCUA_PLAYER" ToRole="ww_BAUCUA_CHAT" />
+    <NavigationProperty Name="ww_BAUCUA_COLOR" Relationship="COVIDModel.FK__ww_BAUCUA__COLOR__1D9B5BB6" FromRole="ww_BAUCUA_PLAYER" ToRole="ww_BAUCUA_COLOR" />
+    <NavigationProperty Name="ww_BAUCUA_PLAYERDETAIL" Relationship="COVIDModel.FK__ww_BAUCUA__PLAYE__216BEC9A" FromRole="ww_BAUCUA_PLAYER" ToRole="ww_BAUCUA_PLAYERDETAIL" />
+    <NavigationProperty Name="ww_BAUCUA_ROOM" Relationship="COVIDModel.FK__ww_BAUCUA__ROOMI__1CA7377D" FromRole="ww_BAUCUA_PLAYER" ToRole="ww_BAUCUA_ROOM" />
+  </EntityType>
+  <EntityType Name="ww_BAUCUA_PLAYERDETAIL">
+    <Key>
+      <PropertyRef Name="PLAYERID" />
+      <PropertyRef Name="ANIMALID" />
+    </Key>
+    <Property Name="PLAYERID" Type="Int32" Nullable="false" />
+    <Property Name="ANIMALID" Type="Int32" Nullable="false" />
+    <Property Name="BETS" Type="Double" Nullable="false" />
+    <NavigationProperty Name="ww_BAUCUA_ANIMAL" Relationship="COVIDModel.FK__ww_BAUCUA__ANIMA__226010D3" FromRole="ww_BAUCUA_PLAYERDETAIL" ToRole="ww_BAUCUA_ANIMAL" />
+    <NavigationProperty Name="ww_BAUCUA_PLAYER" Relationship="COVIDModel.FK__ww_BAUCUA__PLAYE__216BEC9A" FromRole="ww_BAUCUA_PLAYERDETAIL" ToRole="ww_BAUCUA_PLAYER" />
+  </EntityType>
+  <EntityType Name="ww_BAUCUA_ROOM">
+    <Key>
+      <PropertyRef Name="ROOMID" />
+    </Key>
+    <Property Name="ROOMID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AMOUNTPERSON" Type="Int32" />
+    <Property Name="ROOMSTATUS" Type="Boolean" />
+    <Property Name="MINBETS" Type="Double" Nullable="false" />
+    <Property Name="OWNER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="PASS" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="DICE1" Type="Int32" />
+    <Property Name="DICE2" Type="Int32" />
+    <Property Name="DICE3" Type="Int32" />
+    <NavigationProperty Name="ww_BAUCUA_ACCOUNT" Relationship="COVIDModel.FK__ww_BAUCUA__OWNER__19CACAD2" FromRole="ww_BAUCUA_ROOM" ToRole="ww_BAUCUA_ACCOUNT" />
+    <NavigationProperty Name="ww_BAUCUA_PLAYER" Relationship="COVIDModel.FK__ww_BAUCUA__ROOMI__1CA7377D" FromRole="ww_BAUCUA_ROOM" ToRole="ww_BAUCUA_PLAYER" />
+  </EntityType>
+  <Association Name="FK__ww_BAUCUA__OWNER__19CACAD2">
+    <End Type="COVIDModel.ww_BAUCUA_ACCOUNT" Role="ww_BAUCUA_ACCOUNT" Multiplicity="0..1" />
+    <End Type="COVIDModel.ww_BAUCUA_ROOM" Role="ww_BAUCUA_ROOM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ww_BAUCUA_ACCOUNT">
+        <PropertyRef Name="USERNAME" />
+      </Principal>
+      <Dependent Role="ww_BAUCUA_ROOM">
+        <PropertyRef Name="OWNER" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ww_BAUCUA__USERN__1E8F7FEF">
+    <End Type="COVIDModel.ww_BAUCUA_ACCOUNT" Role="ww_BAUCUA_ACCOUNT" Multiplicity="0..1" />
+    <End Type="COVIDModel.ww_BAUCUA_PLAYER" Role="ww_BAUCUA_PLAYER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ww_BAUCUA_ACCOUNT">
+        <PropertyRef Name="USERNAME" />
+      </Principal>
+      <Dependent Role="ww_BAUCUA_PLAYER">
+        <PropertyRef Name="USERNAME" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ww_BAUCUA__ANIMA__226010D3">
+    <End Type="COVIDModel.ww_BAUCUA_ANIMAL" Role="ww_BAUCUA_ANIMAL" Multiplicity="1" />
+    <End Type="COVIDModel.ww_BAUCUA_PLAYERDETAIL" Role="ww_BAUCUA_PLAYERDETAIL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ww_BAUCUA_ANIMAL">
+        <PropertyRef Name="ANIMALID" />
+      </Principal>
+      <Dependent Role="ww_BAUCUA_PLAYERDETAIL">
+        <PropertyRef Name="ANIMALID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ww_BAUCUA__PLAYE__253C7D7E">
+    <End Type="COVIDModel.ww_BAUCUA_PLAYER" Role="ww_BAUCUA_PLAYER" Multiplicity="0..1" />
+    <End Type="COVIDModel.ww_BAUCUA_CHAT" Role="ww_BAUCUA_CHAT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ww_BAUCUA_PLAYER">
+        <PropertyRef Name="PLAYERID" />
+      </Principal>
+      <Dependent Role="ww_BAUCUA_CHAT">
+        <PropertyRef Name="PLAYERID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ww_BAUCUA__COLOR__1D9B5BB6">
+    <End Type="COVIDModel.ww_BAUCUA_COLOR" Role="ww_BAUCUA_COLOR" Multiplicity="0..1" />
+    <End Type="COVIDModel.ww_BAUCUA_PLAYER" Role="ww_BAUCUA_PLAYER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ww_BAUCUA_COLOR">
+        <PropertyRef Name="COLORID" />
+      </Principal>
+      <Dependent Role="ww_BAUCUA_PLAYER">
+        <PropertyRef Name="COLORID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ww_BAUCUA__PLAYE__216BEC9A">
+    <End Type="COVIDModel.ww_BAUCUA_PLAYER" Role="ww_BAUCUA_PLAYER" Multiplicity="1" />
+    <End Type="COVIDModel.ww_BAUCUA_PLAYERDETAIL" Role="ww_BAUCUA_PLAYERDETAIL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ww_BAUCUA_PLAYER">
+        <PropertyRef Name="PLAYERID" />
+      </Principal>
+      <Dependent Role="ww_BAUCUA_PLAYERDETAIL">
+        <PropertyRef Name="PLAYERID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ww_BAUCUA__ROOMI__1CA7377D">
+    <End Type="COVIDModel.ww_BAUCUA_ROOM" Role="ww_BAUCUA_ROOM" Multiplicity="1" />
+    <End Type="COVIDModel.ww_BAUCUA_PLAYER" Role="ww_BAUCUA_PLAYER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ww_BAUCUA_ROOM">
+        <PropertyRef Name="ROOMID" />
+      </Principal>
+      <Dependent Role="ww_BAUCUA_PLAYER">
+        <PropertyRef Name="ROOMID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

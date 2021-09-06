@@ -1,0 +1,40 @@
+﻿
+@{
+    var PM = new TSP_Covid21.Areas.Admin.Controllers.PictureManagerController();
+    var listPic = PM.loadPic();
+}
+
+@foreach (var item in listPic)
+{
+<div class="col order-sm-2">
+    <img src="@item.PATH" style="height: 250px; width: 150px; object-fit:contain" alt="">
+    <figcaption>
+        <div>
+            @if (item.PIC_PRODUCT.Count() == 0)
+            {
+                <button class="removePicture" style="border: none; background: none"><i class="far fa-trash-alt"></i> Remove</button>
+            }
+            else
+            {
+                <p style="border: none; background: none; color: #e11111">@item.PIC_PRODUCT.Count() SP sử dụng</p>
+            }
+        </div>
+    </figcaption>
+
+    <div class="upPic" style="z-index: 50;">
+        <div class="page-wrapper" style="width: 18%; margin-left: 42%; padding: 13px">
+            <div class="message">
+                Bạn muốn xóa ảnh?
+                <span>
+                    <img src="@item.PATH" style="width: 100px; height: 100px; object-fit: contain" />
+                </span>
+            </div>
+            <div style="padding-left: 40%">
+                <input type="text" value="@item.PICTUREID" style="display: none" class="picId" />
+                <button class="yes answer">Có</button>
+                <button class="no answer">Không</button>
+            </div>
+        </div>
+    </div>
+</div>
+}

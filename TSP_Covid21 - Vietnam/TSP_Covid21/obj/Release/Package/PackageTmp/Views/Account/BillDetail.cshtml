@@ -139,7 +139,7 @@
                             i++;
                         }
                         <td>
-                            <img src="~/@item.PRODUCT.MAINPIC" style="height: 30px" alt="">
+                            <img src="@item.PRODUCT.PIC_PRODUCT.Where(t => t.MAINPIC == true).Select(c => c.PICTURE.PATH).SingleOrDefault()" style="height: 30px" alt="">
                         </td>
                         <td>@item.PRODUCT.PRODUCTNAME</td>
                         @{

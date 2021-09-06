@@ -28,7 +28,6 @@ namespace TSP_Covid21.Models.ShopEntity
         }
     
         public virtual DbSet<ACCOUNT> ACCOUNT { get; set; }
-        public virtual DbSet<ACCOUNT_ADMIN> ACCOUNT_ADMIN { get; set; }
         public virtual DbSet<ACCOUNTLIKE> ACCOUNTLIKE { get; set; }
         public virtual DbSet<ADDRESS_SHIP> ADDRESS_SHIP { get; set; }
         public virtual DbSet<BILL> BILL { get; set; }
@@ -45,6 +44,20 @@ namespace TSP_Covid21.Models.ShopEntity
         public virtual DbSet<VIEWNUMBER> VIEWNUMBER { get; set; }
         public virtual DbSet<VOCHERDETAIL> VOCHERDETAIL { get; set; }
         public virtual DbSet<VOUCHER> VOUCHER { get; set; }
+        public virtual DbSet<PIC_PRODUCT> PIC_PRODUCT { get; set; }
+        public virtual DbSet<PICTURE> PICTURE { get; set; }
+        public virtual DbSet<ACCOUNT_ADMIN> ACCOUNT_ADMIN { get; set; }
+        public virtual DbSet<ww_Customer> ww_Customer { get; set; }
+        public virtual DbSet<ww_Product> ww_Product { get; set; }
+        public virtual DbSet<ww_Bill> ww_Bill { get; set; }
+        public virtual DbSet<ww_BillDetail> ww_BillDetail { get; set; }
+        public virtual DbSet<ww_BAUCUA_ACCOUNT> ww_BAUCUA_ACCOUNT { get; set; }
+        public virtual DbSet<ww_BAUCUA_ANIMAL> ww_BAUCUA_ANIMAL { get; set; }
+        public virtual DbSet<ww_BAUCUA_CHAT> ww_BAUCUA_CHAT { get; set; }
+        public virtual DbSet<ww_BAUCUA_COLOR> ww_BAUCUA_COLOR { get; set; }
+        public virtual DbSet<ww_BAUCUA_PLAYER> ww_BAUCUA_PLAYER { get; set; }
+        public virtual DbSet<ww_BAUCUA_PLAYERDETAIL> ww_BAUCUA_PLAYERDETAIL { get; set; }
+        public virtual DbSet<ww_BAUCUA_ROOM> ww_BAUCUA_ROOM { get; set; }
     
         public virtual ObjectResult<string> CheckLogin(string username, string password)
         {

@@ -1,0 +1,103 @@
+﻿@model IEnumerable<TSP_Covid21.Models.ShopEntity.ww_BAUCUA_ROOM>
+
+<table>
+    <thead>
+        <tr>
+            <th>Mã Phòng</th>
+            <th>Trạng Thái</th>
+            <th>Số người</th>
+            <th>Tiền cược tối thiểu</th>
+            <th>Mật khẩu</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr class="Inf_Room">
+                <td class="Id">@item.ROOMID</td>
+                @if (item.ROOMSTATUS == false)
+                {
+                    <td>Đang chờ</td>
+                }
+                else
+                {
+                    <td>Đang đánh</td>
+                }
+                <td>
+                    @switch (item.AMOUNTPERSON)
+                    {
+                        case 0:
+                            {
+                                <img src="~/Areas/Game/Asset/Pic_Game/amount.png" />
+                            }
+                            break;
+                        case 1:
+                            {
+                                <img src="~/Areas/Game/Asset/Pic_Game/amount_01.png" />
+                            }
+                            break;
+                        case 2:
+                            {
+                                <img src="~/Areas/Game/Asset/Pic_Game/amount_02.png" />
+                            }
+                            break;
+                        case 3:
+                            {
+                                <img src="~/Areas/Game/Asset/Pic_Game/amount_03.png" />
+                            }
+                            break;
+                        case 4:
+                            {
+                                <img src="~/Areas/Game/Asset/Pic_Game/amount_04.png" />
+                            }
+                            break;
+                        case 5:
+                            {
+                                <img src="~/Areas/Game/Asset/Pic_Game/amount_05.png" />
+                            }
+                            break;
+                        case 6:
+                            {
+                                <img src="~/Areas/Game/Asset/Pic_Game/amount_06.png" />
+                            }
+                            break;
+                    }
+                </td>
+                <td>@item.MINBETS $</td>
+
+                @if (item.PASS == null)
+                {
+                    <td>Không</td>
+                }
+                else
+                {
+                    <td>Có</td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>
+
+<!--Join Room-->
+<script>
+    $(".Inf_Room").click(function() {
+        var id = $(this).children(".Id").text();
+
+        $.ajax({
+            url: '@Url.Action("IsPass", "BauCua")',
+            type: 'POST',
+            data: {
+                id: id,
+            },
+            success: function (result) {
+                if (result == '0') {
+                    Room(id);
+                }
+                else {
+                    $("#Select_Id").text(id);
+                    $("#Inf_Parent").css({ "display": "block" });
+                }
+            }
+        })
+    })
+</script>

@@ -38,7 +38,7 @@
     <!-- container -->
     <div class="container">
         <!-- row -->
-        <div class="row">
+        <div class="row" id="confirmBill">
             @{
                 TSP_Covid21.Controllers.AccountController AC = new TSP_Covid21.Controllers.AccountController();
                 IEnumerable<TSP_Covid21.Models.ShopEntity.ADDRESS_SHIP> addressDefault = AC.addressDefault(Session["user"].ToString());
@@ -200,6 +200,27 @@
             </div>
             <!-- /Order Details -->
         </div>
+
+        <div class="row" id="payment" style="display: none">
+            <ul>
+                <li>
+                    <label>
+                        <input type="radio" name="methods" value="0" checked/>
+                        Thanh toán khi nhận hàng
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <input type="radio" name="methods" value="1" />
+                        Thanh toán bằng ví điện tử
+                    </label>
+
+
+                </li>
+            </ul>
+
+            <input id="btn_payment" type="button" value="Thanh toán" />
+        </div>
         <!-- /row -->
     </div>
     <!-- /container -->
@@ -208,6 +229,7 @@
 <!-- dùng sử dụng $ -->
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
+<!--Confirm bill-->
 <script>
     var start = {
         loadData: function () {
@@ -222,38 +244,45 @@
     $("#create_bill").click(function () {
         var add = @addressDefault.Count();
         var quantity = @Model.Count();
-        var note = $("#noteBill").val();
-        var total = @total_cart;
 
         if (add != 0 && quantity != 0) {
-            $("#loading_web").show();
-            $("#create_bill").hide();
-            $.ajax({
-                url: '@Url.Action("insertBill", "Product")',
-                type: "POST",
-                data: {
-                    note: note,
-                    total: total,
-                },
-                success: function (result) {
-                    $("#loading_web").hide();
-                    if (result != 'True') {
-                        alert(result);
-                    }
-                    else {
-                        alert("Đã đặt hàng thành công, vui lòng kiểm tra email");
-                        location.reload();
-                    }
-                },
-                error: function () {
-                    alert("fail");
-                    $("#loading_web").hide();
-                }
-            });
+            $("#confirmBill").css({ "display": "none" });
+            $("#payment").css({ "display": "block" });
         } else if (quantity == 0) {
             alert("Vui lòng chọn hàng để thanh toán");
         } else {
             alert("Vui lòng thêm địa chỉ nhận hàng");
         }
     });
+</script>
+
+<!--Payment Methods-->
+<script>
+    $("#btn_payment").click(function () {
+        var note = $("#noteBill").val();
+        var total = @total_cart;
+        $("#loading_web").show();
+        $.ajax({
+            url: '@Url.Action("insertBill", "Product")',
+            type: "POST",
+            data: {
+                note: note,
+                total: total,
+            },
+            success: function (result) {
+                $("#loading_web").hide();
+                if (result != 'True') {
+                    alert(result);
+                }
+                else {
+                    alert("Đã đặt hàng thành công, vui lòng kiểm tra email");
+                    location.reload();
+                }
+            },
+            error: function () {
+                alert("fail");
+                $("#loading_web").hide();
+            }
+        });
+    })
 </script>

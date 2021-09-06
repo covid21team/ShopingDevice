@@ -1,26 +1,14 @@
 
 // Get the modal
 var modal = document.getElementById('productDetail');
-var modal1 = document.getElementById('AddProduct');
-var modal2 = document.getElementById('EditProduct');
 
-var modal3 = document.getElementById('UpPic');
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
-    if (event.target == modal || event.target == modal1 || event.target == modal2) {
+    if (event.target == modal) {
         modal.style.display = "none";
-        modal1.style.display = "none";
-        modal2.style.display = "none";
-    }
-
-    if (event.target == modal3) {
-        modal3.style.display = "none";
     }
 }
-
-
-
 
 function Functionclick(){
     var modal1 = document.getElementById('id02');
@@ -32,19 +20,35 @@ function Functionclick(){
 function Functionclick1(){
     var modal1 = document.getElementById('table1');
     var modal2 = document.getElementById('table2');
+    var modal3 = document.getElementById('table3');
     modal1.style.display = "block";
     modal2.style.display = "none";
+    modal3.style.display = "none";
     $(".btn_addConfig").css({ "background": "white" });
     $(".edit").css({ "background": "#d6dee9" });
+    $(".btn_descrip").css({ "background": "white" });
 }
 function Functionclick2(){
     var modal1 = document.getElementById('table1');
     var modal2 = document.getElementById('table2');
+    var modal3 = document.getElementById('table3');
     modal2.style.display = "block";
     modal1.style.display = "none";
+    modal3.style.display = "none";
     $(".btn_addConfig").css({ "background": "#d6dee9" });
     $(".edit").css({ "background": "white" });
-
+    $(".btn_descrip").css({ "background": "white" });
+}
+function Descrip() {
+    var modal1 = document.getElementById('table1');
+    var modal2 = document.getElementById('table2');
+    var modal3 = document.getElementById('table3');
+    modal2.style.display = "none";
+    modal1.style.display = "none";
+    modal3.style.display = "block";
+    $(".btn_addConfig").css({ "background": "white" });
+    $(".edit").css({ "background": "white" });
+    $(".btn_descrip").css({ "background": "#d6dee9" });
 }
 function Functionclick3(){
     var modal1 = document.getElementById('id03');

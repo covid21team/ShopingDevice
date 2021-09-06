@@ -675,7 +675,6 @@
 
 <!-- Kiểm tra số lượng pass-->
 <script>
-
     var inputPass = document.getElementById("pass1");
 
     inputPass.onblur = function () {
@@ -685,18 +684,18 @@
             $("#message_PassInf").show();
         } else {
             $("#message_PassInf").hide();
-        }
 
-        if (Pass.length < 8) {
-            $("#message_Pass").show();
-        } else {
-            $("#message_Pass").hide();
-        }
+            if (Pass.length < 8) {
+                $("#message_Pass").show();
+            } else {
+                $("#message_Pass").hide();
 
-        if (Pass == ConfirmPass) {
-            $("#message_ConfirmPass").hide();
-        } else {
-            $("#message_ConfirmPass").show();
+                if (Pass == ConfirmPass) {
+                    $("#message_ConfirmPass").hide();
+                } else {
+                    $("#message_ConfirmPass").show();
+                }
+            }
         }
     }
 </script>
