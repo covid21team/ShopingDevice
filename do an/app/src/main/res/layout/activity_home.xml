@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeActivity"
+    android:background="@drawable/nendonhat">
+
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/gl"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0">
+
+        <ImageButton
+            android:id="@+id/imgbtnHomeActivityCart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="16dp"
+            android:background="@null"
+            android:src="@drawable/ic_baseline_shopping_cart_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:text="99+"
+            android:textColor="@color/white"
+            android:paddingEnd="5dp"
+            android:paddingStart="5dp"
+            android:textSize="12dp"
+            android:background="@drawable/custom_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@id/imgbtnHomeActivityCart"
+            app:layout_constraintTop_toTopOf="@id/imgbtnHomeActivityCart"
+            app:layout_constraintLeft_toRightOf="@id/imgbtnHomeActivityCart"
+            app:layout_constraintRight_toRightOf="@id/imgbtnHomeActivityCart" />
+
+        <EditText
+            android:id="@+id/editHomeActivitySearch"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="13dp"
+            android:background="@drawable/custom_input"
+            android:drawableLeft="@drawable/custom_search_icon"
+            android:hint="tìm kiếm"
+            android:layout_marginLeft="15dp"
+            android:padding="7dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imgbtnHomeActivityCart"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+
+        <ImageButton
+            android:id="@+id/imgbtnHomeActivityHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:background="@null"
+            android:src="@drawable/ic_baseline_home_24"
+            app:layout_constraintBottom_toBottomOf="@id/txtHome"
+            app:layout_constraintRight_toLeftOf="@id/imgbtnHomeActivityHeart"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="Trang chủ"
+            android:textSize="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/txtHeart"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgbtnHomeActivityHome" />
+
+
+        <ImageButton
+            android:id="@+id/imgbtnHomeActivityHeart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@null"
+            android:src="@drawable/custom_heart_icon"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/imgbtnHomeActivityHome"
+            app:layout_constraintRight_toLeftOf="@id/imgbtnHomeActivityBell"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtHeart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="Yêu thích"
+            android:textSize="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/txtHome"
+            app:layout_constraintRight_toLeftOf="@id/txtBell"
+            app:layout_constraintTop_toBottomOf="@+id/imgbtnHomeActivityHeart" />
+
+
+        <ImageButton
+            android:id="@+id/imgbtnHomeActivityBell"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@null"
+            android:src="@drawable/ic_baseline_notifications_none_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/imgbtnHomeActivityHeart"
+            app:layout_constraintRight_toLeftOf="@id/imgbtnHomeActivityChat"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtBell"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="Thông báo"
+            android:textSize="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/txtHeart"
+            app:layout_constraintRight_toLeftOf="@id/txtChat"
+            app:layout_constraintTop_toBottomOf="@+id/imgbtnHomeActivityHeart" />
+
+        <TextView
+            android:text="99+"
+            android:textColor="@color/white"
+            android:paddingEnd="5dp"
+            android:paddingStart="5dp"
+            android:textSize="12dp"
+            android:background="@drawable/custom_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@id/imgbtnHomeActivityBell"
+            app:layout_constraintTop_toTopOf="@id/imgbtnHomeActivityBell"
+            app:layout_constraintLeft_toRightOf="@id/imgbtnHomeActivityBell"
+            app:layout_constraintRight_toRightOf="@id/imgbtnHomeActivityBell" />
+
+
+        <ImageButton
+            android:id="@+id/imgbtnHomeActivityChat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@null"
+            android:src="@drawable/ic_baseline_chat_bubble_outline_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/imgbtnHomeActivityBell"
+            app:layout_constraintRight_toLeftOf="@id/imgbtnHomeActivityUser"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtChat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="4dp"
+            android:layout_marginBottom="10dp"
+            android:text="Tin nhắn"
+            android:textSize="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/txtBell"
+            app:layout_constraintRight_toLeftOf="@id/txtUser"
+            app:layout_constraintTop_toBottomOf="@+id/imgbtnHomeActivityChat" />
+
+
+        <ImageButton
+            android:id="@+id/imgbtnHomeActivityUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="10dp"
+            android:background="@null"
+            android:src="@drawable/ic_baseline_person_outline_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/imgbtnHomeActivityChat"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="Tài khoản"
+            android:textSize="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/txtChat"
+            app:layout_constraintTop_toBottomOf="@+id/imgbtnHomeActivityUser" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
