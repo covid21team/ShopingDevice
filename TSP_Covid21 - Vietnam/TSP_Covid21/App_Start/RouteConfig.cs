@@ -15,7 +15,7 @@ namespace TSP_Covid21
 
             routes.MapRoute(
                 name: "Api1",
-                url: "apiC/{action}/{id}",
+                url: "apiA/{action}/{id}",
                 defaults: new { controller = "ApiAccount", action = "Home", id = UrlParameter.Optional }
             );
 

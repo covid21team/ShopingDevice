@@ -29,18 +29,3 @@
 
     </div>
 </div>
-
-<script>
-    window.addEventListener('beforeunload', function (e) {
-        $.ajax({
-            url: "@Url.Action("CreateAccount","BauCua")",
-            type: "POST",
-            data: {
-                user: 'pppp',
-                pass: '123',
-                name: 'Tý xóa nha',
-            },
-        })
-        e.returnValue = '';
-    });
-</script>

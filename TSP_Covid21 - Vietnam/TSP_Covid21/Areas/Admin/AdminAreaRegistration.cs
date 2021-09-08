@@ -14,6 +14,11 @@ namespace TSP_Covid21.Areas.Admin
 
         public override void RegisterArea(AreaRegistrationContext context) 
         {
+            context.MapRoute(
+                "Admin",
+                "Admin/{action}",
+                new { controller = "Admin", action = "Home", id = UrlParameter.Optional }
+            );
 
             context.MapRoute(
                 "Admin_default",

@@ -144,7 +144,7 @@ namespace TSP_Covid21.Models.BUS
             a.SEX = sex;
             if(birth != "NaN/NaN/NaN")
             {
-                DateTime date = DateTime.Parse(birth);
+                DateTime date = Convert.ToDateTime(@"19/9/2021");
                 a.DATAOFBIRTH = date;
             }
             a.PHONENUMBER = phone;

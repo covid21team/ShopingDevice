@@ -39,7 +39,7 @@
                     {
                         <tr>
                             <td>@item.PRODUCTID</td>
-                            <td><img src="@item.PRODUCT.MAINPIC" style="height: 30px" alt=""></td>
+                            <td><img src="@item.PRODUCT.PIC_PRODUCT.Where(t => t.MAINPIC == true && t.PRODUCTID == item.PRODUCTID).Select(c => c.PICTURE.PATH).SingleOrDefault()" style="height: 30px" alt=""></td>
                             <td>@item.PRODUCT.PRODUCTNAME</td>
                             @{
                                 var temp = "x" + item.AMOUNT;

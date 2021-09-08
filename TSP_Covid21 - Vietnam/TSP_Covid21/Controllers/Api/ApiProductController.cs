@@ -12,7 +12,6 @@ namespace TSP_Covid21.Controllers.Api
     {
         private ApiProduct_BUS api_BUS;
 
-        // Dành cho product
         public JsonResult listProduct()
         {
             api_BUS = new ApiProduct_BUS();
