@@ -27,19 +27,19 @@ namespace API.Controllers
         [Route("login")]
         public IActionResult login(Object.AccountLogin account)
         {
-            if (account.User == null || account.Pass == null)
+            if (account.user == null || account.pass == null)
             {
                 return Ok(new Object.MessageLogin(2, "Tài khoản và mật khẩu không được để trống", "",""));
             }
 
-            var pass = Object.Orther.CreateMD5(account.Pass);
+            var pass = Object.Orther.CreateMD5(account.pass);
             pass = pass.Substring(0, pass.Length - 2);
 
-            string checkLogin = Model.checkLogin(account.User, pass);
+            string checkLogin = Model.checkLogin(account.user, pass);
 
-            if (checkLogin == account.User)
+            if (checkLogin == account.user)
             {
-                string name = Model.getFullName(account.User);
+                string name = Model.getFullName(account.user);
                 string token = Token.GetToken(checkLogin);
                 return Ok(new Object.MessageLogin(1, "Đã đăng nhập thành công", name, token));
             }
@@ -51,26 +51,26 @@ namespace API.Controllers
         [Route("signup")]
         public IActionResult signup(Object.AccountSignUp account)
         {
-            if(account.user == null || account.pass == null || account.fullname == null || account.phoneNumber == null || account.email == null)
+            if(account.user == null || account.pass == null || account.fullname == null || account.phonenumber == null || account.email == null)
             {
-                return Ok(new Object.Message(2, "Vui lòng nhập đầy đủ các mục"));
+                return Ok(new Object.Message(0, "Vui lòng nhập đầy đủ các mục"));
             }
-            if(account.phoneNumber.Length != 10)
+            if(account.phonenumber.Length != 10)
             {
-                return Ok(new Object.Message(2, "Vui lòng nhập đúng số điện thoại"));
+                return Ok(new Object.Message(6, "Vui lòng nhập đúng số điện thoại"));
             }
             //Xem hàm check email có đúng format
             if(account.email.IndexOf("@") == -1 || account.email.IndexOf(".com") == -1)
             {
-                return Ok(new Object.Message(2, "Vui lòng nhập đúng email"));
+                return Ok(new Object.Message(5, "Vui lòng nhập đúng email"));
             }
             if(Model.checkUser(account.user) != null)
             {
-                return Ok(new Object.Message(2, "Tài khoản đã tồn tại"));
+                return Ok(new Object.Message(4, "Tài khoản đã tồn tại"));
             }
-            if(Model.checkPhone(account.phoneNumber) != null)
+            if(Model.checkPhone(account.phonenumber) != null)
             {
-                return Ok(new Object.Message(2, "Số điện thoại này đã có tài khoản"));
+                return Ok(new Object.Message(3, "Số điện thoại này đã có tài khoản"));
             }
             if(Model.checkEmail(account.email) != null)
             {
@@ -94,9 +94,9 @@ namespace API.Controllers
 
             if (result == null)
             {
-                return Ok(new Object.Message(1, "Tài khoản chưa tồn tại"));
+                return Ok(new Object.Message(0, "Tài khoản chưa tồn tại"));
             }
-            return Ok(new Object.Message(0, "Tài khoản đã tồn tại"));
+            return Ok(new Object.Message(1, "Tài khoản đã tồn tại"));
         }
 
         [HttpGet]

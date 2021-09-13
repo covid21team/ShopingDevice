@@ -30,7 +30,7 @@ namespace API.Models
             return result;
         }
 
-        public IEnumerable<Object.Product> productDetail(int productId)
+        public Object.Product productDetail(int productId)
         {
             var result = from a in db.Product
                          where a.Productid == productId
@@ -43,7 +43,7 @@ namespace API.Models
                              listPic = a.PicProduct.Where(t => t.Mainpic == false && t.Productid == a.Productid).Select(c => c.Picture.Link),
                          };
 
-            return result;
+            return result.FirstOrDefault();
         }
 
         public IEnumerable<Object.ProductConfig> productConfigs(int productId)

@@ -66,13 +66,13 @@ namespace API.Controllers
                 return Ok(new Object.MessageGetAccount(null, 3, "Kiểm tra lại token tý nào"));
             }
 
-            var result = Model.getAccount(user).FirstOrDefault();
+            var data = Model.getAccount(user).FirstOrDefault();
 
-            if (result == null)
+            if (data == null)
             {
-                return Ok(new Object.MessageGetAccount(result, 0, "Tài khoản không tồn tại"));
+                return Ok(new Object.MessageGetAccount(null, 0, "Tài khoản không tồn tại"));
             }
-            return Ok(new Object.MessageGetAccount(result, 1, "Lấy dữ liệu thành công"));
+            return Ok(new Object.MessageGetAccount(data, 1, "Lấy dữ liệu thành công"));
         }
 
         [HttpGet]
@@ -93,12 +93,87 @@ namespace API.Controllers
 
             if (Token.GetUserWithToken(requestHeaders) != user)
             {
-                return Ok(new Object.MessageGetAllSeenProduct(null, 0, "Kiểm tra lại token tý nào"));
+                return Ok(new Object.MessageGetAllSeenProduct(null, 3, "Kiểm tra lại token tý nào"));
             }
 
-            var result = Model.getAllSeenProduct(user);
+            var data = Model.getAllSeenProduct(user);
 
-            return Ok(new Object.MessageGetAllSeenProduct(result, 1, "Lấy dữ liệu thành công"));
+            return Ok(new Object.MessageGetAllSeenProduct(data, 1, "Lấy dữ liệu thành công"));
+        }
+
+        [HttpGet]
+        [Route("getCart")]
+        public IActionResult getCart(string user)
+        {
+            if (user == null)
+            {
+                return Ok(new Object.MessageGetCart(null, 2, "Tài khoản không được để trống"));
+            }
+
+            Dictionary<string, string> requestHeaders =
+               new Dictionary<string, string>();
+            foreach (var header in Request.Headers)
+            {
+                requestHeaders.Add(header.Key, header.Value);
+            }
+
+            if (Token.GetUserWithToken(requestHeaders) != user)
+            {
+                return Ok(new Object.MessageGetCart(null, 3, "Kiểm tra lại token tý nào"));
+            }
+
+            var data = Model.getCart(user);
+            return Ok(new Object.MessageGetCart(data, 1, "Lấy dữ liệu thành công"));
+        }
+
+        [HttpGet]
+        [Route("getBills")]
+        public IActionResult getBills(string user)
+        {
+            if (user == null)
+            {
+                return Ok(new Object.MessageOfBills(null, 2, "Tài khoản không được để trống"));
+            }
+
+            Dictionary<string, string> requestHeaders =
+               new Dictionary<string, string>();
+            foreach (var header in Request.Headers)
+            {
+                requestHeaders.Add(header.Key, header.Value);
+            }
+
+            if (Token.GetUserWithToken(requestHeaders) != user)
+            {
+                return Ok(new Object.MessageOfBills(null, 3, "Kiểm tra lại token tý nào"));
+            }
+
+            var data = Model.getBills(user);
+            return Ok(new Object.MessageOfBills(data, 1, "Lấy dữ liệu thành công"));
+        }
+
+        [HttpGet]
+        [Route("getBillDetail")]
+        public IActionResult getBillDetail(string user, int billId)
+        {
+            if (user == null)
+            {
+                return Ok(new Object.MessageOfBillDetail(null, 2, "Tài khoản không được để trống"));
+            }
+
+            Dictionary<string, string> requestHeaders =
+               new Dictionary<string, string>();
+            foreach (var header in Request.Headers)
+            {
+                requestHeaders.Add(header.Key, header.Value);
+            }
+
+            if (Token.GetUserWithToken(requestHeaders) != user)
+            {
+                return Ok(new Object.MessageOfBillDetail(null, 3, "Kiểm tra lại token tý nào"));
+            }
+
+            var data = Model.getBillDetail(billId);
+            return Ok(new Object.MessageOfBillDetail(data, 1, "Lấy dữ liệu thành công"));
         }
     }
 }
