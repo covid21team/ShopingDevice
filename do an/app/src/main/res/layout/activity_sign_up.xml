@@ -16,7 +16,7 @@
         android:layout_height="match_parent"/>
     <ImageButton
         android:id="@+id/btnSignUpActivityBack"
-        android:src="@drawable/ic_baseline_west_30"
+        android:src="@drawable/ic_baseline_west_50"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         android:background="@null"
@@ -62,7 +62,7 @@
         app:endIconMode="password_toggle"
         android:hint="Nhập mật khẩu">
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editSignUpActivityDate"
+            android:id="@+id/editSignUpActivityPassword"
             android:inputType="textPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>

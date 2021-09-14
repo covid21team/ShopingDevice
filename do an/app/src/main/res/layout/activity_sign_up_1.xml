@@ -16,7 +16,7 @@
       android:layout_height="match_parent"/>
   <ImageButton
       android:id="@+id/btnSignUpActivityBack"
-      android:src="@drawable/ic_baseline_west_30"
+      android:src="@drawable/ic_baseline_west_50"
       app:layout_constraintTop_toTopOf="parent"
       app:layout_constraintLeft_toLeftOf="parent"
       android:layout_width="wrap_content"

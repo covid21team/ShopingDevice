@@ -5,22 +5,29 @@
       <map>
         <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/drawable-v24/ic_baseline_https_24_focused.xml" value="0.16018518518518518" />
         <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/drawable-v24/ic_baseline_person_24_focused.xml" value="0.16018518518518518" />
+        <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/drawable-v24/ic_baseline_stars_24.xml" value="0.37864583333333335" />
         <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.3728205128205128" />
         <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/drawable-v24/number1.xml" value="0.3728205128205128" />
         <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/drawable/button_login.xml" value="0.27314814814814814" />
         <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/drawable/custom_button_cart.xml" value="0.3728205128205128" />
         <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/drawable/custom_cart.xml" value="0.3728205128205128" />
         <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/drawable/custom_cart_nha.xml" value="0.3728205128205128" />
+        <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/drawable/custom_cri.xml" value="0.32314814814814813" />
         <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/drawable/custom_eye_icon.xml" value="0.37864583333333335" />
+        <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/drawable/custom_file.xml" value="0.37864583333333335" />
         <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/drawable/custom_heart_icon.xml" value="0.17037037037037037" />
+        <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/drawable/custom_img_user.xml" value="0.3728205128205128" />
         <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/drawable/custom_input.xml" value="0.27314814814814814" />
         <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/drawable/custom_number.xml" value="0.3728205128205128" />
         <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/drawable/custom_pass_icon.xml" value="0.37864583333333335" />
         <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/drawable/custom_search_icon.xml" value="0.3728205128205128" />
+        <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/drawable/custom_user_chat.xml" value="0.1" />
         <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/drawable/custom_user_icon.xml" value="0.16018518518518518" />
+        <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/drawable/ic_baseline_account_balance_wallet_24.xml" value="0.37864583333333335" />
         <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/drawable/ic_baseline_add_location_alt_24.xml" value="0.3728205128205128" />
         <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/drawable/ic_baseline_add_shopping_cart_24.xml" value="0.3728205128205128" />
         <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/drawable/ic_baseline_chat_bubble_outline_24.xml" value="0.3728205128205128" />
+        <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/drawable/ic_baseline_check_24.xml" value="0.37864583333333335" />
         <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/drawable/ic_baseline_check_circle_24.xml" value="0.3728205128205128" />
         <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/drawable/ic_baseline_code_24.xml" value="0.3728205128205128" />
         <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/drawable/ic_baseline_date_range_24.xml" value="0.3728205128205128" />
@@ -29,9 +36,14 @@
         <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/drawable/ic_baseline_error_24.xml" value="0.3728205128205128" />
         <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/drawable/ic_baseline_favorite_24.xml" value="0.3728205128205128" />
         <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/drawable/ic_baseline_favorite_border_24.xml" value="0.3728205128205128" />
+        <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/drawable/ic_baseline_filter_alt_24.xml" value="0.37864583333333335" />
         <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.3728205128205128" />
         <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/drawable/ic_baseline_https_24.xml" value="0.27314814814814814" />
+        <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/drawable/ic_baseline_keyboard_arrow_left_24.xml" value="0.3728205128205128" />
+        <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/drawable/ic_baseline_keyboard_arrow_right_24.xml" value="0.3728205128205128" />
+        <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/drawable/ic_baseline_local_shipping_24.xml" value="0.37864583333333335" />
         <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/drawable/ic_baseline_location_on_24.xml" value="0.3728205128205128" />
+        <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/drawable/ic_baseline_move_to_inbox_24.xml" value="0.37864583333333335" />
         <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/drawable/ic_baseline_notifications_24.xml" value="0.3728205128205128" />
         <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/drawable/ic_baseline_notifications_none_24.xml" value="0.3728205128205128" />
         <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.27314814814814814" />
@@ -41,8 +53,14 @@
         <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/drawable/ic_baseline_remove_red_eye_24_focused.xml" value="0.37864583333333335" />
         <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.3728205128205128" />
         <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/drawable/ic_baseline_search_24_focused.xml" value="0.3728205128205128" />
+        <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/drawable/ic_baseline_settings_24.xml" value="0.14166666666666666" />
+        <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/drawable/ic_baseline_shopify_24.xml" value="0.37864583333333335" />
         <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/drawable/ic_baseline_shopping_cart_24.xml" value="0.3728205128205128" />
         <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/drawable/ic_baseline_star_24.xml" value="0.3728205128205128" />
+        <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/drawable/ic_baseline_stars_24.xml" value="0.37864583333333335" />
+        <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/drawable/ic_baseline_stars_50.xml" value="0.37864583333333335" />
+        <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/drawable/ic_baseline_thumb_up_alt_24.xml" value="0.14166666666666666" />
+        <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/drawable/ic_baseline_west_24.xml" value="0.37864583333333335" />
         <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/drawable/ic_baseline_west_30.xml" value="0.37864583333333335" />
         <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/drawable/ic_baseline_west_cart.xml" value="0.3728205128205128" />
         <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/drawable/ic_launcher_background.xml" value="0.3728205128205128" />
@@ -52,17 +70,31 @@
         <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/drawable/square.xml" value="0.27314814814814814" />
         <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/layout/activity_cart.xml" value="0.3423913043478261" />
         <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/layout/activity_cart_list.xml" value="0.3423913043478261" />
+        <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/layout/activity_check_out.xml" value="0.3625" />
+        <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/layout/activity_file.xml" value="0.3625" />
         <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/layout/activity_home.xml" value="0.33" />
         <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/layout/activity_information.xml" value="0.3342391304347826" />
         <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/layout/activity_introductory.xml" value="0.15" />
         <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/layout/activity_login.xml" value="0.33" />
         <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/layout/activity_main.xml" value="0.3484375" />
+        <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/layout/activity_product.xml" value="0.2749094202898551" />
         <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/layout/activity_sign_up.xml" value="0.3625" />
         <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/layout/activity_sign_up_1.xml" value="0.3625" />
         <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/layout/activity_sign_up_2.xml" value="0.3625" />
         <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/layout/activity_sp.xml" value="0.3423913043478261" />
+        <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/layout/activity_star.xml" value="0.32608695652173914" />
+        <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/layout/activity_store.xml" value="0.3625" />
+        <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/layout/item_photo.xml" value="0.33" />
+        <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/layout/item_product.xml" value="0.2749094202898551" />
+        <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/layout/item_sp.xml" value="0.32608695652173914" />
+        <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/layout/list_danhgia.xml" value="0.3625" />
         <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/layout/nen.xml" value="0.25" />
-        <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/layout/test.xml" value="0.17603850050658562" />
+        <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/layout/remove_password.xml" value="0.3625" />
+        <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/layout/star.xml" value="0.32608695652173914" />
+        <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/layout/tesst.xml" value="0.33" />
+        <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/layout/test.xml" value="0.25" />
+        <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/layout/thietlap.xml" value="0.3625" />
+        <entry key="..\:/Users/ASUS TUF/Desktop/do an/app/src/main/res/menu/bottom_menu.xml" value="0.3625" />
       </map>
     </option>
   </component>

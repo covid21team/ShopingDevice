@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Trang chủ" android:icon="@drawable/ic_baseline_home_24">
+
+
+    </item>
+    <item android:title="Yêu thích" android:icon="@drawable/ic_baseline_favorite_border_24">
+
+
+    </item>
+
+    <item android:title="Thông báo" android:icon="@drawable/ic_baseline_notifications_none_24">
+
+
+    </item>
+
+    <item android:title="Tin nhắn" android:icon="@drawable/ic_baseline_chat_bubble_outline_24">
+
+
+    </item>
+
+    <item android:title="Hồ Sơ" android:icon="@drawable/ic_baseline_person_outline_24">
+
+
+    </item>
+
+
+
+
+</menu>
