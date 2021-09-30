@@ -22,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         rclList = findViewById(R.id.rclInfo);
 
+        alInfo = new ArrayList<>();
+
         Info t0 = new Info("1111111111111", "10/10/2000", "Nam", "Việt Nam", "Hà Tĩnh", "Tân Châu - Tây Ninh", "Nguyễn Quang SỸ", "0999999999", "https://api.covid21tsp.space/Picture/personal.png");
         alInfo.add(t0);
         Info t1 = new Info("2222222222222", "11/05/2000", "Nam", "Việt Nam", "Đồng Nai", "Long Khánh - Đồng Nai", "Nguyễn Hoàng Trí", "0988888888", "https://api.covid21tsp.space/Picture/personal.png");
@@ -30,8 +32,6 @@ public class MainActivity extends AppCompatActivity {
         alInfo.add(t2);
         Info t3 = new Info("4444444444444", "14/02/2000", "Nam", "Việt Nam", "Cần Thơ", "Vĩnh Thạnh - Cần Thơ", "Nguyễn Ngọc Tính", "0966666666", "https://api.covid21tsp.space/Picture/personal.png");
         alInfo.add(t3);
-
-
 
         rclList.setHasFixedSize(true);
 

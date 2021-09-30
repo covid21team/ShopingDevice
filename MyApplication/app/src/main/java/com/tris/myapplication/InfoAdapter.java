@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -43,6 +44,9 @@ public class InfoAdapter extends RecyclerView.Adapter<InfoAdapter.ViewHolder>{
 //        holder.ID.setText(String.valueOf(alinfo.get(position).getName()));
 //        holder.ID.setText(String.valueOf(alinfo.get(position).getPhone()));
         Glide.with(context).load(alinfo.get(position).getPic()).into(holder.img);
+        holder.textView.setText(alinfo.get(position).getName());
+        holder.textView2.setText(alinfo.get(position).getId());
+        holder.txtSDT.setText(alinfo.get(position).getPhone());
 
         holder.setItemClickListener(new ItemClickListener() {
             @Override
@@ -70,10 +74,15 @@ public class InfoAdapter extends RecyclerView.Adapter<InfoAdapter.ViewHolder>{
     public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         public ItemClickListener itemClickListener;
         public ImageView img;
+        public TextView textView, textView2, txtSDT;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            img = itemView.findViewById(R.id.img);
+            img = itemView.findViewById(R.id.imageView);
+            textView = itemView.findViewById(R.id.textView);
+            textView2 = itemView.findViewById(R.id.textView2);
+            txtSDT = itemView.findViewById(R.id.txtSDT);
+            itemView.setOnClickListener(this);
         }
 
         @Override
