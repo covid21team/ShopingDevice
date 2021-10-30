@@ -41,6 +41,5 @@ public class MainActivity2 extends AppCompatActivity {
         textViewQQ.setText(info.getQueQuan());
         textViewTT.setText(info.getAddress());
         Glide.with(this).load(info.getPic()).into(imageView3);
-
     }
 }

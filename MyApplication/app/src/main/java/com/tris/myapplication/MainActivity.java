@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
         Info t0 = new Info("1111111111111", "10/10/2000", "Nam", "Việt Nam", "Hà Tĩnh", "Tân Châu - Tây Ninh", "Nguyễn Quang SỸ", "0999999999", "https://api.covid21tsp.space/Picture/personal.png");
         alInfo.add(t0);
-        Info t1 = new Info("2222222222222", "11/05/2000", "Nam", "Việt Nam", "Đồng Nai", "Long Khánh - Đồng Nai", "Nguyễn Hoàng Trí", "0988888888", "https://api.covid21tsp.space/Picture/personal.png");
+        Info t1 = new Info("2222222222222", "11/05/2000", "Nam", "Việt Nam", "Đồng Nai", "Long Khánh - Đồng Nai", "Nguyễn Hoàng Trí", "0988888888", "https://api.covid21tsp.space/Picture/tris.jpg");
         alInfo.add(t1);
         Info t2 = new Info("3333333333333", "25/12/2000", "Nam", "Việt Nam", "An Giang", "Chợ Mới - An Giang", "Trương Gia Phú", "0977777777", "https://api.covid21tsp.space/Picture/personal.png");
         alInfo.add(t2);
